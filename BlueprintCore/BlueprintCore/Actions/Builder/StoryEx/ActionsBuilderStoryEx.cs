@@ -74,7 +74,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder CompleteEtude(
         this ActionsBuilder builder,
@@ -106,7 +106,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ChangeRomance(
         this ActionsBuilder builder,
@@ -167,7 +167,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder GiveObjective(
         this ActionsBuilder builder,
@@ -226,7 +226,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder IncrementFlagValue(
         this ActionsBuilder builder,
@@ -288,7 +288,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder LockFlag(
         this ActionsBuilder builder,
@@ -315,7 +315,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder LockRomance(
         this ActionsBuilder builder,
@@ -342,7 +342,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder MarkAnswersSelected(
         this ActionsBuilder builder,
@@ -369,7 +369,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder MarkCuesSeen(
         this ActionsBuilder builder,
@@ -396,7 +396,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="location">
@@ -407,7 +407,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder MoveAzataIslandToLocation(
         this ActionsBuilder builder,
@@ -440,7 +440,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder MoveAzataIslandToNearestCrossroad(
         this ActionsBuilder builder,
@@ -494,7 +494,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder PartyMembersDetach(
         this ActionsBuilder builder,
@@ -599,7 +599,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RecruitInactive(
         this ActionsBuilder builder,
@@ -665,7 +665,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="remove">
@@ -676,7 +676,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ReplaceFeatureInProgression(
         this ActionsBuilder builder,
@@ -712,7 +712,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="objectiveToStart">
@@ -723,7 +723,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="quest">
@@ -734,7 +734,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ResetQuest(
         this ActionsBuilder builder,
@@ -773,7 +773,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ResetQuestObjective(
         this ActionsBuilder builder,
@@ -814,7 +814,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RomanceSetMaximum(
         this ActionsBuilder builder,
@@ -844,7 +844,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RomanceSetMinimum(
         this ActionsBuilder builder,
@@ -899,7 +899,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SetObjectiveStatus(
         this ActionsBuilder builder,
@@ -930,7 +930,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SetPortrait(
         this ActionsBuilder builder,
@@ -1080,7 +1080,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder StartDialog(
         this ActionsBuilder builder,
@@ -1119,7 +1119,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder StartEncounter(
         this ActionsBuilder builder,
@@ -1146,7 +1146,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder StartEtude(
         this ActionsBuilder builder,
@@ -1178,7 +1178,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SwitchAzataIsland(
         this ActionsBuilder builder,
@@ -1238,7 +1238,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SwitchFaction(
         this ActionsBuilder builder,
@@ -1304,7 +1304,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SwitchToEnemy(
         this ActionsBuilder builder,
@@ -1334,7 +1334,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SwitchToNeutral(
         this ActionsBuilder builder,
@@ -1421,7 +1421,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder UnlockCompanionStory(
         this ActionsBuilder builder,
@@ -1448,7 +1448,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder UnlockFlag(
         this ActionsBuilder builder,
@@ -1477,7 +1477,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder UnmarkAnswersSelected(
         this ActionsBuilder builder,
@@ -1504,7 +1504,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder Unrecruit(
         this ActionsBuilder builder,
@@ -1537,7 +1537,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder UpdateEtudeProgressBar(
         this ActionsBuilder builder,

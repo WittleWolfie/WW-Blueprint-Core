@@ -12,8 +12,6 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
@@ -30,113 +28,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderContextEx
   {
-    private static BlueprintItemEnchantmentReference GetItemEnchant(string enchant)
-    {
-      return BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(enchant);
-    }
-
-    // Default GUIDs for WeaponEnchantPool and ShieldWeaponEnchantPool
-    private const string PlusOneWeapon = "d704f90f54f813043a525f304f6c0050";
-    private const string PlusTwoWeapon = "9e9bab3020ec5f64499e007880b37e52";
-    private const string PlusThreeWeapon = "d072b841ba0668846adeb007f623bd6c";
-    private const string PlusFourWeapon = "6a6a0901d799ceb49b33d4851ff72132";
-    private const string PlusFiveWeapon = "746ee366e50611146821d61e391edf16";
-
-    /// <summary>
-    /// Adds <see cref="ContextActionWeaponEnchantPool"/>
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// The caster's weapon is enchanted based on its available enhancement bonus. <br />
-    /// e.g.If the weapon can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
-    /// </para>
-    /// 
-    /// <para>
-    /// See ArcaneWeapon and SacredWeapon blueprints for example usages.
-    /// </para>
-    /// 
-    /// <para>
-    /// All enchantments default to the corresponding TemporaryEnhancement* blueprint.
-    /// </para>
-    /// </remarks>
-    /// 
-    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    [Implements(typeof(ContextActionWeaponEnchantPool))]
-    public static ActionsBuilder WeaponEnchantPool(
-        this ActionsBuilder builder,
-        EnchantPoolType poolType,
-        ContextDurationValue duration,
-        ActivatableAbilityGroup group = ActivatableAbilityGroup.None,
-        string plusOneEnchantment = PlusOneWeapon,
-        string plusTwoEnchantment = PlusTwoWeapon,
-        string plusThreeEnchantment = PlusThreeWeapon,
-        string plusFourEnchantment = PlusFourWeapon,
-        string plusFiveEnchantment = PlusFiveWeapon)
-    {
-      var enchant = ElementTool.Create<ContextActionWeaponEnchantPool>();
-      enchant.EnchantPool = poolType;
-      enchant.Group = group;
-      enchant.DurationValue = duration;
-      enchant.m_DefaultEnchantments[0] = GetItemEnchant(plusOneEnchantment);
-      enchant.m_DefaultEnchantments[1] = GetItemEnchant(plusTwoEnchantment);
-      enchant.m_DefaultEnchantments[2] = GetItemEnchant(plusThreeEnchantment);
-      enchant.m_DefaultEnchantments[3] = GetItemEnchant(plusFourEnchantment);
-      enchant.m_DefaultEnchantments[4] = GetItemEnchant(plusFiveEnchantment);
-      return builder.Add(enchant);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionShieldWeaponEnchantPool"/>
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// The caster's shield is enchanted based on its available enhancement bonus. <br />
-    /// e.g.If the shield can be enchanted to +4 but already has a +1 enchantment, plusThreeEnchantment is applied.
-    /// </para>
-    /// 
-    /// <para>
-    /// See the SacredWeapon blueprint for example usage.
-    /// </para>
-    /// 
-    /// <para>
-    /// All enchantments default to the corresponding TemporaryEnhancement* blueprint.
-    /// </para>
-    /// </remarks>
-    /// 
-    /// <param name="plusOneEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusTwoEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusThreeEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFourEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    /// <param name="plusFiveEnchantment"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/>BlueprintItemEnchantment</param>
-    [Implements(typeof(ContextActionShieldWeaponEnchantPool))]
-    public static ActionsBuilder ShieldWeaponEnchantPool(
-        this ActionsBuilder builder,
-        EnchantPoolType poolType,
-        ContextDurationValue duration,
-        ActivatableAbilityGroup group = ActivatableAbilityGroup.None,
-        string plusOneEnchantment = PlusOneWeapon,
-        string plusTwoEnchantment = PlusTwoWeapon,
-        string plusThreeEnchantment = PlusThreeWeapon,
-        string plusFourEnchantment = PlusFourWeapon,
-        string plusFiveEnchantment = PlusFiveWeapon)
-    {
-      var enchant = ElementTool.Create<ContextActionShieldWeaponEnchantPool>();
-      enchant.EnchantPool = poolType;
-      enchant.Group = group;
-      enchant.DurationValue = duration;
-      enchant.m_DefaultEnchantments[0] = GetItemEnchant(plusOneEnchantment);
-      enchant.m_DefaultEnchantments[1] = GetItemEnchant(plusTwoEnchantment);
-      enchant.m_DefaultEnchantments[2] = GetItemEnchant(plusThreeEnchantment);
-      enchant.m_DefaultEnchantments[3] = GetItemEnchant(plusFourEnchantment);
-      enchant.m_DefaultEnchantments[4] = GetItemEnchant(plusFiveEnchantment);
-      return builder.Add(enchant);
-    }
 
     /// <summary>
     /// Adds <see cref="ContextActionAttackWithWeapon"/>

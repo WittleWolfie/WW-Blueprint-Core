@@ -115,7 +115,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ArmyRemoveFacts(
         this ActionsBuilder builder,
@@ -158,7 +158,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AddBuffToSquad(
         this ActionsBuilder builder,
@@ -220,7 +220,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder GainGlobalMagicSpell(
         this ActionsBuilder builder,
@@ -247,7 +247,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ManuallySetGlobalSpellCooldown(
         this ActionsBuilder builder,
@@ -290,7 +290,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveGlobalMagicSpell(
         this ActionsBuilder builder,
@@ -400,7 +400,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="location">
@@ -411,7 +411,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="leader">
@@ -422,7 +422,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder CreateCrusaderArmy(
         this ActionsBuilder builder,
@@ -461,7 +461,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="location">
@@ -472,7 +472,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="completeActions">
@@ -483,7 +483,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="leader">
@@ -494,7 +494,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder CreateDemonArmy(
         this ActionsBuilder builder,
@@ -537,7 +537,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="spawnLocation">
@@ -548,7 +548,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="targetLocation">
@@ -559,7 +559,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="completeActions">
@@ -570,7 +570,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="leader">
@@ -581,7 +581,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder CreateDemonArmyTargetingLocation(
         this ActionsBuilder builder,
@@ -625,7 +625,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="location">
@@ -636,7 +636,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="preset">
@@ -647,7 +647,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder CreateGarrison(
         this ActionsBuilder builder,
@@ -690,7 +690,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder CreateArmyFromLosses(
         this ActionsBuilder builder,
@@ -723,7 +723,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder EnterKingdomInterface(
         this ActionsBuilder builder,
@@ -756,7 +756,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RecruiteArmyLeader(
         this ActionsBuilder builder,
@@ -783,7 +783,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveDemonArmies(
         this ActionsBuilder builder,
@@ -812,7 +812,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveGarrison(
         this ActionsBuilder builder,
@@ -841,7 +841,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveUnitFromArmy(
         this ActionsBuilder builder,
@@ -901,7 +901,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SetWarCampLocation(
         this ActionsBuilder builder,
@@ -944,7 +944,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionActivateEventDeck(
         this ActionsBuilder builder,
@@ -989,7 +989,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="region">
@@ -1000,7 +1000,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionAddBuff(
         this ActionsBuilder builder,
@@ -1039,7 +1039,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="settlement">
@@ -1050,7 +1050,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionAddFreeBuilding(
         this ActionsBuilder builder,
@@ -1099,7 +1099,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionAddRandomBuff(
         this ActionsBuilder builder,
@@ -1128,7 +1128,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="project">
@@ -1139,7 +1139,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionArtisanRequestHelp(
         this ActionsBuilder builder,
@@ -1188,7 +1188,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionConquerRegion(
         this ActionsBuilder builder,
@@ -1239,7 +1239,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="specificSettlement">
@@ -1250,7 +1250,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionFillSettlement(
         this ActionsBuilder builder,
@@ -1283,7 +1283,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="specificSettlementLocation">
@@ -1294,7 +1294,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionFillSettlementByLocation(
         this ActionsBuilder builder,
@@ -1343,7 +1343,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="settlement">
@@ -1354,7 +1354,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionFoundSettlement(
         this ActionsBuilder builder,
@@ -1418,7 +1418,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionGetArtisanGift(
         this ActionsBuilder builder,
@@ -1445,7 +1445,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionGetArtisanGiftWithCertainTier(
         this ActionsBuilder builder,
@@ -1535,7 +1535,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionImproveSettlement(
         this ActionsBuilder builder,
@@ -1746,7 +1746,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="region">
@@ -1757,7 +1757,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionRemoveBuff(
         this ActionsBuilder builder,
@@ -1794,7 +1794,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionRemoveEvent(
         this ActionsBuilder builder,
@@ -1825,7 +1825,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionRemoveEventDeck(
         this ActionsBuilder builder,
@@ -1852,7 +1852,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="itemType">
@@ -1863,7 +1863,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionRequestArtisanGift(
         this ActionsBuilder builder,
@@ -1904,7 +1904,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionResolveCrusadeEvent(
         this ActionsBuilder builder,
@@ -1933,7 +1933,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionResolveEvent(
         this ActionsBuilder builder,
@@ -1966,7 +1966,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionResolveProject(
         this ActionsBuilder builder,
@@ -2065,7 +2065,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="locations">
@@ -2076,7 +2076,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionSpawnRandomArmy(
         this ActionsBuilder builder,
@@ -2111,7 +2111,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="region">
@@ -2122,7 +2122,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionStartEvent(
         this ActionsBuilder builder,
@@ -2165,7 +2165,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomActionUnlockArtisan(
         this ActionsBuilder builder,
@@ -2204,7 +2204,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AddMercenaryToPool(
         this ActionsBuilder builder,
@@ -2233,7 +2233,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="features">
@@ -2244,7 +2244,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AddTacticalArmyFeature(
         this ActionsBuilder builder,
@@ -2287,7 +2287,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ChangeMercenaryWeight(
         this ActionsBuilder builder,
@@ -2316,7 +2316,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder DecreaseRecruitsGrowth(
         this ActionsBuilder builder,
@@ -2345,7 +2345,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder DecreaseRecruitsPool(
         this ActionsBuilder builder,
@@ -2374,7 +2374,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="oldUnit">
@@ -2385,7 +2385,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ExchangeRecruits(
         this ActionsBuilder builder,
@@ -2424,7 +2424,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder IncreaseRecruitsGrowth(
         this ActionsBuilder builder,
@@ -2453,7 +2453,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder IncreaseRecruitsPool(
         this ActionsBuilder builder,
@@ -2482,7 +2482,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveMercenaryFromPool(
         this ActionsBuilder builder,
@@ -2509,7 +2509,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="oldBuilding">
@@ -2520,7 +2520,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ReplaceBuildings(
         this ActionsBuilder builder,
@@ -2553,7 +2553,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SetRecruitPoint(
         this ActionsBuilder builder,
@@ -2580,7 +2580,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder UnlockUnitsGrowth(
         this ActionsBuilder builder,
@@ -2643,7 +2643,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomAddMoraleFlags(
         this ActionsBuilder builder,
@@ -2670,7 +2670,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomFlagIncrement(
         this ActionsBuilder builder,
@@ -2699,7 +2699,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomMoraleFlagUpdateIncome(
         this ActionsBuilder builder,
@@ -2726,7 +2726,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomRemoveMoraleFlags(
         this ActionsBuilder builder,
@@ -2753,7 +2753,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder KingdomSetFlagState(
         this ActionsBuilder builder,
@@ -2832,7 +2832,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="summonPool">
@@ -2843,7 +2843,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SummonTacticalSquad(
         this ActionsBuilder builder,

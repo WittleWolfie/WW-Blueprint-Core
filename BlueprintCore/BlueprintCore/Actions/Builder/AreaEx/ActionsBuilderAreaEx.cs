@@ -38,7 +38,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder CapitalExit(
         this ActionsBuilder builder,
@@ -75,7 +75,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AddCampingEncounter(
         this ActionsBuilder builder,
@@ -98,7 +98,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="newEntrance">
@@ -109,7 +109,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AreaEntranceChange(
         this ActionsBuilder builder,
@@ -134,7 +134,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AskPlayerForLocationName(
         this ActionsBuilder builder,
@@ -270,7 +270,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder MarkLocationClosed(
         this ActionsBuilder builder,
@@ -299,7 +299,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder MarkLocationExplored(
         this ActionsBuilder builder,
@@ -356,7 +356,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveAllAreasFromSave(
         this ActionsBuilder builder,
@@ -398,7 +398,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveCampingEncounter(
         this ActionsBuilder builder,
@@ -425,7 +425,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ResetLocationPerceptionCheck(
         this ActionsBuilder builder,
@@ -452,7 +452,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RevealGlobalMap(
         this ActionsBuilder builder,
@@ -572,7 +572,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ShowMultiEntrance(
         this ActionsBuilder builder,
@@ -631,7 +631,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder TeleportParty(
         this ActionsBuilder builder,
@@ -709,7 +709,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder TrapCastSpell(
         this ActionsBuilder builder,
@@ -758,7 +758,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder UnlockCookingRecipe(
         this ActionsBuilder builder,
@@ -785,7 +785,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder UnlockLocation(
         this ActionsBuilder builder,
@@ -816,7 +816,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder UnlockMapEdge(
         this ActionsBuilder builder,

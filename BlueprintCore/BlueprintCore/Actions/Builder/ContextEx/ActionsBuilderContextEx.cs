@@ -109,7 +109,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RestoreAllSpellSlots(
         this ActionsBuilder builder,
@@ -209,7 +209,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="setRankFrom">
@@ -220,7 +220,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AddFeature(
         this ActionsBuilder builder,
@@ -249,7 +249,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AddLocustClone(
         this ActionsBuilder builder,
@@ -280,7 +280,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ApplyBuffPermanent(
         this ActionsBuilder builder,
@@ -315,7 +315,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ApplyBuffWithDurationSeconds(
         this ActionsBuilder builder,
@@ -352,7 +352,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ApplyBuff(
         this ActionsBuilder builder,
@@ -406,7 +406,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus1
     /// </param>
@@ -419,7 +419,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus2
     /// </param>
@@ -432,7 +432,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus3
     /// </param>
@@ -445,7 +445,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus4
     /// </param>
@@ -458,7 +458,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus5
     /// </param>
@@ -514,7 +514,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus1
     /// </param>
@@ -527,7 +527,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus2
     /// </param>
@@ -540,7 +540,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus3
     /// </param>
@@ -553,7 +553,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus4
     /// </param>
@@ -566,7 +566,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// 
     /// Defaults to TemporaryArmorEnhancementBonus5
     /// </param>
@@ -598,7 +598,23 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// Adds <see cref="ContextActionWeaponEnchantPool"/>
     /// </summary>
     ///
-    /// <param name="defaultEnchantments">
+    /// <remarks>
+    /// <para>
+    /// The caster's weapon is enchanted based on its available enhancement bonus.
+    /// e.g. If the weapon can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    /// </para>
+    /// 
+    /// <list type="bullet">
+    /// <listheader>
+    ///   <term>Example Blueprints:</term>
+    /// </listheader>
+    /// <item>
+    ///   <description>SacredWeaponEnchantSwitchAbility - cca63747a12b55f44ad56ef2d840d7f4</description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="enchantmentPlus1">
     /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -606,24 +622,82 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus1
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus2">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus1
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus3">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus3
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus4">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus4
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus5">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus5
     /// </param>
     public static ActionsBuilder WeaponEnchantPool(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
-        ContextDurationValue? durationValue = null,
-        EnchantPoolType? enchantPool = null,
+        ContextDurationValue durationValue,
+        EnchantPoolType enchantPool,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionWeaponEnchantPool>();
-      element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray() ?? element.m_DefaultEnchantments;
-      if (element.m_DefaultEnchantments is null)
-      {
-        element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
-      }
       builder.Validate(durationValue);
-      element.DurationValue = durationValue ?? element.DurationValue;
-      element.EnchantPool = enchantPool ?? element.EnchantPool;
+      element.DurationValue = durationValue;
+      element.EnchantPool = enchantPool;
+      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus1.Reference;
+      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus2.Reference;
+      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus3.Reference;
+      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus4.Reference;
+      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;
       element.Group = group ?? element.Group;
       return builder.Add(element);
     }
@@ -632,7 +706,23 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// Adds <see cref="ContextActionShieldWeaponEnchantPool"/>
     /// </summary>
     ///
-    /// <param name="defaultEnchantments">
+    /// <remarks>
+    /// <para>
+    /// The caster's shield is enchanted based on its available enhancement bonus.
+    /// e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    /// </para>
+    /// 
+    /// <list type="bullet">
+    /// <listheader>
+    ///   <term>Example Blueprints:</term>
+    /// </listheader>
+    /// <item>
+    ///   <description>SacredWeaponShieldEnchantSwitchAbility - a89fc47958b895948a6c613ec1b9da85</description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="enchantmentPlus1">
     /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -640,24 +730,82 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus1
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus2">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus1
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus3">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus3
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus4">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus4
+    /// </param>
+    ///
+    /// <param name="enchantmentPlus5">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// 
+    /// Defaults to TemporaryEnhancementBonus5
     /// </param>
     public static ActionsBuilder ShieldWeaponEnchantPool(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? defaultEnchantments = null,
-        ContextDurationValue? durationValue = null,
-        EnchantPoolType? enchantPool = null,
+        ContextDurationValue durationValue,
+        EnchantPoolType enchantPool,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionShieldWeaponEnchantPool>();
-      element.m_DefaultEnchantments = defaultEnchantments.Select(bp => bp.Reference).ToArray() ?? element.m_DefaultEnchantments;
-      if (element.m_DefaultEnchantments is null)
-      {
-        element.m_DefaultEnchantments = new BlueprintItemEnchantmentReference[0];
-      }
       builder.Validate(durationValue);
-      element.DurationValue = durationValue ?? element.DurationValue;
-      element.EnchantPool = enchantPool ?? element.EnchantPool;
+      element.DurationValue = durationValue;
+      element.EnchantPool = enchantPool;
+      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus1.Reference;
+      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus2.Reference;
+      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus3.Reference;
+      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus4.Reference;
+      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;
       element.Group = group ?? element.Group;
       return builder.Add(element);
     }
@@ -674,7 +822,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder AttackWithWeapon(
         this ActionsBuilder builder,
@@ -779,7 +927,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder CastSpell(
         this ActionsBuilder builder,
@@ -856,7 +1004,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ClearSummonPool(
         this ActionsBuilder builder,
@@ -1171,7 +1319,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder EnchantWornItem(
         this ActionsBuilder builder,
@@ -1209,7 +1357,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder FinishObjective(
         this ActionsBuilder builder,
@@ -1260,7 +1408,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="targetBuff">
@@ -1271,7 +1419,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder Grapple(
         this ActionsBuilder builder,
@@ -1504,7 +1652,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder OnRandomTargetsAround(
         this ActionsBuilder builder,
@@ -1575,7 +1723,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ProjectileFx(
         this ActionsBuilder builder,
@@ -1681,7 +1829,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RecoverItemCharges(
         this ActionsBuilder builder,
@@ -1710,7 +1858,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ReduceBuffDuration(
         this ActionsBuilder builder,
@@ -1744,7 +1892,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveBuff(
         this ActionsBuilder builder,
@@ -1791,7 +1939,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RemoveBuffSingleStack(
         this ActionsBuilder builder,
@@ -1868,7 +2016,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder RestoreSpells(
         this ActionsBuilder builder,
@@ -1895,7 +2043,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder Resurrect(
         this ActionsBuilder builder,
@@ -2050,7 +2198,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SpawnAreaEffect(
         this ActionsBuilder builder,
@@ -2082,7 +2230,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="controllableProjectile">
@@ -2093,7 +2241,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SpawnControllableProjectile(
         this ActionsBuilder builder,
@@ -2126,7 +2274,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="summonPool">
@@ -2137,7 +2285,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SpawnMonster(
         this ActionsBuilder builder,
@@ -2197,7 +2345,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SpawnUnlinkedMonster(
         this ActionsBuilder builder,
@@ -2244,7 +2392,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SwallowWhole(
         this ActionsBuilder builder,
@@ -2299,7 +2447,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ContextRestoreResource(
         this ActionsBuilder builder,
@@ -2336,7 +2484,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder ContextSpendResource(
         this ActionsBuilder builder,
@@ -2371,7 +2519,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="greaterBuff">
@@ -2382,7 +2530,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="shatterConfidenceBuff">
@@ -2393,7 +2541,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="shatterConfidenceFeature">
@@ -2404,7 +2552,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     ///
     /// <param name="swordlordProwessFeature">
@@ -2415,7 +2563,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder Demoralize(
         this ActionsBuilder builder,
@@ -2476,7 +2624,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder EnhanceWeapon(
         this ActionsBuilder builder,
@@ -2518,7 +2666,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
     public static ActionsBuilder SwordlordAdaptiveTacticsAdd(
         this ActionsBuilder builder,

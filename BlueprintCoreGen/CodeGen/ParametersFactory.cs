@@ -234,7 +234,7 @@ namespace BlueprintCoreGen.CodeGen
           $"  <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>",
           $"  <item><term>A blueprint name registered with <see cref=\"BlueprintCore.Utils.BlueprintTool\">BlueprintTool</see></term></item>",
           $"</list>",
-          $"See <see cref=\"BlueprintCore.Utils.Blueprint\">Blueprint</see> for more details.",
+          $"See <see cref=\"BlueprintCore.Utils.Blueprint{{{{T, TRef}}}}\">Blueprint</see> for more details.",
         };
     }
 
