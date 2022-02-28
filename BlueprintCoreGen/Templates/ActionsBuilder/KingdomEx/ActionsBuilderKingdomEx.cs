@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
@@ -31,21 +32,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     //----- Kingmaker.Armies.TacticalCombat.GameActions -----//
 
     /// <summary>
-    /// Adds <see cref="ArmyAdditionalAction"/>
-    /// </summary>
-    [Implements(typeof(ArmyAdditionalAction))]
-    public static ActionsBuilder GrantExtraArmyAction(
-        this ActionsBuilder builder,
-        bool usableInCurrentTurn = true,
-        bool usableInBonusMoraleTurn = true)
-    {
-      var grantAction = ElementTool.Create<ArmyAdditionalAction>();
-      grantAction.m_InCurrentTurn = usableInCurrentTurn;
-      grantAction.m_CanAddInBonusMoraleTurn = usableInBonusMoraleTurn;
-      return builder.Add(grantAction);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionAddCrusadeResource"/>
     /// </summary>
     [Implements(typeof(ContextActionAddCrusadeResource))]
@@ -70,24 +56,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
       removeFacts.m_FactsToRemove =
           facts.Select(fact => BlueprintTool.GetRef<BlueprintUnitFactReference>(fact)).ToArray();
       return builder.Add(removeFacts);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionRestoreLeaderAction"/>
-    /// </summary>
-    [Implements(typeof(ContextActionRestoreLeaderAction))]
-    public static ActionsBuilder RestoreLeaderAction(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionRestoreLeaderAction>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionStopUnit"/>
-    /// </summary>
-    [Implements(typeof(ContextActionStopUnit))]
-    public static ActionsBuilder StopUnit(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionStopUnit>());
     }
 
     //----- Kingmaker.Crusade.GlobalMagic.Actions -----//
@@ -245,15 +213,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
       var summon = ElementTool.Create<SummonRandomGroup>();
       summon.m_RandomGroups = groups;
       return builder.Add(summon);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TeleportArmyAction"/>
-    /// </summary>
-    [Implements(typeof(TeleportArmyAction))]
-    public static ActionsBuilder TeleportArmy(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<TeleportArmyAction>());
     }
 
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
@@ -414,17 +373,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionAddMercenaryReroll"/>
-    /// </summary>
-    [Implements(typeof(KingdomActionAddMercenaryReroll))]
-    public static ActionsBuilder AddFreeMercRerolls(this ActionsBuilder builder, int count = 1)
-    {
-      var addMercRerolls = ElementTool.Create<KingdomActionAddMercenaryReroll>();
-      addMercRerolls.m_FreeRerollsToAdd = count;
-      return builder.Add(addMercRerolls);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionAddRandomBuff"/>
     /// </summary>
     /// 
@@ -456,24 +404,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionChangeToAutoCrusade"/>
-    /// </summary>
-    [Implements(typeof(KingdomActionChangeToAutoCrusade))]
-    public static ActionsBuilder EnableAutoCrusade(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionChangeToAutoCrusade>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionCollectLoot"/>
-    /// </summary>
-    [Implements(typeof(KingdomActionCollectLoot))]
-    public static ActionsBuilder CollectKingdomLoot(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionCollectLoot>());
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionConquerRegion"/>
     /// </summary>
     /// 
@@ -484,33 +414,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
       var conquer = ElementTool.Create<KingdomActionConquerRegion>();
       conquer.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(region);
       return builder.Add(conquer);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionDestroyAllSettlements"/>
-    /// </summary>
-    [Implements(typeof(KingdomActionDestroyAllSettlements))]
-    public static ActionsBuilder DestroyAllSettlements(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionDestroyAllSettlements>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionDisable"/>
-    /// </summary>
-    [Implements(typeof(KingdomActionDisable))]
-    public static ActionsBuilder DisableKingdom(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionDisable>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionEnable"/>
-    /// </summary>
-    [Implements(typeof(KingdomActionEnable))]
-    public static ActionsBuilder EnableKingdom(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionEnable>());
     }
 
     /// <summary>
@@ -544,24 +447,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
           BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(location);
       fill.m_BuildList = BlueprintTool.GetRef<SettlementBuildListReference>(buildList);
       return builder.Add(fill);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionFinishRandomBuilding"/>
-    /// </summary>
-    [Implements(typeof(KingdomActionFinishRandomBuilding))]
-    public static ActionsBuilder FinishRandomBuilding(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionFinishRandomBuilding>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionFoundKingdom"/>
-    /// </summary>
-    [Implements(typeof(KingdomActionFoundKingdom))]
-    public static ActionsBuilder FoundKingdom(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionFoundKingdom>());
     }
 
     /// <summary>
@@ -712,21 +597,6 @@ namespace BlueprintCoreGen.Actions.Builder.KingdomEx
         dmg.MinHPAfterDamage = minHPAfterDmg.Value;
       }
       return builder.Add(dmg);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionTacticalCombatHealTarget"/>
-    /// </summary>
-    [Implements(typeof(ContextActionTacticalCombatHealTarget))]
-    public static ActionsBuilder TacticalCombatHeal(
-        this ActionsBuilder builder,
-        DiceType diceType = DiceType.D6,
-        ContextValue? diceRolls = null)
-    {
-      var heal = ElementTool.Create<ContextActionTacticalCombatHealTarget>();
-      heal.DiceType = diceType;
-      heal.RollsCount = diceRolls ?? heal.RollsCount;
-      return builder.Add(heal);
     }
 
     //----- Auto Generated -----//

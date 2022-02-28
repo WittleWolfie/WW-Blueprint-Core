@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
@@ -37,29 +38,6 @@ namespace BlueprintCoreGen.Actions.Builder.UpgraderEx
     }
 
     /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.FixKingdomSystemBuffsAndStats">FixKingdomSystemBuffsAndStats</see>
-    /// </summary>
-    [Implements(typeof(FixKingdomSystemBuffsAndStats))]
-    public static ActionsBuilder FixKingdomSystemBuffsAndStats(
-        this ActionsBuilder builder,
-        float? statPerFinances = null,
-        float? statPerMaterials = null,
-        float? statPerFavors = null,
-        float? expDiplomacyCoefficient = null,
-        float? diplomacyBonusCoefficient = null)
-    {
-      var fix = ElementTool.Create<FixKingdomSystemBuffsAndStats>();
-      fix.m_StatPerFinances = statPerFinances is null ? fix.m_StatPerFinances : statPerFinances.Value;
-      fix.m_StatPerMaterials = statPerMaterials is null ? fix.m_StatPerMaterials : statPerMaterials.Value;
-      fix.m_StatPerFavors = statPerFavors is null ? fix.m_StatPerFavors : statPerFavors.Value;
-      fix.m_UnitExpDiplomacyCoefficient =
-          expDiplomacyCoefficient is null ? fix.m_UnitExpDiplomacyCoefficient : expDiplomacyCoefficient.Value;
-      fix.m_DiplomacyBonusCoefficient =
-          diplomacyBonusCoefficient is null ? fix.m_DiplomacyBonusCoefficient : diplomacyBonusCoefficient.Value;
-      return builder.Add(fix);
-    }
-
-    /// <summary>
     /// Adds <see cref="ReenterScriptzone"/>
     /// </summary>
     [Implements(typeof(ReenterScriptzone))]
@@ -68,24 +46,6 @@ namespace BlueprintCoreGen.Actions.Builder.UpgraderEx
       var reEnter = ElementTool.Create<ReenterScriptzone>();
       reEnter.m_ScriptZone = scriptZone;
       return builder.Add(reEnter);
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RefreshCrusadeLogistic">RefreshCrusadeLogistic</see>
-    /// </summary>
-    [Implements(typeof(RefreshCrusadeLogistic))]
-    public static ActionsBuilder RefreshCrusadeLogistic(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<RefreshCrusadeLogistic>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RefreshSettingsPreset">RefreshSettingsPreset</see>
-    /// </summary>
-    [Implements(typeof(RefreshSettingsPreset))]
-    public static ActionsBuilder RefreshSettingsPreset(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<RefreshSettingsPreset>());
     }
 
     /// <summary>
@@ -108,62 +68,6 @@ namespace BlueprintCoreGen.Actions.Builder.UpgraderEx
           ignoreFacts.Select(ignore => BlueprintTool.GetRef<BlueprintUnitFactReference>(ignore)).ToArray();
       removeFact.m_ExceptHasFact = BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null);
       return builder.Add(removeFact);
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.ResetMinDifficulty">ResetMinDifficulty</see>
-    /// </summary>
-    [Implements(typeof(ResetMinDifficulty))]
-    public static ActionsBuilder ResetMinDifficulty(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ResetMinDifficulty>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.FixItemInInventory">FixItemInInventory</see>
-    /// </summary>
-    /// 
-    /// <param name="addItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem">BlueprintItem</see></param>
-    /// <param name="removeItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem">BlueprintItem</see></param>
-    [Implements(typeof(FixItemInInventory))]
-    public static ActionsBuilder FixItemInInventory(
-        this ActionsBuilder builder,
-        string? addItem = null,
-        string? removeItem = null,
-        bool equipItem = false)
-    {
-      var fix = ElementTool.Create<FixItemInInventory>();
-      fix.m_ToAdd = BlueprintTool.GetRef<BlueprintItemReference>(addItem!);
-      fix.m_ToRemove = BlueprintTool.GetRef<BlueprintItemReference>(removeItem!);
-      fix.m_TryEquip = equipItem;
-      return builder.Add(fix);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecreateOnLoad"/>
-    /// </summary>
-    [Implements(typeof(RecreateOnLoad))]
-    public static ActionsBuilder ReCreateOnLoad(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<RecreateOnLoad>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint">SetAlignmentFromBlueprint</see>
-    /// </summary>
-    [Implements(typeof(SetAlignmentFromBlueprint))]
-    public static ActionsBuilder SetAlignmentFromBlueprint(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<SetAlignmentFromBlueprint>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetHandsFromBlueprint">SetHandsFromBlueprint</see>
-    /// </summary>
-    [Implements(typeof(SetHandsFromBlueprint))]
-    public static ActionsBuilder SetHandsFromBlueprint(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<SetHandsFromBlueprint>());
     }
 
     /// <summary>
@@ -208,17 +112,6 @@ namespace BlueprintCoreGen.Actions.Builder.UpgraderEx
       reCheck.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(etude);
       reCheck.m_RedoOnceTriggers = redoAfterTrigger;
       return builder.Add(reCheck);
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RefreshAllArmyLeaders">RefreshAllArmyLeaders</see>
-    /// </summary>
-    [Implements(typeof(RefreshAllArmyLeaders))]
-    public static ActionsBuilder RefreshAllArmyLeaders(this ActionsBuilder builder, bool playerOnly = false)
-    {
-      var refresh = ElementTool.Create<RefreshAllArmyLeaders>();
-      refresh.m_OnlyPlayerLeaders = playerOnly;
-      return builder.Add(refresh);
     }
 
     /// <summary>
@@ -273,15 +166,6 @@ namespace BlueprintCoreGen.Actions.Builder.UpgraderEx
       replaceFeature.m_ExceptHasFeature =
           BlueprintTool.GetRef<BlueprintFeatureReference>(ignoreFeature!);
       return builder.Add(replaceFeature);
-    }
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RestartTacticalCombat">RestartTacticalCombat</see>
-    /// </summary>
-    [Implements(typeof(RestartTacticalCombat))]
-    public static ActionsBuilder RestartTacticalCombat(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<RestartTacticalCombat>());
     }
 
     /// <summary>

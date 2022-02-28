@@ -30,35 +30,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
   {
 
     /// <summary>
-    /// Adds <see cref="ContextActionCastSpell"/>
-    /// </summary>
-    /// 
-    /// <param name="spell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
-    [Implements(typeof(ContextActionCastSpell))]
-    public static ActionsBuilder CastSpell(
-        this ActionsBuilder builder,
-        string spell,
-        bool castByTarget = false,
-        ContextValue? overrideDC = null,
-        ContextValue? overrideLevel = null)
-    {
-      var castSpell = ElementTool.Create<ContextActionCastSpell>();
-      castSpell.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(spell);
-      castSpell.CastByTarget = castByTarget;
-      if (overrideDC != null)
-      {
-        castSpell.OverrideDC = true;
-        castSpell.DC = overrideDC;
-      }
-      if (overrideLevel != null)
-      {
-        castSpell.OverrideSpellLevel = true;
-        castSpell.SpellLevel = overrideLevel;
-      }
-      return builder.Add(castSpell);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionChangeSharedValue"/>
     /// </summary>
     [Implements(typeof(ContextActionChangeSharedValue))]
@@ -189,21 +160,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       maneuver.Success = onSuccess?.Build() ?? Constants.Empty.Actions;
       maneuver.Failure = onFail?.Build() ?? Constants.Empty.Actions;
       return builder.Add(maneuver);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionConditionalSaved"/>
-    /// </summary>
-    [Implements(typeof(ContextActionConditionalSaved))]
-    public static ActionsBuilder AfterSavingThrow(
-        this ActionsBuilder builder,
-        ActionsBuilder? ifPassed = null,
-        ActionsBuilder? ifFailed = null)
-    {
-      var onSave = ElementTool.Create<ContextActionConditionalSaved>();
-      onSave.Succeed = ifPassed?.Build() ?? Constants.Empty.Actions;
-      onSave.Failed = ifFailed?.Build() ?? Constants.Empty.Actions;
-      return builder.Add(onSave);
     }
 
     /// <summary>
@@ -405,62 +361,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionDealWeaponDamage"/>
-    /// </summary>
-    [Implements(typeof(ContextActionDealWeaponDamage))]
-    public static ActionsBuilder DealWeaponDamage(this ActionsBuilder builder, bool allowRanged = false)
-    {
-      var dmg = ElementTool.Create<ContextActionDealWeaponDamage>();
-      dmg.CanBeRanged = allowRanged;
-      return builder.Add(dmg);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionDetectSecretDoors"/>
-    /// </summary>
-    [Implements(typeof(ContextActionDetectSecretDoors))]
-    public static ActionsBuilder DetectSecretDoors(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionDetectSecretDoors>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionDevourBySwarm"/>
-    /// </summary>
-    [Implements(typeof(ContextActionDevourBySwarm))]
-    public static ActionsBuilder DevourWithSwarm(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionDevourBySwarm>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionDisarm"/>
-    /// </summary>
-    [Implements(typeof(ContextActionDisarm))]
-    public static ActionsBuilder Disarm(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionDisarm>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionDismissAreaEffect"/>
-    /// </summary>
-    [Implements(typeof(ContextActionDismissAreaEffect))]
-    public static ActionsBuilder DismissAOE(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionDismissAreaEffect>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionDismount"/>
-    /// </summary>
-    [Implements(typeof(ContextActionDismount))]
-    public static ActionsBuilder Dismount(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionDismount>());
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionDispelMagic"/>
     /// </summary>
     /// 
@@ -519,15 +419,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionDropItems"/>
-    /// </summary>
-    [Implements(typeof(ContextActionDropItems))]
-    public static ActionsBuilder DropItems(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionDropItems>());
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionEnchantWornItem"/>
     /// </summary>
     /// 
@@ -574,15 +465,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionGiveExperience"/>
-    /// </summary>
-    [Implements(typeof(ContextActionGiveExperience))]
-    public static ActionsBuilder GiveExperience(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionGiveExperience>());
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionGrapple"/>
     /// </summary>
     /// 
@@ -602,21 +484,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       if (casterBuff != null) { grapple.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(casterBuff); }
       if (targetBuff != null) { grapple.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(targetBuff); }
       return builder.Add(grapple);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionHealEnergyDrain"/>
-    /// </summary>
-    [Implements(typeof(ContextActionHealEnergyDrain))]
-    public static ActionsBuilder HealNegativeLevels(
-        this ActionsBuilder builder,
-        EnergyDrainHealType tempLevels = EnergyDrainHealType.None,
-        EnergyDrainHealType permanentLevels = EnergyDrainHealType.None)
-    {
-      var heal = ElementTool.Create<ContextActionHealEnergyDrain>();
-      heal.TemporaryNegativeLevelsHeal = tempLevels;
-      heal.PermanentNegativeLevelsHeal = permanentLevels;
-      return builder.Add(heal);
     }
 
     /// <summary>
@@ -660,92 +527,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       var heal = ElementTool.Create<ContextActionHealTarget>();
       heal.Value = value;
       return builder.Add(heal);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionHideInPlainSight"/>
-    /// </summary>
-    [Implements(typeof(ContextActionHideInPlainSight))]
-    public static ActionsBuilder HideInPlainSight(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionHideInPlainSight>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionKill"/>
-    /// </summary>
-    [Implements(typeof(ContextActionKill))]
-    public static ActionsBuilder Kill(
-        this ActionsBuilder builder, UnitState.DismemberType dismember = UnitState.DismemberType.None)
-    {
-      var kill = ElementTool.Create<ContextActionKill>();
-      kill.Dismember = dismember;
-      return builder.Add(kill);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionKnockdownTarget"/>
-    /// </summary>
-    [Implements(typeof(ContextActionKnockdownTarget))]
-    public static ActionsBuilder Knockdown(
-        this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionKnockdownTarget>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionMakeKnowledgeCheck"/>
-    /// </summary>
-    [Implements(typeof(ContextActionMakeKnowledgeCheck))]
-    public static ActionsBuilder KnowledgeCheck(
-        this ActionsBuilder builder, ActionsBuilder? onSuccess = null, ActionsBuilder? onFail = null)
-    {
-      var knowledgeCheck = ElementTool.Create<ContextActionMakeKnowledgeCheck>();
-      knowledgeCheck.SuccessActions = onSuccess?.Build() ?? Constants.Empty.Actions;
-      knowledgeCheck.FailActions = onFail?.Build() ?? Constants.Empty.Actions;
-      return builder.Add(knowledgeCheck);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionMarkForceDismemberOwner"/>
-    /// </summary>
-    [Implements(typeof(ContextActionMarkForceDismemberOwner))]
-    public static ActionsBuilder MarkOwnerForDismemberment(
-        this ActionsBuilder builder, UnitState.DismemberType type = UnitState.DismemberType.Normal)
-    {
-      var markForDismemberment = ElementTool.Create<ContextActionMarkForceDismemberOwner>();
-      markForDismemberment.ForceDismemberType = type;
-      return builder.Add(markForDismemberment);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionMeleeAttack"/>
-    /// </summary>
-    [Implements(typeof(ContextActionMeleeAttack))]
-    public static ActionsBuilder MeleeAttack(
-        this ActionsBuilder builder,
-        bool autoCritThreat = false,
-        bool autoCritConfirm = false,
-        bool autoHit = false,
-        bool ignoreStatBonus = false,
-        bool selectNewTarget = false)
-    {
-      var attack = ElementTool.Create<ContextActionMeleeAttack>();
-      attack.AutoCritThreat = autoCritThreat;
-      attack.AutoCritConfirmation = autoCritConfirm;
-      attack.AutoHit = autoHit;
-      attack.IgnoreStatBonus = ignoreStatBonus;
-      attack.SelectNewTarget = selectNewTarget;
-      return builder.Add(attack);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionMount"/>
-    /// </summary>
-    [Implements(typeof(ContextActionMount))]
-    public static ActionsBuilder Mount(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionMount>());
     }
 
     /// <summary>
@@ -858,43 +639,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionProvokeAttackFromCaster"/>
-    /// </summary>
-    [Implements(typeof(ContextActionProvokeAttackFromCaster))]
-    public static ActionsBuilder ProvokeOpportunityAttackFromCaster(
-        this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionProvokeAttackFromCaster>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionProvokeAttackOfOpportunity"/>
-    /// </summary>
-    [Implements(typeof(ContextActionProvokeAttackOfOpportunity))]
-    public static ActionsBuilder ProvokeOpportunityAttack(
-        this ActionsBuilder builder, bool casterProvokes = false)
-    {
-      var attack = ElementTool.Create<ContextActionProvokeAttackOfOpportunity>();
-      attack.ApplyToCaster = casterProvokes;
-      return builder.Add(attack);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionPush"/>
-    /// </summary>
-    [Implements(typeof(ContextActionPush))]
-    public static ActionsBuilder Push(
-        this ActionsBuilder builder,
-        ContextValue distance,
-        bool provokeOpportunityAttack = false)
-    {
-      var push = ElementTool.Create<ContextActionPush>();
-      push.Distance = distance;
-      push.ProvokeAttackOfOpportunity = provokeOpportunityAttack;
-      return builder.Add(push);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionRandomize"/>
     /// </summary>
     /// 
@@ -918,27 +662,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
                   })
               .ToArray();
       return builder.Add(actions);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionRangedAttack"/>
-    /// </summary>
-    [Implements(typeof(ContextActionRangedAttack))]
-    public static ActionsBuilder RangedAttack(
-        this ActionsBuilder builder,
-        bool autoCritThreat = false,
-        bool autoCritConfirm = false,
-        bool autoHit = false,
-        bool ignoreStatBonus = false,
-        bool selectNewTarget = false)
-    {
-      var attack = ElementTool.Create<ContextActionRangedAttack>();
-      attack.AutoCritThreat = autoCritThreat;
-      attack.AutoCritConfirmation = autoCritConfirm;
-      attack.AutoHit = autoHit;
-      attack.IgnoreStatBonus = ignoreStatBonus;
-      attack.SelectNewTarget = selectNewTarget;
-      return builder.Add(attack);
     }
 
     /// <summary>
@@ -1016,26 +739,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       var removeStack = ElementTool.Create<ContextActionRemoveBuffSingleStack>();
       removeStack.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
       return builder.Add(removeStack);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionRemoveDeathDoor"/>
-    /// </summary>
-    [Implements(typeof(ContextActionRemoveDeathDoor))]
-    public static ActionsBuilder RemoveDeathDoor(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionRemoveDeathDoor>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionRemoveSelf"/>
-    /// </summary>
-    /// 
-    /// <remarks>Only works on buffs and area effects.</remarks>
-    [Implements(typeof(ContextActionRemoveSelf))]
-    public static ActionsBuilder RemoveSelf(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionRemoveSelf>());
     }
 
     /// <summary>
@@ -1383,15 +1086,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionSpendAttackOfOpportunity"/>
-    /// </summary>
-    [Implements(typeof(ContextActionSpendAttackOfOpportunity))]
-    public static ActionsBuilder SpendOpportunityAttack(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionSpendAttackOfOpportunity>());
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionStealBuffs"/>
     /// </summary>
     [Implements(typeof(ContextActionStealBuffs))]
@@ -1400,58 +1094,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       var steal = ElementTool.Create<ContextActionStealBuffs>();
       steal.m_Descriptor = descriptor;
       return builder.Add(steal);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSwallowWhole"/>
-    /// </summary>
-    /// 
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(ContextActionSwallowWhole))]
-    public static ActionsBuilder SwallowWhole(this ActionsBuilder builder, string? buff = null)
-    {
-      var swallow = ElementTool.Create<ContextActionSwallowWhole>();
-      swallow.m_TargetBuff =
-          buff is null
-              ? null
-              : BlueprintTool.GetRef<BlueprintBuffReference>(buff);
-      return builder.Add(swallow);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSwarmTarget"/>
-    /// </summary>
-    [Implements(typeof(ContextActionSwarmTarget))]
-    public static ActionsBuilder AddToSwarmTargets(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionSwarmTarget>());
-    }
-
-    /// <inheritdoc cref="AddToSwarmTargets"/>
-    [Implements(typeof(ContextActionSwarmTarget))]
-    public static ActionsBuilder RemoveFromSwarmTargets(this ActionsBuilder builder)
-    {
-      var removeTarget = ElementTool.Create<ContextActionSwarmTarget>();
-      removeTarget.Remove = true;
-      return builder.Add(removeTarget);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionTranslocate"/>
-    /// </summary>
-    [Implements(typeof(ContextActionTranslocate))]
-    public static ActionsBuilder Teleport(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionTranslocate>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionUnsummon"/>
-    /// </summary>
-    [Implements(typeof(ContextActionUnsummon))]
-    public static ActionsBuilder Unsummon(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionUnsummon>());
     }
 
     /// <summary>
@@ -1471,17 +1113,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
         restore.ContextValueRestoration = true;
         restore.Value = amount;
       }
-      return builder.Add(restore);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextRestoreResource"/>
-    /// </summary>
-    [Implements(typeof(ContextRestoreResource))]
-    public static ActionsBuilder RestoreAllResourcesToFull(this ActionsBuilder builder)
-    {
-      var restore = ElementTool.Create<ContextRestoreResource>();
-      restore.m_IsFullRestoreAllResources = true;
       return builder.Add(restore);
     }
 
@@ -1621,27 +1252,7 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       return builder.Add(add);
     }
 
-    /// <summary>
-    /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Actions.SwordlordAdaptiveTacticsClear">SwordlordAdaptiveTacticsClear</see>
-    /// </summary>
-    [Implements(typeof(SwordlordAdaptiveTacticsClear))]
-    public static ActionsBuilder SwordlordAdaptiveTacticsClear(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<SwordlordAdaptiveTacticsClear>());
-    }
-
     //----- Kingmaker.Assets.UnitLogic.Mechanics.Actions -----//
-
-    /// <summary>
-    /// Adds <see cref="ContextActionResetAlignment"/>
-    /// </summary>
-    [Implements(typeof(ContextActionResetAlignment))]
-    public static ActionsBuilder ResetAlignment(this ActionsBuilder builder, bool removeMythicLock = false)
-    {
-      var resetAlignment = ElementTool.Create<ContextActionResetAlignment>();
-      resetAlignment.m_ResetAlignmentLock = removeMythicLock;
-      return builder.Add(resetAlignment);
-    }
 
     /// <summary>
     /// Adds <see cref="ContextActionSwarmAttack"/>
@@ -1652,15 +1263,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
       var attack = ElementTool.Create<ContextActionSwarmAttack>();
       attack.AttackActions = attackActions.Build();
       return builder.Add(attack);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSwitchDualCompanion"/>
-    /// </summary>
-    [Implements(typeof(ContextActionSwitchDualCompanion))]
-    public static ActionsBuilder SwitchDualCompanion(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionSwitchDualCompanion>());
     }
 
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//

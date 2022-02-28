@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
@@ -41,23 +42,6 @@ namespace BlueprintCoreGen.Actions.Builder.MiscEx
     }
 
     //----- Kingmaker.Designers.EventConditionActionSystem.Actions -----//
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CreateCustomCompanion">CreateCustomCompanion</see>
-    /// </summary>
-    [Implements(typeof(CreateCustomCompanion))]
-    public static ActionsBuilder CreateCustomCompanion(
-        this ActionsBuilder builder,
-        bool free = false,
-        bool matchPlayerXp = false,
-        ActionsBuilder? onCreate = null)
-    {
-      var createCompanion = ElementTool.Create<CreateCustomCompanion>();
-      createCompanion.ForFree = free;
-      createCompanion.MatchPlayerXpExactly = matchPlayerXp;
-      createCompanion.OnCreate = onCreate?.Build() ?? Constants.Empty.Actions;
-      return builder.Add(createCompanion);
-    }
 
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.CustomEvent">CustomEvent</see>
