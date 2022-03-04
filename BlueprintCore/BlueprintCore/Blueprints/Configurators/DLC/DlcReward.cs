@@ -76,49 +76,6 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public TBuilder SetIncludeObjects(Object[]? includeObjects)
-    {
-      ValidateParam(includeObjects);
-    
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IncludeObjects = includeObjects;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public TBuilder AddToIncludeObjects(params Object[] includeObjects)
-    {
-      ValidateParam(includeObjects);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IncludeObjects = CommonTool.Append(bp.m_IncludeObjects, includeObjects ?? new Object[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public TBuilder RemoveFromIncludeObjects(params Object[] includeObjects)
-    {
-      ValidateParam(includeObjects);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IncludeObjects = bp.m_IncludeObjects.Where(item => !includeObjects.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -248,49 +205,6 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
           bp =>
           {
             bp.m_IncludeAssetPaths = bp.m_IncludeAssetPaths.Where(item => !includeAssetPaths.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public DlcRewardConfigurator SetIncludeObjects(Object[]? includeObjects)
-    {
-      ValidateParam(includeObjects);
-    
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IncludeObjects = includeObjects;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public DlcRewardConfigurator AddToIncludeObjects(params Object[] includeObjects)
-    {
-      ValidateParam(includeObjects);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IncludeObjects = CommonTool.Append(bp.m_IncludeObjects, includeObjects ?? new Object[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    public DlcRewardConfigurator RemoveFromIncludeObjects(params Object[] includeObjects)
-    {
-      ValidateParam(includeObjects);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IncludeObjects = bp.m_IncludeObjects.Where(item => !includeObjects.Contains(item)).ToArray();
           });
     }
 
