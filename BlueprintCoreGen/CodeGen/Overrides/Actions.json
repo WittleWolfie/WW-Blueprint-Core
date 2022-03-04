@@ -1,0 +1,260 @@
+{
+  "Actions": [
+    //**** Start ActionsBuilderAreaEx ****//
+
+    {
+      "TypeName": "AreaEntranceChange",
+      "Extension": "ExtensionType.Area",
+      "RequiredFields": [ "m_Location", "m_NewEntrance" ]
+    },
+    {
+      "TypeName": "ChangeCurrentAreaName",
+      "Extension": "ExtensionType.Area",
+      "Methods": [
+        {
+          "RequiredFields": [ "NewName", "m_NewEntrance" ],
+          "IgnoredFields": [ "RestoreDefault" ]
+        },
+        {
+          "MethodName": "ResetCurrentAreaName",
+          "IgnoredFields": [ "NewName" ],
+          "ConstantFields": [
+            {
+              "FieldName": "RestoreDefault",
+              "Value": "true"
+            }
+          ]
+        }
+      ]
+    },
+
+    //**** End ActionsBuilderAreaEx ****//
+
+    //**** Start ActionsBuilderAVEx ****//
+
+    {
+      "TypeName": "ContextActionRunAnimationClip",
+      "Extension": "ExtensionType.AV",
+      "RequiredFields": [ "ClipWrapper" ],
+      "DefaultFields": [
+        {
+          "FieldName": "Mode",
+          "Value": "ExecutionMode.Interrupted"
+        }
+      ]
+    },
+
+    //**** End ActionsBuilderAVEx ****//
+
+    //**** Start ActionsBuilderBasicEx ****//
+
+    {
+      "TypeName": "DamageParty",
+      "Extension": "ExtensionType.Basic",
+      "Method": {
+        "RequiredFields": [ "Damage" ],
+        "CustomFields": [
+          {
+            "FieldName": "DamageSource",
+            "ExtraAssignmentFmtLines": [ "{0}.NoSource = {1} is null;" ]
+          }
+        ]
+      }
+    },
+    {
+      "TypeName": "AddItemsToCollection",
+      "Extension": "ExtensionType.Basic",
+      "CustomFields": [
+        {
+          "FieldName": "ItemsCollection",
+          "Required": true,
+          "ParamName": "items"
+        }
+      ],
+      "Methods": [
+        {
+          "MethodName": "AddItems",
+          "IgnoredFields": [ "m_BlueprintLoot" ],
+          "CustomFields": [
+            {
+              "Name": "Loot",
+              "Required": true,
+              "ParamName": "items"
+            }
+          ]
+        },
+        {
+          "MethodName": "AddItemsFromBlueprint",
+          "RequiredFields": [ "m_BlueprintLoot" ],
+          "IgnoredFields": [ "Loot" ]
+        }
+      ]
+    },
+    {
+      "TypeName": "AddItemToPlayer",
+      "Extension": "ExtensionType.Basic",
+      "Remarks": [
+        "<list type=\"bullet\">",
+        "<item>",
+        "  <description>",
+        "    If the item is a <see cref=\"BlueprintItemEquipmentHand\"/> use <see cref=\"GiveHandSlotItemToPlayer\"/>",
+        "  </description>",
+        "</item>",
+        "<item>",
+        "  <description>",
+        "    If the item is a <see cref=\"BlueprintItemEquipment\"/> use <see cref=\"GiveEquipmentToPlayer\"/>",
+        "  </description>",
+        "</item>",
+        "<item>",
+        "  <description>",
+        "    For any other items use <see cref=\"GiveItemToPlayer\"/>.",
+        "  </description>",
+        "</item>",
+        "</list>"
+      ],
+      "Imports": [ "BlueprintItemEquipmentHand", "BlueprintItemEquipment" ],
+      "CustomFields": [
+        {
+          "FieldName": "ItemsCollection",
+          "Required": true,
+          "ParamName": "items"
+        }
+      ],
+      "Methods": [
+        {
+          "MethodName": "GiveItemToPlayer",
+          "IgnoredFields": [ "Equip", "EquipOn", "ErrorIfDidNotEquip", "PreferredWeaponSet" ],
+          "CustomFields": [
+            {
+              "FieldName": "m_ItemToGive",
+              "Required": true,
+              "ExtraAssignmentFmtLines": [
+                "var bp = {1}.Instance;",
+                "if (bp is BlueprintItemEquipmentHand)",
+                "{{",
+                "  throw new InvalidOperationException(\"Item fits in hand slot. Use GiveHandSlotItemToPlayer.\");",
+                "}}",
+                "else if (bp is BlueprintItemEquipment)",
+                "{{",
+                "  throw new InvalidOperationException(\"Item is equipment. Use GiveEquipmentToPlayer.\");",
+                "}}"
+              ]
+            }
+          ]
+        },
+        {
+          "MethodName": "GiveEquipmentToPlayer",
+          "IgnoredFields": [ "PreferredWeaponSet" ],
+          "CustomFields": [
+            {
+              "FieldName": "m_ItemToGive",
+              "Required": true,
+              "ExtraAssignmentFmtLines": [
+                "var bp = {1}.Instance;",
+                "if (bp is BlueprintItemEquipmentHand)",
+                "{{",
+                "  throw new InvalidOperationException(\"Item fits in hand slot. Use GiveHandSlotItemToPlayer.\");",
+                "}}",
+                "else if (bp is not BlueprintItemEquipment)",
+                "{{",
+                "  throw new InvalidOperationException(\"Item is not equipment. Use GiveItemToPlayer.\");",
+                "}}"
+              ]
+            }
+          ]
+        },
+        {
+          "MethodName": "GiveHandSlotItemToPlayer",
+          "CustomFields": [
+            {
+              "FieldName": "m_ItemToGive",
+              "Required": true,
+              "ExtraAssignmentFmtLines": [
+                "var bp = {1}.Instance;",
+                "if (bp is not BlueprintItemEquipmentHand)",
+                "{{",
+                "  if (bp is BlueprintItemEquipment)",
+                "  {{",
+                "    throw new InvalidOperationException(\"Item does not fit in hand slot. Use GiveEquipmentToPlayer.\");",
+                "  }}",
+                "  else",
+                "  {{",
+                "    throw new InvalidOperationException(\"Item is not equipment. Use GiveItemToPlayer.\");",
+                "  }}",
+                "}}"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    //**** End ActionsBuilderBasicEx ****//
+
+    //**** Start ActionsBuilderContextEx ****//
+
+    {
+      "TypeName": "ContextActionArmorEnchantPool",
+      "Remarks": [
+        "The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
+      ],
+      "Examples": [
+        {
+          "BlueprintName": "SacredArmorEnchantSwitchAbility",
+          "BlueprintGuid": "66484ebb8d358db4692ef4445fa6ac35"
+        }
+      ],
+      "Imports": [
+        "BlueprintTool",
+        "BlueprintItemEnchantment",
+        "BlueprintItemEnchantmentReference",
+        "ItemEnchantments" ],
+      "RequiredFields": [ "EnchantPool", "DurationValue" ],
+      "IgnoredFields": [ "m_DefaultEnchantments" ],
+      "ExtraParams": [
+        {
+          "ParamName": "enchantmentPlus1",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus1",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"
+          ]
+        },
+        {
+          "ParamName": "enchantmentPlus2",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus2",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"
+          ]
+        },
+        {
+          "ParamName": "enchantmentPlus3",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus3",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"
+          ]
+        },
+        {
+          "ParamName": "enchantmentPlus4",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus4",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"
+          ]
+        },
+        {
+          "ParamName": "enchantmentPlus5",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus5",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;"
+          ]
+        }
+      ]
+    }
+
+    //**** End ActionsBuilderContextEx ****//
+  ]
+}

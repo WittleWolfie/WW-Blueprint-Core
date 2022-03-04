@@ -13,6 +13,170 @@ using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen.Override
 {
+  public class Field
+  {
+    /// <summary>
+    /// Name of the field.
+    /// </summary>
+    public string FieldName { get; }
+  }
+
+  /// <summary>
+  /// Represents a field with a specific default value.
+  /// </summary>
+  public class DefaultField : Field
+  {
+    /// <summary>
+    /// The default value of the field.
+    /// </summary>
+    public string Value { get; }
+  }
+
+  /// <summary>
+  /// Represents a field with a constant value.
+  /// </summary>
+  public class ConstantField : Field
+  {
+    /// <summary>
+    /// The constant value of the field.
+    /// </summary>
+    public string Value { get; }
+  }
+
+  public class CustomField : Field
+  {
+    /// <summary>
+    /// Indicates whether the field is required when building the action.
+    /// </summary>
+    public bool Required { get; }
+
+    /// <summary>
+    /// Name of the field when provided as a function parameter.
+    /// </summary>
+    public string ParamName { get; }
+
+    /// <summary>
+    /// Additional lines of code added after assigning the field's value.
+    /// </summary>
+    public List<string> ExtraAssignmentFmtLines { get; } = new();
+  }
+
+  /// <summary>
+  /// Represents an "Action" game type.
+  /// </summary>
+  public class Action
+  {
+    /// <summary>
+    /// All action builder methods are grouped into extension classes. This determines which class contains the
+    /// methods for building the action.
+    /// </summary>
+    public enum ExtensionType
+    {
+      Area,
+      AV,
+      Basic,
+      Context,
+      Kingdom,
+      Misc,
+      New,
+      Story,
+      Upgrader
+    }
+
+    /// <summary>
+    /// The type name of the action. If there is a type name conflict this must be fully qualified.
+    /// </summary>
+    public string TypeName { get; }
+
+    /// <summary>
+    /// Indicates which extension class contains builder methods for the action.
+    /// </summary>
+    public ExtensionType Extension { get; }
+
+    /// <summary>
+    /// Remarks added to the method's comments. Uses XML Doc syntax. Each entry is a new line.
+    /// </summary>
+    public List<string> Remarks { get; }
+
+    /// <summary>
+    /// A list of types to import (by name).
+    /// </summary>
+    public List<string> Imports { get; } = new();
+
+    /// <summary>
+    /// List of fields (by name) required when building the action.
+    /// </summary>
+    public List<string> RequiredFields { get; } = new();
+
+    /// <summary>
+    /// List of fields (by name) ignored when building the action.
+    /// </summary>
+    public List<string> IgnoredFields { get; } = new();
+
+    /// <summary>
+    /// List of fields (by name) and their default values.
+    /// </summary>
+    public List<DefaultField> DefaultFields { get; } = new();
+
+    /// <summary>
+    /// List of fields (by name) and their constant values.
+    /// </summary>
+    public List<ConstantField> ConstantFields { get; } = new();
+
+    /// <summary>
+    /// List of fields (by name) to customize.
+    /// </summary>
+    public List<CustomField> CustomFields { get; } = new();
+
+    public List<Method>? Methods { get; }
+  }
+
+  public class Method
+  {
+    public List<string> Imports { get; } = new();
+
+    public List<string> Comments { get; } = new();
+
+    public List<Blueprint> Examples { get; } = new();
+
+    public string Name { get; }
+
+    public List<string> RequiredFields { get; } = new();
+
+    public List<string> IgnoredFields { get; } = new();
+
+    public List<FieldParameter> FieldParameters { get; }
+
+    public List<Parameter> Parameters { get; }
+  }
+
+  public class Parameter
+  {
+    public List<string> Imports { get; } = new();
+
+    public string ParamName { get; }
+
+    public List<string> Comments { get; }
+
+    public string DefaultValue { get; }
+
+    public List<string> OperationFmt { get; }
+  }
+
+  public class FieldParameter : Parameter
+  {
+    public string Name { get; }
+
+    public List<string> AssignmentFmt { get; }
+  }
+
+  public struct Blueprint
+  {
+    public string Name { get; }
+
+    public string Guid { get; }
+  }
+
   /// <summary>
   /// Represents an extra parameter applied to a method as an override.
   /// </summary>
