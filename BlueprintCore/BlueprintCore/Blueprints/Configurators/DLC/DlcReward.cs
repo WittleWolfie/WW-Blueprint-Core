@@ -1,10 +1,8 @@
 using BlueprintCore.Utils;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 #nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DLC
