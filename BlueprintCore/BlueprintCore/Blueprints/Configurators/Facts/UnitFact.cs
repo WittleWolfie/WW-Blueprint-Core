@@ -470,6 +470,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         AbilityType type = default,
         bool dontCheckType = default,
         bool toCaster = default,
+        bool triggerOnEffectApply = default,
         string[]? spellbooks = null,
         bool spellList = default,
         string[]? spells = null,
@@ -482,6 +483,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.Type = type;
       component.DontCheckType = dontCheckType;
       component.ToCaster = toCaster;
+      component.TriggerOnEffectApply = triggerOnEffectApply;
       component.m_Spellbooks = spellbooks.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name)).ToArray();
       component.SpellList = spellList;
       component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
@@ -771,10 +773,14 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(AddCondition))]
     public TBuilder AddCondition(
+        UnitConditionExceptions exceptions,
         UnitCondition condition = default)
     {
+      ValidateParam(exceptions);
+    
       var component = new AddCondition();
       component.Condition = condition;
+      component.Exceptions = exceptions;
       return AddComponent(component);
     }
 
@@ -886,6 +892,26 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.Type = type;
       component.UseValueMultiplier = useValueMultiplier;
       component.ValueMultiplier = valueMultiplier ?? ContextValues.Constant(0);
+      component.Value = value ?? ContextValues.Constant(0);
+      component.UsePool = usePool;
+      component.Pool = pool ?? ContextValues.Constant(0);
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddDamageResistanceHardness"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddDamageResistanceHardness))]
+    public TBuilder AddDamageResistanceHardness(
+        ContextValue? value = null,
+        bool usePool = default,
+        ContextValue? pool = null)
+    {
+      ValidateParam(value);
+      ValidateParam(pool);
+    
+      var component = new AddDamageResistanceHardness();
       component.Value = value ?? ContextValues.Constant(0);
       component.UsePool = usePool;
       component.Pool = pool ?? ContextValues.Constant(0);
@@ -1284,6 +1310,21 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddImmunityToPrecisionDamage();
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddIncomingDamageMaximum"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(AddIncomingDamageMaximum))]
+    public TBuilder AddIncomingDamageMaximum(
+        int maximumDamagePerSource = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new AddIncomingDamageMaximum();
+      component.m_MaximumDamagePerSource = maximumDamagePerSource;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -3164,6 +3205,23 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
+    /// Adds <see cref="OverrideUnitHP"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(OverrideUnitHP))]
+    public TBuilder AddOverrideUnitHP(
+        ContextValue? targetValue = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      ValidateParam(targetValue);
+    
+      var component = new OverrideUnitHP();
+      component.TargetValue = targetValue ?? ContextValues.Constant(0);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
     /// Adds <see cref="OverrideVisionRange"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -4363,12 +4421,22 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Implements(typeof(WeaponDamageOverride))]
     public TBuilder AddWeaponDamageOverride(
         DiceFormula formula,
+        bool overrideDice = default,
+        bool overrideBonusStat = default,
+        StatType stat = default,
+        bool overrideBonusStatMultiplier = default,
+        int statMultiplier = default,
         string[]? weaponTypes = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new WeaponDamageOverride();
+      component.OverrideDice = overrideDice;
       component.Formula = formula;
+      component.OverrideBonusStat = overrideBonusStat;
+      component.Stat = stat;
+      component.OverrideBonusStatMultiplier = overrideBonusStatMultiplier;
+      component.StatMultiplier = statMultiplier;
       component.m_WeaponTypes = weaponTypes.Select(name => BlueprintTool.GetRef<BlueprintWeaponTypeReference>(name)).ToArray();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
@@ -4428,6 +4496,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         string[]? abilities = null,
         bool checkSchool = default,
         SpellSchool school = default,
+        bool checkAbilityType = default,
+        AbilityType type = default,
         bool checkDescriptor = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -4436,6 +4506,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.m_Abilities = abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList();
       component.CheckSchool = checkSchool;
       component.School = school;
+      component.CheckAbilityType = checkAbilityType;
+      component.Type = type;
       component.CheckDescriptor = checkDescriptor;
       component.SpellDescriptor = spellDescriptor;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
@@ -6266,23 +6338,21 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <summary>
     /// Adds <see cref="Blindsense"/> (Auto Generated)
     /// </summary>
-    ///
-    /// <param name="exceptionFacts"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     [Generated]
     [Implements(typeof(Blindsense))]
     public TBuilder AddBlindsense(
         Feet range,
+        UnitConditionExceptions exceptions,
         bool blindsight = default,
-        bool hasExceptions = default,
-        string[]? exceptionFacts = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
+      ValidateParam(exceptions);
+    
       var component = new Blindsense();
       component.Range = range;
       component.Blindsight = blindsight;
-      component.HasExceptions = hasExceptions;
-      component.m_ExceptionFacts = exceptionFacts.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
+      component.Exceptions = exceptions;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 

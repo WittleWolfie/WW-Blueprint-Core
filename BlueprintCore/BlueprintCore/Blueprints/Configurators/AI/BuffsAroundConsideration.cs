@@ -90,5 +90,18 @@ namespace BlueprintCore.Blueprints.Configurators.AI
             bp.CheckAbsence = checkAbsence;
           });
     }
+
+    /// <summary>
+    /// Sets <see cref="BuffsAroundConsideration.FromCaster"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public BuffsAroundConsiderationConfigurator SetFromCaster(bool fromCaster)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.FromCaster = fromCaster;
+          });
+    }
   }
 }

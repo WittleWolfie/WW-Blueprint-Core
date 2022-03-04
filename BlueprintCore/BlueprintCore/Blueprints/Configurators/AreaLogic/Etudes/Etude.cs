@@ -167,6 +167,56 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintEtude.m_LinkedCampaigns"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="linkedCampaigns"><see cref="Kingmaker.Blueprints.Root.BlueprintCampaign"/></param>
+    [Generated]
+    public EtudeConfigurator SetLinkedCampaigns(string[]? linkedCampaigns)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LinkedCampaigns = linkedCampaigns.Select(name => BlueprintTool.GetRef<BlueprintCampaignReference>(name)).ToList();
+          });
+    }
+
+    /// <summary>
+    /// Adds to <see cref="BlueprintEtude.m_LinkedCampaigns"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="linkedCampaigns"><see cref="Kingmaker.Blueprints.Root.BlueprintCampaign"/></param>
+    [Generated]
+    public EtudeConfigurator AddToLinkedCampaigns(params string[] linkedCampaigns)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_LinkedCampaigns.AddRange(linkedCampaigns.Select(name => BlueprintTool.GetRef<BlueprintCampaignReference>(name)));
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintEtude.m_LinkedCampaigns"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="linkedCampaigns"><see cref="Kingmaker.Blueprints.Root.BlueprintCampaign"/></param>
+    [Generated]
+    public EtudeConfigurator RemoveFromLinkedCampaigns(params string[] linkedCampaigns)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var excludeRefs = linkedCampaigns.Select(name => BlueprintTool.GetRef<BlueprintCampaignReference>(name));
+            bp.m_LinkedCampaigns =
+                bp.m_LinkedCampaigns
+                    .Where(
+                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
+                    .ToList();
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="BlueprintEtude.m_IncludeAreaParts"/> (Auto Generated)
     /// </summary>
     [Generated]

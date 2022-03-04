@@ -167,17 +167,17 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     }
 
     /// <summary>
-    /// Sets <see cref="AchievementData.SpecificDlc"/> (Auto Generated)
+    /// Sets <see cref="AchievementData.SpecificCampaign"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="specificDlc"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
+    /// <param name="specificCampaign"><see cref="Kingmaker.Blueprints.Root.BlueprintCampaign"/></param>
     [Generated]
-    public AchievementDataConfigurator SetSpecificDlc(string? specificDlc)
+    public AchievementDataConfigurator SetSpecificCampaign(string? specificCampaign)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.SpecificDlc = BlueprintTool.GetRef<BlueprintDlcRewardReference>(specificDlc);
+            bp.SpecificCampaign = BlueprintTool.GetRef<BlueprintCampaignReference>(specificCampaign);
           });
     }
 

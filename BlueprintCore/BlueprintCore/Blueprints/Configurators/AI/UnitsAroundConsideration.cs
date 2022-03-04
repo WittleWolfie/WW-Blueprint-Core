@@ -17,6 +17,19 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     protected BaseUnitsAroundConsiderationConfigurator(string name) : base(name) { }
 
     /// <summary>
+    /// Sets <see cref="UnitsAroundConsideration.m_SqrCustomRadius"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetSqrCustomRadius(float sqrCustomRadius)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SqrCustomRadius = sqrCustomRadius;
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="UnitsAroundConsideration.Filter"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -132,6 +145,45 @@ namespace BlueprintCore.Blueprints.Configurators.AI
             bp.UseAbilityShape = useAbilityShape;
           });
     }
+
+    /// <summary>
+    /// Sets <see cref="UnitsAroundConsideration.UseCustomRadius"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetUseCustomRadius(bool useCustomRadius)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UseCustomRadius = useCustomRadius;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsAroundConsideration.CustomRadiusInMeters"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetCustomRadiusInMeters(float customRadiusInMeters)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomRadiusInMeters = customRadiusInMeters;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsAroundConsideration.CheckRadiusFromCaster"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetCheckRadiusFromCaster(bool checkRadiusFromCaster)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CheckRadiusFromCaster = checkRadiusFromCaster;
+          });
+    }
   }
 
   /// <summary>
@@ -154,6 +206,19 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     {
       BlueprintTool.Create<UnitsAroundConsideration>(name, guid);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsAroundConsideration.m_SqrCustomRadius"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsAroundConsiderationConfigurator SetSqrCustomRadius(float sqrCustomRadius)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SqrCustomRadius = sqrCustomRadius;
+          });
     }
 
     /// <summary>
@@ -270,6 +335,45 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           bp =>
           {
             bp.UseAbilityShape = useAbilityShape;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsAroundConsideration.UseCustomRadius"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsAroundConsiderationConfigurator SetUseCustomRadius(bool useCustomRadius)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.UseCustomRadius = useCustomRadius;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsAroundConsideration.CustomRadiusInMeters"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsAroundConsiderationConfigurator SetCustomRadiusInMeters(float customRadiusInMeters)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CustomRadiusInMeters = customRadiusInMeters;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="UnitsAroundConsideration.CheckRadiusFromCaster"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitsAroundConsiderationConfigurator SetCheckRadiusFromCaster(bool checkRadiusFromCaster)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.CheckRadiusFromCaster = checkRadiusFromCaster;
           });
     }
   }

@@ -46,6 +46,19 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintUnitProperty.OperationOnComponents"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public UnitPropertyConfigurator SetOperationOnComponents(BlueprintUnitProperty.MathOperation operationOnComponents)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.OperationOnComponents = operationOnComponents;
+          });
+    }
+
+    /// <summary>
     /// Adds <see cref="CountCorpsesAroundPropertyGetter"/> (Auto Generated)
     /// </summary>
     ///

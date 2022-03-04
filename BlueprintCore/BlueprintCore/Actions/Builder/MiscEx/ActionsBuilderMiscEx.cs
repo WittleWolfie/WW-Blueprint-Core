@@ -408,10 +408,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     [Implements(typeof(ShowPartySelection))]
     public static ActionsBuilder ShowPartySelection(
         this ActionsBuilder builder,
+        bool forceCapitalModeLogic = default,
         ActionsBuilder? actionsAfterPartySelection = null,
         ActionsBuilder? actionsIfCanceled = null)
     {
       var element = ElementTool.Create<ShowPartySelection>();
+      element.ForceCapitalModeLogic = forceCapitalModeLogic;
       element.ActionsAfterPartySelection = actionsAfterPartySelection?.Build() ?? Constants.Empty.Actions;
       element.ActionsIfCanceled = actionsIfCanceled?.Build() ?? Constants.Empty.Actions;
       return builder.Add(element);

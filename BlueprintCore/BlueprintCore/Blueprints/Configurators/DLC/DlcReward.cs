@@ -1,8 +1,10 @@
 using BlueprintCore.Utils;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 #nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DLC
@@ -35,58 +37,84 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IsImportIntoMainCampaignRequired"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.m_IncludeAssetPaths"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsImportIntoMainCampaignRequired(bool isImportIntoMainCampaignRequired)
+    public TBuilder SetIncludeAssetPaths(BlueprintDlcReward.AssetPath[]? includeAssetPaths)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_IsImportIntoMainCampaignRequired = isImportIntoMainCampaignRequired;
+            bp.m_IncludeAssetPaths = includeAssetPaths;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.ImportIntoMainCampaignSettings"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDlcReward.m_IncludeAssetPaths"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetImportIntoMainCampaignSettings(DlcSaveImportSettings importIntoMainCampaignSettings)
+    public TBuilder AddToIncludeAssetPaths(params BlueprintDlcReward.AssetPath[] includeAssetPaths)
     {
-      ValidateParam(importIntoMainCampaignSettings);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IncludeAssetPaths = CommonTool.Append(bp.m_IncludeAssetPaths, includeAssetPaths ?? new BlueprintDlcReward.AssetPath[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDlcReward.m_IncludeAssetPaths"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder RemoveFromIncludeAssetPaths(params BlueprintDlcReward.AssetPath[] includeAssetPaths)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IncludeAssetPaths = bp.m_IncludeAssetPaths.Where(item => !includeAssetPaths.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetIncludeObjects(Object[]? includeObjects)
+    {
+      ValidateParam(includeObjects);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.ImportIntoMainCampaignSettings = importIntoMainCampaignSettings;
+            bp.m_IncludeObjects = includeObjects;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IsImportFromMainCampaignRequired"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetIsImportFromMainCampaignRequired(bool isImportFromMainCampaignRequired)
+    public TBuilder AddToIncludeObjects(params Object[] includeObjects)
     {
+      ValidateParam(includeObjects);
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_IsImportFromMainCampaignRequired = isImportFromMainCampaignRequired;
+            bp.m_IncludeObjects = CommonTool.Append(bp.m_IncludeObjects, includeObjects ?? new Object[0]);
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.ImportFromMainCampaignSettings"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public TBuilder SetImportFromMainCampaignSettings(DlcSaveImportSettings importFromMainCampaignSettings)
+    public TBuilder RemoveFromIncludeObjects(params Object[] includeObjects)
     {
-      ValidateParam(importFromMainCampaignSettings);
-    
+      ValidateParam(includeObjects);
       return OnConfigureInternal(
           bp =>
           {
-            bp.ImportFromMainCampaignSettings = importFromMainCampaignSettings;
+            bp.m_IncludeObjects = bp.m_IncludeObjects.Where(item => !includeObjects.Contains(item)).ToArray();
           });
     }
 
@@ -185,58 +213,84 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IsImportIntoMainCampaignRequired"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcReward.m_IncludeAssetPaths"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetIsImportIntoMainCampaignRequired(bool isImportIntoMainCampaignRequired)
+    public DlcRewardConfigurator SetIncludeAssetPaths(BlueprintDlcReward.AssetPath[]? includeAssetPaths)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_IsImportIntoMainCampaignRequired = isImportIntoMainCampaignRequired;
+            bp.m_IncludeAssetPaths = includeAssetPaths;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.ImportIntoMainCampaignSettings"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDlcReward.m_IncludeAssetPaths"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetImportIntoMainCampaignSettings(DlcSaveImportSettings importIntoMainCampaignSettings)
+    public DlcRewardConfigurator AddToIncludeAssetPaths(params BlueprintDlcReward.AssetPath[] includeAssetPaths)
     {
-      ValidateParam(importIntoMainCampaignSettings);
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IncludeAssetPaths = CommonTool.Append(bp.m_IncludeAssetPaths, includeAssetPaths ?? new BlueprintDlcReward.AssetPath[0]);
+          });
+    }
+
+    /// <summary>
+    /// Removes from <see cref="BlueprintDlcReward.m_IncludeAssetPaths"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DlcRewardConfigurator RemoveFromIncludeAssetPaths(params BlueprintDlcReward.AssetPath[] includeAssetPaths)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IncludeAssetPaths = bp.m_IncludeAssetPaths.Where(item => !includeAssetPaths.Contains(item)).ToArray();
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public DlcRewardConfigurator SetIncludeObjects(Object[]? includeObjects)
+    {
+      ValidateParam(includeObjects);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.ImportIntoMainCampaignSettings = importIntoMainCampaignSettings;
+            bp.m_IncludeObjects = includeObjects;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IsImportFromMainCampaignRequired"/> (Auto Generated)
+    /// Adds to <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetIsImportFromMainCampaignRequired(bool isImportFromMainCampaignRequired)
+    public DlcRewardConfigurator AddToIncludeObjects(params Object[] includeObjects)
     {
+      ValidateParam(includeObjects);
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_IsImportFromMainCampaignRequired = isImportFromMainCampaignRequired;
+            bp.m_IncludeObjects = CommonTool.Append(bp.m_IncludeObjects, includeObjects ?? new Object[0]);
           });
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.ImportFromMainCampaignSettings"/> (Auto Generated)
+    /// Removes from <see cref="BlueprintDlcReward.m_IncludeObjects"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public DlcRewardConfigurator SetImportFromMainCampaignSettings(DlcSaveImportSettings importFromMainCampaignSettings)
+    public DlcRewardConfigurator RemoveFromIncludeObjects(params Object[] includeObjects)
     {
-      ValidateParam(importFromMainCampaignSettings);
-    
+      ValidateParam(includeObjects);
       return OnConfigureInternal(
           bp =>
           {
-            bp.ImportFromMainCampaignSettings = importFromMainCampaignSettings;
+            bp.m_IncludeObjects = bp.m_IncludeObjects.Where(item => !includeObjects.Contains(item)).ToArray();
           });
     }
 

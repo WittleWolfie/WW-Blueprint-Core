@@ -504,9 +504,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     [Implements(typeof(RemoveMythicLevels))]
     public static ActionsBuilder RemoveMythicLevels(
         this ActionsBuilder builder,
+        UnitEvaluator unit,
+        bool specificUnit = default,
         int levels = default)
     {
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<RemoveMythicLevels>();
+      element.SpecificUnit = specificUnit;
+      element.Unit = unit;
       element.Levels = levels;
       return builder.Add(element);
     }

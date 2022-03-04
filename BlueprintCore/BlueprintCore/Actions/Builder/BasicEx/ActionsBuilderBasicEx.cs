@@ -619,9 +619,15 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     [Implements(typeof(GainMythicLevel))]
     public static ActionsBuilder GainMythicLevel(
         this ActionsBuilder builder,
+        UnitEvaluator unit,
+        bool specificUnit = default,
         int levels = default)
     {
+      builder.Validate(unit);
+    
       var element = ElementTool.Create<GainMythicLevel>();
+      element.SpecificUnit = specificUnit;
+      element.Unit = unit;
       element.Levels = levels;
       return builder.Add(element);
     }

@@ -44,17 +44,17 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintDlcRewardCampaign.m_StartGamePreset"/> (Auto Generated)
+    /// Sets <see cref="BlueprintDlcRewardCampaign.m_Campaign"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="startGamePreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
+    /// <param name="campaign"><see cref="Kingmaker.Blueprints.Root.BlueprintCampaign"/></param>
     [Generated]
-    public DlcRewardCampaignConfigurator SetStartGamePreset(string? startGamePreset)
+    public DlcRewardCampaignConfigurator SetCampaign(string? campaign)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_StartGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(startGamePreset);
+            bp.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(campaign);
           });
     }
   }

@@ -365,17 +365,17 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintAreaPreset.m_DlcCampaign"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAreaPreset.m_Campaign"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dlcCampaign"><see cref="Kingmaker.DLC.BlueprintDlcRewardCampaign"/></param>
+    /// <param name="campaign"><see cref="Kingmaker.Blueprints.Root.BlueprintCampaign"/></param>
     [Generated]
-    public TBuilder SetDlcCampaign(string? dlcCampaign)
+    public TBuilder SetCampaign(string? campaign)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_DlcCampaign = BlueprintTool.GetRef<BlueprintDlcRewardCampaignReference>(dlcCampaign);
+            bp.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(campaign);
           });
     }
 
@@ -1428,17 +1428,17 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintAreaPreset.m_DlcCampaign"/> (Auto Generated)
+    /// Sets <see cref="BlueprintAreaPreset.m_Campaign"/> (Auto Generated)
     /// </summary>
     ///
-    /// <param name="dlcCampaign"><see cref="Kingmaker.DLC.BlueprintDlcRewardCampaign"/></param>
+    /// <param name="campaign"><see cref="Kingmaker.Blueprints.Root.BlueprintCampaign"/></param>
     [Generated]
-    public AreaPresetConfigurator SetDlcCampaign(string? dlcCampaign)
+    public AreaPresetConfigurator SetCampaign(string? campaign)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.m_DlcCampaign = BlueprintTool.GetRef<BlueprintDlcRewardCampaignReference>(dlcCampaign);
+            bp.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(campaign);
           });
     }
 

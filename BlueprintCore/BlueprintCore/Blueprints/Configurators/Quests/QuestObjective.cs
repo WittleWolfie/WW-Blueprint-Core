@@ -457,6 +457,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         EncounterType encounter = default,
         int cR = default,
         float modifier = default,
+        bool playerGainsNoExp = default,
         bool dummy = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -468,6 +469,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       component.CR = cR;
       component.Modifier = modifier;
       component.Count = count;
+      component.PlayerGainsNoExp = playerGainsNoExp;
       component.Dummy = dummy;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
