@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.CodeGen.Override
   /// Manual overrides for FieldParameter. Imports adds to existing imports but other fields replace their counterpart
   /// when set.
   /// </summary>
-  public class FieldParamOverride
+  public class ParameterOverride
   {
     public bool Ignore = false;
 
@@ -47,9 +47,9 @@ namespace BlueprintCoreGen.CodeGen.Override
   /// Overrides a field to skip the parameter declaration and requires an assignment statement to assign a constant
   /// values.
   /// </summary>
-  public class ConstantFieldParam : FieldParamOverride
+  public class ConstantParameter : ParameterOverride
   {
-    public ConstantFieldParam(string constantValue) : base()
+    public ConstantParameter(string constantValue) : base()
     {
       IsNullable = false;
       SkipDeclaration = true;
@@ -58,9 +58,9 @@ namespace BlueprintCoreGen.CodeGen.Override
     }
   }
 
-  public class DefaultFieldParam : FieldParamOverride
+  public class DefaultParameter : ParameterOverride
   {
-    public DefaultFieldParam(string defaultValue) : base()
+    public DefaultParameter(string defaultValue) : base()
     {
       IsNullable = false;
       DefaultValue = defaultValue;
@@ -70,9 +70,9 @@ namespace BlueprintCoreGen.CodeGen.Override
   /// <summary>
   /// Overrides a field to make it required (no default value).
   /// </summary>
-  public class RequiredFieldParam : FieldParamOverride
+  public class RequiredParameter : ParameterOverride
   {
-    public RequiredFieldParam() : base()
+    public RequiredParameter() : base()
     {
       IsNullable = false;
       DefaultValue = "";
@@ -83,9 +83,9 @@ namespace BlueprintCoreGen.CodeGen.Override
   /// <summary>
   /// Overrides a field to make it ignored.
   /// </summary>
-  public class IgnoredFieldParam : FieldParamOverride
+  public class IgnoredParameter : ParameterOverride
   {
-    public IgnoredFieldParam() : base()
+    public IgnoredParameter() : base()
     {
       Ignore = true;
     }
@@ -99,13 +99,13 @@ namespace BlueprintCoreGen.CodeGen.Override
     /// <summary>
     /// Maps from a field type to a FieldParamOverride
     /// </summary>
-    public static readonly Dictionary<Type, FieldParamOverride> ByType =
+    public static readonly Dictionary<Type, ParameterOverride> ByType =
       new()
       {
         // Kingmaker.ElementsSystem.ActionList
         {
           typeof(ActionList),
-          new FieldParamOverride
+          new ParameterOverride
           {
             Imports = new() { typeof(ActionsBuilder), typeof(Constants) },
             TypeName = "ActionsBuilder",
@@ -119,7 +119,7 @@ namespace BlueprintCoreGen.CodeGen.Override
         // Kingmaker.ElementsSystem.Conditions
         {
           typeof(ConditionsChecker),
-          new FieldParamOverride
+          new ParameterOverride
           {
             Imports = new() { typeof(ConditionsBuilder), typeof(Constants) },
             TypeName = "ConditionsBuilder",
@@ -135,7 +135,7 @@ namespace BlueprintCoreGen.CodeGen.Override
         // Kingmaker.UnitLogic.Mechanics.ContextDiceValue
         {
           typeof(ContextDiceValue),
-          new FieldParamOverride
+          new ParameterOverride
           {
             Imports = new() { typeof(Constants) },
             ValidationFmt = new(),
@@ -146,7 +146,7 @@ namespace BlueprintCoreGen.CodeGen.Override
         // Kingmaker.UnitLogic.Mechanics.ContextValue
         {
           typeof(ContextValue),
-          new FieldParamOverride
+          new ParameterOverride
           {
             Imports = new() { typeof(ContextValues) },
             ValidationFmt = new(),
@@ -157,7 +157,7 @@ namespace BlueprintCoreGen.CodeGen.Override
         // Kingmaker.Localization.LocalizedString
         {
           typeof(LocalizedString),
-          new FieldParamOverride
+          new ParameterOverride
           {
             Imports = new() { typeof(Constants) },
             ValidationFmt = new(),
@@ -168,7 +168,7 @@ namespace BlueprintCoreGen.CodeGen.Override
         // Kingmaker.ResourceLinks.PrefabLink
         {
           typeof(PrefabLink),
-          new FieldParamOverride
+          new ParameterOverride
           {
             Imports = new() { typeof(Constants) },
             ValidationFmt = new(),
@@ -183,7 +183,7 @@ namespace BlueprintCoreGen.CodeGen.Override
     /// Maps from a source type to a map of FieldOverride by name. Use this for shared fields in a parent class. For
     /// fields in the type being constructed, use MethodOverride.
     /// </summary>
-    public static readonly Dictionary<Type, Dictionary<string, FieldParamOverride>> ByName =
+    public static readonly Dictionary<Type, Dictionary<string, ParameterOverride>> ByName =
       new()
       {
         // Kingmaker.ElementSystem.Condition
@@ -193,7 +193,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             {
               "Not",
-              new FieldParamOverride
+              new ParameterOverride
               {
                 IsNullable = false,
                 ParamName = "negate",
@@ -212,7 +212,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             {
               "name",
-              new IgnoredFieldParam()
+              new IgnoredParameter()
             }
           }
         },
@@ -224,15 +224,15 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             {
               "m_Flags",
-              new IgnoredFieldParam()
+              new IgnoredParameter()
             },
             {
               "m_PrototypeLink",
-              new IgnoredFieldParam()
+              new IgnoredParameter()
             },
             {
               "name",
-              new IgnoredFieldParam()
+              new IgnoredParameter()
             },
           }
         },
@@ -244,7 +244,7 @@ namespace BlueprintCoreGen.CodeGen.Override
           {
             {
               "m_HasIsAllyEffectRunConditions",
-              new IgnoredFieldParam()
+              new IgnoredParameter()
             }
           }
         },

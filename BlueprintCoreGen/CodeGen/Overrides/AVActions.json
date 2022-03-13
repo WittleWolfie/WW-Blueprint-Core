@@ -1,0 +1,14 @@
+{
+  "Actions": [
+    {
+      "TypeName": "ContextActionRunAnimationClip",
+      "RequiredFields": [ "ClipWrapper" ],
+      "DefaultFields": [
+        {
+          "FieldName": "Mode",
+          "Value": "ExecutionMode.Interrupted"
+        }
+      ]
+    }
+  ]
+}

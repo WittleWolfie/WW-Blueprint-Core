@@ -1,236 +1,22 @@
 ﻿using BlueprintCore.Blueprints;
 using BlueprintCore.Utils;
+using BlueprintCoreGen.CodeGen.Methods;
+using BlueprintCoreGen.CodeGen.Override;
+using BlueprintCoreGen.CodeGen.Params;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.Blueprints.Items.Equipment;
+using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Dungeon.Actions;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BlueprintCoreGen.CodeGen.Override
+namespace BlueprintCoreGen.CodeGen
 {
-  public class Field
-  {
-    /// <summary>
-    /// Name of the field.
-    /// </summary>
-    public string FieldName { get; }
-  }
-
-  /// <summary>
-  /// Represents a field with a specific default value.
-  /// </summary>
-  public class DefaultField : Field
-  {
-    /// <summary>
-    /// The default value of the field.
-    /// </summary>
-    public string Value { get; }
-  }
-
-  /// <summary>
-  /// Represents a field with a constant value.
-  /// </summary>
-  public class ConstantField : Field
-  {
-    /// <summary>
-    /// The constant value of the field.
-    /// </summary>
-    public string Value { get; }
-  }
-
-  public class CustomField : Field
-  {
-    /// <summary>
-    /// Indicates whether the field is required when building the action.
-    /// </summary>
-    public bool Required { get; }
-
-    /// <summary>
-    /// Name of the field when provided as a function parameter.
-    /// </summary>
-    public string ParamName { get; }
-
-    /// <summary>
-    /// Additional lines of code added after assigning the field's value.
-    /// </summary>
-    public List<string> ExtraAssignmentFmtLines { get; } = new();
-  }
-
-  /// <summary>
-  /// Represents an "Action" game type.
-  /// </summary>
-  public class Action
-  {
-    /// <summary>
-    /// All action builder methods are grouped into extension classes. This determines which class contains the
-    /// methods for building the action.
-    /// </summary>
-    public enum ExtensionType
-    {
-      Area,
-      AV,
-      Basic,
-      Context,
-      Kingdom,
-      Misc,
-      New,
-      Story,
-      Upgrader
-    }
-
-    /// <summary>
-    /// The type name of the action. If there is a type name conflict this must be fully qualified.
-    /// </summary>
-    public string TypeName { get; }
-
-    /// <summary>
-    /// Indicates which extension class contains builder methods for the action.
-    /// </summary>
-    public ExtensionType Extension { get; }
-
-    /// <summary>
-    /// Remarks added to the method's comments. Uses XML Doc syntax. Each entry is a new line.
-    /// </summary>
-    public List<string> Remarks { get; }
-
-    /// <summary>
-    /// A list of types to import (by name).
-    /// </summary>
-    public List<string> Imports { get; } = new();
-
-    /// <summary>
-    /// List of fields (by name) required when building the action.
-    /// </summary>
-    public List<string> RequiredFields { get; } = new();
-
-    /// <summary>
-    /// List of fields (by name) ignored when building the action.
-    /// </summary>
-    public List<string> IgnoredFields { get; } = new();
-
-    /// <summary>
-    /// List of fields (by name) and their default values.
-    /// </summary>
-    public List<DefaultField> DefaultFields { get; } = new();
-
-    /// <summary>
-    /// List of fields (by name) and their constant values.
-    /// </summary>
-    public List<ConstantField> ConstantFields { get; } = new();
-
-    /// <summary>
-    /// List of fields (by name) to customize.
-    /// </summary>
-    public List<CustomField> CustomFields { get; } = new();
-
-    public List<Method>? Methods { get; }
-  }
-
-  public class Method
-  {
-    public List<string> Imports { get; } = new();
-
-    public List<string> Comments { get; } = new();
-
-    public List<Blueprint> Examples { get; } = new();
-
-    public string Name { get; }
-
-    public List<string> RequiredFields { get; } = new();
-
-    public List<string> IgnoredFields { get; } = new();
-
-    public List<FieldParameter> FieldParameters { get; }
-
-    public List<Parameter> Parameters { get; }
-  }
-
-  public class Parameter
-  {
-    public List<string> Imports { get; } = new();
-
-    public string ParamName { get; }
-
-    public List<string> Comments { get; }
-
-    public string DefaultValue { get; }
-
-    public List<string> OperationFmt { get; }
-  }
-
-  public class FieldParameter : Parameter
-  {
-    public string Name { get; }
-
-    public List<string> AssignmentFmt { get; }
-  }
-
-  public struct Blueprint
-  {
-    public string Name { get; }
-
-    public string Guid { get; }
-  }
-
-  /// <summary>
-  /// Represents an extra parameter applied to a method as an override.
-  /// </summary>
-  public class ExtraParameter : IParameterInternal
-  {
-    public bool SkipDeclaration => false;
-
-    public List<Type> Imports => new();
-
-    public List<string> Comment { get; } = new();
-
-    public bool Required => string.IsNullOrEmpty(DefaultValue);
-
-    public string Declaration => Required ? $"{Type} {ParamName}" : $"{Type}? {ParamName} = {DefaultValue}";
-
-    public string ParamName { get; private set; }
-
-    private readonly string? DefaultValue;
-    private readonly string Type;
-
-    /// <summary>
-    /// Operation format string where {0} is the object name and {1} is the parameter name, and {2} is the
-    /// validation function.
-    /// </summary>
-    private List<string> OperationFmt = new();
-
-    public List<string> GetOperation(string objectName, string validateFunction)
-    {
-      return OperationFmt.Select(line => string.Format(line, objectName, ParamName, validateFunction)).ToList();
-    }
-
-    public ExtraParameter(string paramName, string type, string? defaultValue = null)
-    {
-      ParamName = paramName;
-      Type = type;
-      DefaultValue = defaultValue;
-    }
-
-    /// <summary>
-    /// Adds comment format lines where {0} is the parameter name.
-    /// </summary>
-    public ExtraParameter WithCommentFmt(params string[] linesFmt)
-    {
-      Comment.AddRange(
-        linesFmt.Prepend("<param name=\"{0}\">").Append("</param>").Select(line => string.Format(line, ParamName)));
-      return this;
-    }
-
-    public ExtraParameter SetOperationFmt(params string[] lines)
-    {
-      OperationFmt = lines.ToList();
-      return this;
-    }
-  }
 
   /// <summary>
   /// Helper class to build method remarks.
@@ -281,78 +67,6 @@ namespace BlueprintCoreGen.CodeGen.Override
       }
       result.Add("</remarks>");
       return result;
-    }
-  }
-
-  /// <summary>
-  /// Manual overrides for a method. 
-  /// </summary>
-  public class MethodOverride
-  {
-    public List<Type> Imports = new();
-
-    public List<string> Remarks = new();
-
-    public string? Name;
-
-    public Dictionary<string, FieldParamOverride> FieldOverridesByName = new();
-
-    public List<ExtraParameter> ExtraParameters = new();
-
-    public MethodOverride AddImports(params Type[] types)
-    {
-      Imports.AddRange(types);
-      return this;
-    }
-
-    public MethodOverride WithRemarks(Remarks remarks)
-    {
-      Remarks = remarks.ToList();
-      return this;
-    }
-
-    public MethodOverride UseName(string methodName)
-    {
-      Name = methodName;
-      return this;
-    }
-
-    public MethodOverride RequireFields(params string[] fieldNames)
-    {
-      fieldNames.ToList().ForEach(name => FieldOverridesByName.Add(name, new RequiredFieldParam()));
-      return this;
-    }
-
-    public MethodOverride IgnoreFields(params string[] fieldNames)
-    {
-      fieldNames.ToList().ForEach(name => FieldOverridesByName.Add(name, new IgnoredFieldParam()));
-      return this;
-    }
-
-    public MethodOverride SetConstantFields(params (string name, string value)[] constantFields)
-    {
-      constantFields.ToList().ForEach(
-          field => FieldOverridesByName.Add(field.name, new ConstantFieldParam(field.value)));
-      return this;
-    }
-
-    public MethodOverride SetDefaultFields(params (string name, string value)[] defaultFields)
-    {
-      defaultFields.ToList().ForEach(
-          field => FieldOverridesByName.Add(field.name, new DefaultFieldParam(field.value)));
-      return this;
-    }
-
-    public MethodOverride OverrideFields(params (string name, FieldParamOverride overrideValue)[] overrideFields)
-    {
-      overrideFields.ToList().ForEach(field => FieldOverridesByName.Add(field.name, field.overrideValue));
-      return this;
-    }
-
-    public MethodOverride AddExtraParameters(params ExtraParameter[] extraParameters)
-    {
-      ExtraParameters.AddRange(extraParameters);
-      return this;
     }
   }
 
@@ -514,7 +228,7 @@ namespace BlueprintCoreGen.CodeGen.Override
               .RequireFields("Damage")
               .OverrideFields(
                 ("DamageSource",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ExtraAssignmentFmtLines = new() { "{0}.NoSource = {1} is null;" }
                   })))
@@ -527,7 +241,7 @@ namespace BlueprintCoreGen.CodeGen.Override
               .RequireFields("Target", "Damage")
               .OverrideFields(
                 ("Source",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ExtraAssignmentFmtLines = new() { "{0}.NoSource = {1} is null;" }
                   })))
@@ -540,7 +254,7 @@ namespace BlueprintCoreGen.CodeGen.Override
               .RequireFields("Target", "Stat", "DamageDice")
               .OverrideFields(
                 ("Source",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ExtraAssignmentFmtLines = new() { "{0}.NoSource = {1} is null;" }
                   })))
@@ -552,12 +266,12 @@ namespace BlueprintCoreGen.CodeGen.Override
             new MethodOverride()
               .UseName("AddItems")
               .OverrideFields(
-                ("Loot", new RequiredFieldParam { ParamName = "items" }),
-                ("ItemsCollection", new RequiredFieldParam { ParamName = "toCollection" })),
+                ("Loot", new RequiredParameter { ParamName = "items" }),
+                ("ItemsCollection", new RequiredParameter { ParamName = "toCollection" })),
             new MethodOverride()
               .UseName("AddItemsFromBlueprint")
               .RequireFields("m_BlueprintLoot")
-              .OverrideFields(("ItemsCollection", new RequiredFieldParam { ParamName = "toCollection" })))
+              .OverrideFields(("ItemsCollection", new RequiredParameter { ParamName = "toCollection" })))
         },
 
         // Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemToPlayer
@@ -570,7 +284,7 @@ namespace BlueprintCoreGen.CodeGen.Override
               .IgnoreFields("Equip", "EquipOn", "ErrorIfDidNotEquip", "PreferredWeaponSet")
               .OverrideFields(
                 ("m_ItemToGive",
-                new RequiredFieldParam
+                new RequiredParameter
                 {
                   Imports = new() { typeof(BlueprintItemEquipmentHand), typeof(BlueprintItemEquipment) },
                   ExtraAssignmentFmtLines =
@@ -593,7 +307,7 @@ namespace BlueprintCoreGen.CodeGen.Override
               .IgnoreFields("PreferredWeaponSet")
               .OverrideFields(
                 ("m_ItemToGive",
-                new RequiredFieldParam
+                new RequiredParameter
                 {
                   Imports = new() { typeof(BlueprintItemEquipmentHand), typeof(BlueprintItemEquipment) },
                   ExtraAssignmentFmtLines =
@@ -615,7 +329,7 @@ namespace BlueprintCoreGen.CodeGen.Override
               .WithRemarks(AddItemToPlayerRemarks)
               .OverrideFields(
                 ("m_ItemToGive",
-                new RequiredFieldParam
+                new RequiredParameter
                 {
                   Imports = new() { typeof(BlueprintItemEquipmentHand), typeof(BlueprintItemEquipment) },
                   ExtraAssignmentFmtLines =
@@ -993,14 +707,14 @@ namespace BlueprintCoreGen.CodeGen.Override
               .IgnoreFields("OverrideDC", "OverrideSpellLevel")
               .OverrideFields(
                 ("DC",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ParamName = "overrideDC",
                     CommentFmt = new() { "Overrides the default spell DC" },
                     ExtraAssignmentFmtLines = new() { "{0}.OverrideDC = overrideDC is not null;" }
                   }),
                 ("SpellLevel",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ParamName = "overrideSpellLevel",
                     CommentFmt = new() { "Overrides the default spell level" },
@@ -1025,9 +739,9 @@ namespace BlueprintCoreGen.CodeGen.Override
                 "WithLeader")
               .SetConstantFields(("Faction", "ArmyFaction.Crusaders"))
               .OverrideFields(
-                ("Preset", new RequiredFieldParam { ParamName = "army" }),
+                ("Preset", new RequiredParameter { ParamName = "army" }),
                 ("ArmyLeader",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ParamName = "leader",
                     ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
@@ -1044,15 +758,15 @@ namespace BlueprintCoreGen.CodeGen.Override
               .SetConstantFields(
                 ("Faction", "ArmyFaction.Demons"))
               .OverrideFields(
-                ("Preset", new RequiredFieldParam { ParamName = "army" }),
+                ("Preset", new RequiredParameter { ParamName = "army" }),
                 ("ArmyLeader",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ParamName = "leader",
                     ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }
                   }),
                 ("m_MoveTarget",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ParamName = "targetNearestEnemy",
                     TypeName = "bool",
@@ -1072,10 +786,10 @@ namespace BlueprintCoreGen.CodeGen.Override
                 ("Faction", "ArmyFaction.Demons"),
                 ("m_MoveTarget", "TravelLogicType.Location"))
               .OverrideFields(
-                ("Preset", new RequiredFieldParam { ParamName = "army" }),
-                ("Location", new RequiredFieldParam { ParamName = "spawnLocation" }),
+                ("Preset", new RequiredParameter { ParamName = "army" }),
+                ("Location", new RequiredParameter { ParamName = "spawnLocation" }),
                 ("ArmyLeader",
-                  new FieldParamOverride
+                  new ParameterOverride
                   {
                     ParamName = "leader",
                     ExtraAssignmentFmtLines = new() { "{0}.WithLeader = leader is not null;" }

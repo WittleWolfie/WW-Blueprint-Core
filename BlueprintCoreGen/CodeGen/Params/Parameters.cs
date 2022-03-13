@@ -1,0 +1,314 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BlueprintCoreGen.CodeGen.Params
+{
+  /// <summary>
+  /// Represents a method input parameter in a constructor method. i.e. Parameters in builder methods and configurator
+  /// component methods.
+  /// </summary>
+  public interface IParameter
+  {
+    /// <summary>
+    /// List of types to import.
+    /// </summary>
+    List<Type> Imports { get; }
+
+    /// <summary>
+    /// Parameter comment
+    /// </summary>
+    List<string> Comment { get; }
+
+    /// <summary>
+    /// Parameter declaration, e.g. <c>string name</c>
+    /// </summary>
+    string Declaration { get; }
+
+    /// <summary>
+    /// Returns a statement which uses the parameter to operate on the object. Typically this is assigning the 
+    /// parameter value to a field in the object. The provided validation function is called on the parameter before
+    /// assignment.
+    /// </summary>
+    List<string> GetOperation(string objectName, string validateFunction);
+  }
+
+  /// <summary>
+  /// Internal representation of a parameter used in ParametersFactory.
+  /// </summary>
+  public interface IParameterInternal : IParameter
+  {
+    /// <summary>
+    /// If true the parameter is required and should be included in method parameter lists before optional parameters.
+    /// </summary>
+    bool Required { get; }
+
+    /// <summary>
+    /// Name of the parameter
+    /// </summary>
+    string ParamName { get; }
+  }
+
+
+  /// <summary>
+  /// Internal representation of a parameter used to specify a field value.
+  /// </summary>
+  public class FieldParameter : IParameterInternal
+  {
+    /// <summary>
+    /// If true the field should be ignored in method parameters.
+    /// </summary>
+    public bool Ignore { get; private set; } = false;
+
+    public List<Type> Imports { get; }
+
+    /// <summary>
+    /// If true the declaration should be left out
+    /// </summary>
+    private bool SkipDeclaration = false;
+
+    /// <summary>
+    /// If true appends `?` to the type name
+    /// </summary>
+    private bool IsNullable = true;
+
+    public List<string> Comment => GetComment();
+    public string Declaration => GetDeclaration();
+
+    private string FieldName { get; }
+    public string ParamName { get; private set; }
+    private string TypeName { get; set; }
+
+    /// <summary>
+    /// Comment format string where {0} is the parameter name
+    /// </summary>
+    private List<string> CommentFmt { get; set; }
+
+    /// <summary>
+    /// Default value for optional parameters
+    /// </summary>
+    public string? DefaultValue { get; private set; }
+
+    public bool Required => string.IsNullOrEmpty(DefaultValue);
+
+    /// <summary>
+    /// Validation format string where {0} is the validation function and {1} is the parameter name
+    /// </summary>
+    private List<string> ValidationFmt { get; set; }
+
+    /// <summary>
+    /// Assignment format string for the right hand side of an assignment statement, where {0} is the parameter name
+    /// </summary>
+    private string AssignmentFmtRhs { get; set; }
+
+    /// <summary>
+    /// Assignment string for the right hand side of an assignment statement if the field is null
+    /// </summary>
+    private string? AssignmentIfNullRhs { get; set; }
+
+    /// <summary>
+    /// Assignment format strings for additional lines of code after the assignment statement, where {0} is the
+    /// object name and {1} is the parameter name
+    /// </summary>
+    private List<string> ExtraAssignmentFmtLines { get; set; }
+
+    public FieldParameter(
+        string fieldName,
+        string paramName,
+        string typeName,
+        List<Type> imports,
+        List<string> commentFmt,
+        string defaultValue,
+        List<string> validationFmt,
+        string assignmentRhsFmt,
+        string assignmentIfNullRhs)
+    {
+      FieldName = fieldName;
+      ParamName = paramName;
+      TypeName = typeName;
+
+      Imports = imports;
+      CommentFmt = commentFmt;
+      DefaultValue = defaultValue;
+
+      ValidationFmt = validationFmt;
+      AssignmentFmtRhs = assignmentRhsFmt;
+      AssignmentIfNullRhs = assignmentIfNullRhs;
+      ExtraAssignmentFmtLines = new();
+    }
+
+    public void MakeRequired()
+    {
+      IsNullable = false;
+      DefaultValue = string.Empty;
+      AssignmentIfNullRhs = string.Empty;
+    }
+
+    public void MakeIgnored()
+    {
+      Ignore = true;
+    }
+
+    public void SetConstantValue(string value)
+    {
+      IsNullable = false;
+      SkipDeclaration = true;
+      AssignmentFmtRhs = value;
+      AssignmentIfNullRhs = string.Empty;
+    }
+
+    public void SetDefaultValue(string value)
+    {
+      IsNullable = false;
+      DefaultValue = value;
+    }
+
+    public void SetParamName(string paramName)
+    {
+      ParamName = paramName;
+    }
+
+    public void SetExtraAssignmentFmtLines(List<string> extraAssignmentFmtLines)
+    {
+      ExtraAssignmentFmtLines = extraAssignmentFmtLines;
+    }
+
+    public void ApplyOverride(FieldParameterOverride fieldOverride)
+    {
+      Ignore = fieldOverride.Ignore;
+      SkipDeclaration = fieldOverride.SkipDeclaration;
+      IsNullable = fieldOverride.IsNullable ?? IsNullable;
+
+      Imports.AddRange(fieldOverride.Imports);
+      ParamName = fieldOverride.ParamName ?? ParamName;
+      TypeName = fieldOverride.TypeName ?? TypeName;
+      CommentFmt = fieldOverride.CommentFmt ?? CommentFmt;
+      DefaultValue = fieldOverride.DefaultValue ?? DefaultValue;
+
+      ValidationFmt = fieldOverride.ValidationFmt ?? ValidationFmt;
+      AssignmentFmtRhs = fieldOverride.AssignmentRhsFmt ?? AssignmentFmtRhs;
+      AssignmentIfNullRhs = fieldOverride.AssignmentIfNullRhs ?? AssignmentIfNullRhs;
+      ExtraAssignmentFmtLines = fieldOverride.ExtraAssignmentFmtLines ?? ExtraAssignmentFmtLines;
+    }
+
+    private List<string> GetComment()
+    {
+      if (CommentFmt.Any())
+      {
+        return CommentFmt.Prepend("<param name=\"{0}\">")
+          .Append("</param>")
+          .Select(line => string.Format(line, ParamName))
+          .ToList();
+      }
+      return CommentFmt;
+    }
+
+    private string GetDeclaration()
+    {
+      if (SkipDeclaration) { return ""; }
+
+      var declaration = IsNullable ? $"{TypeName}? {ParamName}" : $"{TypeName} {ParamName}";
+      return string.IsNullOrEmpty(DefaultValue)
+          ? declaration
+          : $"{declaration} = {DefaultValue}";
+    }
+
+    public List<string> GetOperation(string objectName, string validateFunction)
+    {
+      List<string> assignment = new();
+      assignment.AddRange(ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)));
+
+      if (IsNullable)
+      {
+        assignment.Add(
+            string.Format($"{objectName}.{FieldName} = {AssignmentFmtRhs} ?? {objectName}.{FieldName};", ParamName));
+      }
+      else
+      {
+        assignment.Add(string.Format($"{objectName}.{FieldName} = {AssignmentFmtRhs};", ParamName));
+      }
+
+      return assignment.Concat(GetExtraAssignmentLines(objectName)).Concat(GetAssignmentIfNull(objectName)).ToList();
+    }
+
+    private List<string> GetExtraAssignmentLines(string objectName)
+    {
+      if (!ExtraAssignmentFmtLines.Any())
+      {
+        return new();
+      }
+
+      return ExtraAssignmentFmtLines.Select(line => string.Format($"{line}", objectName, ParamName)).ToList();
+    }
+
+    private List<string> GetAssignmentIfNull(string objectName)
+    {
+      if (string.IsNullOrEmpty(AssignmentIfNullRhs))
+      {
+        return new();
+      }
+
+      List<string> assignmentIfNull = new();
+      assignmentIfNull.Add($"if ({objectName}.{FieldName} is null)");
+      assignmentIfNull.Add($"{{");
+      assignmentIfNull.Add($"  {objectName}.{FieldName} = {AssignmentIfNullRhs};");
+      assignmentIfNull.Add($"}}");
+      return assignmentIfNull;
+    }
+  }
+  
+  /// <summary>
+  /// Represents an extra parameter applied to a method as an override.
+  /// </summary>
+  public class ExtraParameter : IParameterInternal
+  {
+    public List<Type> Imports => new();
+
+    public List<string> Comment { get; } = new();
+
+    public bool Required => string.IsNullOrEmpty(DefaultValue);
+
+    public string Declaration => Required ? $"{Type} {ParamName}" : $"{Type}? {ParamName} = {DefaultValue}";
+
+    public string ParamName { get; private set; }
+
+    private readonly string? DefaultValue;
+    private readonly string Type;
+
+    /// <summary>
+    /// Operation format string where {0} is the object name and {1} is the parameter name, and {2} is the
+    /// validation function.
+    /// </summary>
+    private List<string> OperationFmt = new();
+
+    public List<string> GetOperation(string objectName, string validateFunction)
+    {
+      return OperationFmt.Select(line => string.Format(line, objectName, ParamName, validateFunction)).ToList();
+    }
+
+    public ExtraParameter(string paramName, string type, string? defaultValue = null)
+    {
+      ParamName = paramName;
+      Type = type;
+      DefaultValue = defaultValue;
+    }
+
+    /// <summary>
+    /// Adds comment format lines where {0} is the parameter name.
+    /// </summary>
+    public ExtraParameter WithCommentFmt(params string[] linesFmt)
+    {
+      Comment.AddRange(
+        linesFmt.Prepend("<param name=\"{0}\">").Append("</param>").Select(line => string.Format(line, ParamName)));
+      return this;
+    }
+
+    public ExtraParameter SetOperationFmt(params string[] lines)
+    {
+      OperationFmt = lines.ToList();
+      return this;
+    }
+  }
+}

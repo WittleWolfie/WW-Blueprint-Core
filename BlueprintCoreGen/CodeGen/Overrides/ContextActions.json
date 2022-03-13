@@ -1,0 +1,66 @@
+{
+  "Actions": [
+    {
+      "TypeName": "ContextActionArmorEnchantPool",
+      "Remarks": [
+        "The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
+      ],
+      "Examples": [
+        {
+          "BlueprintName": "SacredArmorEnchantSwitchAbility",
+          "BlueprintGuid": "66484ebb8d358db4692ef4445fa6ac35"
+        }
+      ],
+      "Imports": [
+        "BlueprintTool",
+        "BlueprintItemEnchantment",
+        "BlueprintItemEnchantmentReference",
+        "ItemEnchantments"
+      ],
+      "RequiredFields": [ "EnchantPool", "DurationValue" ],
+      "IgnoredFields": [ "m_DefaultEnchantments" ],
+      "ExtraParams": [
+        {
+          "ParamName": "enchantmentPlus1",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus1",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"
+          ]
+        },
+        {
+          "ParamName": "enchantmentPlus2",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus2",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"
+          ]
+        },
+        {
+          "ParamName": "enchantmentPlus3",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus3",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"
+          ]
+        },
+        {
+          "ParamName": "enchantmentPlus4",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus4",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"
+          ]
+        },
+        {
+          "ParamName": "enchantmentPlus5",
+          "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+          "Comment": "Defaults to TemporaryArmorEnhancementBonus5",
+          "OperationFmt": [
+            "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;"
+          ]
+        }
+      ]
+    }
+  ]
+}
