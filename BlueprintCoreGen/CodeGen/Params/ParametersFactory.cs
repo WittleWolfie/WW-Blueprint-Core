@@ -1,5 +1,7 @@
 ﻿using BlueprintCoreGen.CodeGen.Methods;
 using BlueprintCoreGen.CodeGen.Override;
+using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +29,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     {
       return
         objectType.GetFields()
-          .Where(fieldInfo => !ShouldIgnore(fieldInfo))
+          .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
           .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType, methodOverride))
           .Where(fieldParam => !fieldParam.Ignore)
           .Select(fieldParam => fieldParam as IParameterInternal)
@@ -39,8 +41,23 @@ namespace BlueprintCoreGen.CodeGen.Params
           .ToList();
     }
 
-    private static bool ShouldIgnore(FieldInfo info)
+    private static readonly Dictionary<Type, List<string>> IgnoredFields =
+      new()
+      {
+        { typeof(Element), new() { "name" } },
+        { typeof(BlueprintComponent), new() { "m_Flags", "m_PrototypeLink", "name" } },
+      };
+
+    /// <summary>
+    /// Returns if the field should be ignored.
+    /// </summary>
+    private static bool ShouldIgnore(FieldInfo info, Type sourceType)
     {
+      if (IgnoredFields.ContainsKey(sourceType) && IgnoredFields[sourceType].Contains(info.Name))
+      {
+        return true;
+      }
+
       return info.Name.Contains("__BackingField") // Compiler generated field
                                                   // Skip constant, static, and read-only
           || info.IsLiteral
@@ -93,20 +110,6 @@ namespace BlueprintCoreGen.CodeGen.Params
       return param;
     }
 
-    private static string GetParamName(string fieldName)
-    {
-      StringBuilder paramName = new(fieldName);
-      if (paramName[0] == 'm' && paramName[1] == '_')
-      {
-        paramName.Remove(0, 2);
-      }
-      paramName[0] = char.ToLower(paramName[0]);
-
-      var result = paramName.ToString();
-      if (NameOverrides.ContainsKey(result)) { return NameOverrides[result]; }
-      return result;
-    }
-
     /// <summary>
     /// These ensure GetParamName returns a name that will compile successfully. This is for things like 'm_Class'
     /// which would map to a parameter name of 'class' normally.
@@ -123,6 +126,23 @@ namespace BlueprintCoreGen.CodeGen.Params
             { "continue", "continueValue" },
             { "double", "doubleValue" }
           };
+
+    /// <summary>
+    /// Returns a parameter name derived from the field name.
+    /// </summary>
+    private static string GetParamName(string fieldName)
+    {
+      StringBuilder paramName = new(fieldName);
+      if (paramName[0] == 'm' && paramName[1] == '_')
+      {
+        paramName.Remove(0, 2);
+      }
+      paramName[0] = char.ToLower(paramName[0]);
+
+      var result = paramName.ToString();
+      if (NameOverrides.ContainsKey(result)) { return NameOverrides[result]; }
+      return result;
+    }
 
     private static string GetTypeName(Type type, Type? blueprintType, Type? enumerableType)
     {

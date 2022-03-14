@@ -1,0 +1,43 @@
+[
+  // Contains type specific field parameter overrides.
+  // List of FieldTypeOverride.
+  {
+    "TypeName": "ActionList",
+    "TypeNameOverride": "ActionsBuilder",
+    "Imports": [ "ActionsBuilder", "Constants" ],
+    "AssignmentRhsFmt": "{0}.Build()",
+    "AssignmentIfNullRhs": "Constants.Empty.Actions"
+  },
+
+  {
+    "TypeName": "ConditionsChecker",
+    "TypeNameOverride": "ConditionsBuilder",
+    "Imports": [ "ConditionsBuilder", "Constants" ],
+    "AssignmentRhsFmt": "{0}.Build()",
+    "AssignmentIfNullRhs": "Constants.Empty.Conditions"
+  },
+
+  {
+    "TypeName": "ContextDiceValue",
+    "Imports": [ "Constants" ],
+    "AssignmentIfNullRhs": "Constants.Empty.DiceValue"
+  },
+
+  {
+    "TypeName": "ContextValue",
+    "Imports": [ "ContextValues" ],
+    "AssignmentIfNullRhs": "ContextValues.Constant(0)"
+  },
+
+  {
+    "TypeName": "LocalizedString",
+    "Imports": [ "Constants" ],
+    "AssignmentIfNullRhs": "Constants.Empty.String"
+  },
+
+  {
+    "TypeName": "PrefabLink",
+    "Imports": [ "Constants" ],
+    "AssignmentIfNullRhs": "Constants.Empty.PrefabLink"
+  }
+]

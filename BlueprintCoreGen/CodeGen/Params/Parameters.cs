@@ -139,6 +139,16 @@ namespace BlueprintCoreGen.CodeGen.Params
       ExtraAssignmentFmtLines = new();
     }
 
+    public void SetTypeName(string typeName)
+    {
+      TypeName = typeName;
+    }
+
+    public void SetIsNullable(bool isNullable)
+    {
+      IsNullable = isNullable;
+    }
+
     public void MakeRequired()
     {
       IsNullable = false;
@@ -149,6 +159,21 @@ namespace BlueprintCoreGen.CodeGen.Params
     public void MakeIgnored()
     {
       Ignore = true;
+    }
+
+    public void SkipValidation()
+    {
+      ValidationFmt.Clear();
+    }
+
+    public void SetAssignmentFmtRhs(string assignmentFmtRhs)
+    {
+      AssignmentFmtRhs = assignmentFmtRhs;
+    }
+
+    public void SetAssignmentIfNullRhs(string assignmentIfNullRhs)
+    {
+      AssignmentIfNullRhs = assignmentIfNullRhs;
     }
 
     public void SetConstantValue(string value)
@@ -173,24 +198,6 @@ namespace BlueprintCoreGen.CodeGen.Params
     public void SetExtraAssignmentFmtLines(List<string> extraAssignmentFmtLines)
     {
       ExtraAssignmentFmtLines = extraAssignmentFmtLines;
-    }
-
-    public void ApplyOverride(FieldParameterOverride fieldOverride)
-    {
-      Ignore = fieldOverride.Ignore;
-      SkipDeclaration = fieldOverride.SkipDeclaration;
-      IsNullable = fieldOverride.IsNullable ?? IsNullable;
-
-      Imports.AddRange(fieldOverride.Imports);
-      ParamName = fieldOverride.ParamName ?? ParamName;
-      TypeName = fieldOverride.TypeName ?? TypeName;
-      CommentFmt = fieldOverride.CommentFmt ?? CommentFmt;
-      DefaultValue = fieldOverride.DefaultValue ?? DefaultValue;
-
-      ValidationFmt = fieldOverride.ValidationFmt ?? ValidationFmt;
-      AssignmentFmtRhs = fieldOverride.AssignmentRhsFmt ?? AssignmentFmtRhs;
-      AssignmentIfNullRhs = fieldOverride.AssignmentIfNullRhs ?? AssignmentIfNullRhs;
-      ExtraAssignmentFmtLines = fieldOverride.ExtraAssignmentFmtLines ?? ExtraAssignmentFmtLines;
     }
 
     private List<string> GetComment()

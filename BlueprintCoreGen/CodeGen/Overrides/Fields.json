@@ -1,0 +1,9 @@
+[
+  // Contains field specific parameter overrides.
+  // List of FieldOverride.
+  {
+    "SourceTypeName": "Condition",
+    "ParamName": "negate",
+    "DefaultValue": "false"
+  }
+]
