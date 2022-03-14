@@ -1,5 +1,5 @@
 ﻿using BlueprintCore.Utils;
-using BlueprintCoreGen.CodeGen.Override;
+using BlueprintCoreGen.CodeGen.Params;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;

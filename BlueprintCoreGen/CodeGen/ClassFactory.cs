@@ -1,4 +1,5 @@
 ﻿using BlueprintCoreGen.CodeGen.Builders;
+using BlueprintCoreGen.CodeGen.Methods;
 using System;
 using System.Collections.Generic;
 using System.Linq;

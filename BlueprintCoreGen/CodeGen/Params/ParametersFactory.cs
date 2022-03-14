@@ -1,7 +1,5 @@
 ﻿using BlueprintCoreGen.CodeGen.Methods;
-using BlueprintCoreGen.CodeGen.Override;
-using Kingmaker.Blueprints;
-using Kingmaker.ElementsSystem;
+using static BlueprintCoreGen.CodeGen.Overrides.GlobalOverrides;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,13 +38,6 @@ namespace BlueprintCoreGen.CodeGen.Params
           .Select(field => field as IParameter)
           .ToList();
     }
-
-    private static readonly Dictionary<Type, List<string>> IgnoredFields =
-      new()
-      {
-        { typeof(Element), new() { "name" } },
-        { typeof(BlueprintComponent), new() { "m_Flags", "m_PrototypeLink", "name" } },
-      };
 
     /// <summary>
     /// Returns if the field should be ignored.
@@ -88,6 +79,7 @@ namespace BlueprintCoreGen.CodeGen.Params
               GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
               GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
 
+      // TODO: Convert to use config overrides.
       // Apply type specific overrides
       if (FieldParamOverrides.ByType.ContainsKey(info.FieldType))
       {
@@ -111,23 +103,6 @@ namespace BlueprintCoreGen.CodeGen.Params
     }
 
     /// <summary>
-    /// These ensure GetParamName returns a name that will compile successfully. This is for things like 'm_Class'
-    /// which would map to a parameter name of 'class' normally.
-    /// </summary>
-    private static readonly Dictionary<string, string> NameOverrides =
-          new()
-          {
-            { "default", "defaultValue" },
-            { "event", "eventValue" },
-            { "break", "breakValue" },
-            { "string", "stringValue" },
-            { "class", "clazz" },
-            { "override", "overrideValue" },
-            { "continue", "continueValue" },
-            { "double", "doubleValue" }
-          };
-
-    /// <summary>
     /// Returns a parameter name derived from the field name.
     /// </summary>
     private static string GetParamName(string fieldName)
@@ -140,7 +115,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       paramName[0] = char.ToLower(paramName[0]);
 
       var result = paramName.ToString();
-      if (NameOverrides.ContainsKey(result)) { return NameOverrides[result]; }
+      if (ParamNameOverrides.ContainsKey(result)) { return ParamNameOverrides[result]; }
       return result;
     }
 
