@@ -1,28 +1,28 @@
-{
-  "Actions": [
-    {
-      "TypeName": "AreaEntranceChange",
-      "RequiredFields": [ "m_Location", "m_NewEntrance" ]
-    },
+[
+  // Actions in ActionsBuilderAreaEx.
+  // List of BuilderMethod.
+  {
+    "TypeName": "AreaEntranceChange",
+    "RequiredFields": [ "m_Location", "m_NewEntrance" ]
+  },
 
-    {
-      "TypeName": "ChangeCurrentAreaName",
-      "Methods": [
-        {
-          "RequiredFields": [ "NewName", "m_NewEntrance" ],
-          "IgnoredFields": [ "RestoreDefault" ]
-        },
-        {
-          "MethodName": "ResetCurrentAreaName",
-          "IgnoredFields": [ "NewName" ],
-          "ConstantFields": [
-            {
-              "FieldName": "RestoreDefault",
-              "Value": "true"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+  {
+    "TypeName": "ChangeCurrentAreaName",
+    "Methods": [
+      {
+        "RequiredFields": [ "NewName", "m_NewEntrance" ],
+        "IgnoredFields": [ "RestoreDefault" ]
+      },
+      {
+        "MethodName": "ResetCurrentAreaName",
+        "IgnoredFields": [ "NewName" ],
+        "ConstantFields": [
+          {
+            "FieldName": "RestoreDefault",
+            "Value": "true"
+          }
+        ]
+      }
+    ]
+  }
+]

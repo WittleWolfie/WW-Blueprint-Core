@@ -1,14 +1,14 @@
-{
-  "Actions": [
-    {
-      "TypeName": "ContextActionRunAnimationClip",
-      "RequiredFields": [ "ClipWrapper" ],
-      "DefaultFields": [
-        {
-          "FieldName": "Mode",
-          "Value": "ExecutionMode.Interrupted"
-        }
-      ]
-    }
-  ]
-}
+[
+  // Actions in ActionsBuilderAVEx.
+  // List of BuilderMethod.
+  {
+    "TypeName": "ContextActionRunAnimationClip",
+    "RequiredFields": [ "ClipWrapper" ],
+    "DefaultFields": [
+      {
+        "FieldName": "Mode",
+        "Value": "ExecutionMode.Interrupted"
+      }
+    ]
+  }
+]
