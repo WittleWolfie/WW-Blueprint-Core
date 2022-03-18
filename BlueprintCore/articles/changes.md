@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+#v1.3.5 Release
+
+Updated for compatibility w/ 1.2.1h.
+
 #v1.3.4 Release
 
 Updated for Patch 1.2 release version. There were some additional changes from the beta branch.
