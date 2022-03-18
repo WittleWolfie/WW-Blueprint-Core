@@ -642,6 +642,21 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintRoot.BeltItemModelSizing"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public RootConfigurator SetBeltItemModelSizing(BeltItemModelSizeSettings beltItemModelSizing)
+    {
+      ValidateParam(beltItemModelSizing);
+    
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.BeltItemModelSizing = beltItemModelSizing;
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="BlueprintRoot.MountModelSizing"/> (Auto Generated)
     /// </summary>
     [Generated]

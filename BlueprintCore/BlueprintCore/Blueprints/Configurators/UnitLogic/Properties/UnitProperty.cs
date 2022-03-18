@@ -557,6 +557,21 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Adds <see cref="MaxAttributeBonusGetter"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(MaxAttributeBonusGetter))]
+    public UnitPropertyConfigurator AddMaxAttributeBonusGetter(
+        PropertySettings settings)
+    {
+      ValidateParam(settings);
+    
+      var component = new MaxAttributeBonusGetter();
+      component.Settings = settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="MaxCastingAttributeGetter"/> (Auto Generated)
     /// </summary>
     ///
