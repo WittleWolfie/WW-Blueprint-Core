@@ -122,7 +122,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
     }
 
     /// <summary>
-    /// Returns a merged copy of the provided overrides. 
+    /// Returns a new merged copy of the provided overrides. 
     /// </summary>
     /// 
     /// <remarks>

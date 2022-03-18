@@ -1,5 +1,6 @@
 ﻿using BlueprintCore.Utils;
 using BlueprintCoreGen.CodeGen.Params;
+using HarmonyLib;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
@@ -25,38 +26,36 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
   public static class MethodFactory
   {
-    public static List<IMethod> CreateForBuilder(Type elementType)
+    public static List<IMethod> CreateForBuilder(Type elementType, BuilderMethod builderMethod)
     {
       List<IMethod> methods = new();
-      var builderType = elementType is Condition ? "ConditionsBuilder" : "ActionsBuilder";
+      var builderType = elementType.IsSubclassOf(typeof(Condition)) ? "ConditionsBuilder" : "ActionsBuilder";
 
-      if (MethodOverrides.BuilderMethods.ContainsKey(elementType))
+      if (!builderMethod.Methods.Any())
       {
-        var methodOverrides = MethodOverrides.BuilderMethods[elementType];
-        methodOverrides.Methods.ForEach(
-            methodOverride => methods.Add(CreateForBuilder(elementType, builderType, methodOverride)));
-
-        if (methodOverrides.ReplaceDefault) { return methods; }
+        methods.Add(CreateForBuilder(elementType, builderType, builderMethod));
+        return methods;
       }
-      
-      methods.Add(CreateForBuilder(elementType, builderType));
+
+      foreach (var methodOverride in builderMethod.Methods)
+      {
+        methods.Add(CreateForBuilder(elementType, builderType, MethodOverride.Merge(builderMethod, methodOverride)));
+      }
       return methods;
     }
 
     private static IMethod CreateForBuilder(
-      Type elementType, string builderType, MethodOverride? methodOverride = null)
+      Type elementType, string builderType, MethodOverride methodOverride)
     {
       var method = new MethodImpl();
       var elementTypeName = TypeTool.GetName(elementType);
-      var parameters =
-        ParametersFactory.CreateForConstructor(
-          elementType, methodOverride?.FieldOverridesByName, methodOverride?.ExtraParameters);
+      var parameters = ParametersFactory.CreateForConstructor(elementType, methodOverride);
 
       // Imports
       method.AddImport(elementType);
       method.AddImport(typeof(ElementTool));
       parameters.ForEach(param => param.Imports.ForEach(import => method.AddImport(import)));
-      if (methodOverride is not null) { methodOverride.Imports.ForEach(import => method.AddImport(import)); }
+      methodOverride.Imports.ForEach(import => method.AddImport(Type.GetType(import)));
 
       // Comment summary
       method.AddLine($"/// <summary>");
@@ -64,10 +63,23 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddLine($"/// </summary>");
 
       // Remarks
-      if(methodOverride is not null && methodOverride.Remarks.Any())
+      if(methodOverride.Remarks.Any() || methodOverride.Examples.Any())
       {
         method.AddLine($"///");
+        method.AddLine($"/// <remarks>");
         methodOverride.Remarks.ForEach(line => method.AddLine($"/// {line}"));
+
+        if (methodOverride.Examples.Any())
+        {
+          method.AddLine($"///");
+          method.AddLine($"/// <list type=\"bullet\">");
+          method.AddLine($"/// <listheader>Used by</listheader>");
+          methodOverride.Examples.ForEach(
+            example =>
+              method.AddLine(
+                $"/// <item><term>{example.BlueprintName}</term><description>{example.BlueprintGuid}</description></item>"));
+          method.AddLine($"/// </list>");
+        }
       }
 
       // Parameter comments
@@ -75,15 +87,15 @@ namespace BlueprintCoreGen.CodeGen.Methods
           parameters.Select(field => field.Comment).Where(comment => comment is not null && comment.Any()).ToList();
       if (paramComments.Any())
       {
+        method.AddLine($"///");
         paramComments.ForEach(
             comment =>
             {
-              method.AddLine($"///");
               comment.ForEach(line => method.AddLine($"/// {line}"));
             });
       }
 
-      var methodName = methodOverride?.Name ?? GetMethodName(elementTypeName);
+      var methodName = methodOverride.MethodName ?? GetMethodName(elementTypeName);
       if (!parameters.Any())
       {
         method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");
