@@ -1,26 +1,23 @@
-[
-  // Contains type specific field parameter overrides.
-  // List of FieldTypeOverride.
+[ // Contains type specific field parameter overrides.
   {
     "TypeName": "ActionList",
     "TypeNameOverride": "ActionsBuilder",
-    "Imports": [ "ActionsBuilder", "Constants" ],
-    "AssignmentRhsFmt": "{0}.Build()",
-    "AssignmentIfNullRhs": "Constants.Empty.Actions"
+    "Imports": [ "ActionsBuilder" ],
+    "AssignmentFmtRhs": "{0}?.Build()",
+    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.Actions"
   },
 
   {
     "TypeName": "ConditionsChecker",
     "TypeNameOverride": "ConditionsBuilder",
-    "Imports": [ "ConditionsBuilder", "Constants" ],
-    "AssignmentRhsFmt": "{0}.Build()",
-    "AssignmentIfNullRhs": "Constants.Empty.Conditions"
+    "Imports": [ "ConditionsBuilder" ],
+    "AssignmentFmtRhs": "{0}?.Build()",
+    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.Conditions"
   },
 
   {
     "TypeName": "ContextDiceValue",
-    "Imports": [ "Constants" ],
-    "AssignmentIfNullRhs": "Constants.Empty.DiceValue"
+    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.DiceValue"
   },
 
   {
@@ -31,13 +28,11 @@
 
   {
     "TypeName": "LocalizedString",
-    "Imports": [ "Constants" ],
-    "AssignmentIfNullRhs": "Constants.Empty.String"
+    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.String"
   },
 
   {
     "TypeName": "PrefabLink",
-    "Imports": [ "Constants" ],
-    "AssignmentIfNullRhs": "Constants.Empty.PrefabLink"
+    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.PrefabLink"
   }
 ]
