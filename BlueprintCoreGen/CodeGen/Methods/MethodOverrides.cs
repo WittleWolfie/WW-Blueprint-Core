@@ -11,9 +11,11 @@ namespace BlueprintCoreGen.CodeGen.Methods
   /// </summary>
   public class Blueprint
   {
-    public string BlueprintName { get; } = string.Empty;
+    [JsonProperty]
+    public string BlueprintName { get; private set; } = string.Empty;
 
-    public string BlueprintGuid { get; } = string.Empty;
+    [JsonProperty]
+    public string BlueprintGuid { get; private set; } = string.Empty;
   }
 
   /// <summary>
