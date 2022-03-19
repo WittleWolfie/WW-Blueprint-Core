@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -261,59 +262,6 @@ namespace BlueprintCoreGen.CodeGen.Params
       assignmentIfNull.Add($"  {objectName}.{FieldName} = {AssignmentIfNullRhs};");
       assignmentIfNull.Add($"}}");
       return assignmentIfNull;
-    }
-  }
-  
-  /// <summary>
-  /// Represents an extra parameter applied to a method as an override.
-  /// </summary>
-  public class ExtraParameter : IParameterInternal
-  {
-    public List<Type> Imports => new();
-
-    public List<string> Comment { get; } = new();
-
-    public bool Required => string.IsNullOrEmpty(DefaultValue);
-
-    public string Declaration => Required ? $"{Type} {ParamName}" : $"{Type}? {ParamName} = {DefaultValue}";
-
-    public string ParamName { get; private set; }
-
-    private readonly string? DefaultValue;
-    private readonly string Type;
-
-    /// <summary>
-    /// Operation format string where {0} is the object name and {1} is the parameter name, and {2} is the
-    /// validation function.
-    /// </summary>
-    private List<string> OperationFmt = new();
-
-    public List<string> GetOperation(string objectName, string validateFunction)
-    {
-      return OperationFmt.Select(line => string.Format(line, objectName, ParamName, validateFunction)).ToList();
-    }
-
-    public ExtraParameter(string paramName, string type, string? defaultValue = null)
-    {
-      ParamName = paramName;
-      Type = type;
-      DefaultValue = defaultValue;
-    }
-
-    /// <summary>
-    /// Adds comment format lines where {0} is the parameter name.
-    /// </summary>
-    public ExtraParameter WithCommentFmt(params string[] linesFmt)
-    {
-      Comment.AddRange(
-        linesFmt.Prepend("<param name=\"{0}\">").Append("</param>").Select(line => string.Format(line, ParamName)));
-      return this;
-    }
-
-    public ExtraParameter SetOperationFmt(params string[] lines)
-    {
-      OperationFmt = lines.ToList();
-      return this;
     }
   }
 }

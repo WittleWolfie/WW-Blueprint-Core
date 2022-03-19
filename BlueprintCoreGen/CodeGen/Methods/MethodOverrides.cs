@@ -1,4 +1,5 @@
 ﻿using BlueprintCoreGen.CodeGen.Params;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -27,6 +28,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
     /// <summary>
     /// Sets the name of the method, if specified.
     /// </summary>
+    [JsonProperty]
     public string MethodName { get; private set; } = string.Empty;
 
     /// <summary>
@@ -170,7 +172,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
     /// <summary>
     /// TypeName represented by this object. If there is a type name conflict this must be fully qualified.
     /// </summary>
-    public string TypeName { get; } = string.Empty;
+    [JsonProperty]
+    public string TypeName { get; private set; } = string.Empty;
 
     /// <summary>
     /// A list of Builder method overrides. 
@@ -187,6 +190,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
     /// As a general rule, you should not specify any field twice as the effect may be unexpected.
     /// </para>
     /// </remarks>
-    public List<MethodOverride> Methods { get; } = new();
+    [JsonProperty]
+    public List<MethodOverride> Methods { get; private set; } = new();
   }
 }

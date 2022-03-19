@@ -61,7 +61,7 @@ namespace BlueprintCoreGen
     {
       // Create the directories if necessary
       FileInfo result = new FileInfo(classToWrite.FilePath);
-      result.Directory.Create();
+      result.Directory!.Create();
 
       File.WriteAllText(classToWrite.FilePath, classToWrite.GetText());
     }

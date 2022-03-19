@@ -23,7 +23,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// By default, will create a parameter for every field in the object. Behavior can be modified using
     /// methodOverride.
     /// </remarks>
-    public static List<IParameter> CreateForConstructor(Type objectType, MethodOverride? methodOverride)
+    public static List<IParameter> CreateForConstructor(Type objectType, MethodOverride methodOverride)
     {
       return
         objectType.GetFields()
@@ -31,7 +31,7 @@ namespace BlueprintCoreGen.CodeGen.Params
           .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType, methodOverride))
           .Where(fieldParam => !fieldParam.Ignore)
           .Select(fieldParam => fieldParam as IParameterInternal)
-          .Concat(methodOverride?.GetExtraParams() ?? new List<IParameterInternal>())
+          .Concat(methodOverride.GetExtraParams() ?? new List<IParameterInternal>())
           .OrderBy(param => !string.IsNullOrEmpty(param.Declaration) ? 0 : 1)
           .ThenBy(param => param.Required ? 0 : 1)
           .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)
@@ -57,7 +57,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     }
 
     private static FieldParameter CreateFieldParameter(
-        FieldInfo info, Type sourceType, MethodOverride? methodOverride)
+        FieldInfo info, Type sourceType, MethodOverride methodOverride)
     {
       var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
@@ -79,25 +79,25 @@ namespace BlueprintCoreGen.CodeGen.Params
               GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
               GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
 
-      // TODO: Convert to use config overrides.
-      // Apply type specific overrides
-      if (FieldParamOverrides.ByType.ContainsKey(info.FieldType))
-      {
-        param.ApplyOverride(FieldParamOverrides.ByType[info.FieldType]);
-      }
+      //// TODO: Convert to use config overrides.
+      //// Apply type specific overrides
+      //if (FieldParamOverrides.ByType.ContainsKey(info.FieldType))
+      //{
+      //  param.ApplyOverride(FieldParamOverrides.ByType[info.FieldType]);
+      //}
 
-      // Apply field specific overrides
-      foreach (Type type in FieldParamOverrides.ByName.Keys)
-      {
-        // Just checking the source type misses inherited fields so loop through all keys
-        if ((sourceType == type || sourceType.IsSubclassOf(type))
-            && FieldParamOverrides.ByName[type].ContainsKey(info.Name))
-        {
-          param.ApplyOverride(FieldParamOverrides.ByName[type][info.Name]);
-        }
-      }
+      //// Apply field specific overrides
+      //foreach (Type type in FieldParamOverrides.ByName.Keys)
+      //{
+      //  // Just checking the source type misses inherited fields so loop through all keys
+      //  if ((sourceType == type || sourceType.IsSubclassOf(type))
+      //      && FieldParamOverrides.ByName[type].ContainsKey(info.Name))
+      //  {
+      //    param.ApplyOverride(FieldParamOverrides.ByName[type][info.Name]);
+      //  }
+      //}
 
-      methodOverride?.ApplyTo(info, param);
+      methodOverride.ApplyTo(info, param);
 
       return param;
     }

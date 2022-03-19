@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HarmonyLib;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,7 +14,8 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Name of the field.
     /// </summary>
-    public string FieldName { get; } = string.Empty;
+    [JsonProperty]
+    public string FieldName { get; private set; } = string.Empty;
 
     /// <summary>
     /// Applies the override to the provided FieldParameter.
@@ -28,7 +31,8 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// The default value of the field.
     /// </summary>
-    public string Value { get; } = string.Empty;
+    [JsonProperty]
+    public string Value { get; private set; } = string.Empty;
 
     public override void ApplyTo(FieldParameter param)
     {
@@ -44,7 +48,8 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// The constant value of the field.
     /// </summary>
-    public string Value { get; } = string.Empty;
+    [JsonProperty]
+    public string Value { get; private set; } = string.Empty;
 
     public override void ApplyTo(FieldParameter param)
     {
@@ -60,12 +65,14 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Indicates whether the field is required when building the action.
     /// </summary>
-    public bool Required { get; }
+    [JsonProperty]
+    public bool Required { get; private set; }
 
     /// <summary>
     /// Name of the field when provided as a function parameter.
     /// </summary>
-    public string ParamName { get; } = string.Empty;
+    [JsonProperty]
+    public string ParamName { get; private set; } = string.Empty;
 
     /// <summary>
     /// Additional lines of code added after assigning the field's value.
@@ -90,18 +97,21 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// The type name to which the overrides apply.
     /// </summary>
-    public string TypeName { get; } = string.Empty;
+    [JsonProperty]
+    public string TypeName { get; private set; } = string.Empty;
 
     /// <summary>
     /// If set, replaces the type name for the parameter. Used when utility classes wrap an input parameter,
     /// e.g. ActionsBuilder in place of ActionList.
     /// </summary>
-    public string TypeNameOverride { get; } = string.Empty;
+    [JsonProperty]
+    public string TypeNameOverride { get; private set; } = string.Empty;
 
     /// <summary>
     /// If true, skips parameter validation.
     /// </summary>
-    public bool SkipValidation { get; } = true;
+    [JsonProperty]
+    public bool SkipValidation { get; private set; } = true;
 
     /// <summary>
     /// Additional types to import (by name).
@@ -111,18 +121,20 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Overrides the right hand side of the assignment format statement.
     /// </summary>
-    public string AssignmentFmtRhs { get; } = string.Empty;
+    [JsonProperty]
+    public string AssignmentFmtRhs { get; private set; } = string.Empty;
 
     /// <summary>
     /// Overrides the right hand side of the assignment format statement used when null.
     /// </summary>
-    public string AssignmentIfNullRhs { get; } = string.Empty;
+    [JsonProperty]
+    public string AssignmentIfNullRhs { get; private set; } = string.Empty;
 
     public override void ApplyTo(FieldParameter param)
     {
       if (!string.IsNullOrEmpty(TypeNameOverride)) { param.SetTypeName(TypeNameOverride); }
       if (SkipValidation) { param.SkipValidation(); }
-      param.Imports.AddRange(Imports.Select(type => Type.GetType(type)!));
+      param.Imports.AddRange(Imports.Select(type => AccessTools.TypeByName(type)!));
       if (!string.IsNullOrEmpty(AssignmentFmtRhs)) { param.SetAssignmentFmtRhs(AssignmentFmtRhs); }
       if (!string.IsNullOrEmpty(AssignmentIfNullRhs)) { param.SetAssignmentFmtRhs(AssignmentIfNullRhs); }
     }
@@ -136,28 +148,87 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// The type name of the object containing the field.
     /// </summary>
-    public string SourceTypeName { get; } = string.Empty;
+    [JsonProperty]
+    public string SourceTypeName { get; private set; } = string.Empty;
 
     /// <summary>
     /// Specifies whether the field is nullable.
     /// </summary>
-    public bool IsNullable { get; } = false;
+    [JsonProperty]
+    public bool IsNullable { get; private set; } = false;
 
     /// <summary>
     /// Overrides the name of the parameter.
     /// </summary>
-    public string ParamName { get; } = string.Empty;
+    [JsonProperty]
+    public string ParamName { get; private set; } = string.Empty;
 
     /// <summary>
     /// Overrides the default value of the parameter.
     /// </summary>
-    public string DefaultValue { get; } = string.Empty;
+    [JsonProperty]
+    public string DefaultValue { get; private set; } = string.Empty;
 
     public override void ApplyTo(FieldParameter param)
     {
       param.SetIsNullable(IsNullable);
       if (!string.IsNullOrEmpty(ParamName)) { param.SetParamName(ParamName); }
       if (!string.IsNullOrEmpty(DefaultValue)) { param.SetDefaultValue(DefaultValue); }
+    }
+  }
+
+  /// <summary>
+  /// Represents an extra parameter applied to a method as an override.
+  /// </summary>
+  public class ExtraParameter : IParameterInternal
+  {
+    public List<Type> Imports => new();
+
+    public List<string> Comment => GetComment();
+
+    public string Declaration => Required ? $"{TypeName} {ParamName}" : $"{TypeName}? {ParamName} = {DefaultValue}";
+
+    public bool Required => string.IsNullOrEmpty(DefaultValue);
+
+    [JsonProperty]
+    public string ParamName { get; private set; }
+
+    [JsonProperty]
+    private readonly string? DefaultValue;
+
+    [JsonProperty]
+    private readonly string TypeName;
+
+    /// <summary>
+    /// Format string where {0} is the param name.
+    /// </summary>
+    [JsonProperty]
+    private readonly string CommentFmt;
+
+    /// <summary>
+    /// Operation format string where {0} is the object name and {1} is the parameter name, and {2} is the
+    /// validation function.
+    /// </summary>
+    private List<string> OperationFmt = new();
+
+    public List<string> GetOperation(string objectName, string validateFunction)
+    {
+      return OperationFmt.Select(line => string.Format(line, objectName, ParamName, validateFunction)).ToList();
+    }
+
+    private List<string> GetComment()
+    {
+      if (!string.IsNullOrEmpty(CommentFmt))
+      {
+        return new List<string>()
+          .Append("<param name=\"{0}\">")
+          .Append(CommentFmt)
+          .Append("</param>")
+          .Select(line => string.Format(line, ParamName))
+          .ToList();
+      }
+
+      return new();
     }
   }
 }

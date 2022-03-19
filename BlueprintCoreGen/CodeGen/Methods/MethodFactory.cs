@@ -55,7 +55,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddImport(elementType);
       method.AddImport(typeof(ElementTool));
       parameters.ForEach(param => param.Imports.ForEach(import => method.AddImport(import)));
-      methodOverride.Imports.ForEach(import => method.AddImport(Type.GetType(import)));
+      methodOverride.Imports.ForEach(import => method.AddImport(AccessTools.TypeByName(import)!));
 
       // Comment summary
       method.AddLine($"/// <summary>");
@@ -95,7 +95,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             });
       }
 
-      var methodName = methodOverride.MethodName ?? GetMethodName(elementTypeName);
+      var methodName =
+        string.IsNullOrEmpty(methodOverride.MethodName) ? GetMethodName(elementTypeName) : methodOverride.MethodName;
       if (!parameters.Any())
       {
         method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");

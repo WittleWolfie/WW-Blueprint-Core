@@ -24,7 +24,8 @@
       {
         "ParamName": "enchantmentPlus1",
         "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
-        "Comment": "Defaults to TemporaryArmorEnhancementBonus1",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
+        "DefaultValue": "null",
         "OperationFmt": [
           "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"
         ]
@@ -32,7 +33,8 @@
       {
         "ParamName": "enchantmentPlus2",
         "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
-        "Comment": "Defaults to TemporaryArmorEnhancementBonus2",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
+        "DefaultValue": "null",
         "OperationFmt": [
           "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"
         ]
@@ -40,7 +42,8 @@
       {
         "ParamName": "enchantmentPlus3",
         "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
-        "Comment": "Defaults to TemporaryArmorEnhancementBonus3",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
+        "DefaultValue": "null",
         "OperationFmt": [
           "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"
         ]
@@ -48,7 +51,8 @@
       {
         "ParamName": "enchantmentPlus4",
         "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
-        "Comment": "Defaults to TemporaryArmorEnhancementBonus4",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
+        "DefaultValue": "null",
         "OperationFmt": [
           "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"
         ]
@@ -56,7 +60,8 @@
       {
         "ParamName": "enchantmentPlus5",
         "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
-        "Comment": "Defaults to TemporaryArmorEnhancementBonus5",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
+        "DefaultValue": "null",
         "OperationFmt": [
           "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;"
         ]

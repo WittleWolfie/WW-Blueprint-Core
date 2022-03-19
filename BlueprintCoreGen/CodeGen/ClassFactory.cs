@@ -1,5 +1,6 @@
 ﻿using BlueprintCoreGen.CodeGen.Builders;
 using BlueprintCoreGen.CodeGen.Methods;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,14 +42,15 @@ namespace BlueprintCoreGen.CodeGen
       extensionClass.AddLine($"  /// </summary>");
       extensionClass.AddLine($"  /// <inheritdoc cref=\"{builderExtension.ParentType}\"/>");
       extensionClass.AddLine($"  public static class {builderExtension.ClassName}");
-      extensionClass.AddLine(@"{");
+      extensionClass.AddLine(@"  {");
 
       // Methods
-      builderExtension.ElementTypes.ForEach(
-          type =>
+      builderExtension.Methods.ForEach(
+          builderMethod =>
           {
+            Type type = AccessTools.TypeByName(builderMethod.TypeName)!;
             extensionClass.AddImplementedType(type);
-            MethodFactory.CreateForBuilder(type).ForEach(
+            MethodFactory.CreateForBuilder(type, builderMethod).ForEach(
                 method =>
                 {
                   method.GetImports().ForEach(import => extensionClass.AddImport(import));
