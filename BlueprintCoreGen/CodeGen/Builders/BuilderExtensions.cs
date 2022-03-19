@@ -98,61 +98,6 @@ namespace BlueprintCoreGen.CodeGen.Builders
           "Extension to <see cref=\"ActionsBuilder\"/> for actions involving the game map, dungeons, or locations."
               + " See also <see cref=\"KingdomEx.ActionsBuilderKingdomEx\">KingdomEx</see>.",
           "AreaActions.json"),
-          //new()
-          //{
-          //  // Kingmaker.AreaLogic.Capital
-          //  typeof(CapitalExit),
-
-          //  // Kingmaker.Corruption
-          //  typeof(DecreaseCorruptionLevelAction),
-
-          //  // Kingmaker.Designers.EventConditionActionSystem.Actions
-          //  typeof(AddCampingEncounter),
-          //  typeof(AreaEntranceChange),
-          //  typeof(AskPlayerForLocationName),
-          //  typeof(ChangeCurrentAreaName),
-          //  typeof(DestroyMapObject),
-          //  typeof(GlobalMapTeleport),
-          //  typeof(HideMapObject),
-          //  typeof(LocalMapSetDirty),
-          //  typeof(MakeServiceCaster),
-          //  typeof(MarkLocationClosed),
-          //  typeof(MarkLocationExplored),
-          //  typeof(MarkOnLocalMap),
-          //  typeof(OpenLootContainer),
-          //  typeof(RemoveAllAreasFromSave),
-          //  typeof(RemoveAmbush),
-          //  typeof(RemoveCampingEncounter),
-          //  typeof(ResetLocationPerceptionCheck),
-          //  typeof(RevealGlobalMap),
-          //  typeof(ScriptZoneActivate),
-          //  typeof(ScriptZoneDeactivate),
-          //  typeof(ScripZoneUnits),
-          //  typeof(SetDeviceState),
-          //  typeof(SetDeviceTrigger),
-          //  typeof(SetDisableDevice),
-          //  typeof(ShowMultiEntrance),
-          //  typeof(SpotMapObject),
-          //  typeof(SpotUnit),
-          //  typeof(TeleportParty),
-          //  typeof(TranslocatePlayer),
-          //  typeof(TranslocateUnit),
-          //  typeof(TrapCastSpell),
-          //  typeof(UnlockCookingRecipe),
-          //  typeof(UnlockLocation),
-          //  typeof(UnlockMapEdge),
-
-          //  // Kingmaker.Dungeon.Actions
-          //  typeof(ActionCreateImportedCompanion),
-          //  typeof(ActionEnterToDungeon),
-          //  typeof(ActionGoDeeperIntoDungeon),
-          //  typeof(ActionIncreaseDungeonStage),
-          //  typeof(ActionSetDungeonStage),
-
-          //  // Kingmaker.ElementsSystem
-          //  typeof(GameActionSetIsleLock),
-          //  typeof(GameActionSetIsleState)
-          //}),
 
         new ActionExtension(
           ExtensionType.AVEx,

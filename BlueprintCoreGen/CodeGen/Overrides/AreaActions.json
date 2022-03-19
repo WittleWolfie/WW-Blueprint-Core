@@ -1,6 +1,85 @@
 [
-  // Actions in ActionsBuilderAreaEx.
-  // List of BuilderMethod.
+  { "TypeName": "CapitalExit" },
+
+  { "TypeName": "DecreaseCorruptionLevelAction" },
+
+  { "TypeName": "AskPlayerForLocationName" },
+
+  { "TypeName": "GlobalMapTeleport" },
+
+  { "TypeName": "HideMapObject" },
+
+  { "TypeName": "LocalMapSetDirty" },
+
+  { "TypeName": "MakeServiceCaster" },
+
+  { "TypeName": "MarkLocationClosed" },
+
+  { "TypeName": "MarkLocationExplored" },
+
+  { "TypeName": "MarkOnLocalMap" },
+
+  { "TypeName": "OpenLootContainer" },
+
+  { "TypeName": "RemoveAllAreasFromSave" },
+
+  { "TypeName": "RemoveAmbush" },
+
+  { "TypeName": "RemoveCampingEncounter" },
+
+  { "TypeName": "ResetLocationPerceptionCheck" },
+
+  { "TypeName": "RevealGlobalMap" },
+
+  { "TypeName": "ScriptZoneActivate" },
+
+  { "TypeName": "ScriptZoneDeactivate" },
+
+  { "TypeName": "ScripZoneUnits" },
+
+  { "TypeName": "SetDeviceState" },
+
+  { "TypeName": "SetDeviceTrigger" },
+
+  { "TypeName": "SetDisableDevice" },
+
+  { "TypeName": "ShowMultiEntrance" },
+
+  { "TypeName": "SpotMapObject" },
+
+  { "TypeName": "SpotUnit" },
+
+  { "TypeName": "TeleportParty" },
+
+  { "TypeName": "TranslocatePlayer" },
+
+  { "TypeName": "TranslocateUnit" },
+
+  { "TypeName": "TrapCastSpell" },
+
+  { "TypeName": "UnlockCookingRecipe" },
+
+  { "TypeName": "UnlockLocation" },
+
+  { "TypeName": "UnlockMapEdge" },
+
+  { "TypeName": "ActionEnterToDungeon" },
+
+  { "TypeName": "ActionGoDeeperIntoDungeon" },
+
+  { "TypeName": "ActionIncreaseDungeonStage" },
+
+  { "TypeName": "ActionSetDungeonStage" },
+
+  { "TypeName": "GameActionSetIsleLock" },
+
+  { "TypeName": "GameActionSetIsleState" },
+
+  {
+    "TypeName": "ActionCreateImportedCompanion",
+    "RequiredFields": [ "Index" ]
+  },
+
   {
     "TypeName": "AreaEntranceChange",
     "RequiredFields": [ "m_Location", "m_NewEntrance" ]
@@ -24,5 +103,15 @@
         ]
       }
     ]
+  },
+
+  {
+    "TypeName": "AddCampingEncounter",
+    "RequiredFields": [ "m_Encounter" ]
+  },
+
+  {
+    "TypeName": "DestroyMapObject",
+    "RequiredFields": [ "MapObject" ]
   }
 ]

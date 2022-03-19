@@ -24,7 +24,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderAreaEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="CapitalExit"/>
@@ -47,7 +47,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       var element = ElementTool.Create<CapitalExit>();
       element.AutoSaveMode = autoSaveMode ?? element.AutoSaveMode;
-      element.m_Destination = destination.Reference ?? element.m_Destination;
+      element.m_Destination = destination?.Reference ?? element.m_Destination;
       if (element.m_Destination is null)
       {
         element.m_Destination = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
@@ -61,65 +61,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     public static ActionsBuilder DecreaseCorruptionLevelAction(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<DecreaseCorruptionLevelAction>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddCampingEncounter"/>
-    /// </summary>
-    ///
-    /// <param name="encounter">
-    /// Blueprint of type BlueprintCampingEncounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddCampingEncounter(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference> encounter)
-    {
-      var element = ElementTool.Create<AddCampingEncounter>();
-      element.m_Encounter = encounter.Reference;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AreaEntranceChange"/>
-    /// </summary>
-    ///
-    /// <param name="location">
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    ///
-    /// <param name="newEntrance">
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AreaEntranceChange(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
-        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> newEntrance)
-    {
-      var element = ElementTool.Create<AreaEntranceChange>();
-      element.m_Location = location.Reference;
-      element.m_NewEntrance = newEntrance.Reference;
-      return builder.Add(element);
     }
 
     /// <summary>
@@ -148,14 +89,14 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       element.Default = defaultValue ?? element.Default;
       if (element.Default is null)
       {
-        element.Default = Constants.Empty.String;
+        element.Default = BlueprintCore.Utils.Constants.Empty.String;
       }
       element.Hint = hint ?? element.Hint;
       if (element.Hint is null)
       {
-        element.Hint = Constants.Empty.String;
+        element.Hint = BlueprintCore.Utils.Constants.Empty.String;
       }
-      element.m_Location = location.Reference ?? element.m_Location;
+      element.m_Location = location?.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -164,43 +105,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       element.Title = title ?? element.Title;
       if (element.Title is null)
       {
-        element.Title = Constants.Empty.String;
+        element.Title = BlueprintCore.Utils.Constants.Empty.String;
       }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ChangeCurrentAreaName"/>
-    /// </summary>
-    public static ActionsBuilder ChangeCurrentAreaName(
-        this ActionsBuilder builder,
-        LocalizedString newName)
-    {
-      var element = ElementTool.Create<ChangeCurrentAreaName>();
-      element.NewName = newName;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ChangeCurrentAreaName"/>
-    /// </summary>
-    public static ActionsBuilder ResetCurrentAreaName(this ActionsBuilder builder)
-    {
-      var element = ElementTool.Create<ChangeCurrentAreaName>();
-      element.RestoreDefault = true;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DestroyMapObject"/>
-    /// </summary>
-    public static ActionsBuilder DestroyMapObject(
-        this ActionsBuilder builder,
-        MapObjectEvaluator mapObject)
-    {
-      var element = ElementTool.Create<DestroyMapObject>();
-      builder.Validate(mapObject);
-      element.MapObject = mapObject;
       return builder.Add(element);
     }
 
@@ -279,7 +185,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       var element = ElementTool.Create<MarkLocationClosed>();
       element.Closed = closed ?? element.Closed;
-      element.m_Location = location.Reference ?? element.m_Location;
+      element.m_Location = location?.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -308,7 +214,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       var element = ElementTool.Create<MarkLocationExplored>();
       element.Explored = explored ?? element.Explored;
-      element.m_Location = location.Reference ?? element.m_Location;
+      element.m_Location = location?.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -363,7 +269,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         List<Blueprint<BlueprintArea, BlueprintAreaReference>>? except = null)
     {
       var element = ElementTool.Create<RemoveAllAreasFromSave>();
-      element.m_Except = except.Select(bp => bp.Reference).ToArray() ?? element.m_Except;
+      element.m_Except = except?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Except;
       if (element.m_Except is null)
       {
         element.m_Except = new BlueprintAreaReference[0];
@@ -405,7 +311,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference>? encounter = null)
     {
       var element = ElementTool.Create<RemoveCampingEncounter>();
-      element.m_Encounter = encounter.Reference ?? element.m_Encounter;
+      element.m_Encounter = encounter?.Reference ?? element.m_Encounter;
       if (element.m_Encounter is null)
       {
         element.m_Encounter = BlueprintTool.GetRef<BlueprintCampingEncounterReference>(null);
@@ -432,7 +338,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<ResetLocationPerceptionCheck>();
-      element.m_Location = location.Reference ?? element.m_Location;
+      element.m_Location = location?.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -460,7 +366,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? revealEdges = null)
     {
       var element = ElementTool.Create<RevealGlobalMap>();
-      element.Points = points.Select(bp => bp.Reference).ToArray() ?? element.Points;
+      element.Points = points?.Select(bp => bp.Reference)?.ToArray() ?? element.Points;
       if (element.Points is null)
       {
         element.Points = new BlueprintGlobalMapPoint.Reference[0];
@@ -504,10 +410,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         EntityReference? scriptZone = null)
     {
       var element = ElementTool.Create<ScripZoneUnits>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       builder.Validate(scriptZone);
       element.ScriptZone = scriptZone ?? element.ScriptZone;
@@ -579,7 +485,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintMultiEntrance, BlueprintMultiEntranceReference>? map = null)
     {
       var element = ElementTool.Create<ShowMultiEntrance>();
-      element.m_Map = map.Reference ?? element.m_Map;
+      element.m_Map = map?.Reference ?? element.m_Map;
       if (element.m_Map is null)
       {
         element.m_Map = BlueprintTool.GetRef<BlueprintMultiEntranceReference>(null);
@@ -641,13 +547,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? forcePauseAfterTeleport = null)
     {
       var element = ElementTool.Create<TeleportParty>();
-      element.AfterTeleport = afterTeleport.Build() ?? element.AfterTeleport;
+      element.AfterTeleport = afterTeleport?.Build() ?? element.AfterTeleport;
       if (element.AfterTeleport is null)
       {
-        element.AfterTeleport = Constants.Empty.Actions;
+        element.AfterTeleport = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.AutoSaveMode = autoSaveMode ?? element.AutoSaveMode;
-      element.m_exitPositon = exitPositon.Reference ?? element.m_exitPositon;
+      element.m_exitPositon = exitPositon?.Reference ?? element.m_exitPositon;
       if (element.m_exitPositon is null)
       {
         element.m_exitPositon = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
@@ -731,7 +637,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
       element.OverrideDC = overrideDC ?? element.OverrideDC;
       element.OverrideSpellLevel = overrideSpellLevel ?? element.OverrideSpellLevel;
-      element.m_Spell = spell.Reference ?? element.m_Spell;
+      element.m_Spell = spell?.Reference ?? element.m_Spell;
       if (element.m_Spell is null)
       {
         element.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
@@ -765,7 +671,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintCookingRecipe, BlueprintCookingRecipeReference>? recipe = null)
     {
       var element = ElementTool.Create<UnlockCookingRecipe>();
-      element.m_Recipe = recipe.Reference ?? element.m_Recipe;
+      element.m_Recipe = recipe?.Reference ?? element.m_Recipe;
       if (element.m_Recipe is null)
       {
         element.m_Recipe = BlueprintTool.GetRef<BlueprintCookingRecipeReference>(null);
@@ -796,7 +702,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       var element = ElementTool.Create<UnlockLocation>();
       element.FakeDescription = fakeDescription ?? element.FakeDescription;
       element.HideInstead = hideInstead ?? element.HideInstead;
-      element.m_Location = location.Reference ?? element.m_Location;
+      element.m_Location = location?.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -824,24 +730,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? openEdges = null)
     {
       var element = ElementTool.Create<UnlockMapEdge>();
-      element.m_Edge = edge.Reference ?? element.m_Edge;
+      element.m_Edge = edge?.Reference ?? element.m_Edge;
       if (element.m_Edge is null)
       {
         element.m_Edge = BlueprintTool.GetRef<BlueprintGlobalMapEdge.Reference>(null);
       }
       element.OpenEdges = openEdges ?? element.OpenEdges;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ActionCreateImportedCompanion"/>
-    /// </summary>
-    public static ActionsBuilder CreateImportedCompanion(
-        this ActionsBuilder builder,
-        int index)
-    {
-      var element = ElementTool.Create<ActionCreateImportedCompanion>();
-      element.Index = index;
       return builder.Add(element);
     }
 
@@ -912,6 +806,111 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       builder.Validate(isle);
       element.m_Isle = isle ?? element.m_Isle;
       element.m_StateName = stateName ?? element.m_StateName;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ActionCreateImportedCompanion"/>
+    /// </summary>
+    public static ActionsBuilder CreateImportedCompanion(
+        this ActionsBuilder builder,
+        int index)
+    {
+      var element = ElementTool.Create<ActionCreateImportedCompanion>();
+      element.Index = index;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AreaEntranceChange"/>
+    /// </summary>
+    ///
+    /// <param name="location">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="newEntrance">
+    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AreaEntranceChange(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> newEntrance)
+    {
+      var element = ElementTool.Create<AreaEntranceChange>();
+      element.m_Location = location?.Reference;
+      element.m_NewEntrance = newEntrance?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeCurrentAreaName"/>
+    /// </summary>
+    public static ActionsBuilder ChangeCurrentAreaName(
+        this ActionsBuilder builder,
+        LocalizedString newName)
+    {
+      var element = ElementTool.Create<ChangeCurrentAreaName>();
+      element.NewName = newName;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeCurrentAreaName"/>
+    /// </summary>
+    public static ActionsBuilder ResetCurrentAreaName(this ActionsBuilder builder)
+    {
+      var element = ElementTool.Create<ChangeCurrentAreaName>();
+      element.RestoreDefault = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddCampingEncounter"/>
+    /// </summary>
+    ///
+    /// <param name="encounter">
+    /// Blueprint of type BlueprintCampingEncounter. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddCampingEncounter(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference> encounter)
+    {
+      var element = ElementTool.Create<AddCampingEncounter>();
+      element.m_Encounter = encounter?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DestroyMapObject"/>
+    /// </summary>
+    public static ActionsBuilder DestroyMapObject(
+        this ActionsBuilder builder,
+        MapObjectEvaluator mapObject)
+    {
+      var element = ElementTool.Create<DestroyMapObject>();
+      builder.Validate(mapObject);
+      element.MapObject = mapObject;
       return builder.Add(element);
     }
   }

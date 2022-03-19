@@ -114,39 +114,6 @@
 //    public static readonly Dictionary<Type, MethodOverrideList> BuilderMethods =
 //      new()
 //      {
-//        //**** ActionsBuilderAreaEx ****//
-
-//        // Kingmaker.Dungeons.Actions.ActionCreateImportedCompanion
-//        {
-//          typeof(ActionCreateImportedCompanion),
-//          new MethodOverrideList(new MethodOverride().RequireFields("Index"))
-//        },
-
-//        // Kingmaker.Designers.EventConditionActionSystem.Actions.AreaEntranceChange
-//        {
-//          typeof(AreaEntranceChange),
-//          new MethodOverrideList(new MethodOverride().RequireFields("m_Location", "m_NewEntrance"))
-//        },
-//        // Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCurrentAreaName
-//        {
-//          typeof(ChangeCurrentAreaName),
-//          new MethodOverrideList(
-//            new MethodOverride().RequireFields("NewName").IgnoreFields("RestoreDefault"),
-//            new MethodOverride()
-//              .UseName("ResetCurrentAreaName")
-//              .IgnoreFields("NewName")
-//              .SetConstantFields(("RestoreDefault", "true")))
-//        },
-//        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddCampingEncounter
-//        {
-//          typeof(AddCampingEncounter),
-//          new MethodOverrideList(new MethodOverride().RequireFields("m_Encounter"))
-//        },
-//        // Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyMapObject
-//        {
-//          typeof(DestroyMapObject),
-//          new MethodOverrideList(new MethodOverride().RequireFields("MapObject"))
-//        },
 
 //        //**** ActionsBuilderAVEx ****//
 
