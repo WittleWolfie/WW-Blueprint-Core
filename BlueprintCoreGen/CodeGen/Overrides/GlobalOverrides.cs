@@ -81,11 +81,11 @@ namespace BlueprintCoreGen.CodeGen.Overrides
           (typeof(BlueprintQuestObjective), new() { "m_AreasProxy", "m_AddendumsProxy", "m_NextObjectivesProxy" }),
         };
 
-    public static readonly Dictionary<Type, List<string>> IgnoredFields =
+    public static readonly List<(Type type, List<string> names)> IgnoredFields =
       new()
       {
-        { typeof(Element), new() { "name" } },
-        { typeof(BlueprintComponent), new() { "m_Flags", "m_PrototypeLink", "name" } },
+        (typeof(Element), new() { "name" }),
+        (typeof(BlueprintComponent), new() { "m_Flags", "m_PrototypeLink", "name" }),
       };
 
     public static Dictionary<Type, string> TypeNameOverrides =

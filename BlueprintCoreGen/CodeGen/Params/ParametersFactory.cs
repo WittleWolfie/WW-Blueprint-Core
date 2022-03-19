@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Newtonsoft.Json.Linq;
+using System.IO;
+using HarmonyLib;
 
 namespace BlueprintCoreGen.CodeGen.Params
 {
@@ -44,12 +47,18 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// </summary>
     private static bool ShouldIgnore(FieldInfo info, Type sourceType)
     {
-      if (IgnoredFields.ContainsKey(sourceType) && IgnoredFields[sourceType].Contains(info.Name))
-      {
-        return true;
-      }
+      var ignoredField = false;
+      IgnoredFields.ForEach(
+        ignoredFields =>
+        {
+          if ((sourceType == ignoredFields.type || sourceType.IsSubclassOf(ignoredFields.type)) && ignoredFields.names.Contains(info.Name))
+          {
+            ignoredField = true;
+          }
+        });
 
-      return info.Name.Contains("__BackingField") // Compiler generated field
+      return ignoredField
+          || info.Name.Contains("__BackingField") // Compiler generated field
                                                   // Skip constant, static, and read-only
           || info.IsLiteral
           || info.IsStatic
@@ -79,27 +88,49 @@ namespace BlueprintCoreGen.CodeGen.Params
               GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
               GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
 
-      //// TODO: Convert to use config overrides.
-      //// Apply type specific overrides
-      //if (FieldParamOverrides.ByType.ContainsKey(info.FieldType))
-      //{
-      //  param.ApplyOverride(FieldParamOverrides.ByType[info.FieldType]);
-      //}
-
-      //// Apply field specific overrides
-      //foreach (Type type in FieldParamOverrides.ByName.Keys)
-      //{
-      //  // Just checking the source type misses inherited fields so loop through all keys
-      //  if ((sourceType == type || sourceType.IsSubclassOf(type))
-      //      && FieldParamOverrides.ByName[type].ContainsKey(info.Name))
-      //  {
-      //    param.ApplyOverride(FieldParamOverrides.ByName[type][info.Name]);
-      //  }
-      //}
-
+      // Apply type specific, then field specific, then method specific overrides (priority order).
+      GetTypeOverride(info.FieldType)?.ApplyTo(param);
+      GetFieldOverride(info.Name, sourceType)?.ApplyTo(param);
       methodOverride.ApplyTo(info, param);
 
       return param;
+    }
+
+    private static Dictionary<Type, FieldTypeOverride>? OverridesByType;
+    private static FieldTypeOverride? GetTypeOverride(Type fieldType)
+    {
+      if (OverridesByType is null)
+      {
+        OverridesByType = new();
+        JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/FieldTypes.json"));
+        array.ToObject<List<FieldTypeOverride>>().ForEach(
+          fieldOverride =>
+          {
+            OverridesByType.Add(AccessTools.TypeByName(fieldOverride.TypeName), fieldOverride);
+          });
+      }
+      return OverridesByType.ContainsKey(fieldType) ? OverridesByType[fieldType] : null;
+    }
+
+    private static List<(Type sourceType, FieldOverride fieldOverride)>? OverridesBySourceType;
+    private static FieldOverride? GetFieldOverride(string fieldName, Type sourceType)
+    {
+      if (OverridesBySourceType is null)
+      {
+        OverridesBySourceType = new();
+        JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Fields.json"));
+        array.ToObject<List<FieldOverride>>().ForEach(
+          fieldOverride =>
+            OverridesBySourceType.Add((AccessTools.TypeByName(fieldOverride.SourceTypeName), fieldOverride)));
+      }
+
+      // Just checking the source type misses inherited fields so loop through all keys.
+      return OverridesBySourceType.Where(
+        fieldOverride =>
+          fieldName.Equals(fieldOverride.fieldOverride.FieldName)
+            && (sourceType == fieldOverride.sourceType || sourceType.IsSubclassOf(fieldOverride.sourceType)))
+        .Select(fieldOverride => fieldOverride.fieldOverride)
+        .FirstOrDefault();
     }
 
     /// <summary>

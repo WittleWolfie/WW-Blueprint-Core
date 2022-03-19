@@ -152,6 +152,12 @@ namespace BlueprintCoreGen.CodeGen.Params
     public string SourceTypeName { get; private set; } = string.Empty;
 
     /// <summary>
+    /// The name of the field.
+    /// </summary>
+    [JsonProperty]
+    public string FieldName { get; private set; } = string.Empty;
+
+    /// <summary>
     /// Specifies whether the field is nullable.
     /// </summary>
     [JsonProperty]
