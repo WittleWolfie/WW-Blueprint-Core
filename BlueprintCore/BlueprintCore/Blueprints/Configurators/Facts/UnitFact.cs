@@ -6264,29 +6264,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="Blindsense"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="exceptionFacts"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(Blindsense))]
-    public TBuilder AddBlindsense(
-        Feet range,
-        bool blindsight = default,
-        bool hasExceptions = default,
-        string[]? exceptionFacts = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new Blindsense();
-      component.Range = range;
-      component.Blindsight = blindsight;
-      component.HasExceptions = hasExceptions;
-      component.m_ExceptionFacts = exceptionFacts.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
-
-    /// <summary>
     /// Adds <see cref="BuffSubstitutionOnApply"/> (Auto Generated)
     /// </summary>
     ///

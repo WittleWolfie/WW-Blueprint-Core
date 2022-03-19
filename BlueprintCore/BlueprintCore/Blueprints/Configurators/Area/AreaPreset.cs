@@ -365,21 +365,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintAreaPreset.m_DlcCampaign"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="dlcCampaign"><see cref="Kingmaker.DLC.BlueprintDlcRewardCampaign"/></param>
-    [Generated]
-    public TBuilder SetDlcCampaign(string? dlcCampaign)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DlcCampaign = BlueprintTool.GetRef<BlueprintDlcRewardCampaignReference>(dlcCampaign);
-          });
-    }
-
-    /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.UnlockedFlags"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -1424,21 +1409,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           bp =>
           {
             bp.StartGameActions = startGameActions?.Build() ?? Constants.Empty.Actions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaPreset.m_DlcCampaign"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="dlcCampaign"><see cref="Kingmaker.DLC.BlueprintDlcRewardCampaign"/></param>
-    [Generated]
-    public AreaPresetConfigurator SetDlcCampaign(string? dlcCampaign)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DlcCampaign = BlueprintTool.GetRef<BlueprintDlcRewardCampaignReference>(dlcCampaign);
           });
     }
 

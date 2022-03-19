@@ -167,21 +167,6 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     }
 
     /// <summary>
-    /// Sets <see cref="AchievementData.SpecificDlc"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="specificDlc"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
-    [Generated]
-    public AchievementDataConfigurator SetSpecificDlc(string? specificDlc)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.SpecificDlc = BlueprintTool.GetRef<BlueprintDlcRewardReference>(specificDlc);
-          });
-    }
-
-    /// <summary>
     /// Sets <see cref="AchievementData.MinDifficulty"/> (Auto Generated)
     /// </summary>
     [Generated]

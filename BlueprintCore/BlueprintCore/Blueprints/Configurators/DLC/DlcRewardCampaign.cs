@@ -42,20 +42,5 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
             bp.ScreenshotForImportSave = screenshotForImportSave;
           });
     }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcRewardCampaign.m_StartGamePreset"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="startGamePreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
-    [Generated]
-    public DlcRewardCampaignConfigurator SetStartGamePreset(string? startGamePreset)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_StartGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(startGamePreset);
-          });
-    }
   }
 }
