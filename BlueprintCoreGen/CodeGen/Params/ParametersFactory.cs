@@ -268,13 +268,13 @@ namespace BlueprintCoreGen.CodeGen.Params
         {
           if (type.IsArray)
           {
-            return "{0}.Select(bp => bp.Reference).ToArray()";
+            return "{0}?.Select(bp => bp.Reference)?.ToArray()";
           }
 
-          return "{0}.Select(bp => bp.Reference).ToList()";
+          return "{0}?.Select(bp => bp.Reference)?.ToList()";
         }
 
-        return "{0}.Reference";
+        return "{0}?.Reference";
       }
 
       return "{0}";
