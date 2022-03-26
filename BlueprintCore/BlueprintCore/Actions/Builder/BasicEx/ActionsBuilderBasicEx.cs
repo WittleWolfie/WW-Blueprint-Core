@@ -33,7 +33,342 @@ namespace BlueprintCore.Actions.Builder.BasicEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderBasicEx
-{
+  {
+
+    /// <summary>
+    /// Adds <see cref="AddFact"/>
+    /// </summary>
+    ///
+    /// <param name="fact">
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddFact(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
+        UnitEvaluator unit)
+    {
+      var element = ElementTool.Create<AddFact>();
+      element.m_Fact = fact?.Reference;
+      builder.Validate(unit);
+      element.Unit = unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddFatigueHours"/>
+    /// </summary>
+    public static ActionsBuilder AddFatigueHours(
+        this ActionsBuilder builder,
+        IntEvaluator hours,
+        UnitEvaluator unit)
+    {
+      var element = ElementTool.Create<AddFatigueHours>();
+      builder.Validate(hours);
+      element.Hours = hours;
+      builder.Validate(unit);
+      element.Unit = unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddItemsToCollection"/>
+    /// </summary>
+    public static ActionsBuilder AddItems(
+        this ActionsBuilder builder,
+        ItemsCollectionEvaluator items,
+        bool? identify = null,
+        List<LootEntry>? loot = null,
+        bool? silent = null,
+        bool? useBlueprintUnitLoot = null)
+    {
+      var element = ElementTool.Create<AddItemsToCollection>();
+      builder.Validate(items);
+      element.ItemsCollection = items;
+      element.Identify = identify ?? element.Identify;
+      foreach (var item in loot) { builder.Validate(item); }
+      element.Loot = loot ?? element.Loot;
+      if (element.Loot is null)
+      {
+        element.Loot = new();
+      }
+      element.Silent = silent ?? element.Silent;
+      element.UseBlueprintUnitLoot = useBlueprintUnitLoot ?? element.UseBlueprintUnitLoot;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddItemsToCollection"/>
+    /// </summary>
+    ///
+    /// <param name="blueprintLoot">
+    /// Blueprint of type BlueprintUnitLoot. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddItemsFromBlueprint(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference> blueprintLoot,
+        ItemsCollectionEvaluator items,
+        bool? identify = null,
+        bool? silent = null,
+        bool? useBlueprintUnitLoot = null)
+    {
+      var element = ElementTool.Create<AddItemsToCollection>();
+      element.m_BlueprintLoot = blueprintLoot?.Reference;
+      builder.Validate(items);
+      element.ItemsCollection = items;
+      element.Identify = identify ?? element.Identify;
+      element.Silent = silent ?? element.Silent;
+      element.UseBlueprintUnitLoot = useBlueprintUnitLoot ?? element.UseBlueprintUnitLoot;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddItemToPlayer"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <list type="bullet">
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     For any other items use <see cref="GiveItemToPlayer"/>.
+    ///   </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="itemToGive">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder GiveItemToPlayer(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        bool? identify = null,
+        int? quantity = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<AddItemToPlayer>();
+      element.m_ItemToGive = itemToGive?.Reference;
+      var bp = itemToGive.Instance;
+      if (bp is BlueprintItemEquipmentHand)
+      {
+        throw new InvalidOperationException("Item fits in hand slot. Use GiveHandSlotItemToPlayer.");
+      }
+      else if (bp is BlueprintItemEquipment)
+      {
+        throw new InvalidOperationException("Item is equipment. Use GiveEquipmentToPlayer.");
+      }
+      element.Identify = identify ?? element.Identify;
+      element.Quantity = quantity ?? element.Quantity;
+      element.Silent = silent ?? element.Silent;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddItemToPlayer"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <list type="bullet">
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     For any other items use <see cref="GiveItemToPlayer"/>.
+    ///   </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="itemToGive">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder GiveEquipmentToPlayer(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        bool? equip = null,
+        UnitEvaluator? equipOn = null,
+        bool? errorIfDidNotEquip = null,
+        bool? identify = null,
+        int? quantity = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<AddItemToPlayer>();
+      element.m_ItemToGive = itemToGive?.Reference;
+      var bp = itemToGive.Instance;
+      if (bp is BlueprintItemEquipmentHand)
+      {
+        throw new InvalidOperationException("Item fits in hand slot. Use GiveHandSlotItemToPlayer.");
+      }
+      else if (bp is not BlueprintItemEquipment)
+      {
+        throw new InvalidOperationException("Item is not equipment. Use GiveItemToPlayer.");
+      }
+      element.Equip = equip ?? element.Equip;
+      builder.Validate(equipOn);
+      element.EquipOn = equipOn ?? element.EquipOn;
+      element.ErrorIfDidNotEquip = errorIfDidNotEquip ?? element.ErrorIfDidNotEquip;
+      element.Identify = identify ?? element.Identify;
+      element.Quantity = quantity ?? element.Quantity;
+      element.Silent = silent ?? element.Silent;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddItemToPlayer"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <list type="bullet">
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
+    ///   </description>
+    /// </item>
+    /// <item>
+    ///   <description>
+    ///     For any other items use <see cref="GiveItemToPlayer"/>.
+    ///   </description>
+    /// </item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="itemToGive">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder GiveHandSlotItemToPlayer(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        bool? equip = null,
+        UnitEvaluator? equipOn = null,
+        bool? errorIfDidNotEquip = null,
+        bool? identify = null,
+        int? preferredWeaponSet = null,
+        int? quantity = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<AddItemToPlayer>();
+      element.m_ItemToGive = itemToGive?.Reference;
+      var bp = itemToGive.Instance;
+      if (bp is not BlueprintItemEquipmentHand)
+      {
+        if (bp is BlueprintItemEquipment)
+        {
+          throw new InvalidOperationException("Item does not fit in hand slot. Use GiveEquipmentToPlayer.");
+        }
+        else
+        {
+          throw new InvalidOperationException("Item is not equipment. Use GiveItemToPlayer.");
+        }
+      }
+      element.Equip = equip ?? element.Equip;
+      builder.Validate(equipOn);
+      element.EquipOn = equipOn ?? element.EquipOn;
+      element.ErrorIfDidNotEquip = errorIfDidNotEquip ?? element.ErrorIfDidNotEquip;
+      element.Identify = identify ?? element.Identify;
+      element.PreferredWeaponSet = preferredWeaponSet ?? element.PreferredWeaponSet;
+      element.Quantity = quantity ?? element.Quantity;
+      element.Silent = silent ?? element.Silent;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddUnitToSummonPool"/>
+    /// </summary>
+    ///
+    /// <param name="summonPool">
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddUnitToSummonPool(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
+        UnitEvaluator unit)
+    {
+      var element = ElementTool.Create<AddUnitToSummonPool>();
+      element.m_SummonPool = summonPool?.Reference;
+      builder.Validate(unit);
+      element.Unit = unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AdvanceUnitLevel"/>
+    /// </summary>
+    public static ActionsBuilder AdvanceUnitLevel(
+        this ActionsBuilder builder,
+        IntEvaluator level,
+        UnitEvaluator unit)
+    {
+      var element = ElementTool.Create<AdvanceUnitLevel>();
+      builder.Validate(level);
+      element.Level = level;
+      builder.Validate(unit);
+      element.Unit = unit;
+      return builder.Add(element);
+    }
 
     /// <summary>
     /// Adds <see cref="AttachBuff"/>
@@ -56,75 +391,11 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator target)
     {
       var element = ElementTool.Create<AttachBuff>();
-      element.m_Buff = buff.Reference;
+      element.m_Buff = buff?.Reference;
       builder.Validate(duration);
       element.Duration = duration;
       builder.Validate(target);
       element.Target = target;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CreaturesAround"/>
-    /// </summary>
-    public static ActionsBuilder OnCreaturesAround(
-        this ActionsBuilder builder,
-        ActionsBuilder actions,
-        PositionEvaluator center,
-        FloatEvaluator radius,
-        bool? checkLos = null,
-        bool? includeDead = null)
-    {
-      var element = ElementTool.Create<CreaturesAround>();
-      element.Actions = actions.Build();
-      builder.Validate(center);
-      element.Center = center;
-      builder.Validate(radius);
-      element.Radius = radius;
-      element.CheckLos = checkLos ?? element.CheckLos;
-      element.IncludeDead = includeDead ?? element.IncludeDead;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFact"/>
-    /// </summary>
-    ///
-    /// <param name="fact">
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddFact(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
-        UnitEvaluator unit)
-    {
-      var element = ElementTool.Create<AddFact>();
-      element.m_Fact = fact.Reference;
-      builder.Validate(unit);
-      element.Unit = unit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFatigueHours"/>
-    /// </summary>
-    public static ActionsBuilder AddFatigueHours(
-        this ActionsBuilder builder,
-        IntEvaluator hours,
-        UnitEvaluator unit)
-    {
-      var element = ElementTool.Create<AddFatigueHours>();
-      builder.Validate(hours);
-      element.Hours = hours;
-      builder.Validate(unit);
-      element.Unit = unit;
       return builder.Add(element);
     }
 
@@ -154,6 +425,65 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       var element = ElementTool.Create<ChangePlayerAlignment>();
       element.TargetAlignment = targetAlignment;
       element.CanUnlockAlignment = canUnlockAlignment ?? element.CanUnlockAlignment;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ClearUnitReturnPosition"/>
+    /// </summary>
+    public static ActionsBuilder ClearUnitReturnPosition(
+        this ActionsBuilder builder,
+        UnitEvaluator unit)
+    {
+      var element = ElementTool.Create<ClearUnitReturnPosition>();
+      builder.Validate(unit);
+      element.Unit = unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ClearUnitReturnPosition"/>
+    /// </summary>
+    public static ActionsBuilder ClearAllUnitReturnPosition(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ClearUnitReturnPosition>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="CombineToGroup"/>
+    /// </summary>
+    public static ActionsBuilder CombineToGroup(
+        this ActionsBuilder builder,
+        UnitEvaluator groupHolder,
+        UnitEvaluator targetUnit)
+    {
+      var element = ElementTool.Create<CombineToGroup>();
+      builder.Validate(groupHolder);
+      element.GroupHolder = groupHolder;
+      builder.Validate(targetUnit);
+      element.TargetUnit = targetUnit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CreaturesAround"/>
+    /// </summary>
+    public static ActionsBuilder OnCreaturesAround(
+        this ActionsBuilder builder,
+        ActionsBuilder actions,
+        PositionEvaluator center,
+        FloatEvaluator radius,
+        bool? checkLos = null,
+        bool? includeDead = null)
+    {
+      var element = ElementTool.Create<CreaturesAround>();
+      element.Actions = actions?.Build();
+      builder.Validate(center);
+      element.Center = center;
+      builder.Validate(radius);
+      element.Radius = radius;
+      element.CheckLos = checkLos ?? element.CheckLos;
+      element.IncludeDead = includeDead ?? element.IncludeDead;
       return builder.Add(element);
     }
 
@@ -234,11 +564,11 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="AddItemsToCollection"/>
+    /// Adds <see cref="DeleteUnitFromSummonPool"/>
     /// </summary>
     ///
-    /// <param name="blueprintLoot">
-    /// Blueprint of type BlueprintUnitLoot. You can pass in the blueprint using:
+    /// <param name="summonPool">
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -247,283 +577,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder AddItems(
+    public static ActionsBuilder DeleteUnitFromSummonPool(
         this ActionsBuilder builder,
-        List<LootEntry> items,
-        ItemsCollectionEvaluator toCollection,
-        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? blueprintLoot = null,
-        bool? identify = null,
-        bool? silent = null,
-        bool? useBlueprintUnitLoot = null)
-    {
-      var element = ElementTool.Create<AddItemsToCollection>();
-      foreach (var item in items) { builder.Validate(item); }
-      element.Loot = items;
-      builder.Validate(toCollection);
-      element.ItemsCollection = toCollection;
-      element.m_BlueprintLoot = blueprintLoot.Reference ?? element.m_BlueprintLoot;
-      if (element.m_BlueprintLoot is null)
-      {
-        element.m_BlueprintLoot = BlueprintTool.GetRef<BlueprintUnitLootReference>(null);
-      }
-      element.Identify = identify ?? element.Identify;
-      element.Silent = silent ?? element.Silent;
-      element.UseBlueprintUnitLoot = useBlueprintUnitLoot ?? element.UseBlueprintUnitLoot;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddItemsToCollection"/>
-    /// </summary>
-    ///
-    /// <param name="blueprintLoot">
-    /// Blueprint of type BlueprintUnitLoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddItemsFromBlueprint(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference> blueprintLoot,
-        ItemsCollectionEvaluator toCollection,
-        bool? identify = null,
-        List<LootEntry>? loot = null,
-        bool? silent = null,
-        bool? useBlueprintUnitLoot = null)
-    {
-      var element = ElementTool.Create<AddItemsToCollection>();
-      element.m_BlueprintLoot = blueprintLoot.Reference;
-      builder.Validate(toCollection);
-      element.ItemsCollection = toCollection;
-      element.Identify = identify ?? element.Identify;
-      foreach (var item in loot) { builder.Validate(item); }
-      element.Loot = loot ?? element.Loot;
-      if (element.Loot is null)
-      {
-        element.Loot = new();
-      }
-      element.Silent = silent ?? element.Silent;
-      element.UseBlueprintUnitLoot = useBlueprintUnitLoot ?? element.UseBlueprintUnitLoot;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddItemToPlayer"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    /// <para>
-    /// <list type="bullet">
-    /// <item>
-    ///   <description>
-    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
-    ///   </description>
-    /// </item>
-    /// <item>
-    ///   <description>
-    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
-    ///   </description>
-    /// </item>
-    /// <item>
-    ///   <description>
-    ///     For any other items use <see cref="GiveItemToPlayer"/>.
-    ///   </description>
-    /// </item>
-    /// </list>
-    /// </para>
-    /// 
-    /// </remarks>
-    ///
-    /// <param name="itemToGive">
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder GiveItemToPlayer(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
-        bool? identify = null,
-        int? quantity = null,
-        bool? silent = null)
-    {
-      var element = ElementTool.Create<AddItemToPlayer>();
-      element.m_ItemToGive = itemToGive.Reference;
-      var bp = itemToGive.Instance;
-      if (bp is BlueprintItemEquipmentHand)
-      {
-        throw new InvalidOperationException("Item fits in hand slot. Use GiveHandSlotItemToPlayer.");
-      }
-      else if (bp is BlueprintItemEquipment)
-      {
-        throw new InvalidOperationException("Item is equipment. Use GiveEquipmentToPlayer.");
-      }
-      element.Identify = identify ?? element.Identify;
-      element.Quantity = quantity ?? element.Quantity;
-      element.Silent = silent ?? element.Silent;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddItemToPlayer"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    /// <para>
-    /// <list type="bullet">
-    /// <item>
-    ///   <description>
-    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
-    ///   </description>
-    /// </item>
-    /// <item>
-    ///   <description>
-    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
-    ///   </description>
-    /// </item>
-    /// <item>
-    ///   <description>
-    ///     For any other items use <see cref="GiveItemToPlayer"/>.
-    ///   </description>
-    /// </item>
-    /// </list>
-    /// </para>
-    /// 
-    /// </remarks>
-    ///
-    /// <param name="itemToGive">
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder GiveEquipmentToPlayer(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
-        bool? equip = null,
-        UnitEvaluator? equipOn = null,
-        bool? errorIfDidNotEquip = null,
-        bool? identify = null,
-        int? quantity = null,
-        bool? silent = null)
-    {
-      var element = ElementTool.Create<AddItemToPlayer>();
-      element.m_ItemToGive = itemToGive.Reference;
-      var bp = itemToGive.Instance;
-      if (bp is BlueprintItemEquipmentHand)
-      {
-        throw new InvalidOperationException("Item fits in hand slot. Use GiveHandSlotItemToPlayer.");
-      }
-      else if (bp is not BlueprintItemEquipment)
-      {
-        throw new InvalidOperationException("Item is not equipment. Use GiveItemToPlayer.");
-      }
-      element.Equip = equip ?? element.Equip;
-      builder.Validate(equipOn);
-      element.EquipOn = equipOn ?? element.EquipOn;
-      element.ErrorIfDidNotEquip = errorIfDidNotEquip ?? element.ErrorIfDidNotEquip;
-      element.Identify = identify ?? element.Identify;
-      element.Quantity = quantity ?? element.Quantity;
-      element.Silent = silent ?? element.Silent;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddItemToPlayer"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    /// <para>
-    /// <list type="bullet">
-    /// <item>
-    ///   <description>
-    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
-    ///   </description>
-    /// </item>
-    /// <item>
-    ///   <description>
-    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
-    ///   </description>
-    /// </item>
-    /// <item>
-    ///   <description>
-    ///     For any other items use <see cref="GiveItemToPlayer"/>.
-    ///   </description>
-    /// </item>
-    /// </list>
-    /// </para>
-    /// 
-    /// </remarks>
-    ///
-    /// <param name="itemToGive">
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder GiveHandSlotItemToPlayer(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
-        bool? equip = null,
-        UnitEvaluator? equipOn = null,
-        bool? errorIfDidNotEquip = null,
-        bool? identify = null,
-        int? preferredWeaponSet = null,
-        int? quantity = null,
-        bool? silent = null)
-    {
-      var element = ElementTool.Create<AddItemToPlayer>();
-      element.m_ItemToGive = itemToGive.Reference;
-      var bp = itemToGive.Instance;
-      if (bp is not BlueprintItemEquipmentHand)
-      {
-        if (bp is BlueprintItemEquipment)
-        {
-          throw new InvalidOperationException("Item does not fit in hand slot. Use GiveEquipmentToPlayer.");
-        }
-        else
-        {
-          throw new InvalidOperationException("Item is not equipment. Use GiveItemToPlayer.");
-        }
-      }
-      element.Equip = equip ?? element.Equip;
-      builder.Validate(equipOn);
-      element.EquipOn = equipOn ?? element.EquipOn;
-      element.ErrorIfDidNotEquip = errorIfDidNotEquip ?? element.ErrorIfDidNotEquip;
-      element.Identify = identify ?? element.Identify;
-      element.PreferredWeaponSet = preferredWeaponSet ?? element.PreferredWeaponSet;
-      element.Quantity = quantity ?? element.Quantity;
-      element.Silent = silent ?? element.Silent;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AdvanceUnitLevel"/>
-    /// </summary>
-    public static ActionsBuilder AdvanceUnitLevel(
-        this ActionsBuilder builder,
-        IntEvaluator level,
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
         UnitEvaluator unit)
     {
-      var element = ElementTool.Create<AdvanceUnitLevel>();
-      builder.Validate(level);
-      element.Level = level;
+      var element = ElementTool.Create<DeleteUnitFromSummonPool>();
+      element.m_SummonPool = summonPool?.Reference;
       builder.Validate(unit);
       element.Unit = unit;
       return builder.Add(element);
@@ -545,91 +605,16 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="CombineToGroup"/>
+    /// Adds <see cref="PartyUnits"/>
     /// </summary>
-    public static ActionsBuilder CombineToGroup(
+    public static ActionsBuilder OnPartyUnits(
         this ActionsBuilder builder,
-        UnitEvaluator groupHolder,
-        UnitEvaluator targetUnit)
+        ActionsBuilder actions,
+        Player.CharactersList unitsList)
     {
-      var element = ElementTool.Create<CombineToGroup>();
-      builder.Validate(groupHolder);
-      element.GroupHolder = groupHolder;
-      builder.Validate(targetUnit);
-      element.TargetUnit = targetUnit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ClearUnitReturnPosition"/>
-    /// </summary>
-    public static ActionsBuilder ClearUnitReturnPosition(
-        this ActionsBuilder builder,
-        UnitEvaluator unit)
-    {
-      var element = ElementTool.Create<ClearUnitReturnPosition>();
-      builder.Validate(unit);
-      element.Unit = unit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ClearUnitReturnPosition"/>
-    /// </summary>
-    public static ActionsBuilder ClearAllUnitReturnPosition(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ClearUnitReturnPosition>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddUnitToSummonPool"/>
-    /// </summary>
-    ///
-    /// <param name="summonPool">
-    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddUnitToSummonPool(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
-        UnitEvaluator unit)
-    {
-      var element = ElementTool.Create<AddUnitToSummonPool>();
-      element.m_SummonPool = summonPool.Reference;
-      builder.Validate(unit);
-      element.Unit = unit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DeleteUnitFromSummonPool"/>
-    /// </summary>
-    ///
-    /// <param name="summonPool">
-    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder DeleteUnitFromSummonPool(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
-        UnitEvaluator unit)
-    {
-      var element = ElementTool.Create<DeleteUnitFromSummonPool>();
-      element.m_SummonPool = summonPool.Reference;
-      builder.Validate(unit);
-      element.Unit = unit;
+      var element = ElementTool.Create<PartyUnits>();
+      element.Actions = actions?.Build();
+      element.m_UnitsList = unitsList;
       return builder.Add(element);
     }
 
@@ -653,7 +638,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<DetachBuff>();
-      element.m_Buff = buff.Reference ?? element.m_Buff;
+      element.m_Buff = buff?.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
@@ -715,10 +700,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? restWithCraft = null)
     {
       var element = ElementTool.Create<FakePartyRest>();
-      element.m_ActionsOnRestEnd = actionsOnRestEnd.Build() ?? element.m_ActionsOnRestEnd;
+      element.m_ActionsOnRestEnd = actionsOnRestEnd?.Build() ?? element.m_ActionsOnRestEnd;
       if (element.m_ActionsOnRestEnd is null)
       {
-        element.m_ActionsOnRestEnd = Constants.Empty.Actions;
+        element.m_ActionsOnRestEnd = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.m_IgnoreCorruption = ignoreCorruption ?? element.m_IgnoreCorruption;
       element.m_Immediate = immediate ?? element.m_Immediate;
@@ -752,10 +737,15 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </summary>
     public static ActionsBuilder GainMythicLevel(
         this ActionsBuilder builder,
-        int? levels = null)
+        int? levels = null,
+        bool? specificUnit = null,
+        UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<GainMythicLevel>();
       element.Levels = levels ?? element.Levels;
+      element.SpecificUnit = specificUnit ?? element.SpecificUnit;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -818,7 +808,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Charges = charges ?? element.Charges;
       builder.Validate(collection);
       element.Collection = collection ?? element.Collection;
-      element.m_Item = item.Reference ?? element.m_Item;
+      element.m_Item = item?.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -885,24 +875,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="PartyUnits"/>
-    /// </summary>
-    public static ActionsBuilder PartyUnits(
-        this ActionsBuilder builder,
-        ActionsBuilder? actions = null,
-        Player.CharactersList? unitsList = null)
-    {
-      var element = ElementTool.Create<PartyUnits>();
-      element.Actions = actions.Build() ?? element.Actions;
-      if (element.Actions is null)
-      {
-        element.Actions = Constants.Empty.Actions;
-      }
-      element.m_UnitsList = unitsList ?? element.m_UnitsList;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="PartyUseAbility"/>
     /// </summary>
     public static ActionsBuilder PartyUseAbility(
@@ -937,7 +909,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? riseAllCompanions = null)
     {
       var element = ElementTool.Create<RaiseDead>();
-      element.m_companion = companion.Reference ?? element.m_companion;
+      element.m_companion = companion?.Reference ?? element.m_companion;
       if (element.m_companion is null)
       {
         element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -995,7 +967,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveFact>();
-      element.m_Fact = fact.Reference ?? element.m_Fact;
+      element.m_Fact = fact?.Reference ?? element.m_Fact;
       if (element.m_Fact is null)
       {
         element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
@@ -1021,15 +993,15 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.DC = dC ?? element.DC;
       element.LogFailure = logFailure ?? element.LogFailure;
       element.LogSuccess = logSuccess ?? element.LogSuccess;
-      element.OnFailure = onFailure.Build() ?? element.OnFailure;
+      element.OnFailure = onFailure?.Build() ?? element.OnFailure;
       if (element.OnFailure is null)
       {
-        element.OnFailure = Constants.Empty.Actions;
+        element.OnFailure = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
+      element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
-        element.OnSuccess = Constants.Empty.Actions;
+        element.OnSuccess = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.Stat = stat ?? element.Stat;
       return builder.Add(element);
@@ -1055,15 +1027,15 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.ForbidPartyHelpInCamp = forbidPartyHelpInCamp ?? element.ForbidPartyHelpInCamp;
       element.LogFailure = logFailure ?? element.LogFailure;
       element.LogSuccess = logSuccess ?? element.LogSuccess;
-      element.OnFailure = onFailure.Build() ?? element.OnFailure;
+      element.OnFailure = onFailure?.Build() ?? element.OnFailure;
       if (element.OnFailure is null)
       {
-        element.OnFailure = Constants.Empty.Actions;
+        element.OnFailure = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
+      element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
-        element.OnSuccess = Constants.Empty.Actions;
+        element.OnSuccess = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.Stat = stat ?? element.Stat;
       builder.Validate(unit);
@@ -1094,7 +1066,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       var element = ElementTool.Create<RunActionHolder>();
       element.Comment = comment ?? element.Comment;
-      element.Holder = holder.Reference ?? element.Holder;
+      element.Holder = holder?.Reference ?? element.Holder;
       if (element.Holder is null)
       {
         element.Holder = BlueprintTool.GetRef<ActionsReference>(null);
@@ -1113,10 +1085,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         EntityReference[]? spawners = null)
     {
       var element = ElementTool.Create<Spawn>();
-      element.ActionsOnSpawn = actionsOnSpawn.Build() ?? element.ActionsOnSpawn;
+      element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
-        element.ActionsOnSpawn = Constants.Empty.Actions;
+        element.ActionsOnSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       foreach (var item in spawners) { builder.Validate(item); }
       element.Spawners = spawners ?? element.Spawners;
@@ -1148,13 +1120,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? pool = null)
     {
       var element = ElementTool.Create<SpawnBySummonPool>();
-      element.ActionsOnSpawn = actionsOnSpawn.Build() ?? element.ActionsOnSpawn;
+      element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
-        element.ActionsOnSpawn = Constants.Empty.Actions;
+        element.ActionsOnSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.m_IgnoreSpawnerConditions = ignoreSpawnerConditions ?? element.m_IgnoreSpawnerConditions;
-      element.m_Pool = pool.Reference ?? element.m_Pool;
+      element.m_Pool = pool?.Reference ?? element.m_Pool;
       if (element.m_Pool is null)
       {
         element.m_Pool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -1171,10 +1143,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         EntityReference? group = null)
     {
       var element = ElementTool.Create<SpawnByUnitGroup>();
-      element.ActionsOnSpawn = actionsOnSpawn.Build() ?? element.ActionsOnSpawn;
+      element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
-        element.ActionsOnSpawn = Constants.Empty.Actions;
+        element.ActionsOnSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       builder.Validate(group);
       element.Group = group ?? element.Group;
@@ -1212,7 +1184,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="unit">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1235,19 +1206,19 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       var element = ElementTool.Create<Summon>();
       element.GroupBySummonPool = groupBySummonPool ?? element.GroupBySummonPool;
       element.Offset = offset ?? element.Offset;
-      element.OnSummmon = onSummmon.Build() ?? element.OnSummmon;
+      element.OnSummmon = onSummmon?.Build() ?? element.OnSummmon;
       if (element.OnSummmon is null)
       {
-        element.OnSummmon = Constants.Empty.Actions;
+        element.OnSummmon = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
+      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
       }
       builder.Validate(transform);
       element.Transform = transform ?? element.Transform;
-      element.m_Unit = unit.Reference ?? element.m_Unit;
+      element.m_Unit = unit?.Reference ?? element.m_Unit;
       if (element.m_Unit is null)
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -1276,17 +1247,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<SummonPoolUnits>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.Conditions = conditions.Build() ?? element.Conditions;
+      element.Conditions = conditions?.Build() ?? element.Conditions;
       if (element.Conditions is null)
       {
-        element.Conditions = Constants.Empty.Conditions;
+        element.Conditions = BlueprintCore.Utils.Constants.Empty.Conditions;
       }
-      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
+      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -1308,7 +1279,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="summonPool">
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1329,7 +1299,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<SummonUnitCopy>();
-      element.m_CopyBlueprint = copyBlueprint.Reference ?? element.m_CopyBlueprint;
+      element.m_CopyBlueprint = copyBlueprint?.Reference ?? element.m_CopyBlueprint;
       if (element.m_CopyBlueprint is null)
       {
         element.m_CopyBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -1339,12 +1309,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.DoNotCreateItems = doNotCreateItems ?? element.DoNotCreateItems;
       builder.Validate(locator);
       element.Locator = locator ?? element.Locator;
-      element.OnSummon = onSummon.Build() ?? element.OnSummon;
+      element.OnSummon = onSummon?.Build() ?? element.OnSummon;
       if (element.OnSummon is null)
       {
-        element.OnSummon = Constants.Empty.Actions;
+        element.OnSummon = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
+      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -1373,7 +1343,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<SwitchActivatableAbility>();
-      element.m_Ability = ability.Reference ?? element.m_Ability;
+      element.m_Ability = ability?.Reference ?? element.m_Ability;
       if (element.m_Ability is null)
       {
         element.m_Ability = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(null);
@@ -1406,10 +1376,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         EntityReference? group = null)
     {
       var element = ElementTool.Create<UnitsFromSpawnersInUnitGroup>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       builder.Validate(group);
       element.m_Group = group ?? element.m_Group;

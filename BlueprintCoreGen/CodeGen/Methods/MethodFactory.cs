@@ -80,6 +80,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
                 $"/// <item><term>{example.BlueprintName}</term><description>{example.BlueprintGuid}</description></item>"));
           method.AddLine($"/// </list>");
         }
+        method.AddLine($"/// </remarks>");
       }
 
       // Parameter comments
