@@ -75,6 +75,12 @@ namespace BlueprintCoreGen.CodeGen.Params
     public string ParamName { get; private set; } = string.Empty;
 
     /// <summary>
+    /// Format string where {0} is the param name.
+    /// </summary>
+    [JsonProperty]
+    public string CommentFmt { get; private set; } = string.Empty;
+
+    /// <summary>
     /// Additional lines of code added after assigning the field's value.
     /// </summary>
     public List<string> ExtraAssignmentFmtLines { get; } = new();
@@ -84,6 +90,8 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (Required) { fieldParameter.MakeRequired(); }
 
       if (!string.IsNullOrEmpty(ParamName)) { fieldParameter.SetParamName(ParamName); }
+
+      if (!string.IsNullOrEmpty(CommentFmt)) { fieldParameter.SetCommentFmt(new() { CommentFmt }); }
 
       if (ExtraAssignmentFmtLines.Any()) { fieldParameter.SetExtraAssignmentFmtLines(ExtraAssignmentFmtLines); }
     }
@@ -215,7 +223,8 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// Operation format string where {0} is the object name and {1} is the parameter name, and {2} is the
     /// validation function.
     /// </summary>
-    private List<string> OperationFmt = new();
+    [JsonProperty]
+    private readonly List<string> OperationFmt = new();
 
     public List<string> GetOperation(string objectName, string validateFunction)
     {

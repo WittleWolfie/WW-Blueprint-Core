@@ -1,6 +1,65 @@
 [
-  // Actions in ActionsBuilderContextEx.
-  // List of BuilderMethod.
+  {
+    "TypeName": "ContextActionAddFeature",
+    "RequiredFields": [ "m_PermanentFeature" ]
+  },
+
+  {
+    "TypeName": "ContextActionAddLocustClone",
+    "RequiredFields": [ "m_CloneFeature" ]
+  },
+
+  {
+    "TypeName": "ContextActionApplyBuff",
+    "RequiredFields": [ "m_Buff" ],
+    "Methods": [
+      {
+        "MethodName": "ApplyBuffPermanent",
+        "IgnoredFields": [ "DurationSeconds", "DurationValue" ],
+        "ConstantFields": [
+          {
+            "FieldName": "UseDurationSeconds",
+            "Value": "false"
+          },
+          {
+            "FieldName": "Permanent",
+            "Value": "true"
+          }
+        ]
+      },
+      {
+        "MethodName": "ApplyBuffWithDurationSeconds",
+        "RequiredFields": [ "DurationSeconds" ],
+        "IgnoredFields": [ "DurationValue" ],
+        "ConstantFields": [
+          {
+            "FieldName": "UseDurationSeconds",
+            "Value": "true"
+          },
+          {
+            "FieldName": "Permanent",
+            "Value": "false"
+          }
+        ]
+      },
+      {
+        "MethodName": "ApplyBuff",
+        "RequiredFields": [ "DurationValue" ],
+        "IgnoredFields": [ "DurationSeconds" ],
+        "ConstantFields": [
+          {
+            "FieldName": "UseDurationSeconds",
+            "Value": "false"
+          },
+          {
+            "FieldName": "Permanent",
+            "Value": "false"
+          }
+        ]
+      }
+    ]
+  },
+
   {
     "TypeName": "ContextActionArmorEnchantPool",
     "Remarks": [
@@ -67,5 +126,416 @@
         ]
       }
     ]
-  }
+  },
+
+  {
+    "TypeName": "ContextActionShieldArmorEnchantPool",
+    "Remarks": [
+      "The caster's shield is enchanted based on its available enhancement bonus. e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
+    ],
+    "Examples": [
+      {
+        "BlueprintName": "SacredArmorShieldEnchantSwitchAbility",
+        "BlueprintGuid": "b0777d9974795a5489ff0efd735a4c2a"
+      }
+    ],
+    "Imports": [
+      "BlueprintTool",
+      "BlueprintItemEnchantment",
+      "BlueprintItemEnchantmentReference",
+      "ItemEnchantments"
+    ],
+    "RequiredFields": [ "EnchantPool", "DurationValue" ],
+    "IgnoredFields": [ "m_DefaultEnchantments" ],
+    "ExtraParams": [
+      {
+        "ParamName": "enchantmentPlus1",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus2",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus3",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus4",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus5",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;"
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionWeaponEnchantPool",
+    "Remarks": [
+      "The caster's weapon is enchanted based on its available enhancement bonus. e.g. If the weapon can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
+    ],
+    "Examples": [
+      {
+        "BlueprintName": "SacredWeaponEnchantSwitchAbility",
+        "BlueprintGuid": "cca63747a12b55f44ad56ef2d840d7f4"
+      }
+    ],
+    "Imports": [
+      "BlueprintTool",
+      "BlueprintItemEnchantment",
+      "BlueprintItemEnchantmentReference",
+      "ItemEnchantments"
+    ],
+    "RequiredFields": [ "EnchantPool", "DurationValue" ],
+    "IgnoredFields": [ "m_DefaultEnchantments" ],
+    "ExtraParams": [
+      {
+        "ParamName": "enchantmentPlus1",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus1",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus1.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus2",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus2",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus2.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus3",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus3",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus3.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus4",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus4",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus4.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus5",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus5",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;"
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionShieldWeaponEnchantPool",
+    "Remarks": [
+      "The caster's shield is enchanted based on its available enhancement bonus. e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
+    ],
+    "Examples": [
+      {
+        "BlueprintName": "SacredWeaponShieldEnchantSwitchAbility",
+        "BlueprintGuid": "a89fc47958b895948a6c613ec1b9da85"
+      }
+    ],
+    "Imports": [
+      "BlueprintTool",
+      "BlueprintItemEnchantment",
+      "BlueprintItemEnchantmentReference",
+      "ItemEnchantments"
+    ],
+    "RequiredFields": [ "EnchantPool", "DurationValue" ],
+    "IgnoredFields": [ "m_DefaultEnchantments" ],
+    "ExtraParams": [
+      {
+        "ParamName": "enchantmentPlus1",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus1",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus1.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus2",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus2",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus2.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus3",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus3",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus3.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus4",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus4",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus4.Reference;"
+        ]
+      },
+      {
+        "ParamName": "enchantmentPlus5",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "CommentFmt": "Defaults to TemporaryEnhancementBonus5",
+        "DefaultValue": "null",
+        "OperationFmt": [
+          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;"
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionAttackWithWeapon",
+    "RequiredFields": [ "m_Stat", "m_WeaponRef" ]
+  },
+
+  {
+    "TypeName": "ContextActionBreathOfLife",
+    "RequiredFields": [ "Value" ]
+  },
+
+  {
+    "TypeName": "ContextActionBreathOfMoney",
+    "RequiredFields": [ "MinCoins", "MaxCoins" ]
+  },
+
+  {
+    "TypeName": "ContextActionCastSpell",
+    "RequiredFields": [ "m_Spell" ],
+    "IgnoredFields": [ "OverrideDC", "OverrideSpellLevel" ],
+    "CustomFields": [
+      {
+        "FieldName": "DC",
+        "ParamName": "overrideDC",
+        "CommentFmt": "Overrides the default spell DC",
+        "ExtraAssignmentFmtLines": [ "{0}.OverrideDC = overrideDC is not null;" ]
+      },
+      {
+        "FieldName": "SpellLevel",
+        "ParamName": "overrideSpellLevel",
+        "CommentFmt": "Overrides the default spell level",
+        "ExtraAssignmentFmtLines": [ "{0}.OverrideSpellLevel = overrideSpellLevel is not null;" ]
+      }
+    ]
+  },
+
+  { "TypeName": "AbilityCustomSharedBurden" },
+
+  { "TypeName": "AbilityCustomSharedGrace" },
+
+  { "TypeName": "BuffActionAddStatBonus" },
+
+  { "TypeName": "ContextActionAcceptBurn" },
+
+  { "TypeName": "ContextActionAddRandomTrashItem" },
+
+  { "TypeName": "ContextActionAeonRollbackToSavedState" },
+
+  { "TypeName": "ContextActionBatteringBlast" },
+
+  { "TypeName": "ContextActionBreakFree" },
+
+  { "TypeName": "ContextActionChangeSharedValue" },
+
+  { "TypeName": "ContextActionClearSummonPool" },
+
+  { "TypeName": "ContextActionCombatManeuver" },
+
+  { "TypeName": "ContextActionCombatManeuverCustom" },
+
+  { "TypeName": "ContextActionConditionalSaved" },
+
+  { "TypeName": "ContextActionDealDamage" },
+
+  { "TypeName": "ContextActionDealWeaponDamage" },
+
+  { "TypeName": "ContextActionDetachFromSpawner" },
+
+  { "TypeName": "ContextActionDetectSecretDoors" },
+
+  { "TypeName": "ContextActionDevourBySwarm" },
+
+  { "TypeName": "ContextActionDisarm" },
+
+  { "TypeName": "ContextActionDismissAreaEffect" },
+
+  { "TypeName": "ContextActionDismount" },
+
+  { "TypeName": "ContextActionDispelMagic" },
+
+  { "TypeName": "ContextActionDropItems" },
+
+  { "TypeName": "ContextActionEnchantWornItem" },
+
+  { "TypeName": "ContextActionFinishObjective" },
+
+  { "TypeName": "ContextActionForEachSwallowedUnit" },
+
+  { "TypeName": "ContextActionGiveExperience" },
+
+  { "TypeName": "ContextActionGrapple" },
+
+  { "TypeName": "ContextActionHealBurn" },
+
+  { "TypeName": "ContextActionHealEnergyDrain" },
+
+  { "TypeName": "ContextActionHealStatDamage" },
+
+  { "TypeName": "ContextActionHealTarget" },
+
+  { "TypeName": "ContextActionHideInPlainSight" },
+
+  { "TypeName": "ContextActionKill" },
+
+  { "TypeName": "ContextActionKnockdownTarget" },
+
+  { "TypeName": "ContextActionMakeKnowledgeCheck" },
+
+  { "TypeName": "ContextActionMarkForceDismemberOwner" },
+
+  { "TypeName": "ContextActionMeleeAttack" },
+
+  { "TypeName": "ContextActionMount" },
+
+  { "TypeName": "ContextActionOnContextCaster" },
+
+  { "TypeName": "ContextActionOnOwner" },
+
+  { "TypeName": "ContextActionOnRandomAreaTarget" },
+
+  { "TypeName": "ContextActionOnRandomTargetsAround" },
+
+  { "TypeName": "ContextActionOnSwarmTargets" },
+
+  { "TypeName": "ContextActionPrintHDRestrictionToCombatLog" },
+
+  { "TypeName": "ContextActionProjectileFx" },
+
+  { "TypeName": "ContextActionProvokeAttackFromCaster" },
+
+  { "TypeName": "ContextActionProvokeAttackOfOpportunity" },
+
+  { "TypeName": "ContextActionPush" },
+
+  { "TypeName": "ContextActionRandomize" },
+
+  { "TypeName": "ContextActionRangedAttack" },
+
+  { "TypeName": "ContextActionRecoverItemCharges" },
+
+  { "TypeName": "ContextActionReduceBuffDuration" },
+
+  { "TypeName": "ContextActionRemoveBuff" },
+
+  { "TypeName": "ContextActionRemoveBuffsByDescriptor" },
+
+  { "TypeName": "ContextActionRemoveBuffSingleStack" },
+
+  { "TypeName": "ContextActionReduceDebilitatingBuffsDuration" },
+
+  { "TypeName": "ContextActionRemoveDeathDoor" },
+
+  { "TypeName": "ContextActionRemoveSelf" },
+
+  { "TypeName": "ContextActionRepeatedActions" },
+
+  { "TypeName": "ContextActionResetAlignment" },
+
+  { "TypeName": "ContextActionRestoreSpells" },
+
+  { "TypeName": "ContextActionResurrect" },
+
+  { "TypeName": "ContextActionRestoreAllSpellSlots" },
+
+  { "TypeName": "ContextActionSavingThrow" },
+
+  { "TypeName": "ContextActionSelectByValue" },
+
+  { "TypeName": "ContextActionSkillCheck" },
+
+  { "TypeName": "ContextActionsOnPet" },
+
+  { "TypeName": "ContextActionSpawnAreaEffect" },
+
+  { "TypeName": "ContextActionSpawnControllableProjectile" },
+
+  { "TypeName": "ContextActionSpawnMonster" },
+
+  { "TypeName": "ContextActionSpawnUnlinkedMonster" },
+
+  { "TypeName": "ContextActionSpendAttackOfOpportunity" },
+
+  { "TypeName": "ContextActionStealBuffs" },
+
+  { "TypeName": "ContextActionSwallowWhole" },
+
+  { "TypeName": "ContextActionSwarmAttack" },
+
+  { "TypeName": "ContextActionSwarmTarget" },
+
+  { "TypeName": "ContextActionSwitchDualCompanion" },
+
+  { "TypeName": "ContextActionTranslocate" },
+
+  { "TypeName": "ContextActionUnsummon" },
+
+  { "TypeName": "ContextRestoreResource" },
+
+  { "TypeName": "ContextSpendResource" },
+
+  { "TypeName": "Demoralize" },
+
+  { "TypeName": "EnhanceWeapon" },
+
+  { "TypeName": "SwordlordAdaptiveTacticsAdd" },
+
+  { "TypeName": "SwordlordAdaptiveTacticsClear" }
 ]

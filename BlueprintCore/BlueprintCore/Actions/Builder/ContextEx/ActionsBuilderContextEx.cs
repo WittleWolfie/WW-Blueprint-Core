@@ -41,161 +41,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderContextEx
-{
-
-    /// <summary>
-    /// Adds <see cref="ContextActionResetAlignment"/>
-    /// </summary>
-    public static ActionsBuilder ResetAlignment(
-        this ActionsBuilder builder,
-        bool? resetAlignmentLock = null)
-    {
-      var element = ElementTool.Create<ContextActionResetAlignment>();
-      element.m_ResetAlignmentLock = resetAlignmentLock ?? element.m_ResetAlignmentLock;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSwarmAttack"/>
-    /// </summary>
-    public static ActionsBuilder SwarmAttack(
-        this ActionsBuilder builder,
-        ActionsBuilder? attackActions = null)
-    {
-      var element = ElementTool.Create<ContextActionSwarmAttack>();
-      element.AttackActions = attackActions.Build() ?? element.AttackActions;
-      if (element.AttackActions is null)
-      {
-        element.AttackActions = Constants.Empty.Actions;
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSwitchDualCompanion"/>
-    /// </summary>
-    public static ActionsBuilder SwitchDualCompanion(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionSwitchDualCompanion>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAddRandomTrashItem"/>
-    /// </summary>
-    public static ActionsBuilder AddRandomTrashItem(
-        this ActionsBuilder builder,
-        bool? identify = null,
-        TrashLootType? lootType = null,
-        int? maxCost = null,
-        bool? silent = null)
-    {
-      var element = ElementTool.Create<ContextActionAddRandomTrashItem>();
-      element.m_Identify = identify ?? element.m_Identify;
-      element.m_LootType = lootType ?? element.m_LootType;
-      element.m_MaxCost = maxCost ?? element.m_MaxCost;
-      element.m_Silent = silent ?? element.m_Silent;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionRestoreAllSpellSlots"/>
-    /// </summary>
-    ///
-    /// <param name="excludeSpellbooks">
-    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder RestoreAllSpellSlots(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? excludeSpellbooks = null,
-        UnitEvaluator? target = null,
-        int? upToSpellLevel = null)
-    {
-      var element = ElementTool.Create<ContextActionRestoreAllSpellSlots>();
-      element.m_ExcludeSpellbooks = excludeSpellbooks.Select(bp => bp.Reference).ToList() ?? element.m_ExcludeSpellbooks;
-      if (element.m_ExcludeSpellbooks is null)
-      {
-        element.m_ExcludeSpellbooks = new();
-      }
-      builder.Validate(target);
-      element.m_Target = target ?? element.m_Target;
-      element.m_UpToSpellLevel = upToSpellLevel ?? element.m_UpToSpellLevel;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffActionAddStatBonus"/>
-    /// </summary>
-    public static ActionsBuilder BuffActionAddStatBonus(
-        this ActionsBuilder builder,
-        ModifierDescriptor? descriptor = null,
-        StatType? stat = null,
-        ContextValue? value = null)
-    {
-      var element = ElementTool.Create<BuffActionAddStatBonus>();
-      element.Descriptor = descriptor ?? element.Descriptor;
-      element.Stat = stat ?? element.Stat;
-      element.Value = value ?? element.Value;
-      if (element.Value is null)
-      {
-        element.Value = ContextValues.Constant(0);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAcceptBurn"/>
-    /// </summary>
-    public static ActionsBuilder AcceptBurn(
-        this ActionsBuilder builder,
-        ContextValue? value = null)
-    {
-      var element = ElementTool.Create<ContextActionAcceptBurn>();
-      element.Value = value ?? element.Value;
-      if (element.Value is null)
-      {
-        element.Value = ContextValues.Constant(0);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionHealBurn"/>
-    /// </summary>
-    public static ActionsBuilder HealBurn(
-        this ActionsBuilder builder,
-        ContextValue? value = null)
-    {
-      var element = ElementTool.Create<ContextActionHealBurn>();
-      element.Value = value ?? element.Value;
-      if (element.Value is null)
-      {
-        element.Value = ContextValues.Constant(0);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCustomSharedBurden"/>
-    /// </summary>
-    public static ActionsBuilder AbilityCustomSharedBurden(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<AbilityCustomSharedBurden>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCustomSharedGrace"/>
-    /// </summary>
-    public static ActionsBuilder AbilityCustomSharedGrace(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<AbilityCustomSharedGrace>());
-    }
+  {
 
     /// <summary>
     /// Adds <see cref="ContextActionAddFeature"/>
@@ -211,7 +57,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="setRankFrom">
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -228,8 +73,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? setRankFrom = null)
     {
       var element = ElementTool.Create<ContextActionAddFeature>();
-      element.m_PermanentFeature = permanentFeature.Reference;
-      element.m_SetRankFrom = setRankFrom.Reference ?? element.m_SetRankFrom;
+      element.m_PermanentFeature = permanentFeature?.Reference;
+      element.m_SetRankFrom = setRankFrom?.Reference ?? element.m_SetRankFrom;
       if (element.m_SetRankFrom is null)
       {
         element.m_SetRankFrom = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
@@ -256,16 +101,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintFeature, BlueprintFeatureReference> cloneFeature)
     {
       var element = ElementTool.Create<ContextActionAddLocustClone>();
-      element.m_CloneFeature = cloneFeature.Reference;
+      element.m_CloneFeature = cloneFeature?.Reference;
       return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAeonRollbackToSavedState"/>
-    /// </summary>
-    public static ActionsBuilder AeonRollbackToSavedState(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ContextActionAeonRollbackToSavedState>());
     }
 
     /// <summary>
@@ -292,7 +129,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? toCaster = null)
     {
       var element = ElementTool.Create<ContextActionApplyBuff>();
-      element.m_Buff = buff.Reference;
+      element.m_Buff = buff?.Reference;
       element.AsChild = asChild ?? element.AsChild;
       element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
       element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
@@ -328,7 +165,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? toCaster = null)
     {
       var element = ElementTool.Create<ContextActionApplyBuff>();
-      element.m_Buff = buff.Reference;
+      element.m_Buff = buff?.Reference;
       element.DurationSeconds = durationSeconds;
       element.AsChild = asChild ?? element.AsChild;
       element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
@@ -365,7 +202,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? toCaster = null)
     {
       var element = ElementTool.Create<ContextActionApplyBuff>();
-      element.m_Buff = buff.Reference;
+      element.m_Buff = buff?.Reference;
       builder.Validate(durationValue);
       element.DurationValue = durationValue;
       element.AsChild = asChild ?? element.AsChild;
@@ -383,83 +220,27 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
-    /// <para>
-    /// The caster's armor is enchanted based on its available enhancement bonus.
-    /// e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
-    /// </para>
-    /// 
+    /// The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    ///
     /// <list type="bullet">
-    /// <listheader>
-    ///   <term>Example Blueprints:</term>
-    /// </listheader>
-    /// <item>
-    ///   <description>SacredArmorEnchantSwitchAbility - 66484ebb8d358db4692ef4445fa6ac35</description>
-    /// </item>
+    /// <listheader>Used by</listheader>
+    /// <item><term>SacredArmorEnchantSwitchAbility</term><description>66484ebb8d358db4692ef4445fa6ac35</description></item>
     /// </list>
     /// </remarks>
     ///
     /// <param name="enchantmentPlus1">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus1
     /// </param>
-    ///
     /// <param name="enchantmentPlus2">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus2
     /// </param>
-    ///
     /// <param name="enchantmentPlus3">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus3
     /// </param>
-    ///
     /// <param name="enchantmentPlus4">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus4
     /// </param>
-    ///
     /// <param name="enchantmentPlus5">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus5
     /// </param>
     public static ActionsBuilder ArmorEnchantPool(
@@ -491,83 +272,27 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
-    /// <para>
-    /// The caster's shield is enchanted based on its available enhancement bonus.
-    /// e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
-    /// </para>
-    /// 
+    /// The caster's shield is enchanted based on its available enhancement bonus. e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    ///
     /// <list type="bullet">
-    /// <listheader>
-    ///   <term>Example Blueprints:</term>
-    /// </listheader>
-    /// <item>
-    ///   <description>SacredArmorShieldEnchantSwitchAbility - b0777d9974795a5489ff0efd735a4c2a</description>
-    /// </item>
+    /// <listheader>Used by</listheader>
+    /// <item><term>SacredArmorShieldEnchantSwitchAbility</term><description>b0777d9974795a5489ff0efd735a4c2a</description></item>
     /// </list>
     /// </remarks>
     ///
     /// <param name="enchantmentPlus1">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus1
     /// </param>
-    ///
     /// <param name="enchantmentPlus2">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus2
     /// </param>
-    ///
     /// <param name="enchantmentPlus3">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus3
     /// </param>
-    ///
     /// <param name="enchantmentPlus4">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus4
     /// </param>
-    ///
     /// <param name="enchantmentPlus5">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryArmorEnhancementBonus5
     /// </param>
     public static ActionsBuilder ShieldArmorEnchantPool(
@@ -599,83 +324,27 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
-    /// <para>
-    /// The caster's weapon is enchanted based on its available enhancement bonus.
-    /// e.g. If the weapon can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
-    /// </para>
-    /// 
+    /// The caster's weapon is enchanted based on its available enhancement bonus. e.g. If the weapon can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    ///
     /// <list type="bullet">
-    /// <listheader>
-    ///   <term>Example Blueprints:</term>
-    /// </listheader>
-    /// <item>
-    ///   <description>SacredWeaponEnchantSwitchAbility - cca63747a12b55f44ad56ef2d840d7f4</description>
-    /// </item>
+    /// <listheader>Used by</listheader>
+    /// <item><term>SacredWeaponEnchantSwitchAbility</term><description>cca63747a12b55f44ad56ef2d840d7f4</description></item>
     /// </list>
     /// </remarks>
     ///
     /// <param name="enchantmentPlus1">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryEnhancementBonus1
     /// </param>
-    ///
     /// <param name="enchantmentPlus2">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
-    /// Defaults to TemporaryEnhancementBonus1
+    /// Defaults to TemporaryEnhancementBonus2
     /// </param>
-    ///
     /// <param name="enchantmentPlus3">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryEnhancementBonus3
     /// </param>
-    ///
     /// <param name="enchantmentPlus4">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryEnhancementBonus4
     /// </param>
-    ///
     /// <param name="enchantmentPlus5">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryEnhancementBonus5
     /// </param>
     public static ActionsBuilder WeaponEnchantPool(
@@ -707,83 +376,27 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
-    /// <para>
-    /// The caster's shield is enchanted based on its available enhancement bonus.
-    /// e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
-    /// </para>
-    /// 
+    /// The caster's shield is enchanted based on its available enhancement bonus. e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    ///
     /// <list type="bullet">
-    /// <listheader>
-    ///   <term>Example Blueprints:</term>
-    /// </listheader>
-    /// <item>
-    ///   <description>SacredWeaponShieldEnchantSwitchAbility - a89fc47958b895948a6c613ec1b9da85</description>
-    /// </item>
+    /// <listheader>Used by</listheader>
+    /// <item><term>SacredWeaponShieldEnchantSwitchAbility</term><description>a89fc47958b895948a6c613ec1b9da85</description></item>
     /// </list>
     /// </remarks>
     ///
     /// <param name="enchantmentPlus1">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryEnhancementBonus1
     /// </param>
-    ///
     /// <param name="enchantmentPlus2">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
-    /// Defaults to TemporaryEnhancementBonus1
+    /// Defaults to TemporaryEnhancementBonus2
     /// </param>
-    ///
     /// <param name="enchantmentPlus3">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryEnhancementBonus3
     /// </param>
-    ///
     /// <param name="enchantmentPlus4">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryEnhancementBonus4
     /// </param>
-    ///
     /// <param name="enchantmentPlus5">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// 
     /// Defaults to TemporaryEnhancementBonus5
     /// </param>
     public static ActionsBuilder ShieldWeaponEnchantPool(
@@ -831,45 +444,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var element = ElementTool.Create<ContextActionAttackWithWeapon>();
       element.m_Stat = stat;
-      element.m_WeaponRef = weaponRef.Reference;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionBatteringBlast"/>
-    /// </summary>
-    public static ActionsBuilder BatteringBlast(
-        this ActionsBuilder builder,
-        bool? remove = null)
-    {
-      var element = ElementTool.Create<ContextActionBatteringBlast>();
-      element.Remove = remove ?? element.Remove;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionBreakFree"/>
-    /// </summary>
-    public static ActionsBuilder BreakFree(
-        this ActionsBuilder builder,
-        ActionsBuilder? failure = null,
-        ActionsBuilder? success = null,
-        bool? useCMB = null,
-        bool? useCMD = null)
-    {
-      var element = ElementTool.Create<ContextActionBreakFree>();
-      element.Failure = failure.Build() ?? element.Failure;
-      if (element.Failure is null)
-      {
-        element.Failure = Constants.Empty.Actions;
-      }
-      element.Success = success.Build() ?? element.Success;
-      if (element.Success is null)
-      {
-        element.Success = Constants.Empty.Actions;
-      }
-      element.UseCMB = useCMB ?? element.UseCMB;
-      element.UseCMD = useCMD ?? element.UseCMD;
+      element.m_WeaponRef = weaponRef?.Reference;
       return builder.Add(element);
     }
 
@@ -913,11 +488,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="overrideDC">
     /// Overrides the default spell DC
     /// </param>
-    ///
     /// <param name="overrideSpellLevel">
     /// Overrides the default spell level
     /// </param>
@@ -929,7 +502,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextValue? overrideSpellLevel = null)
     {
       var element = ElementTool.Create<ContextActionCastSpell>();
-      element.m_Spell = spell.Reference;
+      element.m_Spell = spell?.Reference;
       element.CastByTarget = castByTarget ?? element.CastByTarget;
       element.DC = overrideDC ?? element.DC;
       element.OverrideDC = overrideDC is not null;
@@ -943,6 +516,122 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       {
         element.SpellLevel = ContextValues.Constant(0);
       }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCustomSharedBurden"/>
+    /// </summary>
+    public static ActionsBuilder AbilityCustomSharedBurden(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<AbilityCustomSharedBurden>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCustomSharedGrace"/>
+    /// </summary>
+    public static ActionsBuilder AbilityCustomSharedGrace(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<AbilityCustomSharedGrace>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="BuffActionAddStatBonus"/>
+    /// </summary>
+    public static ActionsBuilder BuffActionAddStatBonus(
+        this ActionsBuilder builder,
+        ModifierDescriptor? descriptor = null,
+        StatType? stat = null,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<BuffActionAddStatBonus>();
+      element.Descriptor = descriptor ?? element.Descriptor;
+      element.Stat = stat ?? element.Stat;
+      element.Value = value ?? element.Value;
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionAcceptBurn"/>
+    /// </summary>
+    public static ActionsBuilder AcceptBurn(
+        this ActionsBuilder builder,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<ContextActionAcceptBurn>();
+      element.Value = value ?? element.Value;
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionAddRandomTrashItem"/>
+    /// </summary>
+    public static ActionsBuilder AddRandomTrashItem(
+        this ActionsBuilder builder,
+        bool? identify = null,
+        TrashLootType? lootType = null,
+        int? maxCost = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<ContextActionAddRandomTrashItem>();
+      element.m_Identify = identify ?? element.m_Identify;
+      element.m_LootType = lootType ?? element.m_LootType;
+      element.m_MaxCost = maxCost ?? element.m_MaxCost;
+      element.m_Silent = silent ?? element.m_Silent;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionAeonRollbackToSavedState"/>
+    /// </summary>
+    public static ActionsBuilder AeonRollbackToSavedState(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ContextActionAeonRollbackToSavedState>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionBatteringBlast"/>
+    /// </summary>
+    public static ActionsBuilder BatteringBlast(
+        this ActionsBuilder builder,
+        bool? remove = null)
+    {
+      var element = ElementTool.Create<ContextActionBatteringBlast>();
+      element.Remove = remove ?? element.Remove;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionBreakFree"/>
+    /// </summary>
+    public static ActionsBuilder BreakFree(
+        this ActionsBuilder builder,
+        ActionsBuilder? failure = null,
+        ActionsBuilder? success = null,
+        bool? useCMB = null,
+        bool? useCMD = null)
+    {
+      var element = ElementTool.Create<ContextActionBreakFree>();
+      element.Failure = failure?.Build() ?? element.Failure;
+      if (element.Failure is null)
+      {
+        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.Success = success?.Build() ?? element.Success;
+      if (element.Success is null)
+      {
+        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.UseCMB = useCMB ?? element.UseCMB;
+      element.UseCMD = useCMD ?? element.UseCMD;
       return builder.Add(element);
     }
 
@@ -997,7 +686,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<ContextActionClearSummonPool>();
-      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
+      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -1025,10 +714,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.BatteringBlast = batteringBlast ?? element.BatteringBlast;
       element.IgnoreConcealment = ignoreConcealment ?? element.IgnoreConcealment;
       element.NewStat = newStat ?? element.NewStat;
-      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
+      element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
-        element.OnSuccess = Constants.Empty.Actions;
+        element.OnSuccess = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.ReplaceStat = replaceStat ?? element.ReplaceStat;
       element.Type = type ?? element.Type;
@@ -1049,15 +738,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         CombatManeuver? type = null)
     {
       var element = ElementTool.Create<ContextActionCombatManeuverCustom>();
-      element.Failure = failure.Build() ?? element.Failure;
+      element.Failure = failure?.Build() ?? element.Failure;
       if (element.Failure is null)
       {
-        element.Failure = Constants.Empty.Actions;
+        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.Success = success.Build() ?? element.Success;
+      element.Success = success?.Build() ?? element.Success;
       if (element.Success is null)
       {
-        element.Success = Constants.Empty.Actions;
+        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.Type = type ?? element.Type;
       return builder.Add(element);
@@ -1072,15 +761,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? succeed = null)
     {
       var element = ElementTool.Create<ContextActionConditionalSaved>();
-      element.Failed = failed.Build() ?? element.Failed;
+      element.Failed = failed?.Build() ?? element.Failed;
       if (element.Failed is null)
       {
-        element.Failed = Constants.Empty.Actions;
+        element.Failed = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.Succeed = succeed.Build() ?? element.Succeed;
+      element.Succeed = succeed?.Build() ?? element.Succeed;
       if (element.Succeed is null)
       {
-        element.Succeed = Constants.Empty.Actions;
+        element.Succeed = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1141,7 +830,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Value = value ?? element.Value;
       if (element.Value is null)
       {
-        element.Value = Constants.Empty.DiceValue;
+        element.Value = BlueprintCore.Utils.Constants.Empty.DiceValue;
       }
       element.WriteCriticalToSharedValue = writeCriticalToSharedValue ?? element.WriteCriticalToSharedValue;
       element.WriteRawResultToSharedValue = writeRawResultToSharedValue ?? element.WriteRawResultToSharedValue;
@@ -1262,17 +951,17 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         element.m_MaxSpellLevel = ContextValues.Constant(0);
       }
       element.OneRollForAll = oneRollForAll ?? element.OneRollForAll;
-      element.OnFail = onFail.Build() ?? element.OnFail;
+      element.OnFail = onFail?.Build() ?? element.OnFail;
       if (element.OnFail is null)
       {
-        element.OnFail = Constants.Empty.Actions;
+        element.OnFail = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.OnlyEnemyAreaEffects = onlyEnemyAreaEffects ?? element.OnlyEnemyAreaEffects;
       element.OnlyTargetEnemyBuffs = onlyTargetEnemyBuffs ?? element.OnlyTargetEnemyBuffs;
-      element.OnSuccess = onSuccess.Build() ?? element.OnSuccess;
+      element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
-        element.OnSuccess = Constants.Empty.Actions;
+        element.OnSuccess = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.Schools = schools ?? element.Schools;
       if (element.Schools is null)
@@ -1319,7 +1008,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var element = ElementTool.Create<ContextActionEnchantWornItem>();
       builder.Validate(durationValue);
       element.DurationValue = durationValue ?? element.DurationValue;
-      element.m_Enchantment = enchantment.Reference ?? element.m_Enchantment;
+      element.m_Enchantment = enchantment?.Reference ?? element.m_Enchantment;
       if (element.m_Enchantment is null)
       {
         element.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(null);
@@ -1350,7 +1039,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
       var element = ElementTool.Create<ContextActionFinishObjective>();
-      element.m_Objective = objective.Reference ?? element.m_Objective;
+      element.m_Objective = objective?.Reference ?? element.m_Objective;
       if (element.m_Objective is null)
       {
         element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
@@ -1366,10 +1055,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? action = null)
     {
       var element = ElementTool.Create<ContextActionForEachSwallowedUnit>();
-      element.Action = action.Build() ?? element.Action;
+      element.Action = action?.Build() ?? element.Action;
       if (element.Action is null)
       {
-        element.Action = Constants.Empty.Actions;
+        element.Action = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1396,7 +1085,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="targetBuff">
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1413,15 +1101,31 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
       var element = ElementTool.Create<ContextActionGrapple>();
-      element.m_CasterBuff = casterBuff.Reference ?? element.m_CasterBuff;
+      element.m_CasterBuff = casterBuff?.Reference ?? element.m_CasterBuff;
       if (element.m_CasterBuff is null)
       {
         element.m_CasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      element.m_TargetBuff = targetBuff.Reference ?? element.m_TargetBuff;
+      element.m_TargetBuff = targetBuff?.Reference ?? element.m_TargetBuff;
       if (element.m_TargetBuff is null)
       {
         element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionHealBurn"/>
+    /// </summary>
+    public static ActionsBuilder HealBurn(
+        this ActionsBuilder builder,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<ContextActionHealBurn>();
+      element.Value = value ?? element.Value;
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
       }
       return builder.Add(element);
     }
@@ -1460,7 +1164,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Value = value ?? element.Value;
       if (element.Value is null)
       {
-        element.Value = Constants.Empty.DiceValue;
+        element.Value = BlueprintCore.Utils.Constants.Empty.DiceValue;
       }
       element.WriteResultToSharedValue = writeResultToSharedValue ?? element.WriteResultToSharedValue;
       return builder.Add(element);
@@ -1477,7 +1181,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Value = value ?? element.Value;
       if (element.Value is null)
       {
-        element.Value = Constants.Empty.DiceValue;
+        element.Value = BlueprintCore.Utils.Constants.Empty.DiceValue;
       }
       return builder.Add(element);
     }
@@ -1519,15 +1223,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? successActions = null)
     {
       var element = ElementTool.Create<ContextActionMakeKnowledgeCheck>();
-      element.FailActions = failActions.Build() ?? element.FailActions;
+      element.FailActions = failActions?.Build() ?? element.FailActions;
       if (element.FailActions is null)
       {
-        element.FailActions = Constants.Empty.Actions;
+        element.FailActions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.SuccessActions = successActions.Build() ?? element.SuccessActions;
+      element.SuccessActions = successActions?.Build() ?? element.SuccessActions;
       if (element.SuccessActions is null)
       {
-        element.SuccessActions = Constants.Empty.Actions;
+        element.SuccessActions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1584,10 +1288,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? actions = null)
     {
       var element = ElementTool.Create<ContextActionOnContextCaster>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1600,10 +1304,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? actions = null)
     {
       var element = ElementTool.Create<ContextActionOnOwner>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1617,10 +1321,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? onEnemies = null)
     {
       var element = ElementTool.Create<ContextActionOnRandomAreaTarget>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.OnEnemies = onEnemies ?? element.OnEnemies;
       return builder.Add(element);
@@ -1649,12 +1353,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Feet? radius = null)
     {
       var element = ElementTool.Create<ContextActionOnRandomTargetsAround>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.m_FilterNoFact = filterNoFact.Reference ?? element.m_FilterNoFact;
+      element.m_FilterNoFact = filterNoFact?.Reference ?? element.m_FilterNoFact;
       if (element.m_FilterNoFact is null)
       {
         element.m_FilterNoFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
@@ -1673,10 +1377,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ActionsBuilder? actions = null)
     {
       var element = ElementTool.Create<ContextActionOnSwarmTargets>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1716,7 +1420,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintProjectile, BlueprintProjectileReference>? projectile = null)
     {
       var element = ElementTool.Create<ContextActionProjectileFx>();
-      element.m_Projectile = projectile.Reference ?? element.m_Projectile;
+      element.m_Projectile = projectile?.Reference ?? element.m_Projectile;
       if (element.m_Projectile is null)
       {
         element.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
@@ -1824,7 +1528,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var element = ElementTool.Create<ContextActionRecoverItemCharges>();
       element.ChargesRecoverCount = chargesRecoverCount ?? element.ChargesRecoverCount;
-      element.m_Item = item.Reference ?? element.m_Item;
+      element.m_Item = item?.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemEquipmentReference>(null);
@@ -1857,7 +1561,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       builder.Validate(durationValue);
       element.DurationValue = durationValue ?? element.DurationValue;
       element.Increase = increase ?? element.Increase;
-      element.m_TargetBuff = targetBuff.Reference ?? element.m_TargetBuff;
+      element.m_TargetBuff = targetBuff?.Reference ?? element.m_TargetBuff;
       if (element.m_TargetBuff is null)
       {
         element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
@@ -1888,7 +1592,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? toCaster = null)
     {
       var element = ElementTool.Create<ContextActionRemoveBuff>();
-      element.m_Buff = buff.Reference ?? element.m_Buff;
+      element.m_Buff = buff?.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
@@ -1932,7 +1636,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
       var element = ElementTool.Create<ContextActionRemoveBuffSingleStack>();
-      element.m_TargetBuff = targetBuff.Reference ?? element.m_TargetBuff;
+      element.m_TargetBuff = targetBuff?.Reference ?? element.m_TargetBuff;
       if (element.m_TargetBuff is null)
       {
         element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
@@ -1977,16 +1681,28 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         ContextDiceValue? value = null)
     {
       var element = ElementTool.Create<ContextActionRepeatedActions>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.Value = value ?? element.Value;
       if (element.Value is null)
       {
-        element.Value = Constants.Empty.DiceValue;
+        element.Value = BlueprintCore.Utils.Constants.Empty.DiceValue;
       }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionResetAlignment"/>
+    /// </summary>
+    public static ActionsBuilder ResetAlignment(
+        this ActionsBuilder builder,
+        bool? resetAlignmentLock = null)
+    {
+      var element = ElementTool.Create<ContextActionResetAlignment>();
+      element.m_ResetAlignmentLock = resetAlignmentLock ?? element.m_ResetAlignmentLock;
       return builder.Add(element);
     }
 
@@ -2009,7 +1725,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? spellbooks = null)
     {
       var element = ElementTool.Create<ContextActionRestoreSpells>();
-      element.m_Spellbooks = spellbooks.Select(bp => bp.Reference).ToArray() ?? element.m_Spellbooks;
+      element.m_Spellbooks = spellbooks?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Spellbooks;
       if (element.m_Spellbooks is null)
       {
         element.m_Spellbooks = new BlueprintSpellbookReference[0];
@@ -2038,13 +1754,45 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         float? resultHealth = null)
     {
       var element = ElementTool.Create<ContextActionResurrect>();
-      element.m_CustomResurrectionBuff = customResurrectionBuff.Reference ?? element.m_CustomResurrectionBuff;
+      element.m_CustomResurrectionBuff = customResurrectionBuff?.Reference ?? element.m_CustomResurrectionBuff;
       if (element.m_CustomResurrectionBuff is null)
       {
         element.m_CustomResurrectionBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       element.FullRestore = fullRestore ?? element.FullRestore;
       element.ResultHealth = resultHealth ?? element.ResultHealth;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionRestoreAllSpellSlots"/>
+    /// </summary>
+    ///
+    /// <param name="excludeSpellbooks">
+    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder RestoreAllSpellSlots(
+        this ActionsBuilder builder,
+        List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? excludeSpellbooks = null,
+        UnitEvaluator? target = null,
+        int? upToSpellLevel = null)
+    {
+      var element = ElementTool.Create<ContextActionRestoreAllSpellSlots>();
+      element.m_ExcludeSpellbooks = excludeSpellbooks?.Select(bp => bp.Reference)?.ToList() ?? element.m_ExcludeSpellbooks;
+      if (element.m_ExcludeSpellbooks is null)
+      {
+        element.m_ExcludeSpellbooks = new();
+      }
+      builder.Validate(target);
+      element.m_Target = target ?? element.m_Target;
+      element.m_UpToSpellLevel = upToSpellLevel ?? element.m_UpToSpellLevel;
       return builder.Add(element);
     }
 
@@ -2061,10 +1809,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         SavingThrowType? type = null)
     {
       var element = ElementTool.Create<ContextActionSavingThrow>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.m_ConditionalDCIncrease = conditionalDCIncrease ?? element.m_ConditionalDCIncrease;
       if (element.m_ConditionalDCIncrease is null)
@@ -2127,26 +1875,26 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       {
         element.CustomDC = ContextValues.Constant(0);
       }
-      element.Failure = failure.Build() ?? element.Failure;
+      element.Failure = failure?.Build() ?? element.Failure;
       if (element.Failure is null)
       {
-        element.Failure = Constants.Empty.Actions;
+        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.FailureDiffMoreOrEqual10 = failureDiffMoreOrEqual10.Build() ?? element.FailureDiffMoreOrEqual10;
+      element.FailureDiffMoreOrEqual10 = failureDiffMoreOrEqual10?.Build() ?? element.FailureDiffMoreOrEqual10;
       if (element.FailureDiffMoreOrEqual10 is null)
       {
-        element.FailureDiffMoreOrEqual10 = Constants.Empty.Actions;
+        element.FailureDiffMoreOrEqual10 = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.FailureDiffMoreOrEqual5Less10 = failureDiffMoreOrEqual5Less10.Build() ?? element.FailureDiffMoreOrEqual5Less10;
+      element.FailureDiffMoreOrEqual5Less10 = failureDiffMoreOrEqual5Less10?.Build() ?? element.FailureDiffMoreOrEqual5Less10;
       if (element.FailureDiffMoreOrEqual5Less10 is null)
       {
-        element.FailureDiffMoreOrEqual5Less10 = Constants.Empty.Actions;
+        element.FailureDiffMoreOrEqual5Less10 = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.Stat = stat ?? element.Stat;
-      element.Success = success.Build() ?? element.Success;
+      element.Success = success?.Build() ?? element.Success;
       if (element.Success is null)
       {
-        element.Success = Constants.Empty.Actions;
+        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.UseCustomDC = useCustomDC ?? element.UseCustomDC;
       return builder.Add(element);
@@ -2162,10 +1910,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         PetType? petType = null)
     {
       var element = ElementTool.Create<ContextActionsOnPet>();
-      element.Actions = actions.Build() ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = Constants.Empty.Actions;
+        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.AllPets = allPets ?? element.AllPets;
       element.PetType = petType ?? element.PetType;
@@ -2193,7 +1941,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? onUnit = null)
     {
       var element = ElementTool.Create<ContextActionSpawnAreaEffect>();
-      element.m_AreaEffect = areaEffect.Reference ?? element.m_AreaEffect;
+      element.m_AreaEffect = areaEffect?.Reference ?? element.m_AreaEffect;
       if (element.m_AreaEffect is null)
       {
         element.m_AreaEffect = BlueprintTool.GetRef<BlueprintAbilityAreaEffectReference>(null);
@@ -2218,7 +1966,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="controllableProjectile">
     /// Blueprint of type BlueprintControllableProjectile. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2235,12 +1982,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintControllableProjectile, BlueprintControllableProjectileReference>? controllableProjectile = null)
     {
       var element = ElementTool.Create<ContextActionSpawnControllableProjectile>();
-      element.AssociatedCasterBuff = associatedCasterBuff.Reference ?? element.AssociatedCasterBuff;
+      element.AssociatedCasterBuff = associatedCasterBuff?.Reference ?? element.AssociatedCasterBuff;
       if (element.AssociatedCasterBuff is null)
       {
         element.AssociatedCasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      element.ControllableProjectile = controllableProjectile.Reference ?? element.ControllableProjectile;
+      element.ControllableProjectile = controllableProjectile?.Reference ?? element.ControllableProjectile;
       if (element.ControllableProjectile is null)
       {
         element.ControllableProjectile = BlueprintTool.GetRef<BlueprintControllableProjectileReference>(null);
@@ -2262,7 +2009,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="summonPool">
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2286,12 +2032,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         bool? useLimitFromSummonPool = null)
     {
       var element = ElementTool.Create<ContextActionSpawnMonster>();
-      element.AfterSpawn = afterSpawn.Build() ?? element.AfterSpawn;
+      element.AfterSpawn = afterSpawn?.Build() ?? element.AfterSpawn;
       if (element.AfterSpawn is null)
       {
-        element.AfterSpawn = Constants.Empty.Actions;
+        element.AfterSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
+      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -2299,7 +2045,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.CountValue = countValue ?? element.CountValue;
       if (element.CountValue is null)
       {
-        element.CountValue = Constants.Empty.DiceValue;
+        element.CountValue = BlueprintCore.Utils.Constants.Empty.DiceValue;
       }
       element.DoNotLinkToCaster = doNotLinkToCaster ?? element.DoNotLinkToCaster;
       builder.Validate(durationValue);
@@ -2310,7 +2056,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       {
         element.LevelValue = ContextValues.Constant(0);
       }
-      element.m_SummonPool = summonPool.Reference ?? element.m_SummonPool;
+      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
       {
         element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
@@ -2338,7 +2084,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null)
     {
       var element = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
-      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
+      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -2385,10 +2131,26 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
     {
       var element = ElementTool.Create<ContextActionSwallowWhole>();
-      element.m_TargetBuff = targetBuff.Reference ?? element.m_TargetBuff;
+      element.m_TargetBuff = targetBuff?.Reference ?? element.m_TargetBuff;
       if (element.m_TargetBuff is null)
       {
         element.m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSwarmAttack"/>
+    /// </summary>
+    public static ActionsBuilder SwarmAttack(
+        this ActionsBuilder builder,
+        ActionsBuilder? attackActions = null)
+    {
+      var element = ElementTool.Create<ContextActionSwarmAttack>();
+      element.AttackActions = attackActions?.Build() ?? element.AttackActions;
+      if (element.AttackActions is null)
+      {
+        element.AttackActions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -2403,6 +2165,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var element = ElementTool.Create<ContextActionSwarmTarget>();
       element.Remove = remove ?? element.Remove;
       return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSwitchDualCompanion"/>
+    /// </summary>
+    public static ActionsBuilder SwitchDualCompanion(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ContextActionSwitchDualCompanion>());
     }
 
     /// <summary>
@@ -2445,7 +2215,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var element = ElementTool.Create<ContextRestoreResource>();
       element.ContextValueRestoration = contextValueRestoration ?? element.ContextValueRestoration;
       element.m_IsFullRestoreAllResources = isFullRestoreAllResources ?? element.m_IsFullRestoreAllResources;
-      element.m_Resource = resource.Reference ?? element.m_Resource;
+      element.m_Resource = resource?.Reference ?? element.m_Resource;
       if (element.m_Resource is null)
       {
         element.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
@@ -2480,7 +2250,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var element = ElementTool.Create<ContextSpendResource>();
       element.ContextValueSpendure = contextValueSpendure ?? element.ContextValueSpendure;
-      element.m_Resource = resource.Reference ?? element.m_Resource;
+      element.m_Resource = resource?.Reference ?? element.m_Resource;
       if (element.m_Resource is null)
       {
         element.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
@@ -2507,7 +2277,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="greaterBuff">
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2518,7 +2287,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="shatterConfidenceBuff">
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2529,7 +2297,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="shatterConfidenceFeature">
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2540,7 +2307,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="swordlordProwessFeature">
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2564,36 +2330,36 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var element = ElementTool.Create<Demoralize>();
       element.Bonus = bonus ?? element.Bonus;
-      element.m_Buff = buff.Reference ?? element.m_Buff;
+      element.m_Buff = buff?.Reference ?? element.m_Buff;
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       element.DazzlingDisplay = dazzlingDisplay ?? element.DazzlingDisplay;
-      element.m_GreaterBuff = greaterBuff.Reference ?? element.m_GreaterBuff;
+      element.m_GreaterBuff = greaterBuff?.Reference ?? element.m_GreaterBuff;
       if (element.m_GreaterBuff is null)
       {
         element.m_GreaterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      element.m_ShatterConfidenceBuff = shatterConfidenceBuff.Reference ?? element.m_ShatterConfidenceBuff;
+      element.m_ShatterConfidenceBuff = shatterConfidenceBuff?.Reference ?? element.m_ShatterConfidenceBuff;
       if (element.m_ShatterConfidenceBuff is null)
       {
         element.m_ShatterConfidenceBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      element.m_ShatterConfidenceFeature = shatterConfidenceFeature.Reference ?? element.m_ShatterConfidenceFeature;
+      element.m_ShatterConfidenceFeature = shatterConfidenceFeature?.Reference ?? element.m_ShatterConfidenceFeature;
       if (element.m_ShatterConfidenceFeature is null)
       {
         element.m_ShatterConfidenceFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      element.m_SwordlordProwessFeature = swordlordProwessFeature.Reference ?? element.m_SwordlordProwessFeature;
+      element.m_SwordlordProwessFeature = swordlordProwessFeature?.Reference ?? element.m_SwordlordProwessFeature;
       if (element.m_SwordlordProwessFeature is null)
       {
         element.m_SwordlordProwessFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      element.TricksterRank3Actions = tricksterRank3Actions.Build() ?? element.TricksterRank3Actions;
+      element.TricksterRank3Actions = tricksterRank3Actions?.Build() ?? element.TricksterRank3Actions;
       if (element.TricksterRank3Actions is null)
       {
-        element.TricksterRank3Actions = Constants.Empty.Actions;
+        element.TricksterRank3Actions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -2629,7 +2395,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       {
         element.EnchantLevel = ContextValues.Constant(0);
       }
-      element.m_Enchantment = enchantment.Select(bp => bp.Reference).ToArray() ?? element.m_Enchantment;
+      element.m_Enchantment = enchantment?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Enchantment;
       if (element.m_Enchantment is null)
       {
         element.m_Enchantment = new BlueprintItemEnchantmentReference[0];
@@ -2659,7 +2425,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? source = null)
     {
       var element = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
-      element.m_Source = source.Reference ?? element.m_Source;
+      element.m_Source = source?.Reference ?? element.m_Source;
       if (element.m_Source is null)
       {
         element.m_Source = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
