@@ -20,19 +20,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderAVEx
-{
-
-    /// <summary>
-    /// Adds <see cref="ContextActionPlaySound"/>
-    /// </summary>
-    public static ActionsBuilder PlaySound(
-        this ActionsBuilder builder,
-        string soundName)
-    {
-      var element = ElementTool.Create<ContextActionPlaySound>();
-      element.SoundName = soundName;
-      return builder.Add(element);
-    }
+  {
 
     /// <summary>
     /// Adds <see cref="AddDialogNotification"/>
@@ -43,19 +31,6 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       var element = ElementTool.Create<AddDialogNotification>();
       element.Text = text;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CameraToPosition"/>
-    /// </summary>
-    public static ActionsBuilder CameraToPosition(
-        this ActionsBuilder builder,
-        PositionEvaluator? position = null)
-    {
-      var element = ElementTool.Create<CameraToPosition>();
-      builder.Validate(position);
-      element.Position = position ?? element.Position;
       return builder.Add(element);
     }
 
@@ -73,11 +48,15 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
-    /// Adds <see cref="ClearBlood"/>
+    /// Adds <see cref="ContextActionPlaySound"/>
     /// </summary>
-    public static ActionsBuilder ClearBlood(this ActionsBuilder builder)
+    public static ActionsBuilder PlaySound(
+        this ActionsBuilder builder,
+        string soundName)
     {
-      return builder.Add(ElementTool.Create<ClearBlood>());
+      var element = ElementTool.Create<ContextActionPlaySound>();
+      element.SoundName = soundName;
+      return builder.Add(element);
     }
 
     /// <summary>
@@ -128,6 +107,27 @@ namespace BlueprintCore.Actions.Builder.AVEx
       var element = ElementTool.Create<ContextActionSpawnFx>();
       element.PrefabLink = prefabLink;
       return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CameraToPosition"/>
+    /// </summary>
+    public static ActionsBuilder CameraToPosition(
+        this ActionsBuilder builder,
+        PositionEvaluator? position = null)
+    {
+      var element = ElementTool.Create<CameraToPosition>();
+      builder.Validate(position);
+      element.Position = position ?? element.Position;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ClearBlood"/>
+    /// </summary>
+    public static ActionsBuilder ClearBlood(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ClearBlood>());
     }
 
     /// <summary>
@@ -238,7 +238,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       var element = ElementTool.Create<PlayCutscene>();
       element.CheckExistence = checkExistence ?? element.CheckExistence;
-      element.m_Cutscene = cutscene.Reference ?? element.m_Cutscene;
+      element.m_Cutscene = cutscene?.Reference ?? element.m_Cutscene;
       if (element.m_Cutscene is null)
       {
         element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(null);
@@ -296,7 +296,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
       element.WhatToBark = whatToBark ?? element.WhatToBark;
       if (element.WhatToBark is null)
       {
-        element.WhatToBark = Constants.Empty.String;
+        element.WhatToBark = BlueprintCore.Utils.Constants.Empty.String;
       }
       builder.Validate(whatToBarkShared);
       element.WhatToBarkShared = whatToBarkShared ?? element.WhatToBarkShared;
@@ -315,7 +315,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
       element.FxPrefab = fxPrefab ?? element.FxPrefab;
       if (element.FxPrefab is null)
       {
-        element.FxPrefab = Constants.Empty.PrefabLink;
+        element.FxPrefab = BlueprintCore.Utils.Constants.Empty.PrefabLink;
       }
       builder.Validate(target);
       element.Target = target ?? element.Target;
@@ -352,7 +352,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       var element = ElementTool.Create<StopCutscene>();
       element.m_CheckType = checkType ?? element.m_CheckType;
-      element.m_Cutscene = cutscene.Reference ?? element.m_Cutscene;
+      element.m_Cutscene = cutscene?.Reference ?? element.m_Cutscene;
       if (element.m_Cutscene is null)
       {
         element.m_Cutscene = BlueprintTool.GetRef<CutsceneReference>(null);

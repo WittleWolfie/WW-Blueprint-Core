@@ -1,4 +1,44 @@
 [
+  {
+    "TypeName": "ActionCreateImportedCompanion",
+    "RequiredFields": [ "Index" ]
+  },
+
+  {
+    "TypeName": "AddCampingEncounter",
+    "RequiredFields": [ "m_Encounter" ]
+  },
+
+  {
+    "TypeName": "AreaEntranceChange",
+    "RequiredFields": [ "m_Location", "m_NewEntrance" ]
+  },
+
+  {
+    "TypeName": "ChangeCurrentAreaName",
+    "Methods": [
+      {
+        "RequiredFields": [ "NewName", "m_NewEntrance" ],
+        "IgnoredFields": [ "RestoreDefault" ]
+      },
+      {
+        "ConstantFields": [
+          {
+            "FieldName": "RestoreDefault",
+            "Value": "true"
+          }
+        ],
+        "IgnoredFields": [ "NewName" ],
+        "MethodName": "ResetCurrentAreaName"
+      }
+    ]
+  },
+
+  {
+    "TypeName": "DestroyMapObject",
+    "RequiredFields": [ "MapObject" ]
+  },
+
   { "TypeName": "CapitalExit" },
 
   { "TypeName": "DecreaseCorruptionLevelAction" },
@@ -73,45 +113,5 @@
 
   { "TypeName": "GameActionSetIsleLock" },
 
-  { "TypeName": "GameActionSetIsleState" },
-
-  {
-    "TypeName": "ActionCreateImportedCompanion",
-    "RequiredFields": [ "Index" ]
-  },
-
-  {
-    "TypeName": "AreaEntranceChange",
-    "RequiredFields": [ "m_Location", "m_NewEntrance" ]
-  },
-
-  {
-    "TypeName": "ChangeCurrentAreaName",
-    "Methods": [
-      {
-        "RequiredFields": [ "NewName", "m_NewEntrance" ],
-        "IgnoredFields": [ "RestoreDefault" ]
-      },
-      {
-        "MethodName": "ResetCurrentAreaName",
-        "IgnoredFields": [ "NewName" ],
-        "ConstantFields": [
-          {
-            "FieldName": "RestoreDefault",
-            "Value": "true"
-          }
-        ]
-      }
-    ]
-  },
-
-  {
-    "TypeName": "AddCampingEncounter",
-    "RequiredFields": [ "m_Encounter" ]
-  },
-
-  {
-    "TypeName": "DestroyMapObject",
-    "RequiredFields": [ "MapObject" ]
-  }
+  { "TypeName": "GameActionSetIsleState" }
 ]

@@ -27,6 +27,111 @@ namespace BlueprintCore.Actions.Builder.AreaEx
   {
 
     /// <summary>
+    /// Adds <see cref="ActionCreateImportedCompanion"/>
+    /// </summary>
+    public static ActionsBuilder CreateImportedCompanion(
+        this ActionsBuilder builder,
+        int index)
+    {
+      var element = ElementTool.Create<ActionCreateImportedCompanion>();
+      element.Index = index;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddCampingEncounter"/>
+    /// </summary>
+    ///
+    /// <param name="encounter">
+    /// Blueprint of type BlueprintCampingEncounter. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddCampingEncounter(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference> encounter)
+    {
+      var element = ElementTool.Create<AddCampingEncounter>();
+      element.m_Encounter = encounter?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AreaEntranceChange"/>
+    /// </summary>
+    ///
+    /// <param name="location">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="newEntrance">
+    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AreaEntranceChange(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> newEntrance)
+    {
+      var element = ElementTool.Create<AreaEntranceChange>();
+      element.m_Location = location?.Reference;
+      element.m_NewEntrance = newEntrance?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeCurrentAreaName"/>
+    /// </summary>
+    public static ActionsBuilder ChangeCurrentAreaName(
+        this ActionsBuilder builder,
+        LocalizedString newName)
+    {
+      var element = ElementTool.Create<ChangeCurrentAreaName>();
+      element.NewName = newName;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeCurrentAreaName"/>
+    /// </summary>
+    public static ActionsBuilder ResetCurrentAreaName(this ActionsBuilder builder)
+    {
+      var element = ElementTool.Create<ChangeCurrentAreaName>();
+      element.RestoreDefault = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DestroyMapObject"/>
+    /// </summary>
+    public static ActionsBuilder DestroyMapObject(
+        this ActionsBuilder builder,
+        MapObjectEvaluator mapObject)
+    {
+      var element = ElementTool.Create<DestroyMapObject>();
+      builder.Validate(mapObject);
+      element.MapObject = mapObject;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="CapitalExit"/>
     /// </summary>
     ///
@@ -806,111 +911,6 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       builder.Validate(isle);
       element.m_Isle = isle ?? element.m_Isle;
       element.m_StateName = stateName ?? element.m_StateName;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ActionCreateImportedCompanion"/>
-    /// </summary>
-    public static ActionsBuilder CreateImportedCompanion(
-        this ActionsBuilder builder,
-        int index)
-    {
-      var element = ElementTool.Create<ActionCreateImportedCompanion>();
-      element.Index = index;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AreaEntranceChange"/>
-    /// </summary>
-    ///
-    /// <param name="location">
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="newEntrance">
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AreaEntranceChange(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
-        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> newEntrance)
-    {
-      var element = ElementTool.Create<AreaEntranceChange>();
-      element.m_Location = location?.Reference;
-      element.m_NewEntrance = newEntrance?.Reference;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ChangeCurrentAreaName"/>
-    /// </summary>
-    public static ActionsBuilder ChangeCurrentAreaName(
-        this ActionsBuilder builder,
-        LocalizedString newName)
-    {
-      var element = ElementTool.Create<ChangeCurrentAreaName>();
-      element.NewName = newName;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ChangeCurrentAreaName"/>
-    /// </summary>
-    public static ActionsBuilder ResetCurrentAreaName(this ActionsBuilder builder)
-    {
-      var element = ElementTool.Create<ChangeCurrentAreaName>();
-      element.RestoreDefault = true;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddCampingEncounter"/>
-    /// </summary>
-    ///
-    /// <param name="encounter">
-    /// Blueprint of type BlueprintCampingEncounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddCampingEncounter(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference> encounter)
-    {
-      var element = ElementTool.Create<AddCampingEncounter>();
-      element.m_Encounter = encounter?.Reference;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DestroyMapObject"/>
-    /// </summary>
-    public static ActionsBuilder DestroyMapObject(
-        this ActionsBuilder builder,
-        MapObjectEvaluator mapObject)
-    {
-      var element = ElementTool.Create<DestroyMapObject>();
-      builder.Validate(mapObject);
-      element.MapObject = mapObject;
       return builder.Add(element);
     }
   }

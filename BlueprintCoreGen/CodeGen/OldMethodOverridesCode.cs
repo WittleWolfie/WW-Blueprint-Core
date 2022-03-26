@@ -115,42 +115,6 @@
 //      new()
 //      {
 
-//        //**** ActionsBuilderAVEx ****//
-
-//        // Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeBookEventImage
-//        {
-//          typeof(ChangeBookEventImage),
-//          new MethodOverrideList(new MethodOverride().RequireFields("m_Image"))
-//        },
-//        // Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification
-//        {
-//          typeof(AddDialogNotification),
-//          new MethodOverrideList(new MethodOverride().RequireFields("Text"))
-//        },
-
-//        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRunAnimationClip
-//        {
-//          typeof(ContextActionRunAnimationClip),
-//          new MethodOverrideList(
-//            new MethodOverride().RequireFields("ClipWrapper").SetDefaultFields(("Mode", "ExecutionMode.Interrupted")))
-//        },
-//        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionShowBark
-//        {
-//          typeof(ContextActionShowBark),
-//          new MethodOverrideList(new MethodOverride().RequireFields("WhatToBark"))
-//        },
-//        // Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSpawnFx
-//        {
-//          typeof(ContextActionSpawnFx),
-//          new MethodOverrideList(new MethodOverride().RequireFields("PrefabLink"))
-//        },
-
-//        // Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionPlaySound
-//        {
-//          typeof(ContextActionPlaySound),
-//          new MethodOverrideList(new MethodOverride().RequireFields("SoundName"))
-//        },
-
 //        //**** ActionsBuilderBasicEx ****//
 
 //        // Kingmaker.Designers.EventConditionActionSystem.Actions.AttachBuff

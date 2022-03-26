@@ -104,34 +104,6 @@ namespace BlueprintCoreGen.CodeGen.Builders
           "Extension to <see cref=\"ActionsBuilder\"/> for actions involving audiovisual effects such as dialogs,"
               + " camera, cutscenes, and sounds.",
           "AVActions.json"),
-          //new()
-          //{
-          //  // Kingmaker.Assets.UnitLogic.Mechanics.Actions
-          //  typeof(ContextActionPlaySound),
-
-          //  // Kingmaker.Designers.EventConditionActionSystem.Actions
-          //  typeof(AddDialogNotification),
-          //  typeof(CameraToPosition),
-          //  typeof(ChangeBookEventImage),
-          //  typeof(ClearBlood),
-          //  typeof(ContextActionRunAnimationClip),
-          //  typeof(ContextActionShowBark),
-          //  typeof(ContextActionSpawnFx),
-          //  typeof(OverrideRainIntesity),
-          //  typeof(Play2DSound),
-          //  typeof(Play3DSound),
-          //  typeof(PlayAnimationOneShot),
-          //  typeof(PlayCustomMusic),
-          //  typeof(PlayCutscene),
-          //  typeof(ReloadMechanic),
-          //  typeof(SetSoundState),
-          //  typeof(ShowBark),
-          //  typeof(SpawnFx),
-          //  typeof(StopCustomMusic),
-          //  typeof(StopCutscene),
-          //  typeof(ToggleObjectFx),
-          //  typeof(ToggleObjectMusic)
-          //}),
 
         new ActionExtension(
           ExtensionType.BasicEx,

@@ -1,6 +1,19 @@
 [
-  // Actions in ActionsBuilderAVEx.
-  // List of BuilderMethod.
+  {
+    "TypeName": "AddDialogNotification",
+    "RequiredFields": [ "Text" ]
+  },
+
+  {
+    "TypeName": "ChangeBookEventImage",
+    "RequiredFields": [ "m_Image" ]
+  },
+
+  {
+    "TypeName": "ContextActionPlaySound",
+    "RequiredFields": [ "SoundName" ]
+  },
+
   {
     "TypeName": "ContextActionRunAnimationClip",
     "RequiredFields": [ "ClipWrapper" ],
@@ -10,5 +23,47 @@
         "Value": "ExecutionMode.Interrupted"
       }
     ]
-  }
+  },
+
+  {
+    "TypeName": "ContextActionShowBark",
+    "RequiredFields": [ "WhatToBark" ]
+  },
+
+  {
+    "TypeName": "ContextActionSpawnFx",
+    "RequiredFields": [ "PrefabLink" ]
+  },
+
+  { "TypeName": "CameraToPosition" },
+
+  { "TypeName": "ClearBlood" },
+
+  { "TypeName": "OverrideRainIntesity" },
+
+  { "TypeName": "Play2DSound" },
+
+  { "TypeName": "Play3DSound" },
+
+  { "TypeName": "PlayAnimationOneShot" },
+
+  { "TypeName": "PlayCustomMusic" },
+
+  { "TypeName": "PlayCutscene" },
+
+  { "TypeName": "ReloadMechanic" },
+
+  { "TypeName": "SetSoundState" },
+
+  { "TypeName": "ShowBark" },
+
+  { "TypeName": "SpawnFx" },
+
+  { "TypeName": "StopCustomMusic" },
+
+  { "TypeName": "StopCutscene" },
+
+  { "TypeName": "ToggleObjectFx" },
+
+  { "TypeName": "ToggleObjectMusic" }
 ]
