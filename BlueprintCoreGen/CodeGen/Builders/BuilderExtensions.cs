@@ -142,41 +142,10 @@ namespace BlueprintCoreGen.CodeGen.Builders
               + " quests, name changes, and etudes.",
           "StoryActions.json"),
 
-        //new ActionExtension(
-        //  ExtensionType.UpgraderEx,
-        //  "Extension to <see cref=\"ActionsBuilder\"/> for all UpgraderOnlyActions.",
-        //  "UpgraderActions.json"),
-        //new()
-        //{
-        //  // Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions
-        //  typeof(AddFactIfEtudePlaying),
-        //  typeof(FixKingdomSystemBuffsAndStats),
-        //  typeof(ReenterScriptzone),
-        //  typeof(Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveFact),
-        //  typeof(RefreshCrusadeLogistic),
-        //  typeof(RefreshSettingsPreset),
-        //  typeof(RemoveSpell),
-        //  typeof(ResetMinDifficulty),
-        //  typeof(RestoreClassFeature),
-
-        //  // Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions
-        //  typeof(FixItemInInventory),
-        //  typeof(RecreateOnLoad),
-        //  typeof(SetAlignmentFromBlueprint),
-        //  typeof(SetHandsFromBlueprint),
-        //  typeof(SetRaceFromBlueprint),
-
-        //  // Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions
-        //  typeof(AddFeatureFromProgression),
-        //  typeof(RecheckEtude),
-        //  typeof(RefreshAllArmyLeaders),
-        //  typeof(RemoveFeatureFromProgression),
-        //  typeof(ReplaceFeature),
-        //  typeof(SetSharedVendorTable),
-        //  typeof(StartEtudeForced),
-        //  typeof(UnStartEtude),
-        //  typeof(RestartTacticalCombat),
-        //}),
+        new ActionExtension(
+          ExtensionType.UpgraderEx,
+          "Extension to <see cref=\"ActionsBuilder\"/> for all UpgraderOnlyActions.",
+          "UpgraderActions.json"),
       };
 
     // Used in class names and namespaces directly

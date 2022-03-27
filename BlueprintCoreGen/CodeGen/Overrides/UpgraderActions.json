@@ -1,0 +1,47 @@
+[
+  { "TypeName": "AddFactIfEtudePlaying" },
+
+  { "TypeName": "AddFeatureFromProgression" },
+
+  { "TypeName": "FixItemInInventory" },
+
+  { "TypeName": "FixKingdomSystemBuffsAndStats" },
+
+  { "TypeName": "RecheckEtude" },
+
+  { "TypeName": "RecreateOnLoad" },
+
+  { "TypeName": "ReenterScriptzone" },
+
+  { "TypeName": "RefreshAllArmyLeaders" },
+
+  { "TypeName": "RefreshCrusadeLogistic" },
+
+  { "TypeName": "RefreshSettingsPreset" },
+
+  { "TypeName": "Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveFact" },
+
+  { "TypeName": "RemoveFeatureFromProgression" },
+
+  { "TypeName": "RemoveSpell" },
+
+  { "TypeName": "ReplaceFeature" },
+
+  { "TypeName": "ResetMinDifficulty" },
+
+  { "TypeName": "RestartTacticalCombat" },
+
+  { "TypeName": "RestoreClassFeature" },
+
+  { "TypeName": "SetAlignmentFromBlueprint" },
+
+  { "TypeName": "SetHandsFromBlueprint" },
+
+  { "TypeName": "SetRaceFromBlueprint" },
+
+  { "TypeName": "SetSharedVendorTable" },
+
+  { "TypeName": "StartEtudeForced" },
+
+  { "TypeName": "UnStartEtude" }
+]
