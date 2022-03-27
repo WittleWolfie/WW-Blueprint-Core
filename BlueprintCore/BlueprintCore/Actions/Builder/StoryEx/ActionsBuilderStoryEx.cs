@@ -27,7 +27,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderStoryEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="AlignmentSelector"/>
@@ -83,7 +83,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool? evaluate = null)
     {
       var element = ElementTool.Create<CompleteEtude>();
-      element.Etude = etude.Reference ?? element.Etude;
+      element.Etude = etude?.Reference ?? element.Etude;
       if (element.Etude is null)
       {
         element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
@@ -114,7 +114,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         IntEvaluator? valueEvaluator = null)
     {
       var element = ElementTool.Create<ChangeRomance>();
-      element.m_Romance = romance.Reference ?? element.m_Romance;
+      element.m_Romance = romance?.Reference ?? element.m_Romance;
       if (element.m_Romance is null)
       {
         element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
@@ -139,7 +139,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.NewName = newName ?? element.NewName;
       if (element.NewName is null)
       {
-        element.NewName = Constants.Empty.String;
+        element.NewName = BlueprintCore.Utils.Constants.Empty.String;
       }
       element.ReturnTheOldName = returnTheOldName ?? element.ReturnTheOldName;
       builder.Validate(unit);
@@ -174,7 +174,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
       var element = ElementTool.Create<GiveObjective>();
-      element.m_Objective = objective.Reference ?? element.m_Objective;
+      element.m_Objective = objective?.Reference ?? element.m_Objective;
       if (element.m_Objective is null)
       {
         element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
@@ -235,7 +235,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         IntEvaluator? value = null)
     {
       var element = ElementTool.Create<IncrementFlagValue>();
-      element.m_Flag = flag.Reference ?? element.m_Flag;
+      element.m_Flag = flag?.Reference ?? element.m_Flag;
       if (element.m_Flag is null)
       {
         element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
@@ -295,7 +295,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null)
     {
       var element = ElementTool.Create<LockFlag>();
-      element.m_Flag = flag.Reference ?? element.m_Flag;
+      element.m_Flag = flag?.Reference ?? element.m_Flag;
       if (element.m_Flag is null)
       {
         element.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
@@ -322,7 +322,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null)
     {
       var element = ElementTool.Create<LockRomance>();
-      element.m_Romance = romance.Reference ?? element.m_Romance;
+      element.m_Romance = romance?.Reference ?? element.m_Romance;
       if (element.m_Romance is null)
       {
         element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
@@ -349,7 +349,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>>? answers = null)
     {
       var element = ElementTool.Create<MarkAnswersSelected>();
-      element.m_Answers = answers.Select(bp => bp.Reference).ToArray() ?? element.m_Answers;
+      element.m_Answers = answers?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Answers;
       if (element.m_Answers is null)
       {
         element.m_Answers = new BlueprintAnswerReference[0];
@@ -376,7 +376,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         List<Blueprint<BlueprintCueBase, BlueprintCueBaseReference>>? cues = null)
     {
       var element = ElementTool.Create<MarkCuesSeen>();
-      element.m_Cues = cues.Select(bp => bp.Reference).ToArray() ?? element.m_Cues;
+      element.m_Cues = cues?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Cues;
       if (element.m_Cues is null)
       {
         element.m_Cues = new BlueprintCueBaseReference[0];
@@ -398,7 +398,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="location">
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -415,12 +414,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<MoveAzataIslandToLocation>();
-      element.m_GlobalMap = globalMap.Reference ?? element.m_GlobalMap;
+      element.m_GlobalMap = globalMap?.Reference ?? element.m_GlobalMap;
       if (element.m_GlobalMap is null)
       {
         element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(null);
       }
-      element.m_Location = location.Reference ?? element.m_Location;
+      element.m_Location = location?.Reference ?? element.m_Location;
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
@@ -447,7 +446,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null)
     {
       var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
-      element.m_GlobalMap = globalMap.Reference ?? element.m_GlobalMap;
+      element.m_GlobalMap = globalMap?.Reference ?? element.m_GlobalMap;
       if (element.m_GlobalMap is null)
       {
         element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(null);
@@ -504,12 +503,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool? restrictPartySize = null)
     {
       var element = ElementTool.Create<PartyMembersDetach>();
-      element.AfterDetach = afterDetach.Build() ?? element.AfterDetach;
+      element.AfterDetach = afterDetach?.Build() ?? element.AfterDetach;
       if (element.AfterDetach is null)
       {
-        element.AfterDetach = Constants.Empty.Actions;
+        element.AfterDetach = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.m_DetachAllExcept = detachAllExcept.Select(bp => bp.Reference).ToArray() ?? element.m_DetachAllExcept;
+      element.m_DetachAllExcept = detachAllExcept?.Select(bp => bp.Reference)?.ToArray() ?? element.m_DetachAllExcept;
       if (element.m_DetachAllExcept is null)
       {
         element.m_DetachAllExcept = new BlueprintUnitReference[0];
@@ -530,10 +529,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool? restrictPartySize = null)
     {
       var element = ElementTool.Create<PartyMembersDetachEvaluated>();
-      element.AfterDetach = afterDetach.Build() ?? element.AfterDetach;
+      element.AfterDetach = afterDetach?.Build() ?? element.AfterDetach;
       if (element.AfterDetach is null)
       {
-        element.AfterDetach = Constants.Empty.Actions;
+        element.AfterDetach = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       foreach (var item in detachThese) { builder.Validate(item); }
       element.DetachThese = detachThese ?? element.DetachThese;
@@ -568,15 +567,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       var element = ElementTool.Create<Recruit>();
       element.AddToParty = addToParty ?? element.AddToParty;
       element.MatchPlayerXpExactly = matchPlayerXpExactly ?? element.MatchPlayerXpExactly;
-      element.OnRecruit = onRecruit.Build() ?? element.OnRecruit;
+      element.OnRecruit = onRecruit?.Build() ?? element.OnRecruit;
       if (element.OnRecruit is null)
       {
-        element.OnRecruit = Constants.Empty.Actions;
+        element.OnRecruit = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.OnRecruitImmediate = onRecruitImmediate.Build() ?? element.OnRecruitImmediate;
+      element.OnRecruitImmediate = onRecruitImmediate?.Build() ?? element.OnRecruitImmediate;
       if (element.OnRecruitImmediate is null)
       {
-        element.OnRecruitImmediate = Constants.Empty.Actions;
+        element.OnRecruitImmediate = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       foreach (var item in recruited) { builder.Validate(item); }
       element.Recruited = recruited ?? element.Recruited;
@@ -607,15 +606,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         ActionsBuilder? onRecruit = null)
     {
       var element = ElementTool.Create<RecruitInactive>();
-      element.m_CompanionBlueprint = companionBlueprint.Reference ?? element.m_CompanionBlueprint;
+      element.m_CompanionBlueprint = companionBlueprint?.Reference ?? element.m_CompanionBlueprint;
       if (element.m_CompanionBlueprint is null)
       {
         element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      element.OnRecruit = onRecruit.Build() ?? element.OnRecruit;
+      element.OnRecruit = onRecruit?.Build() ?? element.OnRecruit;
       if (element.OnRecruit is null)
       {
-        element.OnRecruit = Constants.Empty.Actions;
+        element.OnRecruit = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -638,10 +637,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </summary>
     public static ActionsBuilder RemoveMythicLevels(
         this ActionsBuilder builder,
-        int? levels = null)
+        int? levels = null,
+        bool? specificUnit = null,
+        UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveMythicLevels>();
       element.Levels = levels ?? element.Levels;
+      element.SpecificUnit = specificUnit ?? element.SpecificUnit;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
@@ -667,7 +671,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="remove">
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -685,12 +688,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<ReplaceFeatureInProgression>();
-      element.m_Add = add.Reference ?? element.m_Add;
+      element.m_Add = add?.Reference ?? element.m_Add;
       if (element.m_Add is null)
       {
         element.m_Add = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      element.m_Remove = remove.Reference ?? element.m_Remove;
+      element.m_Remove = remove?.Reference ?? element.m_Remove;
       if (element.m_Remove is null)
       {
         element.m_Remove = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
@@ -714,7 +717,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="objectiveToStart">
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -725,7 +727,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    ///
     /// <param name="quest">
     /// Blueprint of type BlueprintQuest. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -743,17 +744,17 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintQuest, BlueprintQuestReference>? quest = null)
     {
       var element = ElementTool.Create<ResetQuest>();
-      element.m_ObjectivesToReset = objectivesToReset.Select(bp => bp.Reference).ToArray() ?? element.m_ObjectivesToReset;
+      element.m_ObjectivesToReset = objectivesToReset?.Select(bp => bp.Reference)?.ToArray() ?? element.m_ObjectivesToReset;
       if (element.m_ObjectivesToReset is null)
       {
         element.m_ObjectivesToReset = new BlueprintQuestObjectiveReference[0];
       }
-      element.m_ObjectiveToStart = objectiveToStart.Reference ?? element.m_ObjectiveToStart;
+      element.m_ObjectiveToStart = objectiveToStart?.Reference ?? element.m_ObjectiveToStart;
       if (element.m_ObjectiveToStart is null)
       {
         element.m_ObjectiveToStart = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
       }
-      element.m_Quest = quest.Reference ?? element.m_Quest;
+      element.m_Quest = quest?.Reference ?? element.m_Quest;
       if (element.m_Quest is null)
       {
         element.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(null);
@@ -780,7 +781,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
       var element = ElementTool.Create<ResetQuestObjective>();
-      element.m_Objective = objective.Reference ?? element.m_Objective;
+      element.m_Objective = objective?.Reference ?? element.m_Objective;
       if (element.m_Objective is null)
       {
         element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
@@ -822,7 +823,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         IntEvaluator? valueEvaluator = null)
     {
       var element = ElementTool.Create<RomanceSetMaximum>();
-      element.m_Romance = romance.Reference ?? element.m_Romance;
+      element.m_Romance = romance?.Reference ?? element.m_Romance;
       if (element.m_Romance is null)
       {
         element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
@@ -852,7 +853,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         IntEvaluator? valueEvaluator = null)
     {
       var element = ElementTool.Create<RomanceSetMinimum>();
-      element.m_Romance = romance.Reference ?? element.m_Romance;
+      element.m_Romance = romance?.Reference ?? element.m_Romance;
       if (element.m_Romance is null)
       {
         element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
@@ -908,7 +909,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         SummonPoolCountTrigger.ObjectiveStatus? status = null)
     {
       var element = ElementTool.Create<SetObjectiveStatus>();
-      element.m_Objective = objective.Reference ?? element.m_Objective;
+      element.m_Objective = objective?.Reference ?? element.m_Objective;
       if (element.m_Objective is null)
       {
         element.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
@@ -938,7 +939,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<SetPortrait>();
-      element.m_Portrait = portrait.Reference ?? element.m_Portrait;
+      element.m_Portrait = portrait?.Reference ?? element.m_Portrait;
       if (element.m_Portrait is null)
       {
         element.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(null);
@@ -977,22 +978,22 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         LocalizedString? text = null)
     {
       var element = ElementTool.Create<ShowDialogBox>();
-      element.OnAccept = onAccept.Build() ?? element.OnAccept;
+      element.OnAccept = onAccept?.Build() ?? element.OnAccept;
       if (element.OnAccept is null)
       {
-        element.OnAccept = Constants.Empty.Actions;
+        element.OnAccept = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.OnCancel = onCancel.Build() ?? element.OnCancel;
+      element.OnCancel = onCancel?.Build() ?? element.OnCancel;
       if (element.OnCancel is null)
       {
-        element.OnCancel = Constants.Empty.Actions;
+        element.OnCancel = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       builder.Validate(parameters);
       element.Parameters = parameters ?? element.Parameters;
       element.Text = text ?? element.Text;
       if (element.Text is null)
       {
-        element.Text = Constants.Empty.String;
+        element.Text = BlueprintCore.Utils.Constants.Empty.String;
       }
       return builder.Add(element);
     }
@@ -1007,15 +1008,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         int? waitTime = null)
     {
       var element = ElementTool.Create<ShowMessageBox>();
-      element.OnClose = onClose.Build() ?? element.OnClose;
+      element.OnClose = onClose?.Build() ?? element.OnClose;
       if (element.OnClose is null)
       {
-        element.OnClose = Constants.Empty.Actions;
+        element.OnClose = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.Text = text ?? element.Text;
       if (element.Text is null)
       {
-        element.Text = Constants.Empty.String;
+        element.Text = BlueprintCore.Utils.Constants.Empty.String;
       }
       element.WaitTime = waitTime ?? element.WaitTime;
       return builder.Add(element);
@@ -1033,7 +1034,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.String = stringValue ?? element.String;
       if (element.String is null)
       {
-        element.String = Constants.Empty.String;
+        element.String = BlueprintCore.Utils.Constants.Empty.String;
       }
       element.Type = type ?? element.Type;
       return builder.Add(element);
@@ -1092,7 +1093,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       var element = ElementTool.Create<StartDialog>();
       builder.Validate(dialogEvaluator);
       element.DialogEvaluator = dialogEvaluator ?? element.DialogEvaluator;
-      element.m_Dialogue = dialogue.Reference ?? element.m_Dialogue;
+      element.m_Dialogue = dialogue?.Reference ?? element.m_Dialogue;
       if (element.m_Dialogue is null)
       {
         element.m_Dialogue = BlueprintTool.GetRef<BlueprintDialogReference>(null);
@@ -1102,7 +1103,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.SpeakerName = speakerName ?? element.SpeakerName;
       if (element.SpeakerName is null)
       {
-        element.SpeakerName = Constants.Empty.String;
+        element.SpeakerName = BlueprintCore.Utils.Constants.Empty.String;
       }
       return builder.Add(element);
     }
@@ -1126,7 +1127,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintRandomEncounter, BlueprintRandomEncounterReference>? encounter = null)
     {
       var element = ElementTool.Create<StartEncounter>();
-      element.m_Encounter = encounter.Reference ?? element.m_Encounter;
+      element.m_Encounter = encounter?.Reference ?? element.m_Encounter;
       if (element.m_Encounter is null)
       {
         element.m_Encounter = BlueprintTool.GetRef<BlueprintRandomEncounterReference>(null);
@@ -1155,7 +1156,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool? evaluate = null)
     {
       var element = ElementTool.Create<StartEtude>();
-      element.Etude = etude.Reference ?? element.Etude;
+      element.Etude = etude?.Reference ?? element.Etude;
       if (element.Etude is null)
       {
         element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
@@ -1186,7 +1187,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         bool? isOn = null)
     {
       var element = ElementTool.Create<SwitchAzataIsland>();
-      element.m_GlobalMap = globalMap.Reference ?? element.m_GlobalMap;
+      element.m_GlobalMap = globalMap?.Reference ?? element.m_GlobalMap;
       if (element.m_GlobalMap is null)
       {
         element.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(null);
@@ -1248,7 +1249,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<SwitchFaction>();
-      element.m_Faction = faction.Reference ?? element.m_Faction;
+      element.m_Faction = faction?.Reference ?? element.m_Faction;
       if (element.m_Faction is null)
       {
         element.m_Faction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
@@ -1312,7 +1313,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<SwitchToEnemy>();
-      element.m_FactionToAttack = factionToAttack.Reference ?? element.m_FactionToAttack;
+      element.m_FactionToAttack = factionToAttack?.Reference ?? element.m_FactionToAttack;
       if (element.m_FactionToAttack is null)
       {
         element.m_FactionToAttack = BlueprintTool.GetRef<BlueprintFactionReference>(null);
@@ -1343,7 +1344,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<SwitchToNeutral>();
-      element.Faction = faction.Reference ?? element.Faction;
+      element.Faction = faction?.Reference ?? element.Faction;
       if (element.Faction is null)
       {
         element.Faction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
@@ -1428,7 +1429,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         Blueprint<BlueprintCompanionStory, BlueprintCompanionStoryReference>? story = null)
     {
       var element = ElementTool.Create<UnlockCompanionStory>();
-      element.m_Story = story.Reference ?? element.m_Story;
+      element.m_Story = story?.Reference ?? element.m_Story;
       if (element.m_Story is null)
       {
         element.m_Story = BlueprintTool.GetRef<BlueprintCompanionStoryReference>(null);
@@ -1456,7 +1457,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         int? flagValue = null)
     {
       var element = ElementTool.Create<UnlockFlag>();
-      element.m_flag = flag.Reference ?? element.m_flag;
+      element.m_flag = flag?.Reference ?? element.m_flag;
       if (element.m_flag is null)
       {
         element.m_flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
@@ -1484,7 +1485,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>>? answers = null)
     {
       var element = ElementTool.Create<UnmarkAnswersSelected>();
-      element.m_Answers = answers.Select(bp => bp.Reference).ToArray() ?? element.m_Answers;
+      element.m_Answers = answers?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Answers;
       if (element.m_Answers is null)
       {
         element.m_Answers = new BlueprintAnswerReference[0];
@@ -1512,15 +1513,15 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         ActionsBuilder? onUnrecruit = null)
     {
       var element = ElementTool.Create<Unrecruit>();
-      element.m_CompanionBlueprint = companionBlueprint.Reference ?? element.m_CompanionBlueprint;
+      element.m_CompanionBlueprint = companionBlueprint?.Reference ?? element.m_CompanionBlueprint;
       if (element.m_CompanionBlueprint is null)
       {
         element.m_CompanionBlueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      element.OnUnrecruit = onUnrecruit.Build() ?? element.OnUnrecruit;
+      element.OnUnrecruit = onUnrecruit?.Build() ?? element.OnUnrecruit;
       if (element.OnUnrecruit is null)
       {
-        element.OnUnrecruit = Constants.Empty.Actions;
+        element.OnUnrecruit = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1545,7 +1546,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
         IntEvaluator? progress = null)
     {
       var element = ElementTool.Create<UpdateEtudeProgressBar>();
-      element.Etude = etude.Reference ?? element.Etude;
+      element.Etude = etude?.Reference ?? element.Etude;
       if (element.Etude is null)
       {
         element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);

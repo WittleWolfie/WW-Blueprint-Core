@@ -1,0 +1,127 @@
+[
+  { "TypeName": "AlignmentSelector" },
+
+  { "TypeName": "CompleteEtude" },
+
+  { "TypeName": "ChangeRomance" },
+
+  { "TypeName": "ChangeUnitName" },
+
+  { "TypeName": "DismissAllCompanions" },
+
+  { "TypeName": "GiveObjective" },
+
+  { "TypeName": "HideUnit" },
+
+  { "TypeName": "HideWeapons" },
+
+  { "TypeName": "IncrementFlagValue" },
+
+  { "TypeName": "InterruptAllActions" },
+
+  { "TypeName": "LockAlignment" },
+
+  { "TypeName": "LockFlag" },
+
+  { "TypeName": "LockRomance" },
+
+  { "TypeName": "MarkAnswersSelected" },
+
+  { "TypeName": "MarkCuesSeen" },
+
+  { "TypeName": "MoveAzataIslandToLocation" },
+
+  { "TypeName": "MoveAzataIslandToNearestCrossroad" },
+
+  { "TypeName": "OverrideUnitReturnPosition" },
+
+  { "TypeName": "PartyMembersAttach" },
+
+  { "TypeName": "PartyMembersDetach" },
+
+  { "TypeName": "PartyMembersDetachEvaluated" },
+
+  { "TypeName": "PartyMembersSwapAttachedAndDetached" },
+
+  { "TypeName": "Recruit" },
+
+  { "TypeName": "RecruitInactive" },
+
+  { "TypeName": "RelockInteraction" },
+
+  { "TypeName": "RemoveMythicLevels" },
+
+  { "TypeName": "ReplaceAllMythicLevelsWithMythicHeroLevels" },
+
+  { "TypeName": "ReplaceFeatureInProgression" },
+
+  { "TypeName": "ResetQuest" },
+
+  { "TypeName": "ResetQuestObjective" },
+
+  { "TypeName": "RespecCompanion" },
+
+  { "TypeName": "RomanceSetMaximum" },
+
+  { "TypeName": "RomanceSetMinimum" },
+
+  { "TypeName": "SetDialogPosition" },
+
+  { "TypeName": "SetMythicLevelForMainCharacter" },
+
+  { "TypeName": "SetObjectiveStatus" },
+
+  { "TypeName": "SetPortrait" },
+
+  { "TypeName": "ShiftAlignment" },
+
+  { "TypeName": "ShowDialogBox" },
+
+  { "TypeName": "ShowMessageBox" },
+
+  { "TypeName": "ShowUIWarning" },
+
+  { "TypeName": "SplitUnitGroup" },
+
+  { "TypeName": "StartCombat" },
+
+  { "TypeName": "StartDialog" },
+
+  { "TypeName": "StartEncounter" },
+
+  { "TypeName": "StartEtude" },
+
+  { "TypeName": "SwitchAzataIsland" },
+
+  { "TypeName": "SwitchChapter" },
+
+  { "TypeName": "SwitchDoor" },
+
+  { "TypeName": "SwitchFaction" },
+
+  { "TypeName": "SwitchInteraction" },
+
+  { "TypeName": "SwitchRoaming" },
+
+  { "TypeName": "SwitchToEnemy" },
+
+  { "TypeName": "SwitchToNeutral" },
+
+  { "TypeName": "TimeSkip" },
+
+  { "TypeName": "UnitLookAt" },
+
+  { "TypeName": "UnlinkDualCompanions" },
+
+  { "TypeName": "UnlockCompanionStory" },
+
+  { "TypeName": "UnlockFlag" },
+
+  { "TypeName": "UnmarkAnswersSelected" },
+
+  { "TypeName": "Unrecruit" },
+
+  { "TypeName": "UpdateEtudeProgressBar" },
+
+  { "TypeName": "UpdateEtudes" }
+]

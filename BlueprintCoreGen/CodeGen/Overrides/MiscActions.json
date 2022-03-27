@@ -47,5 +47,5 @@
 
   { "TypeName": "UnequipAllItems" },
 
-  { "TypeName": "UnequipItem" },
+  { "TypeName": "UnequipItem" }
 ]
