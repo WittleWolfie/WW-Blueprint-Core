@@ -1,0 +1,51 @@
+[
+  { "TypeName": "ActionAchievementIncrementCounter" },
+
+  { "TypeName": "ActionAchievementUnlock" },
+
+  { "TypeName": "AddPremiumReward" },
+
+  { "TypeName": "AddVendorItemsAction" },
+
+  { "TypeName": "ClearVendorTable" },
+
+  { "TypeName": "CreateCustomCompanion" },
+
+  { "TypeName": "CustomEvent" },
+
+  { "TypeName": "DebugLog" },
+
+  { "TypeName": "GameOver" },
+
+  { "TypeName": "MakeAutoSave" },
+
+  { "TypeName": "MakeItemNonRemovable" },
+
+  { "TypeName": "MovePartyItemsAction" },
+
+  { "TypeName": "OpenSelectMythicUI" },
+
+  { "TypeName": "RemoveItemFromPlayer" },
+
+  { "TypeName": "RemoveItemsFromCollection" },
+
+  { "TypeName": "RemoveDuplicateItems" },
+
+  { "TypeName": "RestoreItemsCountInCollection" },
+
+  { "TypeName": "SellCollectibleItems" },
+
+  { "TypeName": "SetStartDate" },
+
+  { "TypeName": "SetVendorPriceModifier" },
+
+  { "TypeName": "ShowNewTutorial" },
+
+  { "TypeName": "ShowPartySelection" },
+
+  { "TypeName": "StartTrade" },
+
+  { "TypeName": "UnequipAllItems" },
+
+  { "TypeName": "UnequipItem" },
+]

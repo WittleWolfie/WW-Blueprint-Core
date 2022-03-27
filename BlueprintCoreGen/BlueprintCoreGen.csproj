@@ -58,6 +58,9 @@
     <None Update="CodeGen\Overrides\FieldTypes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="CodeGen\Overrides\MiscActions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="CodeGen\Overrides\KingdomActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -24,7 +24,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
   /// </summary>
   /// <inheritdoc cref="ActionsBuilder"/>
   public static class ActionsBuilderMiscEx
-{
+  {
 
     /// <summary>
     /// Adds <see cref="ActionAchievementIncrementCounter"/>
@@ -45,7 +45,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<AchievementData, AchievementDataReference>? achievement = null)
     {
       var element = ElementTool.Create<ActionAchievementIncrementCounter>();
-      element.m_Achievement = achievement.Reference ?? element.m_Achievement;
+      element.m_Achievement = achievement?.Reference ?? element.m_Achievement;
       if (element.m_Achievement is null)
       {
         element.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(null);
@@ -72,10 +72,132 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<AchievementData, AchievementDataReference>? achievement = null)
     {
       var element = ElementTool.Create<ActionAchievementUnlock>();
-      element.m_Achievement = achievement.Reference ?? element.m_Achievement;
+      element.m_Achievement = achievement?.Reference ?? element.m_Achievement;
       if (element.m_Achievement is null)
       {
         element.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddPremiumReward"/>
+    /// </summary>
+    ///
+    /// <param name="dlcReward">
+    /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="items">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="playerFeatures">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddPremiumReward(
+        this ActionsBuilder builder,
+        ActionsBuilder? additionalActions = null,
+        Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>? dlcReward = null,
+        List<Blueprint<BlueprintItem, BlueprintItemReference>>? items = null,
+        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? playerFeatures = null)
+    {
+      var element = ElementTool.Create<AddPremiumReward>();
+      element.AdditionalActions = additionalActions?.Build() ?? element.AdditionalActions;
+      if (element.AdditionalActions is null)
+      {
+        element.AdditionalActions = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.m_DlcReward = dlcReward?.Reference ?? element.m_DlcReward;
+      if (element.m_DlcReward is null)
+      {
+        element.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(null);
+      }
+      element.Items = items?.Select(bp => bp.Reference)?.ToList() ?? element.Items;
+      if (element.Items is null)
+      {
+        element.Items = new();
+      }
+      element.PlayerFeatures = playerFeatures?.Select(bp => bp.Reference)?.ToList() ?? element.PlayerFeatures;
+      if (element.PlayerFeatures is null)
+      {
+        element.PlayerFeatures = new();
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddVendorItemsAction"/>
+    /// </summary>
+    ///
+    /// <param name="vendorTable">
+    /// Blueprint of type BlueprintUnitLoot. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddVendorItemsAction(
+        this ActionsBuilder builder,
+        VendorEvaluator? vendorEvaluator = null,
+        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? vendorTable = null)
+    {
+      var element = ElementTool.Create<AddVendorItemsAction>();
+      builder.Validate(vendorEvaluator);
+      element.m_VendorEvaluator = vendorEvaluator ?? element.m_VendorEvaluator;
+      element.m_VendorTable = vendorTable?.Reference ?? element.m_VendorTable;
+      if (element.m_VendorTable is null)
+      {
+        element.m_VendorTable = BlueprintTool.GetRef<BlueprintUnitLootReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ClearVendorTable"/>
+    /// </summary>
+    ///
+    /// <param name="table">
+    /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ClearVendorTable(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>? table = null)
+    {
+      var element = ElementTool.Create<ClearVendorTable>();
+      element.m_Table = table?.Reference ?? element.m_Table;
+      if (element.m_Table is null)
+      {
+        element.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(null);
       }
       return builder.Add(element);
     }
@@ -97,10 +219,10 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.Locator = locator ?? element.Locator;
       element.MatchPlayerXpExactly = matchPlayerXpExactly ?? element.MatchPlayerXpExactly;
       element.NoEquipment = noEquipment ?? element.NoEquipment;
-      element.OnCreate = onCreate.Build() ?? element.OnCreate;
+      element.OnCreate = onCreate?.Build() ?? element.OnCreate;
       if (element.OnCreate is null)
       {
-        element.OnCreate = Constants.Empty.Actions;
+        element.OnCreate = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -114,73 +236,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     {
       var element = ElementTool.Create<CustomEvent>();
       element.EventId = eventId ?? element.EventId;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddPremiumReward"/>
-    /// </summary>
-    ///
-    /// <param name="dlcReward">
-    /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    ///
-    /// <param name="items">
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    ///
-    /// <param name="playerFeatures">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddPremiumReward(
-        this ActionsBuilder builder,
-        ActionsBuilder? additionalActions = null,
-        Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>? dlcReward = null,
-        List<Blueprint<BlueprintItem, BlueprintItemReference>>? items = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? playerFeatures = null)
-    {
-      var element = ElementTool.Create<AddPremiumReward>();
-      element.AdditionalActions = additionalActions.Build() ?? element.AdditionalActions;
-      if (element.AdditionalActions is null)
-      {
-        element.AdditionalActions = Constants.Empty.Actions;
-      }
-      element.m_DlcReward = dlcReward.Reference ?? element.m_DlcReward;
-      if (element.m_DlcReward is null)
-      {
-        element.m_DlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(null);
-      }
-      element.Items = items.Select(bp => bp.Reference).ToList() ?? element.Items;
-      if (element.Items is null)
-      {
-        element.Items = new();
-      }
-      element.PlayerFeatures = playerFeatures.Select(bp => bp.Reference).ToList() ?? element.PlayerFeatures;
-      if (element.PlayerFeatures is null)
-      {
-        element.PlayerFeatures = new();
-      }
       return builder.Add(element);
     }
 
@@ -242,7 +297,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         bool? nonRemovable = null)
     {
       var element = ElementTool.Create<MakeItemNonRemovable>();
-      element.m_Item = item.Reference ?? element.m_Item;
+      element.m_Item = item?.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -279,15 +334,15 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         bool? lockStopChargen = null)
     {
       var element = ElementTool.Create<OpenSelectMythicUI>();
-      element.m_AfterCommitActions = afterCommitActions.Build() ?? element.m_AfterCommitActions;
+      element.m_AfterCommitActions = afterCommitActions?.Build() ?? element.m_AfterCommitActions;
       if (element.m_AfterCommitActions is null)
       {
-        element.m_AfterCommitActions = Constants.Empty.Actions;
+        element.m_AfterCommitActions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.m_AfterStopActions = afterStopActions.Build() ?? element.m_AfterStopActions;
+      element.m_AfterStopActions = afterStopActions?.Build() ?? element.m_AfterStopActions;
       if (element.m_AfterStopActions is null)
       {
-        element.m_AfterStopActions = Constants.Empty.Actions;
+        element.m_AfterStopActions = BlueprintCore.Utils.Constants.Empty.Actions;
       }
       element.m_LockStopChargen = lockStopChargen ?? element.m_LockStopChargen;
       return builder.Add(element);
@@ -317,7 +372,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         bool? silent = null)
     {
       var element = ElementTool.Create<RemoveItemFromPlayer>();
-      element.m_ItemToRemove = itemToRemove.Reference ?? element.m_ItemToRemove;
+      element.m_ItemToRemove = itemToRemove?.Reference ?? element.m_ItemToRemove;
       if (element.m_ItemToRemove is null)
       {
         element.m_ItemToRemove = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -370,7 +425,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveDuplicateItems>();
-      element.m_Blueprint = blueprint.Reference ?? element.m_Blueprint;
+      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
       {
         element.m_Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -405,7 +460,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.Collection = collection ?? element.Collection;
       builder.Validate(count);
       element.Count = count ?? element.Count;
-      element.m_Item = item.Reference ?? element.m_Item;
+      element.m_Item = item?.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -434,7 +489,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     {
       var element = ElementTool.Create<SellCollectibleItems>();
       element.HalfPrice = halfPrice ?? element.HalfPrice;
-      element.m_ItemToSell = itemToSell.Reference ?? element.m_ItemToSell;
+      element.m_ItemToSell = itemToSell?.Reference ?? element.m_ItemToSell;
       if (element.m_ItemToSell is null)
       {
         element.m_ItemToSell = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -475,24 +530,60 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="ShowNewTutorial"/>
+    /// </summary>
+    ///
+    /// <param name="tutorial">
+    /// Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ShowNewTutorial(
+        this ActionsBuilder builder,
+        TutorialContextDataEvaluator[]? evaluators = null,
+        Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>? tutorial = null)
+    {
+      var element = ElementTool.Create<ShowNewTutorial>();
+      foreach (var item in evaluators) { builder.Validate(item); }
+      element.Evaluators = evaluators ?? element.Evaluators;
+      if (element.Evaluators is null)
+      {
+        element.Evaluators = new TutorialContextDataEvaluator[0];
+      }
+      element.m_Tutorial = tutorial?.Reference ?? element.m_Tutorial;
+      if (element.m_Tutorial is null)
+      {
+        element.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ShowPartySelection"/>
     /// </summary>
     public static ActionsBuilder ShowPartySelection(
         this ActionsBuilder builder,
         ActionsBuilder? actionsAfterPartySelection = null,
-        ActionsBuilder? actionsIfCanceled = null)
+        ActionsBuilder? actionsIfCanceled = null,
+        bool? forceCapitalModeLogic = null)
     {
       var element = ElementTool.Create<ShowPartySelection>();
-      element.ActionsAfterPartySelection = actionsAfterPartySelection.Build() ?? element.ActionsAfterPartySelection;
+      element.ActionsAfterPartySelection = actionsAfterPartySelection?.Build() ?? element.ActionsAfterPartySelection;
       if (element.ActionsAfterPartySelection is null)
       {
-        element.ActionsAfterPartySelection = Constants.Empty.Actions;
+        element.ActionsAfterPartySelection = BlueprintCore.Utils.Constants.Empty.Actions;
       }
-      element.ActionsIfCanceled = actionsIfCanceled.Build() ?? element.ActionsIfCanceled;
+      element.ActionsIfCanceled = actionsIfCanceled?.Build() ?? element.ActionsIfCanceled;
       if (element.ActionsIfCanceled is null)
       {
-        element.ActionsIfCanceled = Constants.Empty.Actions;
+        element.ActionsIfCanceled = BlueprintCore.Utils.Constants.Empty.Actions;
       }
+      element.ForceCapitalModeLogic = forceCapitalModeLogic ?? element.ForceCapitalModeLogic;
       return builder.Add(element);
     }
 
@@ -553,7 +644,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.All = all ?? element.All;
       builder.Validate(destinationContainer);
       element.DestinationContainer = destinationContainer ?? element.DestinationContainer;
-      element.m_Item = item.Reference ?? element.m_Item;
+      element.m_Item = item?.Reference ?? element.m_Item;
       if (element.m_Item is null)
       {
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
@@ -561,97 +652,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.Silent = silent ?? element.Silent;
       builder.Validate(unit);
       element.Unit = unit ?? element.Unit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ShowNewTutorial"/>
-    /// </summary>
-    ///
-    /// <param name="tutorial">
-    /// Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ShowNewTutorial(
-        this ActionsBuilder builder,
-        TutorialContextDataEvaluator[]? evaluators = null,
-        Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>? tutorial = null)
-    {
-      var element = ElementTool.Create<ShowNewTutorial>();
-      foreach (var item in evaluators) { builder.Validate(item); }
-      element.Evaluators = evaluators ?? element.Evaluators;
-      if (element.Evaluators is null)
-      {
-        element.Evaluators = new TutorialContextDataEvaluator[0];
-      }
-      element.m_Tutorial = tutorial.Reference ?? element.m_Tutorial;
-      if (element.m_Tutorial is null)
-      {
-        element.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddVendorItemsAction"/>
-    /// </summary>
-    ///
-    /// <param name="vendorTable">
-    /// Blueprint of type BlueprintUnitLoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddVendorItemsAction(
-        this ActionsBuilder builder,
-        VendorEvaluator? vendorEvaluator = null,
-        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? vendorTable = null)
-    {
-      var element = ElementTool.Create<AddVendorItemsAction>();
-      builder.Validate(vendorEvaluator);
-      element.m_VendorEvaluator = vendorEvaluator ?? element.m_VendorEvaluator;
-      element.m_VendorTable = vendorTable.Reference ?? element.m_VendorTable;
-      if (element.m_VendorTable is null)
-      {
-        element.m_VendorTable = BlueprintTool.GetRef<BlueprintUnitLootReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ClearVendorTable"/>
-    /// </summary>
-    ///
-    /// <param name="table">
-    /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ClearVendorTable(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>? table = null)
-    {
-      var element = ElementTool.Create<ClearVendorTable>();
-      element.m_Table = table.Reference ?? element.m_Table;
-      if (element.m_Table is null)
-      {
-        element.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(null);
-      }
       return builder.Add(element);
     }
   }
