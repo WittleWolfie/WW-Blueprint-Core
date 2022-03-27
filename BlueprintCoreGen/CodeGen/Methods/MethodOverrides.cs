@@ -79,6 +79,11 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public List<ExtraParameter> ExtraParams { get; } = new();
 
     /// <summary>
+    /// Extra lines where {0} is the object name
+    /// </summary>
+    public List<string> ExtraFmtLines { get; } = new();
+
+    /// <summary>
     /// Returns ExtraParams as a list of IParameterInternal objects.
     /// </summary>
     public List<IParameterInternal> GetExtraParams()
@@ -156,6 +161,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       result.ConstantFields.AddRange(baseMethod.ConstantFields.Concat(overrideMethod.ConstantFields));
       result.CustomFields.AddRange(baseMethod.CustomFields.Concat(overrideMethod.CustomFields));
       result.ExtraParams.AddRange(baseMethod.ExtraParams.Concat(overrideMethod.ExtraParams));
+      result.ExtraFmtLines.AddRange(baseMethod.ExtraFmtLines.Concat(overrideMethod.ExtraFmtLines));
       return result;
     }
   }

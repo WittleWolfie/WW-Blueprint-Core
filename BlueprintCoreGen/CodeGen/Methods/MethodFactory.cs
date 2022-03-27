@@ -129,6 +129,9 @@ namespace BlueprintCoreGen.CodeGen.Methods
         .ToList()
         .ForEach(line => method.AddLine($"  {line}"));
 
+      // Extra lines from override
+      methodOverride.ExtraFmtLines.ForEach(line => method.AddLine($"  {string.Format(line, "element")}"));
+
       // Return
       method.AddLine($"  return builder.Add(element);");
       method.AddLine($"}}");

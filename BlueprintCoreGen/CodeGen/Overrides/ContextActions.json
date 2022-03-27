@@ -82,7 +82,7 @@
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -91,7 +91,7 @@
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -100,7 +100,7 @@
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -109,7 +109,7 @@
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -118,7 +118,7 @@
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -150,7 +150,7 @@
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -159,7 +159,7 @@
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -168,7 +168,7 @@
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -177,7 +177,7 @@
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -186,7 +186,7 @@
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -218,7 +218,7 @@
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -227,7 +227,7 @@
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -236,7 +236,7 @@
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -245,7 +245,7 @@
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -254,7 +254,7 @@
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -286,7 +286,7 @@
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -295,7 +295,7 @@
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -304,7 +304,7 @@
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -313,7 +313,7 @@
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -322,7 +322,7 @@
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -367,6 +367,490 @@
     ]
   },
 
+  {
+    "TypeName": "ContextActionChangeSharedValue",
+    "Imports": [ "SharedValueChangeType" ],
+    "RequiredFields": [ "SharedValue" ],
+    "Methods": [
+      {
+        "MethodName": "ChangeSharedValueTo",
+        "RequiredFields": [ "SetValue" ],
+        "IgnoredFields": [ "AddValue", "MultiplyValue" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Type",
+            "Value": "SharedValueChangeType.Set"
+          }
+        ]
+      },
+      {
+        "MethodName": "ChangeSharedValueToHD",
+        "IgnoredFields": [ "SetValue", "AddValue", "MultiplyValue" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Type",
+            "Value": "SharedValueChangeType.SubHD"
+          }
+        ]
+      },
+      {
+        "MethodName": "ChangeSharedValueAddTo",
+        "RequiredFields": [ "AddValue" ],
+        "IgnoredFields": [ "SetValue", "MultiplyValue" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Type",
+            "Value": "SharedValueChangeType.Add"
+          }
+        ]
+      },
+      {
+        "MethodName": "ChangeSharedValueMultiply",
+        "RequiredFields": [ "MultiplyValue" ],
+        "IgnoredFields": [ "SetValue", "AddValue" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Type",
+            "Value": "SharedValueChangeType.Multiply"
+          }
+        ]
+      },
+      {
+        "MethodName": "ChangeSharedValueDivideBy2",
+        "IgnoredFields": [ "SetValue", "AddValue", "MultiplyValue" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Type",
+            "Value": "SharedValueChangeType.Div2"
+          }
+        ]
+      },
+      {
+        "MethodName": "ChangeSharedValueDivideBy4",
+        "IgnoredFields": [ "SetValue", "AddValue", "MultiplyValue" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Type",
+            "Value": "SharedValueChangeType.Div4"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionClearSummonPool",
+    "RequiredFields": [ "m_SummonPool" ]
+  },
+
+  {
+    "TypeName": "ContextActionCombatManeuver",
+    "RequiredFields": [ "Type", "OnSuccess" ],
+    "IgnoredFields": [ "ReplaceStat" ],
+    "ExtraFmtLines": [
+      "{0}.ReplaceStat = {0}.NewStat != StatType.Unknown || {0}.UseKineticistMainStat || {0}.UseCastingStat || {0}.UseCasterLevelAsBaseAttack || {0}.UseBestMentalStat;"
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionCombatManeuverCustom",
+    "RequiredFields": [ "Type" ]
+  },
+
+  {
+    "TypeName": "ContextActionDealDamage",
+    "IgnoredFields": [
+      "UseMinHPAfterDamage",
+      "ReadPreRolledFromSharedValue",
+      "WriteResultToSharedValue",
+      "WriteCriticalToSharedValue",
+      "m_IsAOE"
+    ],
+    "CustomFields": [
+      {
+        "FieldName": "ResultSharedValue",
+        "CommentFmt": "If specified, the resulting damage is stored in this shared value",
+        "ExtraAssignmentFmtLines": [ "{0}.WriteResultToSharedValue = {1} is not null;" ]
+      },
+      {
+        "FieldName": "CriticalSharedValue",
+        "CommentFmt": "If specified and the attack roll is a critical, this shared value is set to 1",
+        "ExtraAssignmentFmtLines": [ "{0}.WriteCriticalToSharedValue = {1} is not null;" ]
+      }
+    ],
+    "Methods": [
+      {
+        "MethodName": "DealDamage",
+        "RequiredFields": [ "Value", "DamageType" ],
+        "IgnoredFields": [
+          "AlreadyHalved",
+          "Drain",
+          "Duration",
+          "AbilityType",
+          "EnergyDrainType",
+          "PreRolledSharedValue"
+        ],
+        "ConstantFields": [
+          {
+            "FieldName": "m_Type",
+            "Value": "ContextActionDealDamage.Type.Damage"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "MinHPAfterDamage",
+            "ExtraAssignmentFmtLines": [ "{0}.UseMinHPAfterDamage = {1} is not null;" ]
+          }
+        ]
+      },
+      {
+        "MethodName": "DealDamagePreRolled",
+        "RequiredFields": [ "DamageType" ],
+        "IgnoredFields": [ "IsAoE", "Drain", "Value", "Duration", "AbilityType", "EnergyDrainType" ],
+        "ConstantFields": [
+          {
+            "FieldName": "m_Type",
+            "Value": "ContextActionDealDamage.Type.Damage"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "MinHPAfterDamage",
+            "ExtraAssignmentFmtLines": [ "{0}.UseMinHPAfterDamage = {1} is not null;" ]
+          },
+          {
+            "FieldName": "PreRolledSharedValue",
+            "Required": "true",
+            "ExtraAssignmentFmtLines": [ "{0}.ReadPreRolledFromSharedValue = true;" ]
+          }
+        ]
+      },
+      {
+        "MethodName": "DealDamageToAbility",
+        "RequiredFields": [ "Value", "AbilityType" ],
+        "IgnoredFields": [
+          "Half",
+          "AlreadyHalved",
+          "IsAoE",
+          "DamageType",
+          "Duration",
+          "EnergyDrainType",
+          "PreRolledSharedValue",
+          "UseWeaponDamageModifiers"
+        ],
+        "ConstantFields": [
+          {
+            "FieldName": "m_Type",
+            "Value": "ContextActionDealDamage.Type.AbilityDamage"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "MinHPAfterDamage",
+            "ParamName": "minAbilityAfterDamage",
+            "ExtraAssignmentFmtLines": [ "{0}.UseMinHPAfterDamage = {1} is not null;" ]
+          }
+        ]
+      },
+      {
+        "MethodName": "DealDamagePermanentNegativeLevels",
+        "RequiredFields": [ "Value" ],
+        "IgnoredFields": [
+          "Half",
+          "AlreadyHalved",
+          "IsAoE",
+          "Drain",
+          "DamageType",
+          "Duration",
+          "AbilityType",
+          "MinHPAfterDamage",
+          "PreRolledSharedValue"
+        ],
+        "ConstantFields": [
+          {
+            "FieldName": "m_Type",
+            "Value": "ContextActionDealDamage.Type.EnergyDrain"
+          },
+          {
+            "FieldName": "EnergyDrainType",
+            "Value": "EnergyDrainType.Permanent"
+          }
+        ]
+      },
+      {
+        "MethodName": "DealDamageTemporaryNegativeLevels",
+        "RequiredFields": [ "Value", "Duration" ],
+        "IgnoredFields": [
+          "Half",
+          "AlreadyHalved",
+          "IsAoE",
+          "Drain",
+          "DamageType",
+          "AbilityType",
+          "EnergyDrainType",
+          "MinHPAfterDamage",
+          "PreRolledSharedValue"
+        ],
+        "ConstantFields": [
+          {
+            "FieldName": "m_Type",
+            "Value": "ContextActionDealDamage.Type.EnergyDrain"
+          }
+        ],
+        "ExtraParams": [
+          {
+            "ParamName": "makePermanentOnFailedSave",
+            "TypeName": "bool",
+            "DefaultValue": "false",
+            "OperationFmt": [
+              "{0}.EnergyDrainType = {1} ? EnergyDrainType.SaveOrBecamePermanent : EnergyDrainType.Temporary;"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionDispelMagic",
+    "RequiredFields": [ "m_BuffType", "m_CheckType", "m_MaxSpellLevel" ],
+    "IgnoredFields": [ "m_StopAfterCountRemoved", "m_UseMaxCasterLevel" ],
+    "CustomFields": [
+      {
+        "FieldName": "CheckSchoolOrDescriptor",
+        "CommentFmt": "If true, effects matching school or descriptor are targeted. If false, effects matching school and descriptor are targeted."
+      },
+      {
+        "FieldName": "m_CountToRemove",
+        "ExtraAssignmentFmtLines": [ "{0}.m_StopAfterCountRemoved = {1} is not null;" ]
+      },
+      {
+        "FieldName": "m_MaxCasterLevel",
+        "ExtraAssignmentFmtLines": [ "{0}.m_UseMaxCasterLevel = {1} is not null;" ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionEnchantWornItem",
+    "RequiredFields": [ "m_Enchantment", "Slot", "DurationValue" ]
+  },
+
+  {
+    "TypeName": "ContextActionFinishObjective",
+    "RequiredFields": [ "m_Objective" ]
+  },
+
+  {
+    "TypeName": "ContextActionForEachSwallowedUnit",
+    "RequiredFields": [ "Action" ]
+  },
+
+  {
+    "TypeName": "ContextActionGrapple",
+    "CustomFields": [
+      {
+        "FieldName": "m_CasterBuff",
+        "CommentFmt": "Buff applied to the caster for the duration of the grapple check"
+      },
+      {
+        "FieldName": "m_TargetBuff",
+        "CommentFmt": "Buff applied to the target for the duration of the grapple check"
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionHealStatDamage",
+    "RequiredFields": [ "m_HealType", "m_StatClass" ],
+    "IgnoredFields": [ "WriteResultToSharedValue" ],
+    "CustomFields": [
+      {
+        "FieldName": "Value",
+        "CommentFmt": "Required when the heal type is StatDamageHealType.Dice"
+      },
+      {
+        "FieldName": "ResultSharedValue",
+        "ExtraAssignmentFmtLines": [ "{0}.WriteResultToSharedValue = {1} is not null;" ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionHealTarget",
+    "RequiredFields": [ "Value" ]
+  },
+
+  {
+    "TypeName": "ContextActionOnContextCaster",
+    "RequiredFields": [ "Actions" ]
+  },
+
+  {
+    "TypeName": "ContextActionOnOwner",
+    "RequiredFields": [ "Actions" ]
+  },
+
+  {
+    "TypeName": "ContextActionOnRandomAreaTarget",
+    "Remarks": [ "Only works inside of AbilityAreaEffectRunAction and only effects enemies." ],
+    "RequiredFields": [ "Actions" ],
+    "IgnoredFields": [ "OnEnemies" ]
+  },
+
+  {
+    "TypeName": "ContextActionOnRandomTargetsAround",
+    "RequiredFields": [ "Actions" ]
+  },
+
+  {
+    "TypeName": "ContextActionOnSwarmTargets",
+    "RequiredFields": [ "Actions" ]
+  },
+
+  {
+    "TypeName": "ContextActionPartyMembers",
+    "RequiredFields": [ "Actions" ]
+  },
+
+  {
+    "TypeName": "ContextActionProjectileFx",
+    "RequiredFields": [ "m_Projectile" ]
+  },
+
+  {
+    "TypeName": "ContextActionRandomize",
+    "CustomFields": [
+      {
+        "FieldName": "m_Actions",
+        "ParamName": "weightedActions",
+        "TypeName": "params (ActionsBuilder actions, int weight)[]",
+        "Required": "true",
+        "CommentFmt": "List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.",
+        "AssignmentFmtRhs": "{0}.Select(action => new ContextActionRandomize.ActionWrapper {{ Action = action.actions.Build(), Weight = action.weight }}).ToArray()"
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionRecoverItemCharges",
+    "RequiredFields": [ "m_Item" ]
+  },
+
+  {
+    "TypeName": "ContextActionReduceBuffDuration",
+    "RequiredFields": [ "m_TargetBuff", "DurationValue" ],
+    "Methods": [
+      {
+        "MethodName": "IncreaseBuffDuration",
+        "ConstantFields": [
+          {
+            "FieldName": "Increase",
+            "Value": "true"
+          }
+        ]
+      },
+      {
+        "MethodName": "ReduceBuffDuration",
+        "ConstantFields": [
+          {
+            "FieldName": "Increase",
+            "Value": "false"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionRemoveBuff",
+    "RequiredFields": [ "m_Buff" ]
+  },
+
+  {
+    "TypeName": "ContextActionRemoveBuffsByDescriptor",
+    "RequiredFields": [ "SpellDescriptor" ]
+  },
+
+  {
+    "TypeName": "ContextActionRemoveBuffSingleStack",
+    "RequiredFields": [ "m_TargetBuff" ]
+  },
+
+  {
+    "TypeName": "ContextActionRepeatedActions",
+    "RequiredFields": [ "Actions", "Value" ]
+  },
+
+  {
+    "TypeName": "ContextActionRestoreSpells",
+    "RequiredFields": [ "m_Spellbooks" ]
+  },
+
+  {
+    "TypeName": "ContextActionResurrect",
+    "CustomFields": [
+      {
+        "FieldName": "m_CustomResurrectionBuff",
+        "CommentFmt": "Replaces the default resurrection buff. Must contain a ResurrectionLogic component."
+      }
+    ],
+    "Methods": [
+      {
+        "MethodName": "Resurrect",
+        "ConstantFields": [
+          {
+            "FieldName": "FullRestore",
+            "Value": "false"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "ResultHealth",
+            "CommentFmt": "Percentage of unit's health after resurrection as a float between 0.0 (0%) and 1.0 (100%)."
+          }
+        ]
+      },
+      {
+        "MethodName": "ResurrectAndFullRestore",
+        "IgnoredFields": [ "ResultHealth" ],
+        "ConstantFields": [
+          {
+            "FieldName": "FullRestore",
+            "Value": "true"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionSavingThrow",
+    "Imports": [ "ConditionsBuilder" ],
+    "RequiredFields": [ "Type" ],
+    "IgnoredFields": [ "HasCustomDC" ],
+    "CustomFields": [
+      {
+        "FieldName": "Actions",
+        "ParamName": "onResult"
+      },
+      {
+        "FieldName": "FromBuff",
+        "CommentFmt": "If true, onResult must have a ContextActionConditionalSaved w/ ContextActionApplyBuff in it's success actions. The buff associated with that component is attached to the RuleSavingThrow."
+      },
+      {
+        "FieldName": "m_ConditionalDCIncrease",
+        "ParamName": "conditionalDCModifiers",
+        "TypeName": "List<(ConditionsBuilder conditions, ContextValue modifier)>",
+        "AssignmentFmtRhs": "{0}?.Select(mod => new ContextActionSavingThrow.ConditionalDCIncrease {{ Condition = mod.conditions.Build(), Value = mod.modifier }})?.ToArray()"
+      },
+      {
+        "FieldName": "CustomDC",
+        "ExtraAssignmentFmtLines": [ "{0}.HasCustomDC = {1} is not null;" ]
+      }
+    ]
+  },
+
   { "TypeName": "AbilityCustomSharedBurden" },
 
   { "TypeName": "AbilityCustomSharedGrace" },
@@ -383,17 +867,7 @@
 
   { "TypeName": "ContextActionBreakFree" },
 
-  { "TypeName": "ContextActionChangeSharedValue" },
-
-  { "TypeName": "ContextActionClearSummonPool" },
-
-  { "TypeName": "ContextActionCombatManeuver" },
-
-  { "TypeName": "ContextActionCombatManeuverCustom" },
-
   { "TypeName": "ContextActionConditionalSaved" },
-
-  { "TypeName": "ContextActionDealDamage" },
 
   { "TypeName": "ContextActionDealWeaponDamage" },
 
@@ -409,27 +883,13 @@
 
   { "TypeName": "ContextActionDismount" },
 
-  { "TypeName": "ContextActionDispelMagic" },
-
   { "TypeName": "ContextActionDropItems" },
 
-  { "TypeName": "ContextActionEnchantWornItem" },
-
-  { "TypeName": "ContextActionFinishObjective" },
-
-  { "TypeName": "ContextActionForEachSwallowedUnit" },
-
   { "TypeName": "ContextActionGiveExperience" },
-
-  { "TypeName": "ContextActionGrapple" },
 
   { "TypeName": "ContextActionHealBurn" },
 
   { "TypeName": "ContextActionHealEnergyDrain" },
-
-  { "TypeName": "ContextActionHealStatDamage" },
-
-  { "TypeName": "ContextActionHealTarget" },
 
   { "TypeName": "ContextActionHideInPlainSight" },
 
@@ -445,19 +905,7 @@
 
   { "TypeName": "ContextActionMount" },
 
-  { "TypeName": "ContextActionOnContextCaster" },
-
-  { "TypeName": "ContextActionOnOwner" },
-
-  { "TypeName": "ContextActionOnRandomAreaTarget" },
-
-  { "TypeName": "ContextActionOnRandomTargetsAround" },
-
-  { "TypeName": "ContextActionOnSwarmTargets" },
-
   { "TypeName": "ContextActionPrintHDRestrictionToCombatLog" },
-
-  { "TypeName": "ContextActionProjectileFx" },
 
   { "TypeName": "ContextActionProvokeAttackFromCaster" },
 
@@ -465,19 +913,7 @@
 
   { "TypeName": "ContextActionPush" },
 
-  { "TypeName": "ContextActionRandomize" },
-
   { "TypeName": "ContextActionRangedAttack" },
-
-  { "TypeName": "ContextActionRecoverItemCharges" },
-
-  { "TypeName": "ContextActionReduceBuffDuration" },
-
-  { "TypeName": "ContextActionRemoveBuff" },
-
-  { "TypeName": "ContextActionRemoveBuffsByDescriptor" },
-
-  { "TypeName": "ContextActionRemoveBuffSingleStack" },
 
   { "TypeName": "ContextActionReduceDebilitatingBuffsDuration" },
 
@@ -485,17 +921,9 @@
 
   { "TypeName": "ContextActionRemoveSelf" },
 
-  { "TypeName": "ContextActionRepeatedActions" },
-
   { "TypeName": "ContextActionResetAlignment" },
 
-  { "TypeName": "ContextActionRestoreSpells" },
-
-  { "TypeName": "ContextActionResurrect" },
-
   { "TypeName": "ContextActionRestoreAllSpellSlots" },
-
-  { "TypeName": "ContextActionSavingThrow" },
 
   { "TypeName": "ContextActionSelectByValue" },
 

@@ -37,6 +37,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     public override void ApplyTo(FieldParameter param)
     {
       param.SetDefaultValue(Value);
+      param.SetIsNullable(false);
     }
   }
 
@@ -232,7 +233,7 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     public List<string> Comment => GetComment();
 
-    public string Declaration => Required ? $"{TypeName} {ParamName}" : $"{TypeName}? {ParamName} = {DefaultValue}";
+    public string Declaration => Required ? $"{TypeName} {ParamName}" : $"{TypeName} {ParamName} = {DefaultValue}";
 
     public bool Required => string.IsNullOrEmpty(DefaultValue);
 
