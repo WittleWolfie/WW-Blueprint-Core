@@ -1,34 +1,7 @@
 ﻿using BlueprintCoreGen.CodeGen.Methods;
-using Kingmaker.Achievements.Actions;
-using Kingmaker.AreaLogic.Capital;
-using Kingmaker.Armies.TacticalCombat.Components;
-using Kingmaker.Armies.TacticalCombat.GameActions;
-using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
-using Kingmaker.Corruption;
-using Kingmaker.Crusade.GlobalMagic.Actions;
-using Kingmaker.Crusade.GlobalMagic.Actions.DamageLogic;
-using Kingmaker.Crusade.GlobalMagic.Actions.SummonLogics;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.Dungeon.Actions;
-using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
-using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
-using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
-using Kingmaker.Kingdom.Actions;
-using Kingmaker.Kingdom.Armies.Actions;
-using Kingmaker.Kingdom.Blueprints;
-using Kingmaker.Kingdom.Flags;
-using Kingmaker.Tutorial.Actions;
-using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Buffs.Actions;
-using Kingmaker.UnitLogic.Class.Kineticist.Actions;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics.Actions;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen.Builders
 {
