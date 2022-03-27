@@ -1,0 +1,277 @@
+[
+  {
+    "TypeName": "CreateArmy",
+    "IgnoredFields": [ "WithLeader" ],
+    "CustomFields": [
+      {
+        "FieldName": "Preset",
+        "Required": "true",
+        "ParamName": "army"
+      },
+      {
+        "FieldName": "ArmyLeader",
+        "ExtraAssignmentFmtLines": [ "{0}.WithLeader = {1} is not null;" ]
+      }
+    ],
+    "Methods": [
+      {
+        "MethodName": "CreateCrusaderArmy",
+        "RequiredFields": [ "Location" ],
+        "IgnoredFields": [ "m_MoveTarget", "m_TargetLocation", "m_CompleteActions", "m_DaysToDestination" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Faction",
+            "Value": "ArmyFaction.Crusaders"
+          }
+        ]
+      },
+      {
+        "MethodName": "CreateDemonArmy",
+        "RequiredFields": [ "Location" ],
+        "IgnoredFields": [ "MovementPoints", "m_TargetLocation", "m_ApplyRecruitIncrease", "m_DaysToDestination" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Faction",
+            "Value": "ArmyFaction.Demons"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "m_MoveTarget",
+            "TypeName": "bool",
+            "ParamName": "targetNearestEnemy",
+            "DefaultValue": "false",
+            "IsNullable": "false",
+            "AssignmentFmtRhs": "{0} ? TravelLogicType.NearestEnemy : TravelLogicType.None;"
+          }
+        ]
+      }
+    ]
+  },
+
+  { "TypeName": "AddBuffToSquad" },
+
+  { "TypeName": "AddCrusadeResources" },
+
+  { "TypeName": "AddGrowthBonus" },
+
+  { "TypeName": "AddMercenaryToPool" },
+
+  { "TypeName": "AddMorale" },
+
+  { "TypeName": "AddTacticalArmyFeature" },
+
+  { "TypeName": "ArmyAdditionalAction" },
+
+  { "TypeName": "BlockTacticalCell" },
+
+  { "TypeName": "ChangeArmyMorale" },
+
+  { "TypeName": "ChangeKingdomMoraleMaximum" },
+
+  { "TypeName": "ChangeMercenaryWeight" },
+
+  { "TypeName": "ChangeTacticalMorale" },
+
+  { "TypeName": "ContextActionAddCrusadeResource" },
+
+  { "TypeName": "ContextActionArmyRemoveFacts" },
+
+  { "TypeName": "ContextActionRestoreLeaderAction" },
+
+  { "TypeName": "ContextActionSquadUnitsKill" },
+
+  { "TypeName": "ContextActionStopUnit" },
+
+  { "TypeName": "ContextActionSummonTacticalSquad" },
+
+  { "TypeName": "ContextActionTacticalCombatDealDamage" },
+
+  { "TypeName": "ContextActionTacticalCombatHealTarget" },
+
+  { "TypeName": "CreateGarrison" },
+
+  { "TypeName": "CreateArmyFromLosses" },
+
+  { "TypeName": "DecreaseRecruitsGrowth" },
+
+  { "TypeName": "DecreaseRecruitsPool" },
+
+  { "TypeName": "EnterKingdomInterface" },
+
+  { "TypeName": "ExchangeRecruits" },
+
+  { "TypeName": "FakeSkipTime" },
+
+  { "TypeName": "GainDiceArmyDamage" },
+
+  { "TypeName": "GainGlobalMagicSpell" },
+
+  { "TypeName": "IncreaseRecruitsGrowth" },
+
+  { "TypeName": "IncreaseRecruitsPool" },
+
+  { "TypeName": "KingdomActionActivateEventDeck" },
+
+  { "TypeName": "KingdomActionAddBPRandom" },
+
+  { "TypeName": "KingdomActionAddBuff" },
+
+  { "TypeName": "KingdomActionAddFreeBuilding" },
+
+  { "TypeName": "KingdomActionAddMercenaryReroll" },
+
+  { "TypeName": "KingdomActionAddRandomBuff" },
+
+  { "TypeName": "KingdomActionArtisanRequestHelp" },
+
+  { "TypeName": "KingdomActionChangeToAutoCrusade" },
+
+  { "TypeName": "KingdomActionCollectLoot" },
+
+  { "TypeName": "KingdomActionConquerRegion" },
+
+  { "TypeName": "KingdomActionDestroyAllSettlements" },
+
+  { "TypeName": "KingdomActionDisable" },
+
+  { "TypeName": "KingdomActionEnable" },
+
+  { "TypeName": "KingdomActionFillSettlement" },
+
+  { "TypeName": "KingdomActionFillSettlementByLocation" },
+
+  { "TypeName": "KingdomActionFinishRandomBuilding" },
+
+  { "TypeName": "KingdomActionFoundKingdom" },
+
+  { "TypeName": "KingdomActionFoundSettlement" },
+
+  { "TypeName": "KingdomActionGainLeaderExperience" },
+
+  { "TypeName": "KingdomActionGetArtisanGift" },
+
+  { "TypeName": "KingdomActionGetArtisanGiftWithCertainTier" },
+
+  { "TypeName": "KingdomActionGetPartyGoldByUnitsCount" },
+
+  { "TypeName": "KingdomActionGetResourcesByUnitsCount" },
+
+  { "TypeName": "KingdomActionGetResourcesPercent" },
+
+  { "TypeName": "KingdomActionGiveLoot" },
+
+  { "TypeName": "KingdomActionImproveSettlement" },
+
+  { "TypeName": "KingdomActionImproveStat" },
+
+  { "TypeName": "KingdomActionMakeRoll" },
+
+  { "TypeName": "KingdomActionModifyBuildTime" },
+
+  { "TypeName": "KingdomActionModifyClaims" },
+
+  { "TypeName": "KingdomActionModifyEventDC" },
+
+  { "TypeName": "KingdomActionModifyRE" },
+
+  { "TypeName": "KingdomActionModifyRankTime" },
+
+  { "TypeName": "KingdomActionModifyStatRandom" },
+
+  { "TypeName": "KingdomActionModifyStats" },
+
+  { "TypeName": "KingdomActionModifyUnrest" },
+
+  { "TypeName": "KingdomActionNextChapter" },
+
+  { "TypeName": "KingdomActionPullRankupChangesIntoDialog" },
+
+  { "TypeName": "KingdomActionRemoveAllLeaders" },
+
+  { "TypeName": "KingdomActionRemoveBuff" },
+
+  { "TypeName": "KingdomActionRemoveEvent" },
+
+  { "TypeName": "KingdomActionRemoveEventDeck" },
+
+  { "TypeName": "KingdomActionRequestArtisanGift" },
+
+  { "TypeName": "KingdomActionResetRecurrence" },
+
+  { "TypeName": "KingdomActionResolveCrusadeEvent" },
+
+  { "TypeName": "KingdomActionResolveEvent" },
+
+  { "TypeName": "KingdomActionResolveProject" },
+
+  { "TypeName": "KingdomActionRestartEvent" },
+
+  { "TypeName": "KingdomActionRollbackRecurrence" },
+
+  { "TypeName": "KingdomActionSetAlignment" },
+
+  { "TypeName": "KingdomActionSetNotVisible" },
+
+  { "TypeName": "KingdomActionSetRegionalIncome" },
+
+  { "TypeName": "KingdomActionSetVisible" },
+
+  { "TypeName": "KingdomActionSpawnRandomArmy" },
+
+  { "TypeName": "KingdomActionStartEvent" },
+
+  { "TypeName": "KingdomActionUnlockArtisan" },
+
+  { "TypeName": "KingdomAddMoraleFlags" },
+
+  { "TypeName": "KingdomFlagIncrement" },
+
+  { "TypeName": "KingdomIncreaseIncome" },
+
+  { "TypeName": "KingdomMoraleFlagUpdateIncome" },
+
+  { "TypeName": "KingdomRemoveMoraleFlags" },
+
+  { "TypeName": "KingdomSetFlagState" },
+
+  { "TypeName": "ManuallySetGlobalSpellCooldown" },
+
+  { "TypeName": "OpenTeleportationInterface" },
+
+  { "TypeName": "RecruiteArmyLeader" },
+
+  { "TypeName": "ReduceNegativeMorale" },
+
+  { "TypeName": "RemoveCrusadeResources" },
+
+  { "TypeName": "RemoveDemonArmies" },
+
+  { "TypeName": "RemoveGarrison" },
+
+  { "TypeName": "RemoveGlobalMagicSpell" },
+
+  { "TypeName": "RemoveMercenaryFromPool" },
+
+  { "TypeName": "RemoveUnitsByExp" },
+
+  { "TypeName": "RemoveUnitFromArmy" },
+
+  { "TypeName": "RepairLeaderMana" },
+
+  { "TypeName": "ReplaceBuildings" },
+
+  { "TypeName": "SetRecruitPoint" },
+
+  { "TypeName": "SetWarCampLocation" },
+
+  { "TypeName": "SummonExistUnits" },
+
+  { "TypeName": "SummonRandomGroup" },
+
+  { "TypeName": "TacticalCombatRecoverLeaderMana" },
+
+  { "TypeName": "TeleportArmyAction" },
+
+  { "TypeName": "UnlockUnitsGrowth" }
+]

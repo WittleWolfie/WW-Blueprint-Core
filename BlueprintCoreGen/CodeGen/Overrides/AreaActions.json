@@ -22,14 +22,14 @@
         "IgnoredFields": [ "RestoreDefault" ]
       },
       {
+        "MethodName": "ResetCurrentAreaName",
+        "IgnoredFields": [ "NewName" ],
         "ConstantFields": [
           {
             "FieldName": "RestoreDefault",
             "Value": "true"
           }
-        ],
-        "IgnoredFields": [ "NewName" ],
-        "MethodName": "ResetCurrentAreaName"
+        ]
       }
     ]
   },

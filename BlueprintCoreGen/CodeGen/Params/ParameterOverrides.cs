@@ -69,16 +69,40 @@ namespace BlueprintCoreGen.CodeGen.Params
     public bool Required { get; private set; }
 
     /// <summary>
+    /// Indicates whether the field is nullable.
+    /// </summary>
+    [JsonProperty]
+    public bool? IsNullable { get; private set; }
+
+    /// <summary>
+    /// Type of the field when provided as a function parameter.
+    /// </summary>
+    [JsonProperty]
+    public string TypeName { get; private set; } = string.Empty;
+
+    /// <summary>
     /// Name of the field when provided as a function parameter.
     /// </summary>
     [JsonProperty]
     public string ParamName { get; private set; } = string.Empty;
 
     /// <summary>
+    /// Default value of the field when provided as a function parameter.
+    /// </summary>
+    [JsonProperty]
+    public string DefaultValue { get; private set; } = string.Empty;
+
+    /// <summary>
     /// Format string where {0} is the param name.
     /// </summary>
     [JsonProperty]
     public string CommentFmt { get; private set; } = string.Empty;
+
+    /// <summary>
+    /// Assignment format string for the right hand side of an assignment statement, where {0} is the parameter name
+    /// </summary>
+    [JsonProperty]
+    public string AssignmentFmtRhs { get; private set; } = string.Empty;
 
     /// <summary>
     /// Additional lines of code added after assigning the field's value.
@@ -89,9 +113,17 @@ namespace BlueprintCoreGen.CodeGen.Params
     {
       if (Required) { fieldParameter.MakeRequired(); }
 
+      if (IsNullable is not null) { fieldParameter.SetIsNullable(IsNullable.Value); }
+
+      if (!string.IsNullOrEmpty(TypeName)) { fieldParameter.SetTypeName(TypeName); }
+
       if (!string.IsNullOrEmpty(ParamName)) { fieldParameter.SetParamName(ParamName); }
 
+      if (!string.IsNullOrEmpty(DefaultValue)) { fieldParameter.SetDefaultValue(DefaultValue); }
+
       if (!string.IsNullOrEmpty(CommentFmt)) { fieldParameter.SetCommentFmt(new() { CommentFmt }); }
+
+      if (!string.IsNullOrEmpty(AssignmentFmtRhs)) { fieldParameter.SetAssignmentFmtRhs(AssignmentFmtRhs); }
 
       if (ExtraAssignmentFmtLines.Any()) { fieldParameter.SetExtraAssignmentFmtLines(ExtraAssignmentFmtLines); }
     }
