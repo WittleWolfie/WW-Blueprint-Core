@@ -30,6 +30,90 @@ namespace BlueprintCore.Actions.Builder.StoryEx
   {
 
     /// <summary>
+    /// Adds <see cref="CompleteEtude"/>
+    /// </summary>
+    ///
+    /// <param name="etude">
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder CompleteEtude(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude,
+        BlueprintEvaluator? etudeEvaluator = null)
+    {
+      var element = ElementTool.Create<CompleteEtude>();
+      element.Etude = etude?.Reference;
+      builder.Validate(etudeEvaluator);
+      element.EtudeEvaluator = etudeEvaluator ?? element.EtudeEvaluator;
+      element.Evaluate = etudeEvaluator is not null;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeRomance"/>
+    /// </summary>
+    ///
+    /// <param name="romance">
+    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ChangeRomance(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference> romance,
+        IntEvaluator valueEvaluator)
+    {
+      var element = ElementTool.Create<ChangeRomance>();
+      element.m_Romance = romance?.Reference;
+      builder.Validate(valueEvaluator);
+      element.ValueEvaluator = valueEvaluator;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeUnitName"/>
+    /// </summary>
+    public static ActionsBuilder ChangeUnitName(
+        this ActionsBuilder builder,
+        LocalizedString newName,
+        UnitEvaluator unit,
+        bool? addToTheName = null)
+    {
+      var element = ElementTool.Create<ChangeUnitName>();
+      element.NewName = newName;
+      builder.Validate(unit);
+      element.Unit = unit;
+      element.AddToTheName = addToTheName ?? element.AddToTheName;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeUnitName"/>
+    /// </summary>
+    public static ActionsBuilder ResetUnitName(
+        this ActionsBuilder builder,
+        UnitEvaluator unit)
+    {
+      var element = ElementTool.Create<ChangeUnitName>();
+      builder.Validate(unit);
+      element.Unit = unit;
+      element.ReturnTheOldName = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="AlignmentSelector"/>
     /// </summary>
     public static ActionsBuilder AlignmentSelector(
@@ -59,91 +143,6 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.NeutralGood = neutralGood ?? element.NeutralGood;
       element.SelectClosest = selectClosest ?? element.SelectClosest;
       element.TrueNeutral = trueNeutral ?? element.TrueNeutral;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CompleteEtude"/>
-    /// </summary>
-    ///
-    /// <param name="etude">
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder CompleteEtude(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
-        BlueprintEvaluator? etudeEvaluator = null,
-        bool? evaluate = null)
-    {
-      var element = ElementTool.Create<CompleteEtude>();
-      element.Etude = etude?.Reference ?? element.Etude;
-      if (element.Etude is null)
-      {
-        element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
-      }
-      builder.Validate(etudeEvaluator);
-      element.EtudeEvaluator = etudeEvaluator ?? element.EtudeEvaluator;
-      element.Evaluate = evaluate ?? element.Evaluate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ChangeRomance"/>
-    /// </summary>
-    ///
-    /// <param name="romance">
-    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ChangeRomance(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null,
-        IntEvaluator? valueEvaluator = null)
-    {
-      var element = ElementTool.Create<ChangeRomance>();
-      element.m_Romance = romance?.Reference ?? element.m_Romance;
-      if (element.m_Romance is null)
-      {
-        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
-      }
-      builder.Validate(valueEvaluator);
-      element.ValueEvaluator = valueEvaluator ?? element.ValueEvaluator;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ChangeUnitName"/>
-    /// </summary>
-    public static ActionsBuilder ChangeUnitName(
-        this ActionsBuilder builder,
-        bool? addToTheName = null,
-        LocalizedString? newName = null,
-        bool? returnTheOldName = null,
-        UnitEvaluator? unit = null)
-    {
-      var element = ElementTool.Create<ChangeUnitName>();
-      element.AddToTheName = addToTheName ?? element.AddToTheName;
-      element.NewName = newName ?? element.NewName;
-      if (element.NewName is null)
-      {
-        element.NewName = Utils.Constants.Empty.String;
-      }
-      element.ReturnTheOldName = returnTheOldName ?? element.ReturnTheOldName;
-      builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 

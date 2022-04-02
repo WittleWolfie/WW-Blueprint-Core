@@ -1,11 +1,44 @@
 [
+  {
+    "TypeName": "CompleteEtude",
+    "RequiredFields": [ "Etude" ],
+    "IgnoredFields": [ "Evaluate" ],
+    "CustomFields": [
+      {
+        "FieldName": "EtudeEvaluator",
+        "ExtraAssignmentFmtLines": [ "{0}.Evaluate = {1} is not null;" ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ChangeRomance",
+    "RequiredFields": [ "m_Romance", "ValueEvaluator" ]
+  },
+
+  {
+    "TypeName": "ChangeUnitName",
+    "Methods": [
+      {
+        "MethodName": "ChangeUnitName",
+        "RequiredFields": [ "Unit", "NewName" ],
+        "IgnoredFields": [ "ReturnTheOldName" ]
+      },
+      {
+        "MethodName": "ResetUnitName",
+        "RequiredFields": [ "Unit" ],
+        "IgnoredFields": [ "NewName", "AddToTheName" ],
+        "ConstantFields": [
+          {
+            "FieldName": "ReturnTheOldName",
+            "Value": "true"
+          }
+        ]
+      }
+    ]
+  },
+
   { "TypeName": "AlignmentSelector" },
-
-  { "TypeName": "CompleteEtude" },
-
-  { "TypeName": "ChangeRomance" },
-
-  { "TypeName": "ChangeUnitName" },
 
   { "TypeName": "DismissAllCompanions" },
 
