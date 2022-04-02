@@ -692,6 +692,21 @@
   },
 
   {
+    "TypeName": "ContextActionsOnPet",
+    "MethodName": "OnPets",
+    "Remarks": [ "Actions are run on all of the target unit's pets." ],
+    "RequiredFields": [ "Actions" ],
+    "IgnoredFields": [ "AllPets" ],
+    "CustomFields": [
+      {
+        "FieldName": "PetType",
+        "CommentFmt": "If specified, actions only run on pets of that type.",
+        "ExtraAssignmentFmtLines": [ "{0}.AllPets = {1} is not null;" ]
+      }
+    ]
+  },
+
+  {
     "TypeName": "ContextActionOnRandomAreaTarget",
     "Remarks": [ "Only works inside of AbilityAreaEffectRunAction and only effects enemies." ],
     "RequiredFields": [ "Actions" ],
@@ -920,6 +935,17 @@
     ]
   },
 
+  {
+    "TypeName": "ContextActionSpawnAreaEffect",
+    "RequiredFields": [ "m_AreaEffect", "DurationValue" ]
+  },
+
+  {
+    "TypeName": "ContextActionSpawnControllableProjectile",
+    "RequiredFields": [ "ControllableProjectile", "AssociatedCasterBuff" ]
+  },
+
+
   { "TypeName": "AbilityCustomSharedBurden" },
 
   { "TypeName": "AbilityCustomSharedGrace" },
@@ -993,12 +1019,6 @@
   { "TypeName": "ContextActionResetAlignment" },
 
   { "TypeName": "ContextActionRestoreAllSpellSlots" },
-
-  { "TypeName": "ContextActionsOnPet" },
-
-  { "TypeName": "ContextActionSpawnAreaEffect" },
-
-  { "TypeName": "ContextActionSpawnControllableProjectile" },
 
   { "TypeName": "ContextActionSpawnMonster" },
 

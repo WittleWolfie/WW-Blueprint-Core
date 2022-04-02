@@ -1128,6 +1128,29 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextActionsOnPet"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// Actions are run on all of the target unit's pets.
+    /// </remarks>
+    ///
+    /// <param name="petType">
+    /// If specified, actions only run on pets of that type.
+    /// </param>
+    public static ActionsBuilder OnPets(
+        this ActionsBuilder builder,
+        ActionsBuilder actions,
+        PetType? petType = null)
+    {
+      var element = ElementTool.Create<ContextActionsOnPet>();
+      element.Actions = actions?.Build();
+      element.PetType = petType ?? element.PetType;
+      element.AllPets = petType is not null;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionOnRandomAreaTarget"/>
     /// </summary>
     ///
@@ -1622,6 +1645,69 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextActionSpawnAreaEffect"/>
+    /// </summary>
+    ///
+    /// <param name="areaEffect">
+    /// Blueprint of type BlueprintAbilityAreaEffect. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder SpawnAreaEffect(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference> areaEffect,
+        ContextDurationValue durationValue,
+        bool? onUnit = null)
+    {
+      var element = ElementTool.Create<ContextActionSpawnAreaEffect>();
+      element.m_AreaEffect = areaEffect?.Reference;
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue;
+      element.OnUnit = onUnit ?? element.OnUnit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSpawnControllableProjectile"/>
+    /// </summary>
+    ///
+    /// <param name="associatedCasterBuff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="controllableProjectile">
+    /// Blueprint of type BlueprintControllableProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder SpawnControllableProjectile(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference> associatedCasterBuff,
+        Blueprint<BlueprintControllableProjectile, BlueprintControllableProjectileReference> controllableProjectile)
+    {
+      var element = ElementTool.Create<ContextActionSpawnControllableProjectile>();
+      element.AssociatedCasterBuff = associatedCasterBuff?.Reference;
+      element.ControllableProjectile = controllableProjectile?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityCustomSharedBurden"/>
     /// </summary>
     public static ActionsBuilder AbilityCustomSharedBurden(this ActionsBuilder builder)
@@ -2108,101 +2194,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       builder.Validate(target);
       element.m_Target = target ?? element.m_Target;
       element.m_UpToSpellLevel = upToSpellLevel ?? element.m_UpToSpellLevel;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionsOnPet"/>
-    /// </summary>
-    public static ActionsBuilder sOnPet(
-        this ActionsBuilder builder,
-        ActionsBuilder? actions = null,
-        bool? allPets = null,
-        PetType? petType = null)
-    {
-      var element = ElementTool.Create<ContextActionsOnPet>();
-      element.Actions = actions?.Build() ?? element.Actions;
-      if (element.Actions is null)
-      {
-        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
-      }
-      element.AllPets = allPets ?? element.AllPets;
-      element.PetType = petType ?? element.PetType;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSpawnAreaEffect"/>
-    /// </summary>
-    ///
-    /// <param name="areaEffect">
-    /// Blueprint of type BlueprintAbilityAreaEffect. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder SpawnAreaEffect(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference>? areaEffect = null,
-        ContextDurationValue? durationValue = null,
-        bool? onUnit = null)
-    {
-      var element = ElementTool.Create<ContextActionSpawnAreaEffect>();
-      element.m_AreaEffect = areaEffect?.Reference ?? element.m_AreaEffect;
-      if (element.m_AreaEffect is null)
-      {
-        element.m_AreaEffect = BlueprintTool.GetRef<BlueprintAbilityAreaEffectReference>(null);
-      }
-      builder.Validate(durationValue);
-      element.DurationValue = durationValue ?? element.DurationValue;
-      element.OnUnit = onUnit ?? element.OnUnit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSpawnControllableProjectile"/>
-    /// </summary>
-    ///
-    /// <param name="associatedCasterBuff">
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="controllableProjectile">
-    /// Blueprint of type BlueprintControllableProjectile. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder SpawnControllableProjectile(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? associatedCasterBuff = null,
-        Blueprint<BlueprintControllableProjectile, BlueprintControllableProjectileReference>? controllableProjectile = null)
-    {
-      var element = ElementTool.Create<ContextActionSpawnControllableProjectile>();
-      element.AssociatedCasterBuff = associatedCasterBuff?.Reference ?? element.AssociatedCasterBuff;
-      if (element.AssociatedCasterBuff is null)
-      {
-        element.AssociatedCasterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      element.ControllableProjectile = controllableProjectile?.Reference ?? element.ControllableProjectile;
-      if (element.ControllableProjectile is null)
-      {
-        element.ControllableProjectile = BlueprintTool.GetRef<BlueprintControllableProjectileReference>(null);
-      }
       return builder.Add(element);
     }
 
