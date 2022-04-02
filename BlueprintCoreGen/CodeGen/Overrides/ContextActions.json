@@ -945,6 +945,38 @@
     "RequiredFields": [ "ControllableProjectile", "AssociatedCasterBuff" ]
   },
 
+  {
+    "TypeName": "ContextActionSpawnMonster",
+    "RequiredFields": [ "CountValue", "DurationValue" ],
+    "CustomFields": [
+      {
+        "FieldName": "m_Blueprint",
+        "ParamName": "monster",
+        "Required": "true"
+      }
+    ],
+    "Methods": [
+      {
+        "MethodName": "SpawnMonster",
+        "IgnoredFields": [ "m_SummonPool", "UseLimitFromSummonPool" ]
+      },
+      {
+        "MethodName": "SpawnMonsterUsingSummonPool",
+        "RequiredFields": [ "m_SummonPool" ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionSpawnUnlinkedMonster",
+    "CustomFields": [
+      {
+        "FieldName": "m_Blueprint",
+        "ParamName": "monster",
+        "Required": "true"
+      }
+    ]
+  },
 
   { "TypeName": "AbilityCustomSharedBurden" },
 
@@ -1019,10 +1051,6 @@
   { "TypeName": "ContextActionResetAlignment" },
 
   { "TypeName": "ContextActionRestoreAllSpellSlots" },
-
-  { "TypeName": "ContextActionSpawnMonster" },
-
-  { "TypeName": "ContextActionSpawnUnlinkedMonster" },
 
   { "TypeName": "ContextActionSpendAttackOfOpportunity" },
 

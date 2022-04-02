@@ -1708,6 +1708,131 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextActionSpawnMonster"/>
+    /// </summary>
+    ///
+    /// <param name="monster">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder SpawnMonster(
+        this ActionsBuilder builder,
+        ContextDiceValue countValue,
+        ContextDurationValue durationValue,
+        Blueprint<BlueprintUnit, BlueprintUnitReference> monster,
+        ActionsBuilder? afterSpawn = null,
+        bool? doNotLinkToCaster = null,
+        bool? isDirectlyControllable = null,
+        ContextValue? levelValue = null)
+    {
+      var element = ElementTool.Create<ContextActionSpawnMonster>();
+      element.CountValue = countValue;
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue;
+      element.m_Blueprint = monster?.Reference;
+      element.AfterSpawn = afterSpawn?.Build() ?? element.AfterSpawn;
+      if (element.AfterSpawn is null)
+      {
+        element.AfterSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.DoNotLinkToCaster = doNotLinkToCaster ?? element.DoNotLinkToCaster;
+      element.IsDirectlyControllable = isDirectlyControllable ?? element.IsDirectlyControllable;
+      element.LevelValue = levelValue ?? element.LevelValue;
+      if (element.LevelValue is null)
+      {
+        element.LevelValue = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSpawnMonster"/>
+    /// </summary>
+    ///
+    /// <param name="monster">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="summonPool">
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder SpawnMonsterUsingSummonPool(
+        this ActionsBuilder builder,
+        ContextDiceValue countValue,
+        ContextDurationValue durationValue,
+        Blueprint<BlueprintUnit, BlueprintUnitReference> monster,
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
+        ActionsBuilder? afterSpawn = null,
+        bool? doNotLinkToCaster = null,
+        bool? isDirectlyControllable = null,
+        ContextValue? levelValue = null,
+        bool? useLimitFromSummonPool = null)
+    {
+      var element = ElementTool.Create<ContextActionSpawnMonster>();
+      element.CountValue = countValue;
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue;
+      element.m_Blueprint = monster?.Reference;
+      element.m_SummonPool = summonPool?.Reference;
+      element.AfterSpawn = afterSpawn?.Build() ?? element.AfterSpawn;
+      if (element.AfterSpawn is null)
+      {
+        element.AfterSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.DoNotLinkToCaster = doNotLinkToCaster ?? element.DoNotLinkToCaster;
+      element.IsDirectlyControllable = isDirectlyControllable ?? element.IsDirectlyControllable;
+      element.LevelValue = levelValue ?? element.LevelValue;
+      if (element.LevelValue is null)
+      {
+        element.LevelValue = ContextValues.Constant(0);
+      }
+      element.UseLimitFromSummonPool = useLimitFromSummonPool ?? element.UseLimitFromSummonPool;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSpawnUnlinkedMonster"/>
+    /// </summary>
+    ///
+    /// <param name="monster">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder SpawnUnlinkedMonster(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintUnit, BlueprintUnitReference> monster)
+    {
+      var element = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
+      element.m_Blueprint = monster?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityCustomSharedBurden"/>
     /// </summary>
     public static ActionsBuilder AbilityCustomSharedBurden(this ActionsBuilder builder)
@@ -2194,103 +2319,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       builder.Validate(target);
       element.m_Target = target ?? element.m_Target;
       element.m_UpToSpellLevel = upToSpellLevel ?? element.m_UpToSpellLevel;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSpawnMonster"/>
-    /// </summary>
-    ///
-    /// <param name="blueprint">
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="summonPool">
-    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder SpawnMonster(
-        this ActionsBuilder builder,
-        ActionsBuilder? afterSpawn = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
-        ContextDiceValue? countValue = null,
-        bool? doNotLinkToCaster = null,
-        ContextDurationValue? durationValue = null,
-        bool? isDirectlyControllable = null,
-        ContextValue? levelValue = null,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
-        bool? useLimitFromSummonPool = null)
-    {
-      var element = ElementTool.Create<ContextActionSpawnMonster>();
-      element.AfterSpawn = afterSpawn?.Build() ?? element.AfterSpawn;
-      if (element.AfterSpawn is null)
-      {
-        element.AfterSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
-      }
-      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
-      if (element.m_Blueprint is null)
-      {
-        element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
-      }
-      element.CountValue = countValue ?? element.CountValue;
-      if (element.CountValue is null)
-      {
-        element.CountValue = BlueprintCore.Utils.Constants.Empty.DiceValue;
-      }
-      element.DoNotLinkToCaster = doNotLinkToCaster ?? element.DoNotLinkToCaster;
-      builder.Validate(durationValue);
-      element.DurationValue = durationValue ?? element.DurationValue;
-      element.IsDirectlyControllable = isDirectlyControllable ?? element.IsDirectlyControllable;
-      element.LevelValue = levelValue ?? element.LevelValue;
-      if (element.LevelValue is null)
-      {
-        element.LevelValue = ContextValues.Constant(0);
-      }
-      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
-      if (element.m_SummonPool is null)
-      {
-        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
-      }
-      element.UseLimitFromSummonPool = useLimitFromSummonPool ?? element.UseLimitFromSummonPool;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSpawnUnlinkedMonster"/>
-    /// </summary>
-    ///
-    /// <param name="blueprint">
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder SpawnUnlinkedMonster(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null)
-    {
-      var element = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
-      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
-      if (element.m_Blueprint is null)
-      {
-        element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
-      }
       return builder.Add(element);
     }
 
