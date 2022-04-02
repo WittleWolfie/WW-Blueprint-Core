@@ -55,6 +55,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     public override void ApplyTo(FieldParameter param)
     {
       param.SetConstantValue(Value);
+      param.SetCommentFmt(new());
     }
   }
 

@@ -197,6 +197,45 @@
   },
 
   {
+    "TypeName": "Demoralize",
+    "Imports": [ "Buffs" ],
+    "ConstantFields": [
+      {
+        "FieldName": "m_SwordlordProwessFeature",
+        "Value": "Features.DisplayWeaponProwess.Reference"
+      }
+    ],
+    "CustomFields": [
+      {
+        "FieldName": "m_Buff",
+        "CommentFmt": "Applied on success. Defaults to Shaken.",
+        "IsNullable": "false",
+        "AssignmentFmtRhs": "{0}?.Reference ?? Buffs.Shaken.Reference"
+      },
+      {
+        "FieldName": "m_GreaterBuff",
+        "CommentFmt": "Applied on success when the caster has a feature that adds a greater effect. Defaults to Frightened.",
+        "IsNullable": "false",
+        "AssignmentFmtRhs": "{0}?.Reference ?? Buffs.Frightened.Reference"
+      },
+      {
+        "FieldName": "m_ShatterConfidenceFeature",
+        "ParamName": "extraEffectFeature",
+        "CommentFmt": "Unit feature which determines whether to apply extraEffect on success. Defaults to ShatterConfidence.",
+        "IsNullable": "false",
+        "AssignmentFmtRhs": "{0}?.Reference ?? Features.ShatterConfidence.Reference"
+      },
+      {
+        "FieldName": "m_ShatterConfidenceBuff",
+        "ParamName": "extraEffect",
+        "CommentFmt": "Applied on success when the caster has the extraEffectFeature. Defaults to ShatterConfidence.",
+        "IsNullable": "false",
+        "AssignmentFmtRhs": "{0}?.Reference ?? Buffs.ShatterConfidence.Reference"
+      }
+    ]
+  },
+
+  {
     "TypeName": "ContextActionWeaponEnchantPool",
     "Remarks": [
       "The caster's weapon is enchanted based on its available enhancement bonus. e.g. If the weapon can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
@@ -1111,8 +1150,6 @@
   { "TypeName": "ContextActionTranslocate" },
 
   { "TypeName": "ContextActionUnsummon" },
-
-  { "TypeName": "Demoralize" },
 
   { "TypeName": "EnhanceWeapon" },
 

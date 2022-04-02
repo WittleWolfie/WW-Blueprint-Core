@@ -321,6 +321,64 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="Demoralize"/>
+    /// </summary>
+    ///
+    /// <param name="buff">
+    /// Applied on success. Defaults to Shaken.
+    /// </param>
+    /// <param name="extraEffect">
+    /// Applied on success when the caster has the extraEffectFeature. Defaults to ShatterConfidence.
+    /// </param>
+    /// <param name="extraEffectFeature">
+    /// Unit feature which determines whether to apply extraEffect on success. Defaults to ShatterConfidence.
+    /// </param>
+    /// <param name="greaterBuff">
+    /// Applied on success when the caster has a feature that adds a greater effect. Defaults to Frightened.
+    /// </param>
+    public static ActionsBuilder Demoralize(
+        this ActionsBuilder builder,
+        int? bonus = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference> buff = null,
+        bool? dazzlingDisplay = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference> extraEffect = null,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> extraEffectFeature = null,
+        Blueprint<BlueprintBuff, BlueprintBuffReference> greaterBuff = null,
+        ActionsBuilder? tricksterRank3Actions = null)
+    {
+      var element = ElementTool.Create<Demoralize>();
+      element.Bonus = bonus ?? element.Bonus;
+      element.m_Buff = buff?.Reference ?? Buffs.Shaken.Reference;
+      if (element.m_Buff is null)
+      {
+        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      element.DazzlingDisplay = dazzlingDisplay ?? element.DazzlingDisplay;
+      element.m_ShatterConfidenceBuff = extraEffect?.Reference ?? Buffs.ShatterConfidence.Reference;
+      if (element.m_ShatterConfidenceBuff is null)
+      {
+        element.m_ShatterConfidenceBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      element.m_ShatterConfidenceFeature = extraEffectFeature?.Reference ?? Features.ShatterConfidence.Reference;
+      if (element.m_ShatterConfidenceFeature is null)
+      {
+        element.m_ShatterConfidenceFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      element.m_GreaterBuff = greaterBuff?.Reference ?? Buffs.Frightened.Reference;
+      if (element.m_GreaterBuff is null)
+      {
+        element.m_GreaterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      element.TricksterRank3Actions = tricksterRank3Actions?.Build() ?? element.TricksterRank3Actions;
+      if (element.TricksterRank3Actions is null)
+      {
+        element.TricksterRank3Actions = Utils.Constants.Empty.Actions;
+      }
+      element.m_SwordlordProwessFeature = Features.DisplayWeaponProwess.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionWeaponEnchantPool"/>
     /// </summary>
     ///
@@ -670,12 +728,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Failure = failure?.Build() ?? element.Failure;
       if (element.Failure is null)
       {
-        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Failure = Utils.Constants.Empty.Actions;
       }
       element.Success = success?.Build() ?? element.Success;
       if (element.Success is null)
       {
-        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Success = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -946,14 +1004,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.OnFail = onFail?.Build() ?? element.OnFail;
       if (element.OnFail is null)
       {
-        element.OnFail = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnFail = Utils.Constants.Empty.Actions;
       }
       element.OnlyEnemyAreaEffects = onlyEnemyAreaEffects ?? element.OnlyEnemyAreaEffects;
       element.OnlyTargetEnemyBuffs = onlyTargetEnemyBuffs ?? element.OnlyTargetEnemyBuffs;
       element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
-        element.OnSuccess = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnSuccess = Utils.Constants.Empty.Actions;
       }
       element.Schools = schools ?? element.Schools;
       if (element.Schools is null)
@@ -1086,7 +1144,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Value = value ?? element.Value;
       if (element.Value is null)
       {
-        element.Value = BlueprintCore.Utils.Constants.Empty.DiceValue;
+        element.Value = Utils.Constants.Empty.DiceValue;
       }
       return builder.Add(element);
     }
@@ -1224,7 +1282,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Action = action?.Build() ?? element.Action;
       if (element.Action is null)
       {
-        element.Action = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Action = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1534,7 +1592,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Actions = onResult?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Actions = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1583,12 +1641,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Failure = failure?.Build() ?? element.Failure;
       if (element.Failure is null)
       {
-        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Failure = Utils.Constants.Empty.Actions;
       }
       element.Success = success?.Build() ?? element.Success;
       if (element.Success is null)
       {
-        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Success = Utils.Constants.Empty.Actions;
       }
       element.CalculateDCDifference = false;
       return builder.Add(element);
@@ -1623,22 +1681,22 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Failure = failure?.Build() ?? element.Failure;
       if (element.Failure is null)
       {
-        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Failure = Utils.Constants.Empty.Actions;
       }
       element.FailureDiffMoreOrEqual10 = failureBy10orMore?.Build() ?? element.FailureDiffMoreOrEqual10;
       if (element.FailureDiffMoreOrEqual10 is null)
       {
-        element.FailureDiffMoreOrEqual10 = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.FailureDiffMoreOrEqual10 = Utils.Constants.Empty.Actions;
       }
       element.FailureDiffMoreOrEqual5Less10 = failureBy5to10?.Build() ?? element.FailureDiffMoreOrEqual5Less10;
       if (element.FailureDiffMoreOrEqual5Less10 is null)
       {
-        element.FailureDiffMoreOrEqual5Less10 = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.FailureDiffMoreOrEqual5Less10 = Utils.Constants.Empty.Actions;
       }
       element.Success = success?.Build() ?? element.Success;
       if (element.Success is null)
       {
-        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Success = Utils.Constants.Empty.Actions;
       }
       element.CalculateDCDifference = true;
       return builder.Add(element);
@@ -1739,7 +1797,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.AfterSpawn = afterSpawn?.Build() ?? element.AfterSpawn;
       if (element.AfterSpawn is null)
       {
-        element.AfterSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.AfterSpawn = Utils.Constants.Empty.Actions;
       }
       element.DoNotLinkToCaster = doNotLinkToCaster ?? element.DoNotLinkToCaster;
       element.IsDirectlyControllable = isDirectlyControllable ?? element.IsDirectlyControllable;
@@ -1796,7 +1854,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.AfterSpawn = afterSpawn?.Build() ?? element.AfterSpawn;
       if (element.AfterSpawn is null)
       {
-        element.AfterSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.AfterSpawn = Utils.Constants.Empty.Actions;
       }
       element.DoNotLinkToCaster = doNotLinkToCaster ?? element.DoNotLinkToCaster;
       element.IsDirectlyControllable = isDirectlyControllable ?? element.IsDirectlyControllable;
@@ -2024,12 +2082,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Failure = failure?.Build() ?? element.Failure;
       if (element.Failure is null)
       {
-        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Failure = Utils.Constants.Empty.Actions;
       }
       element.Success = success?.Build() ?? element.Success;
       if (element.Success is null)
       {
-        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Success = Utils.Constants.Empty.Actions;
       }
       element.UseCMB = useCMB ?? element.UseCMB;
       element.UseCMD = useCMD ?? element.UseCMD;
@@ -2048,12 +2106,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.Failed = failed?.Build() ?? element.Failed;
       if (element.Failed is null)
       {
-        element.Failed = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Failed = Utils.Constants.Empty.Actions;
       }
       element.Succeed = succeed?.Build() ?? element.Succeed;
       if (element.Succeed is null)
       {
-        element.Succeed = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Succeed = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -2206,12 +2264,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.FailActions = failActions?.Build() ?? element.FailActions;
       if (element.FailActions is null)
       {
-        element.FailActions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.FailActions = Utils.Constants.Empty.Actions;
       }
       element.SuccessActions = successActions?.Build() ?? element.SuccessActions;
       if (element.SuccessActions is null)
       {
-        element.SuccessActions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.SuccessActions = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -2456,7 +2514,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.AttackActions = attackActions?.Build() ?? element.AttackActions;
       if (element.AttackActions is null)
       {
-        element.AttackActions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.AttackActions = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -2495,107 +2553,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder Unsummon(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionUnsummon>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="Demoralize"/>
-    /// </summary>
-    ///
-    /// <param name="buff">
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="greaterBuff">
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="shatterConfidenceBuff">
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="shatterConfidenceFeature">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="swordlordProwessFeature">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder Demoralize(
-        this ActionsBuilder builder,
-        int? bonus = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
-        bool? dazzlingDisplay = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? greaterBuff = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? shatterConfidenceBuff = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? shatterConfidenceFeature = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? swordlordProwessFeature = null,
-        ActionsBuilder? tricksterRank3Actions = null)
-    {
-      var element = ElementTool.Create<Demoralize>();
-      element.Bonus = bonus ?? element.Bonus;
-      element.m_Buff = buff?.Reference ?? element.m_Buff;
-      if (element.m_Buff is null)
-      {
-        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      element.DazzlingDisplay = dazzlingDisplay ?? element.DazzlingDisplay;
-      element.m_GreaterBuff = greaterBuff?.Reference ?? element.m_GreaterBuff;
-      if (element.m_GreaterBuff is null)
-      {
-        element.m_GreaterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      element.m_ShatterConfidenceBuff = shatterConfidenceBuff?.Reference ?? element.m_ShatterConfidenceBuff;
-      if (element.m_ShatterConfidenceBuff is null)
-      {
-        element.m_ShatterConfidenceBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      element.m_ShatterConfidenceFeature = shatterConfidenceFeature?.Reference ?? element.m_ShatterConfidenceFeature;
-      if (element.m_ShatterConfidenceFeature is null)
-      {
-        element.m_ShatterConfidenceFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      element.m_SwordlordProwessFeature = swordlordProwessFeature?.Reference ?? element.m_SwordlordProwessFeature;
-      if (element.m_SwordlordProwessFeature is null)
-      {
-        element.m_SwordlordProwessFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      element.TricksterRank3Actions = tricksterRank3Actions?.Build() ?? element.TricksterRank3Actions;
-      if (element.TricksterRank3Actions is null)
-      {
-        element.TricksterRank3Actions = BlueprintCore.Utils.Constants.Empty.Actions;
-      }
-      return builder.Add(element);
     }
 
     /// <summary>
