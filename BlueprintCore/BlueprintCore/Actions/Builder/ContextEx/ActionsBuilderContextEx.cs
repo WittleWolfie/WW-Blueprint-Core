@@ -1833,6 +1833,94 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextSpendResource"/>
+    /// </summary>
+    ///
+    /// <param name="resource">
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="value">
+    /// Amount to spend. If not specified the resource is fully spent.
+    /// </param>
+    public static ActionsBuilder ContextSpendResource(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference> resource,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<ContextSpendResource>();
+      element.m_Resource = resource?.Reference;
+      element.Value = value ?? element.Value;
+      element.ContextValueSpendure = value is not null;
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionStealBuffs"/>
+    /// </summary>
+    public static ActionsBuilder StealBuffs(
+        this ActionsBuilder builder,
+        SpellDescriptorWrapper descriptor)
+    {
+      var element = ElementTool.Create<ContextActionStealBuffs>();
+      element.m_Descriptor = descriptor;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextRestoreResource"/>
+    /// </summary>
+    ///
+    /// <param name="resource">
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="value">
+    /// Amount to restore. If not specified the resource is fully restored.
+    /// </param>
+    public static ActionsBuilder RestoreResource(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference> resource,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<ContextRestoreResource>();
+      element.m_Resource = resource?.Reference;
+      element.Value = value ?? element.Value;
+      element.ContextValueRestoration = value is not null;
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextRestoreResource"/>
+    /// </summary>
+    public static ActionsBuilder RestoreAllResources(this ActionsBuilder builder)
+    {
+      var element = ElementTool.Create<ContextRestoreResource>();
+      element.m_IsFullRestoreAllResources = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityCustomSharedBurden"/>
     /// </summary>
     public static ActionsBuilder AbilityCustomSharedBurden(this ActionsBuilder builder)
@@ -2331,18 +2419,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionStealBuffs"/>
-    /// </summary>
-    public static ActionsBuilder StealBuffs(
-        this ActionsBuilder builder,
-        SpellDescriptorWrapper? descriptor = null)
-    {
-      var element = ElementTool.Create<ContextActionStealBuffs>();
-      element.m_Descriptor = descriptor ?? element.m_Descriptor;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionSwallowWhole"/>
     /// </summary>
     ///
@@ -2419,78 +2495,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder Unsummon(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionUnsummon>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextRestoreResource"/>
-    /// </summary>
-    ///
-    /// <param name="resource">
-    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ContextRestoreResource(
-        this ActionsBuilder builder,
-        bool? contextValueRestoration = null,
-        bool? isFullRestoreAllResources = null,
-        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null,
-        ContextValue? value = null)
-    {
-      var element = ElementTool.Create<ContextRestoreResource>();
-      element.ContextValueRestoration = contextValueRestoration ?? element.ContextValueRestoration;
-      element.m_IsFullRestoreAllResources = isFullRestoreAllResources ?? element.m_IsFullRestoreAllResources;
-      element.m_Resource = resource?.Reference ?? element.m_Resource;
-      if (element.m_Resource is null)
-      {
-        element.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
-      }
-      element.Value = value ?? element.Value;
-      if (element.Value is null)
-      {
-        element.Value = ContextValues.Constant(0);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextSpendResource"/>
-    /// </summary>
-    ///
-    /// <param name="resource">
-    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ContextSpendResource(
-        this ActionsBuilder builder,
-        bool? contextValueSpendure = null,
-        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null,
-        ContextValue? value = null)
-    {
-      var element = ElementTool.Create<ContextSpendResource>();
-      element.ContextValueSpendure = contextValueSpendure ?? element.ContextValueSpendure;
-      element.m_Resource = resource?.Reference ?? element.m_Resource;
-      if (element.m_Resource is null)
-      {
-        element.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
-      }
-      element.Value = value ?? element.Value;
-      if (element.Value is null)
-      {
-        element.Value = ContextValues.Constant(0);
-      }
-      return builder.Add(element);
     }
 
     /// <summary>

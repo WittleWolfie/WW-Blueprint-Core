@@ -978,6 +978,52 @@
     ]
   },
 
+  {
+    "TypeName": "ContextSpendResource",
+    "RequiredFields": [ "m_Resource" ],
+    "IgnoredFields": [ "ContextValueSpendure" ],
+    "CustomFields": [
+      {
+        "FieldName": "Value",
+        "CommentFmt": "Amount to spend. If not specified the resource is fully spent.",
+        "ExtraAssignmentFmtLines": [ "{0}.ContextValueSpendure = {1} is not null;" ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionStealBuffs",
+    "RequiredFields": [ "m_Descriptor" ]
+  },
+
+  {
+    "TypeName": "ContextRestoreResource",
+    "Methods": [
+      {
+        "MethodName": "RestoreResource",
+        "RequiredFields": [ "m_Resource" ],
+        "IgnoredFields": [ "m_IsFullRestoreAllResources", "ContextValueRestoration" ],
+        "CustomFields": [
+          {
+            "FieldName": "Value",
+            "CommentFmt": "Amount to restore. If not specified the resource is fully restored.",
+            "ExtraAssignmentFmtLines": [ "{0}.ContextValueRestoration = {1} is not null;" ]
+          }
+        ]
+      },
+      {
+        "MethodName": "RestoreAllResources",
+        "IgnoredFields": [ "m_Resource", "ContextValueRestoration", "Value" ],
+        "ConstantFields": [
+          {
+            "FieldName": "m_IsFullRestoreAllResources",
+            "Value": "true"
+          }
+        ]
+      }
+    ]
+  },
+
   { "TypeName": "AbilityCustomSharedBurden" },
 
   { "TypeName": "AbilityCustomSharedGrace" },
@@ -1054,8 +1100,6 @@
 
   { "TypeName": "ContextActionSpendAttackOfOpportunity" },
 
-  { "TypeName": "ContextActionStealBuffs" },
-
   { "TypeName": "ContextActionSwallowWhole" },
 
   { "TypeName": "ContextActionSwarmAttack" },
@@ -1067,10 +1111,6 @@
   { "TypeName": "ContextActionTranslocate" },
 
   { "TypeName": "ContextActionUnsummon" },
-
-  { "TypeName": "ContextRestoreResource" },
-
-  { "TypeName": "ContextSpendResource" },
 
   { "TypeName": "Demoralize" },
 

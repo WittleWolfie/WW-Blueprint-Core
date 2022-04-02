@@ -28,57 +28,6 @@ namespace BlueprintCoreGen.Actions.Builder.ContextEx
   public static class ActionsBuilderContextEx
   {
 
-    /// <summary>
-    /// Adds <see cref="ContextActionStealBuffs"/>
-    /// </summary>
-    [Implements(typeof(ContextActionStealBuffs))]
-    public static ActionsBuilder StealBuffs(this ActionsBuilder builder, SpellDescriptor descriptor)
-    {
-      var steal = ElementTool.Create<ContextActionStealBuffs>();
-      steal.m_Descriptor = descriptor;
-      return builder.Add(steal);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextRestoreResource"/>
-    /// </summary>
-    /// 
-    /// <param name="resource"><see cref="BlueprintAbilityResource"/></param>
-    [Implements(typeof(ContextRestoreResource))]
-    public static ActionsBuilder RestoreResource(
-        this ActionsBuilder builder, string resource, ContextValue? amount = null)
-    {
-      var restore = ElementTool.Create<ContextRestoreResource>();
-      restore.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
-
-      if (amount != null)
-      {
-        restore.ContextValueRestoration = true;
-        restore.Value = amount;
-      }
-      return builder.Add(restore);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextSpendResource"/>
-    /// </summary>
-    /// 
-    /// <param name="resource"><see cref="BlueprintAbilityResource"/></param>
-    [Implements(typeof(ContextSpendResource))]
-    public static ActionsBuilder SpendResource(
-        this ActionsBuilder builder, string resource, ContextValue? amount = null)
-    {
-      var spend = ElementTool.Create<ContextSpendResource>();
-      spend.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(resource);
-
-      if (amount != null)
-      {
-        spend.ContextValueSpendure = true;
-        spend.Value = amount;
-      }
-      return builder.Add(spend);
-    }
-
     // Default GUIDs for Demoralize buffs
     private const string Shaken = "25ec6cb6ab1845c48a95f9c20b034220";
     private const string Frightened = "f08a7239aa961f34c8301518e71d4cdf";
