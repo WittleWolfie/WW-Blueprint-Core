@@ -184,6 +184,12 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public string TypeName { get; private set; } = string.Empty;
 
     /// <summary>
+    /// Custom constructor. Used when there is no default constructor.
+    /// </summary>
+    [JsonProperty]
+    public string ConstructorRhs { get; private set; } = string.Empty;
+
+    /// <summary>
     /// A list of Builder method overrides. 
     /// </summary>
     /// 

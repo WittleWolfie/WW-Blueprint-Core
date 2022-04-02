@@ -51,22 +51,14 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </param>
     public static ActionsBuilder AddFactIfEtudePlaying(
         this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
-        AddFactIfEtudePlaying.TargetType? target = null)
+        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude,
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
+        AddFactIfEtudePlaying.TargetType target)
     {
       var element = ElementTool.Create<AddFactIfEtudePlaying>();
-      element.m_Etude = etude?.Reference ?? element.m_Etude;
-      if (element.m_Etude is null)
-      {
-        element.m_Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
-      }
-      element.m_Fact = fact?.Reference ?? element.m_Fact;
-      if (element.m_Fact is null)
-      {
-        element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      element.m_Target = target ?? element.m_Target;
+      element.m_Etude = etude?.Reference;
+      element.m_Fact = fact?.Reference;
+      element.m_Target = target;
       return builder.Add(element);
     }
 
@@ -74,6 +66,26 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// Adds <see cref="AddFeatureFromProgression"/>
     /// </summary>
     ///
+    /// <param name="feature">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="progression">
+    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     /// <param name="archetype">
     /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -94,27 +106,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    /// <param name="feature">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
     /// <param name="originalProgression">
-    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="progression">
     /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -136,16 +128,19 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </param>
     public static ActionsBuilder AddFeatureFromProgression(
         this ActionsBuilder builder,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        int level,
+        Blueprint<BlueprintProgression, BlueprintProgressionReference> progression,
         Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? exceptHasFeature = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
-        int? level = null,
         Blueprint<BlueprintProgression, BlueprintProgressionReference>? originalProgression = null,
-        Blueprint<BlueprintProgression, BlueprintProgressionReference>? progression = null,
         bool? rankUpOnly = null,
         Blueprint<BlueprintFeatureSelection, BlueprintFeatureSelectionReference>? selection = null)
     {
       var element = ElementTool.Create<AddFeatureFromProgression>();
+      element.m_Feature = feature?.Reference;
+      element.m_Level = level;
+      element.m_Progression = progression?.Reference;
       element.m_Archetype = archetype?.Reference ?? element.m_Archetype;
       if (element.m_Archetype is null)
       {
@@ -156,21 +151,10 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
       {
         element.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      element.m_Feature = feature?.Reference ?? element.m_Feature;
-      if (element.m_Feature is null)
-      {
-        element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      element.m_Level = level ?? element.m_Level;
       element.m_OriginalProgression = originalProgression?.Reference ?? element.m_OriginalProgression;
       if (element.m_OriginalProgression is null)
       {
         element.m_OriginalProgression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
-      }
-      element.m_Progression = progression?.Reference ?? element.m_Progression;
-      if (element.m_Progression is null)
-      {
-        element.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
       }
       element.m_RankUpOnly = rankUpOnly ?? element.m_RankUpOnly;
       element.m_Selection = selection?.Reference ?? element.m_Selection;
@@ -178,6 +162,298 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
       {
         element.m_Selection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(null);
       }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecheckEtude"/>
+    /// </summary>
+    ///
+    /// <param name="etude">
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder RecheckEtude(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude,
+        bool? redoOnceTriggers = null)
+    {
+      var element = ElementTool.Create<RecheckEtude>();
+      element.Etude = etude?.Reference;
+      element.m_RedoOnceTriggers = redoOnceTriggers ?? element.m_RedoOnceTriggers;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReenterScriptzone"/>
+    /// </summary>
+    public static ActionsBuilder ReenterScriptzone(
+        this ActionsBuilder builder,
+        EntityReference scriptZone)
+    {
+      var element = ElementTool.Create<ReenterScriptzone>();
+      builder.Validate(scriptZone);
+      element.m_ScriptZone = scriptZone;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveFact"/>
+    /// </summary>
+    ///
+    /// <param name="fact">
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="exceptHasFacts">
+    /// If the target has any of these facts then the fact is not removed.
+    /// </param>
+    public static ActionsBuilder RemoveFact(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
+        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? exceptHasFacts = null)
+    {
+      var element = ElementTool.Create<RemoveFact>();
+      element.m_Fact = fact?.Reference;
+      element.m_AdditionalExceptHasFacts = exceptHasFacts?.Select(bp => bp.Reference)?.ToArray() ?? element.m_AdditionalExceptHasFacts;
+      if (element.m_AdditionalExceptHasFacts is null)
+      {
+        element.m_AdditionalExceptHasFacts = new BlueprintUnitFactReference[0];
+      }
+      element.m_ExceptHasFact = BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveFeatureFromProgression"/>
+    /// </summary>
+    ///
+    /// <param name="feature">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="progression">
+    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="archetype">
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="exceptHasFeature">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder RemoveFeatureFromProgression(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        int level,
+        Blueprint<BlueprintProgression, BlueprintProgressionReference> progression,
+        Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? exceptHasFeature = null)
+    {
+      var element = ElementTool.Create<RemoveFeatureFromProgression>();
+      element.m_Feature = feature?.Reference;
+      element.m_Level = level;
+      element.m_Progression = progression?.Reference;
+      element.m_Archetype = archetype?.Reference ?? element.m_Archetype;
+      if (element.m_Archetype is null)
+      {
+        element.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null);
+      }
+      element.m_ExceptHasFeature = exceptHasFeature?.Reference ?? element.m_ExceptHasFeature;
+      if (element.m_ExceptHasFeature is null)
+      {
+        element.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReplaceFeature"/>
+    /// </summary>
+    ///
+    /// <param name="fromProgression">
+    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="replacement">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="toReplace">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="exceptHasFeature">
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="targetPartyUnit">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ReplaceFeature(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintProgression, BlueprintProgressionReference> fromProgression,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> replacement,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> toReplace,
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? exceptHasFeature = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? targetPartyUnit = null)
+    {
+      var element = ElementTool.Create<ReplaceFeature>();
+      element.m_FromProgression = fromProgression?.Reference;
+      element.m_Replacement = replacement?.Reference;
+      element.m_ToReplace = toReplace?.Reference;
+      element.m_ExceptHasFeature = exceptHasFeature?.Reference ?? element.m_ExceptHasFeature;
+      if (element.m_ExceptHasFeature is null)
+      {
+        element.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      element.m_TargetPartyUnit = targetPartyUnit?.Reference ?? element.m_TargetPartyUnit;
+      if (element.m_TargetPartyUnit is null)
+      {
+        element.m_TargetPartyUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetSharedVendorTable"/>
+    /// </summary>
+    ///
+    /// <param name="table">
+    /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder SetSharedVendorTable(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference> table,
+        UnitEvaluator unit)
+    {
+      var element = new SetSharedVendorTable(null);
+      element.m_Table = table?.Reference;
+      builder.Validate(unit);
+      element.m_Unit = unit;
+      ElementTool.Init(element);
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StartEtudeForced"/>
+    /// </summary>
+    ///
+    /// <param name="etude">
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder StartEtudeForced(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude)
+    {
+      var element = ElementTool.Create<StartEtudeForced>();
+      element.Etude = etude?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnStartEtude"/>
+    /// </summary>
+    ///
+    /// <param name="etude">
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder UnStartEtude(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude)
+    {
+      var element = ElementTool.Create<UnStartEtude>();
+      element.Etude = etude?.Reference;
       return builder.Add(element);
     }
 
@@ -247,53 +523,11 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     }
 
     /// <summary>
-    /// Adds <see cref="RecheckEtude"/>
-    /// </summary>
-    ///
-    /// <param name="etude">
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder RecheckEtude(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
-        bool? redoOnceTriggers = null)
-    {
-      var element = ElementTool.Create<RecheckEtude>();
-      element.Etude = etude?.Reference ?? element.Etude;
-      if (element.Etude is null)
-      {
-        element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
-      }
-      element.m_RedoOnceTriggers = redoOnceTriggers ?? element.m_RedoOnceTriggers;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="RecreateOnLoad"/>
     /// </summary>
     public static ActionsBuilder RecreateOnLoad(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RecreateOnLoad>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ReenterScriptzone"/>
-    /// </summary>
-    public static ActionsBuilder ReenterScriptzone(
-        this ActionsBuilder builder,
-        EntityReference? scriptZone = null)
-    {
-      var element = ElementTool.Create<ReenterScriptzone>();
-      builder.Validate(scriptZone);
-      element.m_ScriptZone = scriptZone ?? element.m_ScriptZone;
-      return builder.Add(element);
     }
 
     /// <summary>
@@ -322,142 +556,6 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     public static ActionsBuilder RefreshSettingsPreset(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RefreshSettingsPreset>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="RemoveFact"/>
-    /// </summary>
-    ///
-    /// <param name="additionalExceptHasFacts">
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="exceptHasFact">
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="fact">
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder RemoveFact(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? additionalExceptHasFacts = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? exceptHasFact = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null)
-    {
-      var element = ElementTool.Create<RemoveFact>();
-      element.m_AdditionalExceptHasFacts = additionalExceptHasFacts?.Select(bp => bp.Reference)?.ToArray() ?? element.m_AdditionalExceptHasFacts;
-      if (element.m_AdditionalExceptHasFacts is null)
-      {
-        element.m_AdditionalExceptHasFacts = new BlueprintUnitFactReference[0];
-      }
-      element.m_ExceptHasFact = exceptHasFact?.Reference ?? element.m_ExceptHasFact;
-      if (element.m_ExceptHasFact is null)
-      {
-        element.m_ExceptHasFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      element.m_Fact = fact?.Reference ?? element.m_Fact;
-      if (element.m_Fact is null)
-      {
-        element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RemoveFeatureFromProgression"/>
-    /// </summary>
-    ///
-    /// <param name="archetype">
-    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="exceptHasFeature">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="feature">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="progression">
-    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder RemoveFeatureFromProgression(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? exceptHasFeature = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
-        int? level = null,
-        Blueprint<BlueprintProgression, BlueprintProgressionReference>? progression = null)
-    {
-      var element = ElementTool.Create<RemoveFeatureFromProgression>();
-      element.m_Archetype = archetype?.Reference ?? element.m_Archetype;
-      if (element.m_Archetype is null)
-      {
-        element.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null);
-      }
-      element.m_ExceptHasFeature = exceptHasFeature?.Reference ?? element.m_ExceptHasFeature;
-      if (element.m_ExceptHasFeature is null)
-      {
-        element.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      element.m_Feature = feature?.Reference ?? element.m_Feature;
-      if (element.m_Feature is null)
-      {
-        element.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      element.m_Level = level ?? element.m_Level;
-      element.m_Progression = progression?.Reference ?? element.m_Progression;
-      if (element.m_Progression is null)
-      {
-        element.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
-      }
-      return builder.Add(element);
     }
 
     /// <summary>
@@ -499,97 +597,6 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
       if (element.m_Spellbook is null)
       {
         element.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ReplaceFeature"/>
-    /// </summary>
-    ///
-    /// <param name="exceptHasFeature">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="fromProgression">
-    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="replacement">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="targetPartyUnit">
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="toReplace">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ReplaceFeature(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? exceptHasFeature = null,
-        Blueprint<BlueprintProgression, BlueprintProgressionReference>? fromProgression = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? replacement = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? targetPartyUnit = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? toReplace = null)
-    {
-      var element = ElementTool.Create<ReplaceFeature>();
-      element.m_ExceptHasFeature = exceptHasFeature?.Reference ?? element.m_ExceptHasFeature;
-      if (element.m_ExceptHasFeature is null)
-      {
-        element.m_ExceptHasFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      element.m_FromProgression = fromProgression?.Reference ?? element.m_FromProgression;
-      if (element.m_FromProgression is null)
-      {
-        element.m_FromProgression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
-      }
-      element.m_Replacement = replacement?.Reference ?? element.m_Replacement;
-      if (element.m_Replacement is null)
-      {
-        element.m_Replacement = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      element.m_TargetPartyUnit = targetPartyUnit?.Reference ?? element.m_TargetPartyUnit;
-      if (element.m_TargetPartyUnit is null)
-      {
-        element.m_TargetPartyUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
-      }
-      element.m_ToReplace = toReplace?.Reference ?? element.m_ToReplace;
-      if (element.m_ToReplace is null)
-      {
-        element.m_ToReplace = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
       return builder.Add(element);
     }
@@ -659,90 +666,6 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     public static ActionsBuilder SetRaceFromBlueprint(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<SetRaceFromBlueprint>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="SetSharedVendorTable"/>
-    /// </summary>
-    ///
-    /// <param name="table">
-    /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder SetSharedVendorTable(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>? table = null,
-        UnitEvaluator? unit = null)
-    {
-      var element = ElementTool.Create<SetSharedVendorTable>();
-      element.m_Table = table?.Reference ?? element.m_Table;
-      if (element.m_Table is null)
-      {
-        element.m_Table = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(null);
-      }
-      builder.Validate(unit);
-      element.m_Unit = unit ?? element.m_Unit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="StartEtudeForced"/>
-    /// </summary>
-    ///
-    /// <param name="etude">
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder StartEtudeForced(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null)
-    {
-      var element = ElementTool.Create<StartEtudeForced>();
-      element.Etude = etude?.Reference ?? element.Etude;
-      if (element.Etude is null)
-      {
-        element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="UnStartEtude"/>
-    /// </summary>
-    ///
-    /// <param name="etude">
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder UnStartEtude(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null)
-    {
-      var element = ElementTool.Create<UnStartEtude>();
-      element.Etude = etude?.Reference ?? element.Etude;
-      if (element.Etude is null)
-      {
-        element.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
-      }
-      return builder.Add(element);
     }
   }
 }

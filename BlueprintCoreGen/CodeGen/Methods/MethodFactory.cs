@@ -33,19 +33,21 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       if (!builderMethod.Methods.Any())
       {
-        methods.Add(CreateForBuilder(elementType, builderType, builderMethod));
+        methods.Add(CreateForBuilder(elementType, builderType, builderMethod, builderMethod));
         return methods;
       }
 
       foreach (var methodOverride in builderMethod.Methods)
       {
-        methods.Add(CreateForBuilder(elementType, builderType, MethodOverride.Merge(builderMethod, methodOverride)));
+        methods.Add(
+          CreateForBuilder(
+            elementType, builderType, MethodOverride.Merge(builderMethod, methodOverride), builderMethod));
       }
       return methods;
     }
 
     private static IMethod CreateForBuilder(
-      Type elementType, string builderType, MethodOverride methodOverride)
+      Type elementType, string builderType, MethodOverride methodOverride, BuilderMethod builderMethod)
     {
       var method = new MethodImpl();
       var elementTypeName = TypeTool.GetName(elementType);
@@ -124,7 +126,14 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddLine($"{{");
 
       // Constructor & assignment
-      method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
+      if (string.IsNullOrEmpty(builderMethod.ConstructorRhs))
+      {
+        method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
+      }
+      else
+      {
+        method.AddLine($"  var element = {builderMethod.ConstructorRhs};");
+      }
       parameters.SelectMany(field => field.GetOperation("element", "builder.Validate"))
         .ToList()
         .ForEach(line => method.AddLine($"  {line}"));

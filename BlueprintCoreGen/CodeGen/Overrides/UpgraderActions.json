@@ -1,17 +1,74 @@
 [
-  { "TypeName": "AddFactIfEtudePlaying" },
+  {
+    "TypeName": "AddFactIfEtudePlaying",
+    "RequiredFields": [ "m_Target", "m_Fact", "m_Etude" ]
+  },
 
-  { "TypeName": "AddFeatureFromProgression" },
+  {
+    "TypeName": "AddFeatureFromProgression",
+    "RequiredFields": [ "m_Feature", "m_Progression", "m_Level" ]
+  },
+
+  {
+    "TypeName": "RecheckEtude",
+    "RequiredFields": [ "Etude" ]
+  },
+
+  {
+    "TypeName": "ReenterScriptzone",
+    "RequiredFields": [ "m_ScriptZone" ]
+  },
+
+  {
+    "TypeName": "Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveFact",
+    "RequiredFields": [ "m_Fact" ],
+    "ConstantFields": [
+      {
+        "FieldName": "m_ExceptHasFact",
+        "Value": "BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null)"
+      }
+    ],
+    "CustomFields": [
+      {
+        "FieldName": "m_AdditionalExceptHasFacts",
+        "CommentFmt": "If the target has any of these facts then the fact is not removed.",
+        "ParamName": "exceptHasFacts"
+      }
+    ]
+  },
+
+  {
+    "TypeName": "RemoveFeatureFromProgression",
+    "RequiredFields": [ "m_Feature", "m_Progression", "m_Level" ]
+  },
+
+  {
+    "TypeName": "ReplaceFeature",
+    "RequiredFields": [ "m_ToReplace", "m_Replacement", "m_FromProgression" ]
+  },
+
+  {
+    "TypeName": "SetSharedVendorTable",
+    "ConstructorRhs": "new SetSharedVendorTable(null)",
+    "RequiredFields": [ "m_Table", "m_Unit" ],
+    "ExtraFmtLines": [ "ElementTool.Init({0});" ]
+  },
+
+  {
+    "TypeName": "StartEtudeForced",
+    "RequiredFields": [ "Etude" ]
+  },
+
+  {
+    "TypeName": "UnStartEtude",
+    "RequiredFields": [ "Etude" ]
+  },
 
   { "TypeName": "FixItemInInventory" },
 
   { "TypeName": "FixKingdomSystemBuffsAndStats" },
 
-  { "TypeName": "RecheckEtude" },
-
   { "TypeName": "RecreateOnLoad" },
-
-  { "TypeName": "ReenterScriptzone" },
 
   { "TypeName": "RefreshAllArmyLeaders" },
 
@@ -19,13 +76,7 @@
 
   { "TypeName": "RefreshSettingsPreset" },
 
-  { "TypeName": "Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveFact" },
-
-  { "TypeName": "RemoveFeatureFromProgression" },
-
   { "TypeName": "RemoveSpell" },
-
-  { "TypeName": "ReplaceFeature" },
 
   { "TypeName": "ResetMinDifficulty" },
 
@@ -37,11 +88,5 @@
 
   { "TypeName": "SetHandsFromBlueprint" },
 
-  { "TypeName": "SetRaceFromBlueprint" },
-
-  { "TypeName": "SetSharedVendorTable" },
-
-  { "TypeName": "StartEtudeForced" },
-
-  { "TypeName": "UnStartEtude" }
+  { "TypeName": "SetRaceFromBlueprint" }
 ]
