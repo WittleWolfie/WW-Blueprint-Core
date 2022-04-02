@@ -107,6 +107,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextActionAddRandomTrashItem"/>
+    /// </summary>
+    public static ActionsBuilder AddRandomTrashItem(
+        this ActionsBuilder builder,
+        TrashLootType lootType,
+        int maxCost,
+        bool? identify = null,
+        bool? silent = null)
+    {
+      var element = ElementTool.Create<ContextActionAddRandomTrashItem>();
+      element.m_LootType = lootType;
+      element.m_MaxCost = maxCost;
+      element.m_Identify = identify ?? element.m_Identify;
+      element.m_Silent = silent ?? element.m_Silent;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionApplyBuff"/>
     /// </summary>
     ///
@@ -1619,6 +1637,49 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextRestoreResource"/>
+    /// </summary>
+    ///
+    /// <param name="resource">
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="value">
+    /// Amount to restore. If not specified the resource is fully restored.
+    /// </param>
+    public static ActionsBuilder RestoreResource(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference> resource,
+        ContextValue? value = null)
+    {
+      var element = ElementTool.Create<ContextRestoreResource>();
+      element.m_Resource = resource?.Reference;
+      element.Value = value ?? element.Value;
+      element.ContextValueRestoration = value is not null;
+      if (element.Value is null)
+      {
+        element.Value = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextRestoreResource"/>
+    /// </summary>
+    public static ActionsBuilder RestoreAllResources(this ActionsBuilder builder)
+    {
+      var element = ElementTool.Create<ContextRestoreResource>();
+      element.m_IsFullRestoreAllResources = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionRestoreSpells"/>
     /// </summary>
     ///
@@ -2064,11 +2125,23 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextRestoreResource"/>
+    /// Adds <see cref="ContextActionSwarmAttack"/>
+    /// </summary>
+    public static ActionsBuilder SwarmAttack(
+        this ActionsBuilder builder,
+        ActionsBuilder attackActions)
+    {
+      var element = ElementTool.Create<ContextActionSwarmAttack>();
+      element.AttackActions = attackActions?.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SwordlordAdaptiveTacticsAdd"/>
     /// </summary>
     ///
-    /// <param name="resource">
-    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <param name="source">
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -2077,32 +2150,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    /// <param name="value">
-    /// Amount to restore. If not specified the resource is fully restored.
-    /// </param>
-    public static ActionsBuilder RestoreResource(
+    public static ActionsBuilder SwordlordAdaptiveTacticsAdd(
         this ActionsBuilder builder,
-        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference> resource,
-        ContextValue? value = null)
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> source)
     {
-      var element = ElementTool.Create<ContextRestoreResource>();
-      element.m_Resource = resource?.Reference;
-      element.Value = value ?? element.Value;
-      element.ContextValueRestoration = value is not null;
-      if (element.Value is null)
-      {
-        element.Value = ContextValues.Constant(0);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextRestoreResource"/>
-    /// </summary>
-    public static ActionsBuilder RestoreAllResources(this ActionsBuilder builder)
-    {
-      var element = ElementTool.Create<ContextRestoreResource>();
-      element.m_IsFullRestoreAllResources = true;
+      var element = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
+      element.m_Source = source?.Reference;
       return builder.Add(element);
     }
 
@@ -2155,24 +2208,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       {
         element.Value = ContextValues.Constant(0);
       }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAddRandomTrashItem"/>
-    /// </summary>
-    public static ActionsBuilder AddRandomTrashItem(
-        this ActionsBuilder builder,
-        bool? identify = null,
-        TrashLootType? lootType = null,
-        int? maxCost = null,
-        bool? silent = null)
-    {
-      var element = ElementTool.Create<ContextActionAddRandomTrashItem>();
-      element.m_Identify = identify ?? element.m_Identify;
-      element.m_LootType = lootType ?? element.m_LootType;
-      element.m_MaxCost = maxCost ?? element.m_MaxCost;
-      element.m_Silent = silent ?? element.m_Silent;
       return builder.Add(element);
     }
 
@@ -2632,22 +2667,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionSwarmAttack"/>
-    /// </summary>
-    public static ActionsBuilder SwarmAttack(
-        this ActionsBuilder builder,
-        ActionsBuilder? attackActions = null)
-    {
-      var element = ElementTool.Create<ContextActionSwarmAttack>();
-      element.AttackActions = attackActions?.Build() ?? element.AttackActions;
-      if (element.AttackActions is null)
-      {
-        element.AttackActions = Utils.Constants.Empty.Actions;
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionSwarmTarget"/>
     /// </summary>
     public static ActionsBuilder SwarmTarget(
@@ -2681,33 +2700,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder Unsummon(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionUnsummon>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="SwordlordAdaptiveTacticsAdd"/>
-    /// </summary>
-    ///
-    /// <param name="source">
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder SwordlordAdaptiveTacticsAdd(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? source = null)
-    {
-      var element = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
-      element.m_Source = source?.Reference ?? element.m_Source;
-      if (element.m_Source is null)
-      {
-        element.m_Source = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return builder.Add(element);
     }
 
     /// <summary>
