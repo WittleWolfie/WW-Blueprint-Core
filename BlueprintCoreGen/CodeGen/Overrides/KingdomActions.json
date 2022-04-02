@@ -5,18 +5,103 @@
   },
 
   {
+    "TypeName": "AddCrusadeResources",
+    "RequiredFields": [ "_resourcesAmount" ]
+  },
+
+  {
+    "TypeName": "AddMorale",
+    "Methods": [
+      {
+        "MethodName": "AddMorale",
+        "ConstantFields": [
+          {
+            "FieldName": "Subtract",
+            "Value": "false"
+          }
+        ]
+      },
+      {
+        "MethodName": "SubtractMorale",
+        "ConstantFields": [
+          {
+            "FieldName": "Subtract",
+            "Value": "true"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ChangeArmyMorale",
+    "RequiredFields": [ "m_Duration", "m_ChangeValue" ]
+  },
+
+  {
+    "TypeName": "ChangeTacticalMorale",
+    "RequiredFields": [ "m_Value" ]
+  },
+
+  {
     "TypeName": "ContextActionAddCrusadeResource",
     "RequiredFields": [ "m_ResourcesAmount" ]
   },
 
   {
     "TypeName": "ContextActionArmyRemoveFacts",
-    "RequiredFields": [ "m_FactsToRemove" ]
+    "RequiredFields": [ "m_Buffs" ]
   },
 
   {
-    "TypeName": "ChangeArmyMorale",
-    "RequiredFields": [ "m_Duration", "m_ChangeValue" ]
+    "TypeName": "ContextActionSquadUnitsKill",
+    "Methods": [
+      {
+        "MethodName": "KillSquadUnits",
+        "RequiredFields": [ "m_FloatCount" ],
+        "IgnoredFields": [ "m_Count" ],
+        "ConstantFields": [
+          {
+            "FieldName": "m_UseFloatValue",
+            "Value": "true"
+          }
+        ]
+      },
+      {
+        "MethodName": "KillSquadLeaders",
+        "RequiredFields": [ "m_Count" ],
+        "IgnoredFields": [ "m_FloatCount" ],
+        "ConstantFields": [
+          {
+            "FieldName": "m_UseFloatValue",
+            "Value": "false"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionSummonTacticalSquad",
+    "RequiredFields": [ "m_Count" ],
+    "CustomFields": [
+      {
+        "FieldName": "m_Blueprint",
+        "Value": "unit"
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionTacticalCombatDealDamage",
+    "RequiredFields": [ "DamageType", "DiceType" ],
+    "IgnoredFields": [ "UseMinHPAfterDamage" ],
+    "CustomFields": [
+      {
+        "FieldName": "MinHPAfterDamage",
+        "ExtraAssignmentFmtLines": [ "{0}.UseMinHPAfterDamage = {1} is not null;" ]
+      }
+    ]
   },
 
   {
@@ -70,6 +155,28 @@
   },
 
   {
+    "TypeName": "CreateArmyFromLosses",
+    "RequiredFields": [ "m_Location", "m_SumExperience", "m_SquadsMaxCount" ]
+  },
+
+  {
+    "TypeName": "CreateGarrison",
+    "RequiredFields": [ "Location" ],
+    "IgnoredFields": [ "WithLeader" ],
+    "CustomFields": [
+      {
+        "FieldName": "Preset",
+        "ParamName": "army",
+        "Required": "true"
+      },
+      {
+        "FieldName": "ArmyLeader",
+        "ExtraAssignmentFmtLines": [ "{0}.WithLeader = {1} is not null;" ]
+      }
+    ]
+  },
+
+  {
     "TypeName": "FakeSkipTime",
     "RequiredFields": [ "m_SkipDays" ]
   },
@@ -82,6 +189,96 @@
   {
     "TypeName": "GainGlobalMagicSpell",
     "RequiredFields": [ "m_Spell" ]
+  },
+
+  {
+    "TypeName": "KingdomActionActivateEventDeck",
+    "RequiredFields": [ "m_Deck" ]
+  },
+
+  {
+    "TypeName": "KingdomActionAddBPRandom",
+    "RequiredFields": [ "ResourceType" ]
+  },
+
+  {
+    "TypeName": "KingdomActionAddBuff",
+    "CustomFields": [
+      {
+        "FieldName": "m_Blueprint",
+        "ParamName": "buff",
+        "Required": "true"
+      }
+    ]
+  },
+
+  {
+    "TypeName": "KingdomActionAddFreeBuilding",
+    "RequiredFields": [ "m_Building" ],
+    "Methods": [
+      {
+        "MethodName": "AddFreeBuilding",
+        "IgnoredFields": [ "m_Settlement" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Anywhere",
+            "Value": "true"
+          }
+        ]
+      },
+      {
+        "MethodName": "AddFreeBuildingToSettlement",
+        "RequiredFields": [ "m_Settlement" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Anywhere",
+            "Value": "false"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "KingdomActionAddRandomBuff",
+    "RequiredFields": [ "m_ResourcesAmount" ]
+  },
+
+  {
+    "TypeName": "KingdomActionArtisanRequestHelp",
+    "RequiredFields": [ "m_Artisan", "m_Project" ]
+  },
+
+  {
+    "TypeName": "KingdomActionConquerRegion",
+    "RequiredFields": [ "m_Region" ]
+  },
+
+  {
+    "TypeName": "KingdomActionFillSettlement",
+    "RequiredFields": [ "m_SpecificSettlement", "m_BuildList" ]
+  },
+
+  {
+    "TypeName": "KingdomActionFillSettlementByLocation",
+    "RequiredFields": [ "m_SpecificSettlementLocation", "m_BuildList" ]
+  },
+
+  {
+    "TypeName": "KingdomActionFoundSettlement",
+    "RequiredFields": [ "m_Location", "m_Settlement" ]
+  },
+
+  {
+    "TypeName": "KingdomActionGainLeaderExperience",
+    "RequiredFields": [ "m_Value" ],
+    "IgnoredFields": [ "m_MultiplyByLeaderLevel" ],
+    "CustomFields": [
+      {
+        "FieldName": "m_MultiplierCoefficient",
+        "ExtraAssignmentFmtLines": [ "{0}.m_MultiplyByLeaderLevel = {1} is not null;" ]
+      }
+    ]
   },
 
   {
@@ -104,13 +301,24 @@
     "RequiredFields": [ "m_Filter", "m_ExpValue" ]
   },
 
-  { "TypeName": "AddCrusadeResources" },
+  {
+    "TypeName": "RepairLeaderMana",
+    "RequiredFields": [ "m_Value" ]
+  },
+
+  {
+    "TypeName": "SummonExistUnits",
+    "RequiredFields": [ "m_SumExpCost" ]
+  },
+
+  {
+    "TypeName": "SummonRandomGroup",
+    "RequiredFields": [ "m_RandomGroups" ]
+  },
 
   { "TypeName": "AddGrowthBonus" },
 
   { "TypeName": "AddMercenaryToPool" },
-
-  { "TypeName": "AddMorale" },
 
   { "TypeName": "AddTacticalArmyFeature" },
 
@@ -122,23 +330,11 @@
 
   { "TypeName": "ChangeMercenaryWeight" },
 
-  { "TypeName": "ChangeTacticalMorale" },
-
   { "TypeName": "ContextActionRestoreLeaderAction" },
-
-  { "TypeName": "ContextActionSquadUnitsKill" },
 
   { "TypeName": "ContextActionStopUnit" },
 
-  { "TypeName": "ContextActionSummonTacticalSquad" },
-
-  { "TypeName": "ContextActionTacticalCombatDealDamage" },
-
   { "TypeName": "ContextActionTacticalCombatHealTarget" },
-
-  { "TypeName": "CreateGarrison" },
-
-  { "TypeName": "CreateArmyFromLosses" },
 
   { "TypeName": "DecreaseRecruitsGrowth" },
 
@@ -152,25 +348,11 @@
 
   { "TypeName": "IncreaseRecruitsPool" },
 
-  { "TypeName": "KingdomActionActivateEventDeck" },
-
-  { "TypeName": "KingdomActionAddBPRandom" },
-
-  { "TypeName": "KingdomActionAddBuff" },
-
-  { "TypeName": "KingdomActionAddFreeBuilding" },
-
   { "TypeName": "KingdomActionAddMercenaryReroll" },
-
-  { "TypeName": "KingdomActionAddRandomBuff" },
-
-  { "TypeName": "KingdomActionArtisanRequestHelp" },
 
   { "TypeName": "KingdomActionChangeToAutoCrusade" },
 
   { "TypeName": "KingdomActionCollectLoot" },
-
-  { "TypeName": "KingdomActionConquerRegion" },
 
   { "TypeName": "KingdomActionDestroyAllSettlements" },
 
@@ -178,17 +360,9 @@
 
   { "TypeName": "KingdomActionEnable" },
 
-  { "TypeName": "KingdomActionFillSettlement" },
-
-  { "TypeName": "KingdomActionFillSettlementByLocation" },
-
   { "TypeName": "KingdomActionFinishRandomBuilding" },
 
   { "TypeName": "KingdomActionFoundKingdom" },
-
-  { "TypeName": "KingdomActionFoundSettlement" },
-
-  { "TypeName": "KingdomActionGainLeaderExperience" },
 
   { "TypeName": "KingdomActionGetArtisanGift" },
 
@@ -290,17 +464,11 @@
 
   { "TypeName": "RemoveUnitFromArmy" },
 
-  { "TypeName": "RepairLeaderMana" },
-
   { "TypeName": "ReplaceBuildings" },
 
   { "TypeName": "SetRecruitPoint" },
 
   { "TypeName": "SetWarCampLocation" },
-
-  { "TypeName": "SummonExistUnits" },
-
-  { "TypeName": "SummonRandomGroup" },
 
   { "TypeName": "TacticalCombatRecoverLeaderMana" },
 

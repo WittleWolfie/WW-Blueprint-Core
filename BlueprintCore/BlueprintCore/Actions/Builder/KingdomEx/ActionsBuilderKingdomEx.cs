@@ -78,6 +78,78 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
+    /// Adds <see cref="AddCrusadeResources"/>
+    /// </summary>
+    public static ActionsBuilder AddCrusadeResources(
+        this ActionsBuilder builder,
+        KingdomResourcesAmount _resourcesAmount)
+    {
+      var element = ElementTool.Create<AddCrusadeResources>();
+      element._resourcesAmount = _resourcesAmount;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddMorale"/>
+    /// </summary>
+    public static ActionsBuilder AddMorale(
+        this ActionsBuilder builder,
+        int? bonus = null,
+        DiceFormula? change = null,
+        bool? substract = null)
+    {
+      var element = ElementTool.Create<AddMorale>();
+      element.Bonus = bonus ?? element.Bonus;
+      element.Change = change ?? element.Change;
+      element.Substract = substract ?? element.Substract;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddMorale"/>
+    /// </summary>
+    public static ActionsBuilder SubtractMorale(
+        this ActionsBuilder builder,
+        int? bonus = null,
+        DiceFormula? change = null,
+        bool? substract = null)
+    {
+      var element = ElementTool.Create<AddMorale>();
+      element.Bonus = bonus ?? element.Bonus;
+      element.Change = change ?? element.Change;
+      element.Substract = substract ?? element.Substract;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeArmyMorale"/>
+    /// </summary>
+    public static ActionsBuilder ChangeArmyMorale(
+        this ActionsBuilder builder,
+        GlobalMagicValue changeValue,
+        GlobalMagicValue duration)
+    {
+      var element = ElementTool.Create<ChangeArmyMorale>();
+      builder.Validate(changeValue);
+      element.m_ChangeValue = changeValue;
+      builder.Validate(duration);
+      element.m_Duration = duration;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeTacticalMorale"/>
+    /// </summary>
+    public static ActionsBuilder ChangeTacticalMorale(
+        this ActionsBuilder builder,
+        ContextValue value)
+    {
+      var element = ElementTool.Create<ChangeTacticalMorale>();
+      element.m_Value = value;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionAddCrusadeResource"/>
     /// </summary>
     public static ActionsBuilder AddCrusadeResource(
@@ -105,26 +177,119 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </param>
     public static ActionsBuilder ArmyRemoveFacts(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> factsToRemove)
+        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? factsToRemove = null)
     {
       var element = ElementTool.Create<ContextActionArmyRemoveFacts>();
-      element.m_FactsToRemove = factsToRemove?.Select(bp => bp.Reference)?.ToArray();
+      element.m_FactsToRemove = factsToRemove?.Select(bp => bp.Reference)?.ToArray() ?? element.m_FactsToRemove;
+      if (element.m_FactsToRemove is null)
+      {
+        element.m_FactsToRemove = new BlueprintUnitFactReference[0];
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ChangeArmyMorale"/>
+    /// Adds <see cref="ContextActionSquadUnitsKill"/>
     /// </summary>
-    public static ActionsBuilder ChangeArmyMorale(
+    public static ActionsBuilder KillSquadUnits(
         this ActionsBuilder builder,
-        GlobalMagicValue changeValue,
-        GlobalMagicValue duration)
+        float floatCount)
     {
-      var element = ElementTool.Create<ChangeArmyMorale>();
-      builder.Validate(changeValue);
-      element.m_ChangeValue = changeValue;
-      builder.Validate(duration);
-      element.m_Duration = duration;
+      var element = ElementTool.Create<ContextActionSquadUnitsKill>();
+      element.m_FloatCount = floatCount;
+      element.m_UseFloatValue = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSquadUnitsKill"/>
+    /// </summary>
+    public static ActionsBuilder KillSquadLeaders(
+        this ActionsBuilder builder,
+        ContextDiceValue count)
+    {
+      var element = ElementTool.Create<ContextActionSquadUnitsKill>();
+      element.m_Count = count;
+      element.m_UseFloatValue = false;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSummonTacticalSquad"/>
+    /// </summary>
+    ///
+    /// <param name="blueprint">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="summonPool">
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder SummonTacticalSquad(
+        this ActionsBuilder builder,
+        ContextValue count,
+        ActionsBuilder? afterSpawn = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
+    {
+      var element = ElementTool.Create<ContextActionSummonTacticalSquad>();
+      element.m_Count = count;
+      element.m_AfterSpawn = afterSpawn?.Build() ?? element.m_AfterSpawn;
+      if (element.m_AfterSpawn is null)
+      {
+        element.m_AfterSpawn = Utils.Constants.Empty.Actions;
+      }
+      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
+      if (element.m_Blueprint is null)
+      {
+        element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
+      if (element.m_SummonPool is null)
+      {
+        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionTacticalCombatDealDamage"/>
+    /// </summary>
+    public static ActionsBuilder TacticalCombatDealDamage(
+        this ActionsBuilder builder,
+        DamageTypeDescription damageType,
+        DiceType diceType,
+        bool? half = null,
+        bool? ignoreCritical = null,
+        int? minHPAfterDamage = null,
+        ContextValue? rollsCount = null)
+    {
+      var element = ElementTool.Create<ContextActionTacticalCombatDealDamage>();
+      builder.Validate(damageType);
+      element.DamageType = damageType;
+      element.DiceType = diceType;
+      element.Half = half ?? element.Half;
+      element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
+      element.MinHPAfterDamage = minHPAfterDamage ?? element.MinHPAfterDamage;
+      element.UseMinHPAfterDamage = minHPAfterDamage is not null;
+      element.RollsCount = rollsCount ?? element.RollsCount;
+      if (element.RollsCount is null)
+      {
+        element.RollsCount = ContextValues.Constant(0);
+      }
       return builder.Add(element);
     }
 
@@ -261,6 +426,89 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
+    /// Adds <see cref="CreateArmyFromLosses"/>
+    /// </summary>
+    ///
+    /// <param name="location">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder CreateArmyFromLosses(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        int squadsMaxCount,
+        int sumExperience,
+        bool? applyRecruitIncrease = null)
+    {
+      var element = ElementTool.Create<CreateArmyFromLosses>();
+      element.m_Location = location?.Reference;
+      element.m_SquadsMaxCount = squadsMaxCount;
+      element.m_SumExperience = sumExperience;
+      element.m_ApplyRecruitIncrease = applyRecruitIncrease ?? element.m_ApplyRecruitIncrease;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CreateGarrison"/>
+    /// </summary>
+    ///
+    /// <param name="army">
+    /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="location">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="armyLeader">
+    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder CreateGarrison(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference> army,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null,
+        bool? hasNoReward = null)
+    {
+      var element = ElementTool.Create<CreateGarrison>();
+      element.Preset = army?.Reference;
+      element.Location = location?.Reference;
+      element.ArmyLeader = armyLeader?.Reference ?? element.ArmyLeader;
+      element.WithLeader = armyLeader is not null;
+      if (element.ArmyLeader is null)
+      {
+        element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
+      }
+      element.HasNoReward = hasNoReward ?? element.HasNoReward;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="FakeSkipTime"/>
     /// </summary>
     public static ActionsBuilder FakeSkipTime(
@@ -309,6 +557,364 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var element = ElementTool.Create<GainGlobalMagicSpell>();
       element.m_Spell = spell?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionActivateEventDeck"/>
+    /// </summary>
+    ///
+    /// <param name="deck">
+    /// Blueprint of type BlueprintKingdomDeck. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder KingdomActionActivateEventDeck(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintKingdomDeck, BlueprintKingdomDeckReference> deck)
+    {
+      var element = ElementTool.Create<KingdomActionActivateEventDeck>();
+      element.m_Deck = deck?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionAddBPRandom"/>
+    /// </summary>
+    public static ActionsBuilder KingdomActionAddBPRandom(
+        this ActionsBuilder builder,
+        KingdomResource resourceType,
+        int? bonus = null,
+        DiceFormula? change = null,
+        bool? includeInEventStats = null)
+    {
+      var element = ElementTool.Create<KingdomActionAddBPRandom>();
+      element.ResourceType = resourceType;
+      element.Bonus = bonus ?? element.Bonus;
+      element.Change = change ?? element.Change;
+      element.IncludeInEventStats = includeInEventStats ?? element.IncludeInEventStats;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionAddBuff"/>
+    /// </summary>
+    ///
+    /// <param name="buff">
+    /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="region">
+    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder KingdomActionAddBuff(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference> buff,
+        bool? applyToRegion = null,
+        bool? copyToAdjacentRegions = null,
+        int? overrideDuration = null,
+        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
+    {
+      var element = ElementTool.Create<KingdomActionAddBuff>();
+      element.m_Blueprint = buff?.Reference;
+      element.ApplyToRegion = applyToRegion ?? element.ApplyToRegion;
+      element.CopyToAdjacentRegions = copyToAdjacentRegions ?? element.CopyToAdjacentRegions;
+      element.OverrideDuration = overrideDuration ?? element.OverrideDuration;
+      element.m_Region = region?.Reference ?? element.m_Region;
+      if (element.m_Region is null)
+      {
+        element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionAddFreeBuilding"/>
+    /// </summary>
+    ///
+    /// <param name="building">
+    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddFreeBuilding(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference> building,
+        int? count = null)
+    {
+      var element = ElementTool.Create<KingdomActionAddFreeBuilding>();
+      element.m_Building = building?.Reference;
+      element.Count = count ?? element.Count;
+      element.Anywhere = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionAddFreeBuilding"/>
+    /// </summary>
+    ///
+    /// <param name="building">
+    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="settlement">
+    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddFreeBuildingToSettlement(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference> building,
+        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference> settlement,
+        int? count = null)
+    {
+      var element = ElementTool.Create<KingdomActionAddFreeBuilding>();
+      element.m_Building = building?.Reference;
+      element.m_Settlement = settlement?.Reference;
+      element.Count = count ?? element.Count;
+      element.Anywhere = false;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionAddRandomBuff"/>
+    /// </summary>
+    ///
+    /// <param name="buffs">
+    /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder KingdomActionAddRandomBuff(
+        this ActionsBuilder builder,
+        List<Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>>? buffs = null,
+        int? overrideDurationDays = null)
+    {
+      var element = ElementTool.Create<KingdomActionAddRandomBuff>();
+      element.m_Buffs = buffs?.Select(bp => bp.Reference)?.ToList() ?? element.m_Buffs;
+      if (element.m_Buffs is null)
+      {
+        element.m_Buffs = new();
+      }
+      element.OverrideDurationDays = overrideDurationDays ?? element.OverrideDurationDays;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionArtisanRequestHelp"/>
+    /// </summary>
+    ///
+    /// <param name="artisan">
+    /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="project">
+    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder KingdomActionArtisanRequestHelp(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference> artisan,
+        Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference> project)
+    {
+      var element = ElementTool.Create<KingdomActionArtisanRequestHelp>();
+      element.m_Artisan = artisan?.Reference;
+      element.m_Project = project?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionConquerRegion"/>
+    /// </summary>
+    ///
+    /// <param name="region">
+    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder KingdomActionConquerRegion(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintRegion, BlueprintRegionReference> region)
+    {
+      var element = ElementTool.Create<KingdomActionConquerRegion>();
+      element.m_Region = region?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionFillSettlement"/>
+    /// </summary>
+    ///
+    /// <param name="buildList">
+    /// Blueprint of type SettlementBuildList. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="specificSettlement">
+    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder KingdomActionFillSettlement(
+        this ActionsBuilder builder,
+        Blueprint<SettlementBuildList, SettlementBuildListReference> buildList,
+        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference> specificSettlement)
+    {
+      var element = ElementTool.Create<KingdomActionFillSettlement>();
+      element.m_BuildList = buildList?.Reference;
+      element.m_SpecificSettlement = specificSettlement?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionFillSettlementByLocation"/>
+    /// </summary>
+    ///
+    /// <param name="buildList">
+    /// Blueprint of type SettlementBuildList. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="specificSettlementLocation">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder KingdomActionFillSettlementByLocation(
+        this ActionsBuilder builder,
+        Blueprint<SettlementBuildList, SettlementBuildListReference> buildList,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference> specificSettlementLocation)
+    {
+      var element = ElementTool.Create<KingdomActionFillSettlementByLocation>();
+      element.m_BuildList = buildList?.Reference;
+      element.m_SpecificSettlementLocation = specificSettlementLocation?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionFoundSettlement"/>
+    /// </summary>
+    ///
+    /// <param name="location">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="settlement">
+    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder KingdomActionFoundSettlement(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference> settlement)
+    {
+      var element = ElementTool.Create<KingdomActionFoundSettlement>();
+      element.m_Location = location?.Reference;
+      element.m_Settlement = settlement?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomActionGainLeaderExperience"/>
+    /// </summary>
+    public static ActionsBuilder KingdomActionGainLeaderExperience(
+        this ActionsBuilder builder,
+        IntEvaluator value,
+        float? multiplierCoefficient = null)
+    {
+      var element = ElementTool.Create<KingdomActionGainLeaderExperience>();
+      builder.Validate(value);
+      element.m_Value = value;
+      element.m_MultiplierCoefficient = multiplierCoefficient ?? element.m_MultiplierCoefficient;
+      element.m_MultiplyByLeaderLevel = multiplierCoefficient is not null;
       return builder.Add(element);
     }
 
@@ -387,14 +993,41 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="AddCrusadeResources"/>
+    /// Adds <see cref="RepairLeaderMana"/>
     /// </summary>
-    public static ActionsBuilder AddCrusadeResources(
+    public static ActionsBuilder RepairLeaderMana(
         this ActionsBuilder builder,
-        KingdomResourcesAmount? _resourcesAmount = null)
+        GlobalMagicValue value)
     {
-      var element = ElementTool.Create<AddCrusadeResources>();
-      element._resourcesAmount = _resourcesAmount ?? element._resourcesAmount;
+      var element = ElementTool.Create<RepairLeaderMana>();
+      builder.Validate(value);
+      element.m_Value = value;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SummonExistUnits"/>
+    /// </summary>
+    public static ActionsBuilder SummonExistUnits(
+        this ActionsBuilder builder,
+        GlobalMagicValue sumExpCost)
+    {
+      var element = ElementTool.Create<SummonExistUnits>();
+      builder.Validate(sumExpCost);
+      element.m_SumExpCost = sumExpCost;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SummonRandomGroup"/>
+    /// </summary>
+    public static ActionsBuilder SummonRandomGroup(
+        this ActionsBuilder builder,
+        SummonRandomGroup.RandomGroup[] randomGroups)
+    {
+      var element = ElementTool.Create<SummonRandomGroup>();
+      foreach (var item in randomGroups) { builder.Validate(item); }
+      element.m_RandomGroups = randomGroups;
       return builder.Add(element);
     }
 
@@ -436,22 +1069,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
       element.m_Weight = weight ?? element.m_Weight;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddMorale"/>
-    /// </summary>
-    public static ActionsBuilder AddMorale(
-        this ActionsBuilder builder,
-        int? bonus = null,
-        DiceFormula? change = null,
-        bool? substract = null)
-    {
-      var element = ElementTool.Create<AddMorale>();
-      element.Bonus = bonus ?? element.Bonus;
-      element.Change = change ?? element.Change;
-      element.Substract = substract ?? element.Substract;
       return builder.Add(element);
     }
 
@@ -577,22 +1194,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="ChangeTacticalMorale"/>
-    /// </summary>
-    public static ActionsBuilder ChangeTacticalMorale(
-        this ActionsBuilder builder,
-        ContextValue? value = null)
-    {
-      var element = ElementTool.Create<ChangeTacticalMorale>();
-      element.m_Value = value ?? element.m_Value;
-      if (element.m_Value is null)
-      {
-        element.m_Value = ContextValues.Constant(0);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionRestoreLeaderAction"/>
     /// </summary>
     public static ActionsBuilder RestoreLeaderAction(this ActionsBuilder builder)
@@ -601,115 +1202,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextActionSquadUnitsKill"/>
-    /// </summary>
-    public static ActionsBuilder SquadUnitsKill(
-        this ActionsBuilder builder,
-        ContextDiceValue? count = null,
-        float? floatCount = null,
-        bool? useFloatValue = null)
-    {
-      var element = ElementTool.Create<ContextActionSquadUnitsKill>();
-      element.m_Count = count ?? element.m_Count;
-      if (element.m_Count is null)
-      {
-        element.m_Count = Utils.Constants.Empty.DiceValue;
-      }
-      element.m_FloatCount = floatCount ?? element.m_FloatCount;
-      element.m_UseFloatValue = useFloatValue ?? element.m_UseFloatValue;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextActionStopUnit"/>
     /// </summary>
     public static ActionsBuilder StopUnit(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionStopUnit>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSummonTacticalSquad"/>
-    /// </summary>
-    ///
-    /// <param name="blueprint">
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="summonPool">
-    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder SummonTacticalSquad(
-        this ActionsBuilder builder,
-        ActionsBuilder? afterSpawn = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
-        ContextValue? count = null,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
-    {
-      var element = ElementTool.Create<ContextActionSummonTacticalSquad>();
-      element.m_AfterSpawn = afterSpawn?.Build() ?? element.m_AfterSpawn;
-      if (element.m_AfterSpawn is null)
-      {
-        element.m_AfterSpawn = Utils.Constants.Empty.Actions;
-      }
-      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
-      if (element.m_Blueprint is null)
-      {
-        element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
-      }
-      element.m_Count = count ?? element.m_Count;
-      if (element.m_Count is null)
-      {
-        element.m_Count = ContextValues.Constant(0);
-      }
-      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
-      if (element.m_SummonPool is null)
-      {
-        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionTacticalCombatDealDamage"/>
-    /// </summary>
-    public static ActionsBuilder TacticalCombatDealDamage(
-        this ActionsBuilder builder,
-        DamageTypeDescription? damageType = null,
-        DiceType? diceType = null,
-        bool? half = null,
-        bool? ignoreCritical = null,
-        int? minHPAfterDamage = null,
-        ContextValue? rollsCount = null,
-        bool? useMinHPAfterDamage = null)
-    {
-      var element = ElementTool.Create<ContextActionTacticalCombatDealDamage>();
-      builder.Validate(damageType);
-      element.DamageType = damageType ?? element.DamageType;
-      element.DiceType = diceType ?? element.DiceType;
-      element.Half = half ?? element.Half;
-      element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
-      element.MinHPAfterDamage = minHPAfterDamage ?? element.MinHPAfterDamage;
-      element.RollsCount = rollsCount ?? element.RollsCount;
-      if (element.RollsCount is null)
-      {
-        element.RollsCount = ContextValues.Constant(0);
-      }
-      element.UseMinHPAfterDamage = useMinHPAfterDamage ?? element.UseMinHPAfterDamage;
-      return builder.Add(element);
     }
 
     /// <summary>
@@ -727,102 +1224,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       {
         element.RollsCount = ContextValues.Constant(0);
       }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CreateGarrison"/>
-    /// </summary>
-    ///
-    /// <param name="armyLeader">
-    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="location">
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="preset">
-    /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder CreateGarrison(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null,
-        bool? hasNoReward = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
-        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference>? preset = null,
-        bool? withLeader = null)
-    {
-      var element = ElementTool.Create<CreateGarrison>();
-      element.ArmyLeader = armyLeader?.Reference ?? element.ArmyLeader;
-      if (element.ArmyLeader is null)
-      {
-        element.ArmyLeader = BlueprintTool.GetRef<ArmyLeader.Reference>(null);
-      }
-      element.HasNoReward = hasNoReward ?? element.HasNoReward;
-      element.Location = location?.Reference ?? element.Location;
-      if (element.Location is null)
-      {
-        element.Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
-      element.Preset = preset?.Reference ?? element.Preset;
-      if (element.Preset is null)
-      {
-        element.Preset = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
-      }
-      element.WithLeader = withLeader ?? element.WithLeader;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CreateArmyFromLosses"/>
-    /// </summary>
-    ///
-    /// <param name="location">
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder CreateArmyFromLosses(
-        this ActionsBuilder builder,
-        bool? applyRecruitIncrease = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
-        int? squadsMaxCount = null,
-        int? sumExperience = null)
-    {
-      var element = ElementTool.Create<CreateArmyFromLosses>();
-      element.m_ApplyRecruitIncrease = applyRecruitIncrease ?? element.m_ApplyRecruitIncrease;
-      element.m_Location = location?.Reference ?? element.m_Location;
-      if (element.m_Location is null)
-      {
-        element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
-      element.m_SquadsMaxCount = squadsMaxCount ?? element.m_SquadsMaxCount;
-      element.m_SumExperience = sumExperience ?? element.m_SumExperience;
       return builder.Add(element);
     }
 
@@ -1025,147 +1426,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionActivateEventDeck"/>
-    /// </summary>
-    ///
-    /// <param name="deck">
-    /// Blueprint of type BlueprintKingdomDeck. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionActivateEventDeck(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomDeck, BlueprintKingdomDeckReference>? deck = null)
-    {
-      var element = ElementTool.Create<KingdomActionActivateEventDeck>();
-      element.m_Deck = deck?.Reference ?? element.m_Deck;
-      if (element.m_Deck is null)
-      {
-        element.m_Deck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionAddBPRandom"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionAddBPRandom(
-        this ActionsBuilder builder,
-        int? bonus = null,
-        DiceFormula? change = null,
-        bool? includeInEventStats = null,
-        KingdomResource? resourceType = null)
-    {
-      var element = ElementTool.Create<KingdomActionAddBPRandom>();
-      element.Bonus = bonus ?? element.Bonus;
-      element.Change = change ?? element.Change;
-      element.IncludeInEventStats = includeInEventStats ?? element.IncludeInEventStats;
-      element.ResourceType = resourceType ?? element.ResourceType;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionAddBuff"/>
-    /// </summary>
-    ///
-    /// <param name="blueprint">
-    /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="region">
-    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionAddBuff(
-        this ActionsBuilder builder,
-        bool? applyToRegion = null,
-        Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>? blueprint = null,
-        bool? copyToAdjacentRegions = null,
-        int? overrideDuration = null,
-        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
-    {
-      var element = ElementTool.Create<KingdomActionAddBuff>();
-      element.ApplyToRegion = applyToRegion ?? element.ApplyToRegion;
-      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
-      if (element.m_Blueprint is null)
-      {
-        element.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(null);
-      }
-      element.CopyToAdjacentRegions = copyToAdjacentRegions ?? element.CopyToAdjacentRegions;
-      element.OverrideDuration = overrideDuration ?? element.OverrideDuration;
-      element.m_Region = region?.Reference ?? element.m_Region;
-      if (element.m_Region is null)
-      {
-        element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionAddFreeBuilding"/>
-    /// </summary>
-    ///
-    /// <param name="building">
-    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="settlement">
-    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionAddFreeBuilding(
-        this ActionsBuilder builder,
-        bool? anywhere = null,
-        Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>? building = null,
-        int? count = null,
-        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? settlement = null)
-    {
-      var element = ElementTool.Create<KingdomActionAddFreeBuilding>();
-      element.Anywhere = anywhere ?? element.Anywhere;
-      element.m_Building = building?.Reference ?? element.m_Building;
-      if (element.m_Building is null)
-      {
-        element.m_Building = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(null);
-      }
-      element.Count = count ?? element.Count;
-      element.m_Settlement = settlement?.Reference ?? element.m_Settlement;
-      if (element.m_Settlement is null)
-      {
-        element.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionAddMercenaryReroll"/>
     /// </summary>
     public static ActionsBuilder KingdomActionAddMercenaryReroll(
@@ -1174,78 +1434,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     {
       var element = ElementTool.Create<KingdomActionAddMercenaryReroll>();
       element.m_FreeRerollsToAdd = freeRerollsToAdd ?? element.m_FreeRerollsToAdd;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionAddRandomBuff"/>
-    /// </summary>
-    ///
-    /// <param name="buffs">
-    /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionAddRandomBuff(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>>? buffs = null,
-        int? overrideDurationDays = null)
-    {
-      var element = ElementTool.Create<KingdomActionAddRandomBuff>();
-      element.m_Buffs = buffs?.Select(bp => bp.Reference)?.ToList() ?? element.m_Buffs;
-      if (element.m_Buffs is null)
-      {
-        element.m_Buffs = new();
-      }
-      element.OverrideDurationDays = overrideDurationDays ?? element.OverrideDurationDays;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionArtisanRequestHelp"/>
-    /// </summary>
-    ///
-    /// <param name="artisan">
-    /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="project">
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionArtisanRequestHelp(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>? artisan = null,
-        Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>? project = null)
-    {
-      var element = ElementTool.Create<KingdomActionArtisanRequestHelp>();
-      element.m_Artisan = artisan?.Reference ?? element.m_Artisan;
-      if (element.m_Artisan is null)
-      {
-        element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
-      }
-      element.m_Project = project?.Reference ?? element.m_Project;
-      if (element.m_Project is null)
-      {
-        element.m_Project = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
-      }
       return builder.Add(element);
     }
 
@@ -1263,33 +1451,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder KingdomActionCollectLoot(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionCollectLoot>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionConquerRegion"/>
-    /// </summary>
-    ///
-    /// <param name="region">
-    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionConquerRegion(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
-    {
-      var element = ElementTool.Create<KingdomActionConquerRegion>();
-      element.m_Region = region?.Reference ?? element.m_Region;
-      if (element.m_Region is null)
-      {
-        element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
-      }
-      return builder.Add(element);
     }
 
     /// <summary>
@@ -1317,92 +1478,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionFillSettlement"/>
-    /// </summary>
-    ///
-    /// <param name="buildList">
-    /// Blueprint of type SettlementBuildList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="specificSettlement">
-    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionFillSettlement(
-        this ActionsBuilder builder,
-        Blueprint<SettlementBuildList, SettlementBuildListReference>? buildList = null,
-        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? specificSettlement = null)
-    {
-      var element = ElementTool.Create<KingdomActionFillSettlement>();
-      element.m_BuildList = buildList?.Reference ?? element.m_BuildList;
-      if (element.m_BuildList is null)
-      {
-        element.m_BuildList = BlueprintTool.GetRef<SettlementBuildListReference>(null);
-      }
-      element.m_SpecificSettlement = specificSettlement?.Reference ?? element.m_SpecificSettlement;
-      if (element.m_SpecificSettlement is null)
-      {
-        element.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionFillSettlementByLocation"/>
-    /// </summary>
-    ///
-    /// <param name="buildList">
-    /// Blueprint of type SettlementBuildList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="specificSettlementLocation">
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionFillSettlementByLocation(
-        this ActionsBuilder builder,
-        Blueprint<SettlementBuildList, SettlementBuildListReference>? buildList = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>? specificSettlementLocation = null)
-    {
-      var element = ElementTool.Create<KingdomActionFillSettlementByLocation>();
-      element.m_BuildList = buildList?.Reference ?? element.m_BuildList;
-      if (element.m_BuildList is null)
-      {
-        element.m_BuildList = BlueprintTool.GetRef<SettlementBuildListReference>(null);
-      }
-      element.m_SpecificSettlementLocation = specificSettlementLocation?.Reference ?? element.m_SpecificSettlementLocation;
-      if (element.m_SpecificSettlementLocation is null)
-      {
-        element.m_SpecificSettlementLocation = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionFinishRandomBuilding"/>
     /// </summary>
     public static ActionsBuilder KingdomActionFinishRandomBuilding(this ActionsBuilder builder)
@@ -1416,66 +1491,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     public static ActionsBuilder KingdomActionFoundKingdom(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionFoundKingdom>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionFoundSettlement"/>
-    /// </summary>
-    ///
-    /// <param name="location">
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="settlement">
-    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionFoundSettlement(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
-        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? settlement = null)
-    {
-      var element = ElementTool.Create<KingdomActionFoundSettlement>();
-      element.m_Location = location?.Reference ?? element.m_Location;
-      if (element.m_Location is null)
-      {
-        element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
-      element.m_Settlement = settlement?.Reference ?? element.m_Settlement;
-      if (element.m_Settlement is null)
-      {
-        element.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionGainLeaderExperience"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionGainLeaderExperience(
-        this ActionsBuilder builder,
-        float? multiplierCoefficient = null,
-        bool? multiplyByLeaderLevel = null,
-        IntEvaluator? value = null)
-    {
-      var element = ElementTool.Create<KingdomActionGainLeaderExperience>();
-      element.m_MultiplierCoefficient = multiplierCoefficient ?? element.m_MultiplierCoefficient;
-      element.m_MultiplyByLeaderLevel = multiplyByLeaderLevel ?? element.m_MultiplyByLeaderLevel;
-      builder.Validate(value);
-      element.m_Value = value ?? element.m_Value;
-      return builder.Add(element);
     }
 
     /// <summary>
@@ -2600,19 +2615,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="RepairLeaderMana"/>
-    /// </summary>
-    public static ActionsBuilder RepairLeaderMana(
-        this ActionsBuilder builder,
-        GlobalMagicValue? value = null)
-    {
-      var element = ElementTool.Create<RepairLeaderMana>();
-      builder.Validate(value);
-      element.m_Value = value ?? element.m_Value;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ReplaceBuildings"/>
     /// </summary>
     ///
@@ -2705,36 +2707,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       if (element.m_Location is null)
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SummonExistUnits"/>
-    /// </summary>
-    public static ActionsBuilder SummonExistUnits(
-        this ActionsBuilder builder,
-        GlobalMagicValue? sumExpCost = null)
-    {
-      var element = ElementTool.Create<SummonExistUnits>();
-      builder.Validate(sumExpCost);
-      element.m_SumExpCost = sumExpCost ?? element.m_SumExpCost;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SummonRandomGroup"/>
-    /// </summary>
-    public static ActionsBuilder SummonRandomGroup(
-        this ActionsBuilder builder,
-        SummonRandomGroup.RandomGroup[]? randomGroups = null)
-    {
-      var element = ElementTool.Create<SummonRandomGroup>();
-      foreach (var item in randomGroups) { builder.Validate(item); }
-      element.m_RandomGroups = randomGroups ?? element.m_RandomGroups;
-      if (element.m_RandomGroups is null)
-      {
-        element.m_RandomGroups = new SummonRandomGroup.RandomGroup[0];
       }
       return builder.Add(element);
     }
