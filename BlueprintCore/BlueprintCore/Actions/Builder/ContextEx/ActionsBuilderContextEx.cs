@@ -1023,6 +1023,134 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="EnhanceWeapon"/>
+    /// </summary>
+    ///
+    /// <param name="enchantment">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder EnhanceWeapon(
+        this ActionsBuilder builder,
+        ContextDurationValue durationValue,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> enchantment,
+        bool? useSecondaryHand = null)
+    {
+      var element = ElementTool.Create<EnhanceWeapon>();
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue;
+      element.m_Enchantment = new BlueprintItemEnchantmentReference[] { enchantment.Reference };
+      element.UseSecondaryHand = useSecondaryHand ?? element.UseSecondaryHand;
+      element.EnchantmentType = Kingmaker.UnitLogic.Mechanics.Actions.EnhanceWeapon.EnchantmentApplyType.MagicWeapon;
+      element.Greater = false;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EnhanceWeapon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// The enchantment at index EnchantLevel - 1 is applied or the last enchantment if it is too large.
+    /// </remarks>
+    ///
+    /// <param name="enchantment">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder EnhanceWeaponGreater(
+        this ActionsBuilder builder,
+        ContextDurationValue durationValue,
+        ContextValue enchantLevel,
+        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>> enchantment,
+        bool? useSecondaryHand = null)
+    {
+      var element = ElementTool.Create<EnhanceWeapon>();
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue;
+      element.EnchantLevel = enchantLevel;
+      element.m_Enchantment = enchantment?.Select(bp => bp.Reference)?.ToArray();
+      element.UseSecondaryHand = useSecondaryHand ?? element.UseSecondaryHand;
+      element.EnchantmentType = Kingmaker.UnitLogic.Mechanics.Actions.EnhanceWeapon.EnchantmentApplyType.MagicWeapon;
+      element.Greater = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EnhanceWeapon"/>
+    /// </summary>
+    ///
+    /// <param name="enchantment">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder EnhanceNaturalWeapon(
+        this ActionsBuilder builder,
+        ContextDurationValue durationValue,
+        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> enchantment)
+    {
+      var element = ElementTool.Create<EnhanceWeapon>();
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue;
+      element.m_Enchantment = new BlueprintItemEnchantmentReference[] { enchantment.Reference };
+      element.EnchantmentType = Kingmaker.UnitLogic.Mechanics.Actions.EnhanceWeapon.EnchantmentApplyType.MagicFang;
+      element.Greater = false;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EnhanceWeapon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// The enchantment at index EnchantLevel - 1 is applied or the last enchantment if it is too large.
+    /// </remarks>
+    ///
+    /// <param name="enchantment">
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder EnhanceNaturalWeaponGreater(
+        this ActionsBuilder builder,
+        ContextDurationValue durationValue,
+        ContextValue enchantLevel,
+        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>> enchantment)
+    {
+      var element = ElementTool.Create<EnhanceWeapon>();
+      builder.Validate(durationValue);
+      element.DurationValue = durationValue;
+      element.EnchantLevel = enchantLevel;
+      element.m_Enchantment = enchantment?.Select(bp => bp.Reference)?.ToArray();
+      element.EnchantmentType = Kingmaker.UnitLogic.Mechanics.Actions.EnhanceWeapon.EnchantmentApplyType.MagicFang;
+      element.Greater = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionEnchantWornItem"/>
     /// </summary>
     ///
@@ -2553,48 +2681,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder Unsummon(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionUnsummon>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="EnhanceWeapon"/>
-    /// </summary>
-    ///
-    /// <param name="enchantment">
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder EnhanceWeapon(
-        this ActionsBuilder builder,
-        ContextDurationValue? durationValue = null,
-        ContextValue? enchantLevel = null,
-        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? enchantment = null,
-        EnhanceWeapon.EnchantmentApplyType? enchantmentType = null,
-        bool? greater = null,
-        bool? useSecondaryHand = null)
-    {
-      var element = ElementTool.Create<EnhanceWeapon>();
-      builder.Validate(durationValue);
-      element.DurationValue = durationValue ?? element.DurationValue;
-      element.EnchantLevel = enchantLevel ?? element.EnchantLevel;
-      if (element.EnchantLevel is null)
-      {
-        element.EnchantLevel = ContextValues.Constant(0);
-      }
-      element.m_Enchantment = enchantment?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Enchantment;
-      if (element.m_Enchantment is null)
-      {
-        element.m_Enchantment = new BlueprintItemEnchantmentReference[0];
-      }
-      element.EnchantmentType = enchantmentType ?? element.EnchantmentType;
-      element.Greater = greater ?? element.Greater;
-      element.UseSecondaryHand = useSecondaryHand ?? element.UseSecondaryHand;
-      return builder.Add(element);
     }
 
     /// <summary>

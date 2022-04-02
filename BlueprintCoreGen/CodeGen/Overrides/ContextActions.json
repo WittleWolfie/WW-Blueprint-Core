@@ -671,6 +671,88 @@
   },
 
   {
+    "TypeName": "EnhanceWeapon",
+    "RequiredFields": [ "DurationValue" ],
+    "Methods": [
+      {
+        "MethodName": "EnhanceWeapon",
+        "IgnoredFields": [ "EnchantLevel" ],
+        "ConstantFields": [
+          {
+            "FieldName": "EnchantmentType",
+            "Value": "Kingmaker.UnitLogic.Mechanics.Actions.EnhanceWeapon.EnchantmentApplyType.MagicWeapon"
+          },
+          {
+            "FieldName": "Greater",
+            "Value": "false"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "m_Enchantment",
+            "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+            "Required": "true",
+            "AssignmentFmtRhs": "new BlueprintItemEnchantmentReference[] {{ {0}.Reference }}"
+          }
+        ]
+      },
+      {
+        "MethodName": "EnhanceWeaponGreater",
+        "Remarks": [ "The enchantment at index EnchantLevel - 1 is applied or the last enchantment if it is too large." ],
+        "RequiredFields": [ "EnchantLevel", "m_Enchantment" ],
+        "ConstantFields": [
+          {
+            "FieldName": "EnchantmentType",
+            "Value": "Kingmaker.UnitLogic.Mechanics.Actions.EnhanceWeapon.EnchantmentApplyType.MagicWeapon"
+          },
+          {
+            "FieldName": "Greater",
+            "Value": "true"
+          }
+        ]
+      },
+      {
+        "MethodName": "EnhanceNaturalWeapon",
+        "IgnoredFields": [ "EnchantLevel", "UseSecondaryHand" ],
+        "ConstantFields": [
+          {
+            "FieldName": "EnchantmentType",
+            "Value": "Kingmaker.UnitLogic.Mechanics.Actions.EnhanceWeapon.EnchantmentApplyType.MagicFang"
+          },
+          {
+            "FieldName": "Greater",
+            "Value": "false"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "m_Enchantment",
+            "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+            "Required": "true",
+            "AssignmentFmtRhs": "new BlueprintItemEnchantmentReference[] {{ {0}.Reference }}"
+          }
+        ]
+      },
+      {
+        "MethodName": "EnhanceNaturalWeaponGreater",
+        "Remarks": [ "The enchantment at index EnchantLevel - 1 is applied or the last enchantment if it is too large." ],
+        "RequiredFields": [ "EnchantLevel", "m_Enchantment" ],
+        "IgnoredFields": [ "UseSecondaryHand" ],
+        "ConstantFields": [
+          {
+            "FieldName": "EnchantmentType",
+            "Value": "Kingmaker.UnitLogic.Mechanics.Actions.EnhanceWeapon.EnchantmentApplyType.MagicFang"
+          },
+          {
+            "FieldName": "Greater",
+            "Value": "true"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
     "TypeName": "ContextActionEnchantWornItem",
     "RequiredFields": [ "m_Enchantment", "Slot", "DurationValue" ]
   },
@@ -1150,8 +1232,6 @@
   { "TypeName": "ContextActionTranslocate" },
 
   { "TypeName": "ContextActionUnsummon" },
-
-  { "TypeName": "EnhanceWeapon" },
 
   { "TypeName": "SwordlordAdaptiveTacticsAdd" },
 
