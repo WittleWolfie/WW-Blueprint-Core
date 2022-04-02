@@ -139,7 +139,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.NewName = newName ?? element.NewName;
       if (element.NewName is null)
       {
-        element.NewName = BlueprintCore.Utils.Constants.Empty.String;
+        element.NewName = Utils.Constants.Empty.String;
       }
       element.ReturnTheOldName = returnTheOldName ?? element.ReturnTheOldName;
       builder.Validate(unit);
@@ -506,7 +506,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.AfterDetach = afterDetach?.Build() ?? element.AfterDetach;
       if (element.AfterDetach is null)
       {
-        element.AfterDetach = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.AfterDetach = Utils.Constants.Empty.Actions;
       }
       element.m_DetachAllExcept = detachAllExcept?.Select(bp => bp.Reference)?.ToArray() ?? element.m_DetachAllExcept;
       if (element.m_DetachAllExcept is null)
@@ -532,7 +532,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.AfterDetach = afterDetach?.Build() ?? element.AfterDetach;
       if (element.AfterDetach is null)
       {
-        element.AfterDetach = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.AfterDetach = Utils.Constants.Empty.Actions;
       }
       foreach (var item in detachThese) { builder.Validate(item); }
       element.DetachThese = detachThese ?? element.DetachThese;
@@ -570,12 +570,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.OnRecruit = onRecruit?.Build() ?? element.OnRecruit;
       if (element.OnRecruit is null)
       {
-        element.OnRecruit = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnRecruit = Utils.Constants.Empty.Actions;
       }
       element.OnRecruitImmediate = onRecruitImmediate?.Build() ?? element.OnRecruitImmediate;
       if (element.OnRecruitImmediate is null)
       {
-        element.OnRecruitImmediate = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnRecruitImmediate = Utils.Constants.Empty.Actions;
       }
       foreach (var item in recruited) { builder.Validate(item); }
       element.Recruited = recruited ?? element.Recruited;
@@ -614,7 +614,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.OnRecruit = onRecruit?.Build() ?? element.OnRecruit;
       if (element.OnRecruit is null)
       {
-        element.OnRecruit = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnRecruit = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -981,19 +981,19 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.OnAccept = onAccept?.Build() ?? element.OnAccept;
       if (element.OnAccept is null)
       {
-        element.OnAccept = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnAccept = Utils.Constants.Empty.Actions;
       }
       element.OnCancel = onCancel?.Build() ?? element.OnCancel;
       if (element.OnCancel is null)
       {
-        element.OnCancel = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnCancel = Utils.Constants.Empty.Actions;
       }
       builder.Validate(parameters);
       element.Parameters = parameters ?? element.Parameters;
       element.Text = text ?? element.Text;
       if (element.Text is null)
       {
-        element.Text = BlueprintCore.Utils.Constants.Empty.String;
+        element.Text = Utils.Constants.Empty.String;
       }
       return builder.Add(element);
     }
@@ -1011,12 +1011,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.OnClose = onClose?.Build() ?? element.OnClose;
       if (element.OnClose is null)
       {
-        element.OnClose = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnClose = Utils.Constants.Empty.Actions;
       }
       element.Text = text ?? element.Text;
       if (element.Text is null)
       {
-        element.Text = BlueprintCore.Utils.Constants.Empty.String;
+        element.Text = Utils.Constants.Empty.String;
       }
       element.WaitTime = waitTime ?? element.WaitTime;
       return builder.Add(element);
@@ -1034,7 +1034,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.String = stringValue ?? element.String;
       if (element.String is null)
       {
-        element.String = BlueprintCore.Utils.Constants.Empty.String;
+        element.String = Utils.Constants.Empty.String;
       }
       element.Type = type ?? element.Type;
       return builder.Add(element);
@@ -1103,7 +1103,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.SpeakerName = speakerName ?? element.SpeakerName;
       if (element.SpeakerName is null)
       {
-        element.SpeakerName = BlueprintCore.Utils.Constants.Empty.String;
+        element.SpeakerName = Utils.Constants.Empty.String;
       }
       return builder.Add(element);
     }
@@ -1521,7 +1521,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       element.OnUnrecruit = onUnrecruit?.Build() ?? element.OnUnrecruit;
       if (element.OnUnrecruit is null)
       {
-        element.OnUnrecruit = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnUnrecruit = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }

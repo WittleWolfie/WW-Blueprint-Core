@@ -4,7 +4,7 @@
     "TypeNameOverride": "ActionsBuilder",
     "Imports": [ "ActionsBuilder" ],
     "AssignmentFmtRhs": "{0}?.Build()",
-    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.Actions"
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.Actions"
   },
 
   {
@@ -12,12 +12,12 @@
     "TypeNameOverride": "ConditionsBuilder",
     "Imports": [ "ConditionsBuilder" ],
     "AssignmentFmtRhs": "{0}?.Build()",
-    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.Conditions"
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.Conditions"
   },
 
   {
     "TypeName": "ContextDiceValue",
-    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.DiceValue"
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.DiceValue"
   },
 
   {
@@ -28,11 +28,11 @@
 
   {
     "TypeName": "LocalizedString",
-    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.String"
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.String"
   },
 
   {
     "TypeName": "PrefabLink",
-    "AssignmentIfNullRhs": "BlueprintCore.Utils.Constants.Empty.PrefabLink"
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.PrefabLink"
   }
 ]

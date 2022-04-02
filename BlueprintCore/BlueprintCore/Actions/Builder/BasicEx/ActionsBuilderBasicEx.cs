@@ -703,7 +703,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.m_ActionsOnRestEnd = actionsOnRestEnd?.Build() ?? element.m_ActionsOnRestEnd;
       if (element.m_ActionsOnRestEnd is null)
       {
-        element.m_ActionsOnRestEnd = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.m_ActionsOnRestEnd = Utils.Constants.Empty.Actions;
       }
       element.m_IgnoreCorruption = ignoreCorruption ?? element.m_IgnoreCorruption;
       element.m_Immediate = immediate ?? element.m_Immediate;
@@ -996,12 +996,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.OnFailure = onFailure?.Build() ?? element.OnFailure;
       if (element.OnFailure is null)
       {
-        element.OnFailure = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnFailure = Utils.Constants.Empty.Actions;
       }
       element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
-        element.OnSuccess = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnSuccess = Utils.Constants.Empty.Actions;
       }
       element.Stat = stat ?? element.Stat;
       return builder.Add(element);
@@ -1030,12 +1030,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.OnFailure = onFailure?.Build() ?? element.OnFailure;
       if (element.OnFailure is null)
       {
-        element.OnFailure = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnFailure = Utils.Constants.Empty.Actions;
       }
       element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
-        element.OnSuccess = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnSuccess = Utils.Constants.Empty.Actions;
       }
       element.Stat = stat ?? element.Stat;
       builder.Validate(unit);
@@ -1088,7 +1088,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
-        element.ActionsOnSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.ActionsOnSpawn = Utils.Constants.Empty.Actions;
       }
       foreach (var item in spawners) { builder.Validate(item); }
       element.Spawners = spawners ?? element.Spawners;
@@ -1123,7 +1123,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
-        element.ActionsOnSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.ActionsOnSpawn = Utils.Constants.Empty.Actions;
       }
       element.m_IgnoreSpawnerConditions = ignoreSpawnerConditions ?? element.m_IgnoreSpawnerConditions;
       element.m_Pool = pool?.Reference ?? element.m_Pool;
@@ -1146,7 +1146,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? element.ActionsOnSpawn;
       if (element.ActionsOnSpawn is null)
       {
-        element.ActionsOnSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.ActionsOnSpawn = Utils.Constants.Empty.Actions;
       }
       builder.Validate(group);
       element.Group = group ?? element.Group;
@@ -1209,7 +1209,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.OnSummmon = onSummmon?.Build() ?? element.OnSummmon;
       if (element.OnSummmon is null)
       {
-        element.OnSummmon = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnSummmon = Utils.Constants.Empty.Actions;
       }
       element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
@@ -1250,12 +1250,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Actions = Utils.Constants.Empty.Actions;
       }
       element.Conditions = conditions?.Build() ?? element.Conditions;
       if (element.Conditions is null)
       {
-        element.Conditions = BlueprintCore.Utils.Constants.Empty.Conditions;
+        element.Conditions = Utils.Constants.Empty.Conditions;
       }
       element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
@@ -1312,7 +1312,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.OnSummon = onSummon?.Build() ?? element.OnSummon;
       if (element.OnSummon is null)
       {
-        element.OnSummon = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnSummon = Utils.Constants.Empty.Actions;
       }
       element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
       if (element.m_SummonPool is null)
@@ -1379,7 +1379,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Actions = actions?.Build() ?? element.Actions;
       if (element.Actions is null)
       {
-        element.Actions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.Actions = Utils.Constants.Empty.Actions;
       }
       builder.Validate(group);
       element.m_Group = group ?? element.m_Group;

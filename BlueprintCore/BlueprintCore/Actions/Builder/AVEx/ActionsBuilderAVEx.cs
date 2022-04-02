@@ -296,7 +296,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
       element.WhatToBark = whatToBark ?? element.WhatToBark;
       if (element.WhatToBark is null)
       {
-        element.WhatToBark = BlueprintCore.Utils.Constants.Empty.String;
+        element.WhatToBark = Utils.Constants.Empty.String;
       }
       builder.Validate(whatToBarkShared);
       element.WhatToBarkShared = whatToBarkShared ?? element.WhatToBarkShared;
@@ -315,7 +315,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
       element.FxPrefab = fxPrefab ?? element.FxPrefab;
       if (element.FxPrefab is null)
       {
-        element.FxPrefab = BlueprintCore.Utils.Constants.Empty.PrefabLink;
+        element.FxPrefab = Utils.Constants.Empty.PrefabLink;
       }
       builder.Validate(target);
       element.Target = target ?? element.Target;

@@ -495,7 +495,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.m_Count = count ?? element.m_Count;
       if (element.m_Count is null)
       {
-        element.m_Count = BlueprintCore.Utils.Constants.Empty.DiceValue;
+        element.m_Count = Utils.Constants.Empty.DiceValue;
       }
       element.m_FloatCount = floatCount ?? element.m_FloatCount;
       element.m_UseFloatValue = useFloatValue ?? element.m_UseFloatValue;
@@ -545,7 +545,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.m_AfterSpawn = afterSpawn?.Build() ?? element.m_AfterSpawn;
       if (element.m_AfterSpawn is null)
       {
-        element.m_AfterSpawn = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.m_AfterSpawn = Utils.Constants.Empty.Actions;
       }
       element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
       if (element.m_Blueprint is null)
@@ -794,7 +794,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.TriggerAfterAuto = triggerAfterAuto?.Build() ?? element.TriggerAfterAuto;
       if (element.TriggerAfterAuto is null)
       {
-        element.TriggerAfterAuto = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.TriggerAfterAuto = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -1589,12 +1589,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.OnFailure = onFailure?.Build() ?? element.OnFailure;
       if (element.OnFailure is null)
       {
-        element.OnFailure = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnFailure = Utils.Constants.Empty.Actions;
       }
       element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
       if (element.OnSuccess is null)
       {
-        element.OnSuccess = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnSuccess = Utils.Constants.Empty.Actions;
       }
       element.Stat = stat ?? element.Stat;
       return builder.Add(element);
@@ -2379,7 +2379,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       element.m_OnTeleportActions = onTeleportActions?.Build() ?? element.m_OnTeleportActions;
       if (element.m_OnTeleportActions is null)
       {
-        element.m_OnTeleportActions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.m_OnTeleportActions = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }

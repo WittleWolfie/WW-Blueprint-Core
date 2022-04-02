@@ -125,7 +125,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.AdditionalActions = additionalActions?.Build() ?? element.AdditionalActions;
       if (element.AdditionalActions is null)
       {
-        element.AdditionalActions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.AdditionalActions = Utils.Constants.Empty.Actions;
       }
       element.m_DlcReward = dlcReward?.Reference ?? element.m_DlcReward;
       if (element.m_DlcReward is null)
@@ -222,7 +222,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.OnCreate = onCreate?.Build() ?? element.OnCreate;
       if (element.OnCreate is null)
       {
-        element.OnCreate = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.OnCreate = Utils.Constants.Empty.Actions;
       }
       return builder.Add(element);
     }
@@ -337,12 +337,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.m_AfterCommitActions = afterCommitActions?.Build() ?? element.m_AfterCommitActions;
       if (element.m_AfterCommitActions is null)
       {
-        element.m_AfterCommitActions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.m_AfterCommitActions = Utils.Constants.Empty.Actions;
       }
       element.m_AfterStopActions = afterStopActions?.Build() ?? element.m_AfterStopActions;
       if (element.m_AfterStopActions is null)
       {
-        element.m_AfterStopActions = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.m_AfterStopActions = Utils.Constants.Empty.Actions;
       }
       element.m_LockStopChargen = lockStopChargen ?? element.m_LockStopChargen;
       return builder.Add(element);
@@ -576,12 +576,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.ActionsAfterPartySelection = actionsAfterPartySelection?.Build() ?? element.ActionsAfterPartySelection;
       if (element.ActionsAfterPartySelection is null)
       {
-        element.ActionsAfterPartySelection = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.ActionsAfterPartySelection = Utils.Constants.Empty.Actions;
       }
       element.ActionsIfCanceled = actionsIfCanceled?.Build() ?? element.ActionsIfCanceled;
       if (element.ActionsIfCanceled is null)
       {
-        element.ActionsIfCanceled = BlueprintCore.Utils.Constants.Empty.Actions;
+        element.ActionsIfCanceled = Utils.Constants.Empty.Actions;
       }
       element.ForceCapitalModeLogic = forceCapitalModeLogic ?? element.ForceCapitalModeLogic;
       return builder.Add(element);
