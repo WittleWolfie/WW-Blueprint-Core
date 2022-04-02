@@ -42,14 +42,10 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </param>
     public static ActionsBuilder AchievementIncrementCounter(
         this ActionsBuilder builder,
-        Blueprint<AchievementData, AchievementDataReference>? achievement = null)
+        Blueprint<AchievementData, AchievementDataReference> achievement)
     {
       var element = ElementTool.Create<ActionAchievementIncrementCounter>();
-      element.m_Achievement = achievement?.Reference ?? element.m_Achievement;
-      if (element.m_Achievement is null)
-      {
-        element.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(null);
-      }
+      element.m_Achievement = achievement?.Reference;
       return builder.Add(element);
     }
 
@@ -69,14 +65,22 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </param>
     public static ActionsBuilder AchievementUnlock(
         this ActionsBuilder builder,
-        Blueprint<AchievementData, AchievementDataReference>? achievement = null)
+        Blueprint<AchievementData, AchievementDataReference> achievement)
     {
       var element = ElementTool.Create<ActionAchievementUnlock>();
-      element.m_Achievement = achievement?.Reference ?? element.m_Achievement;
-      if (element.m_Achievement is null)
-      {
-        element.m_Achievement = BlueprintTool.GetRef<AchievementDataReference>(null);
-      }
+      element.m_Achievement = achievement?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CustomEvent"/>
+    /// </summary>
+    public static ActionsBuilder CustomEvent(
+        this ActionsBuilder builder,
+        string eventId)
+    {
+      var element = ElementTool.Create<CustomEvent>();
+      element.EventId = eventId;
       return builder.Add(element);
     }
 
@@ -224,18 +228,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       {
         element.OnCreate = Utils.Constants.Empty.Actions;
       }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CustomEvent"/>
-    /// </summary>
-    public static ActionsBuilder CustomEvent(
-        this ActionsBuilder builder,
-        string? eventId = null)
-    {
-      var element = ElementTool.Create<CustomEvent>();
-      element.EventId = eventId ?? element.EventId;
       return builder.Add(element);
     }
 

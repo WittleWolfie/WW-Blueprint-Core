@@ -1,7 +1,18 @@
 [
-  { "TypeName": "ActionAchievementIncrementCounter" },
+  {
+    "TypeName": "ActionAchievementIncrementCounter",
+    "RequiredFields": [ "m_Achievement" ]
+  },
 
-  { "TypeName": "ActionAchievementUnlock" },
+  {
+    "TypeName": "ActionAchievementUnlock",
+    "RequiredFields": [ "m_Achievement" ]
+  },
+
+  {
+    "TypeName": "CustomEvent",
+    "RequiredFields": [ "EventId" ]
+  },
 
   { "TypeName": "AddPremiumReward" },
 
@@ -10,8 +21,6 @@
   { "TypeName": "ClearVendorTable" },
 
   { "TypeName": "CreateCustomCompanion" },
-
-  { "TypeName": "CustomEvent" },
 
   { "TypeName": "DebugLog" },
 
