@@ -49,6 +49,86 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
   {
 
     /// <summary>
+    /// Adds <see cref="AddBuffToSquad"/>
+    /// </summary>
+    ///
+    /// <param name="buff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder AddBuffToSquad(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        SquadFilter filter,
+        GlobalMagicValue hoursDuration)
+    {
+      var element = ElementTool.Create<AddBuffToSquad>();
+      element.m_Buff = buff?.Reference;
+      builder.Validate(filter);
+      element.m_Filter = filter;
+      builder.Validate(hoursDuration);
+      element.m_HoursDuration = hoursDuration;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionAddCrusadeResource"/>
+    /// </summary>
+    public static ActionsBuilder AddCrusadeResource(
+        this ActionsBuilder builder,
+        KingdomResourcesAmount resourcesAmount)
+    {
+      var element = ElementTool.Create<ContextActionAddCrusadeResource>();
+      element.m_ResourcesAmount = resourcesAmount;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionArmyRemoveFacts"/>
+    /// </summary>
+    ///
+    /// <param name="factsToRemove">
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ArmyRemoveFacts(
+        this ActionsBuilder builder,
+        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> factsToRemove)
+    {
+      var element = ElementTool.Create<ContextActionArmyRemoveFacts>();
+      element.m_FactsToRemove = factsToRemove?.Select(bp => bp.Reference)?.ToArray();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeArmyMorale"/>
+    /// </summary>
+    public static ActionsBuilder ChangeArmyMorale(
+        this ActionsBuilder builder,
+        GlobalMagicValue changeValue,
+        GlobalMagicValue duration)
+    {
+      var element = ElementTool.Create<ChangeArmyMorale>();
+      builder.Validate(changeValue);
+      element.m_ChangeValue = changeValue;
+      builder.Validate(duration);
+      element.m_Duration = duration;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="CreateArmy"/>
     /// </summary>
     ///
@@ -181,11 +261,40 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="AddBuffToSquad"/>
+    /// Adds <see cref="FakeSkipTime"/>
+    /// </summary>
+    public static ActionsBuilder FakeSkipTime(
+        this ActionsBuilder builder,
+        GlobalMagicValue skipDays)
+    {
+      var element = ElementTool.Create<FakeSkipTime>();
+      builder.Validate(skipDays);
+      element.m_SkipDays = skipDays;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GainDiceArmyDamage"/>
+    /// </summary>
+    public static ActionsBuilder GainDiceArmyDamage(
+        this ActionsBuilder builder,
+        GlobalMagicValue diceValue,
+        SquadFilter filter)
+    {
+      var element = ElementTool.Create<GainDiceArmyDamage>();
+      builder.Validate(diceValue);
+      element.m_DiceValue = diceValue;
+      builder.Validate(filter);
+      element.m_Filter = filter;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GainGlobalMagicSpell"/>
     /// </summary>
     ///
-    /// <param name="buff">
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <param name="spell">
+    /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -194,22 +303,86 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ActionsBuilder AddBuffToSquad(
+    public static ActionsBuilder GainGlobalMagicSpell(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
-        SquadFilter? filter = null,
-        GlobalMagicValue? hoursDuration = null)
+        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference> spell)
     {
-      var element = ElementTool.Create<AddBuffToSquad>();
-      element.m_Buff = buff?.Reference ?? element.m_Buff;
-      if (element.m_Buff is null)
-      {
-        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
+      var element = ElementTool.Create<GainGlobalMagicSpell>();
+      element.m_Spell = spell?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ManuallySetGlobalSpellCooldown"/>
+    /// </summary>
+    ///
+    /// <param name="spell">
+    /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder ManuallySetGlobalSpellCooldown(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference> spell)
+    {
+      var element = ElementTool.Create<ManuallySetGlobalSpellCooldown>();
+      element.m_Spell = spell?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="OpenTeleportationInterface"/>
+    /// </summary>
+    public static ActionsBuilder OpenTeleportationInterface(
+        this ActionsBuilder builder,
+        ActionsBuilder onTeleportActions)
+    {
+      var element = ElementTool.Create<OpenTeleportationInterface>();
+      element.m_OnTeleportActions = onTeleportActions?.Build();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveGlobalMagicSpell"/>
+    /// </summary>
+    ///
+    /// <param name="spell">
+    /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder RemoveGlobalMagicSpell(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference> spell)
+    {
+      var element = ElementTool.Create<RemoveGlobalMagicSpell>();
+      element.m_Spell = spell?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveUnitsByExp"/>
+    /// </summary>
+    public static ActionsBuilder RemoveUnitsByExp(
+        this ActionsBuilder builder,
+        GlobalMagicValue expValue,
+        SquadFilter filter)
+    {
+      var element = ElementTool.Create<RemoveUnitsByExp>();
+      builder.Validate(expValue);
+      element.m_ExpValue = expValue;
       builder.Validate(filter);
-      element.m_Filter = filter ?? element.m_Filter;
-      builder.Validate(hoursDuration);
-      element.m_HoursDuration = hoursDuration ?? element.m_HoursDuration;
+      element.m_Filter = filter;
       return builder.Add(element);
     }
 
@@ -363,22 +536,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="ChangeArmyMorale"/>
-    /// </summary>
-    public static ActionsBuilder ChangeArmyMorale(
-        this ActionsBuilder builder,
-        GlobalMagicValue? changeValue = null,
-        GlobalMagicValue? duration = null)
-    {
-      var element = ElementTool.Create<ChangeArmyMorale>();
-      builder.Validate(changeValue);
-      element.m_ChangeValue = changeValue ?? element.m_ChangeValue;
-      builder.Validate(duration);
-      element.m_Duration = duration ?? element.m_Duration;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ChangeKingdomMoraleMaximum"/>
     /// </summary>
     public static ActionsBuilder ChangeKingdomMoraleMaximum(
@@ -431,45 +588,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       if (element.m_Value is null)
       {
         element.m_Value = ContextValues.Constant(0);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionAddCrusadeResource"/>
-    /// </summary>
-    public static ActionsBuilder AddCrusadeResource(
-        this ActionsBuilder builder,
-        KingdomResourcesAmount? resourcesAmount = null)
-    {
-      var element = ElementTool.Create<ContextActionAddCrusadeResource>();
-      element.m_ResourcesAmount = resourcesAmount ?? element.m_ResourcesAmount;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionArmyRemoveFacts"/>
-    /// </summary>
-    ///
-    /// <param name="factsToRemove">
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ArmyRemoveFacts(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? factsToRemove = null)
-    {
-      var element = ElementTool.Create<ContextActionArmyRemoveFacts>();
-      element.m_FactsToRemove = factsToRemove?.Select(bp => bp.Reference)?.ToArray() ?? element.m_FactsToRemove;
-      if (element.m_FactsToRemove is null)
-      {
-        element.m_FactsToRemove = new BlueprintUnitFactReference[0];
       }
       return builder.Add(element);
     }
@@ -844,62 +962,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       if (element.m_OldUnit is null)
       {
         element.m_OldUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="FakeSkipTime"/>
-    /// </summary>
-    public static ActionsBuilder FakeSkipTime(
-        this ActionsBuilder builder,
-        GlobalMagicValue? skipDays = null)
-    {
-      var element = ElementTool.Create<FakeSkipTime>();
-      builder.Validate(skipDays);
-      element.m_SkipDays = skipDays ?? element.m_SkipDays;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="GainDiceArmyDamage"/>
-    /// </summary>
-    public static ActionsBuilder GainDiceArmyDamage(
-        this ActionsBuilder builder,
-        GlobalMagicValue? diceValue = null,
-        SquadFilter? filter = null)
-    {
-      var element = ElementTool.Create<GainDiceArmyDamage>();
-      builder.Validate(diceValue);
-      element.m_DiceValue = diceValue ?? element.m_DiceValue;
-      builder.Validate(filter);
-      element.m_Filter = filter ?? element.m_Filter;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="GainGlobalMagicSpell"/>
-    /// </summary>
-    ///
-    /// <param name="spell">
-    /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder GainGlobalMagicSpell(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? spell = null)
-    {
-      var element = ElementTool.Create<GainGlobalMagicSpell>();
-      element.m_Spell = spell?.Reference ?? element.m_Spell;
-      if (element.m_Spell is null)
-      {
-        element.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(null);
       }
       return builder.Add(element);
     }
@@ -2342,49 +2404,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="ManuallySetGlobalSpellCooldown"/>
-    /// </summary>
-    ///
-    /// <param name="spell">
-    /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ManuallySetGlobalSpellCooldown(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? spell = null)
-    {
-      var element = ElementTool.Create<ManuallySetGlobalSpellCooldown>();
-      element.m_Spell = spell?.Reference ?? element.m_Spell;
-      if (element.m_Spell is null)
-      {
-        element.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="OpenTeleportationInterface"/>
-    /// </summary>
-    public static ActionsBuilder OpenTeleportationInterface(
-        this ActionsBuilder builder,
-        ActionsBuilder? onTeleportActions = null)
-    {
-      var element = ElementTool.Create<OpenTeleportationInterface>();
-      element.m_OnTeleportActions = onTeleportActions?.Build() ?? element.m_OnTeleportActions;
-      if (element.m_OnTeleportActions is null)
-      {
-        element.m_OnTeleportActions = Utils.Constants.Empty.Actions;
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="RecruiteArmyLeader"/>
     /// </summary>
     ///
@@ -2494,33 +2513,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="RemoveGlobalMagicSpell"/>
-    /// </summary>
-    ///
-    /// <param name="spell">
-    /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder RemoveGlobalMagicSpell(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? spell = null)
-    {
-      var element = ElementTool.Create<RemoveGlobalMagicSpell>();
-      element.m_Spell = spell?.Reference ?? element.m_Spell;
-      if (element.m_Spell is null)
-      {
-        element.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="RemoveMercenaryFromPool"/>
     /// </summary>
     ///
@@ -2544,22 +2536,6 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       {
         element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RemoveUnitsByExp"/>
-    /// </summary>
-    public static ActionsBuilder RemoveUnitsByExp(
-        this ActionsBuilder builder,
-        GlobalMagicValue? expValue = null,
-        SquadFilter? filter = null)
-    {
-      var element = ElementTool.Create<RemoveUnitsByExp>();
-      builder.Validate(expValue);
-      element.m_ExpValue = expValue ?? element.m_ExpValue;
-      builder.Validate(filter);
-      element.m_Filter = filter ?? element.m_Filter;
       return builder.Add(element);
     }
 

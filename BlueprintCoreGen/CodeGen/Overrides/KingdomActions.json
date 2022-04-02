@@ -1,5 +1,25 @@
 [
   {
+    "TypeName": "AddBuffToSquad",
+    "RequiredFields": [ "m_Buff", "m_HoursDuration", "m_Filter" ]
+  },
+
+  {
+    "TypeName": "ContextActionAddCrusadeResource",
+    "RequiredFields": [ "m_ResourcesAmount" ]
+  },
+
+  {
+    "TypeName": "ContextActionArmyRemoveFacts",
+    "RequiredFields": [ "m_FactsToRemove" ]
+  },
+
+  {
+    "TypeName": "ChangeArmyMorale",
+    "RequiredFields": [ "m_Duration", "m_ChangeValue" ]
+  },
+
+  {
     "TypeName": "CreateArmy",
     "IgnoredFields": [ "WithLeader" ],
     "CustomFields": [
@@ -49,7 +69,40 @@
     ]
   },
 
-  { "TypeName": "AddBuffToSquad" },
+  {
+    "TypeName": "FakeSkipTime",
+    "RequiredFields": [ "m_SkipDays" ]
+  },
+
+  {
+    "TypeName": "GainDiceArmyDamage",
+    "RequiredFields": [ "m_Filter", "m_DiceValue" ]
+  },
+
+  {
+    "TypeName": "GainGlobalMagicSpell",
+    "RequiredFields": [ "m_Spell" ]
+  },
+
+  {
+    "TypeName": "ManuallySetGlobalSpellCooldown",
+    "RequiredFields": [ "m_Spell" ]
+  },
+
+  {
+    "TypeName": "OpenTeleportationInterface",
+    "RequiredFields": [ "m_OnTeleportActions" ]
+  },
+
+  {
+    "TypeName": "RemoveGlobalMagicSpell",
+    "RequiredFields": [ "m_Spell" ]
+  },
+
+  {
+    "TypeName": "RemoveUnitsByExp",
+    "RequiredFields": [ "m_Filter", "m_ExpValue" ]
+  },
 
   { "TypeName": "AddCrusadeResources" },
 
@@ -65,17 +118,11 @@
 
   { "TypeName": "BlockTacticalCell" },
 
-  { "TypeName": "ChangeArmyMorale" },
-
   { "TypeName": "ChangeKingdomMoraleMaximum" },
 
   { "TypeName": "ChangeMercenaryWeight" },
 
   { "TypeName": "ChangeTacticalMorale" },
-
-  { "TypeName": "ContextActionAddCrusadeResource" },
-
-  { "TypeName": "ContextActionArmyRemoveFacts" },
 
   { "TypeName": "ContextActionRestoreLeaderAction" },
 
@@ -100,12 +147,6 @@
   { "TypeName": "EnterKingdomInterface" },
 
   { "TypeName": "ExchangeRecruits" },
-
-  { "TypeName": "FakeSkipTime" },
-
-  { "TypeName": "GainDiceArmyDamage" },
-
-  { "TypeName": "GainGlobalMagicSpell" },
 
   { "TypeName": "IncreaseRecruitsGrowth" },
 
@@ -235,10 +276,6 @@
 
   { "TypeName": "KingdomSetFlagState" },
 
-  { "TypeName": "ManuallySetGlobalSpellCooldown" },
-
-  { "TypeName": "OpenTeleportationInterface" },
-
   { "TypeName": "RecruiteArmyLeader" },
 
   { "TypeName": "ReduceNegativeMorale" },
@@ -249,11 +286,7 @@
 
   { "TypeName": "RemoveGarrison" },
 
-  { "TypeName": "RemoveGlobalMagicSpell" },
-
   { "TypeName": "RemoveMercenaryFromPool" },
-
-  { "TypeName": "RemoveUnitsByExp" },
 
   { "TypeName": "RemoveUnitFromArmy" },
 
