@@ -107,7 +107,7 @@ namespace BlueprintCore.Actions.Builder
   ///     ActionsBuilder.New()
   ///         .ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
   ///         .MeleeAttack()
-  ///         .build();
+  ///         .Build();
   /// </code>
   /// </example>
   /// </remarks>
