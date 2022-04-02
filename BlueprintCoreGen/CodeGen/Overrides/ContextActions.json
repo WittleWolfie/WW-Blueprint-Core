@@ -851,6 +851,75 @@
     ]
   },
 
+  {
+    "TypeName": "ContextActionSelectByValue",
+    "ConstantFields": [
+      {
+        "FieldName": "m_Type",
+        "Value": "ContextActionSelectByValue.SelectionType.Greatest"
+      }
+    ],
+    "CustomFields": [
+      {
+        "FieldName": "m_Variants",
+        "TypeName": "params (ContextValue value, ActionsBuilder action)[]",
+        "ParamName": "actionVariants",
+        "CommentFmt": "The action associated with the highest value is selected to run.",
+        "Required": "true",
+        "AssignmentFmtRhs": "{0}.Select(variant => new ContextActionSelectByValue.ValueAndAction {{ Value = variant.value, Action = variant.action.Build() }}).ToArray()"
+      }
+    ]
+  },
+
+  {
+    "TypeName": "ContextActionSkillCheck",
+    "RequiredFields": [ "Stat" ],
+    "IgnoredFields": [ "UseCustomDC" ],
+    "CustomFields": [
+      {
+        "FieldName": "CustomDC",
+        "ExtraAssignmentFmtLines": [ "{0}.UseCustomDC = {1} is not null;" ]
+      },
+      {
+        "FieldName": "m_ConditionalDCIncrease",
+        "TypeName": "List<(ConditionsBuilder condition, ContextValue value)>",
+        "ParamName": "dcModifiers",
+        "AssignmentFmtRhs": "{0}?.Select(mod => new ContextActionSkillCheck.ConditionalDCIncrease {{ Condition = mod.condition.Build(), Value = mod.value }})?.ToArray()"
+      }
+    ],
+    "Methods": [
+      {
+        "MethodName": "SkillCheck",
+        "IgnoredFields": [ "FailureDiffMoreOrEqual5Less10", "FailureDiffMoreOrEqual10" ],
+        "ConstantFields": [
+          {
+            "FieldName": "CalculateDCDifference",
+            "Value": "false"
+          }
+        ]
+      },
+      {
+        "MethodName": "SkillCheckWithDegreesOfFailure",
+        "ConstantFields": [
+          {
+            "FieldName": "CalculateDCDifference",
+            "Value": "true"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "FailureDiffMoreOrEqual5Less10",
+            "ParamName": "failureBy5to10"
+          },
+          {
+            "FieldName": "FailureDiffMoreOrEqual10",
+            "ParamName": "failureBy10orMore"
+          }
+        ]
+      }
+    ]
+  },
+
   { "TypeName": "AbilityCustomSharedBurden" },
 
   { "TypeName": "AbilityCustomSharedGrace" },
@@ -924,10 +993,6 @@
   { "TypeName": "ContextActionResetAlignment" },
 
   { "TypeName": "ContextActionRestoreAllSpellSlots" },
-
-  { "TypeName": "ContextActionSelectByValue" },
-
-  { "TypeName": "ContextActionSkillCheck" },
 
   { "TypeName": "ContextActionsOnPet" },
 

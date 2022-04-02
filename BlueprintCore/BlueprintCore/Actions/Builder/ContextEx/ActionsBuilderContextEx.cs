@@ -1517,6 +1517,111 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextActionSelectByValue"/>
+    /// </summary>
+    ///
+    /// <param name="actionVariants">
+    /// The action associated with the highest value is selected to run.
+    /// </param>
+    public static ActionsBuilder SelectByValue(
+        this ActionsBuilder builder,
+        params (ContextValue value, ActionsBuilder action)[] actionVariants)
+    {
+      var element = ElementTool.Create<ContextActionSelectByValue>();
+      element.m_Variants = actionVariants.Select(variant => new ContextActionSelectByValue.ValueAndAction { Value = variant.value, Action = variant.action.Build() }).ToArray();
+      element.m_Type = ContextActionSelectByValue.SelectionType.Greatest;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSkillCheck"/>
+    /// </summary>
+    public static ActionsBuilder SkillCheck(
+        this ActionsBuilder builder,
+        StatType stat,
+        ContextValue? customDC = null,
+        List<(ConditionsBuilder condition, ContextValue value)>? dcModifiers = null,
+        ActionsBuilder? failure = null,
+        ActionsBuilder? success = null)
+    {
+      var element = ElementTool.Create<ContextActionSkillCheck>();
+      element.Stat = stat;
+      element.CustomDC = customDC ?? element.CustomDC;
+      element.UseCustomDC = customDC is not null;
+      if (element.CustomDC is null)
+      {
+        element.CustomDC = ContextValues.Constant(0);
+      }
+      element.m_ConditionalDCIncrease = dcModifiers?.Select(mod => new ContextActionSkillCheck.ConditionalDCIncrease { Condition = mod.condition.Build(), Value = mod.value })?.ToArray() ?? element.m_ConditionalDCIncrease;
+      if (element.m_ConditionalDCIncrease is null)
+      {
+        element.m_ConditionalDCIncrease = new ContextActionSkillCheck.ConditionalDCIncrease[0];
+      }
+      element.Failure = failure?.Build() ?? element.Failure;
+      if (element.Failure is null)
+      {
+        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.Success = success?.Build() ?? element.Success;
+      if (element.Success is null)
+      {
+        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.CalculateDCDifference = false;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSkillCheck"/>
+    /// </summary>
+    public static ActionsBuilder SkillCheckWithDegreesOfFailure(
+        this ActionsBuilder builder,
+        StatType stat,
+        ContextValue? customDC = null,
+        List<(ConditionsBuilder condition, ContextValue value)>? dcModifiers = null,
+        ActionsBuilder? failure = null,
+        ActionsBuilder? failureBy10orMore = null,
+        ActionsBuilder? failureBy5to10 = null,
+        ActionsBuilder? success = null)
+    {
+      var element = ElementTool.Create<ContextActionSkillCheck>();
+      element.Stat = stat;
+      element.CustomDC = customDC ?? element.CustomDC;
+      element.UseCustomDC = customDC is not null;
+      if (element.CustomDC is null)
+      {
+        element.CustomDC = ContextValues.Constant(0);
+      }
+      element.m_ConditionalDCIncrease = dcModifiers?.Select(mod => new ContextActionSkillCheck.ConditionalDCIncrease { Condition = mod.condition.Build(), Value = mod.value })?.ToArray() ?? element.m_ConditionalDCIncrease;
+      if (element.m_ConditionalDCIncrease is null)
+      {
+        element.m_ConditionalDCIncrease = new ContextActionSkillCheck.ConditionalDCIncrease[0];
+      }
+      element.Failure = failure?.Build() ?? element.Failure;
+      if (element.Failure is null)
+      {
+        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.FailureDiffMoreOrEqual10 = failureBy10orMore?.Build() ?? element.FailureDiffMoreOrEqual10;
+      if (element.FailureDiffMoreOrEqual10 is null)
+      {
+        element.FailureDiffMoreOrEqual10 = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.FailureDiffMoreOrEqual5Less10 = failureBy5to10?.Build() ?? element.FailureDiffMoreOrEqual5Less10;
+      if (element.FailureDiffMoreOrEqual5Less10 is null)
+      {
+        element.FailureDiffMoreOrEqual5Less10 = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.Success = success?.Build() ?? element.Success;
+      if (element.Success is null)
+      {
+        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
+      }
+      element.CalculateDCDifference = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityCustomSharedBurden"/>
     /// </summary>
     public static ActionsBuilder AbilityCustomSharedBurden(this ActionsBuilder builder)
@@ -2003,76 +2108,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       builder.Validate(target);
       element.m_Target = target ?? element.m_Target;
       element.m_UpToSpellLevel = upToSpellLevel ?? element.m_UpToSpellLevel;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSelectByValue"/>
-    /// </summary>
-    public static ActionsBuilder SelectByValue(
-        this ActionsBuilder builder,
-        ContextActionSelectByValue.SelectionType? type = null,
-        ContextActionSelectByValue.ValueAndAction[]? variants = null)
-    {
-      var element = ElementTool.Create<ContextActionSelectByValue>();
-      element.m_Type = type ?? element.m_Type;
-      element.m_Variants = variants ?? element.m_Variants;
-      if (element.m_Variants is null)
-      {
-        element.m_Variants = new ContextActionSelectByValue.ValueAndAction[0];
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextActionSkillCheck"/>
-    /// </summary>
-    public static ActionsBuilder SkillCheck(
-        this ActionsBuilder builder,
-        bool? calculateDCDifference = null,
-        ContextActionSkillCheck.ConditionalDCIncrease[]? conditionalDCIncrease = null,
-        ContextValue? customDC = null,
-        ActionsBuilder? failure = null,
-        ActionsBuilder? failureDiffMoreOrEqual10 = null,
-        ActionsBuilder? failureDiffMoreOrEqual5Less10 = null,
-        StatType? stat = null,
-        ActionsBuilder? success = null,
-        bool? useCustomDC = null)
-    {
-      var element = ElementTool.Create<ContextActionSkillCheck>();
-      element.CalculateDCDifference = calculateDCDifference ?? element.CalculateDCDifference;
-      element.m_ConditionalDCIncrease = conditionalDCIncrease ?? element.m_ConditionalDCIncrease;
-      if (element.m_ConditionalDCIncrease is null)
-      {
-        element.m_ConditionalDCIncrease = new ContextActionSkillCheck.ConditionalDCIncrease[0];
-      }
-      element.CustomDC = customDC ?? element.CustomDC;
-      if (element.CustomDC is null)
-      {
-        element.CustomDC = ContextValues.Constant(0);
-      }
-      element.Failure = failure?.Build() ?? element.Failure;
-      if (element.Failure is null)
-      {
-        element.Failure = BlueprintCore.Utils.Constants.Empty.Actions;
-      }
-      element.FailureDiffMoreOrEqual10 = failureDiffMoreOrEqual10?.Build() ?? element.FailureDiffMoreOrEqual10;
-      if (element.FailureDiffMoreOrEqual10 is null)
-      {
-        element.FailureDiffMoreOrEqual10 = BlueprintCore.Utils.Constants.Empty.Actions;
-      }
-      element.FailureDiffMoreOrEqual5Less10 = failureDiffMoreOrEqual5Less10?.Build() ?? element.FailureDiffMoreOrEqual5Less10;
-      if (element.FailureDiffMoreOrEqual5Less10 is null)
-      {
-        element.FailureDiffMoreOrEqual5Less10 = BlueprintCore.Utils.Constants.Empty.Actions;
-      }
-      element.Stat = stat ?? element.Stat;
-      element.Success = success?.Build() ?? element.Success;
-      if (element.Success is null)
-      {
-        element.Success = BlueprintCore.Utils.Constants.Empty.Actions;
-      }
-      element.UseCustomDC = useCustomDC ?? element.UseCustomDC;
       return builder.Add(element);
     }
 
