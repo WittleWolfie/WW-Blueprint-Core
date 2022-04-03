@@ -1,6 +1,6 @@
 ﻿using BlueprintCoreGen.CodeGen.Builders;
 using BlueprintCoreGen.CodeGen.Methods;
-using BlueprintCoreGen.CodeGen.Overrides.Actions;
+using BlueprintCoreGen.CodeGen.Overrides;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;

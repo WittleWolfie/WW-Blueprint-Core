@@ -70,12 +70,6 @@
     "Remarks": [
       "The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
     ],
-    "Examples": [
-      {
-        "BlueprintName": "SacredArmorEnchantSwitchAbility",
-        "BlueprintGuid": "66484ebb8d358db4692ef4445fa6ac35"
-      }
-    ],
     "Imports": [
       "BlueprintTool",
       "BlueprintItemEnchantment",
@@ -137,12 +131,6 @@
     "TypeName": "ContextActionShieldArmorEnchantPool",
     "Remarks": [
       "The caster's shield is enchanted based on its available enhancement bonus. e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
-    ],
-    "Examples": [
-      {
-        "BlueprintName": "SacredArmorShieldEnchantSwitchAbility",
-        "BlueprintGuid": "b0777d9974795a5489ff0efd735a4c2a"
-      }
     ],
     "Imports": [
       "BlueprintTool",
@@ -245,12 +233,6 @@
     "Remarks": [
       "The caster's weapon is enchanted based on its available enhancement bonus. e.g. If the weapon can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
     ],
-    "Examples": [
-      {
-        "BlueprintName": "SacredWeaponEnchantSwitchAbility",
-        "BlueprintGuid": "cca63747a12b55f44ad56ef2d840d7f4"
-      }
-    ],
     "Imports": [
       "BlueprintTool",
       "BlueprintItemEnchantment",
@@ -312,12 +294,6 @@
     "TypeName": "ContextActionShieldWeaponEnchantPool",
     "Remarks": [
       "The caster's shield is enchanted based on its available enhancement bonus. e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
-    ],
-    "Examples": [
-      {
-        "BlueprintName": "SacredWeaponShieldEnchantSwitchAbility",
-        "BlueprintGuid": "a89fc47958b895948a6c613ec1b9da85"
-      }
     ],
     "Imports": [
       "BlueprintTool",

@@ -3,7 +3,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using System;
 using System.Collections.Generic;
 
-namespace BlueprintCoreGen.CodeGen.Overrides.Actions
+namespace BlueprintCoreGen.CodeGen.Overrides
 {
   /// <summary>
   /// Stores types which should not be included in builders or configurators. Usually this indicates they are unused by

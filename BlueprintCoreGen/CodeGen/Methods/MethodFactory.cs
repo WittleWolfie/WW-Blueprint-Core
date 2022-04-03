@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Utils;
+using BlueprintCoreGen.CodeGen.Overrides;
 using BlueprintCoreGen.CodeGen.Params;
 using HarmonyLib;
 using Kingmaker.ElementsSystem;
@@ -64,26 +65,21 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddLine($"/// Adds <see cref=\"{elementTypeName}\"/>");
       method.AddLine($"/// </summary>");
 
-      // Remarks
-      if(methodOverride.Remarks.Any() || methodOverride.Examples.Any())
-      {
-        method.AddLine($"///");
-        method.AddLine($"/// <remarks>");
-        methodOverride.Remarks.ForEach(line => method.AddLine($"/// {line}"));
+      // Remarks & Examples
+      method.AddLine($"///");
+      method.AddLine($"/// <remarks>");
+      methodOverride.Remarks.ForEach(line => method.AddLine($"/// {line}"));
+      method.AddLine($"///");
 
-        if (methodOverride.Examples.Any())
-        {
-          method.AddLine($"///");
-          method.AddLine($"/// <list type=\"bullet\">");
-          method.AddLine($"/// <listheader>Used by</listheader>");
-          methodOverride.Examples.ForEach(
-            example =>
-              method.AddLine(
-                $"/// <item><term>{example.BlueprintName}</term><description>{example.BlueprintGuid}</description></item>"));
-          method.AddLine($"/// </list>");
-        }
-        method.AddLine($"/// </remarks>");
-      }
+      Examples.BuilderExamples.TryGetValue(elementType, out var examples);
+      method.AddLine($"/// <list type=\"bullet\">");
+      method.AddLine($"/// <listheader>Used by</listheader>");
+      methodOverride.Examples.ForEach(
+        example =>
+          method.AddLine(
+            $"/// <item><term>{example.BlueprintName}</term><description>{example.BlueprintGuid}</description></item>"));
+      method.AddLine($"/// </list>");
+      method.AddLine($"/// </remarks>");
 
       // Parameter comments
       var paramComments =

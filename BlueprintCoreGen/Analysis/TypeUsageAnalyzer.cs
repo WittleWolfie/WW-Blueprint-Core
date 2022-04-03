@@ -5,6 +5,7 @@ using Kingmaker.ElementsSystem;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -12,14 +13,15 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace BlueprintCoreGen.Analysis
 {
   public static class TypeUsageAnalyzer
   {
-    private static readonly Dictionary<string, Blueprint> BlueprintsByGuid = new();
+    // When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
+    private static readonly int DebugLimit = -1;
 
+    private static readonly Dictionary<string, Blueprint> BlueprintsByGuid = new();
     private static readonly Dictionary<Type, HashSet<Blueprint>> ExamplesByType = new();
 
     public static void Analyze(Type[] gameTypes)
@@ -31,7 +33,10 @@ namespace BlueprintCoreGen.Analysis
       ProcessUnusedTypes(typeof(BlueprintScriptableObject), gameTypes);
       ProcessUnusedTypes(typeof(BlueprintComponent), gameTypes);
 
-
+      ProcessExamples(typeof(GameAction));
+      ProcessExamples(typeof(Condition));
+      ProcessExamples(typeof(BlueprintScriptableObject));
+      ProcessExamples(typeof(BlueprintComponent));
     }
 
     private static void ProcessUnusedTypes(Type baseType, Type[] gameTypes)
@@ -43,6 +48,42 @@ namespace BlueprintCoreGen.Analysis
       File.WriteAllText($"{Program.AnalysisDir}/unused_{baseType.Name}.txt", unusedTypes.ToString());
     }
 
+    private static void ProcessExamples(Type baseType)
+    {
+      StringBuilder examples = new();
+      var entries = ExamplesByType.Where(entry => entry.Key.IsSubclassOf(baseType));
+      foreach (var entry in entries)
+      {
+        var sortedExamples = entry.Value.OrderBy(ex => ex.BlueprintName).ToList();
+        List<Blueprint> exampleBlueprints = new();
+        if (exampleBlueprints.Count > 3)
+        {
+          // Use the first, last, and middle blueprints as examples. This should keep things relatively stable between
+          // game patches and avoid biasing towards the first three entries alphabetically.
+          exampleBlueprints.Add(sortedExamples.First());
+          exampleBlueprints.Add(sortedExamples[sortedExamples.Count / 2]);
+          exampleBlueprints.Add(sortedExamples.Last());
+        }
+        else
+        {
+          exampleBlueprints.AddRange(sortedExamples);
+        }
+
+        examples.AppendLine("");
+        examples.AppendLine(@"        {");
+        examples.AppendLine($"          typeof({entry.Key.Name}),");
+        examples.AppendLine($"          new()");
+        examples.AppendLine(@"          {");
+        exampleBlueprints.ForEach(
+          ex => examples.AppendLine($"            new Blueprint(\"{ex.BlueprintName}\", \"{ex.BlueprintGuid}\"),"));
+        examples.AppendLine(@"          },");
+        examples.AppendLine(@"        },");
+      }
+      File.WriteAllText($"{Program.AnalysisDir}/examples_{baseType.Name}.txt", examples.ToString());
+    }
+
+    private static int ProcessedCount = 0;
+
     // Populates BlueprintsByGuid and ExamplesByType
     private static void ProcessDB()
     {
@@ -51,6 +92,12 @@ namespace BlueprintCoreGen.Analysis
       foreach (var entry in bpDump.Entries)
       {
         if (!entry.Name.EndsWith(".jbp")) { continue; }
+        ProcessedCount++;
+        if (DebugLimit > 0 && ProcessedCount > DebugLimit) { return; }
+        if (ProcessedCount % 100 == 0)
+        {
+          Console.WriteLine($"Progress: {ProcessedCount}/{bpDump.Entries.Count}");
+        }
 
         var stream =
           entry!
