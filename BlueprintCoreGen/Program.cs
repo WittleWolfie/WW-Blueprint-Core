@@ -11,6 +11,8 @@ namespace BlueprintCoreGen
 {
   class Program
   {
+    private static readonly string AnalysisDir = "Analysis";
+
     static void Main()
     {
       // Since the code doesn't reference assemblies, force load them for reflection
@@ -19,42 +21,49 @@ namespace BlueprintCoreGen
 
       TemplateProcessor.Run(gameTypes);
 
-      StringBuilder missingTypes = new();
+      StringBuilder unhandledTypes = new();
 
-      List<Type> actionsToGenerate = ProcessActions(gameTypes);
-      missingTypes.AppendLine("Missing Action Types:");
-      actionsToGenerate.ForEach(actionType => missingTypes.AppendLine($"// [Generate({actionType})]"));
+      List<Type> unhandledActions = ProcessActions(gameTypes);
+      unhandledTypes.AppendLine("Unhandled Action Types:");
+      unhandledActions.ForEach(actionType => unhandledTypes.AppendLine(actionType.ToString()));
+      unhandledTypes.AppendLine();
 
-      List<Type> conditionsToGenerate = ProcessConditions(gameTypes);
-      missingTypes.AppendLine();
-      missingTypes.AppendLine("Missing Condition Types:");
-      conditionsToGenerate.ForEach(conditionType => missingTypes.AppendLine($"// [Generate({conditionType})]"));
+      List<Type> unhandledConditions = ProcessConditions(gameTypes);
+      unhandledTypes.AppendLine("Unhandled Condition Types:");
+      unhandledConditions.ForEach(conditionType => unhandledTypes.AppendLine(conditionType.ToString()));
 
-      File.WriteAllText("missing_types.txt", missingTypes.ToString());
+      Directory.CreateDirectory(AnalysisDir);
+      File.WriteAllText($"{AnalysisDir}/unhandled_types.txt", unhandledTypes.ToString());
 
       TemplateProcessor.ConfiguratorClasses.ForEach(configuratorClass => WriteClassToFile(configuratorClass));
     }
 
+    /// <summary>
+    /// Generates ActionsBuilder extension classes, then returns a list of unhandled Action types.
+    /// </summary>
     private static List<Type> ProcessActions(Type[] gameTypes)
     {
       HashSet<Type> implementedActionTypes = new();
       foreach (IClassFile actionClass in TemplateProcessor.ActionClasses)
       {
         WriteClassToFile(actionClass);
-        implementedActionTypes.UnionWith(actionClass.GetImplementedTypes());
+        implementedActionTypes.UnionWith(actionClass.GetHandledTypes());
       }
-      return TemplateProcessor.GetMissingTypes(typeof(GameAction), implementedActionTypes, gameTypes);
+      return TemplateProcessor.GetUnhandledTypes(typeof(GameAction), implementedActionTypes, gameTypes);
     }
 
+    /// <summary>
+    /// Generates ConditionsBuilder extension classes, then returns a list of unhandled Condition types.
+    /// </summary>
     private static List<Type> ProcessConditions(Type[] gameTypes)
     {
       HashSet<Type> implementedConditionTypes = new();
       foreach (IClassFile conditionClass in TemplateProcessor.ConditionClasses)
       {
         WriteClassToFile(conditionClass);
-        implementedConditionTypes.UnionWith(conditionClass.GetImplementedTypes());
+        implementedConditionTypes.UnionWith(conditionClass.GetHandledTypes());
       }
-      return TemplateProcessor.GetMissingTypes(typeof(Condition), implementedConditionTypes, gameTypes);
+      return TemplateProcessor.GetUnhandledTypes(typeof(Condition), implementedConditionTypes, gameTypes);
     }
 
     private static void WriteClassToFile(IClassFile classToWrite)

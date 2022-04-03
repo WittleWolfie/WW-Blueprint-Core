@@ -1,5 +1,6 @@
 ﻿using BlueprintCoreGen.CodeGen.Builders;
 using BlueprintCoreGen.CodeGen.Methods;
+using BlueprintCoreGen.CodeGen.Overrides.Actions;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace BlueprintCoreGen.CodeGen
     /// <summary>
     /// Returns the types implemented in the class
     /// </summary>
-    List<Type> GetImplementedTypes();
+    List<Type> GetHandledTypes();
   }
 
   public static class ClassFactory
@@ -49,14 +50,18 @@ namespace BlueprintCoreGen.CodeGen
           builderMethod =>
           {
             Type type = AccessTools.TypeByName(builderMethod.TypeName)!;
-            extensionClass.AddImplementedType(type);
-            MethodFactory.CreateForBuilder(type, builderMethod).ForEach(
-                method =>
-                {
-                  method.GetImports().ForEach(import => extensionClass.AddImport(import));
-                  extensionClass.AddLine("");
-                  method.GetLines().ForEach(line => extensionClass.AddLine($"    {line}"));
-                });
+            extensionClass.AddHandledType(type);
+
+            if (!Ignored.BuilderTypes.Contains(type))
+            {
+              MethodFactory.CreateForBuilder(type, builderMethod).ForEach(
+                  method =>
+                  {
+                    method.GetImports().ForEach(import => extensionClass.AddImport(import));
+                    extensionClass.AddLine("");
+                    method.GetLines().ForEach(line => extensionClass.AddLine($"    {line}"));
+                  });
+            }
           });
 
       // Close out class and namespace
@@ -70,7 +75,7 @@ namespace BlueprintCoreGen.CodeGen
       public string FilePath { get; private set; }
 
       private readonly StringBuilder Text = new();
-      private readonly HashSet<Type> ImplementedTypes = new();
+      private readonly HashSet<Type> HandledTypes = new();
 
       private readonly HashSet<string> Imports = new() { "using BlueprintCore.Utils;" };
 
@@ -80,9 +85,9 @@ namespace BlueprintCoreGen.CodeGen
 
       }
 
-      public List<Type> GetImplementedTypes()
+      public List<Type> GetHandledTypes()
       {
-        return ImplementedTypes.ToList();
+        return HandledTypes.ToList();
       }
 
       public string GetText()
@@ -107,9 +112,9 @@ namespace BlueprintCoreGen.CodeGen
         Text.AppendLine(line);
       }
 
-      public void AddImplementedType(Type type)
+      public void AddHandledType(Type type)
       {
-        ImplementedTypes.Add(type);
+        HandledTypes.Add(type);
       }
     }
   }

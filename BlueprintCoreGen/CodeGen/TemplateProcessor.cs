@@ -30,18 +30,18 @@ namespace BlueprintCoreGen.CodeGen
       //ProcessBlueprintTemplates(templatesRoot, gameTypes);
     }
 
-    public static List<Type> GetMissingTypes(
-        Type baseType, ICollection<Type> implementedTypes, Type[] gameTypes, bool includeAbstractTypes = false)
+    public static List<Type> GetUnhandledTypes(
+        Type baseType, ICollection<Type> handledTypes, Type[] gameTypes, bool includeAbstractTypes = false)
     {
-      List<Type> missingTypes = new();
+      List<Type> unhandledTypes = new();
       foreach (Type type in gameTypes.Where(t => t.IsSubclassOf(baseType)))
       {
-        if (!implementedTypes.Contains(type) && (!type.IsAbstract || includeAbstractTypes))
+        if (!handledTypes.Contains(type) && (!type.IsAbstract || includeAbstractTypes))
         {
-          missingTypes.Add(type);
+          unhandledTypes.Add(type);
         }
       }
-      return missingTypes;
+      return unhandledTypes;
     }
 
     //private static void ProcessBlueprintTemplates(string templatesRoot, Type[] gameTypes)
