@@ -61,7 +61,51 @@ namespace BlueprintCoreGen.CodeGen.Builders
       return ConditionExtensions;
     }
 
-    private static readonly List<IBuilderExtension> ConditionExtensions = new();
+    private static readonly List<IBuilderExtension> ConditionExtensions =
+      new()
+      {
+        new ConditionExtension(
+          ExtensionType.AreaEx,
+          "Extension to <see cref=\"ConditionsBuilder\"/> for conditions involving the game map, dungeons, or locations."
+              + " See also <see cref=\"KingdomEx.ConditionsBuilderKingdomEx\">KingdomEx</see>.",
+          "AreaConditions.json"),
+
+        //new ConditionExtension(
+        //  ExtensionType.BasicEx,
+        //  "Extension to <see cref=\"ConditionsBuilder\"/> for most game mechanics related conditions not included in"
+        //      + " <see cref=\"ContextEx.ConditionsBuilderContextEx\">ContextEx</see>.",
+        //  "BasicConditions.json"),
+
+        //new ConditionExtension(
+        //  ExtensionType.ContextEx,
+        //  "Extension to <see cref=\"ConditionsBuilder\"/> for most <see cref=\"ContextCondition\"/> types. Some"
+        //      + " <see cref=\"ContextCondition\"/> types are in more specific extensions such as"
+        //      + " <see cref=\"KingdomEx.ConditionsBuilderKingdomEx\">KingdomEx</see>.",
+        //  "ContextConditions.json"),
+
+        //new ConditionExtension(
+        //  ExtensionType.KingdomEx,
+        //  "Extension to <see cref=\"ConditionsBuilder\"/> for conditions involving the Kingdom and Crusade system.",
+        //  "KingdomConditions.json"),
+
+        //new ConditionExtension(
+        //  ExtensionType.MiscEx,
+        //  "Extension to <see cref=\"ConditionsBuilder\"/> for conditions without a better extension container such as"
+        //      + " achievements vendor Conditions, and CustomEvent.",
+        //  "MiscConditions.json"),
+
+        //new ConditionExtension(
+        //  ExtensionType.NewEx,
+        //  "Extension to <see cref=\"ConditionsBuilder\"/> for conditions defined in BlueprintCore and not available in the"
+        //      + " base game.",
+        //  "NewConditions.json"),
+
+        //new ConditionExtension(
+        //  ExtensionType.StoryEx,
+        //  "Extension to <see cref=\"ConditionsBuilder\"/> for conditions related to the story such as companion stories,"
+        //      + " quests, name changes, and etudes.",
+        //  "StoryConditions.json"),
+      };
 
     private static readonly List<IBuilderExtension> ActionExtensions =
       new()
