@@ -39,65 +39,9 @@
 
 //  public class OldMethodFactory
 //  {
-//    private enum BuilderType
-//    {
-//      ActionsBuilder,
-//      ConditionsBuilder
-//    }
 
 //    private static readonly string BuilderValidationMethod = "builder.Validate";
 //    private static readonly string ConfiguratorValidationMethod = "ValidateParam";
-
-//    /// <summary>
-//    /// Creates a method for adding an Element to a Builder
-//    /// </summary>
-//    public static IMethod CreateForBuilder(Type elementType)
-//    {
-//      var builderType =
-//          elementType.IsSubclassOf(typeof(GameAction)) ? BuilderType.ActionsBuilder : BuilderType.ConditionsBuilder; 
-//      var elementTypeName = TypeTool.GetName(elementType);
-//      var fields =
-//          elementType.GetFields()
-//              .Select(field => FieldFactory.Create(field, elementType))
-//              .Where(field => field is not null)
-//              .ToList();
-
-//      var method = new Method();
-//      method.AddImport(elementType);
-//      method.AddImport(typeof(ElementTool));
-//      fields.ForEach(field => method.AddImports(field.Imports.ToList()));
-
-//      AddComments(
-//          method,
-//          "Adds",
-//          elementTypeName,
-//          fields.Select(field => field.Comment).Where(comment => comment is not null).ToList());
-//      AddAttributes(method, elementTypeName);
-
-//      if (!fields.Any())
-//      {
-//        method.AddLine($"public static {builderType} {elementTypeName}(this {builderType} builder)");
-//        method.AddLine($"{{");
-//        method.AddLine($"  return builder.Add(ElementTool.Create<{elementTypeName}>());");
-//        method.AddLine($"}}");
-//        return method;
-//      }
-
-//      method.AddLine($"public static {builderType} {elementTypeName}(");
-//      method.AddLine($"    this {builderType} builder,");
-
-//      AddParamDeclarations(method, fields);
-//      method.AddLine($"{{");
-
-//      AddValidation(method, fields, BuilderValidationMethod);
-
-//      method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
-//      fields.ForEach(field => field.GetAssignment("element").ForEach(assignment => method.AddLine($"  {assignment}")));
-
-//      method.AddLine($"  return builder.Add(element);");
-//      method.AddLine($"}}");
-//      return method;
-//    }
 
 //    private static void AddParamDeclarations(Method method, List<IField> fields)
 //    {
