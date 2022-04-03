@@ -1,0 +1,128 @@
+[
+  {
+    "TypeName": "ContextConditionHasBuffFromCaster",
+    "RequiredFields": [ "m_Buff" ]
+  },
+
+  {
+    "TypeName": "ContextConditionCasterHasFact",
+    "RequiredFields": [ "m_Fact" ]
+  },
+
+  {
+    "TypeName": "ContextConditionHasFact",
+    "RequiredFields": [ "m_Fact" ]
+  },
+
+  { "TypeName": "ContextConditionDistanceToTarget" },
+
+  { "TypeName": "ContextConditionAlignment" },
+
+  { "TypeName": "ContextConditionAlignmentDifference" },
+
+  { "TypeName": "ContextConditionAlive" },
+
+  { "TypeName": "ContextConditionBuffRank" },
+
+  { "TypeName": "ContextConditionCasterHasBuffWithDescriptor" },
+
+  { "TypeName": "ContextConditionCasterIsPartyEnemy" },
+
+  { "TypeName": "ContextConditionCasterWeaponInTwoHands" },
+
+  { "TypeName": "ContextConditionCharacterClass" },
+
+  { "TypeName": "ContextConditionCompare" },
+
+  { "TypeName": "ContextConditionCompareCasterHP" },
+
+  { "TypeName": "ContextConditionCompareTargetHP" },
+
+  { "TypeName": "ContextConditionFavoredEnemy" },
+
+  { "TypeName": "ContextConditionGender" },
+
+  { "TypeName": "ContextConditionHasBuff" },
+
+  { "TypeName": "ContextConditionHasBuffFromThisAreaEffect" },
+
+  { "TypeName": "ContextConditionHasBuffImmunityWithDescriptor" },
+
+  { "TypeName": "ContextConditionHasBuffWithDescriptor" },
+
+  { "TypeName": "ContextConditionHasItem" },
+
+  { "TypeName": "ContextConditionHasTouchSpellCharge" },
+
+  { "TypeName": "ContextConditionHasUniqueBuff" },
+
+  { "TypeName": "ContextConditionHitDice" },
+
+  { "TypeName": "ContextConditionIsAlly" },
+
+  { "TypeName": "ContextConditionIsAmuletEquipped" },
+
+  { "TypeName": "ContextConditionIsAnimalCompanion" },
+
+  { "TypeName": "ContextConditionIsCaster" },
+
+  { "TypeName": "ContextConditionIsEnemy" },
+
+  { "TypeName": "ContextConditionIsFlanked" },
+
+  { "TypeName": "ContextConditionIsFlatFooted" },
+
+  { "TypeName": "ContextConditionIsHelpless" },
+
+  { "TypeName": "ContextConditionIsInCombat" },
+
+  { "TypeName": "ContextConditionIsMainTarget" },
+
+  { "TypeName": "ContextConditionIsPartyMember" },
+
+  { "TypeName": "ContextConditionIsPetDead" },
+
+  { "TypeName": "ContextConditionIsRing1Equipped" },
+
+  { "TypeName": "ContextConditionIsRing2Equipped" },
+
+  { "TypeName": "ContextConditionIsShieldEquipped" },
+
+  { "TypeName": "ContextConditionIsTwoHandedEquipped" },
+
+  { "TypeName": "ContextConditionIsUnconscious" },
+
+  { "TypeName": "ContextConditionIsWeaponEquipped" },
+
+  { "TypeName": "ContextConditionMaximumBurn" },
+
+  { "TypeName": "ContextConditionPeaceful" },
+
+  { "TypeName": "ContextConditionSharedValueHigher" },
+
+  { "TypeName": "ContextConditionSharedValueHitDice" },
+
+  { "TypeName": "ContextConditionSize" },
+
+  { "TypeName": "ContextConditionStatValue" },
+
+  { "TypeName": "ContextConditionStealth" },
+
+  { "TypeName": "ContextConditionTargetCanSeeInvisible" },
+
+  { "TypeName": "ContextConditionTargetIsArcaneCaster" },
+
+  { "TypeName": "ContextConditionTargetIsBlueprint" },
+
+  { "TypeName": "ContextConditionTargetIsDivineCaster" },
+
+  { "TypeName": "ContextConditionTargetIsEngaged" },
+
+  { "TypeName": "ContextConditionTargetIsYourself" },
+
+  { "TypeName": "ContextConditionUnconsciousAllyFarThan" },
+
+  { "TypeName": "ContextConditionWeaponAnimationStyle" },
+
+  { "TypeName": "ContextSwarmHasEnemiesInInnerCircle" }
+]

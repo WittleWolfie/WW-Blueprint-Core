@@ -76,12 +76,12 @@ namespace BlueprintCoreGen.CodeGen.Builders
               + " <see cref=\"ContextEx.ConditionsBuilderContextEx\">ContextEx</see>.",
           "BasicConditions.json"),
 
-        //new ConditionExtension(
-        //  ExtensionType.ContextEx,
-        //  "Extension to <see cref=\"ConditionsBuilder\"/> for most <see cref=\"ContextCondition\"/> types. Some"
-        //      + " <see cref=\"ContextCondition\"/> types are in more specific extensions such as"
-        //      + " <see cref=\"KingdomEx.ConditionsBuilderKingdomEx\">KingdomEx</see>.",
-        //  "ContextConditions.json"),
+        new ConditionExtension(
+          ExtensionType.ContextEx,
+          "Extension to <see cref=\"ConditionsBuilder\"/> for most <see cref=\"ContextCondition\"/> types. Some"
+              + " <see cref=\"ContextCondition\"/> types are in more specific extensions such as"
+              + " <see cref=\"KingdomEx.ConditionsBuilderKingdomEx\">KingdomEx</see>.",
+          "ContextConditions.json"),
 
         //new ConditionExtension(
         //  ExtensionType.KingdomEx,

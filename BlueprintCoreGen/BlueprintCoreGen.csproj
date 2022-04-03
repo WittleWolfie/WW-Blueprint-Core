@@ -52,6 +52,9 @@
     <None Update="CodeGen\Overrides\Actions\ContextActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="CodeGen\Overrides\Conditions\ContextConditions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="CodeGen\Overrides\Conditions\BasicConditions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
