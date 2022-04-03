@@ -201,22 +201,6 @@ namespace BlueprintCore.Conditions.Builder
     }
 
     /// <summary>
-    /// Adds <see cref="GreaterThan"/>
-    /// </summary>
-    [Implements(typeof(GreaterThan))]
-    public ConditionsBuilder AddGreaterThan(FloatEvaluator Value, FloatEvaluator MinValue)
-    {
-      Validate(Value);
-      Validate(MinValue);
-
-      var element = ElementTool.Create<GreaterThan>();
-      element.FloatValues = true;
-      element.FloatValue = Value;
-      element.FloatMinValue = MinValue;
-      return Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="GreaterThan"/>, negated
     /// </summary>
     [Implements(typeof(GreaterThan))]
@@ -228,23 +212,6 @@ namespace BlueprintCore.Conditions.Builder
       var element = ElementTool.Create<GreaterThan>();
       element.Value = Value;
       element.MinValue = MinValue;
-      element.Not = true;
-      return Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="GreaterThan"/>, negated
-    /// </summary>
-    [Implements(typeof(GreaterThan))]
-    public ConditionsBuilder AddLessThanOrEqualTo(FloatEvaluator Value, FloatEvaluator MinValue)
-    {
-      Validate(Value);
-      Validate(MinValue);
-
-      var element = ElementTool.Create<GreaterThan>();
-      element.FloatValues = true;
-      element.FloatValue = Value;
-      element.FloatMinValue = MinValue;
       element.Not = true;
       return Add(element);
     }
@@ -296,22 +263,6 @@ namespace BlueprintCore.Conditions.Builder
     }
 
     /// <summary>
-    /// Adds <see cref="LessThan"/>
-    /// </summary>
-    [Implements(typeof(LessThan))]
-    public ConditionsBuilder AddLessThan(FloatEvaluator Value, FloatEvaluator MaxValue)
-    {
-      Validate(Value);
-      Validate(MaxValue);
-
-      var element = ElementTool.Create<LessThan>();
-      element.FloatValues = true;
-      element.FloatValue = Value;
-      element.FloatMaxValue = MaxValue;
-      return Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="LessThan"/>, negated
     /// </summary>
     [Implements(typeof(LessThan))]
@@ -325,24 +276,7 @@ namespace BlueprintCore.Conditions.Builder
       element.MaxValue = MaxValue;
       element.Not = true;
       return Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LessThan"/>, negated
-    /// </summary>
-    [Implements(typeof(LessThan))]
-    public ConditionsBuilder AddGreaterThanOrEqualTo(FloatEvaluator Value, FloatEvaluator MaxValue)
-    {
-      Validate(Value);
-      Validate(MaxValue);
-
-      var element = ElementTool.Create<LessThan>();
-      element.FloatValues = true;
-      element.FloatValue = Value;
-      element.FloatMaxValue = MaxValue;
-      element.Not = true;
-      return Add(element);
-    }
+    } 
 
     /// <summary>
     /// Adds <see cref="OrAndLogic"/>
