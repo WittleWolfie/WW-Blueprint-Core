@@ -1,0 +1,61 @@
+[
+  { "TypeName": "AlignmentCheck" },
+
+  { "TypeName": "AnotherEtudeOfGroupIsPlaying" },
+
+  { "TypeName": "AnswerListShown" },
+
+  { "TypeName": "AnswerSelected" },
+
+  { "TypeName": "BarkBanterPlayed" },
+
+  { "TypeName": "ChangeableDynamicIsLoaded" },
+
+  { "TypeName": "CheckFailed" },
+
+  { "TypeName": "CheckPassed" },
+
+  { "TypeName": "CheckUnitSeeUnit" },
+
+  { "TypeName": "CompanionStoryUnlocked" },
+
+  { "TypeName": "CueSeen" },
+
+  { "TypeName": "CurrentChapter" },
+
+  { "TypeName": "CutsceneQueueState" },
+
+  { "TypeName": "DayOfTheMonth" },
+
+  { "TypeName": "DayOfTheWeek" },
+
+  { "TypeName": "DayTime" },
+
+  { "TypeName": "DialogSeen" },
+
+  { "TypeName": "EtudeStatus" },
+
+  { "TypeName": "FlagInRange" },
+
+  { "TypeName": "FlagUnlocked" },
+
+  { "TypeName": "IsLegendPathSelected" },
+
+  { "TypeName": "MonthFromList" },
+
+  { "TypeName": "ObjectiveStatus" },
+
+  { "TypeName": "PlayerAlignmentIs" },
+
+  { "TypeName": "PlayerHasNoCharactersOnRoster" },
+
+  { "TypeName": "PlayerHasRecruitsOnRoster" },
+
+  { "TypeName": "PlayerSignificantClassIs" },
+
+  { "TypeName": "PlayerTopClassIs" },
+
+  { "TypeName": "QuestStatus" },
+
+  { "TypeName": "RomanceLocked" }
+]

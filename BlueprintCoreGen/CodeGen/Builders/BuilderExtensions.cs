@@ -100,11 +100,11 @@ namespace BlueprintCoreGen.CodeGen.Builders
               + " base game.",
           "NewConditions.json"),
 
-        //new ConditionExtension(
-        //  ExtensionType.StoryEx,
-        //  "Extension to <see cref=\"ConditionsBuilder\"/> for conditions related to the story such as companion stories,"
-        //      + " quests, name changes, and etudes.",
-        //  "StoryConditions.json"),
+        new ConditionExtension(
+          ExtensionType.StoryEx,
+          "Extension to <see cref=\"ConditionsBuilder\"/> for conditions related to the story such as companion stories,"
+              + " quests, name changes, and etudes.",
+          "StoryConditions.json"),
       };
 
     private static readonly List<IBuilderExtension> ActionExtensions =
