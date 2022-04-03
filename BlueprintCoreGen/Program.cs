@@ -1,4 +1,5 @@
-﻿using BlueprintCoreGen.CodeGen;
+﻿using BlueprintCoreGen.Analysis;
+using BlueprintCoreGen.CodeGen;
 using HarmonyLib;
 using Kingmaker.ElementsSystem;
 using System;
@@ -11,13 +12,22 @@ namespace BlueprintCoreGen
 {
   class Program
   {
-    private static readonly string AnalysisDir = "Analysis";
+    // Run this once after each patch to re-generate ignored types and usage examples. Skips code gen.
+    private static readonly bool RunTypeUsageAnalysis = true;
+
+    public static readonly string AnalysisDir = "Analysis";
 
     static void Main()
     {
       // Since the code doesn't reference assemblies, force load them for reflection
       var gameTypes = AccessTools.GetTypesFromAssembly(Assembly.Load("Assembly-CSharp"));
       Assembly.Load("BlueprintCore");
+
+      if (RunTypeUsageAnalysis)
+      {
+        TypeUsageAnalyzer.Analyze(gameTypes);
+        return;
+      }
 
       TemplateProcessor.Run(gameTypes);
 

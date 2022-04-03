@@ -16,6 +16,12 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
     [JsonProperty]
     public string BlueprintGuid { get; private set; } = string.Empty;
+
+    public Blueprint(string name, string guid)
+    {
+      BlueprintName = name;
+      BlueprintGuid = guid;
+    }
   }
 
   /// <summary>
