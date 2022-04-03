@@ -94,11 +94,11 @@ namespace BlueprintCoreGen.CodeGen.Builders
               + " achievements vendor Conditions, and CustomEvent.",
           "MiscConditions.json"),
 
-        //new ConditionExtension(
-        //  ExtensionType.NewEx,
-        //  "Extension to <see cref=\"ConditionsBuilder\"/> for conditions defined in BlueprintCore and not available in the"
-        //      + " base game.",
-        //  "NewConditions.json"),
+        new ConditionExtension(
+          ExtensionType.NewEx,
+          "Extension to <see cref=\"ConditionsBuilder\"/> for conditions defined in BlueprintCore and not available in the"
+              + " base game.",
+          "NewConditions.json"),
 
         //new ConditionExtension(
         //  ExtensionType.StoryEx,
