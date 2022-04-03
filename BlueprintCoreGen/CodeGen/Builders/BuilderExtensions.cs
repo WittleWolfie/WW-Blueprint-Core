@@ -83,10 +83,10 @@ namespace BlueprintCoreGen.CodeGen.Builders
               + " <see cref=\"KingdomEx.ConditionsBuilderKingdomEx\">KingdomEx</see>.",
           "ContextConditions.json"),
 
-        //new ConditionExtension(
-        //  ExtensionType.KingdomEx,
-        //  "Extension to <see cref=\"ConditionsBuilder\"/> for conditions involving the Kingdom and Crusade system.",
-        //  "KingdomConditions.json"),
+        new ConditionExtension(
+          ExtensionType.KingdomEx,
+          "Extension to <see cref=\"ConditionsBuilder\"/> for conditions involving the Kingdom and Crusade system.",
+          "KingdomConditions.json"),
 
         //new ConditionExtension(
         //  ExtensionType.MiscEx,

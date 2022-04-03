@@ -1,0 +1,73 @@
+[
+  { "TypeName": "AnySettlementUnderSiege" },
+
+  { "TypeName": "ArmyInLocationDefeated" },
+
+  { "TypeName": "AutoKingdom" },
+
+  { "TypeName": "BuildingHasNeighbours" },
+
+  { "TypeName": "ContextConditionGarrisonClear" },
+
+  { "TypeName": "DaysTillNextMonth" },
+
+  { "TypeName": "EventLifetime" },
+
+  { "TypeName": "HasTacticalMorale" },
+
+  { "TypeName": "KingdomAlignmentIs" },
+
+  { "TypeName": "KingdomAllArmiesInRegionDefeated" },
+
+  { "TypeName": "KingdomArtisanState" },
+
+  { "TypeName": "KingdomBuffIsActive" },
+
+  { "TypeName": "KingdomChapterWeek" },
+
+  { "TypeName": "KingdomDay" },
+
+  { "TypeName": "KingdomEventCanStart" },
+
+  { "TypeName": "KingdomEventIsActive" },
+
+  { "TypeName": "KingdomEventIsBeingResolved" },
+
+  { "TypeName": "KingdomExists" },
+
+  { "TypeName": "KingdomHasResolvableEvent" },
+
+  { "TypeName": "KingdomHasUpgradeableSettlement" },
+
+  { "TypeName": "KingdomIsVisible" },
+
+  { "TypeName": "KingdomLeaderIs" },
+
+  { "TypeName": "KingdomMoraleFlagCondition" },
+
+  { "TypeName": "KingdomProjectIsAvailable" },
+
+  { "TypeName": "KingdomProjectIsDone" },
+
+  { "TypeName": "KingdomRankUpConditions" },
+
+  { "TypeName": "KingdomRegionIsConquered" },
+
+  { "TypeName": "KingdomRegionIsUpgraded" },
+
+  { "TypeName": "KingdomSettlementCount" },
+
+  { "TypeName": "KingdomSettlementHasBuilding" },
+
+  { "TypeName": "KingdomStatCheck" },
+
+  { "TypeName": "KingdomStatIsMaximum" },
+
+  { "TypeName": "KingdomTaskResolvedBy" },
+
+  { "TypeName": "KingdomUnrestCheck" },
+
+  { "TypeName": "TacticalCombatSquadHitPointsCondition" },
+
+  { "TypeName": "TargetHasArmyTag" }
+]

@@ -1,15 +1,21 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
+using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
+using Kingmaker.Kingdom.Artisans;
+using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Conditions;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System.Collections.Generic;
 using System.Linq;
-#nullable enable
+
 namespace BlueprintCore.Conditions.Builder.KingdomEx
 {
   /// <summary>
@@ -18,85 +24,10 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
   /// <inheritdoc cref="ConditionsBuilder"/>
   public static class ConditionsBuilderKingdomEx
   {
-    //----- Auto Generated -----//
 
     /// <summary>
-    /// Adds <see cref="HasTacticalMorale"/> (Auto Generated)
+    /// Adds <see cref="AnySettlementUnderSiege"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(HasTacticalMorale))]
-    public static ConditionsBuilder HasTacticalMorale(
-        this ConditionsBuilder builder,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<HasTacticalMorale>();
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TacticalCombatSquadHitPointsCondition"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(TacticalCombatSquadHitPointsCondition))]
-    public static ConditionsBuilder TacticalCombatSquadHitPointsCondition(
-        this ConditionsBuilder builder,
-        bool checkInitiatorHP = default,
-        CompareOperation.Type operation = default,
-        ContextValue? referenceValue = null,
-        bool negate = false)
-    {
-      builder.Validate(referenceValue);
-
-      var element = ElementTool.Create<TacticalCombatSquadHitPointsCondition>();
-      element.CheckInitiatorHP = checkInitiatorHP;
-      element.Operation = operation;
-      element.ReferenceValue = referenceValue ?? ContextValues.Constant(0);
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TargetHasArmyTag"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(TargetHasArmyTag))]
-    public static ConditionsBuilder TargetHasArmyTag(
-        this ConditionsBuilder builder,
-        ArmyProperties tags = default,
-        bool needAllTags = default,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<TargetHasArmyTag>();
-      element.m_Tags = tags;
-      element.m_NeedAllTags = needAllTags;
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextConditionGarrisonClear"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="globalMapPoint"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
-    [Implements(typeof(ContextConditionGarrisonClear))]
-    public static ConditionsBuilder ContextConditionGarrisonClear(
-        this ConditionsBuilder builder,
-        string? globalMapPoint = null,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<ContextConditionGarrisonClear>();
-      element.m_GlobalMapPoint = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(globalMapPoint);
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AnySettlementUnderSiege"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(AnySettlementUnderSiege))]
     public static ConditionsBuilder AnySettlementUnderSiege(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -107,48 +38,37 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomMoraleFlagCondition"/> (Auto Generated)
+    /// Adds <see cref="ArmyInLocationDefeated"/>
     /// </summary>
     ///
-    /// <param name="flag"><see cref="Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag"/></param>
-    [Generated]
-    [Implements(typeof(KingdomMoraleFlagCondition))]
-    public static ConditionsBuilder KingdomMoraleFlagCondition(
-        this ConditionsBuilder builder,
-        string? flag = null,
-        KingdomMoraleFlag.State state = default,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<KingdomMoraleFlagCondition>();
-      element.m_Flag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(flag);
-      element.m_State = state;
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ArmyInLocationDefeated"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
-    [Implements(typeof(ArmyInLocationDefeated))]
+    /// <param name="location">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder ArmyInLocationDefeated(
         this ConditionsBuilder builder,
-        string? location = null,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>? location = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ArmyInLocationDefeated>();
-      element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(location);
+      element.m_Location = location?.Reference ?? element.m_Location;
+      if (element.m_Location is null)
+      {
+        element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(null);
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="AutoKingdom"/> (Auto Generated)
+    /// Adds <see cref="AutoKingdom"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(AutoKingdom))]
     public static ConditionsBuilder AutoKingdom(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -159,234 +79,366 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="BuildingHasNeighbours"/> (Auto Generated)
+    /// Adds <see cref="BuildingHasNeighbours"/>
     /// </summary>
     ///
-    /// <param name="specificBuildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(BuildingHasNeighbours))]
+    /// <param name="specificBuildings">
+    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder BuildingHasNeighbours(
         this ConditionsBuilder builder,
-        string[]? specificBuildings = null,
-        bool anywhereInTown = default,
-        bool negate = false)
+        bool? anywhereInTown = null,
+        bool negate = false,
+        List<Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>>? specificBuildings = null)
     {
       var element = ElementTool.Create<BuildingHasNeighbours>();
-      element.m_SpecificBuildings = specificBuildings.Select(name => BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(name)).ToArray();
-      element.AnywhereInTown = anywhereInTown;
+      element.AnywhereInTown = anywhereInTown ?? element.AnywhereInTown;
+      element.Not = negate;
+      element.m_SpecificBuildings = specificBuildings?.Select(bp => bp.Reference)?.ToArray() ?? element.m_SpecificBuildings;
+      if (element.m_SpecificBuildings is null)
+      {
+        element.m_SpecificBuildings = new BlueprintSettlementBuildingReference[0];
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextConditionGarrisonClear"/>
+    /// </summary>
+    ///
+    /// <param name="globalMapPoint">
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ConditionsBuilder ContextConditionGarrisonClear(
+        this ConditionsBuilder builder,
+        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>? globalMapPoint = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<ContextConditionGarrisonClear>();
+      element.m_GlobalMapPoint = globalMapPoint?.Reference ?? element.m_GlobalMapPoint;
+      if (element.m_GlobalMapPoint is null)
+      {
+        element.m_GlobalMapPoint = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(null);
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="DaysTillNextMonth"/> (Auto Generated)
+    /// Adds <see cref="DaysTillNextMonth"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(DaysTillNextMonth))]
     public static ConditionsBuilder DaysTillNextMonth(
         this ConditionsBuilder builder,
-        bool atMost = default,
-        int days = default,
+        bool? atMost = null,
+        int? days = null,
         bool negate = false)
     {
       var element = ElementTool.Create<DaysTillNextMonth>();
-      element.AtMost = atMost;
-      element.Days = days;
+      element.AtMost = atMost ?? element.AtMost;
+      element.Days = days ?? element.Days;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="EventLifetime"/> (Auto Generated)
+    /// Adds <see cref="EventLifetime"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(EventLifetime))]
     public static ConditionsBuilder EventLifetime(
         this ConditionsBuilder builder,
-        int lessThan = default,
-        int moreThan = default,
+        int? lessThan = null,
+        int? moreThan = null,
         bool negate = false)
     {
       var element = ElementTool.Create<EventLifetime>();
-      element.LessThan = lessThan;
-      element.MoreThan = moreThan;
+      element.LessThan = lessThan ?? element.LessThan;
+      element.MoreThan = moreThan ?? element.MoreThan;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomAlignmentIs"/> (Auto Generated)
+    /// Adds <see cref="HasTacticalMorale"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomAlignmentIs))]
+    public static ConditionsBuilder HasTacticalMorale(
+        this ConditionsBuilder builder,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<HasTacticalMorale>();
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomAlignmentIs"/>
+    /// </summary>
     public static ConditionsBuilder KingdomAlignmentIs(
         this ConditionsBuilder builder,
-        AlignmentMaskType alignment = default,
+        AlignmentMaskType? alignment = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomAlignmentIs>();
-      element.Alignment = alignment;
+      element.Alignment = alignment ?? element.Alignment;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomAllArmiesInRegionDefeated"/> (Auto Generated)
+    /// Adds <see cref="KingdomAllArmiesInRegionDefeated"/>
     /// </summary>
     ///
-    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
-    [Generated]
-    [Implements(typeof(KingdomAllArmiesInRegionDefeated))]
+    /// <param name="region">
+    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomAllArmiesInRegionDefeated(
         this ConditionsBuilder builder,
-        string? region = null,
-        bool negate = false)
+        bool negate = false,
+        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomAllArmiesInRegionDefeated>();
-      element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(region);
       element.Not = negate;
+      element.m_Region = region?.Reference ?? element.m_Region;
+      if (element.m_Region is null)
+      {
+        element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomArtisanState"/> (Auto Generated)
+    /// Adds <see cref="KingdomArtisanState"/>
     /// </summary>
     ///
-    /// <param name="artisan"><see cref="Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan"/></param>
-    [Generated]
-    [Implements(typeof(KingdomArtisanState))]
+    /// <param name="artisan">
+    /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomArtisanState(
         this ConditionsBuilder builder,
-        string? artisan = null,
-        KingdomArtisanState.CheckType _Check = default,
-        int tier = default,
-        bool negate = false)
+        KingdomArtisanState.CheckType? _Check = null,
+        Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>? artisan = null,
+        bool negate = false,
+        int? tier = null)
     {
       var element = ElementTool.Create<KingdomArtisanState>();
-      element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(artisan);
-      element._Check = _Check;
-      element.Tier = tier;
+      element._Check = _Check ?? element._Check;
+      element.m_Artisan = artisan?.Reference ?? element.m_Artisan;
+      if (element.m_Artisan is null)
+      {
+        element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
+      }
       element.Not = negate;
+      element.Tier = tier ?? element.Tier;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomBuffIsActive"/> (Auto Generated)
+    /// Adds <see cref="KingdomBuffIsActive"/>
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff"/></param>
-    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
-    [Generated]
-    [Implements(typeof(KingdomBuffIsActive))]
+    /// <param name="blueprint">
+    /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="region">
+    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomBuffIsActive(
         this ConditionsBuilder builder,
-        string? blueprint = null,
-        string? region = null,
-        bool negate = false)
+        Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>? blueprint = null,
+        bool negate = false,
+        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomBuffIsActive>();
-      element.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(blueprint);
-      element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(region);
+      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
+      if (element.m_Blueprint is null)
+      {
+        element.m_Blueprint = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(null);
+      }
       element.Not = negate;
+      element.m_Region = region?.Reference ?? element.m_Region;
+      if (element.m_Region is null)
+      {
+        element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomChapterWeek"/> (Auto Generated)
+    /// Adds <see cref="KingdomChapterWeek"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomChapterWeek))]
     public static ConditionsBuilder KingdomChapterWeek(
         this ConditionsBuilder builder,
-        int week = default,
-        bool negate = false)
+        bool negate = false,
+        int? week = null)
     {
       var element = ElementTool.Create<KingdomChapterWeek>();
-      element.Week = week;
       element.Not = negate;
+      element.Week = week ?? element.Week;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomDay"/> (Auto Generated)
+    /// Adds <see cref="KingdomDay"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomDay))]
     public static ConditionsBuilder KingdomDay(
         this ConditionsBuilder builder,
-        bool atMost = default,
-        int day = default,
+        bool? atMost = null,
+        int? day = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomDay>();
-      element.AtMost = atMost;
-      element.Day = day;
+      element.AtMost = atMost ?? element.AtMost;
+      element.Day = day ?? element.Day;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomEventCanStart"/> (Auto Generated)
+    /// Adds <see cref="KingdomEventCanStart"/>
     /// </summary>
     ///
-    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
-    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
-    [Generated]
-    [Implements(typeof(KingdomEventCanStart))]
+    /// <param name="eventValue">
+    /// Blueprint of type BlueprintKingdomEvent. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="region">
+    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomEventCanStart(
         this ConditionsBuilder builder,
-        string? eventValue = null,
-        string? region = null,
-        bool negate = false)
+        Blueprint<BlueprintKingdomEvent, BlueprintKingdomEventReference>? eventValue = null,
+        bool negate = false,
+        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomEventCanStart>();
-      element.m_Event = BlueprintTool.GetRef<BlueprintKingdomEventReference>(eventValue);
-      element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(region);
+      element.m_Event = eventValue?.Reference ?? element.m_Event;
+      if (element.m_Event is null)
+      {
+        element.m_Event = BlueprintTool.GetRef<BlueprintKingdomEventReference>(null);
+      }
       element.Not = negate;
+      element.m_Region = region?.Reference ?? element.m_Region;
+      if (element.m_Region is null)
+      {
+        element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomEventIsActive"/> (Auto Generated)
+    /// Adds <see cref="KingdomEventIsActive"/>
     /// </summary>
     ///
-    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
-    [Generated]
-    [Implements(typeof(KingdomEventIsActive))]
+    /// <param name="eventValue">
+    /// Blueprint of type BlueprintKingdomEvent. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomEventIsActive(
         this ConditionsBuilder builder,
-        string? eventValue = null,
+        Blueprint<BlueprintKingdomEvent, BlueprintKingdomEventReference>? eventValue = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomEventIsActive>();
-      element.m_Event = BlueprintTool.GetRef<BlueprintKingdomEventReference>(eventValue);
+      element.m_Event = eventValue?.Reference ?? element.m_Event;
+      if (element.m_Event is null)
+      {
+        element.m_Event = BlueprintTool.GetRef<BlueprintKingdomEventReference>(null);
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomEventIsBeingResolved"/> (Auto Generated)
+    /// Adds <see cref="KingdomEventIsBeingResolved"/>
     /// </summary>
     ///
-    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
-    [Generated]
-    [Implements(typeof(KingdomEventIsBeingResolved))]
+    /// <param name="eventValue">
+    /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomEventIsBeingResolved(
         this ConditionsBuilder builder,
-        string? eventValue = null,
+        Blueprint<BlueprintKingdomEventBase, BlueprintKingdomEventBaseReference>? eventValue = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomEventIsBeingResolved>();
-      element.m_Event = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(eventValue);
+      element.m_Event = eventValue?.Reference ?? element.m_Event;
+      if (element.m_Event is null)
+      {
+        element.m_Event = BlueprintTool.GetRef<BlueprintKingdomEventBaseReference>(null);
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomExists"/> (Auto Generated)
+    /// Adds <see cref="KingdomExists"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomExists))]
     public static ConditionsBuilder KingdomExists(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -397,10 +449,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomHasResolvableEvent"/> (Auto Generated)
+    /// Adds <see cref="KingdomHasResolvableEvent"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomHasResolvableEvent))]
     public static ConditionsBuilder KingdomHasResolvableEvent(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -411,30 +461,39 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomHasUpgradeableSettlement"/> (Auto Generated)
+    /// Adds <see cref="KingdomHasUpgradeableSettlement"/>
     /// </summary>
     ///
-    /// <param name="specificSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    [Generated]
-    [Implements(typeof(KingdomHasUpgradeableSettlement))]
+    /// <param name="specificSettlement">
+    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomHasUpgradeableSettlement(
         this ConditionsBuilder builder,
-        SettlementState.LevelType level = default,
-        string? specificSettlement = null,
-        bool negate = false)
+        SettlementState.LevelType? level = null,
+        bool negate = false,
+        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? specificSettlement = null)
     {
       var element = ElementTool.Create<KingdomHasUpgradeableSettlement>();
-      element.Level = level;
-      element.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(specificSettlement);
+      element.Level = level ?? element.Level;
       element.Not = negate;
+      element.m_SpecificSettlement = specificSettlement?.Reference ?? element.m_SpecificSettlement;
+      if (element.m_SpecificSettlement is null)
+      {
+        element.m_SpecificSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomIsVisible"/> (Auto Generated)
+    /// Adds <see cref="KingdomIsVisible"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomIsVisible))]
     public static ConditionsBuilder KingdomIsVisible(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -445,234 +504,387 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomLeaderIs"/> (Auto Generated)
+    /// Adds <see cref="KingdomLeaderIs"/>
     /// </summary>
     ///
-    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(KingdomLeaderIs))]
+    /// <param name="unit">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomLeaderIs(
         this ConditionsBuilder builder,
-        LeaderType leader = default,
-        string? unit = null,
-        bool allowCustomCompanions = default,
-        bool negate = false)
+        bool? allowCustomCompanions = null,
+        LeaderType? leader = null,
+        bool negate = false,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<KingdomLeaderIs>();
-      element.Leader = leader;
-      element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
-      element.AllowCustomCompanions = allowCustomCompanions;
+      element.AllowCustomCompanions = allowCustomCompanions ?? element.AllowCustomCompanions;
+      element.Leader = leader ?? element.Leader;
       element.Not = negate;
+      element.m_Unit = unit?.Reference ?? element.m_Unit;
+      if (element.m_Unit is null)
+      {
+        element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomProjectIsAvailable"/> (Auto Generated)
+    /// Adds <see cref="KingdomMoraleFlagCondition"/>
     /// </summary>
     ///
-    /// <param name="project"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
-    [Generated]
-    [Implements(typeof(KingdomProjectIsAvailable))]
+    /// <param name="flag">
+    /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ConditionsBuilder KingdomMoraleFlagCondition(
+        this ConditionsBuilder builder,
+        Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>? flag = null,
+        bool negate = false,
+        KingdomMoraleFlag.State? state = null)
+    {
+      var element = ElementTool.Create<KingdomMoraleFlagCondition>();
+      element.m_Flag = flag?.Reference ?? element.m_Flag;
+      if (element.m_Flag is null)
+      {
+        element.m_Flag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(null);
+      }
+      element.Not = negate;
+      element.m_State = state ?? element.m_State;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KingdomProjectIsAvailable"/>
+    /// </summary>
+    ///
+    /// <param name="project">
+    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomProjectIsAvailable(
         this ConditionsBuilder builder,
-        string? project = null,
-        bool checkResources = default,
-        bool checkLeader = default,
-        bool finishableThisMonth = default,
-        bool negate = false)
+        bool? checkLeader = null,
+        bool? checkResources = null,
+        bool? finishableThisMonth = null,
+        bool negate = false,
+        Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>? project = null)
     {
       var element = ElementTool.Create<KingdomProjectIsAvailable>();
-      element.m_Project = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(project);
-      element.CheckResources = checkResources;
-      element.CheckLeader = checkLeader;
-      element.FinishableThisMonth = finishableThisMonth;
+      element.CheckLeader = checkLeader ?? element.CheckLeader;
+      element.CheckResources = checkResources ?? element.CheckResources;
+      element.FinishableThisMonth = finishableThisMonth ?? element.FinishableThisMonth;
       element.Not = negate;
+      element.m_Project = project?.Reference ?? element.m_Project;
+      if (element.m_Project is null)
+      {
+        element.m_Project = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomProjectIsDone"/> (Auto Generated)
+    /// Adds <see cref="KingdomProjectIsDone"/>
     /// </summary>
     ///
-    /// <param name="project"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
-    [Generated]
-    [Implements(typeof(KingdomProjectIsDone))]
+    /// <param name="project">
+    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomProjectIsDone(
         this ConditionsBuilder builder,
-        string? project = null,
-        bool negate = false)
+        bool negate = false,
+        Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>? project = null)
     {
       var element = ElementTool.Create<KingdomProjectIsDone>();
-      element.m_Project = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(project);
       element.Not = negate;
+      element.m_Project = project?.Reference ?? element.m_Project;
+      if (element.m_Project is null)
+      {
+        element.m_Project = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomRankUpConditions"/> (Auto Generated)
+    /// Adds <see cref="KingdomRankUpConditions"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomRankUpConditions))]
     public static ConditionsBuilder KingdomRankUpConditions(
         this ConditionsBuilder builder,
-        KingdomStats.Type stat = default,
-        int nextRank = default,
-        bool negate = false)
+        bool negate = false,
+        int? nextRank = null,
+        KingdomStats.Type? stat = null)
     {
       var element = ElementTool.Create<KingdomRankUpConditions>();
-      element.Stat = stat;
-      element.NextRank = nextRank;
       element.Not = negate;
+      element.NextRank = nextRank ?? element.NextRank;
+      element.Stat = stat ?? element.Stat;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomRegionIsConquered"/> (Auto Generated)
+    /// Adds <see cref="KingdomRegionIsConquered"/>
     /// </summary>
     ///
-    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
-    [Generated]
-    [Implements(typeof(KingdomRegionIsConquered))]
+    /// <param name="region">
+    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomRegionIsConquered(
         this ConditionsBuilder builder,
-        string? region = null,
-        bool negate = false)
+        bool negate = false,
+        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomRegionIsConquered>();
-      element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(region);
       element.Not = negate;
+      element.m_Region = region?.Reference ?? element.m_Region;
+      if (element.m_Region is null)
+      {
+        element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomRegionIsUpgraded"/> (Auto Generated)
+    /// Adds <see cref="KingdomRegionIsUpgraded"/>
     /// </summary>
     ///
-    /// <param name="region"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
-    /// <param name="eventValue"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomUpgrade"/></param>
-    [Generated]
-    [Implements(typeof(KingdomRegionIsUpgraded))]
+    /// <param name="eventValue">
+    /// Blueprint of type BlueprintKingdomUpgrade. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="region">
+    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomRegionIsUpgraded(
         this ConditionsBuilder builder,
-        string? region = null,
-        string? eventValue = null,
-        bool negate = false)
+        Blueprint<BlueprintKingdomUpgrade, BlueprintKingdomUpgradeReference>? eventValue = null,
+        bool negate = false,
+        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomRegionIsUpgraded>();
-      element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(region);
-      element.m_Event = BlueprintTool.GetRef<BlueprintKingdomUpgradeReference>(eventValue);
+      element.m_Event = eventValue?.Reference ?? element.m_Event;
+      if (element.m_Event is null)
+      {
+        element.m_Event = BlueprintTool.GetRef<BlueprintKingdomUpgradeReference>(null);
+      }
       element.Not = negate;
+      element.m_Region = region?.Reference ?? element.m_Region;
+      if (element.m_Region is null)
+      {
+        element.m_Region = BlueprintTool.GetRef<BlueprintRegionReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomSettlementCount"/> (Auto Generated)
+    /// Adds <see cref="KingdomSettlementCount"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomSettlementCount))]
     public static ConditionsBuilder KingdomSettlementCount(
         this ConditionsBuilder builder,
-        SettlementState.LevelType minLevel = default,
-        int count = default,
+        int? count = null,
+        SettlementState.LevelType? minLevel = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomSettlementCount>();
-      element.MinLevel = minLevel;
-      element.Count = count;
+      element.Count = count ?? element.Count;
+      element.MinLevel = minLevel ?? element.MinLevel;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomSettlementHasBuilding"/> (Auto Generated)
+    /// Adds <see cref="KingdomSettlementHasBuilding"/>
     /// </summary>
     ///
-    /// <param name="settlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    /// <param name="building"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(KingdomSettlementHasBuilding))]
+    /// <param name="building">
+    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    /// <param name="settlement">
+    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder KingdomSettlementHasBuilding(
         this ConditionsBuilder builder,
-        string? settlement = null,
-        string? building = null,
-        bool negate = false)
+        Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>? building = null,
+        bool negate = false,
+        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? settlement = null)
     {
       var element = ElementTool.Create<KingdomSettlementHasBuilding>();
-      element.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(settlement);
-      element.m_Building = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(building);
+      element.m_Building = building?.Reference ?? element.m_Building;
+      if (element.m_Building is null)
+      {
+        element.m_Building = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(null);
+      }
       element.Not = negate;
+      element.m_Settlement = settlement?.Reference ?? element.m_Settlement;
+      if (element.m_Settlement is null)
+      {
+        element.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomStatCheck"/> (Auto Generated)
+    /// Adds <see cref="KingdomStatCheck"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomStatCheck))]
     public static ConditionsBuilder KingdomStatCheck(
         this ConditionsBuilder builder,
-        KingdomStats.Type statType = default,
-        int value = default,
-        bool atMost = default,
-        bool checkRank = default,
-        bool negate = false)
+        bool? atMost = null,
+        bool? checkRank = null,
+        bool negate = false,
+        KingdomStats.Type? statType = null,
+        int? value = null)
     {
       var element = ElementTool.Create<KingdomStatCheck>();
-      element.StatType = statType;
-      element.Value = value;
-      element.AtMost = atMost;
-      element.CheckRank = checkRank;
+      element.AtMost = atMost ?? element.AtMost;
+      element.CheckRank = checkRank ?? element.CheckRank;
       element.Not = negate;
+      element.StatType = statType ?? element.StatType;
+      element.Value = value ?? element.Value;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomStatIsMaximum"/> (Auto Generated)
+    /// Adds <see cref="KingdomStatIsMaximum"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomStatIsMaximum))]
     public static ConditionsBuilder KingdomStatIsMaximum(
         this ConditionsBuilder builder,
-        KingdomStats.Type statType = default,
-        bool negate = false)
+        bool negate = false,
+        KingdomStats.Type? statType = null)
     {
       var element = ElementTool.Create<KingdomStatIsMaximum>();
-      element.StatType = statType;
       element.Not = negate;
+      element.StatType = statType ?? element.StatType;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomTaskResolvedBy"/> (Auto Generated)
+    /// Adds <see cref="KingdomTaskResolvedBy"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomTaskResolvedBy))]
     public static ConditionsBuilder KingdomTaskResolvedBy(
         this ConditionsBuilder builder,
         LeaderType[]? leaders = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomTaskResolvedBy>();
-      element.Leaders = leaders;
+      element.Leaders = leaders ?? element.Leaders;
+      if (element.Leaders is null)
+      {
+        element.Leaders = new LeaderType[0];
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomUnrestCheck"/> (Auto Generated)
+    /// Adds <see cref="KingdomUnrestCheck"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomUnrestCheck))]
     public static ConditionsBuilder KingdomUnrestCheck(
         this ConditionsBuilder builder,
-        KingdomStatusType value = default,
-        bool atMost = default,
-        bool negate = false)
+        bool? atMost = null,
+        bool negate = false,
+        KingdomStatusType? value = null)
     {
       var element = ElementTool.Create<KingdomUnrestCheck>();
-      element.Value = value;
-      element.AtMost = atMost;
+      element.AtMost = atMost ?? element.AtMost;
       element.Not = negate;
+      element.Value = value ?? element.Value;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TacticalCombatSquadHitPointsCondition"/>
+    /// </summary>
+    public static ConditionsBuilder TacticalCombatSquadHitPointsCondition(
+        this ConditionsBuilder builder,
+        bool? checkInitiatorHP = null,
+        bool negate = false,
+        CompareOperation.Type? operation = null,
+        ContextValue? referenceValue = null)
+    {
+      var element = ElementTool.Create<TacticalCombatSquadHitPointsCondition>();
+      element.CheckInitiatorHP = checkInitiatorHP ?? element.CheckInitiatorHP;
+      element.Not = negate;
+      element.Operation = operation ?? element.Operation;
+      element.ReferenceValue = referenceValue ?? element.ReferenceValue;
+      if (element.ReferenceValue is null)
+      {
+        element.ReferenceValue = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TargetHasArmyTag"/>
+    /// </summary>
+    public static ConditionsBuilder TargetHasArmyTag(
+        this ConditionsBuilder builder,
+        bool? needAllTags = null,
+        bool negate = false,
+        ArmyProperties? tags = null)
+    {
+      var element = ElementTool.Create<TargetHasArmyTag>();
+      element.m_NeedAllTags = needAllTags ?? element.m_NeedAllTags;
+      element.Not = negate;
+      element.m_Tags = tags ?? element.m_Tags;
       return builder.Add(element);
     }
   }
