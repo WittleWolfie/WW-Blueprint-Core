@@ -39,13 +39,25 @@
     "RequiredFields": [ "MapObject" ]
   },
 
+  { "TypeName": "ActionEnterToDungeon" },
+
+  { "TypeName": "ActionGoDeeperIntoDungeon" },
+
+  { "TypeName": "ActionIncreaseDungeonStage" },
+
+  { "TypeName": "ActionSetDungeonStage" },
+
+  { "TypeName": "AskPlayerForLocationName" },
+
   { "TypeName": "CapitalExit" },
 
   { "TypeName": "DecreaseCorruptionLevelAction" },
 
-  { "TypeName": "AskPlayerForLocationName" },
-
   { "TypeName": "EndAreaEffects" },
+
+  { "TypeName": "GameActionSetIsleLock" },
+
+  { "TypeName": "GameActionSetIsleState" },
 
   { "TypeName": "GlobalMapTeleport" },
 
@@ -107,17 +119,5 @@
 
   { "TypeName": "UnlockLocation" },
 
-  { "TypeName": "UnlockMapEdge" },
-
-  { "TypeName": "ActionEnterToDungeon" },
-
-  { "TypeName": "ActionGoDeeperIntoDungeon" },
-
-  { "TypeName": "ActionIncreaseDungeonStage" },
-
-  { "TypeName": "ActionSetDungeonStage" },
-
-  { "TypeName": "GameActionSetIsleLock" },
-
-  { "TypeName": "GameActionSetIsleState" }
+  { "TypeName": "UnlockMapEdge" }
 ]
