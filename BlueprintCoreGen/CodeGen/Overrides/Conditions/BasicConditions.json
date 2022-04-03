@@ -1,0 +1,71 @@
+[
+  { "TypeName": "BuffConditionCheckRoundNumber" },
+
+  { "TypeName": "CheckConditionsHolder" },
+
+  { "TypeName": "CheckItemCondition" },
+
+  { "TypeName": "Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionInParty" },
+
+  { "TypeName": "CompanionIsDead" },
+
+  { "TypeName": "CompanionIsLost" },
+
+  { "TypeName": "CompanionIsUnconscious" },
+
+  { "TypeName": "CheckLos" },
+
+  { "TypeName": "DualCompanionInactive" },
+
+  { "TypeName": "HasBuff" },
+
+  { "TypeName": "HasFact" },
+
+  { "TypeName": "IsEnemy" },
+
+  { "TypeName": "IsInCombat" },
+
+  { "TypeName": "IsInTurnBasedCombat" },
+
+  { "TypeName": "IsPartyMember" },
+
+  { "TypeName": "IsUnconscious" },
+
+  { "TypeName": "IsUnitLevelLessThan" },
+
+  { "TypeName": "ItemBlueprint" },
+
+  { "TypeName": "ItemFromCollectionCondition" },
+
+  { "TypeName": "ItemsEnough" },
+
+  { "TypeName": "PartyCanUseAbility" },
+
+  { "TypeName": "PartyUnits" },
+
+  { "TypeName": "PcFemale" },
+
+  { "TypeName": "PcMale" },
+
+  { "TypeName": "PcRace" },
+
+  { "TypeName": "SummonPoolExistsAndEmpty" },
+
+  { "TypeName": "UnitIsDead" },
+
+  { "TypeName": "UnitIsHidden" },
+
+  { "TypeName": "UnitBlueprint" },
+
+  { "TypeName": "UnitClass" },
+
+  { "TypeName": "UnitEqual" },
+
+  { "TypeName": "UnitFromSpawnerIsDead" },
+
+  { "TypeName": "UnitFromSummonPool" },
+
+  { "TypeName": "UnitGender" },
+
+  { "TypeName": "UnitIsNull" }
+]

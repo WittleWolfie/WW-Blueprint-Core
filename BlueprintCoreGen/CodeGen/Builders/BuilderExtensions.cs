@@ -70,11 +70,11 @@ namespace BlueprintCoreGen.CodeGen.Builders
               + " See also <see cref=\"KingdomEx.ConditionsBuilderKingdomEx\">KingdomEx</see>.",
           "AreaConditions.json"),
 
-        //new ConditionExtension(
-        //  ExtensionType.BasicEx,
-        //  "Extension to <see cref=\"ConditionsBuilder\"/> for most game mechanics related conditions not included in"
-        //      + " <see cref=\"ContextEx.ConditionsBuilderContextEx\">ContextEx</see>.",
-        //  "BasicConditions.json"),
+        new ConditionExtension(
+          ExtensionType.BasicEx,
+          "Extension to <see cref=\"ConditionsBuilder\"/> for most game mechanics related conditions not included in"
+              + " <see cref=\"ContextEx.ConditionsBuilderContextEx\">ContextEx</see>.",
+          "BasicConditions.json"),
 
         //new ConditionExtension(
         //  ExtensionType.ContextEx,

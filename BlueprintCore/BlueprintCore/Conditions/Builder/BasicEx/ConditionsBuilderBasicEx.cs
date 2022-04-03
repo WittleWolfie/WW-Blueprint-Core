@@ -1,300 +1,372 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Conditions;
-#nullable enable
+
 namespace BlueprintCore.Conditions.Builder.BasicEx
 {
   /// <summary>
-  /// Extension to <see cref="ConditionsBuilder"/> for most game mechanics related conditions not included in
-  /// <see cref="ContextEx.ConditionsBuilderContextEx">ContextEx</see>.
+  /// Extension to <see cref="ConditionsBuilder"/> for most game mechanics related conditions not included in <see cref="ContextEx.ConditionsBuilderContextEx">ContextEx</see>.
   /// </summary>
   /// <inheritdoc cref="ConditionsBuilder"/>
   public static class ConditionsBuilderBasicEx
   {
-    //----- Auto Generated -----//
 
     /// <summary>
-    /// Adds <see cref="DualCompanionInactive"/> (Auto Generated)
+    /// Adds <see cref="BuffConditionCheckRoundNumber"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(DualCompanionInactive))]
-    public static ConditionsBuilder DualCompanionInactive(
-        this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        bool negate = false)
-    {
-      builder.Validate(unit);
-
-      var element = ElementTool.Create<DualCompanionInactive>();
-      element.Unit = unit;
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffConditionCheckRoundNumber"/> (Auto Generated)
-    /// </summary>
-    [Generated]
-    [Implements(typeof(BuffConditionCheckRoundNumber))]
     public static ConditionsBuilder BuffConditionCheckRoundNumber(
         this ConditionsBuilder builder,
-        int roundNumber = default,
-        bool negate = false)
+        bool negate = false,
+        int? roundNumber = null)
     {
       var element = ElementTool.Create<BuffConditionCheckRoundNumber>();
-      element.RoundNumber = roundNumber;
       element.Not = negate;
+      element.RoundNumber = roundNumber ?? element.RoundNumber;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="CheckConditionsHolder"/> (Auto Generated)
+    /// Adds <see cref="CheckConditionsHolder"/>
     /// </summary>
     ///
-    /// <param name="conditionsHolder"><see cref="Kingmaker.ElementsSystem.ConditionsHolder"/></param>
-    [Generated]
-    [Implements(typeof(CheckConditionsHolder))]
+    /// <param name="conditionsHolder">
+    /// Blueprint of type ConditionsHolder. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder CheckConditionsHolder(
         this ConditionsBuilder builder,
-        ParametrizedContextSetter parameters,
-        string? conditionsHolder = null,
-        bool negate = false)
+        Blueprint<ConditionsHolder, ConditionsReference>? conditionsHolder = null,
+        bool negate = false,
+        ParametrizedContextSetter? parameters = null)
     {
-      builder.Validate(parameters);
-
       var element = ElementTool.Create<CheckConditionsHolder>();
-      element.ConditionsHolder = BlueprintTool.GetRef<ConditionsReference>(conditionsHolder);
-      element.Parameters = parameters;
+      element.ConditionsHolder = conditionsHolder?.Reference ?? element.ConditionsHolder;
+      if (element.ConditionsHolder is null)
+      {
+        element.ConditionsHolder = BlueprintTool.GetRef<ConditionsReference>(null);
+      }
       element.Not = negate;
+      builder.Validate(parameters);
+      element.Parameters = parameters ?? element.Parameters;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="CheckItemCondition"/> (Auto Generated)
+    /// Adds <see cref="CheckItemCondition"/>
     /// </summary>
     ///
-    /// <param name="targetItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(CheckItemCondition))]
+    /// <param name="targetItem">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder CheckItemCondition(
         this ConditionsBuilder builder,
-        UnitEvaluator unitEvaluator,
-        string? targetItem = null,
-        CheckItemCondition.RequiredState requiredState = default,
-        bool negate = false)
+        bool negate = false,
+        CheckItemCondition.RequiredState? requiredState = null,
+        Blueprint<BlueprintItem, BlueprintItemReference>? targetItem = null,
+        UnitEvaluator? unitEvaluator = null)
     {
-      builder.Validate(unitEvaluator);
-
       var element = ElementTool.Create<CheckItemCondition>();
-      element.m_TargetItem = BlueprintTool.GetRef<BlueprintItemReference>(targetItem);
-      element.m_RequiredState = requiredState;
-      element.m_UnitEvaluator = unitEvaluator;
       element.Not = negate;
+      element.m_RequiredState = requiredState ?? element.m_RequiredState;
+      element.m_TargetItem = targetItem?.Reference ?? element.m_TargetItem;
+      if (element.m_TargetItem is null)
+      {
+        element.m_TargetItem = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      builder.Validate(unitEvaluator);
+      element.m_UnitEvaluator = unitEvaluator ?? element.m_UnitEvaluator;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="CompanionInParty"/> (Auto Generated)
+    /// Adds <see cref="CompanionInParty"/>
     /// </summary>
     ///
-    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(CompanionInParty))]
+    /// <param name="companion">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder CompanionInParty(
         this ConditionsBuilder builder,
-        string? companion = null,
-        bool matchWhenActive = default,
-        bool matchWhenDetached = default,
-        bool matchWhenRemote = default,
-        bool matchWhenDead = default,
-        bool matchWhenEx = default,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
+        bool? matchWhenActive = null,
+        bool? matchWhenDead = null,
+        bool? matchWhenDetached = null,
+        bool? matchWhenEx = null,
+        bool? matchWhenRemote = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionInParty>();
-      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
-      element.MatchWhenActive = matchWhenActive;
-      element.MatchWhenDetached = matchWhenDetached;
-      element.MatchWhenRemote = matchWhenRemote;
-      element.MatchWhenDead = matchWhenDead;
-      element.MatchWhenEx = matchWhenEx;
+      element.m_companion = companion?.Reference ?? element.m_companion;
+      if (element.m_companion is null)
+      {
+        element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      element.MatchWhenActive = matchWhenActive ?? element.MatchWhenActive;
+      element.MatchWhenDead = matchWhenDead ?? element.MatchWhenDead;
+      element.MatchWhenDetached = matchWhenDetached ?? element.MatchWhenDetached;
+      element.MatchWhenEx = matchWhenEx ?? element.MatchWhenEx;
+      element.MatchWhenRemote = matchWhenRemote ?? element.MatchWhenRemote;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="CompanionIsDead"/> (Auto Generated)
+    /// Adds <see cref="CompanionIsDead"/>
     /// </summary>
     ///
-    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(CompanionIsDead))]
+    /// <param name="companion">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder CompanionIsDead(
         this ConditionsBuilder builder,
-        string? companion = null,
-        bool anyCompanion = default,
+        bool? anyCompanion = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionIsDead>();
-      element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
-      element.anyCompanion = anyCompanion;
+      element.anyCompanion = anyCompanion ?? element.anyCompanion;
+      element.m_companion = companion?.Reference ?? element.m_companion;
+      if (element.m_companion is null)
+      {
+        element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="CompanionIsLost"/> (Auto Generated)
+    /// Adds <see cref="CompanionIsLost"/>
     /// </summary>
     ///
-    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(CompanionIsLost))]
+    /// <param name="companion">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder CompanionIsLost(
         this ConditionsBuilder builder,
-        string? companion = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionIsLost>();
-      element.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+      element.m_Companion = companion?.Reference ?? element.m_Companion;
+      if (element.m_Companion is null)
+      {
+        element.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="CompanionIsUnconscious"/> (Auto Generated)
+    /// Adds <see cref="CompanionIsUnconscious"/>
     /// </summary>
     ///
-    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(CompanionIsUnconscious))]
+    /// <param name="companion">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder CompanionIsUnconscious(
         this ConditionsBuilder builder,
-        string? companion = null,
-        bool anyCompanion = default,
+        bool? anyCompanion = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionIsUnconscious>();
-      element.companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
-      element.anyCompanion = anyCompanion;
+      element.anyCompanion = anyCompanion ?? element.anyCompanion;
+      element.companion = companion?.Reference ?? element.companion;
+      if (element.companion is null)
+      {
+        element.companion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="CheckLos"/> (Auto Generated)
+    /// Adds <see cref="CheckLos"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(CheckLos))]
     public static ConditionsBuilder CheckLos(
         this ConditionsBuilder builder,
-        PositionEvaluator point1,
-        PositionEvaluator point2,
-        bool negate = false)
+        bool negate = false,
+        PositionEvaluator? point1 = null,
+        PositionEvaluator? point2 = null)
     {
-      builder.Validate(point1);
-      builder.Validate(point2);
-
       var element = ElementTool.Create<CheckLos>();
-      element.Point1 = point1;
-      element.Point2 = point2;
       element.Not = negate;
+      builder.Validate(point1);
+      element.Point1 = point1 ?? element.Point1;
+      builder.Validate(point2);
+      element.Point2 = point2 ?? element.Point2;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="HasBuff"/> (Auto Generated)
+    /// Adds <see cref="DualCompanionInactive"/>
+    /// </summary>
+    public static ConditionsBuilder DualCompanionInactive(
+        this ConditionsBuilder builder,
+        bool negate = false,
+        UnitEvaluator? unit = null)
+    {
+      var element = ElementTool.Create<DualCompanionInactive>();
+      element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HasBuff"/>
     /// </summary>
     ///
-    /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(HasBuff))]
+    /// <param name="buff">
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder HasBuff(
         this ConditionsBuilder builder,
-        UnitEvaluator target,
-        string? buff = null,
-        bool negate = false)
+        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        bool negate = false,
+        UnitEvaluator? target = null)
     {
-      builder.Validate(target);
-
       var element = ElementTool.Create<HasBuff>();
-      element.Target = target;
-      element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
+      element.m_Buff = buff?.Reference ?? element.m_Buff;
+      if (element.m_Buff is null)
+      {
+        element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
       element.Not = negate;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="HasFact"/> (Auto Generated)
+    /// Adds <see cref="HasFact"/>
     /// </summary>
     ///
-    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(HasFact))]
+    /// <param name="fact">
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder HasFact(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        string? fact = null,
-        bool negate = false)
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
+        bool negate = false,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<HasFact>();
-      element.Unit = unit;
-      element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(fact);
+      element.m_Fact = fact?.Reference ?? element.m_Fact;
+      if (element.m_Fact is null)
+      {
+        element.m_Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
       element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="IsEnemy"/> (Auto Generated)
+    /// Adds <see cref="IsEnemy"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(IsEnemy))]
     public static ConditionsBuilder IsEnemy(
         this ConditionsBuilder builder,
-        UnitEvaluator firstUnit,
-        UnitEvaluator secondUnit,
-        bool negate = false)
+        UnitEvaluator? firstUnit = null,
+        bool negate = false,
+        UnitEvaluator? secondUnit = null)
     {
-      builder.Validate(firstUnit);
-      builder.Validate(secondUnit);
-
       var element = ElementTool.Create<IsEnemy>();
-      element.FirstUnit = firstUnit;
-      element.SecondUnit = secondUnit;
+      builder.Validate(firstUnit);
+      element.FirstUnit = firstUnit ?? element.FirstUnit;
       element.Not = negate;
+      builder.Validate(secondUnit);
+      element.SecondUnit = secondUnit ?? element.SecondUnit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="IsInCombat"/> (Auto Generated)
+    /// Adds <see cref="IsInCombat"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(IsInCombat))]
     public static ConditionsBuilder IsInCombat(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        bool player = default,
-        bool negate = false)
+        bool negate = false,
+        bool? player = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<IsInCombat>();
-      element.Unit = unit;
-      element.Player = player;
       element.Not = negate;
+      element.Player = player ?? element.Player;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="IsInTurnBasedCombat"/> (Auto Generated)
+    /// Adds <see cref="IsInTurnBasedCombat"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(IsInTurnBasedCombat))]
     public static ConditionsBuilder IsInTurnBasedCombat(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -305,172 +377,182 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="IsPartyMember"/> (Auto Generated)
+    /// Adds <see cref="IsPartyMember"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(IsPartyMember))]
     public static ConditionsBuilder IsPartyMember(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        bool negate = false)
+        bool negate = false,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<IsPartyMember>();
-      element.Unit = unit;
       element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="IsUnconscious"/> (Auto Generated)
+    /// Adds <see cref="IsUnconscious"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(IsUnconscious))]
     public static ConditionsBuilder IsUnconscious(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        bool negate = false)
+        bool negate = false,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<IsUnconscious>();
-      element.Unit = unit;
       element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="IsUnitLevelLessThan"/> (Auto Generated)
+    /// Adds <see cref="IsUnitLevelLessThan"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(IsUnitLevelLessThan))]
     public static ConditionsBuilder IsUnitLevelLessThan(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        int level = default,
-        bool checkExperience = default,
-        bool negate = false)
+        bool? checkExperience = null,
+        int? level = null,
+        bool negate = false,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<IsUnitLevelLessThan>();
-      element.Unit = unit;
-      element.Level = level;
-      element.CheckExperience = checkExperience;
+      element.CheckExperience = checkExperience ?? element.CheckExperience;
+      element.Level = level ?? element.Level;
       element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ItemBlueprint"/> (Auto Generated)
+    /// Adds <see cref="ItemBlueprint"/>
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(ItemBlueprint))]
+    /// <param name="blueprint">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder ItemBlueprint(
         this ConditionsBuilder builder,
-        ItemEvaluator item,
-        string? blueprint = null,
+        Blueprint<BlueprintItem, BlueprintItemReference>? blueprint = null,
+        ItemEvaluator? item = null,
         bool negate = false)
     {
-      builder.Validate(item);
-
       var element = ElementTool.Create<ItemBlueprint>();
-      element.Item = item;
-      element.Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(blueprint);
+      element.Blueprint = blueprint?.Reference ?? element.Blueprint;
+      if (element.Blueprint is null)
+      {
+        element.Blueprint = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      builder.Validate(item);
+      element.Item = item ?? element.Item;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ItemFromCollectionCondition"/> (Auto Generated)
+    /// Adds <see cref="ItemFromCollectionCondition"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(ItemFromCollectionCondition))]
     public static ConditionsBuilder ItemFromCollectionCondition(
         this ConditionsBuilder builder,
-        ItemsCollectionEvaluator items,
-        bool any = default,
+        bool? any = null,
         ConditionsBuilder? condition = null,
+        ItemsCollectionEvaluator? items = null,
         bool negate = false)
     {
-      builder.Validate(items);
-
       var element = ElementTool.Create<ItemFromCollectionCondition>();
-      element.Items = items;
-      element.Any = any;
-      element.Condition = condition?.Build() ?? Constants.Empty.Conditions;
+      element.Any = any ?? element.Any;
+      element.Condition = condition?.Build() ?? element.Condition;
+      if (element.Condition is null)
+      {
+        element.Condition = Utils.Constants.Empty.Conditions;
+      }
+      builder.Validate(items);
+      element.Items = items ?? element.Items;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="ItemsEnough"/> (Auto Generated)
+    /// Adds <see cref="ItemsEnough"/>
     /// </summary>
     ///
-    /// <param name="itemToCheck"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(ItemsEnough))]
+    /// <param name="itemToCheck">
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder ItemsEnough(
         this ConditionsBuilder builder,
-        bool money = default,
-        string? itemToCheck = null,
-        int quantity = default,
-        bool negate = false)
+        Blueprint<BlueprintItem, BlueprintItemReference>? itemToCheck = null,
+        bool? money = null,
+        bool negate = false,
+        int? quantity = null)
     {
       var element = ElementTool.Create<ItemsEnough>();
-      element.Money = money;
-      element.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(itemToCheck);
-      element.Quantity = quantity;
+      element.m_ItemToCheck = itemToCheck?.Reference ?? element.m_ItemToCheck;
+      if (element.m_ItemToCheck is null)
+      {
+        element.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      element.Money = money ?? element.Money;
       element.Not = negate;
+      element.Quantity = quantity ?? element.Quantity;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PartyCanUseAbility"/> (Auto Generated)
+    /// Adds <see cref="PartyCanUseAbility"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PartyCanUseAbility))]
     public static ConditionsBuilder PartyCanUseAbility(
         this ConditionsBuilder builder,
-        AbilitiesHelper.AbilityDescription description,
-        bool allowItems = default,
+        bool? allowItems = null,
+        AbilitiesHelper.AbilityDescription? description = null,
         bool negate = false)
     {
-      builder.Validate(description);
-
       var element = ElementTool.Create<PartyCanUseAbility>();
-      element.Description = description;
-      element.AllowItems = allowItems;
+      element.AllowItems = allowItems ?? element.AllowItems;
+      builder.Validate(description);
+      element.Description = description ?? element.Description;
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PartyUnits"/> (Auto Generated)
+    /// Adds <see cref="PartyUnits"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PartyUnits))]
     public static ConditionsBuilder PartyUnits(
         this ConditionsBuilder builder,
-        bool any = default,
+        bool? any = null,
         ConditionsBuilder? conditions = null,
         bool negate = false)
     {
       var element = ElementTool.Create<PartyUnits>();
-      element.Any = any;
-      element.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
+      element.Any = any ?? element.Any;
+      element.Conditions = conditions?.Build() ?? element.Conditions;
+      if (element.Conditions is null)
+      {
+        element.Conditions = Utils.Constants.Empty.Conditions;
+      }
       element.Not = negate;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="PcFemale"/> (Auto Generated)
+    /// Adds <see cref="PcFemale"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PcFemale))]
     public static ConditionsBuilder PcFemale(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -481,10 +563,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="PcMale"/> (Auto Generated)
+    /// Adds <see cref="PcMale"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PcMale))]
     public static ConditionsBuilder PcMale(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -495,225 +575,246 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="PcRace"/> (Auto Generated)
+    /// Adds <see cref="PcRace"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(PcRace))]
     public static ConditionsBuilder PcRace(
         this ConditionsBuilder builder,
-        Race race = default,
-        bool negate = false)
+        bool negate = false,
+        Race? race = null)
     {
       var element = ElementTool.Create<PcRace>();
-      element.Race = race;
       element.Not = negate;
+      element.Race = race ?? element.Race;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="SummonPoolExistsAndEmpty"/> (Auto Generated)
+    /// Adds <see cref="SummonPoolExistsAndEmpty"/>
     /// </summary>
     ///
-    /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
-    [Generated]
-    [Implements(typeof(SummonPoolExistsAndEmpty))]
+    /// <param name="summonPool">
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder SummonPoolExistsAndEmpty(
         this ConditionsBuilder builder,
-        string? summonPool = null,
-        bool negate = false)
+        bool negate = false,
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<SummonPoolExistsAndEmpty>();
-      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       element.Not = negate;
+      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
+      if (element.m_SummonPool is null)
+      {
+        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
+      }
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitIsDead"/> (Auto Generated)
+    /// Adds <see cref="UnitIsDead"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitIsDead))]
     public static ConditionsBuilder UnitIsDead(
         this ConditionsBuilder builder,
-        UnitEvaluator target,
-        bool negate = false)
+        bool negate = false,
+        UnitEvaluator? target = null)
     {
-      builder.Validate(target);
-
       var element = ElementTool.Create<UnitIsDead>();
-      element.Target = target;
       element.Not = negate;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitIsHidden"/> (Auto Generated)
+    /// Adds <see cref="UnitIsHidden"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitIsHidden))]
     public static ConditionsBuilder UnitIsHidden(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        bool negate = false)
+        bool negate = false,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<UnitIsHidden>();
-      element.Unit = unit;
       element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitBlueprint"/> (Auto Generated)
+    /// Adds <see cref="UnitBlueprint"/>
     /// </summary>
     ///
-    /// <param name="blueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(UnitBlueprint))]
+    /// <param name="blueprint">
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder UnitBlueprint(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        string? blueprint = null,
-        bool negate = false)
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
+        bool negate = false,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<UnitBlueprint>();
-      element.Unit = unit;
-      element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(blueprint);
+      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
+      if (element.m_Blueprint is null)
+      {
+        element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
       element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitClass"/> (Auto Generated)
+    /// Adds <see cref="UnitClass"/>
     /// </summary>
     ///
-    /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(UnitClass))]
+    /// <param name="clazz">
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder UnitClass(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        IntEvaluator minLevel,
-        IntEvaluator maxLevel,
-        string? clazz = null,
-        bool limitMinLevel = default,
-        bool limitMaxLevel = default,
-        bool negate = false)
+        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
+        bool? limitMaxLevel = null,
+        bool? limitMinLevel = null,
+        IntEvaluator? maxLevel = null,
+        IntEvaluator? minLevel = null,
+        bool negate = false,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-      builder.Validate(minLevel);
-      builder.Validate(maxLevel);
-
       var element = ElementTool.Create<UnitClass>();
-      element.Unit = unit;
-      element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(clazz);
-      element.LimitMinLevel = limitMinLevel;
-      element.MinLevel = minLevel;
-      element.LimitMaxLevel = limitMaxLevel;
-      element.MaxLevel = maxLevel;
+      element.m_Class = clazz?.Reference ?? element.m_Class;
+      if (element.m_Class is null)
+      {
+        element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      element.LimitMaxLevel = limitMaxLevel ?? element.LimitMaxLevel;
+      element.LimitMinLevel = limitMinLevel ?? element.LimitMinLevel;
+      builder.Validate(maxLevel);
+      element.MaxLevel = maxLevel ?? element.MaxLevel;
+      builder.Validate(minLevel);
+      element.MinLevel = minLevel ?? element.MinLevel;
       element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitEqual"/> (Auto Generated)
+    /// Adds <see cref="UnitEqual"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitEqual))]
     public static ConditionsBuilder UnitEqual(
         this ConditionsBuilder builder,
-        UnitEvaluator firstUnit,
-        UnitEvaluator secondUnit,
-        bool negate = false)
+        UnitEvaluator? firstUnit = null,
+        bool negate = false,
+        UnitEvaluator? secondUnit = null)
     {
-      builder.Validate(firstUnit);
-      builder.Validate(secondUnit);
-
       var element = ElementTool.Create<UnitEqual>();
-      element.FirstUnit = firstUnit;
-      element.SecondUnit = secondUnit;
+      builder.Validate(firstUnit);
+      element.FirstUnit = firstUnit ?? element.FirstUnit;
       element.Not = negate;
+      builder.Validate(secondUnit);
+      element.SecondUnit = secondUnit ?? element.SecondUnit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitFromSpawnerIsDead"/> (Auto Generated)
+    /// Adds <see cref="UnitFromSpawnerIsDead"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitFromSpawnerIsDead))]
     public static ConditionsBuilder UnitFromSpawnerIsDead(
         this ConditionsBuilder builder,
-        EntityReference target,
-        bool negate = false)
+        bool negate = false,
+        EntityReference? target = null)
     {
-      builder.Validate(target);
-
       var element = ElementTool.Create<UnitFromSpawnerIsDead>();
-      element.Target = target;
       element.Not = negate;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitFromSummonPool"/> (Auto Generated)
+    /// Adds <see cref="UnitFromSummonPool"/>
     /// </summary>
     ///
-    /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
-    [Generated]
-    [Implements(typeof(UnitFromSummonPool))]
+    /// <param name="summonPool">
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
     public static ConditionsBuilder UnitFromSummonPool(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        string? summonPool = null,
-        bool negate = false)
+        bool negate = false,
+        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<UnitFromSummonPool>();
-      element.Unit = unit;
-      element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(summonPool);
       element.Not = negate;
+      element.m_SummonPool = summonPool?.Reference ?? element.m_SummonPool;
+      if (element.m_SummonPool is null)
+      {
+        element.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
+      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitGender"/> (Auto Generated)
+    /// Adds <see cref="UnitGender"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitGender))]
     public static ConditionsBuilder UnitGender(
         this ConditionsBuilder builder,
-        UnitEvaluator unit,
-        Gender gender = default,
-        bool negate = false)
+        Gender? gender = null,
+        bool negate = false,
+        UnitEvaluator? unit = null)
     {
-      builder.Validate(unit);
-
       var element = ElementTool.Create<UnitGender>();
-      element.Unit = unit;
-      element.Gender = gender;
+      element.Gender = gender ?? element.Gender;
       element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
       return builder.Add(element);
     }
 
     /// <summary>
-    /// Adds <see cref="UnitIsNull"/> (Auto Generated)
+    /// Adds <see cref="UnitIsNull"/>
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitIsNull))]
     public static ConditionsBuilder UnitIsNull(
         this ConditionsBuilder builder,
-        UnitEvaluator target,
-        bool negate = false)
+        bool negate = false,
+        UnitEvaluator? target = null)
     {
-      builder.Validate(target);
-
       var element = ElementTool.Create<UnitIsNull>();
-      element.Target = target;
       element.Not = negate;
+      builder.Validate(target);
+      element.Target = target ?? element.Target;
       return builder.Add(element);
     }
   }
