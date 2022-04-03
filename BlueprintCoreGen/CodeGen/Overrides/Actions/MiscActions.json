@@ -26,6 +26,8 @@
 
   { "TypeName": "GameOver" },
 
+  { "TypeName": "ImportSave" },
+
   { "TypeName": "MakeAutoSave" },
 
   { "TypeName": "MakeItemNonRemovable" },
@@ -53,6 +55,8 @@
   { "TypeName": "ShowPartySelection" },
 
   { "TypeName": "StartTrade" },
+
+  { "TypeName": "TransferSharedVendorTable" },
 
   { "TypeName": "UnequipAllItems" },
 

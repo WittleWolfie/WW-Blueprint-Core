@@ -9,6 +9,8 @@
 
   { "TypeName": "BarkBanterPlayed" },
 
+  { "TypeName": "CampaignCompleted" },
+
   { "TypeName": "ChangeableDynamicIsLoaded" },
 
   { "TypeName": "CheckFailed" },
@@ -38,6 +40,8 @@
   { "TypeName": "FlagInRange" },
 
   { "TypeName": "FlagUnlocked" },
+
+  { "TypeName": "IsCampaignImported" },
 
   { "TypeName": "IsLegendPathSelected" },
 

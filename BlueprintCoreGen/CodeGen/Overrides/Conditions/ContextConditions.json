@@ -76,6 +76,8 @@
 
   { "TypeName": "ContextConditionIsInCombat" },
 
+  { "TypeName": "ContextConditionIsMainCharacter" },
+
   { "TypeName": "ContextConditionIsMainTarget" },
 
   { "TypeName": "ContextConditionIsPartyMember" },

@@ -330,6 +330,8 @@
 
   { "TypeName": "ChangeMercenaryWeight" },
 
+  { "TypeName": "ContextActionByArmyLeader" },
+
   { "TypeName": "ContextActionRestoreLeaderAction" },
 
   { "TypeName": "ContextActionStopUnit" },
@@ -445,6 +447,8 @@
   { "TypeName": "KingdomIncreaseIncome" },
 
   { "TypeName": "KingdomMoraleFlagUpdateIncome" },
+
+  { "TypeName": "KingdomMoraleUpdateIncome" },
 
   { "TypeName": "KingdomRemoveMoraleFlags" },
 

@@ -11,6 +11,8 @@
 
   { "TypeName": "HasEnoughMoneyForRespec" },
 
+  { "TypeName": "IsDlcActive" },
+
   { "TypeName": "IsDLCEnabled" },
 
   { "TypeName": "IsleStateCondition" },

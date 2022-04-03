@@ -234,6 +234,8 @@
     "RequiredFields": [ "m_UnitsList", "Actions" ]
   },
 
+  { "TypeName": "Conditional" },
+
   { "TypeName": "DetachBuff" },
 
   { "TypeName": "DisableExperienceFromUnit" },
@@ -241,6 +243,8 @@
   { "TypeName": "DrainEnergy" },
 
   { "TypeName": "FakePartyRest" },
+
+  { "TypeName": "ForceLevelup" },
 
   { "TypeName": "GainExp" },
 
@@ -255,6 +259,8 @@
   { "TypeName": "Kill" },
 
   { "TypeName": "LevelUpUnit" },
+
+  { "TypeName": "MarkUnitEssentialObsolete" },
 
   { "TypeName": "MeleeAttack" },
 

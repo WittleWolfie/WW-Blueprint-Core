@@ -17,11 +17,17 @@
 
   { "TypeName": "DualCompanionInactive" },
 
+  { "TypeName": "False" },
+
+  { "TypeName": "GreaterThan" },
+
   { "TypeName": "HasBuff" },
 
   { "TypeName": "HasFact" },
 
   { "TypeName": "IsEnemy" },
+
+  { "TypeName": "IsEqual" },
 
   { "TypeName": "IsInCombat" },
 
@@ -33,11 +39,19 @@
 
   { "TypeName": "IsUnitLevelLessThan" },
 
+  { "TypeName": "IsUnitMythicExperience" },
+
+  { "TypeName": "IsUnitMythicLevel" },
+
   { "TypeName": "ItemBlueprint" },
 
   { "TypeName": "ItemFromCollectionCondition" },
 
   { "TypeName": "ItemsEnough" },
+
+  { "TypeName": "LessThan" },
+
+  { "TypeName": "OrAndLogic" },
 
   { "TypeName": "PartyCanUseAbility" },
 

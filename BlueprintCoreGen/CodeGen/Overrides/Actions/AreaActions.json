@@ -45,6 +45,8 @@
 
   { "TypeName": "AskPlayerForLocationName" },
 
+  { "TypeName": "EndAreaEffects" },
+
   { "TypeName": "GlobalMapTeleport" },
 
   { "TypeName": "HideMapObject" },
@@ -61,9 +63,13 @@
 
   { "TypeName": "OpenLootContainer" },
 
+  { "TypeName": "OpenOutgoingEdgesOnGlobalMap" },
+
   { "TypeName": "RemoveAllAreasFromSave" },
 
   { "TypeName": "RemoveAmbush" },
+
+  { "TypeName": "RemoveAreaFromSave" },
 
   { "TypeName": "RemoveCampingEncounter" },
 

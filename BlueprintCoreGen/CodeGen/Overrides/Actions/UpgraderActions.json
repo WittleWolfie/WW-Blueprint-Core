@@ -72,13 +72,19 @@
 
   { "TypeName": "RefreshAllArmyLeaders" },
 
+  { "TypeName": "RefreshArmyLeadersBaseSkills" },
+
   { "TypeName": "RefreshCrusadeLogistic" },
 
   { "TypeName": "RefreshSettingsPreset" },
 
+  { "TypeName": "RemoveBrokenSummon" },
+
   { "TypeName": "RemoveSpell" },
 
   { "TypeName": "ResetMinDifficulty" },
+
+  { "TypeName": "RespawnNewUnit" },
 
   { "TypeName": "RestartTacticalCombat" },
 
@@ -88,5 +94,7 @@
 
   { "TypeName": "SetHandsFromBlueprint" },
 
-  { "TypeName": "SetRaceFromBlueprint" }
+  { "TypeName": "SetRaceFromBlueprint" },
+
+  { "TypeName": "UpdateProgression" }
 ]

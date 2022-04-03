@@ -1200,6 +1200,8 @@
 
   { "TypeName": "ContextActionHideInPlainSight" },
 
+  { "TypeName": "ContextActionIncreaseSwarmThatWalksStrength" },
+
   { "TypeName": "ContextActionKill" },
 
   { "TypeName": "ContextActionKnockdownTarget" },
@@ -1211,6 +1213,8 @@
   { "TypeName": "ContextActionMeleeAttack" },
 
   { "TypeName": "ContextActionMount" },
+
+  { "TypeName": "ContextActionOnTargetPoint" },
 
   { "TypeName": "ContextActionPrintHDRestrictionToCombatLog" },
 
