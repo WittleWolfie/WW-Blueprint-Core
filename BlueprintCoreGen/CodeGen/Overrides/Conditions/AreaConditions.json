@@ -1,117 +1,27 @@
 [
-  {
-    "TypeName": "ActionCreateImportedCompanion",
-    "RequiredFields": [ "Index" ]
-  },
+  { "TypeName": "AreaVisited" },
 
-  {
-    "TypeName": "AddCampingEncounter",
-    "RequiredFields": [ "m_Encounter" ]
-  },
+  { "TypeName": "ContextConditionDungeonStage" },
 
-  {
-    "TypeName": "AreaEntranceChange",
-    "RequiredFields": [ "m_Location", "m_NewEntrance" ]
-  },
+  { "TypeName": "CurrentAreaIs" },
 
-  {
-    "TypeName": "ChangeCurrentAreaName",
-    "Methods": [
-      {
-        "RequiredFields": [ "NewName", "m_NewEntrance" ],
-        "IgnoredFields": [ "RestoreDefault" ]
-      },
-      {
-        "MethodName": "ResetCurrentAreaName",
-        "IgnoredFields": [ "NewName" ],
-        "ConstantFields": [
-          {
-            "FieldName": "RestoreDefault",
-            "Value": "true"
-          }
-        ]
-      }
-    ]
-  },
+  { "TypeName": "InCapital" },
 
-  {
-    "TypeName": "DestroyMapObject",
-    "RequiredFields": [ "MapObject" ]
-  },
+  { "TypeName": "IsLootEmpty" },
 
-  { "TypeName": "CapitalExit" },
+  { "TypeName": "IsPartyInNaturalSetting" },
 
-  { "TypeName": "DecreaseCorruptionLevelAction" },
+  { "TypeName": "LocationRevealed" },
 
-  { "TypeName": "AskPlayerForLocationName" },
+  { "TypeName": "MapObjectDestroyed" },
 
-  { "TypeName": "GlobalMapTeleport" },
+  { "TypeName": "MapObjectRevealed" },
 
-  { "TypeName": "HideMapObject" },
+  { "TypeName": "PartyInScriptZone" },
 
-  { "TypeName": "LocalMapSetDirty" },
+  { "TypeName": "UnitInScriptZone" },
 
-  { "TypeName": "MakeServiceCaster" },
+  { "TypeName": "UnitIsInAreaPart" },
 
-  { "TypeName": "MarkLocationClosed" },
-
-  { "TypeName": "MarkLocationExplored" },
-
-  { "TypeName": "MarkOnLocalMap" },
-
-  { "TypeName": "OpenLootContainer" },
-
-  { "TypeName": "RemoveAllAreasFromSave" },
-
-  { "TypeName": "RemoveAmbush" },
-
-  { "TypeName": "RemoveCampingEncounter" },
-
-  { "TypeName": "ResetLocationPerceptionCheck" },
-
-  { "TypeName": "RevealGlobalMap" },
-
-  { "TypeName": "ScriptZoneActivate" },
-
-  { "TypeName": "ScriptZoneDeactivate" },
-
-  { "TypeName": "ScripZoneUnits" },
-
-  { "TypeName": "SetDeviceState" },
-
-  { "TypeName": "SetDeviceTrigger" },
-
-  { "TypeName": "SetDisableDevice" },
-
-  { "TypeName": "ShowMultiEntrance" },
-
-  { "TypeName": "SpotMapObject" },
-
-  { "TypeName": "SpotUnit" },
-
-  { "TypeName": "TeleportParty" },
-
-  { "TypeName": "TranslocatePlayer" },
-
-  { "TypeName": "TranslocateUnit" },
-
-  { "TypeName": "TrapCastSpell" },
-
-  { "TypeName": "UnlockCookingRecipe" },
-
-  { "TypeName": "UnlockLocation" },
-
-  { "TypeName": "UnlockMapEdge" },
-
-  { "TypeName": "ActionEnterToDungeon" },
-
-  { "TypeName": "ActionGoDeeperIntoDungeon" },
-
-  { "TypeName": "ActionIncreaseDungeonStage" },
-
-  { "TypeName": "ActionSetDungeonStage" },
-
-  { "TypeName": "GameActionSetIsleLock" },
-
-  { "TypeName": "GameActionSetIsleState" }
+  { "TypeName": "UnitIsInFogOfWar" }
 ]

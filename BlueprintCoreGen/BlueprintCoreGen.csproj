@@ -40,16 +40,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="CodeGen\Overrides\AreaActions.json">
+    <None Update="CodeGen\Overrides\Actions\AreaActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\AVActions.json">
+    <None Update="CodeGen\Overrides\Actions\AVActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\BasicActions.json">
+    <None Update="CodeGen\Overrides\Actions\BasicActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\ContextActions.json">
+    <None Update="CodeGen\Overrides\Actions\ContextActions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CodeGen\Overrides\Conditions\AreaConditions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="CodeGen\Overrides\Fields.json">
@@ -58,20 +61,24 @@
     <None Update="CodeGen\Overrides\FieldTypes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\UpgraderActions.json">
+    <None Update="CodeGen\Overrides\Actions\UpgraderActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\StoryActions.json">
+    <None Update="CodeGen\Overrides\Actions\StoryActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\MiscActions.json">
+    <None Update="CodeGen\Overrides\Actions\MiscActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\KingdomActions.json">
+    <None Update="CodeGen\Overrides\Actions\KingdomActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="UpdateCodeGen.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CodeGen\Overrides\Conditions\" />
   </ItemGroup>
 </Project>

@@ -191,7 +191,7 @@ namespace BlueprintCoreGen.CodeGen.Builders
 
       public string ParentType { get; }
 
-      private readonly string OverrideFile;
+      private readonly string OverrideFilePath;
       private List<BuilderMethod>? m_BuilderMethods;
       public List<BuilderMethod> Methods
       {
@@ -199,7 +199,7 @@ namespace BlueprintCoreGen.CodeGen.Builders
         {
           if (m_BuilderMethods == null)
           {
-            JArray array = JArray.Parse(File.ReadAllText($"CodeGen/Overrides/{OverrideFile}"));
+            JArray array = JArray.Parse(File.ReadAllText(OverrideFilePath));
             m_BuilderMethods = array.ToObject<List<BuilderMethod>>();
           }
           return m_BuilderMethods!;
@@ -210,7 +210,6 @@ namespace BlueprintCoreGen.CodeGen.Builders
           BuilderType builderType, ExtensionType extensionType, string summary, string overrideFile)
       {
         Summary = summary;
-        OverrideFile = overrideFile;
 
         if (builderType == BuilderType.Action)
         {
@@ -218,6 +217,7 @@ namespace BlueprintCoreGen.CodeGen.Builders
           FilePath = $"Actions\\Builder\\{extensionType}\\{ClassName}.cs";
           Namespace = $"BlueprintCore.Actions.Builder.{extensionType}";
           ParentType = "ActionsBuilder";
+          OverrideFilePath = $"CodeGen/Overrides/Actions/{overrideFile}";
         }
         else
         {
@@ -225,6 +225,7 @@ namespace BlueprintCoreGen.CodeGen.Builders
           FilePath = $"Conditions\\Builder\\{extensionType}\\{ClassName}.cs";
           Namespace = $"BlueprintCore.Conditions.Builder.{extensionType}";
           ParentType = "ConditionsBuilder";
+          OverrideFilePath = $"CodeGen/Overrides/Conditions/{overrideFile}";
         }
       }
     }

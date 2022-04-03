@@ -19,16 +19,13 @@ namespace BlueprintCoreGen.CodeGen
     {
       var templatesRoot = Path.Combine(Directory.GetCurrentDirectory(), "Templates");
 
-      var actionsBuilderRoot = Path.Combine(templatesRoot, "ActionsBuilder");
       ActionClasses.AddRange(
           BuilderExtensions.Get(BuilderType.Action).Select(
               extension => ClassFactory.CreateBuilderExtension(extension)));
 
-      //var conditionsBuilderRoot = Path.Combine(templatesRoot, "ConditionsBuilder");
-      //foreach (string file in Directory.GetFiles(conditionsBuilderRoot, "*.cs", SearchOption.AllDirectories))
-      //{
-      //  ConditionClasses.Add(ClassFactory.CreateFromBuilderTemplate(file, Path.GetRelativePath(templatesRoot, file)));
-      //}
+      ConditionClasses.AddRange(
+          BuilderExtensions.Get(BuilderType.Condition).Select(
+              extension => ClassFactory.CreateBuilderExtension(extension)));
 
       //ProcessBlueprintTemplates(templatesRoot, gameTypes);
     }
