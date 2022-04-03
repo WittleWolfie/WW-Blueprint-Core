@@ -88,11 +88,11 @@ namespace BlueprintCoreGen.CodeGen.Builders
           "Extension to <see cref=\"ConditionsBuilder\"/> for conditions involving the Kingdom and Crusade system.",
           "KingdomConditions.json"),
 
-        //new ConditionExtension(
-        //  ExtensionType.MiscEx,
-        //  "Extension to <see cref=\"ConditionsBuilder\"/> for conditions without a better extension container such as"
-        //      + " achievements vendor Conditions, and CustomEvent.",
-        //  "MiscConditions.json"),
+        new ConditionExtension(
+          ExtensionType.MiscEx,
+          "Extension to <see cref=\"ConditionsBuilder\"/> for conditions without a better extension container such as"
+              + " achievements vendor Conditions, and CustomEvent.",
+          "MiscConditions.json"),
 
         //new ConditionExtension(
         //  ExtensionType.NewEx,

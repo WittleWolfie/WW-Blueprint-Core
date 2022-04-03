@@ -1,0 +1,27 @@
+[
+  { "TypeName": "ContextConditionDifficultyHigherThan" },
+
+  { "TypeName": "DifficultyHigherThan" },
+
+  { "TypeName": "EnlargedEncountersCapacity" },
+
+  { "TypeName": "GameModeActive" },
+
+  { "TypeName": "HasEnoughMoneyForCustomCompanion" },
+
+  { "TypeName": "HasEnoughMoneyForRespec" },
+
+  { "TypeName": "IsDLCEnabled" },
+
+  { "TypeName": "IsleStateCondition" },
+
+  { "TypeName": "IsListContainsItem" },
+
+  { "TypeName": "IsRespecAllowed" },
+
+  { "TypeName": "IsUnitCustomCompanion" },
+
+  { "TypeName": "Paused" },
+
+  { "TypeName": "RespecIsFree" }
+]
