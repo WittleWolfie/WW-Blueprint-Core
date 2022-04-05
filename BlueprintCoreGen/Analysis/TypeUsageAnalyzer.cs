@@ -104,7 +104,8 @@ namespace BlueprintCoreGen.Analysis
         return type.Name;
       }
 
-      StringBuilder typeName = new(type.GetGenericTypeDefinition().Name);
+      var rawTypeName = type.GetGenericTypeDefinition().Name;
+      StringBuilder typeName = new(rawTypeName[..rawTypeName.IndexOf('`')]);
       typeName.Append('<');
       for (int i = 1; i < type.GenericTypeArguments.Length; i++)
       {
