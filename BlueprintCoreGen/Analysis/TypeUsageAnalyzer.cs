@@ -7,12 +7,12 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BlueprintCoreGen.Analysis
 {
@@ -21,8 +21,8 @@ namespace BlueprintCoreGen.Analysis
     // When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
     private static readonly int DebugLimit = -1;
 
-    private static readonly Dictionary<string, Blueprint> BlueprintsByGuid = new();
-    private static readonly Dictionary<Type, HashSet<Blueprint>> ExamplesByType = new();
+    private static readonly ConcurrentDictionary<string, Blueprint> BlueprintsByGuid = new();
+    private static readonly ConcurrentDictionary<Type, ConcurrentBag<Blueprint>> ExamplesByType = new();
 
     public static void Analyze(Type[] gameTypes)
     {
@@ -82,62 +82,71 @@ namespace BlueprintCoreGen.Analysis
       File.WriteAllText($"{Program.AnalysisDir}/examples_{baseType.Name}.txt", examples.ToString());
     }
 
-    private static int ProcessedCount = 0;
-
     // Populates BlueprintsByGuid and ExamplesByType
     private static void ProcessDB()
     {
-      using var bpDump = ZipFile.OpenRead(Environment.ExpandEnvironmentVariables("%WrathPath%/blueprints.zip"));
+      // Note: Need to manually unpack the blueprints.zip file (be sure to delete the existing blueprints directory).
+      // Issues w/ .NET library are preventing programmatic unpacking.
+      string[] bpFiles =
+        Directory.GetFiles(
+          Environment.ExpandEnvironmentVariables("%WrathPath%/blueprints"), "*.*", SearchOption.AllDirectories);
+      var quarterIndex = bpFiles.Length / 4;
+      var halfIndex = quarterIndex * 2;
+      var threeQuarterIndex = quarterIndex * 3;
+      Parallel.Invoke(
+        () => ProcessBpFiles(bpFiles[0..quarterIndex], 1),
+        () => ProcessBpFiles(bpFiles[quarterIndex..halfIndex], 2),
+        () => ProcessBpFiles(bpFiles[halfIndex..threeQuarterIndex], 3),
+        () => ProcessBpFiles(bpFiles[threeQuarterIndex..], 4));
 
-      foreach (var entry in bpDump.Entries)
+      //ProcessBpZip();
+    }
+
+    // Thread safe processor of blueprints files.
+    private static int ProcessedCount = 0;
+    private static void ProcessBpFiles(string[] bpFiles, int threadNum)
+    {
+      var processed = 0;
+      Stopwatch stopwatch = Stopwatch.StartNew();
+      foreach (string file in bpFiles)
       {
-        if (!entry.Name.EndsWith(".jbp")) { continue; }
-        ProcessedCount++;
-        if (DebugLimit > 0 && ProcessedCount > DebugLimit) { return; }
-        if (ProcessedCount % 100 == 0)
-        {
-          Console.WriteLine($"Progress: {ProcessedCount}/{bpDump.Entries.Count}");
-        }
+        if (!file.EndsWith(".jbp")) { continue; }
 
-        var stream =
-          entry!
-            .GetType()
-            .GetMethod("OpenInReadMode", BindingFlags.NonPublic | BindingFlags.Instance)!
-            .Invoke(entry, new object[] { false }) as Stream;
-        var bp = JsonConvert.DeserializeObject<JObject>(new StreamReader(stream!).ReadToEnd());
+        var bp = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(file));
 
         var guid = bp.Value<string>("AssetId");
         var data = bp.GetValue("Data");
         var bpType = GetType(data);
         // Skip, library only supports BlueprintScriptableObject types
-        if (!bpType.IsSubclassOf(typeof(BlueprintScriptableObject))) { continue; }
+        if (bpType is null || !bpType.IsSubclassOf(typeof(BlueprintScriptableObject))) { continue; }
 
         // Fetch / create the Blueprint
         if (!BlueprintsByGuid.TryGetValue(guid, out Blueprint blueprint))
         {
-          var name = entry.Name[0..^4];
+          var name = Path.GetFileNameWithoutExtension(file);
           blueprint = new Blueprint(name, guid);
-          BlueprintsByGuid.Add(guid, blueprint);
+          BlueprintsByGuid.TryAdd(guid, blueprint);
         }
 
         // Add as an example blueprint type
-        if (!ExamplesByType.TryGetValue(bpType, out HashSet<Blueprint> blueprintExamples))
+        if (!ExamplesByType.TryGetValue(bpType, out ConcurrentBag<Blueprint> blueprintExamples))
         {
           blueprintExamples = new();
-          ExamplesByType.Add(bpType, blueprintExamples);
+          ExamplesByType.TryAdd(bpType, blueprintExamples);
         }
         blueprintExamples.Add(blueprint);
 
-        List<Type> referencedTypes = GetTypes(data);
+        List<Type> referencedTypes = new();
+        GetTypes(data, referencedTypes);
 
         // Add as an example for the referenced action types
         var actionTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(GameAction)));
         foreach (var actionType in actionTypes)
         {
-          if (!ExamplesByType.TryGetValue(actionType, out HashSet<Blueprint> actionExamples))
+          if (!ExamplesByType.TryGetValue(actionType, out ConcurrentBag<Blueprint> actionExamples))
           {
             actionExamples = new();
-            ExamplesByType.Add(actionType, actionExamples);
+            ExamplesByType.TryAdd(actionType, actionExamples);
           }
           actionExamples.Add(blueprint);
         }
@@ -146,10 +155,10 @@ namespace BlueprintCoreGen.Analysis
         var conditionTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(Condition)));
         foreach (var conditionType in conditionTypes)
         {
-          if (!ExamplesByType.TryGetValue(conditionType, out HashSet<Blueprint> conditionExamples))
+          if (!ExamplesByType.TryGetValue(conditionType, out ConcurrentBag<Blueprint> conditionExamples))
           {
             conditionExamples = new();
-            ExamplesByType.Add(conditionType, conditionExamples);
+            ExamplesByType.TryAdd(conditionType, conditionExamples);
           }
           conditionExamples.Add(blueprint);
         }
@@ -158,47 +167,145 @@ namespace BlueprintCoreGen.Analysis
         var componentTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(BlueprintComponent)));
         foreach (var componentType in componentTypes)
         {
-          if (!ExamplesByType.TryGetValue(componentType, out HashSet<Blueprint> componentExamples))
+          if (!ExamplesByType.TryGetValue(componentType, out ConcurrentBag<Blueprint> componentExamples))
           {
             componentExamples = new();
-            ExamplesByType.Add(componentType, componentExamples);
+            ExamplesByType.TryAdd(componentType, componentExamples);
           }
           componentExamples.Add(blueprint);
         }
-      }
-    }
 
-    private static Type GetType(JToken data)
-    {
-      var typeString = data.Value<string>("$type");
-      var typeName = typeString[typeString.IndexOf(" ")..].Trim();
-      return GetType(typeName);
-    }
-
-    private static Type GetType(string typeName)
-    {
-      var type = AccessTools.TypeByName(typeName);
-      if (type == null) { throw new NullReferenceException($"Couldn't find type: {typeName}"); }
-      return type;
-    }
-
-    private static readonly Regex TypeMatcher =
-      new(@"\""\$type\"": \""[\w\d]*, (\w*)\""", RegexOptions.Compiled);
-
-    private static List<Type> GetTypes(JToken data)
-    {
-      var stringData = data.ToString();
-      List<Type> types = new();
-      foreach (Match match in TypeMatcher.Matches(stringData))
-      {
-        foreach (var typeName in match.Groups)
+        processed++;
+        Interlocked.Increment(ref ProcessedCount);
+        if (DebugLimit > 0 && ProcessedCount > DebugLimit) { return; }
+        if (processed % 100 == 0)
         {
-          // The first matching group is the full regex capture, not the type name.
-          if (typeName.ToString() == match.Value) { continue; }
-          types.Add(GetType(typeName.ToString()!));
+          float progress = processed / (float)bpFiles.Length;
+          long averageProcessTime = stopwatch.ElapsedMilliseconds / processed;
+          Console.WriteLine(
+            string.Format("Thread {0} Progress: {1:P2}, {2:D}ms/blueprint", threadNum, progress, averageProcessTime));
         }
       }
-      return types;
     }
+
+    private static Type? GetType(JToken data)
+    {
+      var typeString = data.Value<string>("$type");
+      if (typeString is not null)
+      {
+        var type = AccessTools.TypeByName(typeString[typeString.IndexOf(" ")..].Trim());
+        if (type == null) { Console.WriteLine($"Couldn't find type: {typeString}"); }
+        return type;
+      }
+      return null;
+    }
+
+    // Recursively search the JToken to find all referenced types
+    private static void GetTypes(JToken data, List<Type> types)
+    {
+      if (data.Type == JTokenType.Object)
+      {
+        // Only object types can have a property
+        var type = GetType(data);
+        if (type is not null) { types.Add(type); }
+      }
+
+      // No matter what kind of token, foreach loop will get all children
+      foreach (var token in data)
+      {
+        GetTypes(token, types);
+      }
+    }
+
+    // Method Bubbles used process the database. In testing this is 10-50% slower and cannot be executed in parallel.
+    //private static void ProcessBpZip()
+    //{
+    //  using var bpDump = ZipFile.OpenRead(Environment.ExpandEnvironmentVariables("%WrathPath%/blueprints.zip"));
+    //  var processed = 0;
+    //  Stopwatch stopwatch = Stopwatch.StartNew();
+    //  foreach (var entry in bpDump.Entries)
+    //  {
+    //    if (!entry.Name.EndsWith(".jbp")) { continue; }
+
+    //    var stream =
+    //      entry
+    //        .GetType()
+    //        .GetMethod("OpenInReadMode", BindingFlags.NonPublic | BindingFlags.Instance)!
+    //        .Invoke(entry, new object[] { false }) as Stream;
+    //    var bp = JsonConvert.DeserializeObject<JObject>(new StreamReader(stream!).ReadToEnd());
+
+    //    var guid = bp.Value<string>("AssetId");
+    //    var data = bp.GetValue("Data");
+    //    var bpType = GetType(data);
+    //    // Skip, library only supports BlueprintScriptableObject types
+    //    if (bpType is null || !bpType.IsSubclassOf(typeof(BlueprintScriptableObject))) { continue; }
+
+    //    // Fetch / create the Blueprint
+    //    if (!BlueprintsByGuid.TryGetValue(guid, out Blueprint blueprint))
+    //    {
+    //      var name = entry.Name[0..^4];
+    //      blueprint = new Blueprint(name, guid);
+    //      BlueprintsByGuid.Add(guid, blueprint);
+    //    }
+
+    //    // Add as an example blueprint type
+    //    if (!ExamplesByType.TryGetValue(bpType, out HashSet<Blueprint> blueprintExamples))
+    //    {
+    //      blueprintExamples = new();
+    //      ExamplesByType.Add(bpType, blueprintExamples);
+    //    }
+    //    blueprintExamples.Add(blueprint);
+
+    //    List<Type> referencedTypes = new();
+    //    GetTypes(data, referencedTypes);
+
+    //    // Add as an example for the referenced action types
+    //    var actionTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(GameAction)));
+    //    foreach (var actionType in actionTypes)
+    //    {
+    //      if (!ExamplesByType.TryGetValue(actionType, out HashSet<Blueprint> actionExamples))
+    //      {
+    //        actionExamples = new();
+    //        ExamplesByType.Add(actionType, actionExamples);
+    //      }
+    //      actionExamples.Add(blueprint);
+    //    }
+
+    //    // Add as an example for the referenced condition types
+    //    var conditionTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(Condition)));
+    //    foreach (var conditionType in conditionTypes)
+    //    {
+    //      if (!ExamplesByType.TryGetValue(conditionType, out HashSet<Blueprint> conditionExamples))
+    //      {
+    //        conditionExamples = new();
+    //        ExamplesByType.Add(conditionType, conditionExamples);
+    //      }
+    //      conditionExamples.Add(blueprint);
+    //    }
+
+    //    // Add as an example for the referenced components types
+    //    var componentTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(BlueprintComponent)));
+    //    foreach (var componentType in componentTypes)
+    //    {
+    //      if (!ExamplesByType.TryGetValue(componentType, out HashSet<Blueprint> componentExamples))
+    //      {
+    //        componentExamples = new();
+    //        ExamplesByType.Add(componentType, componentExamples);
+    //      }
+    //      componentExamples.Add(blueprint);
+    //    }
+
+    //    processed++;
+    //    Interlocked.Increment(ref ProcessedCount);
+    //    if (DebugLimit > 0 && ProcessedCount > DebugLimit) { return; }
+    //    if (processed % 100 == 0)
+    //    {
+    //      float progress = processed / (float)bpDump.Entries.Count;
+    //      long averageProcessTime = stopwatch.ElapsedMilliseconds / processed;
+    //      Console.WriteLine(
+    //        string.Format("Progress: {0:P2}, {1:D}ms/blueprint", progress, averageProcessTime));
+    //    }
+    //  }
+    //}
   }
 }
