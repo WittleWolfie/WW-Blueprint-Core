@@ -20,6 +20,8 @@ namespace BlueprintCoreGen.Analysis
   {
     // When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
     private static readonly int DebugLimit = -1;
+    // How many blueprints to process before reporting on progress & speed
+    private static readonly int ReportThreshold = 5000;
 
     private static readonly ConcurrentDictionary<string, Blueprint> BlueprintsByGuid = new();
     private static readonly ConcurrentDictionary<Type, ConcurrentBag<Blueprint>> ExamplesByType = new();
@@ -178,7 +180,7 @@ namespace BlueprintCoreGen.Analysis
         processed++;
         Interlocked.Increment(ref ProcessedCount);
         if (DebugLimit > 0 && ProcessedCount > DebugLimit) { return; }
-        if (processed % 100 == 0)
+        if (processed % ReportThreshold == 0)
         {
           float progress = processed / (float)bpFiles.Length;
           long averageProcessTime = stopwatch.ElapsedMilliseconds / processed;
