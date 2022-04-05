@@ -1,6 +1,8 @@
 ﻿using BlueprintCoreGen.CodeGen.Methods;
-using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Blueprints.Quests.Logic;
 using Kingmaker.ElementsSystem;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -21,13 +23,19 @@ namespace BlueprintCoreGen.Analysis
     // When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
     private static readonly int DebugLimit = -1;
     // How many blueprints to process before reporting on progress & speed
-    private static readonly int ReportThreshold = 5000;
+    private static readonly int ReportThreshold = 1500;
+
+    private static readonly Dictionary<string, Type> TypesById = new();
+    private static readonly Dictionary<string, Type> TypesByName = new();
+    private static readonly HashSet<string> DuplicateTypeIds = new();
 
     private static readonly ConcurrentDictionary<string, Blueprint> BlueprintsByGuid = new();
     private static readonly ConcurrentDictionary<Type, ConcurrentBag<Blueprint>> ExamplesByType = new();
 
     public static void Analyze(Type[] gameTypes)
     {
+      ProcessGameTypes(gameTypes);
+
       ProcessDB();
 
       ProcessUnusedTypes(typeof(GameAction), gameTypes);
@@ -41,11 +49,52 @@ namespace BlueprintCoreGen.Analysis
       ProcessExamples(typeof(BlueprintComponent));
     }
 
+    // Generates a Type ID (or name if Type ID is not available) > Type mapping. This is safer since some blueprints
+    // refer to old class names, and it is faster than using AccessTools to lookup type by name.
+    private static void ProcessGameTypes(Type[] gameTypes)
+    {
+      foreach (var type in gameTypes)
+      {
+        // Filter to only types relevant to processing
+        if (
+          !type.IsAbstract &&
+          (type.IsSubclassOf(typeof(GameAction))
+          || type.IsSubclassOf(typeof(Condition))
+          || type.IsSubclassOf(typeof(BlueprintComponent))
+          || type.IsSubclassOf(typeof(BlueprintScriptableObject))))
+        {
+          var typeId =
+            type.GetCustomAttributes(typeof(TypeIdAttribute), inherit: false).Cast<TypeIdAttribute>().FirstOrDefault();
+          if (typeId is not null)
+          {
+            if (TypesById.ContainsKey(typeId.GuidString))
+            {
+              // There are some types that have duplicate TypeID. Technically this shouldn't be functional but they
+              // seem to occur only for unused types.
+              Console.WriteLine(
+                $"Found duplicate types for TypeID: {typeId.GuidString} - {type.Name} and {TypesById[typeId.GuidString]}");
+              TypesById.Remove(typeId.GuidString);
+              DuplicateTypeIds.Add(typeId.GuidString);
+            }
+            else
+            {
+              TypesById.Add(typeId.GuidString, type);
+            }
+          }
+          else
+          {
+            TypesByName.Add(type.Name, type);
+          }
+        }
+      }
+    }
+
     private static void ProcessUnusedTypes(Type baseType, Type[] gameTypes)
     {
       StringBuilder unusedTypes = new();
-      gameTypes.Where(t => t.IsSubclassOf(baseType) && !ExamplesByType.ContainsKey(t))
+      gameTypes.Where(t => !t.IsAbstract && t.IsSubclassOf(baseType) && !ExamplesByType.ContainsKey(t))
         .ToList()
+        // TODO: Need to parse names like QuestComponentDelegate`1 > QuestComponentDelegate<>
         .ForEach(t => unusedTypes.AppendLine($"        typeof({t.Name}),"));
       File.WriteAllText($"{Program.AnalysisDir}/unused_{baseType.Name}.txt", unusedTypes.ToString());
     }
@@ -58,7 +107,7 @@ namespace BlueprintCoreGen.Analysis
       {
         var sortedExamples = entry.Value.OrderBy(ex => ex.BlueprintName).ToList();
         List<Blueprint> exampleBlueprints = new();
-        if (exampleBlueprints.Count > 3)
+        if (sortedExamples.Count > 3)
         {
           // Use the first, last, and middle blueprints as examples. This should keep things relatively stable between
           // game patches and avoid biasing towards the first three entries alphabetically.
@@ -177,9 +226,13 @@ namespace BlueprintCoreGen.Analysis
           componentExamples.Add(blueprint);
         }
 
+        if (DebugLimit > 0)
+        {
+          Interlocked.Increment(ref ProcessedCount);
+          if (ProcessedCount > DebugLimit) { return; }
+        }
+
         processed++;
-        Interlocked.Increment(ref ProcessedCount);
-        if (DebugLimit > 0 && ProcessedCount > DebugLimit) { return; }
         if (processed % ReportThreshold == 0)
         {
           float progress = processed / (float)bpFiles.Length;
@@ -195,9 +248,16 @@ namespace BlueprintCoreGen.Analysis
       var typeString = data.Value<string>("$type");
       if (typeString is not null)
       {
-        var type = AccessTools.TypeByName(typeString[typeString.IndexOf(" ")..].Trim());
-        if (type == null) { Console.WriteLine($"Couldn't find type: {typeString}"); }
-        return type;
+        var typeId = typeString[0..typeString.IndexOf(",")];
+        if (TypesById.ContainsKey(typeId)) { return TypesById[typeId]; }
+
+        var typeName = typeString[typeString.IndexOf(" ")..].Trim();
+        if (TypesByName.ContainsKey(typeName)) { return TypesByName[typeName]; }
+
+        if (DuplicateTypeIds.Contains(typeId))
+        {
+          Console.WriteLine($"Found reference to duplicate Type ID: {typeString}");
+        }
       }
       return null;
     }
