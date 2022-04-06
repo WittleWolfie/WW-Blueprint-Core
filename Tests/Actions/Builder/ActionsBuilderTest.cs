@@ -1,5 +1,7 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Test.Asserts;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -41,12 +43,7 @@ namespace BlueprintCore.Test.Actions.Builder
     [Fact]
     public void MultipleActions()
     {
-      var actions =
-          ActionsBuilder.New()
-              .ApplyBuff(BuffGuid, useDurationSeconds: true)
-              .MeleeAttack()
-              .RemoveBuff(BuffGuid)
-              .Build();
+      var actions = ActionsBuilder.New().ApplyBuffPermanent(BuffGuid).MeleeAttack().RemoveBuff(BuffGuid).Build();
 
       Assert.Equal(3, actions.Actions.Length);
       foreach (Element element in actions.Actions)
