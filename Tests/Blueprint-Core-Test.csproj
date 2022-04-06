@@ -19,26 +19,33 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <Reference Include="0Harmony">
-      <HintPath>..\Assemblies\0Harmony.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Assemblies\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Owlcat.Runtime.Core">
-      <HintPath>..\Assemblies\Owlcat.Runtime.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Owlcat.Runtime.Validation">
-      <HintPath>..\Assemblies\Owlcat.Runtime.Validation.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\Assemblies\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\Assemblies\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>..\lib\Assembly-CSharp.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(WrathPath)\Wrath_Data\Managed\Newtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="Owlcat.Runtime.Core">
+			<HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Owlcat.Runtime.UI">
+			<HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
+		</Reference>
+		<Reference Include="Owlcat.Runtime.Validation">
+			<HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll</HintPath>
+		</Reference>
+		<Reference Include="Owlcat.Runtime.Visual">
+			<HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+		</Reference>
   </ItemGroup>
   
   <ItemGroup>
