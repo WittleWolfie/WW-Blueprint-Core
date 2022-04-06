@@ -334,7 +334,7 @@ ASALocalRun/
 .localhistory/
 
 # Project specific
-Assemblies/
+lib/
 publicize.bat
 Blueprint-Core/log.txt
 docs/manifest.json

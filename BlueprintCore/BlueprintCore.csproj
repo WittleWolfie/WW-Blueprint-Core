@@ -66,29 +66,29 @@
   
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\Assemblies\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\lib\Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Assemblies\Newtonsoft.Json.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Core">
-      <HintPath>..\Assemblies\Owlcat.Runtime.Core.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.UI">
-      <HintPath>..\Assemblies\Owlcat.Runtime.UI.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Validation">
-      <HintPath>..\Assemblies\Owlcat.Runtime.Validation.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll</HintPath>
     </Reference>
     <Reference Include="Owlcat.Runtime.Visual">
-      <HintPath>..\Assemblies\Owlcat.Runtime.Visual.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\Assemblies\UnityEngine.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\Assemblies\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   
@@ -110,16 +110,15 @@
 	
   <Target Name="Publicize" AfterTargets="Clean">
     <ItemGroup>
-      <Assemblies Include="$(WrathPath)\Wrath_Data\Managed\*.dll" />
-      <PubliciseInputAssemblies Include="..\Assemblies\Assembly-CSharp.dll" />
-      <PublicAssembly Include="..\Assemblies\Assembly-CSharp_public.dll" />
-      <PrivateAssembly Include="..\Assemblies\Assembly-CSharp.dll" />
+      <PubliciseInputAssemblies Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
+      <PublicAssembly Include="..\lib\Assembly-CSharp_public.dll" />
+      <RenamedAssembly Include="..\lib\Assembly-CSharp.dll" />
     </ItemGroup>
     
     <!-- Clean the assembly dir, copy, and publicize. Skipping remove was causing errors. -->
-    <RemoveDir Directories="..\Assemblies" />
+    <RemoveDir Directories="..\lib" />
     <Copy SourceFiles="@(Assemblies)" DestinationFolder="..\Assemblies" />
-    <PublicizeTask InputAssemblies="@(PubliciseInputAssemblies)" OutputDir="..\Assemblies\" />
-    <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(PrivateAssembly)" />
+    <PublicizeTask InputAssemblies="@(PubliciseInputAssemblies)" OutputDir="..\lib\" />
+    <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(RenamedAssembly)" />
   </Target>
 </Project>
