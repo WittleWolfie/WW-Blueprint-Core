@@ -23,20 +23,18 @@ namespace BlueprintCore.Actions.Builder.AVEx
   {
 
     /// <summary>
-    /// Adds <see cref="AddDialogNotification"/>
-    /// </summary>
-    public static ActionsBuilder AddDialogNotification(
-        this ActionsBuilder builder,
-        LocalizedString text)
-    {
-      var element = ElementTool.Create<AddDialogNotification>();
-      element.Text = text;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ChangeBookEventImage"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Cue_0224</term><description>150a2e3902592f640a2e9feb1f8a5e0b</description></item>
+    /// <item><term>Cue_0416</term><description>80b227612511fe74db93f3bf28c9a032</description></item>
+    /// <item><term>Cue_0539</term><description>b53a2cc59cf1715488cc23e729a04ab3</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ChangeBookEventImage(
         this ActionsBuilder builder,
         SpriteLink image)
@@ -50,6 +48,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionPlaySound"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AngelMinorAbilityVisualBuff</term><description>8c902ab79f74c5c40a8071d314a0bab0</description></item>
+    /// <item><term>MandragoraSwarmDamageBuff</term><description>0f4923163104a8748b88e91ec7e14837</description></item>
+    /// <item><term>TickSwarmDamageBuff</term><description>97fd811a706e31c43887e163b51660b0</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder PlaySound(
         this ActionsBuilder builder,
         string soundName)
@@ -62,6 +70,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionRunAnimationClip"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AngelRevealLight_Buff</term><description>b3f693c8d4a4c964796fb33f8a24a0ef</description></item>
+    /// <item><term>NightcrawlerUnburrowedBuff</term><description>88b7ded46fa24358adafa0fff50eef4c</description></item>
+    /// <item><term>TigerOfSin_SpawnActions</term><description>d8416de51062a1a43af32df8764870a2</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RunAnimationClip(
         this ActionsBuilder builder,
         AnimationClipWrapperLink clipWrapper,
@@ -81,6 +99,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionShowBark"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AboutIzyagna</term><description>fa1f67444ec844508ea2eb6549581d5d</description></item>
+    /// <item><term>HowToMythicADemon</term><description>e9fe24ad25c54b6b8f288ef822c549ce</description></item>
+    /// <item><term>ZachariusNecromancy</term><description>de12840a4662481f937ff9542a6beb6b</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
         LocalizedString whatToBark,
@@ -100,6 +128,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ContextActionSpawnFx"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon_TrueForm_Cutscene</term><description>18d9251a3c5682a429e1c3769431f4ee</description></item>
+    /// <item><term>InflictModerateWoundsMass</term><description>03944622fbe04824684ec29ff2cec6a7</description></item>
+    /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
         PrefabLink prefabLink)
@@ -112,6 +150,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="CameraToPosition"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction</term><description>6264845f5654cdd48809fe36f5dc4ffb</description></item>
+    /// <item><term>Cue_0024</term><description>c43f80ef0e950c3449a74dd8e403bf6e</description></item>
+    /// <item><term>Wardstone_SoldiersAndDemonsFight</term><description>76de06039af340ddba4ed13149ecb72a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder CameraToPosition(
         this ActionsBuilder builder,
         PositionEvaluator? position = null)
@@ -123,30 +171,18 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
-    /// Adds <see cref="ClearBlood"/>
-    /// </summary>
-    public static ActionsBuilder ClearBlood(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ClearBlood>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="OverrideRainIntesity"/>
-    /// </summary>
-    public static ActionsBuilder OverrideRainIntesity(
-        this ActionsBuilder builder,
-        float? duration = null,
-        float? rainIntensity = null)
-    {
-      var element = ElementTool.Create<OverrideRainIntesity>();
-      element.Duration = duration ?? element.Duration;
-      element.RainIntensity = rainIntensity ?? element.RainIntensity;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="Play2DSound"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
+    /// <item><term>CommandAction1</term><description>720a4c33b1bf4a6eb1e679f8f8cf66b0</description></item>
+    /// <item><term>WillSaveGhoulCheckPassed_Actions</term><description>0a39e8f4368328949aca5616589abe5d</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder Play2DSound(
         this ActionsBuilder builder,
         bool? setRace = null,
@@ -163,6 +199,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="Play3DSound"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0004</term><description>979c0288728143d4cadd65e43eb70f77</description></item>
+    /// <item><term>CommandAction2</term><description>bf0933f5898f4fd280fbb4638979be84</description></item>
+    /// <item><term>Thieflings_Early_Dialogue</term><description>ad1e4f7de5da23a4d8317d79677a5db9</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder Play3DSound(
         this ActionsBuilder builder,
         bool? setCurrentSpeaker = null,
@@ -184,6 +230,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="PlayAnimationOneShot"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0005</term><description>058d6563b283ae04294ba2c729383663</description></item>
+    /// <item><term>Cue_0017</term><description>b3ad063c530d5494b973436831322b12</description></item>
+    /// <item><term>Vrok_Chained</term><description>b04649a8dd8abf741a51728a4ba9c746</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder PlayAnimationOneShot(
         this ActionsBuilder builder,
         AnimationClipWrapperLink? clipWrapper = null,
@@ -204,6 +260,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="PlayCustomMusic"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonDevilOnce_dialogue</term><description>eaf7614f4e1279d4bb6b7e5a1bfdbb57</description></item>
+    /// <item><term>GalfreyAfter_Iz_c5_dialog</term><description>5116ab16bd1542d46ae92a34a93ee0dd</description></item>
+    /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder PlayCustomMusic(
         this ActionsBuilder builder,
         string? musicEventStart = null,
@@ -218,6 +284,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="PlayCutscene"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
+    /// <item><term>Cue_0048</term><description>01541ab2bc31bad4bae411bd2383f48a</description></item>
+    /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="cutscene">
     /// Blueprint of type Cutscene. You can pass in the blueprint using:
@@ -252,6 +328,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ReloadMechanic"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Arueshalae_DemonWarningKTC</term><description>58b51cce24b484e40ae075c5f56ad2e5</description></item>
+    /// <item><term>KTC_LichRankUp_6</term><description>ca49b13b14484b81bbe33d0048861ba2</description></item>
+    /// <item><term>WenduagKTC_WenduagRomance_TroublesInTheTavern</term><description>70260967f8e8efc40934a31a346221b0</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ReloadMechanic(
         this ActionsBuilder builder,
         bool? clearFx = null,
@@ -266,6 +352,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="SetSoundState"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
+    /// <item><term>CommandAction34</term><description>11f8d7b34e3f4153baa5f150098e62eb</description></item>
+    /// <item><term>TerendelevPast_dialogue</term><description>848b9fe70613fd4408ff6c8ab4c95e14</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SetSoundState(
         this ActionsBuilder builder,
         AkStateReference? state = null)
@@ -279,6 +375,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ShowBark"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
+    /// <item><term>GreyborQuestMansion_CheckPassedActions</term><description>3659189235938ef4faf1cc99063c3a62</description></item>
+    /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
         bool? barkDurationByText = null,
@@ -306,6 +412,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="SpawnFx"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AdditionalAtmosphericScenes</term><description>e04f6b926f3350d41ab2d07c55d9814d</description></item>
+    /// <item><term>CommandAction1</term><description>372d46d1d716497793860c45f9ff74c5</description></item>
+    /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
         PrefabLink? fxPrefab = null,
@@ -325,6 +441,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="StopCustomMusic"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonDevilOnce_dialogue</term><description>eaf7614f4e1279d4bb6b7e5a1bfdbb57</description></item>
+    /// <item><term>Horzalah_Ambush_dialogue</term><description>2c225a0a5f2bf574ab78b1a3d4011acf</description></item>
+    /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder StopCustomMusic(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<StopCustomMusic>());
@@ -333,6 +459,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="StopCutscene"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
+    /// <item><term>Cue_0026</term><description>7ef0e281b989d7245a98f48367a9b4b8</description></item>
+    /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="cutscene">
     /// Blueprint of type Cutscene. You can pass in the blueprint using:
@@ -365,6 +501,16 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ToggleObjectFx"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>2ArenaCombat</term><description>bdd2b9ebe0ec2f240b9ac1d6b4c430ab</description></item>
+    /// <item><term>CommandAction3</term><description>f58b5efefcdf4c3da9f5c371b2a719a0</description></item>
+    /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ToggleObjectFx(
         this ActionsBuilder builder,
         MapObjectEvaluator? target = null,
@@ -380,6 +526,14 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <summary>
     /// Adds <see cref="ToggleObjectMusic"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArushalaeRedoubt_CustomMusicCave_fromCellar_Disable</term><description>b5980fc442390ed4783a2cad6b5d428c</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ToggleObjectMusic(
         this ActionsBuilder builder,
         MapObjectEvaluator? target = null,

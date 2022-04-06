@@ -13,10 +13,6 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Quests.Logic;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.Blueprints.Quests;
 using Kingmaker.ElementsSystem;
 

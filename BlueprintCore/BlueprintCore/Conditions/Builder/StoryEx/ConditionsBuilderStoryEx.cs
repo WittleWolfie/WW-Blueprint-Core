@@ -4,16 +4,14 @@ using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.AreaLogic.QuestSystem;
-using Kingmaker.Assets.Code.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Quests;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.DialogSystem.Blueprints;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Alignments;
 using System;
@@ -31,6 +29,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="AlignmentCheck"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>LootCondition</term><description>d1d246fc5c3df5d48aaee5dd199e75ab</description></item>
+    /// <item><term>RighteousMight</term><description>90810e5cf53bf854293cbd5ea1066252</description></item>
+    /// <item><term>RobeOfVirtueFeature</term><description>f3b1a7b396fc0b048b93967c6738708f</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder AlignmentCheck(
         this ConditionsBuilder builder,
         AlignmentComponent? alignment = null,
@@ -45,6 +53,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="AnotherEtudeOfGroupIsPlaying"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon_FirstKTC_Ch5</term><description>a165ac24237977340b5bfceac10a67a8</description></item>
+    /// <item><term>KTC_Malessa</term><description>ed0ec52c7c9cbcd4c87eaf97195da4a7</description></item>
+    /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="group">
     /// Blueprint of type BlueprintEtudeConflictingGroup. You can pass in the blueprint using:
@@ -74,6 +92,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="AnswerListShown"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0008</term><description>a3a7361d053ff5741a1fa619c6882d87</description></item>
+    /// <item><term>Answer_0238</term><description>74e958b78406e494ea5a1f702bdba1e1</description></item>
+    /// <item><term>PF-277910</term><description>7792579c4cbc48eb896c9c0d3ef478cc</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="answersList">
     /// Blueprint of type BlueprintAnswersList. You can pass in the blueprint using:
@@ -106,6 +134,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="AnswerSelected"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AfterNotDate_dialog</term><description>cbe4991d3d5bad14dac33ca4e67ae2ce</description></item>
+    /// <item><term>Answer_0042</term><description>f86429ebe97210a43ba15b53e387fac5</description></item>
+    /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="answer">
     /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -137,6 +175,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="BarkBanterPlayed"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Banter_CameliaDaeran_banter7_pack2</term><description>9ee702a55f580d0489e3a2529681a691</description></item>
+    /// <item><term>Banter_NenioLann_banter2</term><description>c4592758c5cc69548b7a69f8e4775841</description></item>
+    /// <item><term>Banter_WoljifEmber_banter6</term><description>5a59dc95c91885a459a834e464c99a1f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="banter">
     /// Blueprint of type BlueprintBarkBanter. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -163,23 +211,55 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="ChangeableDynamicIsLoaded"/>
+    /// Adds <see cref="CampaignCompleted"/>
     /// </summary>
-    public static ConditionsBuilder ChangeableDynamicIsLoaded(
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC1_MythicPowersAfterCompletion</term><description>637667bed8e04ffdbf40de38794b6228</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="campaign">
+    /// Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ConditionsBuilder CampaignCompleted(
         this ConditionsBuilder builder,
-        bool negate = false,
-        SceneReference? scene = null)
+        Blueprint<BlueprintCampaign, BlueprintCampaignReference>? campaign = null,
+        bool negate = false)
     {
-      var element = ElementTool.Create<ChangeableDynamicIsLoaded>();
+      var element = ElementTool.Create<CampaignCompleted>();
+      element.m_Campaign = campaign?.Reference ?? element.m_Campaign;
+      if (element.m_Campaign is null)
+      {
+        element.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
+      }
       element.Not = negate;
-      builder.Validate(scene);
-      element.Scene = scene ?? element.Scene;
       return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="CheckFailed"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0018</term><description>8d05fd803d64f5c4ab9ffc8bf61d816b</description></item>
+    /// <item><term>Cue_0084</term><description>203ef597927aeff45a02f5a766fafb82</description></item>
+    /// <item><term>Cue_9</term><description>32716e33b77e4b6983a8dbcd2e128f49</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="check">
     /// Blueprint of type BlueprintCheck. You can pass in the blueprint using:
@@ -210,6 +290,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="CheckPassed"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0001</term><description>d902f8aff72348e882f84fc6aa9c8c2e</description></item>
+    /// <item><term>Cue_0034</term><description>cab33f23f9c1f284eab13e33fbdc3df0</description></item>
+    /// <item><term>ReiforceTrixterBefore</term><description>8e1bf1034cd7b6c449477b3888d2a659</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="check">
     /// Blueprint of type BlueprintCheck. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -236,55 +326,18 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="CheckUnitSeeUnit"/>
-    /// </summary>
-    public static ConditionsBuilder CheckUnitSeeUnit(
-        this ConditionsBuilder builder,
-        bool negate = false,
-        UnitEvaluator? target = null,
-        UnitEvaluator? unit = null)
-    {
-      var element = ElementTool.Create<CheckUnitSeeUnit>();
-      element.Not = negate;
-      builder.Validate(target);
-      element.Target = target ?? element.Target;
-      builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CompanionStoryUnlocked"/>
-    /// </summary>
-    ///
-    /// <param name="companionStory">
-    /// Blueprint of type BlueprintCompanionStory. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ConditionsBuilder CompanionStoryUnlocked(
-        this ConditionsBuilder builder,
-        Blueprint<BlueprintCompanionStory, BlueprintCompanionStoryReference>? companionStory = null,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<CompanionStoryUnlocked>();
-      element.m_CompanionStory = companionStory?.Reference ?? element.m_CompanionStory;
-      if (element.m_CompanionStory is null)
-      {
-        element.m_CompanionStory = BlueprintTool.GetRef<BlueprintCompanionStoryReference>(null);
-      }
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="CueSeen"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>[Kerz]_BarkCondition</term><description>59c232c2fa5e7c54baa235fee0e049d6</description></item>
+    /// <item><term>BookPage_Room1Clean</term><description>e43df5891e0598e4d9f6583db03dff51</description></item>
+    /// <item><term>ZanedraInTemple</term><description>0d22fd186d557a049b46c0fb3d623f04</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="cue">
     /// Blueprint of type BlueprintCueBase. You can pass in the blueprint using:
@@ -316,6 +369,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="CurrentChapter"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Cue_0132</term><description>0267c6f5fd920ac41b57f5dc31a16201</description></item>
+    /// <item><term>PF-332075_Restart_SosielRoman</term><description>52c5ed8b094e471fbe4eba0b4397082f</description></item>
+    /// <item><term>PF-348009</term><description>f694fa0ccae94d6f8be56f7e0681613b</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder CurrentChapter(
         this ConditionsBuilder builder,
         int? chapter = null,
@@ -328,24 +391,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="CutsceneQueueState"/>
-    /// </summary>
-    public static ConditionsBuilder CutsceneQueueState(
-        this ConditionsBuilder builder,
-        bool? first = null,
-        bool? last = null,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<CutsceneQueueState>();
-      element.First = first ?? element.First;
-      element.Last = last ?? element.Last;
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="DayOfTheMonth"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0023</term><description>bb30ee6ab838dac4cba66ca2da58d394</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder DayOfTheMonth(
         this ConditionsBuilder builder,
         int? day = null,
@@ -360,6 +415,14 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="DayOfTheWeek"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>EmberQ1_EmberPreachingInPrison</term><description>2d696d7e4ae237947832954d602dbaff</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder DayOfTheWeek(
         this ConditionsBuilder builder,
         DayOfWeek? day = null,
@@ -374,6 +437,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="DayTime"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonQ3Scene_DayTime</term><description>ffb3b99adfa368444b4a46ea36e5aec9</description></item>
+    /// <item><term>VileniaStaysNearTavern</term><description>1fc25e220db7e0b49a2efbe45c43c0ed</description></item>
+    /// <item><term>WenduagQ1Drill</term><description>76c88c9c00369e5419d8b0c70b67eef6</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder DayTime(
         this ConditionsBuilder builder,
         bool negate = false,
@@ -388,6 +461,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="DialogSeen"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>[MainHall] [Tall_DesnaPriest] Final_Bark_Conditions</term><description>7f8be13550ec4db894002cae58c9b811</description></item>
+    /// <item><term>Banter_NenioSosielVaenic_banter1</term><description>4c20ae4ef35884f4f845fa42db620783</description></item>
+    /// <item><term>ZigguratDeadRomanceTimer</term><description>587df869a564f7046a48bbf27f017619</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="dialog">
     /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
@@ -417,6 +500,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="EtudeStatus"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>[DLC1_Taberdine]_BarkConditions</term><description>c1bbb11f93d44e13b5587d4c9701515d</description></item>
+    /// <item><term>Cue_0006</term><description>8235006c1e10df244a3467c7b3900f2a</description></item>
+    /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="etude">
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
@@ -457,6 +550,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="FlagInRange"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>10State_0</term><description>1f815765df0d4d7ba19f731dfa064081</description></item>
+    /// <item><term>Cue_0047</term><description>85f8dd5f52684058b8f8266a140d6407</description></item>
+    /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="flag">
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -489,6 +592,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="FlagUnlocked"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
+    /// <item><term>Cue_0004</term><description>b401438256f1c094abee4837b69be9c2</description></item>
+    /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="conditionFlag">
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
@@ -524,8 +637,53 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="IsCampaignImported"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC1_Levelup</term><description>dca1299c933b43dd8078cdf078ee6121</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="blueprintCampaign">
+    /// Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ConditionsBuilder IsCampaignImported(
+        this ConditionsBuilder builder,
+        Blueprint<BlueprintCampaign, BlueprintCampaignReference>? blueprintCampaign = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<IsCampaignImported>();
+      element.m_BlueprintCampaign = blueprintCampaign?.Reference ?? element.m_BlueprintCampaign;
+      if (element.m_BlueprintCampaign is null)
+      {
+        element.m_BlueprintCampaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
+      }
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="IsLegendPathSelected"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction1</term><description>bb530e9345434933ba412402ca787bf1</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder IsLegendPathSelected(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -538,6 +696,14 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="MonthFromList"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0023</term><description>bb30ee6ab838dac4cba66ca2da58d394</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder MonthFromList(
         this ConditionsBuilder builder,
         int[]? months = null,
@@ -556,6 +722,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="ObjectiveStatus"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
+    /// <item><term>Cue_0004</term><description>5abeda626d328fb4197d0732f345d691</description></item>
+    /// <item><term>Ziggurat_ZachariusBeginRitual</term><description>8a020a9f01405ae4fa417500e1efd2e6</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="questObjective">
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
@@ -587,6 +763,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="PlayerAlignmentIs"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon_Chapter04_Quests</term><description>715233cf827adfe4e8a3e1adf8babad4</description></item>
+    /// <item><term>Cue_0074_PleaseFix</term><description>17e298c6166609e438a721a714e7e7af</description></item>
+    /// <item><term>TestCrusadeEvent</term><description>c8bcf035a7d947e09386fad55e986753</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder PlayerAlignmentIs(
         this ConditionsBuilder builder,
         AlignmentMaskType? alignment = null,
@@ -601,6 +787,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="PlayerHasNoCharactersOnRoster"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Cue_0021</term><description>6d1aead07823d1642be37d05b37ee4ce</description></item>
+    /// <item><term>Cue_0023</term><description>e44174a44be472249869b451f553bb0c</description></item>
+    /// <item><term>Cue_0046</term><description>a60a1d0078dfc364494c50de8661930c</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder PlayerHasNoCharactersOnRoster(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -613,6 +809,14 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="PlayerHasRecruitsOnRoster"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Cue_0016</term><description>79b2d4385e23cc44bbb31bbe4044cb74</description></item>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder PlayerHasRecruitsOnRoster(
         this ConditionsBuilder builder,
         bool negate = false)
@@ -625,6 +829,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="PlayerSignificantClassIs"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0001</term><description>2a5615c36b154ef79b0f7bff878081a0</description></item>
+    /// <item><term>Cue_0020</term><description>a66a6e34e9aa8d749921acdc7a0ae938</description></item>
+    /// <item><term>Gift_From_Stranger_Notification</term><description>e688d0cd0791435eaf84bbe4561624bc</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="characterClass">
     /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
@@ -673,6 +887,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="PlayerTopClassIs"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Cue_0003</term><description>5ab2e262087a41ef9840818c0943ccfe</description></item>
+    /// <item><term>Cue_0011</term><description>b52f80037fa9479b8cec3f0eb4f3d053</description></item>
+    /// <item><term>Cue_9</term><description>5a3c9ac7639c47ac9489e9b840b6ce19</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="characterClass">
     /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -720,6 +944,16 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// Adds <see cref="QuestStatus"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>30_HeroicVictory</term><description>a43192eddffb455db6004059811ac92d</description></item>
+    /// <item><term>Cue_0007</term><description>c614a833b23046b0b44a8548f01e2026</description></item>
+    /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="quest">
     /// Blueprint of type BlueprintQuest. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -744,35 +978,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
         element.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(null);
       }
       element.State = state ?? element.State;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RomanceLocked"/>
-    /// </summary>
-    ///
-    /// <param name="romance">
-    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ConditionsBuilder RomanceLocked(
-        this ConditionsBuilder builder,
-        bool negate = false,
-        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null)
-    {
-      var element = ElementTool.Create<RomanceLocked>();
-      element.Not = negate;
-      element.m_Romance = romance?.Reference ?? element.m_Romance;
-      if (element.m_Romance is null)
-      {
-        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
-      }
       return builder.Add(element);
     }
   }

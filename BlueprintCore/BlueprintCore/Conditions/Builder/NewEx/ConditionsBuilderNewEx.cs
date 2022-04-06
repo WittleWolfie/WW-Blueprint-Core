@@ -2,9 +2,6 @@
 
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace BlueprintCore.Conditions.Builder.NewEx
 {
@@ -18,6 +15,13 @@ namespace BlueprintCore.Conditions.Builder.NewEx
     /// <summary>
     /// Adds <see cref="TargetInMeleeRange"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// </list>
+    /// </remarks>
     public static ConditionsBuilder TargetInMeleeRange(
         this ConditionsBuilder builder,
         bool negate = false)

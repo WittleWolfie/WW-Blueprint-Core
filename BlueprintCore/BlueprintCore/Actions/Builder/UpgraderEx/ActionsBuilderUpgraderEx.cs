@@ -8,7 +8,6 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
@@ -28,6 +27,14 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="AddFactIfEtudePlaying"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-250474</term><description>6b018edaeb5648b8a1cf4bc75bd81a9d</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="etude">
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
@@ -65,6 +72,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="AddFeatureFromProgression"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-167761</term><description>3d8d382f1c7042e2b9ffe1af00ce2c56</description></item>
+    /// <item><term>PF-341704</term><description>e4782857b49f40fc903acef39d3f7424</description></item>
+    /// <item><term>PF-382795</term><description>10ceeab987b44bdb848e172f0994b99a</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="feature">
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
@@ -169,6 +186,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// Adds <see cref="RecheckEtude"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-232797</term><description>8880aef0a10e454bbaf115db5698045d</description></item>
+    /// <item><term>PF-347507</term><description>0a6c3a124c04409ca38e077272557c7a</description></item>
+    /// <item><term>PF-378673</term><description>1ebf21d888dd4f479897a063b99ea132</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="etude">
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -193,6 +220,14 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="ReenterScriptzone"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-256463</term><description>e34b8e62a2504a5ca5b84c689ba2a799</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ReenterScriptzone(
         this ActionsBuilder builder,
         EntityReference scriptZone)
@@ -206,6 +241,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="RemoveFact"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
+    /// <item><term>PF-256029</term><description>21c80029f09f46c89ee4ec36d0deea37</description></item>
+    /// <item><term>PF-402644</term><description>bc8586d9cda14137a66c82b601092132</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="fact">
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
@@ -223,7 +268,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     public static ActionsBuilder RemoveFact(
         this ActionsBuilder builder,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? exceptHasFacts = null)
+        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? exceptHasFacts = null,
+        bool? excludeExCompanions = null)
     {
       var element = ElementTool.Create<RemoveFact>();
       element.m_Fact = fact?.Reference;
@@ -232,6 +278,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
       {
         element.m_AdditionalExceptHasFacts = new BlueprintUnitFactReference[0];
       }
+      element.m_ExcludeExCompanions = excludeExCompanions ?? element.m_ExcludeExCompanions;
       element.m_ExceptHasFact = BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null);
       return builder.Add(element);
     }
@@ -239,6 +286,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="RemoveFeatureFromProgression"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-111273</term><description>344ce9c06961426f95c109ce243d8c35</description></item>
+    /// <item><term>PF-339343</term><description>adc22eb66c2f43798c9824ac05fb60f4</description></item>
+    /// <item><term>PF-96002</term><description>eb741196d9ce49768ca5adac488f65ef</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="feature">
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
@@ -308,6 +365,15 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="ReplaceFeature"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-191269</term><description>90edf140bf514ebaa3fff74c4f576e4d</description></item>
+    /// <item><term>PF-382275</term><description>50ad5ea849874e8abd47f0e5a088119c</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="fromProgression">
     /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
@@ -385,35 +451,18 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     }
 
     /// <summary>
-    /// Adds <see cref="SetSharedVendorTable"/>
-    /// </summary>
-    ///
-    /// <param name="table">
-    /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder SetSharedVendorTable(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference> table,
-        UnitEvaluator unit)
-    {
-      var element = new SetSharedVendorTable(null);
-      element.m_Table = table?.Reference;
-      builder.Validate(unit);
-      element.m_Unit = unit;
-      ElementTool.Init(element);
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="StartEtudeForced"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-222018</term><description>c9d5dee61d1b4587b99da9caa3e238df</description></item>
+    /// <item><term>PF-302757</term><description>dfa8f27b512d479eb53c1cca12ee6ff2</description></item>
+    /// <item><term>PF-371696</term><description>a0f733cee766493abdc9af254028d9ed</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="etude">
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
@@ -438,6 +487,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// Adds <see cref="UnStartEtude"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-215564</term><description>185be5e1ae964cee94428816eec0d210</description></item>
+    /// <item><term>PF-302757</term><description>dfa8f27b512d479eb53c1cca12ee6ff2</description></item>
+    /// <item><term>PF-382355</term><description>b7415799a01c43b7b1e1c5d7c908c590</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="etude">
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -460,6 +519,14 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="FixItemInInventory"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>UpgradeUnitRobe2ST2DC</term><description>0da99f59dbfc45b49864819a5ad0c3ec</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="toAdd">
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
@@ -505,6 +572,14 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="FixKingdomSystemBuffsAndStats"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-286829</term><description>df6f796cc0db48759597d141966b1716</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder FixKingdomSystemBuffsAndStats(
         this ActionsBuilder builder,
         float? diplomacyBonusCoefficient = null,
@@ -525,6 +600,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="RecreateOnLoad"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-229479-RecreateAreshkagalOnLoad</term><description>c048cb6cb12c4c578c312cf1ea5ebdce</description></item>
+    /// <item><term>PF-296345-RecreateHalDragonOnLoad</term><description>aaf834dd2d2c4348a52de842606ecaad</description></item>
+    /// <item><term>PF-340663-RecreateUnitOnLoad</term><description>0a013e4bab2b456fbd9a265fd32907b2</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RecreateOnLoad(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RecreateOnLoad>());
@@ -533,6 +618,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="RefreshAllArmyLeaders"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-216784</term><description>2b453fa01f4b47e69abf6bf61352dff1</description></item>
+    /// <item><term>PF-235722</term><description>c64fce5d41d74a468f908d33617c5a62</description></item>
+    /// <item><term>PF-296174</term><description>6f556fe66d644f75bc4ec553dd580959</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RefreshAllArmyLeaders(
         this ActionsBuilder builder,
         bool? onlyPlayerLeaders = null)
@@ -543,8 +638,32 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     }
 
     /// <summary>
+    /// Adds <see cref="RefreshArmyLeadersBaseSkills"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-295767</term><description>37ded483ce8b44fca06c9ede0ac044d9</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder RefreshArmyLeadersBaseSkills(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<RefreshArmyLeadersBaseSkills>());
+    }
+
+    /// <summary>
     /// Adds <see cref="RefreshCrusadeLogistic"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-275768</term><description>635a86098ddd4e7a971e07c3b09fd57a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RefreshCrusadeLogistic(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RefreshCrusadeLogistic>());
@@ -553,14 +672,46 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="RefreshSettingsPreset"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-291798</term><description>3f4a0892916849f99a0364602d56e4db</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RefreshSettingsPreset(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RefreshSettingsPreset>());
     }
 
     /// <summary>
+    /// Adds <see cref="RemoveBrokenSummon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-359232-RemoveBrokenSummonOnLoad</term><description>2fc8c3f9bc904d8a82daa72d844dbed2</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder RemoveBrokenSummon(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<RemoveBrokenSummon>());
+    }
+
+    /// <summary>
     /// Adds <see cref="RemoveSpell"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-219559</term><description>5cb21961e7b54c509e3de48c222c43da</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="spell">
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
@@ -604,14 +755,56 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="ResetMinDifficulty"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-265405_achivmentRestart</term><description>09080d78bd5e42f0bd3a0affe4485ca7</description></item>
+    /// <item><term>PF-293765_achivmentRestart2</term><description>fe8e03885dba4489a79dd893fd0f96a6</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ResetMinDifficulty(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ResetMinDifficulty>());
     }
 
     /// <summary>
+    /// Adds <see cref="RespawnNewUnit"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-358900</term><description>9d2858bae0fe4c8495075117927c15a5</description></item>
+    /// <item><term>PF-367341</term><description>8db934a9b811435a8181905f351ea17c</description></item>
+    /// <item><term>PF-397133</term><description>8da361c37b9b4cf3a476a2fe532adccf</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder RespawnNewUnit(
+        this ActionsBuilder builder,
+        EntityReference? spawner = null)
+    {
+      var element = ElementTool.Create<RespawnNewUnit>();
+      builder.Validate(spawner);
+      element.Spawner = spawner ?? element.Spawner;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="RestartTacticalCombat"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-205596</term><description>2cb629a2c52642f1aa534fe3e9d5e6c5</description></item>
+    /// <item><term>PF-327220</term><description>47356581fce64c9d8e764fe71583e42e</description></item>
+    /// <item><term>PF-396865</term><description>9a91b3e879264dc6a98365f4bf79ad61</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RestartTacticalCombat(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RestartTacticalCombat>());
@@ -620,6 +813,15 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="RestoreClassFeature"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-217882</term><description>b8f8b5021f9c4189a73f29573f39b70b</description></item>
+    /// <item><term>PF-324729_RestoreSneakAttack</term><description>f90026a880c64f55ad602929dc969d89</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="feature">
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
@@ -645,16 +847,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     }
 
     /// <summary>
-    /// Adds <see cref="SetAlignmentFromBlueprint"/>
-    /// </summary>
-    public static ActionsBuilder SetAlignmentFromBlueprint(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<SetAlignmentFromBlueprint>());
-    }
-
-    /// <summary>
     /// Adds <see cref="SetHandsFromBlueprint"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>UpgradeUnitPrimarySecondaryWeapons</term><description>9bb96c963f0f47f48e51aabb6c8ac4ff</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SetHandsFromBlueprint(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<SetHandsFromBlueprint>());
@@ -663,9 +865,54 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <summary>
     /// Adds <see cref="SetRaceFromBlueprint"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-365247-EvilArueshalae_Companion</term><description>083640c167934d068db623f75474afe3</description></item>
+    /// <item><term>UpgradeUnitRace</term><description>bf93ee9fb7f34b17a9a25e50ada648e4</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SetRaceFromBlueprint(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<SetRaceFromBlueprint>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="UpdateProgression"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-342714</term><description>9628f4a2db9c4a04842e2c9eb1c2e7a6</description></item>
+    /// <item><term>PF-350132</term><description>41516d0e02344c08b5eb7c0e7bd3bc63</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="progression">
+    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// </param>
+    public static ActionsBuilder UpdateProgression(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintProgression, BlueprintProgressionReference>? progression = null)
+    {
+      var element = ElementTool.Create<UpdateProgression>();
+      element.m_Progression = progression?.Reference ?? element.m_Progression;
+      if (element.m_Progression is null)
+      {
+        element.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
+      }
+      return builder.Add(element);
     }
   }
 }

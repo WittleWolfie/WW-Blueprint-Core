@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
@@ -33,6 +32,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="CompleteEtude"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
+    /// <item><term>Cue_0036</term><description>e42569f2ecea739498aeeede1c8d44d4</description></item>
+    /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="etude">
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -57,34 +66,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="ChangeRomance"/>
-    /// </summary>
-    ///
-    /// <param name="romance">
-    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ChangeRomance(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference> romance,
-        IntEvaluator valueEvaluator)
-    {
-      var element = ElementTool.Create<ChangeRomance>();
-      element.m_Romance = romance?.Reference;
-      builder.Validate(valueEvaluator);
-      element.ValueEvaluator = valueEvaluator;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ChangeUnitName"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonQ10_DuringQuest</term><description>fb99a426b8bf1f247a2272920a1fd13d</description></item>
+    /// <item><term>Cue_0030</term><description>97733d68f9413914db2a9b7bb8644b30</description></item>
+    /// <item><term>ThresholdCamp_Scripts03</term><description>21cfdbf1fe184c7e9325ec071d06fbd2</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ChangeUnitName(
         this ActionsBuilder builder,
         LocalizedString newName,
@@ -102,6 +95,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="ChangeUnitName"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonQ10_DuringQuest</term><description>fb99a426b8bf1f247a2272920a1fd13d</description></item>
+    /// <item><term>Cue_0030</term><description>97733d68f9413914db2a9b7bb8644b30</description></item>
+    /// <item><term>ThresholdCamp_Scripts03</term><description>21cfdbf1fe184c7e9325ec071d06fbd2</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ResetUnitName(
         this ActionsBuilder builder,
         UnitEvaluator unit)
@@ -114,41 +117,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="AlignmentSelector"/>
-    /// </summary>
-    public static ActionsBuilder AlignmentSelector(
-        this ActionsBuilder builder,
-        Dictionary<Alignment,AlignmentSelector.ActionAndCondition>? actionsByAlignment = null,
-        AlignmentSelector.ActionAndCondition? chaoticEvil = null,
-        AlignmentSelector.ActionAndCondition? chaoticGood = null,
-        AlignmentSelector.ActionAndCondition? chaoticNeutral = null,
-        AlignmentSelector.ActionAndCondition? lawfulEvil = null,
-        AlignmentSelector.ActionAndCondition? lawfulGood = null,
-        AlignmentSelector.ActionAndCondition? lawfulNeutral = null,
-        AlignmentSelector.ActionAndCondition? neutralEvil = null,
-        AlignmentSelector.ActionAndCondition? neutralGood = null,
-        bool? selectClosest = null,
-        AlignmentSelector.ActionAndCondition? trueNeutral = null)
-    {
-      var element = ElementTool.Create<AlignmentSelector>();
-      builder.Validate(actionsByAlignment);
-      element.m_ActionsByAlignment = actionsByAlignment ?? element.m_ActionsByAlignment;
-      element.ChaoticEvil = chaoticEvil ?? element.ChaoticEvil;
-      element.ChaoticGood = chaoticGood ?? element.ChaoticGood;
-      element.ChaoticNeutral = chaoticNeutral ?? element.ChaoticNeutral;
-      element.LawfulEvil = lawfulEvil ?? element.LawfulEvil;
-      element.LawfulGood = lawfulGood ?? element.LawfulGood;
-      element.LawfulNeutral = lawfulNeutral ?? element.LawfulNeutral;
-      element.NeutralEvil = neutralEvil ?? element.NeutralEvil;
-      element.NeutralGood = neutralGood ?? element.NeutralGood;
-      element.SelectClosest = selectClosest ?? element.SelectClosest;
-      element.TrueNeutral = trueNeutral ?? element.TrueNeutral;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="DismissAllCompanions"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MythicLocustC5_Reborn_Dialogue</term><description>ed50bd741b39e544ea97997d5e1de457</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder DismissAllCompanions(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<DismissAllCompanions>());
@@ -157,6 +135,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="GiveObjective"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
+    /// <item><term>Cue_0030</term><description>20a3ca70c563471f995baea97e1df25d</description></item>
+    /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="objective">
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
@@ -184,6 +172,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="HideUnit"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>[Nocticula]_SpawnActions</term><description>d77f996b50fad684bb0435c1d12a526d</description></item>
+    /// <item><term>CommandAction3</term><description>e0c24fa57c0b45fea4cfa61e1a71aaa8</description></item>
+    /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder HideUnit(
         this ActionsBuilder builder,
         bool? fade = null,
@@ -201,6 +199,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="HideWeapons"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AfterFinalDIalog_EpicRelief</term><description>2fa48a4ad45a0f64d8f2881ff9802dd8</description></item>
+    /// <item><term>Daeran_Q2_Stage_3</term><description>ba9f5aa57101cd24db754098d00234b4</description></item>
+    /// <item><term>WoundedInCamp_SpawnActions</term><description>e714318adb3985b4eaecfb632bb9c31b</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder HideWeapons(
         this ActionsBuilder builder,
         bool? hide = null,
@@ -216,6 +224,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="IncrementFlagValue"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
+    /// <item><term>BigNorthernIsland_Scriptzone</term><description>56f9e01cc6736cc4ab92e5b1abc8b8b1</description></item>
+    /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="flag">
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
@@ -248,6 +266,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="InterruptAllActions"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Ch5_QueenInDrezen_Mechanic</term><description>46bd4af031b869248b305629b396d6c2</description></item>
+    /// <item><term>CommandAction 4</term><description>81f0c1eec29b46e4997e429c81f84256</description></item>
+    /// <item><term>WayUp_Actions</term><description>83d0eb422bd7e774eb1710025088ed0f</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder InterruptAllActions(
         this ActionsBuilder builder,
         UnitEvaluator? unit = null)
@@ -261,6 +289,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="LockAlignment"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>05_BeLegend</term><description>31934f4d6e497944a8da7c2954fdc64a</description></item>
+    /// <item><term>Cue_0043</term><description>e60784dcd0c89594e90636a54b6ae3c8</description></item>
+    /// <item><term>PlayerIsTrickster</term><description>9f486a9c0c9abfc4a952bb22e88a7e96</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder LockAlignment(
         this ActionsBuilder builder,
         AlignmentMaskType? alignmentMask = null,
@@ -278,6 +316,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="LockFlag"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ALR_TE_Lock_Actions</term><description>418531c6ee69d6c4ebb9f181f7d6e7a4</description></item>
+    /// <item><term>door_7_switch_off</term><description>d5dddfd60cb6f204e90a2f88ce586dda</description></item>
+    /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="flag">
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
@@ -303,35 +351,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="LockRomance"/>
-    /// </summary>
-    ///
-    /// <param name="romance">
-    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder LockRomance(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null)
-    {
-      var element = ElementTool.Create<LockRomance>();
-      element.m_Romance = romance?.Reference ?? element.m_Romance;
-      if (element.m_Romance is null)
-      {
-        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="MarkAnswersSelected"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0018</term><description>010939f71662d2641a2169e955c9d632</description></item>
+    /// <item><term>Answer_0112</term><description>bdd52f320db765e44adc09990797cf6e</description></item>
+    /// <item><term>MarhevokMain_dialogue</term><description>da43f91cbb6a4e289e30b5da85f4c871</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="answers">
     /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
@@ -360,6 +391,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="MarkCuesSeen"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0004</term><description>f866dffcf5d343c4c9954b80fe261d12</description></item>
+    /// <item><term>Answer_0005</term><description>40acb258ff09dd34fb6b5fa14b7293d5</description></item>
+    /// <item><term>Answer_0006</term><description>162c5317b3fc6904293119850da3e749</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="cues">
     /// Blueprint of type BlueprintCueBase. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -386,6 +427,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="MoveAzataIslandToLocation"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AzataIsland_GlobalSpell</term><description>765b5d6d0e6f4505a6471db58b3fa6ce</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="globalMap">
     /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
@@ -430,6 +479,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="MoveAzataIslandToNearestCrossroad"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellAzataSummonIsland</term><description>efa3f3db644a459e91bc05da1371b045</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="globalMap">
     /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -456,6 +513,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="OverrideUnitReturnPosition"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Assault</term><description>bf453dba07efed44db2ce4f69bf72bc4</description></item>
+    /// <item><term>CommandAction 10</term><description>a83273816d00a41439bd31e62abcbc16</description></item>
+    /// <item><term>Pulura_Stage_2.3_OutdoorBattle</term><description>81643e1d577dfd945985eca65a261510</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder OverrideUnitReturnPosition(
         this ActionsBuilder builder,
         FloatEvaluator? orientation = null,
@@ -475,6 +542,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="PartyMembersAttach"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction</term><description>e9824e45f9edf664595e1b8a98996094</description></item>
+    /// <item><term>CommandAction1</term><description>02be6f61530c48d1bebb91e00c02a5d5</description></item>
+    /// <item><term>WenduagQ1</term><description>fb5bb4409b95c07488e0e06f71c1c2ad</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder PartyMembersAttach(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<PartyMembersAttach>());
@@ -483,6 +560,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="PartyMembersDetach"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction</term><description>a997885cb2dfec7458da8565b0ce4d26</description></item>
+    /// <item><term>Cue_0014</term><description>0a84b4f3ffa209b4d8af7187b3bedd10</description></item>
+    /// <item><term>SosielMeetsTrever</term><description>81acdfdea46f56d49b39f140f23a242c</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="detachAllExcept">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -520,6 +607,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="PartyMembersDetachEvaluated"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AfterNotDate_dialog</term><description>cbe4991d3d5bad14dac33ca4e67ae2ce</description></item>
+    /// <item><term>Cue_0028</term><description>e0b195d2a321d8d448e1f8832a0c85b2</description></item>
+    /// <item><term>VaultOfGraves_MythicDemonChapter03</term><description>e3fb405c90492e946a02e176a10268ef</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder PartyMembersDetachEvaluated(
         this ActionsBuilder builder,
         ActionsBuilder? afterDetach = null,
@@ -547,6 +644,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="PartyMembersSwapAttachedAndDetached"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AfterNotDate_dialog</term><description>cbe4991d3d5bad14dac33ca4e67ae2ce</description></item>
+    /// <item><term>Cue_0017</term><description>72c9addbe7b3a9246977758d87f8cb39</description></item>
+    /// <item><term>VaultOfGraves_MythicDemonChapter03</term><description>e3fb405c90492e946a02e176a10268ef</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder PartyMembersSwapAttachedAndDetached(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<PartyMembersSwapAttachedAndDetached>());
@@ -555,6 +662,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="Recruit"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aftermath_DaeranQ3_dialog</term><description>9a428e24ce273284989196e240051263</description></item>
+    /// <item><term>Cue_0087</term><description>1cf76019343910f43a639615443e1528</description></item>
+    /// <item><term>WoljifWish_Join_dialogue</term><description>70d8abb125a1a0b46a7207b3181c48aa</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder Recruit(
         this ActionsBuilder builder,
         bool? addToParty = null,
@@ -589,6 +706,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="RecruitInactive"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0011</term><description>d596596f28463f34eb87a3824851ce0e</description></item>
+    /// <item><term>Cue_0036</term><description>91645746b99d12646af479beace7ec9d</description></item>
+    /// <item><term>Waiting_WenduagInterlude03</term><description>03f99cb6f8f2f6a4f9304087d27c55f7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="companionBlueprint">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -619,21 +746,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="RelockInteraction"/>
-    /// </summary>
-    public static ActionsBuilder RelockInteraction(
-        this ActionsBuilder builder,
-        MapObjectEvaluator? mapObject = null)
-    {
-      var element = ElementTool.Create<RelockInteraction>();
-      builder.Validate(mapObject);
-      element.MapObject = mapObject ?? element.MapObject;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="RemoveMythicLevels"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction</term><description>301e51edf1251a9489244d37421d89fb</description></item>
+    /// <item><term>Cue_0061</term><description>0e5f7e7d35731094182a2d8bc78730b3</description></item>
+    /// <item><term>GrayGarrison_Legend_Default_Preset</term><description>9b554cdb3bc64027affff4f8635d8224</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RemoveMythicLevels(
         this ActionsBuilder builder,
         int? levels = null,
@@ -649,62 +773,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="ReplaceAllMythicLevelsWithMythicHeroLevels"/>
-    /// </summary>
-    public static ActionsBuilder ReplaceAllMythicLevelsWithMythicHeroLevels(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<ReplaceAllMythicLevelsWithMythicHeroLevels>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ReplaceFeatureInProgression"/>
-    /// </summary>
-    ///
-    /// <param name="add">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="remove">
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ReplaceFeatureInProgression(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? add = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? remove = null,
-        UnitEvaluator? unit = null)
-    {
-      var element = ElementTool.Create<ReplaceFeatureInProgression>();
-      element.m_Add = add?.Reference ?? element.m_Add;
-      if (element.m_Add is null)
-      {
-        element.m_Add = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      element.m_Remove = remove?.Reference ?? element.m_Remove;
-      if (element.m_Remove is null)
-      {
-        element.m_Remove = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ResetQuest"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-217557</term><description>aa0f48fdd6c8461b9c291f7348f7ca2f</description></item>
+    /// <item><term>PF-287242</term><description>6646f4f6b88845cba2ae37ad8077e386</description></item>
+    /// <item><term>PF-360873</term><description>c5d488664d6d41429973b17e464caecb</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="objectivesToReset">
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
@@ -765,6 +845,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="ResetQuestObjective"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-349340_Sosiel</term><description>b9d83ab5df1e435fb1197bd882478d7d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="objective">
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -791,6 +879,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="RespecCompanion"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Cue_0037</term><description>8c3b89b286fee3646bba254280a694e3</description></item>
+    /// <item><term>Cue_2</term><description>48c4790378964832ae733ff5e26c7e20</description></item>
+    /// <item><term>Cue_7</term><description>09768a45ed444decbfe548eb118ac37e</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RespecCompanion(
         this ActionsBuilder builder,
         bool? forFree = null,
@@ -803,68 +901,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="RomanceSetMaximum"/>
-    /// </summary>
-    ///
-    /// <param name="romance">
-    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder RomanceSetMaximum(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null,
-        IntEvaluator? valueEvaluator = null)
-    {
-      var element = ElementTool.Create<RomanceSetMaximum>();
-      element.m_Romance = romance?.Reference ?? element.m_Romance;
-      if (element.m_Romance is null)
-      {
-        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
-      }
-      builder.Validate(valueEvaluator);
-      element.ValueEvaluator = valueEvaluator ?? element.ValueEvaluator;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RomanceSetMinimum"/>
-    /// </summary>
-    ///
-    /// <param name="romance">
-    /// Blueprint of type BlueprintRomanceCounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder RomanceSetMinimum(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintRomanceCounter, BlueprintRomanceCounterReference>? romance = null,
-        IntEvaluator? valueEvaluator = null)
-    {
-      var element = ElementTool.Create<RomanceSetMinimum>();
-      element.m_Romance = romance?.Reference ?? element.m_Romance;
-      if (element.m_Romance is null)
-      {
-        element.m_Romance = BlueprintTool.GetRef<BlueprintRomanceCounterReference>(null);
-      }
-      builder.Validate(valueEvaluator);
-      element.ValueEvaluator = valueEvaluator ?? element.ValueEvaluator;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="SetDialogPosition"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction 4</term><description>882a9834a9e1ea5408d9ab18264a1ddf</description></item>
+    /// <item><term>Cue_0022</term><description>51c72b5f2ad84794eb23177130fec996</description></item>
+    /// <item><term>Cue_3</term><description>18e414bb4ddf4f2285fd33dc92cc9d27</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SetDialogPosition(
         this ActionsBuilder builder,
         PositionEvaluator? position = null)
@@ -878,6 +926,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SetMythicLevelForMainCharacter"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Legend_Mythic_Revert</term><description>b3d8c1415ea630349adc4e83d6e9a4be</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SetMythicLevelForMainCharacter(
         this ActionsBuilder builder,
         int? desireLevel = null)
@@ -890,6 +946,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SetObjectiveStatus"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
+    /// <item><term>Cue_0026_GiveUpLegend</term><description>275556891013baa4fbef3a23f9da9c61</description></item>
+    /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="objective">
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
@@ -922,6 +988,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="SetPortrait"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction</term><description>4fa67e84c3ddbd5448debce210a6d7b6</description></item>
+    /// <item><term>Cue_0066</term><description>a02937e970f392b46bfec4cbd8364b90</description></item>
+    /// <item><term>WoljifDemonEndingGood</term><description>709161cd9da156146ac6e3c394caa854</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="portrait">
     /// Blueprint of type BlueprintPortrait. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -951,6 +1027,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="ShiftAlignment"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CrusadeEvent01</term><description>c43ecfae55274a07b63ced113a161993</description></item>
+    /// <item><term>CrusadeEvent41</term><description>b99ed0995deb4493b712468e19a84b5c</description></item>
+    /// <item><term>CrusadeEvent87</term><description>fcfc30b343d64ae9a364d165db617555</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ShiftAlignment(
         this ActionsBuilder builder,
         AlignmentShiftDirection? alignment = null,
@@ -969,6 +1055,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="ShowDialogBox"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Alushinyrra_ToDimalchioMansion_Transition</term><description>e9921430f7a74f44894c93450f79b0e9</description></item>
+    /// <item><term>HorgusSupport</term><description>4bb5843d18521ec47b28ba4e2acda776</description></item>
+    /// <item><term>Supplies_Actions_RemoveDathDoor</term><description>784b72fb34265604080c985eef646c2a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ShowDialogBox(
         this ActionsBuilder builder,
         ActionsBuilder? onAccept = null,
@@ -1000,6 +1096,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="ShowMessageBox"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AreeluWelcome_FN_dialog</term><description>5e1e26deee65d5e4082864de2dba2d7d</description></item>
+    /// <item><term>KingdomMoraleFlagChapter2</term><description>6195e82164ff47d3a67ff5fd0d74d5e3</description></item>
+    /// <item><term>XCOM_Battle</term><description>f830cff9020aa434c8b8a49980af4035</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ShowMessageBox(
         this ActionsBuilder builder,
         ActionsBuilder? onClose = null,
@@ -1024,6 +1130,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="ShowUIWarning"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DrezenCapital</term><description>2570015799edf594daf2f076f2f975d8</description></item>
+    /// <item><term>GibberingSwarmStory</term><description>7b947c0ecc1b2684f8bdfbc3073614d3</description></item>
+    /// <item><term>Threshold</term><description>207fad718f41237449b0acf414cc991a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ShowUIWarning(
         this ActionsBuilder builder,
         LocalizedString? stringValue = null,
@@ -1042,6 +1158,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SplitUnitGroup"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0026</term><description>d5176f6a75262904082f34ea99761d58</description></item>
+    /// <item><term>CommandAction 1</term><description>98962faeeefa2884fae531b6d8b11690</description></item>
+    /// <item><term>VellexiaThirdDate</term><description>02ffbe686c198854da2d51e72fccb9ca</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SplitUnitGroup(
         this ActionsBuilder builder,
         UnitEvaluator? target = null)
@@ -1055,6 +1181,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="StartCombat"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AlushinyrraHigherCity_DefaultEtude</term><description>41574c2d4b6d89e41b096094d0aed4f2</description></item>
+    /// <item><term>CommandAction1</term><description>044908a4e07b44508cc5b4b9a92ea22c</description></item>
+    /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder StartCombat(
         this ActionsBuilder builder,
         UnitEvaluator? unit1 = null,
@@ -1071,6 +1207,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="StartDialog"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
+    /// <item><term>Graveyard_BossDialogue_SZ</term><description>95d1144f29c449f6a31ebb420da8eaec</description></item>
+    /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="dialogue">
     /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
@@ -1111,6 +1257,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="StartEncounter"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Angel_LeapOfFaithBE</term><description>6b9a55d7c63e4fa5ab553d0141a92f22</description></item>
+    /// <item><term>GlobalmapBeforeLostChapel</term><description>739f6806ac4123b4389eea950c5af95b</description></item>
+    /// <item><term>GlobalSpellTeleportParty</term><description>8accb3511e0b4eeb822c5867a3dde1e1</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="encounter">
     /// Blueprint of type BlueprintRandomEncounter. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1137,6 +1293,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="StartEtude"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
+    /// <item><term>Cue_0028</term><description>89749874f3563034ab430fddec9e9fac</description></item>
+    /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="etude">
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
@@ -1170,6 +1336,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="SwitchAzataIsland"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AzataIsland_GlobalSpell</term><description>765b5d6d0e6f4505a6471db58b3fa6ce</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="globalMap">
     /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1198,6 +1372,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SwitchChapter"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter01</term><description>df17ab913c348644b9bd3fe3f9781a84</description></item>
+    /// <item><term>Chapter04</term><description>637a57423a82b044f888677c92f5d6cb</description></item>
+    /// <item><term>Chapter06</term><description>41bf413e0fa2ea34b937d4445edd5f89</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SwitchChapter(
         this ActionsBuilder builder,
         int? chapter = null)
@@ -1210,6 +1394,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SwitchDoor"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
+    /// <item><term>CommandAction2</term><description>1c7cbf1467514b38ad20416582c7fe66</description></item>
+    /// <item><term>Zantir_Switch</term><description>9fb1869b916481d49a39a9ba82bf6051</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SwitchDoor(
         this ActionsBuilder builder,
         bool? closeIfAlreadyOpen = null,
@@ -1229,6 +1423,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SwitchFaction"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>[Hepzamirah]_SpawnActions</term><description>df28026f8a4845a3978f48834852e6b0</description></item>
+    /// <item><term>Cue_0008</term><description>ab948ab9f9eab9a4ca4edfecbafa5076</description></item>
+    /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="faction">
     /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
@@ -1263,6 +1467,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SwitchInteraction"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
+    /// <item><term>DoorToKB_CheckPassedActions</term><description>e16485ef06cc2dd4a94db114939109fa</description></item>
+    /// <item><term>YeribethHall_FinishCipher1</term><description>d5c8170f5bf5725459b6f7f895ecd458</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SwitchInteraction(
         this ActionsBuilder builder,
         bool? disableIfAlreadyEnabled = null,
@@ -1280,6 +1494,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SwitchRoaming"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>(CR 6) Skeleton_2H_SpawnActions</term><description>483880b43aba4e45bbc3e30f9bf81ed6</description></item>
+    /// <item><term>CommandAction1</term><description>af5c45a968ed43d1a0b8b3778dbab5f1</description></item>
+    /// <item><term>Graveyard_2WP_Skipped_SZ</term><description>4701a72e8988461e85a3e7f87ed5ac00</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SwitchRoaming(
         this ActionsBuilder builder,
         bool? disable = null,
@@ -1295,6 +1519,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SwitchToEnemy"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AttackAllHellknights</term><description>827e0ead039d45a09e481c98b14503ae</description></item>
+    /// <item><term>Cue_0025</term><description>d37b6333154f71249b4f7447fc2e5a05</description></item>
+    /// <item><term>XantirLastCombat</term><description>a885b376ef17bdf4aa1ae37ac6e911f3</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="factionToAttack">
     /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
@@ -1325,6 +1559,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="SwitchToNeutral"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon_MidnightFaneInThePast</term><description>fa385eeb6fe506549b9e72ae562a95f9</description></item>
+    /// <item><term>FirstFight</term><description>47382ce748a8442439c44e93fb5012e5</description></item>
+    /// <item><term>XantirLeave</term><description>652616d20e85ce24f95dc683119f8f71</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="faction">
     /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
@@ -1357,6 +1601,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="TimeSkip"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AcrobaticCheckS1_CheckFailedActions</term><description>024cfea8fa605e5438485ae1bdb6c4f8</description></item>
+    /// <item><term>CommandAction 6</term><description>eb0ed044c6d7c8b4a9f8e986b48decb4</description></item>
+    /// <item><term>Zaval_CheckFailedActions</term><description>57342a166ff440cf8df490f6d8a1bfca</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder TimeSkip(
         this ActionsBuilder builder,
         bool? matchTimeOfDay = null,
@@ -1380,6 +1634,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="UnitLookAt"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0005</term><description>878f9302e5b554d49a20ef00e6897054</description></item>
+    /// <item><term>CommandAction2</term><description>8f35d920b35745c4a363a42c1aecad3d</description></item>
+    /// <item><term>Warcamp_Tour_Seelah_Dialogue</term><description>f7facc83e8c6ed4489341f31cb72505c</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder UnitLookAt(
         this ActionsBuilder builder,
         PositionEvaluator? position = null,
@@ -1394,24 +1658,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
-    /// Adds <see cref="UnlinkDualCompanions"/>
-    /// </summary>
-    public static ActionsBuilder UnlinkDualCompanions(
-        this ActionsBuilder builder,
-        UnitEvaluator? first = null,
-        UnitEvaluator? second = null)
-    {
-      var element = ElementTool.Create<UnlinkDualCompanions>();
-      builder.Validate(first);
-      element.First = first ?? element.First;
-      builder.Validate(second);
-      element.Second = second ?? element.Second;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="UnlockCompanionStory"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>03_TalkToSeelah</term><description>a113e5ccc842cab439fdd4dc882c34a8</description></item>
+    /// <item><term>Greybor_EstrodTower</term><description>9459ab412ffc74d469eabed05e36b9fd</description></item>
+    /// <item><term>WrathOfTheRighteous</term><description>f0e6f6b732c40284ab3c103cad2455cc</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="story">
     /// Blueprint of type BlueprintCompanionStory. You can pass in the blueprint using:
@@ -1439,6 +1697,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="UnlockFlag"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>4BarrierDevice01</term><description>2099b5c949f74ad0a598fb66efbe186e</description></item>
+    /// <item><term>Cue_0028</term><description>b7912ba4ae0067740852df182b821232</description></item>
+    /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="flag">
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
@@ -1469,6 +1737,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="UnmarkAnswersSelected"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0004</term><description>05d101f17f0b47f5a03c5b6e1f9c2f33</description></item>
+    /// <item><term>Cue_0098_FifthRiddle</term><description>a4378804c4a6acd44a3f76c7e1cf519c</description></item>
+    /// <item><term>UnmarkAnswers</term><description>3c7ada0ed1917924780a24fdc46afd9b</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="answers">
     /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1495,6 +1773,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="Unrecruit"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0019</term><description>4e30b6b69abc1b24ba38f211f98b9da2</description></item>
+    /// <item><term>Cue_0034</term><description>12d17705a7f4e184aaafa03dbfba53e3</description></item>
+    /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="companionBlueprint">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -1529,6 +1817,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// Adds <see cref="UpdateEtudeProgressBar"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DH_ProgressBar</term><description>4d82ae4995764612a08163fe14ab36b5</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="etude">
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1558,6 +1854,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <summary>
     /// Adds <see cref="UpdateEtudes"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonQ3NearTailor</term><description>ea14530f3c887a94ca311579f9b40f00</description></item>
+    /// <item><term>CrystalSlot_1_Action_Section_1_2Golem</term><description>8c6389fbd35a43269cd47a3c25659599</description></item>
+    /// <item><term>WenduagDefeated_dialogue</term><description>6d17f0dee27a7a9449d0ee9a641f8266</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder UpdateEtudes(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<UpdateEtudes>());

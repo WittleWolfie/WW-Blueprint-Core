@@ -1,6 +1,5 @@
 ﻿using BlueprintCoreGen.CodeGen;
 using BlueprintCoreGen.CodeGen.Methods;
-using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;

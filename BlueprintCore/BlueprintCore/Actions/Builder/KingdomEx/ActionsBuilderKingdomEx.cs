@@ -30,7 +30,6 @@ using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
-using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -51,6 +50,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddBuffToSquad"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellAmplifyResistance</term><description>6a3342d49c59f704a98f952c7168058e</description></item>
+    /// <item><term>GlobalSpellLichEnervation</term><description>d35e171beb890534ba7180487db2acde</description></item>
+    /// <item><term>GlobalSpellTricksterMassHideousLaughter</term><description>f892a4ab290579c4cb5d70050f5f6776</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="buff">
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
@@ -80,6 +89,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddCrusadeResources"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0008</term><description>92b7ac3cfcd10424ba04f8b74f041bd8</description></item>
+    /// <item><term>CrusadeEvent57</term><description>31eeeb38e7c44b159536fcefc2c236bf</description></item>
+    /// <item><term>Logistics6Spoiling</term><description>a945643238004736ba604bbc55b232ae</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder AddCrusadeResources(
         this ActionsBuilder builder,
         KingdomResourcesAmount _resourcesAmount)
@@ -92,6 +111,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddMorale"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AbductedSouls_event</term><description>446e4191ab45485ca8316e4b388d4671</description></item>
+    /// <item><term>CrusadeEvent72</term><description>f605189b5c4f4e189c381c79b7d7e3d7</description></item>
+    /// <item><term>TimeLoss04_Action</term><description>93ddb85426414eeda6706b5e20402613</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder AddMorale(
         this ActionsBuilder builder,
         int? bonus = null,
@@ -108,6 +137,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddMorale"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AbductedSouls_event</term><description>446e4191ab45485ca8316e4b388d4671</description></item>
+    /// <item><term>CrusadeEvent72</term><description>f605189b5c4f4e189c381c79b7d7e3d7</description></item>
+    /// <item><term>TimeLoss04_Action</term><description>93ddb85426414eeda6706b5e20402613</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SubtractMorale(
         this ActionsBuilder builder,
         int? bonus = null,
@@ -124,6 +163,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ChangeArmyMorale"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellMarkOfTerror</term><description>e2b56bb4acf390c459919baff3894ecf</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ChangeArmyMorale(
         this ActionsBuilder builder,
         GlobalMagicValue changeValue,
@@ -140,6 +187,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ChangeTacticalMorale"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyBlessBuffWarwarpriest</term><description>015bb401d6484d3aa2984ad04b1ddcb7</description></item>
+    /// <item><term>ArmyMorale20Buff</term><description>66f7b701c57e4deb95266f16541f729e</description></item>
+    /// <item><term>RitualHeroismAbility</term><description>f6d4d5b4a41d5c640b529a79e2650aa8</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ChangeTacticalMorale(
         this ActionsBuilder builder,
         ContextValue value)
@@ -152,6 +209,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionAddCrusadeResource"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyRaiderResourcesForKilling</term><description>14fafae0fc8e9014d9ae82328b7641ea</description></item>
+    /// <item><term>FlagTrickster3Economy</term><description>4b833c6fcdfa47918927d80edf7ef9ae</description></item>
+    /// <item><term>PillageFact</term><description>8d01674744b34641828b77e53e0cfb9a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder AddCrusadeResource(
         this ActionsBuilder builder,
         KingdomResourcesAmount resourcesAmount)
@@ -164,6 +231,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionArmyRemoveFacts"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Azata5SongOfTheLastStepTeleportBuff</term><description>2b1c9935ca2f4e7aaaa8b0712411be30</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="factsToRemove">
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
@@ -191,6 +266,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionSquadUnitsKill"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyPhantasmalKiller</term><description>1778a8c678bc41f984bd7c0d5e52e3c9</description></item>
+    /// <item><term>ArmyUltimatePhantasmalKiller</term><description>e7dbab1d761e482ab46e316ce7af2d6b</description></item>
+    /// <item><term>ArmyVorpalStrike</term><description>da6d24ec5a87417f93683ac4b41b3f25</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KillSquadUnits(
         this ActionsBuilder builder,
         float floatCount)
@@ -204,6 +289,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionSquadUnitsKill"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyPhantasmalKiller</term><description>1778a8c678bc41f984bd7c0d5e52e3c9</description></item>
+    /// <item><term>ArmyUltimatePhantasmalKiller</term><description>e7dbab1d761e482ab46e316ce7af2d6b</description></item>
+    /// <item><term>ArmyVorpalStrike</term><description>da6d24ec5a87417f93683ac4b41b3f25</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KillSquadLeaders(
         this ActionsBuilder builder,
         ContextDiceValue count)
@@ -217,6 +312,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionSummonTacticalSquad"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Angel3SummonHeavenlyHostAbility</term><description>f317d44314a843e7aaf3fc202cbe9577</description></item>
+    /// <item><term>ArmySummonPetHunter</term><description>a256fbf11092416dbdcd1ce2a0cf563f</description></item>
+    /// <item><term>SummonSquadSlow</term><description>7985c14f44ad9c64eb32c6d5e9a713fc</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="blueprint">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -268,6 +373,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionTacticalCombatDealDamage"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon5BaneOfDemonsBuff</term><description>7f3a76f5ebee4ff593528ff3e3175a02</description></item>
+    /// <item><term>RangerFrostBlastTrapArea</term><description>f991f22da1b51ae48ab59e15e3a28ff4</description></item>
+    /// <item><term>RitualStoneCallAbility</term><description>705b85d1ffc2a4347bdfcba7480b32dc</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder TacticalCombatDealDamage(
         this ActionsBuilder builder,
         DamageTypeDescription damageType,
@@ -296,6 +411,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="CreateArmy"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon2FireElementals</term><description>63364fac363349a99dd7fe96ca86dc7c</description></item>
+    /// <item><term>Event28HostOfDrunkards</term><description>3c366759ed964186ab14946c39f8a8ae</description></item>
+    /// <item><term>ZanedraAndDemons_ISanctum_dialog</term><description>f4eadbafa9adad44bb46639dece46717</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="army">
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
@@ -355,6 +480,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="CreateArmy"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon2FireElementals</term><description>63364fac363349a99dd7fe96ca86dc7c</description></item>
+    /// <item><term>Event28HostOfDrunkards</term><description>3c366759ed964186ab14946c39f8a8ae</description></item>
+    /// <item><term>ZanedraAndDemons_ISanctum_dialog</term><description>f4eadbafa9adad44bb46639dece46717</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="army">
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
@@ -429,6 +564,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="CreateArmyFromLosses"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyRestoration1</term><description>319d42458570421e9ed4279f206ae3d6</description></item>
+    /// <item><term>ArmyRestoration3</term><description>71eba76e806a4136b11bb7e94a8a4c7f</description></item>
+    /// <item><term>ArmyRestoration4</term><description>b44b7bb6e84e44c090edb711effb6bd4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="location">
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -457,6 +602,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="CreateGarrison"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>KingdomMoraleFlagChapter3Siege</term><description>0b405fd736f54c05b65aaee855ad585e</description></item>
+    /// <item><term>KingdomMoraleFlagChapter5Siege</term><description>97f654fb595348b4a492ef17baf2af04</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="army">
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
@@ -511,6 +665,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="FakeSkipTime"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellAeonTimeManipulation</term><description>669323b91db4ebc44831d514970e75a8</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder FakeSkipTime(
         this ActionsBuilder builder,
         GlobalMagicValue skipDays)
@@ -524,6 +686,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="GainDiceArmyDamage"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellAmbush</term><description>8298c3d4c66d47a78fde4b7210cfe3d8</description></item>
+    /// <item><term>GlobalSpellAngelStormOfJustice</term><description>783a66393159b534680c91bf60a374ff</description></item>
+    /// <item><term>GlobalSpellMightyTempest</term><description>9e67c7f0586d6754cbf8c47ab0bc9705</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder GainDiceArmyDamage(
         this ActionsBuilder builder,
         GlobalMagicValue diceValue,
@@ -540,6 +712,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="GainGlobalMagicSpell"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// <item><term>FlagAngel5BestowProtection</term><description>c70913a7b8494fa3b1f0ce2fc701718a</description></item>
+    /// <item><term>FlagLich4AnimateDead</term><description>47ed8cdcd0b44771afb5a2d32eb91ad4</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="spell">
     /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
@@ -561,31 +743,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionActivateEventDeck"/>
-    /// </summary>
-    ///
-    /// <param name="deck">
-    /// Blueprint of type BlueprintKingdomDeck. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionActivateEventDeck(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomDeck, BlueprintKingdomDeckReference> deck)
-    {
-      var element = ElementTool.Create<KingdomActionActivateEventDeck>();
-      element.m_Deck = deck?.Reference;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionAddBPRandom"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Amber_ReforgeProject</term><description>3b4b2c6077fab6741b63b55a274bf18c</description></item>
+    /// <item><term>KnightsEmblemShortswordProject_Enchanting</term><description>739656c82b61413b92f8293b949420d9</description></item>
+    /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionAddBPRandom(
         this ActionsBuilder builder,
         KingdomResource resourceType,
@@ -604,6 +773,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionAddBuff"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon2FireElementals</term><description>63364fac363349a99dd7fe96ca86dc7c</description></item>
+    /// <item><term>Diplomacy8Mythics</term><description>856b4af42eab423fbb4e00d1adfe93d9</description></item>
+    /// <item><term>Trickster5ThugPaladin</term><description>e83a6a99081d467fb56d8afe1de6a4d5</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="buff">
     /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
@@ -647,72 +826,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionAddFreeBuilding"/>
-    /// </summary>
-    ///
-    /// <param name="building">
-    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddFreeBuilding(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference> building,
-        int? count = null)
-    {
-      var element = ElementTool.Create<KingdomActionAddFreeBuilding>();
-      element.m_Building = building?.Reference;
-      element.Count = count ?? element.Count;
-      element.Anywhere = true;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionAddFreeBuilding"/>
-    /// </summary>
-    ///
-    /// <param name="building">
-    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="settlement">
-    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder AddFreeBuildingToSettlement(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference> building,
-        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference> settlement,
-        int? count = null)
-    {
-      var element = ElementTool.Create<KingdomActionAddFreeBuilding>();
-      element.m_Building = building?.Reference;
-      element.m_Settlement = settlement?.Reference;
-      element.Count = count ?? element.Count;
-      element.Anywhere = false;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionAddRandomBuff"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlagTrickster3Economy</term><description>4b833c6fcdfa47918927d80edf7ef9ae</description></item>
+    /// <item><term>FlagTrickster3Everything</term><description>7886a2f17fed4514ba7d2a53730f38bf</description></item>
+    /// <item><term>FlagTrickster6Equipment</term><description>f0a1778be6af47c58e32e125810ea3cd</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="buffs">
     /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
@@ -740,43 +865,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionArtisanRequestHelp"/>
-    /// </summary>
-    ///
-    /// <param name="artisan">
-    /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="project">
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionArtisanRequestHelp(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference> artisan,
-        Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference> project)
-    {
-      var element = ElementTool.Create<KingdomActionArtisanRequestHelp>();
-      element.m_Artisan = artisan?.Reference;
-      element.m_Project = project?.Reference;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionConquerRegion"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// <item><term>KingdomMoraleFlagChapter3Regions</term><description>d04ff8f15c034f56bcfbad952a74bdb3</description></item>
+    /// <item><term>KingdomMoraleFlagChapter5Regions</term><description>b01624ee06444738964b678259f31a20</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="region">
     /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
@@ -800,6 +900,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionFillSettlement"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="buildList">
     /// Blueprint of type SettlementBuildList. You can pass in the blueprint using:
@@ -833,43 +941,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionFillSettlementByLocation"/>
-    /// </summary>
-    ///
-    /// <param name="buildList">
-    /// Blueprint of type SettlementBuildList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="specificSettlementLocation">
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionFillSettlementByLocation(
-        this ActionsBuilder builder,
-        Blueprint<SettlementBuildList, SettlementBuildListReference> buildList,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference> specificSettlementLocation)
-    {
-      var element = ElementTool.Create<KingdomActionFillSettlementByLocation>();
-      element.m_BuildList = buildList?.Reference;
-      element.m_SpecificSettlementLocation = specificSettlementLocation?.Reference;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionFoundSettlement"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// <item><term>CreateSettlementIncubusLair</term><description>2d5d98015300319409a9b79f4bc31e0e</description></item>
+    /// <item><term>KingdomMoraleFlagChapter5Regions</term><description>b01624ee06444738964b678259f31a20</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="location">
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
@@ -905,6 +988,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionGainLeaderExperience"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Event64SecurityTraining</term><description>67217afddedc419481c7cb58b5379c6d</description></item>
+    /// <item><term>Leadership8LeaderEXP</term><description>374dcca26ef2441bab95ceab14350428</description></item>
+    /// <item><term>MythicDragon_RankUp01_Option02</term><description>aa700189d693a4c4c86693e5ec5d5b69</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionGainLeaderExperience(
         this ActionsBuilder builder,
         IntEvaluator value,
@@ -921,6 +1014,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ManuallySetGlobalSpellCooldown"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellTeleportParty</term><description>8accb3511e0b4eeb822c5867a3dde1e1</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="spell">
     /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
@@ -944,6 +1045,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="OpenTeleportationInterface"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellTeleportParty</term><description>8accb3511e0b4eeb822c5867a3dde1e1</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder OpenTeleportationInterface(
         this ActionsBuilder builder,
         ActionsBuilder onTeleportActions)
@@ -956,6 +1065,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RemoveGlobalMagicSpell"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlagAngel3Justice</term><description>3c3c9b5f8cb74663bda5e092c1f6ecc8</description></item>
+    /// <item><term>FlagLich4AnimateDead</term><description>47ed8cdcd0b44771afb5a2d32eb91ad4</description></item>
+    /// <item><term>GlobalSpellRelicKeeperGain</term><description>e70e64a830064439b0c22032a8a3c6ac</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="spell">
     /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
@@ -979,6 +1098,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RemoveUnitsByExp"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellLegendBanish</term><description>273ad88db15c06241849f76f6623099d</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RemoveUnitsByExp(
         this ActionsBuilder builder,
         GlobalMagicValue expValue,
@@ -995,6 +1122,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RepairLeaderMana"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellReplenish</term><description>e3a0fc7210f02f34daff21f6df42d246</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RepairLeaderMana(
         this ActionsBuilder builder,
         GlobalMagicValue value)
@@ -1008,6 +1143,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="SummonExistUnits"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellCallToArms</term><description>68f1485a4b5dd7348bbe54c370136490</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SummonExistUnits(
         this ActionsBuilder builder,
         GlobalMagicValue sumExpCost)
@@ -1021,6 +1164,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="SummonRandomGroup"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellAngelSummonHeavenlyHost</term><description>5425f939e31478e4ca8b00ff6ca161c9</description></item>
+    /// <item><term>GlobalSpellLichAnimateDead</term><description>a8207b313ed41ad408c96fff5edfe85f</description></item>
+    /// <item><term>GlobalSpellLocustSummonSwarm</term><description>ce50c4fe24bdab14b823d76d4c42352b</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder SummonRandomGroup(
         this ActionsBuilder builder,
         SummonRandomGroup.RandomGroup[] randomGroups)
@@ -1034,6 +1187,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddGrowthBonus"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Leadership4FreeRecruitsEffect</term><description>f05a75fb26224d04bf376466220c232d</description></item>
+    /// <item><term>Leadership4FreeRecruitsSmallEffect</term><description>ced9fd0a41aa48c7920fbc563b305faa</description></item>
+    /// <item><term>Leadership4RecruitsForMoraleEffect</term><description>7c200175267a495b91215d91cba81888</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder AddGrowthBonus(
         this ActionsBuilder builder,
         int? bonus = null)
@@ -1046,6 +1209,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddMercenaryToPool"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// <item><term>FlagMilitary2Spearman</term><description>fae131e8e9b9439e9203fdc5286fb4e7</description></item>
+    /// <item><term>Obj3B_TalkWithSull</term><description>5c32d5a46133ae34e9aa8aa1a9efbcbf</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="unit">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -1075,6 +1248,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="AddTacticalArmyFeature"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0003</term><description>8df6da6c3db0b744baeca86c24fddc03</description></item>
+    /// <item><term>Event33ProfitablePurchase</term><description>cd3ffefdcd5d4a4e87fe7012f2aa7b92</description></item>
+    /// <item><term>ZachariusUndeadUpgrade_level2</term><description>ce15dfd148df49df892eda52eb46cf34</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="armyUnits">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -1128,6 +1311,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ArmyAdditionalAction"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyAdditionalActionAfterKill</term><description>d0781dcef7f2a3a4e896a5b107123933</description></item>
+    /// <item><term>TacticianRank1</term><description>cea098cc8ed24e828ee2576185f8ba0b</description></item>
+    /// <item><term>TacticianRank3</term><description>5234a68ecf404794a3aee34c9416aecb</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ArmyAdditionalAction(
         this ActionsBuilder builder,
         bool? canAddInBonusMoraleTurn = null,
@@ -1142,6 +1335,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="BlockTacticalCell"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RangerObstacleAbility</term><description>f23bb74fff45484cbc09d54152a9f3f4</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder BlockTacticalCell(
         this ActionsBuilder builder,
         TacticalMapObstacle.Link? obstaclePrefab = null)
@@ -1155,6 +1356,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ChangeKingdomMoraleMaximum"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BuildingBreweryClerics</term><description>30e7244cab4c4acd9279c734d985ff93</description></item>
+    /// <item><term>BuildingBreweryWizards</term><description>6da87777fa6f4a36870d473d93a75fbf</description></item>
+    /// <item><term>FlagLegend1Morale</term><description>ebda3d4d2b39416dbec3dc4a7bbd4760</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ChangeKingdomMoraleMaximum(
         this ActionsBuilder builder,
         int? maxValueDelta = null)
@@ -1165,37 +1376,43 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="ChangeMercenaryWeight"/>
+    /// Adds <see cref="ContextActionByArmyLeader"/>
     /// </summary>
     ///
-    /// <param name="unit">
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyAeon3Spikes</term><description>249ad28266fc4d579e21c626bc198ea2</description></item>
+    /// <item><term>FighterPoisonousStrikeBuff2</term><description>6f31c37e011f4481bd3e8be1e70b6336</description></item>
+    /// <item><term>FighterPoisonousStrikeBuff3</term><description>ea1b9aef227b4fceb15e936668cd0f56</description></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder ChangeMercenaryWeight(
+    /// </remarks>
+    public static ActionsBuilder ByArmyLeader(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null,
-        float? weight = null)
+        ActionsBuilder? actions = null)
     {
-      var element = ElementTool.Create<ChangeMercenaryWeight>();
-      element.m_Unit = unit?.Reference ?? element.m_Unit;
-      if (element.m_Unit is null)
+      var element = ElementTool.Create<ContextActionByArmyLeader>();
+      element.Actions = actions?.Build() ?? element.Actions;
+      if (element.Actions is null)
       {
-        element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+        element.Actions = Utils.Constants.Empty.Actions;
       }
-      element.m_Weight = weight ?? element.m_Weight;
       return builder.Add(element);
     }
 
     /// <summary>
     /// Adds <see cref="ContextActionRestoreLeaderAction"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>EmergencyOrderBuff</term><description>8f95988103a545c2900adb3bfc4ba64f</description></item>
+    /// <item><term>TwincastBuff</term><description>f868a773106e4e78a777d850acd38ee8</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RestoreLeaderAction(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionRestoreLeaderAction>());
@@ -1204,6 +1421,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionStopUnit"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RangerMaddeningPoisonArea</term><description>98ecfe7fadd6472d93fff3f2211e0021</description></item>
+    /// <item><term>RangerSpringTrapAbilityEffect</term><description>d3907beec55c40198094b0eba829d010</description></item>
+    /// <item><term>RangerSpringTrapArea</term><description>7feffc237b734814875497233e5d00b5</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder StopUnit(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<ContextActionStopUnit>());
@@ -1212,6 +1439,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ContextActionTacticalCombatHealTarget"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Azata1SongOfSeasonsAbilityArea</term><description>257a806b4d2b452d9fa9f603d0d1c8a2</description></item>
+    /// <item><term>RitualCureWoundsAbility</term><description>cfa06dceb9a886b46b01fa62024b748a</description></item>
+    /// <item><term>RitualJudgementDayAbility</term><description>814a31b50da1434aa9f8622b87157fda</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder TacticalCombatHealTarget(
         this ActionsBuilder builder,
         DiceType? diceType = null,
@@ -1230,6 +1467,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="DecreaseRecruitsGrowth"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="unit">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -1257,37 +1502,17 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="DecreaseRecruitsPool"/>
-    /// </summary>
-    ///
-    /// <param name="unit">
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder DecreaseRecruitsPool(
-        this ActionsBuilder builder,
-        int? count = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
-    {
-      var element = ElementTool.Create<DecreaseRecruitsPool>();
-      element.Count = count ?? element.Count;
-      element.m_Unit = unit?.Reference ?? element.m_Unit;
-      if (element.m_Unit is null)
-      {
-        element.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="EnterKingdomInterface"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Area 51_CheckPassedActions</term><description>e8876f8698f9bf24785b0d2af72b72c0</description></item>
+    /// <item><term>CapitalKingdomButton_Actions</term><description>cd8bf939dd1348244948e058c1e10c5d</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="returnPoint">
     /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
@@ -1321,6 +1546,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ExchangeRecruits"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0016</term><description>b1c5d837b93d71c4d92bfc384732e823</description></item>
+    /// <item><term>Answer_0029</term><description>81f58f56c3737b24b8225ac2597f472b</description></item>
+    /// <item><term>MythicDevil_RankUp02_Option03</term><description>304b0e0aa6714d4499123b0c3c4ba729</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="newUnit">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -1371,6 +1606,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="IncreaseRecruitsGrowth"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="unit">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1400,6 +1643,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="IncreaseRecruitsPool"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="unit">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1428,6 +1679,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionAddMercenaryReroll"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-250459</term><description>6a8a9838d55847cf8660de463fb26659</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionAddMercenaryReroll(
         this ActionsBuilder builder,
         int? freeRerollsToAdd = null)
@@ -1440,22 +1699,31 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionChangeToAutoCrusade"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>KingdomMoraleFlagChapter3Siege</term><description>0b405fd736f54c05b65aaee855ad585e</description></item>
+    /// <item><term>KingdomMoraleFlagChapter5Siege</term><description>97f654fb595348b4a492ef17baf2af04</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionChangeToAutoCrusade(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionChangeToAutoCrusade>());
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionCollectLoot"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionCollectLoot(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionCollectLoot>());
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionDestroyAllSettlements"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlagLocust</term><description>328fc139938f4582a605917a729169f3</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionDestroyAllSettlements(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionDestroyAllSettlements>());
@@ -1464,6 +1732,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionDisable"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionDisable(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionDisable>());
@@ -1472,6 +1748,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionEnable"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionEnable(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionEnable>());
@@ -1480,6 +1764,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionFinishRandomBuilding"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlagTrickster3Economy</term><description>4b833c6fcdfa47918927d80edf7ef9ae</description></item>
+    /// <item><term>FlagTrickster3Everything</term><description>7886a2f17fed4514ba7d2a53730f38bf</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionFinishRandomBuilding(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionFinishRandomBuilding>());
@@ -1488,70 +1781,31 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionFoundKingdom"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionFoundKingdom(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionFoundKingdom>());
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionGetArtisanGift"/>
-    /// </summary>
-    ///
-    /// <param name="artisan">
-    /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionGetArtisanGift(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>? artisan = null)
-    {
-      var element = ElementTool.Create<KingdomActionGetArtisanGift>();
-      element.m_Artisan = artisan?.Reference ?? element.m_Artisan;
-      if (element.m_Artisan is null)
-      {
-        element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionGetArtisanGiftWithCertainTier"/>
-    /// </summary>
-    ///
-    /// <param name="artisan">
-    /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionGetArtisanGiftWithCertainTier(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>? artisan = null,
-        int? tier = null)
-    {
-      var element = ElementTool.Create<KingdomActionGetArtisanGiftWithCertainTier>();
-      element.m_Artisan = artisan?.Reference ?? element.m_Artisan;
-      if (element.m_Artisan is null)
-      {
-        element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
-      }
-      element.tier = tier ?? element.tier;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionGetPartyGoldByUnitsCount"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlagTrickster1Money</term><description>6c97784129e5492fa08496f2d4139f22</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionGetPartyGoldByUnitsCount(
         this ActionsBuilder builder,
         float? coefficient = null,
@@ -1564,22 +1818,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionGetResourcesByUnitsCount"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionGetResourcesByUnitsCount(
-        this ActionsBuilder builder,
-        float? coefficient = null,
-        KingdomResourcesAmount? resourcePerUnit = null)
-    {
-      var element = ElementTool.Create<KingdomActionGetResourcesByUnitsCount>();
-      element.m_Coefficient = coefficient ?? element.m_Coefficient;
-      element.m_ResourcePerUnit = resourcePerUnit ?? element.m_ResourcePerUnit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionGetResourcesPercent"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Logistics6Accumulation</term><description>86e157a49e15496a9deac395011061be</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionGetResourcesPercent(
         this ActionsBuilder builder,
         int? maxResourceCountGained = null,
@@ -1596,6 +1844,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionGiveLoot"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GiftFromStranger_Event</term><description>6c8020c5f9f44c4f9c99d6b10d6d3238</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionGiveLoot(
         this ActionsBuilder builder,
         LootEntry[]? loot = null)
@@ -1613,6 +1869,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionImproveSettlement"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>UpgradeToCity</term><description>ecb59fbdd3354dfab7ba944ec79fabea</description></item>
+    /// <item><term>UpgradeToTown</term><description>67dc50f3f87746528d66302e9a401975</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="specificSettlement">
     /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
@@ -1642,6 +1907,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionImproveStat"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Aeon2FireElementals</term><description>63364fac363349a99dd7fe96ca86dc7c</description></item>
+    /// <item><term>BrokenPhylacteryScytheProject_Enchanting</term><description>963413f7f439414db78ba27e7e513490</description></item>
+    /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionImproveStat(
         this ActionsBuilder builder,
         KingdomStats.Type? statType = null)
@@ -1652,114 +1927,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionMakeRoll"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionMakeRoll(
-        this ActionsBuilder builder,
-        int? dC = null,
-        ActionsBuilder? onFailure = null,
-        ActionsBuilder? onSuccess = null,
-        KingdomStats.Type? stat = null)
-    {
-      var element = ElementTool.Create<KingdomActionMakeRoll>();
-      element.DC = dC ?? element.DC;
-      element.OnFailure = onFailure?.Build() ?? element.OnFailure;
-      if (element.OnFailure is null)
-      {
-        element.OnFailure = Utils.Constants.Empty.Actions;
-      }
-      element.OnSuccess = onSuccess?.Build() ?? element.OnSuccess;
-      if (element.OnSuccess is null)
-      {
-        element.OnSuccess = Utils.Constants.Empty.Actions;
-      }
-      element.Stat = stat ?? element.Stat;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionModifyBuildTime"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionModifyBuildTime(
-        this ActionsBuilder builder,
-        float? changeTime = null)
-    {
-      var element = ElementTool.Create<KingdomActionModifyBuildTime>();
-      element.ChangeTime = changeTime ?? element.ChangeTime;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionModifyClaims"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionModifyClaims(
-        this ActionsBuilder builder,
-        float? changeCost = null,
-        float? changeTime = null)
-    {
-      var element = ElementTool.Create<KingdomActionModifyClaims>();
-      element.ChangeCost = changeCost ?? element.ChangeCost;
-      element.ChangeTime = changeTime ?? element.ChangeTime;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionModifyEventDC"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionModifyEventDC(
-        this ActionsBuilder builder,
-        int? modifier = null)
-    {
-      var element = ElementTool.Create<KingdomActionModifyEventDC>();
-      element.Modifier = modifier ?? element.Modifier;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionModifyRE"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionModifyRE(
-        this ActionsBuilder builder,
-        float? claimedChange = null,
-        float? unclaimedChange = null,
-        float? upgradedChange = null)
-    {
-      var element = ElementTool.Create<KingdomActionModifyRE>();
-      element.ClaimedChange = claimedChange ?? element.ClaimedChange;
-      element.UnclaimedChange = unclaimedChange ?? element.UnclaimedChange;
-      element.UpgradedChange = upgradedChange ?? element.UpgradedChange;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionModifyRankTime"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionModifyRankTime(
-        this ActionsBuilder builder,
-        float? changeTime = null)
-    {
-      var element = ElementTool.Create<KingdomActionModifyRankTime>();
-      element.ChangeTime = changeTime ?? element.ChangeTime;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionModifyStatRandom"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionModifyStatRandom(
-        this ActionsBuilder builder,
-        DiceFormula? change = null,
-        bool? includeInEventStats = null)
-    {
-      var element = ElementTool.Create<KingdomActionModifyStatRandom>();
-      element.Change = change ?? element.Change;
-      element.IncludeInEventStats = includeInEventStats ?? element.IncludeInEventStats;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionModifyStats"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0054</term><description>d6e30610613f65b4997c592f622f80f1</description></item>
+    /// <item><term>CrusadeEvent64</term><description>e8980ed1a7364f79a02e916ed9c32eaa</description></item>
+    /// <item><term>SarcorianElders_Ring</term><description>1375b1d6ec7842668d5c340c6fd77259</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionModifyStats(
         this ActionsBuilder builder,
         KingdomStats.Changes? changes = null,
@@ -1773,29 +1952,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionModifyUnrest"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionModifyUnrest(
-        this ActionsBuilder builder,
-        bool? bounded = null,
-        bool? makeBetter = null,
-        KingdomStatusChangeReason? reason = null,
-        SharedStringAsset? reasonString = null,
-        KingdomStatusType? upTo = null)
-    {
-      var element = ElementTool.Create<KingdomActionModifyUnrest>();
-      element.Bounded = bounded ?? element.Bounded;
-      element.MakeBetter = makeBetter ?? element.MakeBetter;
-      element.Reason = reason ?? element.Reason;
-      builder.Validate(reasonString);
-      element.ReasonString = reasonString ?? element.ReasonString;
-      element.UpTo = upTo ?? element.UpTo;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionNextChapter"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// <item><term>PF-218150</term><description>d7696062df7c4b948e1ce3e1b769fc9a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionNextChapter(
         this ActionsBuilder builder,
         int? chapterNumber = null)
@@ -1806,16 +1974,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionPullRankupChangesIntoDialog"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionPullRankupChangesIntoDialog(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionPullRankupChangesIntoDialog>());
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionRemoveAllLeaders"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlagLocust</term><description>328fc139938f4582a605917a729169f3</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionRemoveAllLeaders(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionRemoveAllLeaders>());
@@ -1824,6 +1992,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionRemoveBuff"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// <item><term>MythicAzata_RankUp02_Option03</term><description>befdc93888af1324cad1439cf81ebdfe</description></item>
+    /// <item><term>QuatermasterErrandTracker_buff</term><description>1ed15e9a59ec4524a8f301a20c88d20f</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="blueprint">
     /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
@@ -1872,6 +2050,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionRemoveEvent"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Add4_GotoMoltenScar</term><description>f6694c696284e2046b0f064f83c320c2</description></item>
+    /// <item><term>KTC_LichRankUp_1_Notification</term><description>34a1fb6d575b3cd458fd6ce51c89491c</description></item>
+    /// <item><term>WenduagKTC_WenduagComeNeathholm_Notification</term><description>2cd5a9a5a2531f645acdd5f72ef3218e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="eventBlueprint">
     /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -1900,86 +2088,17 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionRemoveEventDeck"/>
-    /// </summary>
-    ///
-    /// <param name="deck">
-    /// Blueprint of type BlueprintKingdomDeck. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionRemoveEventDeck(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomDeck, BlueprintKingdomDeckReference>? deck = null)
-    {
-      var element = ElementTool.Create<KingdomActionRemoveEventDeck>();
-      element.m_Deck = deck?.Reference ?? element.m_Deck;
-      if (element.m_Deck is null)
-      {
-        element.m_Deck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionRequestArtisanGift"/>
-    /// </summary>
-    ///
-    /// <param name="artisan">
-    /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    /// <param name="itemType">
-    /// Blueprint of type ArtisanItemDeck. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomActionRequestArtisanGift(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>? artisan = null,
-        Blueprint<ArtisanItemDeck, ArtisanItemDeckReference>? itemType = null)
-    {
-      var element = ElementTool.Create<KingdomActionRequestArtisanGift>();
-      element.m_Artisan = artisan?.Reference ?? element.m_Artisan;
-      if (element.m_Artisan is null)
-      {
-        element.m_Artisan = BlueprintTool.GetRef<BlueprintKingdomArtisanReference>(null);
-      }
-      element.m_ItemType = itemType?.Reference ?? element.m_ItemType;
-      if (element.m_ItemType is null)
-      {
-        element.m_ItemType = BlueprintTool.GetRef<ArtisanItemDeckReference>(null);
-      }
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionResetRecurrence"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionResetRecurrence(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionResetRecurrence>());
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionResolveCrusadeEvent"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AutoKingdomProjectsControllerCh3</term><description>b31b96dd34f8415382c8ec26787364d3</description></item>
+    /// <item><term>AutoKingdomProjectsControllerCh5</term><description>cc52c843d1564064aa892f78f1e81e09</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="eventBlueprint">
     /// Blueprint of type BlueprintCrusadeEvent. You can pass in the blueprint using:
@@ -2009,6 +2128,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionResolveEvent"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Daeran_Q3_KTC_LiotrSetsTrap</term><description>2d5236c9c51ac1c4aa2d1591e4bc6634</description></item>
+    /// <item><term>KTC_EveryoneVSLocust</term><description>d0559ec70df3f0646acff64c5ae746e3</description></item>
+    /// <item><term>Timer_Before_KTC_TeachMeHowToBreathe</term><description>4edd42f27b29cb747b8025b6c608fb29</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="eventBlueprint">
     /// Blueprint of type BlueprintKingdomEvent. You can pass in the blueprint using:
@@ -2043,6 +2172,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionResolveProject"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonAutoKingdomDelay</term><description>7e50ed6c545e4fc486680348003de3cd</description></item>
+    /// <item><term>PF-233878</term><description>156061427b524196bf93123488e66c42</description></item>
+    /// <item><term>TricksterAutoKingdomDelay</term><description>c70a8c4b5c2c4f69be373b2d05640b3b</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="eventBlueprint">
     /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2067,72 +2206,32 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionRestartEvent"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionRestartEvent(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionRestartEvent>());
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionRollbackRecurrence"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionRollbackRecurrence(
-        this ActionsBuilder builder,
-        bool? includeResources = null,
-        bool? includeResourcesPerTurn = null,
-        bool? includeStats = null,
-        int? lastNDays = null,
-        int? lastNTimes = null,
-        float? resourcesRatio = null,
-        KingdomActionRollbackRecurrence.RollbackType? type = null)
-    {
-      var element = ElementTool.Create<KingdomActionRollbackRecurrence>();
-      element.m_IncludeResources = includeResources ?? element.m_IncludeResources;
-      element.m_IncludeResourcesPerTurn = includeResourcesPerTurn ?? element.m_IncludeResourcesPerTurn;
-      element.m_IncludeStats = includeStats ?? element.m_IncludeStats;
-      element.m_LastNDays = lastNDays ?? element.m_LastNDays;
-      element.m_LastNTimes = lastNTimes ?? element.m_LastNTimes;
-      element.m_ResourcesRatio = resourcesRatio ?? element.m_ResourcesRatio;
-      element.m_Type = type ?? element.m_Type;
-      return builder.Add(element);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KingdomActionSetAlignment"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionSetAlignment(this ActionsBuilder builder)
-    {
-      return builder.Add(ElementTool.Create<KingdomActionSetAlignment>());
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionSetNotVisible"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlagLocust</term><description>328fc139938f4582a605917a729169f3</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionSetNotVisible(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionSetNotVisible>());
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomActionSetRegionalIncome"/>
-    /// </summary>
-    public static ActionsBuilder KingdomActionSetRegionalIncome(
-        this ActionsBuilder builder,
-        bool? add = null,
-        KingdomResourcesAmount? incomePerClaimed = null,
-        KingdomResourcesAmount? incomePerUpgraded = null)
-    {
-      var element = ElementTool.Create<KingdomActionSetRegionalIncome>();
-      element.Add = add ?? element.Add;
-      element.IncomePerClaimed = incomePerClaimed ?? element.IncomePerClaimed;
-      element.IncomePerUpgraded = incomePerUpgraded ?? element.IncomePerUpgraded;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="KingdomActionSetVisible"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomActionSetVisible(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<KingdomActionSetVisible>());
@@ -2141,6 +2240,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionSpawnRandomArmy"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Leadership8BigArmyDecreaseMorale</term><description>8d8138b95569410bba903e1355da0d9d</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="armies">
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
@@ -2186,6 +2293,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomActionStartEvent"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Add3_SearchMoltenScar</term><description>39a11378f06fff740b8211686247d943</description></item>
+    /// <item><term>KTC_FarewellToMythicAzata_Notification</term><description>30f193f9ab5501145aaf8822d6c63d0a</description></item>
+    /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="eventValue">
     /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
@@ -2240,6 +2357,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomActionUnlockArtisan"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Outskirts_Enter_Preset</term><description>7a43d75fcb44054448d7a182bc614874</description></item>
+    /// <item><term>SouthNarlmarches_Enter_Preset</term><description>b7cf402555915ec489da07d87896d808</description></item>
+    /// <item><term>Varnhold_Water_Enter_Preset</term><description>90c7f4a6e036db247bb0d460c025336c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="artisan">
     /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2267,6 +2394,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="KingdomAddMoraleFlags"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="newFlags">
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2293,6 +2430,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomFlagIncrement"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// <item><term>KingdomMoraleFlagChapter3</term><description>244ac0d9e51646a485443bc3bc9a0df4</description></item>
+    /// <item><term>MoraleFlagSiegeChapter5Controller_buff</term><description>30d599366a9e46fe992f9ca6fdf9365a</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="targetFlag">
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
@@ -2322,6 +2469,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomIncreaseIncome"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Event14RansomFromTheMountainKings</term><description>782bec7bd7a3403ea18c2b5428529807</description></item>
+    /// <item><term>Event73NorthernHunters</term><description>6096c97970834a02b6d76a59507d4951</description></item>
+    /// <item><term>SarcorianElders_Ring</term><description>1375b1d6ec7842668d5c340c6fd77259</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder KingdomIncreaseIncome(
         this ActionsBuilder builder,
         int? bonus = null,
@@ -2334,35 +2491,34 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
-    /// Adds <see cref="KingdomMoraleFlagUpdateIncome"/>
+    /// Adds <see cref="KingdomMoraleUpdateIncome"/>
     /// </summary>
     ///
-    /// <param name="targetFlag">
-    /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-217801</term><description>31ce5bf15c194b2eac8695fa8b13105b</description></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </param>
-    public static ActionsBuilder KingdomMoraleFlagUpdateIncome(
-        this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>? targetFlag = null)
+    /// </remarks>
+    public static ActionsBuilder KingdomMoraleUpdateIncome(this ActionsBuilder builder)
     {
-      var element = ElementTool.Create<KingdomMoraleFlagUpdateIncome>();
-      element.m_TargetFlag = targetFlag?.Reference ?? element.m_TargetFlag;
-      if (element.m_TargetFlag is null)
-      {
-        element.m_TargetFlag = BlueprintTool.GetRef<BlueprintKingdomMoraleFlag.Reference>(null);
-      }
-      return builder.Add(element);
+      return builder.Add(ElementTool.Create<KingdomMoraleUpdateIncome>());
     }
 
     /// <summary>
     /// Adds <see cref="KingdomRemoveMoraleFlags"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// <item><term>FlagLocust</term><description>328fc139938f4582a605917a729169f3</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="flagsToRemove">
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
@@ -2390,6 +2546,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="KingdomSetFlagState"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// <item><term>KingdomMoraleFlagChapter3Siege</term><description>0b405fd736f54c05b65aaee855ad585e</description></item>
+    /// <item><term>PF-236233</term><description>78ddb7dcceaf4dd5b6178807c258909c</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="targetFlag">
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
@@ -2422,6 +2588,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="RecruiteArmyLeader"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0016</term><description>e2e87e30b89549f43aa480d406920971</description></item>
+    /// <item><term>Cue_0009</term><description>ec96aeab93d54e56941585e208f78c1e</description></item>
+    /// <item><term>Objective_0001</term><description>f995e2e22a4d41449b90bde8b60b05a5</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="armyLeader">
     /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2448,6 +2624,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="ReduceNegativeMorale"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder ReduceNegativeMorale(
         this ActionsBuilder builder,
         int? value = null)
@@ -2460,6 +2644,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RemoveCrusadeResources"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// <item><term>CrusadeEvent42</term><description>efee1f0851084652a0f42b38557ef8e1</description></item>
+    /// <item><term>CrusadeEvent86</term><description>30a96e0fab3d4db59203180884104d7b</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder RemoveCrusadeResources(
         this ActionsBuilder builder,
         KingdomResourcesAmount? resourcesAmount = null)
@@ -2472,6 +2666,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RemoveDemonArmies"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
+    /// <item><term>PF-327938</term><description>7d2c63b906d847008193e873e265af5e</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="armyPreset">
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
@@ -2502,6 +2705,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="RemoveGarrison"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RemoveArmiesFromGlobalmap</term><description>d10fae0930c412c4290575a98e3d17b7</description></item>
+    /// <item><term>WorldWoundGMChapter3NearDrezenPreset</term><description>6610566be22fe264eb3d652bfb6dfedb</description></item>
+    /// <item><term>WorldWoundGMChapter5_SE_Test_Lann</term><description>810e4c69f3154066ba977654614b4573</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="location">
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2531,6 +2744,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="RemoveMercenaryFromPool"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// <item><term>FlagAzata3Priest</term><description>4be4f82560f547b2b7e30663980bc861</description></item>
+    /// <item><term>RegillNotInParty_KickedOut</term><description>2b2cfaa1727070c43b10729920112730</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="unit">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2557,6 +2780,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="RemoveUnitFromArmy"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// <item><term>Cue_0051</term><description>9d75b86f23a4ac24ab1ccd8a74859fc1</description></item>
+    /// <item><term>WorldWoundGMChapter5_SE_Test_Lann</term><description>810e4c69f3154066ba977654614b4573</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="unitToRemove">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -2618,6 +2851,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="ReplaceBuildings"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0009</term><description>717df11c29382d54cbe1e12f29349cb9</description></item>
+    /// <item><term>MythicDevil_RankUp03_Option03</term><description>28d4f7db0536ac84aa354f345ad19932</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="newBuilding">
     /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2661,6 +2903,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="SetRecruitPoint"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// <item><term>DrezenCapital_Chapter05_Coronation</term><description>4881f9b9131249dca002482ef3e915af</description></item>
+    /// <item><term>SeelahWarcamp_Chapter05_LegendBegins</term><description>149b7c31c9944d828d9ab4867f58ca47</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="point">
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2688,6 +2940,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// Adds <see cref="SetWarCampLocation"/>
     /// </summary>
     ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
+    /// <item><term>GlobalmapBeforeLostChapel</term><description>739f6806ac4123b4389eea950c5af95b</description></item>
+    /// <item><term>WarCamp_CouncilKTFromGMTest_Preset</term><description>89d4e2fc3c314b548b0b0bf41349670c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="location">
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2714,6 +2976,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="TacticalCombatRecoverLeaderMana"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyManaWhenHitFeature</term><description>d34526e42698470096f1d4ba2ae6651f</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder TacticalCombatRecoverLeaderMana(
         this ActionsBuilder builder,
         ContextValue? value = null)
@@ -2730,6 +3000,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="TeleportArmyAction"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GlobalSpellMassTeleportation</term><description>79cb4ea3fcb3a7a4c8a1055014f3bd0d</description></item>
+    /// </list>
+    /// </remarks>
     public static ActionsBuilder TeleportArmyAction(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<TeleportArmyAction>());
@@ -2738,6 +3016,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <summary>
     /// Adds <see cref="UnlockUnitsGrowth"/>
     /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0029</term><description>81f58f56c3737b24b8225ac2597f472b</description></item>
+    /// <item><term>Answer_0032</term><description>11a461c5f93e9c04ca0e5b5d70dc8566</description></item>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// </list>
+    /// </remarks>
     ///
     /// <param name="unit">
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:

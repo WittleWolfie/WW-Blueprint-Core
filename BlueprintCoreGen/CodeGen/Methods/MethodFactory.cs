@@ -1,5 +1,4 @@
 ﻿using BlueprintCore.Utils;
-using BlueprintCoreGen.CodeGen.Overrides;
 using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using BlueprintCoreGen.CodeGen.Params;
 using HarmonyLib;

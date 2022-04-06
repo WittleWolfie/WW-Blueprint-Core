@@ -1,5 +1,4 @@
 using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
 using Kingmaker.DLC;
 using UnityEngine;
 
