@@ -48,7 +48,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionHasBuffFromCaster(
+    public static ConditionsBuilder HasBuffFromCaster(
         this ConditionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
         bool negate = false)
@@ -83,7 +83,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionCasterHasFact(
+    public static ConditionsBuilder CasterHasFact(
         this ConditionsBuilder builder,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
         bool negate = false)
@@ -118,7 +118,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionHasFact(
+    public static ConditionsBuilder HasFact(
         this ConditionsBuilder builder,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
         bool negate = false)
@@ -142,7 +142,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>SurefireGlovesFeature</term><description>fe65b4d9191ce494380e3f60f41cec9e</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionDistanceToTarget(
+    public static ConditionsBuilder DistanceToTarget(
         this ConditionsBuilder builder,
         Feet? distanceGreater = null,
         bool negate = false)
@@ -166,7 +166,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WordOfChaos</term><description>69f2e7aff2d1cd148b8075ee476515b1</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionAlignment(
+    public static ConditionsBuilder Alignment(
         this ConditionsBuilder builder,
         AlignmentComponent? alignment = null,
         bool? checkCaster = null,
@@ -191,7 +191,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>DivineAnathema</term><description>1777a6ff0ae558749b76766a7a575802</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionAlignmentDifference(
+    public static ConditionsBuilder AlignmentDifference(
         this ConditionsBuilder builder,
         int? alignmentStepDifference = null,
         bool negate = false)
@@ -215,7 +215,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>SwarmFeastArea</term><description>23d8c63c3af634843aa11f5a169683b5</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionAlive(
+    public static ConditionsBuilder Alive(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -248,7 +248,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionBuffRank(
+    public static ConditionsBuilder BuffRank(
         this ConditionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         bool negate = false,
@@ -282,7 +282,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>LizardTailFeature</term><description>036d7e6bf5c14defa8fd90fd83a15e15</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionCasterHasBuffWithDescriptor(
+    public static ConditionsBuilder CasterHasBuffWithDescriptor(
         this ConditionsBuilder builder,
         bool negate = false,
         SpellDescriptorWrapper? spellDescriptor = null)
@@ -304,7 +304,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>BracersOfDominanceFeature</term><description>cdc4f29bc423d454e9af87a514a14de7</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionCasterWeaponInTwoHands(
+    public static ConditionsBuilder CasterWeaponInTwoHands(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -337,7 +337,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionCharacterClass(
+    public static ConditionsBuilder CharacterClass(
         this ConditionsBuilder builder,
         bool? checkCaster = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
@@ -369,7 +369,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>TransmutationSchoolStrengthAbility</term><description>aadee249a033b2747b63344a758e91be</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionCompare(
+    public static ConditionsBuilder Compare(
         this ConditionsBuilder builder,
         ContextValue? checkValue = null,
         bool negate = false,
@@ -405,7 +405,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>ZealousMightItemEnchantment</term><description>819877d9ef15d9d45ac876ca21030279</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionCompareCasterHP(
+    public static ConditionsBuilder CompareCasterHP(
         this ConditionsBuilder builder,
         ContextConditionCompareCasterHP.CompareType? compareType = null,
         bool negate = false,
@@ -435,7 +435,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>Unused_SZ_1</term><description>204c7132bafa41c993ffdb9ae675d5eb</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionCompareTargetHP(
+    public static ConditionsBuilder CompareTargetHP(
         this ConditionsBuilder builder,
         ContextConditionCompareTargetHP.CompareType? compareType = null,
         bool negate = false,
@@ -464,7 +464,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>MasterSpyCasterBuff</term><description>ff2e84b215b187347a406670ab2f5cf7</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionFavoredEnemy(
+    public static ConditionsBuilder FavoredEnemy(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -484,7 +484,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>NereidBeguilingAuraAreaEffect</term><description>466ec47d91f209646aa1b66a797b7d8d</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionGender(
+    public static ConditionsBuilder Gender(
         this ConditionsBuilder builder,
         Gender? gender = null,
         bool negate = false)
@@ -519,7 +519,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionHasBuff(
+    public static ConditionsBuilder HasBuff(
         this ConditionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         bool negate = false)
@@ -556,7 +556,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionHasBuffFromThisAreaEffect(
+    public static ConditionsBuilder HasBuffFromThisAreaEffect(
         this ConditionsBuilder builder,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         bool negate = false)
@@ -582,7 +582,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>PurpleWormSwallowWholeFeature</term><description>dee864aec4a0d344b913dd27a4b504cb</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionHasBuffImmunityWithDescriptor(
+    public static ConditionsBuilder HasBuffImmunityWithDescriptor(
         this ConditionsBuilder builder,
         bool? checkBuffDescriptorComponent = null,
         bool? checkSpellDescriptorComponent = null,
@@ -610,7 +610,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WrathOfTheUndeadBuff</term><description>6a30b625459e421d862debf0b3d0214f</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionHasBuffWithDescriptor(
+    public static ConditionsBuilder HasBuffWithDescriptor(
         this ConditionsBuilder builder,
         bool negate = false,
         SpellDescriptorWrapper? spellDescriptor = null)
@@ -645,7 +645,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionHasItem(
+    public static ConditionsBuilder HasItem(
         this ConditionsBuilder builder,
         Blueprint<BlueprintItem, BlueprintItemReference>? itemToCheck = null,
         bool? money = null,
@@ -675,7 +675,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>Mageblade</term><description>eb130f652be2dc14b9a5f63608672021</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionHasTouchSpellCharge(
+    public static ConditionsBuilder HasTouchSpellCharge(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -697,7 +697,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WoundWormsLair_BlackDragonFrightfulPresenceArea</term><description>382910feb429e1449b3f8f2a633e3244</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionHitDice(
+    public static ConditionsBuilder HitDice(
         this ConditionsBuilder builder,
         bool? addSharedValue = null,
         int? hitDice = null,
@@ -725,7 +725,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WrathOfTheUndeadArea</term><description>22e31702587142ddb99391d589ba538b</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsAlly(
+    public static ConditionsBuilder IsAlly(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -746,7 +746,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>HammerOfMasterpieceEnchantment</term><description>f0a7d830ec5bfa44ba77996938db980f</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsAmuletEquipped(
+    public static ConditionsBuilder IsAmuletEquipped(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -768,7 +768,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>ScapegoatAbilityAlly</term><description>b9c07dc0df2977c479d19735d956284a</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsAnimalCompanion(
+    public static ConditionsBuilder IsAnimalCompanion(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -790,7 +790,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsCaster(
+    public static ConditionsBuilder IsCaster(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -812,7 +812,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsEnemy(
+    public static ConditionsBuilder IsEnemy(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -833,7 +833,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>TricksterSneakyQuack</term><description>bf41d492ff138ae4e9775e6fd9c8011e</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsFlanked(
+    public static ConditionsBuilder IsFlanked(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -855,7 +855,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>VigilantWatchFeature</term><description>d4cf7afc49b81e34989f2dfa76889fed</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsFlatFooted(
+    public static ConditionsBuilder IsFlatFooted(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -877,7 +877,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>TheDissectorEnchantment</term><description>3e90ab8205854cd591538c1aff04b901</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsHelpless(
+    public static ConditionsBuilder IsHelpless(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -899,7 +899,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WoundingBattleaxeBleedBuff</term><description>b6452a2ac912260409a18aa8e69e60f7</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsInCombat(
+    public static ConditionsBuilder IsInCombat(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -920,7 +920,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>AzataMythicClass</term><description>9a3b2c63afa79744cbca46bea0da9a16</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsMainCharacter(
+    public static ConditionsBuilder IsMainCharacter(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -942,7 +942,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WideSweepAbility</term><description>69811d984ba4ab8419873b09c1641e36</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsMainTarget(
+    public static ConditionsBuilder IsMainTarget(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -964,7 +964,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WoundingBattleaxeBleedBuff</term><description>b6452a2ac912260409a18aa8e69e60f7</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsPartyMember(
+    public static ConditionsBuilder IsPartyMember(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -986,7 +986,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>AnimalFocusTigerBuff</term><description>18e0d3842308de14ca3fde356bf92b92</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsPetDead(
+    public static ConditionsBuilder IsPetDead(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1007,7 +1007,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>HammerOfMasterpieceEnchantment</term><description>f0a7d830ec5bfa44ba77996938db980f</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsRing1Equipped(
+    public static ConditionsBuilder IsRing1Equipped(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1028,7 +1028,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>HammerOfMasterpieceEnchantment</term><description>f0a7d830ec5bfa44ba77996938db980f</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsRing2Equipped(
+    public static ConditionsBuilder IsRing2Equipped(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1050,7 +1050,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WarpriestShieldbearerChannelPositiveHarm</term><description>894e20539c353c74ab2733a056351947</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsShieldEquipped(
+    public static ConditionsBuilder IsShieldEquipped(
         this ConditionsBuilder builder,
         bool? checkCaster = null,
         bool negate = false)
@@ -1072,7 +1072,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>AbruptEndEnchantment</term><description>66f1ac1f205e99f4e83c9b3aa8f0b0b1</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsTwoHandedEquipped(
+    public static ConditionsBuilder IsTwoHandedEquipped(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1094,7 +1094,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>SleepKitsune</term><description>f8a32c60ae1f878408b525bb967ef48c</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsUnconscious(
+    public static ConditionsBuilder IsUnconscious(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1116,7 +1116,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>SwordlordSteelNetBuff</term><description>dc9738ee4e71f5c4287e37f3b74c6fe6</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionIsWeaponEquipped(
+    public static ConditionsBuilder IsWeaponEquipped(
         this ConditionsBuilder builder,
         WeaponCategory? category = null,
         bool? checkOnCaster = null,
@@ -1146,7 +1146,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>ElementalEngineBurnoutTriggerFeature</term><description>090d39a5813d4537ba24b55fff7fe6be</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionMaximumBurn(
+    public static ConditionsBuilder MaximumBurn(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1166,7 +1166,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>SoulsCloakCurseBuff</term><description>40f948d8e5ee2534eb3d701f256f96b5</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionPeaceful(
+    public static ConditionsBuilder Peaceful(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1188,7 +1188,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WitchHexMajorHealingAbility</term><description>3408c351753aa9049af25af31ebef624</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionSharedValueHigher(
+    public static ConditionsBuilder SharedValueHigher(
         this ConditionsBuilder builder,
         int? higherOrEqual = null,
         bool? inverted = null,
@@ -1216,7 +1216,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WitchHexLayToRestAbility</term><description>1bb5466b9bfcb5e47b9f667dad5784f9</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionSharedValueHitDice(
+    public static ConditionsBuilder SharedValueHitDice(
         this ConditionsBuilder builder,
         bool? inverted = null,
         bool negate = false,
@@ -1242,7 +1242,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>WintersMarkEnchantment</term><description>0641db56869d87c4bb387e5ae4a18a0e</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionSize(
+    public static ConditionsBuilder Size(
         this ConditionsBuilder builder,
         bool? checkCaster = null,
         bool? invert = null,
@@ -1270,7 +1270,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>Valmallos_Buff_AeonGazeEnemy_Core</term><description>217c83b902de44ffa2602d52bafe3d2e</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionStatValue(
+    public static ConditionsBuilder StatValue(
         this ConditionsBuilder builder,
         int? n = null,
         bool negate = false,
@@ -1294,7 +1294,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>BlinkBuff</term><description>c168c6a0e471e924b8c69b31c6352587</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionTargetCanSeeInvisible(
+    public static ConditionsBuilder TargetCanSeeInvisible(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1314,7 +1314,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>Feeblemind</term><description>444eed6e26f773a40ab6e4d160c67faa</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionTargetIsArcaneCaster(
+    public static ConditionsBuilder TargetIsArcaneCaster(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1347,7 +1347,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionTargetIsBlueprint(
+    public static ConditionsBuilder TargetIsBlueprint(
         this ConditionsBuilder builder,
         bool negate = false,
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
@@ -1373,7 +1373,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>DemodandTarryLairMiniboss_TitansGodslayer</term><description>e990ddcda355abd4396fac5e49895578</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionTargetIsDivineCaster(
+    public static ConditionsBuilder TargetIsDivineCaster(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1395,7 +1395,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>Valmallos_Area_Gaze</term><description>d031e701dee3487f8a8b7da39e722267</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionTargetIsYourself(
+    public static ConditionsBuilder TargetIsYourself(
         this ConditionsBuilder builder,
         bool negate = false)
     {
@@ -1415,7 +1415,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>ParagonOfDefendersAuraBuff</term><description>b348cf228b07b534cb315e7c54f95379</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionUnconsciousAllyFarThan(
+    public static ConditionsBuilder UnconsciousAllyFarThan(
         this ConditionsBuilder builder,
         Feet? distance = null,
         bool negate = false)
@@ -1437,7 +1437,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <item><term>GreyGarrison_SuperMythicBuff</term><description>4b11247a4988c254fb9d1cd67f0b1e4a</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionWeaponAnimationStyle(
+    public static ConditionsBuilder WeaponAnimationStyle(
         this ConditionsBuilder builder,
         WeaponAnimationStyle? animationStyle = null,
         bool? checkOnCaster = null,

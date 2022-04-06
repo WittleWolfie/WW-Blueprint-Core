@@ -32,7 +32,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
-    public static ConditionsBuilder ContextConditionDifficultyHigherThan(
+    public static ConditionsBuilder DifficultyHigherThan(
         this ConditionsBuilder builder,
         bool? checkOnlyForMonster = null,
         DifficultyPresetAsset? difficulty = null,

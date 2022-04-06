@@ -124,7 +124,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </list>
     /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </param>
-    public static ConditionsBuilder ContextConditionGarrisonClear(
+    public static ConditionsBuilder GarrisonClear(
         this ConditionsBuilder builder,
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>? globalMapPoint = null,
         bool negate = false)

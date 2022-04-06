@@ -146,7 +146,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
     /// <summary>
     /// Removes unnecessary method name prefixes, e.g. ActionGoDeeperIntoDungeon > GoDeeperIntoDungeon.
     /// </summary>
-    private static readonly List<string> IgnoreMethodNamePrefixes = new() { "Action", "ContextAction" };
+    private static readonly List<string> IgnoreMethodNamePrefixes =
+      new() { "Action", "ContextAction", "Condition", "ContextCondition" };
     private static string GetMethodName(string elementTypeName)
     {
       var methodName = elementTypeName;
