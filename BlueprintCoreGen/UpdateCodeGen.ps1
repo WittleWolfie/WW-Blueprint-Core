@@ -1,3 +1,7 @@
 ﻿copy-item .\BlueprintConfigurators\* ..\..\..\..\BlueprintCore\BlueprintCore\Blueprints\Configurators -force -recurse -verbose
-copy-item .\ActionsBuilder\* ..\..\..\..\BlueprintCore\BlueprintCore\Actions\Builder -force -recurse -verbose
-copy-item .\ConditionsBuilder\* ..\..\..\..\BlueprintCore\BlueprintCore\Conditions\Builder -force -recurse -verbose
+
+remove-item ..\..\..\..\BlueprintCore\BlueprintCore\Actions\Builder -force -recurse -exclude ActionsBuilder.cs
+copy-item .\Actions\Builder\* ..\..\..\..\BlueprintCore\BlueprintCore\Actions\Builder -force -recurse -verbose
+
+remove-item ..\..\..\..\BlueprintCore\BlueprintCore\Conditions\Builder -force -recurse -exclude ConditionsBuilder.cs
+copy-item .\Conditions\Builder\* ..\..\..\..\BlueprintCore\BlueprintCore\Conditions\Builder -force -recurse -verbose
