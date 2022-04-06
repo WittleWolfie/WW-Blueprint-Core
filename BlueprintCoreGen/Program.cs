@@ -13,7 +13,7 @@ namespace BlueprintCoreGen
   class Program
   {
     // Run this once after each patch to re-generate ignored types and usage examples. Skips code gen.
-    private static readonly bool RunTypeUsageAnalysis = true;
+    private static readonly bool RunTypeUsageAnalysis = false;
 
     public static readonly string AnalysisDir = "Analysis";
 
