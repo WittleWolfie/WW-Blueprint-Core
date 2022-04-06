@@ -1,6 +1,7 @@
 ﻿using BlueprintCoreGen.CodeGen.Builders;
 using BlueprintCoreGen.CodeGen.Methods;
 using BlueprintCoreGen.CodeGen.Overrides;
+using BlueprintCoreGen.CodeGen.Overrides.Ignored;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,7 @@ namespace BlueprintCoreGen.CodeGen
             Type type = AccessTools.TypeByName(builderMethod.TypeName)!;
             extensionClass.AddHandledType(type);
 
-            if (!Ignored.BuilderTypes.Contains(type))
+            if (!Ignored.ShouldIgnore(type))
             {
               MethodFactory.CreateForBuilder(type, builderMethod).ForEach(
                   method =>

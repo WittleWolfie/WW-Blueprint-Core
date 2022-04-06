@@ -27,6 +27,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides
   /// </summary>
   public class GlobalOverrides
   {
+    // TODO: Move this to a config style override.
     /// <summary>
     /// Overrides the supported blueprint types of BlueprintComponents.
     /// </summary>
@@ -53,25 +54,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides
           { typeof(AbilityTargetIsSuitableMountSize), new() { typeof(BlueprintAbility) } },
           { typeof(AbilityTargetRangeRestriction), new() { typeof(BlueprintAbility) } },
           { typeof(AddEquipmentToPet), new() { typeof(BlueprintUnit) } }
-        };
-
-    // TODO: Replace this with some automated way of identifying unused components.
-    /// <summary>
-    /// BlueprintComponent types to ignore because they are unused.
-    /// </summary>
-    public static readonly List<Type> IgnoredComponentTypes =
-        new()
-        {
-          typeof(QuestComponentDelegate<>),
-          typeof(QuestComponentDelegate),
-          typeof(UnlockableFlagComponent),
-          typeof(UniqueSpellComponent),
-          typeof(MobCaster),
-          typeof(PortraitPremiumSetting),
-          typeof(AreaEffectSpawnLogic),
-          typeof(ActivatableAbilityMount),
-          typeof(LineOfSightIgnorance),
-          typeof(WeaponMagic)
         };
 
     // TODO: Implement Blueprint Field support w/ config overrides
