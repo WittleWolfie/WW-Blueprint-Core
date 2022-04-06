@@ -1,5 +1,6 @@
 ﻿using BlueprintCore.Utils;
 using BlueprintCoreGen.CodeGen.Overrides;
+using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using BlueprintCoreGen.CodeGen.Params;
 using HarmonyLib;
 using Kingmaker.ElementsSystem;
@@ -71,10 +72,9 @@ namespace BlueprintCoreGen.CodeGen.Methods
       methodOverride.Remarks.ForEach(line => method.AddLine($"/// {line}"));
       method.AddLine($"///");
 
-      Examples.BuilderExamples.TryGetValue(elementType, out var examples);
       method.AddLine($"/// <list type=\"bullet\">");
       method.AddLine($"/// <listheader>Used by</listheader>");
-      methodOverride.Examples.ForEach(
+      Examples.GetFor(elementType).ForEach(
         example =>
           method.AddLine(
             $"/// <item><term>{example.BlueprintName}</term><description>{example.BlueprintGuid}</description></item>"));

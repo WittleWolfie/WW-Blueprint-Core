@@ -45,11 +45,6 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public List<string> Remarks { get; } = new();
 
     /// <summary>
-    /// List of blueprints using the action.
-    /// </summary>
-    public List<Blueprint> Examples { get; } = new();
-
-    /// <summary>
     /// A list of types to import (by name).
     /// </summary>
     public List<string> Imports { get; } = new();
@@ -144,7 +139,6 @@ namespace BlueprintCoreGen.CodeGen.Methods
     /// <list type="bullet">
     /// <item><term>MethodName</term><description>Taken from overrideMethod</description></item>
     /// <item><term>Remarks</term><description>Concatenated</description></item>
-    /// <item><term>Examples</term><description>Taken from overrideMethod if present, baseMethod otherwise</description></item>
     /// <item><term>Imports</term><description>Concatenated</description></item>
     /// <item><term>RequiredFields</term><description>Concatenated</description></item>
     /// <item><term>IgnoredFields</term><description>Concatenated</description></item>
@@ -159,7 +153,6 @@ namespace BlueprintCoreGen.CodeGen.Methods
       MethodOverride result = new();
       result.MethodName = overrideMethod.MethodName;
       result.Remarks.AddRange(baseMethod.Remarks.Concat(overrideMethod.Remarks));
-      result.Examples.AddRange(overrideMethod.Examples.Any() ? overrideMethod.Examples : baseMethod.Examples);
       result.Imports.AddRange(baseMethod.Imports.Concat(overrideMethod.Imports));
       result.RequiredFields.AddRange(baseMethod.RequiredFields.Concat(overrideMethod.RequiredFields));
       result.IgnoredFields.AddRange(baseMethod.IgnoredFields.Concat(overrideMethod.IgnoredFields));

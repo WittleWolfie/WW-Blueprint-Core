@@ -15,32 +15,34 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
     public static List<Blueprint> GetFor(Type type)
     {
       List<Blueprint> examples = new();
-      if (type.IsSubclassOf(typeof(GameAction)))
+
+      if (ManualExamples.ContainsKey(type))
       {
-        ExampleGameActions.Examples.TryGetValue(type, out examples);
+        examples.AddRange(ManualExamples[type]);
       }
 
-      if (type.IsSubclassOf(typeof(Condition)))
+      if (type.IsSubclassOf(typeof(GameAction)) && ExampleGameActions.Examples.ContainsKey(type))
       {
-        ExampleConditions.Examples.TryGetValue(type, out examples);
+        examples.AddRange(ExampleGameActions.Examples[type]);
       }
 
-      if (type.IsSubclassOf(typeof(BlueprintComponent)))
+      if (type.IsSubclassOf(typeof(Condition)) && ExampleConditions.Examples.ContainsKey(type))
       {
-        ExampleBlueprintComponents.Examples.TryGetValue(type, out examples);
+        examples.AddRange(ExampleConditions.Examples[type]);
       }
 
-      if (type.IsSubclassOf(typeof(BlueprintScriptableObject)))
+      if (type.IsSubclassOf(typeof(BlueprintComponent)) && ExampleBlueprintComponents.Examples.ContainsKey(type))
       {
-        ExampleBlueprintScriptableObjects.Examples.TryGetValue(type, out examples);
+        examples.AddRange(ExampleBlueprintComponents.Examples[type]);
       }
 
-      if (examples is null || examples.Count == 0)
+      if (type.IsSubclassOf(typeof(BlueprintScriptableObject))
+        && ExampleBlueprintScriptableObjects.Examples.ContainsKey(type))
       {
-        ManualExamples.TryGetValue(type, out examples);
+        examples.AddRange(ExampleBlueprintScriptableObjects.Examples[type]);
       }
 
-      return examples ?? new();
+      return examples;
     }
 
     private static readonly Dictionary<Type, List<Blueprint>> ManualExamples =
