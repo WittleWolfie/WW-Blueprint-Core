@@ -1,4 +1,5 @@
-﻿using BlueprintCoreGen.CodeGen.Methods;
+﻿using BlueprintCoreGen.CodeGen;
+using BlueprintCoreGen.CodeGen.Methods;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
@@ -88,11 +89,19 @@ namespace BlueprintCoreGen.Analysis
 
     private static void ProcessUnusedTypes(Type baseType, Type[] gameTypes)
     {
+      HashSet<string> imports = new();
       StringBuilder unusedTypes = new();
       gameTypes.Where(t => !t.IsAbstract && t.IsSubclassOf(baseType) && !ExamplesByType.ContainsKey(t))
         .ToList()
-        .ForEach(t => unusedTypes.AppendLine($"        typeof({GetTypeName(t)}),"));
-      File.WriteAllText($"{Program.AnalysisDir}/unused_{baseType.Name}.txt", unusedTypes.ToString());
+        .ForEach(
+          t =>
+          {
+            imports.Add(TypeTool.GetImport(t)!);
+            unusedTypes.AppendLine($"        typeof({GetTypeName(t)}),");
+          });
+      var fileText = new StringBuilder();
+      fileText.AppendJoin('\n', imports).AppendLine().Append(unusedTypes);
+      File.WriteAllText($"{Program.AnalysisDir}/unused_{baseType.Name}.txt", fileText.ToString());
     }
 
     // Handles type name for generics. Note that TypeTool.GetTypeName() doesn't work because it generates a name for a
@@ -117,10 +126,13 @@ namespace BlueprintCoreGen.Analysis
 
     private static void ProcessExamples(Type baseType)
     {
+      HashSet<string> imports = new();
       StringBuilder examples = new();
       var entries = ExamplesByType.Where(entry => entry.Key.IsSubclassOf(baseType));
       foreach (var entry in entries)
       {
+        imports.Add(TypeTool.GetImport(entry.Key)!);
+
         var sortedExamples = entry.Value.OrderBy(ex => ex.BlueprintName).ToList();
         List<Blueprint> exampleBlueprints = new();
         if (sortedExamples.Count > 3)
@@ -143,10 +155,13 @@ namespace BlueprintCoreGen.Analysis
         examples.AppendLine(@"          {");
         exampleBlueprints.ForEach(
           ex => examples.AppendLine($"            new Blueprint(\"{ex.BlueprintName}\", \"{ex.BlueprintGuid}\"),"));
-        examples.AppendLine(@"          },");
+        examples.AppendLine(@"          }");
         examples.AppendLine(@"        },");
       }
-      File.WriteAllText($"{Program.AnalysisDir}/examples_{baseType.Name}.txt", examples.ToString());
+
+      var fileText = new StringBuilder();
+      fileText.AppendJoin('\n', imports).AppendLine().Append(examples);
+      File.WriteAllText($"{Program.AnalysisDir}/examples_{baseType.Name}.txt", fileText.ToString());
     }
 
     // Populates BlueprintsByGuid and ExamplesByType
