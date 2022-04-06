@@ -21,7 +21,7 @@ namespace BlueprintCoreGen
     {
       // Since the code doesn't reference assemblies, force load them for reflection
       var gameTypes = AccessTools.GetTypesFromAssembly(Assembly.Load("Assembly-CSharp"));
-      Assembly.Load("BlueprintCore");
+      var blueprintCoreTypes = AccessTools.GetTypesFromAssembly(Assembly.Load("BlueprintCore"));
 
       if (RunTypeUsageAnalysis)
       {
@@ -29,6 +29,7 @@ namespace BlueprintCoreGen
         return;
       }
 
+      TypeTool.InitTypesByName(gameTypes, blueprintCoreTypes);
       TemplateProcessor.Run(gameTypes);
 
       StringBuilder unhandledTypes = new();

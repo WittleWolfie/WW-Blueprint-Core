@@ -58,7 +58,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddImport(elementType);
       method.AddImport(typeof(ElementTool));
       parameters.ForEach(param => param.Imports.ForEach(import => method.AddImport(import)));
-      methodOverride.Imports.ForEach(import => method.AddImport(AccessTools.TypeByName(import)!));
+      methodOverride.Imports.ForEach(import => method.AddImport(TypeTool.TypeByName(import)!));
 
       // Comment summary
       method.AddLine($"/// <summary>");

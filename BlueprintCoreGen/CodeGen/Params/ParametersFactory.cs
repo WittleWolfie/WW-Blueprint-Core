@@ -119,7 +119,7 @@ namespace BlueprintCoreGen.CodeGen.Params
         array.ToObject<List<FieldTypeOverride>>().ForEach(
           fieldOverride =>
           {
-            OverridesByType.Add(AccessTools.TypeByName(fieldOverride.TypeName), fieldOverride);
+            OverridesByType.Add(TypeTool.TypeByName(fieldOverride.TypeName), fieldOverride);
           });
       }
       return OverridesByType.ContainsKey(fieldType) ? OverridesByType[fieldType] : null;
@@ -134,7 +134,7 @@ namespace BlueprintCoreGen.CodeGen.Params
         JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Fields.json"));
         array.ToObject<List<FieldOverride>>().ForEach(
           fieldOverride =>
-            OverridesBySourceType.Add((AccessTools.TypeByName(fieldOverride.SourceTypeName), fieldOverride)));
+            OverridesBySourceType.Add((TypeTool.TypeByName(fieldOverride.SourceTypeName), fieldOverride)));
       }
 
       // Just checking the source type misses inherited fields so loop through all keys.

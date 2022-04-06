@@ -49,7 +49,7 @@ namespace BlueprintCoreGen.CodeGen
       builderExtension.Methods.ForEach(
           builderMethod =>
           {
-            Type type = AccessTools.TypeByName(builderMethod.TypeName)!;
+            Type type = TypeTool.TypeByName(builderMethod.TypeName)!;
             extensionClass.AddHandledType(type);
 
             if (!Ignored.ShouldIgnore(type))

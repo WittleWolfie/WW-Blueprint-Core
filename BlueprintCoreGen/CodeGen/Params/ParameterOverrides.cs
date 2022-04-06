@@ -176,7 +176,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     {
       if (!string.IsNullOrEmpty(TypeNameOverride)) { param.SetTypeName(TypeNameOverride); }
       if (SkipValidation) { param.SkipValidation(); }
-      param.Imports.AddRange(Imports.Select(type => AccessTools.TypeByName(type)!));
+      param.Imports.AddRange(Imports.Select(type => TypeTool.TypeByName(type)!));
       if (!string.IsNullOrEmpty(AssignmentFmtRhs)) { param.SetAssignmentFmtRhs(AssignmentFmtRhs); }
       if (!string.IsNullOrEmpty(AssignmentIfNullRhs)) { param.SetAssignmentIfNullRhs(AssignmentIfNullRhs); }
     }

@@ -4,6 +4,7 @@ using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 
 namespace BlueprintCoreGen.CodeGen
 {
@@ -12,6 +13,30 @@ namespace BlueprintCoreGen.CodeGen
   /// </summary>
   public class TypeTool
   {
+    private static readonly Dictionary<string, Type> TypesByName = new();
+
+    public static void InitTypesByName(Type[] gameTypes, Type[] blueprintCoreTypes)
+    {
+      foreach (var type in gameTypes)
+      {
+        TypesByName.TryAdd(type.Name, type);
+      }
+
+      foreach (var type in blueprintCoreTypes)
+      {
+        TypesByName.TryAdd(type.Name, type);
+      }
+    }
+
+    public static Type TypeByName(string type)
+    {
+      if (TypesByName.ContainsKey(type))
+      {
+        return TypesByName[type];
+      }
+      return AccessTools.TypeByName(type);
+    }
+
     /// <summary>
     /// Recursive function which generates the correct type name for generic types.
     /// </summary>

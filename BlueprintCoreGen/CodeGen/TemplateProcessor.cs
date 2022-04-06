@@ -154,7 +154,7 @@ namespace BlueprintCoreGen.CodeGen
     //      {
     //        if (MethodAttribute.IsMatch(lines[i]))
     //        {
-    //          var type = AccessTools.TypeByName(MethodAttribute.Match(lines[i]).Groups[1].Value);
+    //          var type = TypeTool.TypeByName(MethodAttribute.Match(lines[i]).Groups[1].Value);
     //          if (!methods.ContainsKey(type)) { methods.Add(type, new()); }
     //          methods[type].Add(method);
     //          break;
