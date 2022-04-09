@@ -1,7 +1,7 @@
 ﻿using Owlcat.QA.Validation;
 using System.Linq;
 
-namespace BlueprintCore.BlueprintCore.Validation
+namespace BlueprintCore.Utils.Validation
 {
   /// <summary>
   /// Validates the provided object meets the constraints defined by Owlcat's attributes.
@@ -13,7 +13,7 @@ namespace BlueprintCore.BlueprintCore.Validation
       foreach (var field in obj.GetType().GetFields())
       {
         foreach (
-          var validationAttr 
+          var validationAttr
             in field.GetCustomAttributes(typeof(ValidatingFieldAttribute), false).Cast<ValidatingFieldAttribute>())
         {
           validationAttr.ValidateField(obj, field, context, /* parentIndex= */ 0);
@@ -28,7 +28,7 @@ namespace BlueprintCore.BlueprintCore.Validation
             }
             continue;
           }
-          
+
           if (validationAttr is ValidateIsPrefabAttribute)
           {
             if (field.GetValue(obj) as UnityEngine.Object == null)

@@ -2,7 +2,7 @@
 using Kingmaker.ElementsSystem;
 using Owlcat.QA.Validation;
 
-namespace BlueprintCore.BlueprintCore.Validation
+namespace BlueprintCore.Utils.Validation
 {
   /// <summary>
   /// Validates element objects

@@ -111,16 +111,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
     }
 
     // [GenerateComponents]
-
-    protected override void ValidateInternal()
-    {
-      base.ValidateInternal();
-
-      if (Blueprint.GetComponents<FeatureTagsComponent>().Count() > 1)
-      {
-        AddValidationWarning("Multiple FeatureTagsComponents present. Only the first is used.");
-      }
-    }
   }
 
   /// <summary>Configurator for <see cref="BlueprintFeature"/>.</summary>

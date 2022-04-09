@@ -1,4 +1,5 @@
 using BlueprintCore.BlueprintCore.Validation;
+using BlueprintCore.Utils.Validation;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;

@@ -10,7 +10,11 @@ using System.Linq;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.UnitLogic.Class.Kineticist;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.Controllers.Units;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Designers.Mechanics.Facts;
+using System;
+using BlueprintCore.Utils;
+using Kingmaker.UnitLogic.Mechanics.Components;
 
 namespace BlueprintCore.BlueprintCore.Validation
 {
@@ -21,6 +25,8 @@ namespace BlueprintCore.BlueprintCore.Validation
   {
     public static void Check(BlueprintScriptableObject blueprint, ValidationContext context)
     {
+      CheckComponents(blueprint, context);
+
       if (blueprint is BlueprintAbility ability)
       {
         Check(ability, context);
@@ -28,6 +34,63 @@ namespace BlueprintCore.BlueprintCore.Validation
       else if (blueprint is BlueprintBuff buff)
       {
         Check(buff, context);
+      }
+      else if (blueprint is BlueprintFeature feature)
+      {
+        Check(feature, context);
+      }
+    }
+
+    private static void CheckComponents(BlueprintScriptableObject blueprint, ValidationContext context)
+    {
+      HashSet<Type> componentTypes = new();
+      foreach (var component in blueprint.Components)
+      {
+        var componentType = component.GetType();
+        var attrs = componentType.GetCustomAttributes(/* inherit= */ true);
+
+        if (componentTypes.Contains(componentType)
+          && !attrs.Where(attr => attr is AllowMultipleComponentsAttribute).Any())
+        {
+          context.AddError("Multiple {0} present but only one is allowed.", component);
+        }
+        else
+        {
+          componentTypes.Add(componentType);
+        }
+
+        bool componentAllowed = false;
+        var allowedOn = attrs.Where(attr => attr is AllowedOnAttribute).Cast<AllowedOnAttribute>().ToList();
+        var blueprintType = blueprint.GetType();
+        foreach (AllowedOnAttribute attr in allowedOn)
+        {
+          var allowedType = attr.Type;
+          // Need .NET 5.0 for IsAssignableTo()
+          if (blueprintType == allowedType || blueprintType.IsSubclassOf(allowedType))
+          {
+            componentAllowed = true;
+            break;
+          }
+        }
+
+        if (allowedOn.Count > 0 && !componentAllowed)
+        {
+          context.AddError("{0} not allowed on {1}", component, blueprintType.Name);
+        }
+      }
+
+      // Make sure there are no conflicting ContextRankConfigs
+      var duplicateRankTypes =
+          blueprint.GetComponents<ContextRankConfig>()
+              .Select(config => config.m_Type)
+              .GroupBy(type => type)
+              .Where(group => group.Count() > 1)
+              .Select(group => group.Key);
+      if (duplicateRankTypes.Any())
+      {
+        context.AddError(
+            "Duplicate ContextRankConfig.m_Type values found, only one of each type is used: {0}",
+            string.Join(",", duplicateRankTypes));
       }
     }
 
@@ -123,7 +186,7 @@ namespace BlueprintCore.BlueprintCore.Validation
     /// <summary>
     /// Custom validation for BlueprintBuff.
     /// </summary>
-    private void Check(BlueprintBuff buff, ValidationContext context)
+    private static void Check(BlueprintBuff buff, ValidationContext context)
     {
       CheckSingleComponent<SpellDescriptorComponent>(buff, context);
 
@@ -131,6 +194,14 @@ namespace BlueprintCore.BlueprintCore.Validation
       {
         context.AddError("Ranks are specified without StackingType.Rank. Ranks is ignored.");
       }
+    }
+
+    /// <summary>
+    /// Custom validation for BlueprintFeature.
+    /// </summary>
+    private static void Check(BlueprintFeature feature, ValidationContext context)
+    {
+      CheckSingleComponent<FeatureTagsComponent>(feature, context);
     }
   }
 }

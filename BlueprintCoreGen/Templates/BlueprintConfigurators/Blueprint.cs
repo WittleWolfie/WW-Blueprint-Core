@@ -171,7 +171,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     private readonly List<Action<T>> ExternalOnConfigure = new();
 
     private bool Configured = false;
-    private readonly StringBuilder ValidationWarnings = new();
+    private readonly Validator Validator = new();
 
     protected readonly TBuilder Self;
     protected readonly string Name;
@@ -207,16 +207,10 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       OnConfigure();
       Blueprint.OnEnable();
 
-      Logger.Verbose($"Validating configuration for {Name}.");
-      ValidateBase();
-      ValidateInternal();
-
-      if (ValidationWarnings.Length > 0)
+      Validator.Check(this);
+      if (Validator.HasErrors())
       {
-        ValidationWarnings.Insert(
-            /* index= */ 0,
-            $"{Name} - {typeof(T)} has warnings:{Environment.NewLine}");
-        Logger.Warn(ValidationWarnings.ToString());
+        Logger.Warn(Validator.GetErrorString());
       }
       return Blueprint;
     }
@@ -326,11 +320,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     /// <remarks>Components are added to the blueprint after this step.</remarks>
     protected virtual void ConfigureInternal() { }
 
-    /// <summary>Type specific validation implemented in child classes.</summary>
-    /// 
-    /// <remarks>Implementations should report errors using <see cref="AddValidationWarning(string)"/>.</remarks>
-    protected virtual void ValidateInternal() { }
-
     protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 
     protected void ValidateParam(object? obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
@@ -381,70 +370,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         Blueprint.Components = Blueprint.Components.Except(ComponentsToRemove).ToArray();
       }
       Blueprint.AddComponents(Components.ToArray());
-    }
-
-    private void ValidateBase()
-    {
-      foreach (var error in Validator.Check(Blueprint)) { AddValidationWarning(error); }
-
-      ValidateComponents();
-    }
-
-    // TODO: Refactor validation to rely on Validator. That way it can be used externally.
-    /// <summary>
-    /// Validates each <see cref="BlueprintComponent"/> using its own validation, attributes, and custom logic.
-    /// </summary>
-    private void ValidateComponents()
-    {
-      if (Blueprint.Components == null) { return; }
-      var componentTypes = new HashSet<Type>();
-      foreach (BlueprintComponent component in Blueprint.Components)
-      {
-        foreach (var error in Validator.Check(component)) { AddValidationWarning(error); }
-
-        var componentType = component.GetType();
-        Attribute[] attrs = Attribute.GetCustomAttributes(componentType);
-
-        if (componentTypes.Contains(componentType)
-            && !attrs.Where(attr => attr is AllowMultipleComponentsAttribute).Any())
-        {
-          AddValidationWarning($"Multiple {componentType} present but only one is allowed.");
-        }
-        else { componentTypes.Add(componentType); }
-
-        List<AllowedOnAttribute> allowedOn =
-            attrs.Where(attr => attr is AllowedOnAttribute).Select(attr => (attr as AllowedOnAttribute)!).ToList();
-        bool componentAllowed = false;
-        var blueprintType = Blueprint.GetType();
-        foreach (AllowedOnAttribute? attr in allowedOn)
-        {
-          var parent = attr.Type;
-          // Need .NET 5.0 for IsAssignableTo()
-          if (blueprintType == parent || blueprintType.IsSubclassOf(parent))
-          {
-            componentAllowed = true;
-            break;
-          }
-        }
-
-        if (allowedOn.Count > 0 && !componentAllowed)
-        {
-          AddValidationWarning($"Component of {componentType} not allowed on {blueprintType}");
-        }
-      }
-
-      // Make sure there are no conflicting ContextRankConfigs
-      var duplicateRankTypes =
-          Blueprint.GetComponents<ContextRankConfig>()
-              .Select(config => config.m_Type)
-              .GroupBy(type => type)
-              .Where(group => group.Count() > 1)
-              .Select(group => group.Key);
-      if (duplicateRankTypes.Any())
-      {
-        AddValidationWarning(
-            $"Duplicate ContextRankConfig.m_Type values found. Only one of each type is used: {string.Join(",", duplicateRankTypes)}");
-      }
     }
 
     private struct UniqueComponent

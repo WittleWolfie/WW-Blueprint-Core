@@ -1,7 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Owlcat.QA.Validation;
 
-namespace BlueprintCore.BlueprintCore.Validation
+namespace BlueprintCore.Utils.Validation
 {
   /// <summary>
   /// Validates blueprint component objects
