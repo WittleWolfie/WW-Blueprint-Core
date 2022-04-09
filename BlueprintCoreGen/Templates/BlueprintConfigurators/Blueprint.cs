@@ -172,6 +172,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
     private bool Configured = false;
     private readonly Validator Validator;
+    private readonly List<object> ToValidate = new();
 
     protected readonly TBuilder Self;
     protected readonly string Name;
@@ -208,7 +209,8 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       OnConfigure();
       Blueprint.OnEnable();
 
-      Validator.Check(this);
+      Validator.Check(Blueprint);
+      ToValidate.ForEach(obj => Validator.Check(obj));
       if (Validator.HasErrors())
       {
         Logger.Warn(Validator.GetErrorString());
@@ -321,14 +323,18 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     /// <remarks>Components are added to the blueprint after this step.</remarks>
     protected virtual void ConfigureInternal() { }
 
-    protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
-
-    protected void ValidateParam(object? obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
+    protected void Validate(object? obj)
+    {
+      if (obj is not null)
+      {
+        ToValidate.Add(obj);
+      }
+    }
 
     protected void ValidateParam<P>(IEnumerable<P>? objects)
     {
       if (objects is null) { return; }
-      foreach (var obj in objects) { ValidateParam(obj); }
+      foreach (var obj in objects) { Validate(obj); }
     }
 
     private void OnConfigure()

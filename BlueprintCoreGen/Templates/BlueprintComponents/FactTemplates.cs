@@ -30,7 +30,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
         int multiplier = 1,
         int? minimal = null)
     {
-      ValidateParam(value);
+      Validate(value);
 
       var component = new AddContextStatBonus();
       component.Descriptor = descriptor;
