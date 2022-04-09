@@ -171,7 +171,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     private readonly List<Action<T>> ExternalOnConfigure = new();
 
     private bool Configured = false;
-    private readonly Validator Validator = new();
+    private readonly Validator Validator;
 
     protected readonly TBuilder Self;
     protected readonly string Name;
@@ -181,6 +181,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     {
       Self = (TBuilder)this;
       Name = name;
+      Validator = new(name, typeof(T).Name);
       Blueprint = BlueprintTool.Get<T>(name);
     }
 
