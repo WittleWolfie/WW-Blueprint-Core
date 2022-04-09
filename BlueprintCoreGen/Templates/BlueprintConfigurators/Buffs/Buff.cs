@@ -138,15 +138,5 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Buffs
     }
 
     // [GenerateComponents]
-
-    protected override void ValidateInternal()
-    {
-      base.ValidateInternal();
-
-      if (Blueprint.GetComponent<ITickEachRound>() == null)
-      {
-        AddValidationWarning($"ITickEachRound component is missing. Frequency and TickEachSecond will be ignored.");
-      }
-    }
   }
 }

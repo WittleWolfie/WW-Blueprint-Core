@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.UnitLogic.Class.Kineticist;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.Controllers.Units;
 
 namespace BlueprintCore.BlueprintCore.Validation
 {
@@ -22,6 +24,10 @@ namespace BlueprintCore.BlueprintCore.Validation
       if (blueprint is BlueprintAbility ability)
       {
         Check(ability, context);
+      }
+      else if (blueprint is BlueprintBuff buff)
+      {
+        Check(buff, context);
       }
     }
 
@@ -38,11 +44,14 @@ namespace BlueprintCore.BlueprintCore.Validation
     }
 
     private static readonly Feet ZeroFeet = new(0);
+    /// <summary>
+    /// Custom validation for BlueprintAbility.
+    /// </summary>
     private static void Check(BlueprintAbility ability, ValidationContext context)
     {
       if (ability.CustomRange > ZeroFeet && !ability.IsRangeCustom)
       {
-        context.AddError("A custom range value is set without AbilityRange.Custom. It will be ignored.");
+        context.AddError("A custom range value is set without AbilityRange.Custom. It is ignored.");
       }
 
       CheckSingleComponent<SpellComponent>(ability, context);
@@ -75,7 +84,7 @@ namespace BlueprintCore.BlueprintCore.Validation
       {
         if (applyEffects[0] is AbilityEffectMiss)
         {
-          context.AddError("AbilityEffectMiss is the first AbilityApplyEffect. It will always trigger.");
+          context.AddError("AbilityEffectMiss is the first AbilityApplyEffect. It always triggers.");
         }
 
         if ((applyEffects.Count == 2 && applyEffects[1] is not AbilityEffectMiss) || applyEffects.Count > 2)
@@ -108,6 +117,19 @@ namespace BlueprintCore.BlueprintCore.Validation
             "AbilityDeliverProjectile, " +
             "or AbilityDeliverTouch", deliverEffect);
         }
+      }
+    }
+
+    /// <summary>
+    /// Custom validation for BlueprintBuff.
+    /// </summary>
+    private void Check(BlueprintBuff buff, ValidationContext context)
+    {
+      CheckSingleComponent<SpellDescriptorComponent>(buff, context);
+
+      if (!buff.HasRanks && buff.Ranks > 0)
+      {
+        context.AddError("Ranks are specified without StackingType.Rank. Ranks is ignored.");
       }
     }
   }
