@@ -203,8 +203,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
 
       Configured = true;
       Logger.Verbose($"Configuring {Name}.");
-      ConfigureInternal();
-
       ConfigureComponents();
       OnConfigure();
       Blueprint.OnEnable();
@@ -317,11 +315,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     // [GenerateComponents]
 
     //----- Start: Configure & Validate
-
-    /// <summary>Type specific configuration implemented in child classes.</summary>
-    /// 
-    /// <remarks>Components are added to the blueprint after this step.</remarks>
-    protected virtual void ConfigureInternal() { }
 
     protected void Validate(object? obj)
     {
