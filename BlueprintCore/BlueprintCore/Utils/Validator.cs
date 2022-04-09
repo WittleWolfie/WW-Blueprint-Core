@@ -1,8 +1,11 @@
+using BlueprintCore.BlueprintCore.Validation;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Owlcat.QA.Validation;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 #nullable enable
 namespace BlueprintCore.Utils
@@ -15,11 +18,26 @@ namespace BlueprintCore.Utils
   /// Any API implemented in BlueprintCore calls this for all relevant object types. If you instantiate objects outside
   /// of BlueprintCore you can call <see cref="Check"/> to get validation warnings.
   /// </remarks>
-  public static class Validator
+  public class Validator
   {
-    /// <summary>Checks the object and returns a list of validation warnings</summary>
+    private readonly ValidationContext Context;
+    private readonly string Name;
+    private readonly string TypeName;
+
+    /// <summary>
+    /// Creates a Validator for an object. The name and type name are used to generate the error string.
+    /// </summary>
+    public Validator(string name, string typeName)
+    {
+      Context = new(name);
+      Name = name;
+      TypeName = typeName;
+    }
+
+    /// <summary>Validates the given object</summary>
     /// 
     /// <remarks>
+    /// <para>
     /// Uses a combination of Wrath validation logic and custom logic validating that implicit object constraints are
     /// met. The exact validation run varies by type.
     /// <list type="bullet">
@@ -37,39 +55,55 @@ namespace BlueprintCore.Utils
     /// </item>
     /// </list>
     /// There are some special cases as well, such as <see cref="DealStatDamage"/>.
+    /// </para>
+    /// 
+    /// <para>
+    /// Note that you can call this method multiple time for a given Validator instance. All of the errors will be
+    /// bundled into a single error string. This is useful when constructing a several related objects. For example,
+    /// a single BlueprintConfigurator instance stores a single Validator which is used to validate all of its fields,
+    /// components, actions, and conditions.
+    /// </para>
     /// </remarks>
-    public static List<string> Check(object? obj)
+    public void Check(object? obj)
     {
-      List<string> errors = new();
-      if (obj == null) { return errors; }
+      if (obj == null) { return; }
 
-      var name = obj is Element element ? element.name : obj.GetType().ToString();
-      ValidationContext context = new(name);
-      Check(obj, context);
-
-      if (obj is Element && string.IsNullOrEmpty(name))
-      {
-        errors.Add(
-            $"Element name missing: {obj.GetType()}. Create using ElementTool.Create().");
-      }
-      else if (obj is BlueprintComponent component) { component.ApplyValidation(context, -1); }
-
-      errors.AddRange(context.Errors);
-      return errors;
-    }
-
-    private static void Check(object obj, ValidationContext context)
-    {
-      // TODO: Validate fields object fields w/ ValidatingFieldAttribute
       if (obj is IValidated validated)
       {
-        validated.Validate(context, -1);
+        validated.Validate(Context, /* parentIndex= */ 0);
       }
-      else if (obj is DealStatDamage damage)
+
+      AttributeValidator.Check(obj, Context);
+      
+      if (obj is Element element)
       {
-        // DealStatDamage implements Validate but not IValidated
-        damage.Validate(context, -1);
+        ElementValidator.Check(element, Context);
       }
+      else if (obj is BlueprintComponent component)
+      {
+        ComponentValidator.Check(component, Context);
+      }
+      else if (obj is BlueprintScriptableObject blueprint)
+      {
+        BlueprintValidator.Check(blueprint, Context);
+      }
+    }
+
+    public bool HasErrors()
+    {
+      return Context.HasErrors;
+    }
+
+    /// <summary>
+    /// Returns a string listing each validation error on a separate line, or an empty string if there are no errors.
+    /// </summary>
+    public string GetErrorString()
+    {
+      if (!HasErrors()) { return ""; }
+      StringBuilder errors = new();
+      errors.AppendLine($"{Name} ({TypeName}) failed validation:");
+      Context.Errors.ToList().ForEach(error => errors.AppendLine($"  * {error}"));
+      return errors.ToString();
     }
   }
 }
