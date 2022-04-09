@@ -15,19 +15,6 @@ namespace BlueprintCoreGen.CodeGen.Params
   // TODO: For blueprint fields there should be some kind of list of methods where the field determines which are
   // relevant. This allows for things like the custom LevelEntry modifier requested by phoenix.
 
-  // TODO:
-  // 1. Convert OldMethodOverridesCode to config format [DONE]
-  // 2. Test code gen for ActionsBuilders / finish converting overrides to config format
-  // 3. Convert overrides for ConditionsBuilder classes
-  // 4. Update copy scripts if necessary
-  // 5. Delete Builder template classes
-  // 6. Start working on Configurator gen config format
-  //
-  // Long Term:
-  // * Auto-populate examples in config files
-  // * Remove anything w/o examples
-  // * Auto-populate config for new game types
-
   public static class ParametersFactory
   {
     /// <summary>
