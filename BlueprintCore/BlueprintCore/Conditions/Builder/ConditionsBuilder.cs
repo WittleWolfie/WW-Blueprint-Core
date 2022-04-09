@@ -105,7 +105,7 @@ namespace BlueprintCore.Conditions.Builder
 
     private Operation OperationType = Operation.And;
     private readonly List<Condition> Conditions = new();
-    private readonly List<string> ValidationWarnings = new();
+    private readonly List<object> ToValidate = new();
 
     private ConditionsBuilder() { }
 
@@ -116,11 +116,26 @@ namespace BlueprintCore.Conditions.Builder
     /// A <see cref="ConditionsChecker"/> containing all specified conditions. Any validation errors are logged as a
     /// warning. Do not call twice on the same builder.
     /// </returns>
-    public ConditionsChecker Build()
+    /// 
+    /// <param name="parentValidator">
+    /// If specified, indicates that errors should be reported to this validator. As a result errors will not be logged
+    /// by this call but can be logged using the provided validator.
+    /// </param>
+    public ConditionsChecker Build(Validator? parentValidator = null)
     {
-      foreach (var warning in ValidationWarnings)
+      if (parentValidator == null)
       {
-        Logger.Warn(warning);
+        Validator validator = new("Conditions", "ConditionsBuilder");
+        RunValidation(validator);
+
+        if (validator.HasErrors())
+        {
+          Logger.Warn(validator.GetErrorString());
+        }
+      }
+      else
+      {
+        RunValidation(parentValidator);
       }
 
       var checker = new ConditionsChecker
@@ -357,24 +372,30 @@ namespace BlueprintCore.Conditions.Builder
     }
 
     /// <summary>
-    /// Runs the object through <see cref="Validator.Check(object)">Validator.Check()</see>, adding any errors to the
-    /// validation warnings.
+    /// Adds the object to be checked using <see cref="Validator.Check(object)">Validator.Check()</see>.
     /// </summary>
     /// 
     /// <remarks>
     /// Exposed for use by extension classes to bundle warnings into the builder. Other classes can use
     /// <see cref="Validator.Check(object)">Validator.Check()</see> directly.
     /// </remarks>
-    /// <param name="obj"></param>
     internal void Validate(object? obj)
     {
-      ValidationWarnings.AddRange(Validator.Check(obj));
+      if (obj is not null)
+      {
+        ToValidate.Add(obj);
+      }
     }
 
     internal void Validate<T>(IEnumerable<T>? objects)
     {
       if (objects is null) { return; }
-      foreach (var obj in objects) { Validate(obj!); }
+      foreach (var obj in objects) { Validate(obj); }
+    }
+
+    private void RunValidation(Validator validator)
+    {
+      ToValidate.ForEach(obj => validator.Check(obj));
     }
   }
 }
