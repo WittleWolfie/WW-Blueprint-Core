@@ -1,11 +1,6 @@
 ﻿using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Owlcat.QA.Validation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlueprintCore.BlueprintCore.Validation
 {

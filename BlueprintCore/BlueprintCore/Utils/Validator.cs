@@ -3,7 +3,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Owlcat.QA.Validation;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
