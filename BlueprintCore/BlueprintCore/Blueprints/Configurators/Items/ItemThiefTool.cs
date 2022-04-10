@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
   /// Configurator for <see cref="BlueprintItemThiefTool"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemThiefTool))]
+  
   public class ItemThiefToolConfigurator : BaseItemConfigurator<BlueprintItemThiefTool, ItemThiefToolConfigurator>
   {
     private ItemThiefToolConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItemThiefTool.m_Consumable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemThiefToolConfigurator SetConsumable(bool consumable)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItemThiefTool.m_SkillCheckBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemThiefToolConfigurator SetSkillCheckBonus(int skillCheckBonus)
     {
       return OnConfigureInternal(

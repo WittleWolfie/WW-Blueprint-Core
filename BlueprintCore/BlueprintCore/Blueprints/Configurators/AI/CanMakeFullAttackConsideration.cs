@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="CanMakeFullAttackConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(CanMakeFullAttackConsideration))]
+  
   public class CanMakeFullAttackConsiderationConfigurator : BaseConsiderationConfigurator<CanMakeFullAttackConsideration, CanMakeFullAttackConsiderationConfigurator>
   {
     private CanMakeFullAttackConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="CanMakeFullAttackConsideration.SuccessScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CanMakeFullAttackConsiderationConfigurator SetSuccessScore(float successScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="CanMakeFullAttackConsideration.FailScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CanMakeFullAttackConsiderationConfigurator SetFailScore(float failScore)
     {
       return OnConfigureInternal(

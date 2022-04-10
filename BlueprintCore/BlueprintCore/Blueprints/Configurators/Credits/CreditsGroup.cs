@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
   /// Configurator for <see cref="BlueprintCreditsGroup"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCreditsGroup))]
+  
   public class CreditsGroupConfigurator : BaseBlueprintConfigurator<BlueprintCreditsGroup, CreditsGroupConfigurator>
   {
     private CreditsGroupConfigurator(string name) : base(name) { }
@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.TabIcon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator SetTabIcon(Sprite tabIcon)
     {
       ValidateParam(tabIcon);
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.HeaderText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator SetHeaderText(LocalizedString? headerText)
     {
       ValidateParam(headerText);
@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.LeftPageImage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator SetLeftPageImage(Sprite leftPageImage)
     {
       ValidateParam(leftPageImage);
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.LeftPageText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator SetLeftPageText(LocalizedString? leftPageText)
     {
       ValidateParam(leftPageText);
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// </summary>
     ///
     /// <param name="rolesData"><see cref="Kingmaker.Blueprints.Credits.BlueprintCreditsRoles"/></param>
-    [Generated]
+    
     public CreditsGroupConfigurator SetRolesData(string? rolesData)
     {
       return OnConfigureInternal(
@@ -111,7 +111,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// </summary>
     ///
     /// <param name="teamsData"><see cref="Kingmaker.Blueprints.Credits.BlueprintCreditsTeams"/></param>
-    [Generated]
+    
     public CreditsGroupConfigurator SetTeamsData(string? teamsData)
     {
       return OnConfigureInternal(
@@ -124,7 +124,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator SetOrderTeams(List<string>? orderTeams)
     {
       return OnConfigureInternal(
@@ -137,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Adds to <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator AddToOrderTeams(params string[] orderTeams)
     {
       return OnConfigureInternal(
@@ -150,7 +150,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Removes from <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator RemoveFromOrderTeams(params string[] orderTeams)
     {
       return OnConfigureInternal(
@@ -163,7 +163,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator SetPersones(List<CreditPerson>? persones)
     {
       ValidateParam(persones);
@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Adds to <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator AddToPersones(params CreditPerson[] persones)
     {
       ValidateParam(persones);
@@ -192,7 +192,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Removes from <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsGroupConfigurator RemoveFromPersones(params CreditPerson[] persones)
     {
       ValidateParam(persones);

@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="HasAutoCastConsideraion"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(HasAutoCastConsideraion))]
+  
   public class HasAutoCastConsideraionConfigurator : BaseConsiderationConfigurator<HasAutoCastConsideraion, HasAutoCastConsideraionConfigurator>
   {
     private HasAutoCastConsideraionConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="HasAutoCastConsideraion.NoAutoCastScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HasAutoCastConsideraionConfigurator SetNoAutoCastScore(float noAutoCastScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="HasAutoCastConsideraion.HasAutoCastScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HasAutoCastConsideraionConfigurator SetHasAutoCastScore(float hasAutoCastScore)
     {
       return OnConfigureInternal(

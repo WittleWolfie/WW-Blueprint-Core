@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   /// Configurator for <see cref="TacticalCombatCanAttackThisTurnConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(TacticalCombatCanAttackThisTurnConsideration))]
+  
   public class TacticalCombatCanAttackThisTurnConsiderationConfigurator : BaseConsiderationConfigurator<TacticalCombatCanAttackThisTurnConsideration, TacticalCombatCanAttackThisTurnConsiderationConfigurator>
   {
     private TacticalCombatCanAttackThisTurnConsiderationConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="TacticalCombatCanAttackThisTurnConsideration.CanAttackScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatCanAttackThisTurnConsiderationConfigurator SetCanAttackScore(float canAttackScore)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="TacticalCombatCanAttackThisTurnConsideration.CanNotAttackScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatCanAttackThisTurnConsiderationConfigurator SetCanNotAttackScore(float canNotAttackScore)
     {
       return OnConfigureInternal(

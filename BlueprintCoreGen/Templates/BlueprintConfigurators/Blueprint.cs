@@ -137,7 +137,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
   /// </code>
   /// </example>
   /// </remarks>
-  [Configures(typeof(BlueprintScriptableObject))]
+  
   public abstract class BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintScriptableObject
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
@@ -414,7 +414,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
   /// </code>
   /// </example>
   /// </remarks>
-  [Configures(typeof(BlueprintScriptableObject))]
+  
   public class BlueprintConfigurator<T> : BaseBlueprintConfigurator<T, BlueprintConfigurator<T>>
       where T : BlueprintScriptableObject, new()
   {

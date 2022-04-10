@@ -8,7 +8,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes.Selection
 {
   /// <summary>Configurator for <see cref="BlueprintFeatureSelection"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFeatureSelection))]
+  
   public class FeatureSelectionConfigurator
       : BaseFeatureConfigurator<BlueprintFeatureSelection, FeatureSelectionConfigurator>
   {

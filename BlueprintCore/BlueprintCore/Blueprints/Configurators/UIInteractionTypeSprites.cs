@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintUIInteractionTypeSprites"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUIInteractionTypeSprites))]
+  
   public class UIInteractionTypeSpritesConfigurator : BaseBlueprintConfigurator<BlueprintUIInteractionTypeSprites, UIInteractionTypeSpritesConfigurator>
   {
     private UIInteractionTypeSpritesConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUIInteractionTypeSprites.Main"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UIInteractionTypeSpritesConfigurator SetMain(Sprite main)
     {
       ValidateParam(main);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUIInteractionTypeSprites.Active"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UIInteractionTypeSpritesConfigurator SetActive(Sprite active)
     {
       ValidateParam(active);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUIInteractionTypeSprites.Hover"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UIInteractionTypeSpritesConfigurator SetHover(Sprite hover)
     {
       ValidateParam(hover);

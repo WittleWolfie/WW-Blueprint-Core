@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   /// Configurator for <see cref="HitSystemRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(HitSystemRoot))]
+  
   public class HitSystemRootConfigurator : BaseBlueprintConfigurator<HitSystemRoot, HitSystemRootConfigurator>
   {
     private HitSystemRootConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.DamageTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetDamageTypes(DamageEntry[]? damageTypes)
     {
       ValidateParam(damageTypes);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.DamageTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToDamageTypes(params DamageEntry[] damageTypes)
     {
       ValidateParam(damageTypes);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.DamageTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromDamageTypes(params DamageEntry[] damageTypes)
     {
       ValidateParam(damageTypes);
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.EnergyTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetEnergyTypes(EnergyEntry[]? energyTypes)
     {
       ValidateParam(energyTypes);
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.EnergyTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToEnergyTypes(params EnergyEntry[] energyTypes)
     {
       ValidateParam(energyTypes);
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.EnergyTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromEnergyTypes(params EnergyEntry[] energyTypes)
     {
       ValidateParam(energyTypes);
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.BloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetBloodTypes(BloodEntry[]? bloodTypes)
     {
       ValidateParam(bloodTypes);
@@ -132,7 +132,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.BloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToBloodTypes(params BloodEntry[] bloodTypes)
     {
       ValidateParam(bloodTypes);
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.BloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromBloodTypes(params BloodEntry[] bloodTypes)
     {
       ValidateParam(bloodTypes);
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.DefaultDamage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetDefaultDamage(DamageHitSettings defaultDamage)
     {
       ValidateParam(defaultDamage);
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.DefaultAoeDamage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetDefaultAoeDamage(DamageHitSettings defaultAoeDamage)
     {
       ValidateParam(defaultAoeDamage);
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.OverrideHitDirectionPrefabFromAnimationStyle"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetOverrideHitDirectionPrefabFromAnimationStyle(BloodPrefabsFromWeaponAnimationStyleEntry[]? overrideHitDirectionPrefabFromAnimationStyle)
     {
       ValidateParam(overrideHitDirectionPrefabFromAnimationStyle);
@@ -205,7 +205,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.OverrideHitDirectionPrefabFromAnimationStyle"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToOverrideHitDirectionPrefabFromAnimationStyle(params BloodPrefabsFromWeaponAnimationStyleEntry[] overrideHitDirectionPrefabFromAnimationStyle)
     {
       ValidateParam(overrideHitDirectionPrefabFromAnimationStyle);
@@ -219,7 +219,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.OverrideHitDirectionPrefabFromAnimationStyle"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromOverrideHitDirectionPrefabFromAnimationStyle(params BloodPrefabsFromWeaponAnimationStyleEntry[] overrideHitDirectionPrefabFromAnimationStyle)
     {
       ValidateParam(overrideHitDirectionPrefabFromAnimationStyle);
@@ -233,7 +233,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.MaxHeightIncrease"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetMaxHeightIncrease(float maxHeightIncrease)
     {
       return OnConfigureInternal(
@@ -246,7 +246,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.EnergyResistance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetEnergyResistance(GameObject energyResistance)
     {
       ValidateParam(energyResistance);
@@ -261,7 +261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.RagdollDistanceForLootBag"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetRagdollDistanceForLootBag(float ragdollDistanceForLootBag)
     {
       return OnConfigureInternal(
@@ -274,7 +274,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.BlowUpDismembermentChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetBlowUpDismembermentChance(float blowUpDismembermentChance)
     {
       return OnConfigureInternal(
@@ -287,7 +287,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.LimbsApartDismembermentChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetLimbsApartDismembermentChance(float limbsApartDismembermentChance)
     {
       return OnConfigureInternal(
@@ -300,7 +300,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.m_Initialized"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetInitialized(bool initialized)
     {
       return OnConfigureInternal(
@@ -313,7 +313,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.m_CachedDamageTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetCachedDamageTypes(HitCollection[]? cachedDamageTypes)
     {
       ValidateParam(cachedDamageTypes);
@@ -328,7 +328,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.m_CachedDamageTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToCachedDamageTypes(params HitCollection[] cachedDamageTypes)
     {
       ValidateParam(cachedDamageTypes);
@@ -342,7 +342,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.m_CachedDamageTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromCachedDamageTypes(params HitCollection[] cachedDamageTypes)
     {
       ValidateParam(cachedDamageTypes);
@@ -356,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.m_CachedEnergyTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetCachedEnergyTypes(HitCollection[]? cachedEnergyTypes)
     {
       ValidateParam(cachedEnergyTypes);
@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.m_CachedEnergyTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToCachedEnergyTypes(params HitCollection[] cachedEnergyTypes)
     {
       ValidateParam(cachedEnergyTypes);
@@ -385,7 +385,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.m_CachedEnergyTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromCachedEnergyTypes(params HitCollection[] cachedEnergyTypes)
     {
       ValidateParam(cachedEnergyTypes);
@@ -399,7 +399,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.m_CachedBillboardBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetCachedBillboardBloodTypes(HitCollection[]? cachedBillboardBloodTypes)
     {
       ValidateParam(cachedBillboardBloodTypes);
@@ -414,7 +414,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.m_CachedBillboardBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToCachedBillboardBloodTypes(params HitCollection[] cachedBillboardBloodTypes)
     {
       ValidateParam(cachedBillboardBloodTypes);
@@ -428,7 +428,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.m_CachedBillboardBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromCachedBillboardBloodTypes(params HitCollection[] cachedBillboardBloodTypes)
     {
       ValidateParam(cachedBillboardBloodTypes);
@@ -442,7 +442,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.m_CachedDirectionalBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetCachedDirectionalBloodTypes(HitCollection[]? cachedDirectionalBloodTypes)
     {
       ValidateParam(cachedDirectionalBloodTypes);
@@ -457,7 +457,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.m_CachedDirectionalBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToCachedDirectionalBloodTypes(params HitCollection[] cachedDirectionalBloodTypes)
     {
       ValidateParam(cachedDirectionalBloodTypes);
@@ -471,7 +471,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.m_CachedDirectionalBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromCachedDirectionalBloodTypes(params HitCollection[] cachedDirectionalBloodTypes)
     {
       ValidateParam(cachedDirectionalBloodTypes);
@@ -485,7 +485,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.m_CachedBillboardAdditiveBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetCachedBillboardAdditiveBloodTypes(HitCollection[]? cachedBillboardAdditiveBloodTypes)
     {
       ValidateParam(cachedBillboardAdditiveBloodTypes);
@@ -500,7 +500,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.m_CachedBillboardAdditiveBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToCachedBillboardAdditiveBloodTypes(params HitCollection[] cachedBillboardAdditiveBloodTypes)
     {
       ValidateParam(cachedBillboardAdditiveBloodTypes);
@@ -514,7 +514,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.m_CachedBillboardAdditiveBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromCachedBillboardAdditiveBloodTypes(params HitCollection[] cachedBillboardAdditiveBloodTypes)
     {
       ValidateParam(cachedBillboardAdditiveBloodTypes);
@@ -528,7 +528,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.m_CachedDirectionalAdditiveBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetCachedDirectionalAdditiveBloodTypes(HitCollection[]? cachedDirectionalAdditiveBloodTypes)
     {
       ValidateParam(cachedDirectionalAdditiveBloodTypes);
@@ -543,7 +543,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.m_CachedDirectionalAdditiveBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToCachedDirectionalAdditiveBloodTypes(params HitCollection[] cachedDirectionalAdditiveBloodTypes)
     {
       ValidateParam(cachedDirectionalAdditiveBloodTypes);
@@ -557,7 +557,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.m_CachedDirectionalAdditiveBloodTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromCachedDirectionalAdditiveBloodTypes(params HitCollection[] cachedDirectionalAdditiveBloodTypes)
     {
       ValidateParam(cachedDirectionalAdditiveBloodTypes);
@@ -571,7 +571,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="HitSystemRoot.m_CachedBloodPrefabsFromWeaponAnimationStyleEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator SetCachedBloodPrefabsFromWeaponAnimationStyleEntries(BloodPrefabsFromWeaponAnimationStyleEntry[]? cachedBloodPrefabsFromWeaponAnimationStyleEntries)
     {
       ValidateParam(cachedBloodPrefabsFromWeaponAnimationStyleEntries);
@@ -586,7 +586,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="HitSystemRoot.m_CachedBloodPrefabsFromWeaponAnimationStyleEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator AddToCachedBloodPrefabsFromWeaponAnimationStyleEntries(params BloodPrefabsFromWeaponAnimationStyleEntry[] cachedBloodPrefabsFromWeaponAnimationStyleEntries)
     {
       ValidateParam(cachedBloodPrefabsFromWeaponAnimationStyleEntries);
@@ -600,7 +600,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="HitSystemRoot.m_CachedBloodPrefabsFromWeaponAnimationStyleEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HitSystemRootConfigurator RemoveFromCachedBloodPrefabsFromWeaponAnimationStyleEntries(params BloodPrefabsFromWeaponAnimationStyleEntry[] cachedBloodPrefabsFromWeaponAnimationStyleEntries)
     {
       ValidateParam(cachedBloodPrefabsFromWeaponAnimationStyleEntries);

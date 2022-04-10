@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintFact"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFact))]
+  
   public abstract class BaseFactConfigurator<T, TBuilder> : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintFact
       where TBuilder : BaseFactConfigurator<T, TBuilder>
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </summary>
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
-    [Implements(typeof(AddFactContextActions))]
+    
     public TBuilder AddFactContextActions(
         ActionsBuilder? onActivated = null,
         ActionsBuilder? onDeactivated = null,
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       return AddUniqueComponent(contextActions, behavior, merge ?? MergeFactContextActions);
     }
 
-    [Implements(typeof(AddFactContextActions))]
+    
     private static void MergeFactContextActions(
         BlueprintComponent current, BlueprintComponent other)
     {
@@ -63,8 +63,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </summary>
     ///
     /// <param name="list"><see cref="Kingmaker.Blueprints.BlueprintComponentList"/></param>
-    [Generated]
-    [Implements(typeof(ComponentsList))]
+    
+    
     public TBuilder AddComponentsList(
         string? list = null)
     {
@@ -76,8 +76,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <summary>
     /// Adds <see cref="AddBuffActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddBuffActions))]
+    
+    
     public TBuilder AddBuffActions(
         ActionsBuilder? activated = null,
         ActionsBuilder? deactivated = null,

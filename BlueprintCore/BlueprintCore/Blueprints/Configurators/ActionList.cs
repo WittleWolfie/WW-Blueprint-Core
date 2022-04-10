@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintActionList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintActionList))]
+  
   public class ActionListConfigurator : BaseBlueprintConfigurator<BlueprintActionList, ActionListConfigurator>
   {
     private ActionListConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintActionList.m_Actions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ActionListConfigurator SetActions(ActionsBuilder? actions)
     {
       return OnConfigureInternal(

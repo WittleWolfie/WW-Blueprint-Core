@@ -14,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
   /// Configurator for <see cref="BlueprintUnitProperty"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnitProperty))]
+  
   public class UnitPropertyConfigurator : BaseBlueprintConfigurator<BlueprintUnitProperty, UnitPropertyConfigurator>
   {
     private UnitPropertyConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Sets <see cref="BlueprintUnitProperty.BaseValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitPropertyConfigurator SetBaseValue(int baseValue)
     {
       return OnConfigureInternal(
@@ -50,8 +50,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="onlyOfType"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
-    [Generated]
-    [Implements(typeof(CountCorpsesAroundPropertyGetter))]
+    
+    
     public UnitPropertyConfigurator AddCountCorpsesAroundPropertyGetter(
         Feet radius,
         PropertySettings settings,
@@ -71,8 +71,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(BaseAttackPropertyWithFeatureList))]
+    
+    
     public UnitPropertyConfigurator AddBaseAttackPropertyWithFeatureList(
         PropertySettings settings,
         int baseValue = default,
@@ -96,8 +96,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="CurrentMeleeWeaponDamageStatGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CurrentMeleeWeaponDamageStatGetter))]
+    
+    
     public UnitPropertyConfigurator AddCurrentMeleeWeaponDamageStatGetter(
         PropertySettings settings)
     {
@@ -111,8 +111,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="CurrentWeaponCriticalMultiplierGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CurrentWeaponCriticalMultiplierGetter))]
+    
+    
     public UnitPropertyConfigurator AddCurrentWeaponCriticalMultiplierGetter(
         PropertySettings settings)
     {
@@ -129,8 +129,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     /// <param name="duelingFeatures"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(FightingDefensivelyACBonusProperty))]
+    
+    
     public UnitPropertyConfigurator AddFightingDefensivelyACBonusProperty(
         PropertySettings settings,
         string[]? features = null,
@@ -152,8 +152,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <param name="features"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     /// <param name="duelingFeatures"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     /// <param name="halfBuff"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(FightingDefensivelyAttackPenaltyProperty))]
+    
+    
     public UnitPropertyConfigurator AddFightingDefensivelyAttackPenaltyProperty(
         PropertySettings settings,
         string[]? features = null,
@@ -173,8 +173,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="KineticistBurnPropertyGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KineticistBurnPropertyGetter))]
+    
+    
     public UnitPropertyConfigurator AddKineticistBurnPropertyGetter(
         PropertySettings settings,
         bool multiplyOnClassLevel = default,
@@ -192,8 +192,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="KineticistMainStatBonusPropertyGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KineticistMainStatBonusPropertyGetter))]
+    
+    
     public UnitPropertyConfigurator AddKineticistMainStatBonusPropertyGetter(
         PropertySettings settings)
     {
@@ -209,8 +209,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(LevelBasedPropertyWithFeatureList))]
+    
+    
     public UnitPropertyConfigurator AddLevelBasedPropertyWithFeatureList(
         PropertySettings settings,
         int baseValue = default,
@@ -236,8 +236,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="requiredFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(StatBonusIfHasFactProperty))]
+    
+    
     public UnitPropertyConfigurator AddStatBonusIfHasFactProperty(
         PropertySettings settings,
         int multiplier = default,
@@ -257,8 +257,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="AnimalPetOwnerRankGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AnimalPetOwnerRankGetter))]
+    
+    
     public UnitPropertyConfigurator AddAnimalPetOwnerRankGetter(
         PropertySettings settings,
         UnitProperty property = default)
@@ -274,8 +274,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="AreaCrComplexGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AreaCrComplexGetter))]
+    
+    
     public UnitPropertyConfigurator AddAreaCrComplexGetter(
         PropertySettings settings,
         int bonus = default,
@@ -297,8 +297,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(ClassLevelGetter))]
+    
+    
     public UnitPropertyConfigurator AddClassLevelGetter(
         PropertySettings settings,
         string? clazz = null)
@@ -316,8 +316,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="property"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
-    [Generated]
-    [Implements(typeof(CustomPropertyGetter))]
+    
+    
     public UnitPropertyConfigurator AddCustomPropertyGetter(
         PropertySettings settings,
         string? property = null)
@@ -335,8 +335,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(FactRankGetter))]
+    
+    
     public UnitPropertyConfigurator AddFactRankGetter(
         PropertySettings settings,
         string? fact = null)
@@ -354,8 +354,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(PropertyWithFactRankGetter))]
+    
+    
     public UnitPropertyConfigurator AddPropertyWithFactRankGetter(
         PropertySettings settings,
         UnitProperty property = default,
@@ -375,8 +375,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="ShieldBonusGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ShieldBonusGetter))]
+    
+    
     public UnitPropertyConfigurator AddShieldBonusGetter(
         PropertySettings settings)
     {
@@ -390,8 +390,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="SimplePropertyGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SimplePropertyGetter))]
+    
+    
     public UnitPropertyConfigurator AddSimplePropertyGetter(
         PropertySettings settings,
         UnitProperty property = default)
@@ -407,8 +407,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="SkillRankGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SkillRankGetter))]
+    
+    
     public UnitPropertyConfigurator AddSkillRankGetter(
         PropertySettings settings,
         StatType skill = default)
@@ -424,8 +424,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="SkillValueGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SkillValueGetter))]
+    
+    
     public UnitPropertyConfigurator AddSkillValueGetter(
         PropertySettings settings,
         StatType skill = default)
@@ -445,8 +445,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
     /// <param name="archetypes"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
-    [Generated]
-    [Implements(typeof(SummClassLevelGetter))]
+    
+    
     public UnitPropertyConfigurator AddSummClassLevelGetter(
         PropertySettings settings,
         string[]? clazz = null,
@@ -466,8 +466,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="UnitWeaponEnhancementGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitWeaponEnhancementGetter))]
+    
+    
     public UnitPropertyConfigurator AddUnitWeaponEnhancementGetter(
         PropertySettings settings)
     {
@@ -483,8 +483,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(CastingAttributeGetter))]
+    
+    
     public UnitPropertyConfigurator AddCastingAttributeGetter(
         PropertySettings settings,
         string? clazz = null,
@@ -502,8 +502,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="ComplexPropertyGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ComplexPropertyGetter))]
+    
+    
     public UnitPropertyConfigurator AddComplexPropertyGetter(
         PropertySettings settings,
         int bonus = default,
@@ -525,8 +525,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Adds <see cref="CustomProgressionPropertyGetter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CustomProgressionPropertyGetter))]
+    
+    
     public UnitPropertyConfigurator AddCustomProgressionPropertyGetter(
         PropertySettings settings,
         int start = default,
@@ -548,8 +548,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </summary>
     ///
     /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(MaxCastingAttributeGetter))]
+    
+    
     public UnitPropertyConfigurator AddMaxCastingAttributeGetter(
         PropertySettings settings,
         string[]? classes = null,

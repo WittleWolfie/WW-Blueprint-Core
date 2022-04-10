@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BlueprintAiAttack"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAiAttack))]
+  
   public class AiAttackConfigurator : BaseAiActionConfigurator<BlueprintAiAttack, AiAttackConfigurator>
   {
     private AiAttackConfigurator(string name) : base(name) { }

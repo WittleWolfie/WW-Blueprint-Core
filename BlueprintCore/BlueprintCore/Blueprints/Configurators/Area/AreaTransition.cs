@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintAreaTransition"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAreaTransition))]
+  
   public class AreaTransitionConfigurator : BaseBlueprintConfigurator<BlueprintAreaTransition, AreaTransitionConfigurator>
   {
     private AreaTransitionConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaTransition.m_Actions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaTransitionConfigurator SetActions(ConditionAction[]? actions)
     {
       ValidateParam(actions);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintAreaTransition.m_Actions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaTransitionConfigurator AddToActions(params ConditionAction[] actions)
     {
       ValidateParam(actions);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintAreaTransition.m_Actions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaTransitionConfigurator RemoveFromActions(params ConditionAction[] actions)
     {
       ValidateParam(actions);

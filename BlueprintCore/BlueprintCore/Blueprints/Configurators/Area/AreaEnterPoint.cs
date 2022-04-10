@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintAreaEnterPoint"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAreaEnterPoint))]
+  
   public class AreaEnterPointConfigurator : BaseBlueprintConfigurator<BlueprintAreaEnterPoint, AreaEnterPointConfigurator>
   {
     private AreaEnterPointConfigurator(string name) : base(name) { }
@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public AreaEnterPointConfigurator SetArea(string? area)
     {
       return OnConfigureInternal(
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="areaPart"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    [Generated]
+    
     public AreaEnterPointConfigurator SetAreaPart(string? areaPart)
     {
       return OnConfigureInternal(
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEnterPointConfigurator SetTooltipList(List<LocalizedString>? tooltipList)
     {
       ValidateParam(tooltipList);
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEnterPointConfigurator AddToTooltipList(params LocalizedString[] tooltipList)
     {
       ValidateParam(tooltipList);
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEnterPointConfigurator RemoveFromTooltipList(params LocalizedString[] tooltipList)
     {
       ValidateParam(tooltipList);
@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.m_Tooltip"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEnterPointConfigurator SetTooltip(LocalizedString? tooltip)
     {
       ValidateParam(tooltip);
@@ -125,7 +125,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.m_CanBeOutsideNavmesh"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEnterPointConfigurator SetCanBeOutsideNavmesh(bool canBeOutsideNavmesh)
     {
       return OnConfigureInternal(
@@ -138,7 +138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEnterPointConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -153,7 +153,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaEnterPoint.HoverIcon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEnterPointConfigurator SetHoverIcon(Sprite hoverIcon)
     {
       ValidateParam(hoverIcon);
@@ -168,8 +168,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="AllowOnZoneSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AllowOnZoneSettings))]
+    
+    
     public AreaEnterPointConfigurator AddAllowOnZoneSettings(
         GlobalMapZone[]? allowedNaturalSettings = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,

@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   /// Configurator for <see cref="BlueprintItemEquipmentUsable"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemEquipmentUsable))]
+  
   public class ItemEquipmentUsableConfigurator : BaseItemEquipmentConfigurator<BlueprintItemEquipmentUsable, ItemEquipmentUsableConfigurator>
   {
     private ItemEquipmentUsableConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipmentUsable.Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemEquipmentUsableConfigurator SetType(UsableItemType type)
     {
       return OnConfigureInternal(
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipmentUsable.m_IdentifyDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemEquipmentUsableConfigurator SetIdentifyDC(int identifyDC)
     {
       return OnConfigureInternal(
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipmentUsable.m_InventoryEquipSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemEquipmentUsableConfigurator SetInventoryEquipSound(string inventoryEquipSound)
     {
       return OnConfigureInternal(
@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipmentUsable.m_BeltItemPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemEquipmentUsableConfigurator SetBeltItemPrefab(PrefabLink? beltItemPrefab)
     {
       ValidateParam(beltItemPrefab);
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public ItemEquipmentUsableConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public ItemEquipmentUsableConfigurator AddToEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -118,7 +118,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public ItemEquipmentUsableConfigurator RemoveFromEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(

@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="NotImpatientConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(NotImpatientConsideration))]
+  
   public class NotImpatientConsiderationConfigurator : BaseConsiderationConfigurator<NotImpatientConsideration, NotImpatientConsiderationConfigurator>
   {
     private NotImpatientConsiderationConfigurator(string name) : base(name) { }

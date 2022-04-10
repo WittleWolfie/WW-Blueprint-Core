@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="InRangeConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(InRangeConsideration))]
+  
   public class InRangeConsiderationConfigurator : BaseConsiderationConfigurator<InRangeConsideration, InRangeConsiderationConfigurator>
   {
     private InRangeConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="InRangeConsideration.InRangeScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InRangeConsiderationConfigurator SetInRangeScore(float inRangeScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="InRangeConsideration.OutOfRangeScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InRangeConsiderationConfigurator SetOutOfRangeScore(float outOfRangeScore)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="InRangeConsideration.OnlyIfThreated"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InRangeConsiderationConfigurator SetOnlyIfThreated(bool onlyIfThreated)
     {
       return OnConfigureInternal(

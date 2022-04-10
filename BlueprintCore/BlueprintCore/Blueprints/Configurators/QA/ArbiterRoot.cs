@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
   /// Configurator for <see cref="BlueprintArbiterRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArbiterRoot))]
+  
   public class ArbiterRootConfigurator : BaseBlueprintConfigurator<BlueprintArbiterRoot, ArbiterRootConfigurator>
   {
     private ArbiterRootConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Sets <see cref="BlueprintArbiterRoot.IgnoreScenesInReport"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArbiterRootConfigurator SetIgnoreScenesInReport(SceneReference[]? ignoreScenesInReport)
     {
       ValidateParam(ignoreScenesInReport);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Adds to <see cref="BlueprintArbiterRoot.IgnoreScenesInReport"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArbiterRootConfigurator AddToIgnoreScenesInReport(params SceneReference[] ignoreScenesInReport)
     {
       ValidateParam(ignoreScenesInReport);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes from <see cref="BlueprintArbiterRoot.IgnoreScenesInReport"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArbiterRootConfigurator RemoveFromIgnoreScenesInReport(params SceneReference[] ignoreScenesInReport)
     {
       ValidateParam(ignoreScenesInReport);
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Sets <see cref="BlueprintArbiterRoot.IgnoreScenesInReportByFilter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArbiterRootConfigurator SetIgnoreScenesInReportByFilter(string[]? ignoreScenesInReportByFilter)
     {
       return OnConfigureInternal(
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Adds to <see cref="BlueprintArbiterRoot.IgnoreScenesInReportByFilter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArbiterRootConfigurator AddToIgnoreScenesInReportByFilter(params string[] ignoreScenesInReportByFilter)
     {
       return OnConfigureInternal(
@@ -100,7 +100,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes from <see cref="BlueprintArbiterRoot.IgnoreScenesInReportByFilter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArbiterRootConfigurator RemoveFromIgnoreScenesInReportByFilter(params string[] ignoreScenesInReportByFilter)
     {
       return OnConfigureInternal(

@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintAnswersList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAnswersList))]
+  
   public class AnswersListConfigurator : BaseAnswerBaseConfigurator<BlueprintAnswersList, AnswersListConfigurator>
   {
     private AnswersListConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswersList.ShowOnce"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswersListConfigurator SetShowOnce(bool showOnce)
     {
       return OnConfigureInternal(
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswersList.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswersListConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public AnswersListConfigurator SetAnswers(string[]? answers)
     {
       return OnConfigureInternal(
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public AnswersListConfigurator AddToAnswers(params string[] answers)
     {
       return OnConfigureInternal(
@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public AnswersListConfigurator RemoveFromAnswers(params string[] answers)
     {
       return OnConfigureInternal(

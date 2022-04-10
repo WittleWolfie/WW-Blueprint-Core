@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   /// Configurator for <see cref="BlueprintDungeonLocalizedStrings"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDungeonLocalizedStrings))]
+  
   public class DungeonLocalizedStringsConfigurator : BaseBlueprintConfigurator<BlueprintDungeonLocalizedStrings, DungeonLocalizedStringsConfigurator>
   {
     private DungeonLocalizedStringsConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonLocalizedStrings.StageNameParameterized"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonLocalizedStringsConfigurator SetStageNameParameterized(LocalizedString? stageNameParameterized)
     {
       ValidateParam(stageNameParameterized);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonLocalizedStrings.LeaderboardRecordValues"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonLocalizedStringsConfigurator SetLeaderboardRecordValues(BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[]? leaderboardRecordValues)
     {
       ValidateParam(leaderboardRecordValues);
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonLocalizedStrings.LeaderboardRecordValues"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonLocalizedStringsConfigurator AddToLeaderboardRecordValues(params BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[] leaderboardRecordValues)
     {
       ValidateParam(leaderboardRecordValues);
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonLocalizedStrings.LeaderboardRecordValues"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonLocalizedStringsConfigurator RemoveFromLeaderboardRecordValues(params BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[] leaderboardRecordValues)
     {
       ValidateParam(leaderboardRecordValues);
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonLocalizedStrings.LeaderboardCharacterValues"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonLocalizedStringsConfigurator SetLeaderboardCharacterValues(BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[]? leaderboardCharacterValues)
     {
       ValidateParam(leaderboardCharacterValues);
@@ -104,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonLocalizedStrings.LeaderboardCharacterValues"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonLocalizedStringsConfigurator AddToLeaderboardCharacterValues(params BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[] leaderboardCharacterValues)
     {
       ValidateParam(leaderboardCharacterValues);
@@ -118,7 +118,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonLocalizedStrings.LeaderboardCharacterValues"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonLocalizedStringsConfigurator RemoveFromLeaderboardCharacterValues(params BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[] leaderboardCharacterValues)
     {
       ValidateParam(leaderboardCharacterValues);

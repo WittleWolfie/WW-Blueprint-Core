@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintSettlement"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintSettlement))]
+  
   public class SettlementConfigurator : BaseBlueprintConfigurator<BlueprintSettlement, SettlementConfigurator>
   {
     private SettlementConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintSettlement.m_StartLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementConfigurator SetStartLevel(SettlementState.LevelType startLevel)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintSettlement.m_MaxSettlementLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementConfigurator SetMaxSettlementLevel(SettlementState.LevelType maxSettlementLevel)
     {
       return OnConfigureInternal(
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintSettlement.m_HasWaterSlot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementConfigurator SetHasWaterSlot(bool hasWaterSlot)
     {
       return OnConfigureInternal(
@@ -72,7 +72,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintSettlement.m_DefaultSettlementName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementConfigurator SetDefaultSettlementName(LocalizedString? defaultSettlementName)
     {
       ValidateParam(defaultSettlementName);
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="settlementBuildArea"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public SettlementConfigurator SettlementBuildArea(string? settlementBuildArea)
     {
       return OnConfigureInternal(
@@ -104,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="settlementBuildAreaWithWater"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public SettlementConfigurator SettlementBuildAreaWithWater(string? settlementBuildAreaWithWater)
     {
       return OnConfigureInternal(
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintSettlement.m_CustomSettlementEntrance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementConfigurator SetCustomSettlementEntrance(bool customSettlementEntrance)
     {
       return OnConfigureInternal(
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintSettlement.m_SettlementIsPrebuilt"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementConfigurator SettlementIsPrebuilt(bool settlementIsPrebuilt)
     {
       return OnConfigureInternal(
@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="settlementEntrance"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public SettlementConfigurator SettlementEntrance(string? settlementEntrance)
     {
       return OnConfigureInternal(
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="settlementEntrances"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntrance"/></param>
-    [Generated]
+    
     public SettlementConfigurator SettlementEntrances(string? settlementEntrances)
     {
       return OnConfigureInternal(
@@ -173,7 +173,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintSettlement.m_CustomSiegeDurationDays"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementConfigurator SetCustomSiegeDurationDays(int? customSiegeDurationDays)
     {
       return OnConfigureInternal(
@@ -186,7 +186,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintSettlement.m_NeedOwnMarker"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementConfigurator SetNeedOwnMarker(bool needOwnMarker)
     {
       return OnConfigureInternal(

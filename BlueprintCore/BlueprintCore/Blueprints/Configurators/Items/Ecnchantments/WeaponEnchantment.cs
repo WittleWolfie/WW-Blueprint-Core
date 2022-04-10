@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   /// Configurator for <see cref="BlueprintWeaponEnchantment"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintWeaponEnchantment))]
+  
   public class WeaponEnchantmentConfigurator : BaseItemEnchantmentConfigurator<BlueprintWeaponEnchantment, WeaponEnchantmentConfigurator>
   {
     private WeaponEnchantmentConfigurator(string name) : base(name) { }
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Sets <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponEnchantmentConfigurator SetWeaponFxPrefab(PrefabLink? weaponFxPrefab)
     {
       ValidateParam(weaponFxPrefab);
@@ -61,8 +61,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponDamageReroll"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponDamageReroll))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponDamageReroll(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -74,8 +74,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="TwoWeaponCriticalAdditionalAttackEnchant"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TwoWeaponCriticalAdditionalAttackEnchant))]
+    
+    
     public WeaponEnchantmentConfigurator AddTwoWeaponCriticalAdditionalAttackEnchant()
     {
       return AddComponent(new TwoWeaponCriticalAdditionalAttackEnchant());
@@ -84,8 +84,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="SuppressBane"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SuppressBane))]
+    
+    
     public WeaponEnchantmentConfigurator AddSuppressBane(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -97,8 +97,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponCriticalConfirmationBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponCriticalConfirmationBonus))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponCriticalConfirmationBonus(
         ContextValue? value = null,
         int additionalBonus = default,
@@ -116,8 +116,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponCriticalEdgeIncrease"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponCriticalEdgeIncrease))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponCriticalEdgeIncrease(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -129,8 +129,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponCriticalEdgeStackable"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponCriticalEdgeStackable))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponCriticalEdgeStackable(
         int bonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -144,8 +144,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponCriticalMultiplierIncrease"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponCriticalMultiplierIncrease))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponCriticalMultiplierIncrease(
         int additionalMultiplier = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -159,8 +159,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponDamageMultiplierStatReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponDamageMultiplierStatReplacement))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponDamageMultiplierStatReplacement(
         StatType stat = default,
         float multiplier = default,
@@ -176,8 +176,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponDamageStatReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponDamageStatReplacement))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponDamageStatReplacement(
         StatType stat = default,
         bool requiresFinesse = default,
@@ -193,8 +193,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponOversized"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponOversized))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponOversized(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -208,8 +208,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(IgnoreConcealmentAgainstFactOwner))]
+    
+    
     public WeaponEnchantmentConfigurator AddIgnoreConcealmentAgainstFactOwner(
         string[]? facts = null,
         bool not = default,
@@ -225,8 +225,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="IgnoreTargetDREnchantment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(IgnoreTargetDREnchantment))]
+    
+    
     public WeaponEnchantmentConfigurator AddIgnoreTargetDREnchantment(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -240,8 +240,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
-    [Generated]
-    [Implements(typeof(ImproveEnhancmentIfHasEnchantment))]
+    
+    
     public WeaponEnchantmentConfigurator AddImproveEnhancmentIfHasEnchantment(
         string[]? enchantments = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -255,8 +255,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="ModifyWeaponStatsConditional"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ModifyWeaponStatsConditional))]
+    
+    
     public WeaponEnchantmentConfigurator AddModifyWeaponStatsConditional(
         ModifyWeaponStatsConditional.ModificationType type = default,
         DamageAlignment alignment = default,
@@ -280,8 +280,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="BrilliantEnergy"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BrilliantEnergy))]
+    
+    
     public WeaponEnchantmentConfigurator AddBrilliantEnergy(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -295,8 +295,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="checkedBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(IncreaseWeaponDamageByBuffStack))]
+    
+    
     public WeaponEnchantmentConfigurator AddIncreaseWeaponDamageByBuffStack(
         int bonusPerStack = default,
         string? checkedBuff = null,
@@ -312,8 +312,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="IncreaseWeaponEnhancementBonusOnTargetFocus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(IncreaseWeaponEnhancementBonusOnTargetFocus))]
+    
+    
     public WeaponEnchantmentConfigurator AddIncreaseWeaponEnhancementBonusOnTargetFocus(
         UnitReference focusingTarget,
         ContextValue? bonusIncrementValue = null,
@@ -338,8 +338,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(MissAgainstFactOwner))]
+    
+    
     public WeaponEnchantmentConfigurator AddMissAgainstFactOwner(
         string[]? facts = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -353,8 +353,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponAlignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponAlignment))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponAlignment(
         DamageAlignment alignment = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -370,8 +370,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="maximizeFeature"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(WeaponAngelDamageDice))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponAngelDamageDice(
         DiceFormula energyDamageDice,
         DamageEnergyType element = default,
@@ -391,8 +391,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(WeaponBuffOnAttack))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponBuffOnAttack(
         Rounds duration,
         string? buff = null,
@@ -414,8 +414,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(WeaponBuffOnConfirmedCrit))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponBuffOnConfirmedCrit(
         Rounds duration,
         string? buff = null,
@@ -437,8 +437,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponConditionalDamageDice"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponConditionalDamageDice))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponConditionalDamageDice(
         DamageDescription damage,
         bool checkWielder = default,
@@ -460,8 +460,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponConditionalEnhancementBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponConditionalEnhancementBonus))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponConditionalEnhancementBonus(
         int enhancementBonus = default,
         bool checkWielder = default,
@@ -479,8 +479,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponCritAutoconfirmAgainstAlignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponCritAutoconfirmAgainstAlignment))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponCritAutoconfirmAgainstAlignment(
         AlignmentComponent enemyAlignment = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -494,8 +494,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponCritAutoconfirmAgainstSize"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponCritAutoconfirmAgainstSize))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponCritAutoconfirmAgainstSize(
         Size size = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -509,8 +509,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponDamageAgainstAlignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponDamageAgainstAlignment))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponDamageAgainstAlignment(
         AlignmentComponent enemyAlignment = default,
         DamageAlignment weaponAlignment = default,
@@ -534,8 +534,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(WeaponDebuffOnAttack))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponDebuffOnAttack(
         Rounds duration,
         string? buff = null,
@@ -559,8 +559,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponEnergyBurst"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponEnergyBurst))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponEnergyBurst(
         DamageEnergyType element = default,
         DiceType dice = default,
@@ -576,8 +576,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponEnergyDamageDice"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponEnergyDamageDice))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponEnergyDamageDice(
         DiceFormula energyDamageDice,
         DamageEnergyType element = default,
@@ -593,8 +593,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponEnhancementBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponEnhancementBonus))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponEnhancementBonus(
         int enhancementBonus = default,
         bool stack = default,
@@ -610,8 +610,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponExtraAttack"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponExtraAttack))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponExtraAttack(
         int number = default,
         bool haste = default,
@@ -627,8 +627,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponImprovised"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponImprovised))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponImprovised(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -640,8 +640,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponMasterwork"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponMasterwork))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponMasterwork(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -653,8 +653,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponMaterial"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponMaterial))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponMaterial(
         PhysicalDamageMaterial material = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -668,8 +668,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="WeaponReality"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponReality))]
+    
+    
     public WeaponEnchantmentConfigurator AddWeaponReality(
         DamageRealityType reality = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,

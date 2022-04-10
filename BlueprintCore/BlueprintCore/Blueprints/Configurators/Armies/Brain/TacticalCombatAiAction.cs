@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintTacticalCombatAiAction"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTacticalCombatAiAction))]
+  
   public abstract class BaseTacticalCombatAiActionConfigurator<T, TBuilder>
       : BaseAiActionConfigurator<T, TBuilder>
       where T : BlueprintTacticalCombatAiAction

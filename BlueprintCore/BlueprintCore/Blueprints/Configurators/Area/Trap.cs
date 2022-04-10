@@ -15,7 +15,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintTrap"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTrap))]
+  
   public class TrapConfigurator : BaseMapObjectConfigurator<BlueprintTrap, TrapConfigurator>
   {
     private TrapConfigurator(string name) : base(name) { }
@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.PerceptionDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetPerceptionDC(int perceptionDC)
     {
       return OnConfigureInternal(
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.PerceptionRadius"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetPerceptionRadius(float perceptionRadius)
     {
       return OnConfigureInternal(
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisableDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetDisableDC(int disableDC)
     {
       return OnConfigureInternal(
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisableTriggerMargin"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetDisableTriggerMargin(int disableTriggerMargin)
     {
       return OnConfigureInternal(
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.IsHiddenWhenInactive"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetIsHiddenWhenInactive(bool isHiddenWhenInactive)
     {
       return OnConfigureInternal(
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.AllowedForRandomEncounters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetAllowedForRandomEncounters(bool allowedForRandomEncounters)
     {
       return OnConfigureInternal(
@@ -114,7 +114,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisarmAnimation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetDisarmAnimation(UnitAnimationInteractionType disarmAnimation)
     {
       return OnConfigureInternal(
@@ -129,7 +129,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="actor"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TrapConfigurator SetActor(string? actor)
     {
       return OnConfigureInternal(
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.TriggerConditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetTriggerConditions(ConditionsBuilder? triggerConditions)
     {
       return OnConfigureInternal(
@@ -155,7 +155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisableConditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetDisableConditions(ConditionsBuilder? disableConditions)
     {
       return OnConfigureInternal(
@@ -168,7 +168,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.TrapActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetTrapActions(ActionsBuilder? trapActions)
     {
       return OnConfigureInternal(
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintTrap.DisableActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapConfigurator SetDisableActions(ActionsBuilder? disableActions)
     {
       return OnConfigureInternal(
@@ -194,8 +194,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="Experience"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(Experience))]
+    
+    
     public TrapConfigurator AddExperience(
         IntEvaluator count,
         EncounterType encounter = default,

@@ -14,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintCue"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCue))]
+  
   public class CueConfigurator : BaseCueBaseConfigurator<BlueprintCue, CueConfigurator>
   {
     private CueConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.Text"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetText(LocalizedString? text)
     {
       ValidateParam(text);
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.Experience"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetExperience(DialogExperience experience)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.Speaker"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetSpeaker(DialogSpeaker speaker)
     {
       ValidateParam(speaker);
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.TurnSpeaker"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetTurnSpeaker(bool turnSpeaker)
     {
       return OnConfigureInternal(
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.Animation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetAnimation(DialogAnimation animation)
     {
       return OnConfigureInternal(
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="listener"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public CueConfigurator SetListener(string? listener)
     {
       return OnConfigureInternal(
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.OnShow"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetOnShow(ActionsBuilder? onShow)
     {
       return OnConfigureInternal(
@@ -132,7 +132,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.OnStop"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetOnStop(ActionsBuilder? onStop)
     {
       return OnConfigureInternal(
@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.AlignmentShift"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetAlignmentShift(AlignmentShift alignmentShift)
     {
       ValidateParam(alignmentShift);
@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public CueConfigurator SetAnswers(string[]? answers)
     {
       return OnConfigureInternal(
@@ -177,7 +177,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public CueConfigurator AddToAnswers(params string[] answers)
     {
       return OnConfigureInternal(
@@ -192,7 +192,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public CueConfigurator RemoveFromAnswers(params string[] answers)
     {
       return OnConfigureInternal(
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCue.Continue"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CueConfigurator SetContinue(CueSelection continueValue)
     {
       ValidateParam(continueValue);

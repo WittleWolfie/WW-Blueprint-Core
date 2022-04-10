@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintLevelUpPlanFeaturesList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintLevelUpPlanFeaturesList))]
+  
   public class LevelUpPlanFeaturesListConfigurator : BaseFeatureConfigurator<BlueprintLevelUpPlanFeaturesList, LevelUpPlanFeaturesListConfigurator>
   {
     private LevelUpPlanFeaturesListConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LevelUpPlanFeaturesListConfigurator SetFeatures(BlueprintLevelUpPlanFeaturesList.FeatureWrapper[]? features)
     {
       ValidateParam(features);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LevelUpPlanFeaturesListConfigurator AddToFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
     {
       ValidateParam(features);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LevelUpPlanFeaturesListConfigurator RemoveFromFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
     {
       ValidateParam(features);

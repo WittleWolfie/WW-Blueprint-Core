@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
 {
   /// <summary>Configurator for <see cref="BlueprintAbilityResource"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAbilityResource))]
+  
   public class AbilityResourceConfigurator
       : BaseBlueprintConfigurator<BlueprintAbilityResource, AbilityResourceConfigurator>
   {

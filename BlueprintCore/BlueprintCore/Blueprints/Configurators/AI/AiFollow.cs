@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BlueprintAiFollow"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAiFollow))]
+  
   public class AiFollowConfigurator : BaseAiActionConfigurator<BlueprintAiFollow, AiFollowConfigurator>
   {
     private AiFollowConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiFollow.TargetType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiFollowConfigurator SetTargetType(Kingmaker.AI.Blueprints.TargetType targetType)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiFollow.ApproachRange"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiFollowConfigurator SetApproachRange(Feet approachRange)
     {
       return OnConfigureInternal(

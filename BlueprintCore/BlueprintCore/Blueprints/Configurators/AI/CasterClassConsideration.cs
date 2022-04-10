@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="CasterClassConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(CasterClassConsideration))]
+  
   public class CasterClassConsiderationConfigurator : BaseConsiderationConfigurator<CasterClassConsideration, CasterClassConsiderationConfigurator>
   {
     private CasterClassConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="CasterClassConsideration.NotCasterScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CasterClassConsiderationConfigurator SetNotCasterScore(float notCasterScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="CasterClassConsideration.ArcaneCasterScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CasterClassConsiderationConfigurator SetArcaneCasterScore(float arcaneCasterScore)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="CasterClassConsideration.DivineCasterScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CasterClassConsiderationConfigurator SetDivineCasterScore(float divineCasterScore)
     {
       return OnConfigureInternal(

@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="CustomAiConsiderationsRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(CustomAiConsiderationsRoot))]
+  
   public class CustomAiConsiderationsRootConfigurator : BaseBlueprintConfigurator<CustomAiConsiderationsRoot, CustomAiConsiderationsRootConfigurator>
   {
     private CustomAiConsiderationsRootConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    [Generated]
+    
     public CustomAiConsiderationsRootConfigurator SetTargetConsiderations(string[]? targetConsiderations)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    [Generated]
+    
     public CustomAiConsiderationsRootConfigurator AddToTargetConsiderations(params string[] targetConsiderations)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    [Generated]
+    
     public CustomAiConsiderationsRootConfigurator RemoveFromTargetConsiderations(params string[] targetConsiderations)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    [Generated]
+    
     public CustomAiConsiderationsRootConfigurator SetActorConsiderations(string[]? actorConsiderations)
     {
       return OnConfigureInternal(
@@ -98,7 +98,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    [Generated]
+    
     public CustomAiConsiderationsRootConfigurator AddToActorConsiderations(params string[] actorConsiderations)
     {
       return OnConfigureInternal(
@@ -113,7 +113,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    [Generated]
+    
     public CustomAiConsiderationsRootConfigurator RemoveFromActorConsiderations(params string[] actorConsiderations)
     {
       return OnConfigureInternal(

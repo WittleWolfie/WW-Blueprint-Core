@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintCheck"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCheck))]
+  
   public class CheckConfigurator : BaseCueBaseConfigurator<BlueprintCheck, CheckConfigurator>
   {
     private CheckConfigurator(string name) : base(name) { }
@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCheck.Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CheckConfigurator SetType(StatType type)
     {
       return OnConfigureInternal(
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCheck.DC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CheckConfigurator SetDC(int dC)
     {
       return OnConfigureInternal(
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCheck.Hidden"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CheckConfigurator SetHidden(bool hidden)
     {
       return OnConfigureInternal(
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CheckConfigurator SetDCModifiers(DCModifier[]? dCModifiers)
     {
       ValidateParam(dCModifiers);
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Adds to <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CheckConfigurator AddToDCModifiers(params DCModifier[] dCModifiers)
     {
       ValidateParam(dCModifiers);
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Removes from <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CheckConfigurator RemoveFromDCModifiers(params DCModifier[] dCModifiers)
     {
       ValidateParam(dCModifiers);
@@ -118,7 +118,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="success"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public CheckConfigurator SetSuccess(string? success)
     {
       return OnConfigureInternal(
@@ -133,7 +133,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="fail"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public CheckConfigurator SetFail(string? fail)
     {
       return OnConfigureInternal(
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCheck.m_UnitEvaluator"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CheckConfigurator SetUnitEvaluator(UnitEvaluator unitEvaluator)
     {
       ValidateParam(unitEvaluator);
@@ -161,7 +161,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCheck.Experience"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CheckConfigurator SetExperience(DialogExperience experience)
     {
       return OnConfigureInternal(

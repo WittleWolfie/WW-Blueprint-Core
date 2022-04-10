@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="AlignmentConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(AlignmentConsideration))]
+  
   public class AlignmentConsiderationConfigurator : BaseConsiderationConfigurator<AlignmentConsideration, AlignmentConsiderationConfigurator>
   {
     private AlignmentConsiderationConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="AlignmentConsideration.Alignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AlignmentConsiderationConfigurator SetAlignment(AlignmentComponent alignment)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="AlignmentConsideration.SpecifiedAlignmentScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AlignmentConsiderationConfigurator SetSpecifiedAlignmentScore(float specifiedAlignmentScore)
     {
       return OnConfigureInternal(
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="AlignmentConsideration.OtherAlignmentScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AlignmentConsiderationConfigurator SetOtherAlignmentScore(float otherAlignmentScore)
     {
       return OnConfigureInternal(

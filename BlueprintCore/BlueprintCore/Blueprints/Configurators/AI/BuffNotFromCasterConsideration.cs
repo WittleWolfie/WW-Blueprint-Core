@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BuffNotFromCasterConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BuffNotFromCasterConsideration))]
+  
   public class BuffNotFromCasterConsiderationConfigurator : BaseConsiderationConfigurator<BuffNotFromCasterConsideration, BuffNotFromCasterConsiderationConfigurator>
   {
     private BuffNotFromCasterConsiderationConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffNotFromCasterConsiderationConfigurator SetBuffs(string[]? buffs)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffNotFromCasterConsiderationConfigurator AddToBuffs(params string[] buffs)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffNotFromCasterConsiderationConfigurator RemoveFromBuffs(params string[] buffs)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BuffNotFromCasterConsideration.HasBuffNotFromCasterScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BuffNotFromCasterConsiderationConfigurator SetHasBuffNotFromCasterScore(float hasBuffNotFromCasterScore)
     {
       return OnConfigureInternal(
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BuffNotFromCasterConsideration.ElseScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BuffNotFromCasterConsiderationConfigurator SetElseScore(float elseScore)
     {
       return OnConfigureInternal(

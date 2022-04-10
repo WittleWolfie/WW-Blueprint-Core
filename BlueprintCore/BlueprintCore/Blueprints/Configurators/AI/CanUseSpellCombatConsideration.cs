@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="CanUseSpellCombatConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(CanUseSpellCombatConsideration))]
+  
   public class CanUseSpellCombatConsiderationConfigurator : BaseConsiderationConfigurator<CanUseSpellCombatConsideration, CanUseSpellCombatConsiderationConfigurator>
   {
     private CanUseSpellCombatConsiderationConfigurator(string name) : base(name) { }

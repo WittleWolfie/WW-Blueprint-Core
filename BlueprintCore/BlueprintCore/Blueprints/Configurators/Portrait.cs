@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintPortrait"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintPortrait))]
+  
   public class PortraitConfigurator : BaseBlueprintConfigurator<BlueprintPortrait, PortraitConfigurator>
   {
     private PortraitConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintPortrait.Data"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public PortraitConfigurator SetData(PortraitData data)
     {
       ValidateParam(data);
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="backupPortrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
-    [Generated]
+    
     public PortraitConfigurator SetBackupPortrait(string? backupPortrait)
     {
       return OnConfigureInternal(
@@ -62,8 +62,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="race"><see cref="Kingmaker.Blueprints.Classes.BlueprintRace"/></param>
-    [Generated]
-    [Implements(typeof(PortraitDollSettings))]
+    
+    
     public PortraitConfigurator AddPortraitDollSettings(
         Gender gender = default,
         string? race = null,

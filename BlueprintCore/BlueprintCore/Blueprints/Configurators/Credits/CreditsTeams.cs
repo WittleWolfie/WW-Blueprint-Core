@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
   /// Configurator for <see cref="BlueprintCreditsTeams"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCreditsTeams))]
+  
   public class CreditsTeamsConfigurator : BaseBlueprintConfigurator<BlueprintCreditsTeams, CreditsTeamsConfigurator>
   {
     private CreditsTeamsConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsTeamsConfigurator SetTeams(List<CreditTeam>? teams)
     {
       ValidateParam(teams);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Adds to <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsTeamsConfigurator AddToTeams(params CreditTeam[] teams)
     {
       ValidateParam(teams);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Removes from <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsTeamsConfigurator RemoveFromTeams(params CreditTeam[] teams)
     {
       ValidateParam(teams);

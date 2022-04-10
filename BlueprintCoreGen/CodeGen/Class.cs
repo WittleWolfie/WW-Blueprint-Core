@@ -33,7 +33,7 @@
 //  ///   <description>
 //  ///   Use on methods that implement a game type such as a <see cref="Kingmaker.ElementsSystem.GameAction"/> or
 //  ///   <see cref="Kingmaker.ElementsSystem.Condition"/>. This is used to determine which types need automatically
-//  ///   generated methods. e.g. <c>[Implements(typeof(Conditional))]</c>
+//  ///   generated methods. e.g. <c></c>
 //  ///   </description>
 //  /// </item>
 //  /// <item>
@@ -41,7 +41,7 @@
 //  ///   <description>
 //  ///   Use on configurators that implement a blueprint type such as
 //  ///   <see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/>. This is used to determine which blueprint types
-//  ///   need automatically generated configurators. e.g. <c>[Configures(typeof(BlueprintFeature))]</c>
+//  ///   need automatically generated configurators. e.g. <c></c>
 //  ///   </description>
 //  /// </item>
 //  /// <item>
@@ -329,7 +329,7 @@
 
 //    private static void AddAttributes(ConfiguratorClass configurator)
 //    {
-//      configurator.AddLine($"  [Configures(typeof({TypeTool.GetName(configurator.BlueprintType)}))]");
+//      configurator.AddLine($"  ");
 //    }
 
 //    private static void AddMethod(ClassImpl basicClass, IMethod method, string returnTypeOverride = null)

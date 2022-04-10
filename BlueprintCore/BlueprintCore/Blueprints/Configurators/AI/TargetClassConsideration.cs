@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="TargetClassConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(TargetClassConsideration))]
+  
   public class TargetClassConsiderationConfigurator : BaseConsiderationConfigurator<TargetClassConsideration, TargetClassConsiderationConfigurator>
   {
     private TargetClassConsiderationConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="firstPriorityClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator SetFirstPriorityClasses(string[]? firstPriorityClasses)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="firstPriorityClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator AddToFirstPriorityClasses(params string[] firstPriorityClasses)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="firstPriorityClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator RemoveFromFirstPriorityClasses(params string[] firstPriorityClasses)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="TargetClassConsideration.FirstPriorityScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator SetFirstPriorityScore(float firstPriorityScore)
     {
       return OnConfigureInternal(
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="secondPriorityClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator SetSecondPriorityClasses(string[]? secondPriorityClasses)
     {
       return OnConfigureInternal(
@@ -111,7 +111,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="secondPriorityClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator AddToSecondPriorityClasses(params string[] secondPriorityClasses)
     {
       return OnConfigureInternal(
@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="secondPriorityClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator RemoveFromSecondPriorityClasses(params string[] secondPriorityClasses)
     {
       return OnConfigureInternal(
@@ -144,7 +144,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="TargetClassConsideration.SecondPriorityScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator SetSecondPriorityScore(float secondPriorityScore)
     {
       return OnConfigureInternal(
@@ -157,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="TargetClassConsideration.NoPriorityScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TargetClassConsiderationConfigurator SetNoPriorityScore(float noPriorityScore)
     {
       return OnConfigureInternal(

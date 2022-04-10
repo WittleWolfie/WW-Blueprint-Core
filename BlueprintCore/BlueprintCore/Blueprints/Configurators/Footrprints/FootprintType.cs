@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
   /// Configurator for <see cref="BlueprintFootprintType"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFootprintType))]
+  
   public class FootprintTypeConfigurator : BaseBlueprintConfigurator<BlueprintFootprintType, FootprintTypeConfigurator>
   {
     private FootprintTypeConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets <see cref="BlueprintFootprintType.FootprintType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FootprintTypeConfigurator SetFootprintType(FootprintType footprintType)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets <see cref="BlueprintFootprintType.Footprints"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FootprintTypeConfigurator SetFootprints(FootprintsEnumArray footprints)
     {
       ValidateParam(footprints);

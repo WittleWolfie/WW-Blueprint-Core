@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintArmorType"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArmorType))]
+  
   public abstract class BaseArmorTypeConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintArmorType
@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
@@ -53,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -98,7 +98,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_VisualParameters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetVisualParameters(ArmorVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
@@ -113,7 +113,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArmorBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetArmorBonus(int armorBonus)
     {
       return OnConfigureInternal(
@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArmorChecksPenalty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetArmorChecksPenalty(int armorChecksPenalty)
     {
       return OnConfigureInternal(
@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_HasDexterityBonusLimit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetHasDexterityBonusLimit(bool hasDexterityBonusLimit)
     {
       return OnConfigureInternal(
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_MaxDexterityBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetMaxDexterityBonus(int maxDexterityBonus)
     {
       return OnConfigureInternal(
@@ -165,7 +165,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ProficiencyGroup"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetProficiencyGroup(ArmorProficiencyGroup proficiencyGroup)
     {
       return OnConfigureInternal(
@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArcaneSpellFailureChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetArcaneSpellFailureChance(int arcaneSpellFailureChance)
     {
       return OnConfigureInternal(
@@ -191,7 +191,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Weight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetWeight(float weight)
     {
       return OnConfigureInternal(
@@ -204,7 +204,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_IsArmor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIsArmor(bool isArmor)
     {
       return OnConfigureInternal(
@@ -217,7 +217,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_IsShield"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIsShield(bool isShield)
     {
       return OnConfigureInternal(
@@ -232,7 +232,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="equipmentEntity"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public TBuilder SetEquipmentEntity(string? equipmentEntity)
     {
       return OnConfigureInternal(
@@ -247,7 +247,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public TBuilder SetEquipmentEntityAlternatives(string[]? equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -262,7 +262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public TBuilder AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -277,7 +277,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -297,7 +297,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
-    [Generated]
+    
     public TBuilder SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
@@ -312,7 +312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
-    [Generated]
+    
     public TBuilder AddToEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -327,7 +327,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -345,7 +345,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ForcedRampColorPresetIndex"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetForcedRampColorPresetIndex(int forcedRampColorPresetIndex)
     {
       return OnConfigureInternal(
@@ -358,7 +358,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Destructible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDestructible(bool destructible)
     {
       return OnConfigureInternal(
@@ -373,7 +373,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public TBuilder SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(
@@ -388,7 +388,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
   /// Configurator for <see cref="BlueprintArmorType"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArmorType))]
+  
   public class ArmorTypeConfigurator : BaseBlueprintConfigurator<BlueprintArmorType, ArmorTypeConfigurator>
   {
     private ArmorTypeConfigurator(string name) : base(name) { }
@@ -409,7 +409,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
@@ -424,7 +424,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
@@ -439,7 +439,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
@@ -454,7 +454,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
@@ -469,7 +469,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -484,7 +484,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_VisualParameters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetVisualParameters(ArmorVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
@@ -499,7 +499,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArmorBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetArmorBonus(int armorBonus)
     {
       return OnConfigureInternal(
@@ -512,7 +512,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArmorChecksPenalty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetArmorChecksPenalty(int armorChecksPenalty)
     {
       return OnConfigureInternal(
@@ -525,7 +525,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_HasDexterityBonusLimit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetHasDexterityBonusLimit(bool hasDexterityBonusLimit)
     {
       return OnConfigureInternal(
@@ -538,7 +538,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_MaxDexterityBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetMaxDexterityBonus(int maxDexterityBonus)
     {
       return OnConfigureInternal(
@@ -551,7 +551,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ProficiencyGroup"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetProficiencyGroup(ArmorProficiencyGroup proficiencyGroup)
     {
       return OnConfigureInternal(
@@ -564,7 +564,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ArcaneSpellFailureChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetArcaneSpellFailureChance(int arcaneSpellFailureChance)
     {
       return OnConfigureInternal(
@@ -577,7 +577,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Weight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetWeight(float weight)
     {
       return OnConfigureInternal(
@@ -590,7 +590,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_IsArmor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetIsArmor(bool isArmor)
     {
       return OnConfigureInternal(
@@ -603,7 +603,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_IsShield"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetIsShield(bool isShield)
     {
       return OnConfigureInternal(
@@ -618,7 +618,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="equipmentEntity"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public ArmorTypeConfigurator SetEquipmentEntity(string? equipmentEntity)
     {
       return OnConfigureInternal(
@@ -633,7 +633,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public ArmorTypeConfigurator SetEquipmentEntityAlternatives(string[]? equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -648,7 +648,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public ArmorTypeConfigurator AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -663,7 +663,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public ArmorTypeConfigurator RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -683,7 +683,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
-    [Generated]
+    
     public ArmorTypeConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
@@ -698,7 +698,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
-    [Generated]
+    
     public ArmorTypeConfigurator AddToEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -713,7 +713,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintArmorEnchantment"/></param>
-    [Generated]
+    
     public ArmorTypeConfigurator RemoveFromEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -731,7 +731,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_ForcedRampColorPresetIndex"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetForcedRampColorPresetIndex(int forcedRampColorPresetIndex)
     {
       return OnConfigureInternal(
@@ -744,7 +744,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintArmorType.m_Destructible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConfigurator SetDestructible(bool destructible)
     {
       return OnConfigureInternal(
@@ -759,7 +759,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public ArmorTypeConfigurator SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(

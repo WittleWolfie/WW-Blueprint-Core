@@ -7,7 +7,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Abilities
 {
   /// <summary>Configurator for <see cref="BlueprintAbilityAreaEffect"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAbilityAreaEffect))]
+  
   public class AbilityAreaEffectConfigurator
       : BaseBlueprintConfigurator<BlueprintAbilityAreaEffect, AbilityAreaEffectConfigurator>
   {

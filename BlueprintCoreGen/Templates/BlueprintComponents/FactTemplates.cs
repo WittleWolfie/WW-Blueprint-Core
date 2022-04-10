@@ -22,7 +22,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="AddContextStatBonus"/>
     /// </summary>
-    [Implements(typeof(AddContextStatBonus))]
+    
     public TBuilder AddContextStatBonus(
         StatType stat,
         ContextValue value,
@@ -47,7 +47,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="facts"><see cref="BlueprintUnitFact"/></param>
-    [Implements(typeof(AddFacts))]
+    
     public TBuilder AddFacts(
         string[] facts,
         int casterLevel = 0,
@@ -70,7 +70,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="AddInitiatorSkillRollTrigger"/>
     /// </summary>
-    [Implements(typeof(AddInitiatorSkillRollTrigger))]
+    
     public TBuilder OnSkillCheck(
         StatType skill, ActionsBuilder actions, bool onlySuccess = true)
     {
@@ -88,7 +88,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionLists</see></remarks>
-    [Implements(typeof(AddFactContextActions))]
+    
     public TBuilder AddFactContextActions(
         ActionsBuilder? onActivated = null,
         ActionsBuilder? onDeactivated = null,
@@ -109,7 +109,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
       return AddUniqueComponent(contextActions, behavior, merge ?? MergeFactContextActions);
     }
 
-    [Implements(typeof(AddFactContextActions))]
+    
     private static void MergeFactContextActions(
         BlueprintComponent current, BlueprintComponent other)
     {
@@ -125,7 +125,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
+    
     public TBuilder AddContextRankConfig(ContextRankConfig rankConfig)
     {
       return AddComponent(rankConfig);

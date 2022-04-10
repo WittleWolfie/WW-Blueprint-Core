@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintStatProgression"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintStatProgression))]
+  
   public class StatProgressionConfigurator : BaseBlueprintConfigurator<BlueprintStatProgression, StatProgressionConfigurator>
   {
     private StatProgressionConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public StatProgressionConfigurator SetBonuses(int[]? bonuses)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public StatProgressionConfigurator AddToBonuses(params int[] bonuses)
     {
       return OnConfigureInternal(
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public StatProgressionConfigurator RemoveFromBonuses(params int[] bonuses)
     {
       return OnConfigureInternal(

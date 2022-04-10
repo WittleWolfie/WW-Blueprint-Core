@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
   /// Configurator for <see cref="BlueprintFootprint"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFootprint))]
+  
   public class FootprintConfigurator : BaseBlueprintConfigurator<BlueprintFootprint, FootprintConfigurator>
   {
     private FootprintConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets <see cref="BlueprintFootprint.LeftFootPrint"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FootprintConfigurator SetLeftFootPrint(PrefabLink? leftFootPrint)
     {
       ValidateParam(leftFootPrint);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets <see cref="BlueprintFootprint.RightFootPrint"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FootprintConfigurator SetRightFootPrint(PrefabLink? rightFootPrint)
     {
       ValidateParam(rightFootPrint);

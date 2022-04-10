@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintSummonPool"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintSummonPool))]
+  
   public class SummonPoolConfigurator : BaseBlueprintConfigurator<BlueprintSummonPool, SummonPoolConfigurator>
   {
     private SummonPoolConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintSummonPool.Limit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SummonPoolConfigurator SetLimit(int limit)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintSummonPool.DoNotRemoveDeadUnits"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SummonPoolConfigurator SetDoNotRemoveDeadUnits(bool doNotRemoveDeadUnits)
     {
       return OnConfigureInternal(

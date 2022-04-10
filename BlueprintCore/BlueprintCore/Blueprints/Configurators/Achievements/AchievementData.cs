@@ -14,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
   /// Configurator for <see cref="AchievementData"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(AchievementData))]
+  
   public class AchievementDataConfigurator : BaseBlueprintConfigurator<AchievementData, AchievementDataConfigurator>
   {
     private AchievementDataConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.m_UnlockedIcon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetUnlockedIcon(Texture2D unlockedIcon)
     {
       ValidateParam(unlockedIcon);
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.m_LockedIcon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetLockedIcon(Texture2D lockedIcon)
     {
       ValidateParam(lockedIcon);
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetType(AchievementType type)
     {
       return OnConfigureInternal(
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.SteamId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetSteamId(string steamId)
     {
       return OnConfigureInternal(
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.GogId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetGogId(string gogId)
     {
       return OnConfigureInternal(
@@ -104,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.EpicId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetEpicId(string epicId)
     {
       return OnConfigureInternal(
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.PS4TrophyID"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetPS4TrophyID(int pS4TrophyID)
     {
       return OnConfigureInternal(
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.XboxId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetXboxId(string xboxId)
     {
       return OnConfigureInternal(
@@ -143,7 +143,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.Hidden"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetHidden(bool hidden)
     {
       return OnConfigureInternal(
@@ -156,7 +156,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.OnlyMainCampaign"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetOnlyMainCampaign(bool onlyMainCampaign)
     {
       return OnConfigureInternal(
@@ -169,7 +169,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.MinDifficulty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetMinDifficulty(DifficultyPresetAsset minDifficulty)
     {
       ValidateParam(minDifficulty);
@@ -184,7 +184,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.MinCrusadeDifficulty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetMinCrusadeDifficulty(KingdomDifficulty minCrusadeDifficulty)
     {
       return OnConfigureInternal(
@@ -197,7 +197,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.IronMan"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetIronMan(bool ironMan)
     {
       return OnConfigureInternal(
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.AchievementName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetAchievementName(string achievementName)
     {
       return OnConfigureInternal(
@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.EventsCountForUnlock"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetEventsCountForUnlock(int eventsCountForUnlock)
     {
       return OnConfigureInternal(
@@ -238,7 +238,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// </summary>
     ///
     /// <param name="finishGameFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
+    
     public AchievementDataConfigurator SetFinishGameFlag(string? finishGameFlag)
     {
       return OnConfigureInternal(
@@ -251,7 +251,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.Flags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetFlags(AchievementData.UnlockableFlagsPack[]? flags)
     {
       ValidateParam(flags);
@@ -266,7 +266,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Adds to <see cref="AchievementData.Flags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator AddToFlags(params AchievementData.UnlockableFlagsPack[] flags)
     {
       ValidateParam(flags);
@@ -280,7 +280,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Removes from <see cref="AchievementData.Flags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator RemoveFromFlags(params AchievementData.UnlockableFlagsPack[] flags)
     {
       ValidateParam(flags);
@@ -294,7 +294,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets <see cref="AchievementData.Etudes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator SetEtudes(AchievementData.EtudesPack[]? etudes)
     {
       ValidateParam(etudes);
@@ -309,7 +309,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Adds to <see cref="AchievementData.Etudes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator AddToEtudes(params AchievementData.EtudesPack[] etudes)
     {
       ValidateParam(etudes);
@@ -323,7 +323,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Removes from <see cref="AchievementData.Etudes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AchievementDataConfigurator RemoveFromEtudes(params AchievementData.EtudesPack[] etudes)
     {
       ValidateParam(etudes);

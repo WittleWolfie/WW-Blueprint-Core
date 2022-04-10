@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
   /// Configurator for <see cref="BlueprintUISound"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUISound))]
+  
   public class UISoundConfigurator : BaseBlueprintConfigurator<BlueprintUISound, UISoundConfigurator>
   {
     private UISoundConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Sets <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator SetSounds(List<BlueprintUISound.UISound>? sounds)
     {
       ValidateParam(sounds);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Adds to <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator AddToSounds(params BlueprintUISound.UISound[] sounds)
     {
       ValidateParam(sounds);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Removes from <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator RemoveFromSounds(params BlueprintUISound.UISound[] sounds)
     {
       ValidateParam(sounds);
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Sets <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator SetArmyManagement(List<BlueprintUISound.UISound>? armyManagement)
     {
       ValidateParam(armyManagement);
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Adds to <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator AddToArmyManagement(params BlueprintUISound.UISound[] armyManagement)
     {
       ValidateParam(armyManagement);
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Removes from <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator RemoveFromArmyManagement(params BlueprintUISound.UISound[] armyManagement)
     {
       ValidateParam(armyManagement);
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Sets <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator SetTooltip(List<BlueprintUISound.UISound>? tooltip)
     {
       ValidateParam(tooltip);
@@ -132,7 +132,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Adds to <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator AddToTooltip(params BlueprintUISound.UISound[] tooltip)
     {
       ValidateParam(tooltip);
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Removes from <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UISoundConfigurator RemoveFromTooltip(params BlueprintUISound.UISound[] tooltip)
     {
       ValidateParam(tooltip);

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintCrusadeEventTimeline"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCrusadeEventTimeline))]
+  
   public class CrusadeEventTimelineConfigurator : BaseBlueprintConfigurator<BlueprintCrusadeEventTimeline, CrusadeEventTimelineConfigurator>
   {
     private CrusadeEventTimelineConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintCrusadeEventTimeline.Chapters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CrusadeEventTimelineConfigurator SetChapters(BlueprintCrusadeEventTimeline.ChapterInfo[]? chapters)
     {
       ValidateParam(chapters);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds to <see cref="BlueprintCrusadeEventTimeline.Chapters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CrusadeEventTimelineConfigurator AddToChapters(params BlueprintCrusadeEventTimeline.ChapterInfo[] chapters)
     {
       ValidateParam(chapters);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes from <see cref="BlueprintCrusadeEventTimeline.Chapters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CrusadeEventTimelineConfigurator RemoveFromChapters(params BlueprintCrusadeEventTimeline.ChapterInfo[] chapters)
     {
       ValidateParam(chapters);

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintUnitLoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnitLoot))]
+  
   public abstract class BaseUnitLootConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintUnitLoot
@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="BlueprintUnitLoot.m_Dummy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDummy(BlueprintUnitLoot.Dummy dummy)
     {
       ValidateParam(dummy);
@@ -35,8 +35,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DungeonVendorItemsComponent))]
+    
+    
     public TBuilder AddDungeonVendorItemsComponent(
         bool bigTable = default,
         int minCR = default,
@@ -52,8 +52,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="LootItemsPackFixed"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LootItemsPackFixed))]
+    
+    
     public TBuilder AddLootItemsPackFixed(
         LootItem item,
         int count = default)
@@ -69,8 +69,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="LootItemsPackFixedAndNotInPlayerInitialInventory"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LootItemsPackFixedAndNotInPlayerInitialInventory))]
+    
+    
     public TBuilder AddLootItemsPackFixedAndNotInPlayerInitialInventory(
         LootItem item,
         int count = default)
@@ -86,8 +86,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="LootItemsPackVariable"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LootItemsPackVariable))]
+    
+    
     public TBuilder AddLootItemsPackVariable(
         LootItem item,
         int countFrom = default,
@@ -105,8 +105,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="LootRandomItem"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LootRandomItem))]
+    
+    
     public TBuilder AddLootRandomItem(
         LootItemAndWeight[]? items = null)
     {
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
   /// Configurator for <see cref="BlueprintUnitLoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnitLoot))]
+  
   public class UnitLootConfigurator : BaseBlueprintConfigurator<BlueprintUnitLoot, UnitLootConfigurator>
   {
     private UnitLootConfigurator(string name) : base(name) { }
@@ -143,7 +143,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="BlueprintUnitLoot.m_Dummy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitLootConfigurator SetDummy(BlueprintUnitLoot.Dummy dummy)
     {
       ValidateParam(dummy);
@@ -158,8 +158,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DungeonVendorItemsComponent))]
+    
+    
     public UnitLootConfigurator AddDungeonVendorItemsComponent(
         bool bigTable = default,
         int minCR = default,
@@ -175,8 +175,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="LootItemsPackFixed"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LootItemsPackFixed))]
+    
+    
     public UnitLootConfigurator AddLootItemsPackFixed(
         LootItem item,
         int count = default)
@@ -192,8 +192,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="LootItemsPackFixedAndNotInPlayerInitialInventory"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LootItemsPackFixedAndNotInPlayerInitialInventory))]
+    
+    
     public UnitLootConfigurator AddLootItemsPackFixedAndNotInPlayerInitialInventory(
         LootItem item,
         int count = default)
@@ -209,8 +209,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="LootItemsPackVariable"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LootItemsPackVariable))]
+    
+    
     public UnitLootConfigurator AddLootItemsPackVariable(
         LootItem item,
         int countFrom = default,
@@ -228,8 +228,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds <see cref="LootRandomItem"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LootRandomItem))]
+    
+    
     public UnitLootConfigurator AddLootRandomItem(
         LootItemAndWeight[]? items = null)
     {

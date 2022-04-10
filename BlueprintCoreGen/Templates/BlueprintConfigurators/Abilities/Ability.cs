@@ -19,7 +19,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Abilities
 {
   /// <summary>Configurator for <see cref="BlueprintAbility"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAbility))]
+  
   public class AbilityConfigurator : BaseUnitFactConfigurator<BlueprintAbility, AbilityConfigurator>
   {
     private AbilityConfigurator(string name) : base(name) { }
@@ -333,17 +333,5 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Abilities
               .FindAll(ability => ability != Blueprint.ToReference<BlueprintAbilityReference>())
               .ToArray();
     }
-
-    // Attribute for methods which add AbilityApplyEffect components.
-    [AttributeUsage(AttributeTargets.Method)]
-    public class ApplyEffectAttr : Attribute { }
-
-    // Attribute for methods which add AbilityDeliverEffect components.
-    [AttributeUsage(AttributeTargets.Method)]
-    public class DeliverEffectAttr : Attribute { }
-
-    // Attribute for methods which add AbilitySelectTarget components.
-    [AttributeUsage(AttributeTargets.Method)]
-    public class SelectTargetAttr : Attribute { }
   }
 }

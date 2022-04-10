@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintScriptZone"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintScriptZone))]
+  
   public class ScriptZoneConfigurator : BaseMapObjectConfigurator<BlueprintScriptZone, ScriptZoneConfigurator>
   {
     private ScriptZoneConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintScriptZone.TriggerConditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ScriptZoneConfigurator SetTriggerConditions(ConditionsBuilder? triggerConditions)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintScriptZone.EnterActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ScriptZoneConfigurator SetEnterActions(ActionsBuilder? enterActions)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintScriptZone.ExitActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ScriptZoneConfigurator SetExitActions(ActionsBuilder? exitActions)
     {
       return OnConfigureInternal(

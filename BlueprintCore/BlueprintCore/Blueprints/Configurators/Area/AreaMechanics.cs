@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintAreaMechanics"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAreaMechanics))]
+  
   public class AreaMechanicsConfigurator : BaseBlueprintConfigurator<BlueprintAreaMechanics, AreaMechanicsConfigurator>
   {
     private AreaMechanicsConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public AreaMechanicsConfigurator SetArea(string? area)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaMechanics.Scene"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaMechanicsConfigurator SetScene(SceneReference scene)
     {
       ValidateParam(scene);
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaMechanics.AdditionalDataBank"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaMechanicsConfigurator SetAdditionalDataBank(AkBankReference additionalDataBank)
     {
       ValidateParam(additionalDataBank);

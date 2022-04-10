@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintComponentList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintComponentList))]
+  
   public class ComponentListConfigurator : BaseBlueprintConfigurator<BlueprintComponentList, ComponentListConfigurator>
   {
     private ComponentListConfigurator(string name) : base(name) { }
@@ -46,8 +46,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="tutorial"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketEnableTutorialSingle))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketEnableTutorialSingle(
         string? tutorial = null)
     {
@@ -61,8 +61,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="tutorials"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketEnableTutorials))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketEnableTutorials(
         string[]? tutorials = null)
     {
@@ -74,8 +74,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeCorruptionFreeZone"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeCorruptionFreeZone))]
+    
+    
     public ComponentListConfigurator AddEtudeCorruptionFreeZone(
         bool clearAllCorruption = default)
     {
@@ -87,8 +87,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeDisableCooking"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeDisableCooking))]
+    
+    
     public ComponentListConfigurator AddEtudeDisableCooking()
     {
       return AddComponent(new EtudeDisableCooking());
@@ -97,8 +97,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeDisableCraft"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeDisableCraft))]
+    
+    
     public ComponentListConfigurator AddEtudeDisableCraft()
     {
       return AddComponent(new EtudeDisableCraft());
@@ -107,8 +107,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeOverrideCorruptionGrowth"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeOverrideCorruptionGrowth))]
+    
+    
     public ComponentListConfigurator AddEtudeOverrideCorruptionGrowth(
         int corruptionGrowth = default)
     {
@@ -120,8 +120,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeCompleteTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeCompleteTrigger))]
+    
+    
     public ComponentListConfigurator AddEtudeCompleteTrigger(
         ActionsBuilder? actions = null)
     {
@@ -133,8 +133,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudePlayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudePlayTrigger))]
+    
+    
     public ComponentListConfigurator AddEtudePlayTrigger(
         bool once = default,
         ConditionsBuilder? conditions = null,
@@ -150,8 +150,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketAudioEvents"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketAudioEvents))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketAudioEvents(
         AkEventReference[]? onEtudeStart = null,
         AkEventReference[]? onEtudeStop = null)
@@ -168,8 +168,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketAudioObjects"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketAudioObjects))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketAudioObjects(
         string connectedObjectName)
     {
@@ -181,8 +181,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketCampingAction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketCampingAction))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketCampingAction(
         ActionsBuilder? actions = null,
         bool skipRest = default)
@@ -196,8 +196,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketDetachPet"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketDetachPet))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketDetachPet(
         UnitEvaluator master,
         PetType petType = default)
@@ -213,8 +213,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketDisableCampingEncounters"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketDisableCampingEncounters))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketDisableCampingEncounters()
     {
       return AddComponent(new EtudeBracketDisableCampingEncounters());
@@ -223,8 +223,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketDisablePlayerRespec"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketDisablePlayerRespec))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketDisablePlayerRespec()
     {
       return AddComponent(new EtudeBracketDisablePlayerRespec());
@@ -233,8 +233,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketDisableRandomEncounters"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketDisableRandomEncounters))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketDisableRandomEncounters()
     {
       return AddComponent(new EtudeBracketDisableRandomEncounters());
@@ -246,8 +246,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
     /// <param name="globalMapSpell"><see cref="Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketEnableAzataIsland))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketEnableAzataIsland(
         string? globalMap = null,
         string? globalMapSpell = null)
@@ -263,8 +263,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketEnableWarcamp))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketEnableWarcamp(
         string? globalMap = null)
     {
@@ -278,8 +278,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketFollowUnit))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketFollowUnit(
         UnitEvaluator leader,
         UnitEvaluator unit,
@@ -304,8 +304,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketForceCombatMode"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketForceCombatMode))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketForceCombatMode()
     {
       return AddComponent(new EtudeBracketForceCombatMode());
@@ -314,8 +314,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketIgnoreGameover"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketIgnoreGameover))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketIgnoreGameover(
         EtudeBracketGameModeWaiter gameModeWaiter,
         ActionsBuilder? actionList = null)
@@ -331,8 +331,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketMakePassive"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketMakePassive))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketMakePassive(
         UnitEvaluator unit)
     {
@@ -346,8 +346,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketMarkUnitEssential"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketMarkUnitEssential))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketMarkUnitEssential(
         UnitEvaluator target)
     {
@@ -361,8 +361,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketMusic"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketMusic))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketMusic(
         AkEventReference startTheme,
         AkEventReference stopTheme)
@@ -379,8 +379,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketOverrideActionsOnClick"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideActionsOnClick))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketOverrideActionsOnClick(
         UnitEvaluator unit,
         ActionsBuilder? actions = null,
@@ -398,8 +398,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketOverrideBark"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideBark))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketOverrideBark(
         UnitEvaluator unit,
         SharedStringAsset whatToBarkShared,
@@ -422,8 +422,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideDialog))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketOverrideDialog(
         UnitEvaluator unit,
         string? dialog = null,
@@ -441,8 +441,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketOverrideWeatherInclemency"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideWeatherInclemency))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketOverrideWeatherInclemency(
         EtudeBracketGameModeWaiter gameModeWaiter,
         InclemencyType inclemency = default)
@@ -458,8 +458,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketOverrideWeatherProfile"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideWeatherProfile))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketOverrideWeatherProfile(
         WeatherProfileExtended weatherProfile,
         EtudeBracketGameModeWaiter gameModeWaiter)
@@ -476,8 +476,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketPinCompanionInParty"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketPinCompanionInParty))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketPinCompanionInParty(
         UnitEvaluator unit)
     {
@@ -491,8 +491,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketPreventDirectControl"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketPreventDirectControl))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketPreventDirectControl(
         UnitEvaluator unit)
     {
@@ -506,8 +506,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketProgressBar"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketProgressBar))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketProgressBar(
         int maxProgress = default,
         LocalizedString? title = null)
@@ -525,8 +525,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketSetCompanionPosition))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketSetCompanionPosition(
         EntityReference locator,
         string? companion = null,
@@ -544,8 +544,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketShowObjects"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketShowObjects))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketShowObjects(
         EntityReference[]? objects = null)
     {
@@ -562,8 +562,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketSummonpoolOverrideDialog))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketSummonpoolOverrideDialog(
         string? summonPool = null,
         string? dialog = null,
@@ -579,8 +579,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeBracketTriggerAction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketTriggerAction))]
+    
+    
     public ComponentListConfigurator AddEtudeBracketTriggerAction(
         ActionsBuilder? onActivated = null,
         ActionsBuilder? onDeactivated = null)
@@ -594,8 +594,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeIgnorePartyEncumbrance"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeIgnorePartyEncumbrance))]
+    
+    
     public ComponentListConfigurator AddEtudeIgnorePartyEncumbrance()
     {
       return AddComponent(new EtudeIgnorePartyEncumbrance());
@@ -604,8 +604,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudeIgnorePersonalEncumbrance"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeIgnorePersonalEncumbrance))]
+    
+    
     public ComponentListConfigurator AddEtudeIgnorePersonalEncumbrance()
     {
       return AddComponent(new EtudeIgnorePersonalEncumbrance());
@@ -614,8 +614,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EtudePeacefulZone"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudePeacefulZone))]
+    
+    
     public ComponentListConfigurator AddEtudePeacefulZone()
     {
       return AddComponent(new EtudePeacefulZone());

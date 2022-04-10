@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
   /// Configurator for <see cref="ArtisanItemDeck"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ArtisanItemDeck))]
+  
   public class ArtisanItemDeckConfigurator : BaseBlueprintConfigurator<ArtisanItemDeck, ArtisanItemDeckConfigurator>
   {
     private ArtisanItemDeckConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Sets <see cref="ArtisanItemDeck.TypeName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArtisanItemDeckConfigurator SetTypeName(LocalizedString? typeName)
     {
       ValidateParam(typeName);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Sets <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArtisanItemDeckConfigurator SetTiers(ArtisanItemDeck.TierData[]? tiers)
     {
       ValidateParam(tiers);
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Adds to <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArtisanItemDeckConfigurator AddToTiers(params ArtisanItemDeck.TierData[] tiers)
     {
       ValidateParam(tiers);
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Removes from <see cref="ArtisanItemDeck.Tiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArtisanItemDeckConfigurator RemoveFromTiers(params ArtisanItemDeck.TierData[] tiers)
     {
       ValidateParam(tiers);

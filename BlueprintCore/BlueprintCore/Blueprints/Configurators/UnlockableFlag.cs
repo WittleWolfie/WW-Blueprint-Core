@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintUnlockableFlag"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnlockableFlag))]
+  
   public class UnlockableFlagConfigurator : BaseBlueprintConfigurator<BlueprintUnlockableFlag, UnlockableFlagConfigurator>
   {
     private UnlockableFlagConfigurator(string name) : base(name) { }

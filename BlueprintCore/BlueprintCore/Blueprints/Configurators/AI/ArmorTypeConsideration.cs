@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="ArmorTypeConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ArmorTypeConsideration))]
+  
   public class ArmorTypeConsiderationConfigurator : BaseConsiderationConfigurator<ArmorTypeConsideration, ArmorTypeConsiderationConfigurator>
   {
     private ArmorTypeConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ArmorTypeConsideration.LightArmorScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConsiderationConfigurator SetLightArmorScore(float lightArmorScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ArmorTypeConsideration.HeavyArmorScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmorTypeConsiderationConfigurator SetHeavyArmorScore(float heavyArmorScore)
     {
       return OnConfigureInternal(

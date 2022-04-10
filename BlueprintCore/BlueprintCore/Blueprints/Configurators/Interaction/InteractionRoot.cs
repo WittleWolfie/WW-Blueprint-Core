@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
   /// Configurator for <see cref="BlueprintInteractionRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintInteractionRoot))]
+  
   public class InteractionRootConfigurator : BaseBlueprintConfigurator<BlueprintInteractionRoot, InteractionRootConfigurator>
   {
     private InteractionRootConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_InteractionDCVariation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetInteractionDCVariation(int interactionDCVariation)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_MagicPowerCost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetMagicPowerCost(int magicPowerCost)
     {
       return OnConfigureInternal(
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// </summary>
     ///
     /// <param name="magicPowerItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public InteractionRootConfigurator SetMagicPowerItem(string? magicPowerItem)
     {
       return OnConfigureInternal(
@@ -72,7 +72,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_DestructionFx"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetDestructionFx(PrefabLink? destructionFx)
     {
       ValidateParam(destructionFx);
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_FxDenominator"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetFxDenominator(float fxDenominator)
     {
       return OnConfigureInternal(
@@ -100,7 +100,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_DefaultDestructionSuccessSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetDefaultDestructionSuccessSound(string defaultDestructionSuccessSound)
     {
       return OnConfigureInternal(
@@ -113,7 +113,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickStartSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetLockpickStartSound(string lockpickStartSound)
     {
       return OnConfigureInternal(
@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickEndSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetLockpickEndSound(string lockpickEndSound)
     {
       return OnConfigureInternal(
@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickSuccessSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetLockpickSuccessSound(string lockpickSuccessSound)
     {
       return OnConfigureInternal(
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickFailSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetLockpickFailSound(string lockpickFailSound)
     {
       return OnConfigureInternal(
@@ -165,7 +165,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets <see cref="BlueprintInteractionRoot.m_LockpickCriticalFailSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public InteractionRootConfigurator SetLockpickCriticalFailSound(string lockpickCriticalFailSound)
     {
       return OnConfigureInternal(

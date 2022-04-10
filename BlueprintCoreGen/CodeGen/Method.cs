@@ -205,10 +205,10 @@
 
 //    private static void AddAttributes(Method method, string? implementedType = null)
 //    {
-//      method.AddLine($"[Generated]");
+//      method.AddLine($"");
 //      if (implementedType is not null)
 //      {
-//        method.AddLine($"[Implements(typeof({implementedType}))]");
+//        method.AddLine($"");
 //      }
 //    }
 

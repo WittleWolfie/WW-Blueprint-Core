@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   /// Configurator for <see cref="BlueprintTacticalCombatRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTacticalCombatRoot))]
+  
   public class TacticalCombatRootConfigurator : BaseBlueprintConfigurator<BlueprintTacticalCombatRoot, TacticalCombatRootConfigurator>
   {
     private TacticalCombatRootConfigurator(string name) : base(name) { }
@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_ProbabilitySampler"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetProbabilitySampler(ProbabilityCurveSampler probabilitySampler)
     {
       ValidateParam(probabilitySampler);
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="crusadersFaction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetCrusadersFaction(string? crusadersFaction)
     {
       return OnConfigureInternal(
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="demonsFaction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDemonsFaction(string? demonsFaction)
     {
       return OnConfigureInternal(
@@ -84,7 +84,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="defaultBrain"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatBrain"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDefaultBrain(string? defaultBrain)
     {
       return OnConfigureInternal(
@@ -99,7 +99,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="defaultLeaderBrain"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatBrain"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDefaultLeaderBrain(string? defaultLeaderBrain)
     {
       return OnConfigureInternal(
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AiSpellCastWeight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetAiSpellCastWeight(float aiSpellCastWeight)
     {
       return OnConfigureInternal(
@@ -125,7 +125,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AiCanUseRituals"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetAiCanUseRituals(bool aiCanUseRituals)
     {
       return OnConfigureInternal(
@@ -138,7 +138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DelayBetweenTurns"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDelayBetweenTurns(float delayBetweenTurns)
     {
       return OnConfigureInternal(
@@ -151,7 +151,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DelayAfterMoraleEffect"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDelayAfterMoraleEffect(float delayAfterMoraleEffect)
     {
       return OnConfigureInternal(
@@ -164,7 +164,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DelayBeforeBattleEnd"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDelayBeforeBattleEnd(float delayBeforeBattleEnd)
     {
       return OnConfigureInternal(
@@ -177,7 +177,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_MaxTurnDuration"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetMaxTurnDuration(float maxTurnDuration)
     {
       return OnConfigureInternal(
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_MoveSpeed"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetMoveSpeed(int moveSpeed)
     {
       return OnConfigureInternal(
@@ -203,7 +203,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_MaxSquadsCount"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetMaxSquadsCount(int maxSquadsCount)
     {
       return OnConfigureInternal(
@@ -216,7 +216,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_BuffPrefix"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetBuffPrefix(LocalizedString? buffPrefix)
     {
       ValidateParam(buffPrefix);
@@ -231,7 +231,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_ArmyLossesCoefOnRetreat"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetArmyLossesCoefOnRetreat(float armyLossesCoefOnRetreat)
     {
       return OnConfigureInternal(
@@ -244,7 +244,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceCoefficient"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetAutoVictoryChanceCoefficient(float autoVictoryChanceCoefficient)
     {
       return OnConfigureInternal(
@@ -257,7 +257,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceMinimum"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetAutoVictoryChanceMinimum(float autoVictoryChanceMinimum)
     {
       return OnConfigureInternal(
@@ -270,7 +270,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AutoCombatLossesCoefficient"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetAutoCombatLossesCoefficient(float autoCombatLossesCoefficient)
     {
       return OnConfigureInternal(
@@ -283,7 +283,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AutoCombatMinimumLossesCoefficient"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetAutoCombatMinimumLossesCoefficient(float autoCombatMinimumLossesCoefficient)
     {
       return OnConfigureInternal(
@@ -296,7 +296,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DismembermentDamageCoefficient"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDismembermentDamageCoefficient(float dismembermentDamageCoefficient)
     {
       return OnConfigureInternal(
@@ -309,7 +309,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DiceRollResultsDistribution"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDiceRollResultsDistribution(AnimationCurve diceRollResultsDistribution)
     {
       ValidateParam(diceRollResultsDistribution);
@@ -326,7 +326,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="bannedUnitFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetBannedUnitFacts(string[]? bannedUnitFacts)
     {
       return OnConfigureInternal(
@@ -341,7 +341,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="bannedUnitFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator AddToBannedUnitFacts(params string[] bannedUnitFacts)
     {
       return OnConfigureInternal(
@@ -356,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="bannedUnitFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator RemoveFromBannedUnitFacts(params string[] bannedUnitFacts)
     {
       return OnConfigureInternal(
@@ -374,7 +374,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_DefaultZone"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetDefaultZone(TacticalCombatAreaZone defaultZone)
     {
       return OnConfigureInternal(
@@ -387,7 +387,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetZoneSettings(List<BlueprintTacticalCombatRoot.TacticalZoneSettings>? zoneSettings)
     {
       ValidateParam(zoneSettings);
@@ -402,7 +402,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Adds to <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator AddToZoneSettings(params BlueprintTacticalCombatRoot.TacticalZoneSettings[] zoneSettings)
     {
       ValidateParam(zoneSettings);
@@ -416,7 +416,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes from <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator RemoveFromZoneSettings(params BlueprintTacticalCombatRoot.TacticalZoneSettings[] zoneSettings)
     {
       ValidateParam(zoneSettings);
@@ -432,7 +432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="leaderManaResource"><see cref="Kingmaker.Blueprints.BlueprintAbilityResource"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetLeaderManaResource(string? leaderManaResource)
     {
       return OnConfigureInternal(
@@ -447,7 +447,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="winnerCutscene"><see cref="Kingmaker.AreaLogic.Cutscenes.Cutscene"/></param>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetWinnerCutscene(string? winnerCutscene)
     {
       return OnConfigureInternal(
@@ -460,7 +460,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_PositiveMoraleFx"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetPositiveMoraleFx(PrefabLink? positiveMoraleFx)
     {
       ValidateParam(positiveMoraleFx);
@@ -475,7 +475,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_NegativeMoraleFx"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetNegativeMoraleFx(PrefabLink? negativeMoraleFx)
     {
       ValidateParam(negativeMoraleFx);
@@ -490,7 +490,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatRoot.m_AudioScalingFactor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatRootConfigurator SetAudioScalingFactor(float audioScalingFactor)
     {
       return OnConfigureInternal(

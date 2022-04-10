@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintBookPage"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintBookPage))]
+  
   public class BookPageConfigurator : BaseCueBaseConfigurator<BlueprintBookPage, BookPageConfigurator>
   {
     private BookPageConfigurator(string name) : base(name) { }
@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public BookPageConfigurator SetCues(string[]? cues)
     {
       return OnConfigureInternal(
@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public BookPageConfigurator AddToCues(params string[] cues)
     {
       return OnConfigureInternal(
@@ -66,7 +66,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public BookPageConfigurator RemoveFromCues(params string[] cues)
     {
       return OnConfigureInternal(
@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public BookPageConfigurator SetAnswers(string[]? answers)
     {
       return OnConfigureInternal(
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public BookPageConfigurator AddToAnswers(params string[] answers)
     {
       return OnConfigureInternal(
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    [Generated]
+    
     public BookPageConfigurator RemoveFromAnswers(params string[] answers)
     {
       return OnConfigureInternal(
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintBookPage.OnShow"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BookPageConfigurator SetOnShow(ActionsBuilder? onShow)
     {
       return OnConfigureInternal(
@@ -147,7 +147,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintBookPage.ImageLink"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BookPageConfigurator SetImageLink(SpriteLink imageLink)
     {
       ValidateParam(imageLink);
@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintBookPage.ForeImageLink"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BookPageConfigurator SetForeImageLink(SpriteLink foreImageLink)
     {
       ValidateParam(foreImageLink);
@@ -177,7 +177,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintBookPage.Title"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BookPageConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);

@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintDialog"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDialog))]
+  
   public class DialogConfigurator : BaseBlueprintConfigurator<BlueprintDialog, DialogConfigurator>
   {
     private DialogConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.FirstCue"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetFirstCue(CueSelection firstCue)
     {
       ValidateParam(firstCue);
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.StartPosition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetStartPosition(PositionEvaluator startPosition)
     {
       ValidateParam(startPosition);
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.StartActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetStartActions(ActionsBuilder? startActions)
     {
       return OnConfigureInternal(
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.FinishActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetFinishActions(ActionsBuilder? finishActions)
     {
       return OnConfigureInternal(
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.ReplaceActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetReplaceActions(ActionsBuilder? replaceActions)
     {
       return OnConfigureInternal(
@@ -115,7 +115,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.TurnPlayer"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetTurnPlayer(bool turnPlayer)
     {
       return OnConfigureInternal(
@@ -128,7 +128,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.TurnFirstSpeaker"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetTurnFirstSpeaker(bool turnFirstSpeaker)
     {
       return OnConfigureInternal(
@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.IsLockCameraRotationButtons"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetIsLockCameraRotationButtons(bool isLockCameraRotationButtons)
     {
       return OnConfigureInternal(
@@ -154,7 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetType(DialogType type)
     {
       return OnConfigureInternal(
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialog.m_OverrideAreaCR"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogConfigurator SetOverrideAreaCR(IntEvaluator overrideAreaCR)
     {
       ValidateParam(overrideAreaCR);

@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="IsEngagedConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(IsEngagedConsideration))]
+  
   public class IsEngagedConsiderationConfigurator : BaseConsiderationConfigurator<IsEngagedConsideration, IsEngagedConsiderationConfigurator>
   {
     private IsEngagedConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="IsEngagedConsideration.EngagedScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public IsEngagedConsiderationConfigurator SetEngagedScore(float engagedScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="IsEngagedConsideration.NotEngagedScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public IsEngagedConsiderationConfigurator SetNotEngagedScore(float notEngagedScore)
     {
       return OnConfigureInternal(

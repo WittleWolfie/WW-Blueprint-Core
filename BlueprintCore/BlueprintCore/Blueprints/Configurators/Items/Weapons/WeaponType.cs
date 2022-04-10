@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
   /// Configurator for <see cref="BlueprintWeaponType"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintWeaponType))]
+  
   public class WeaponTypeConfigurator : BaseBlueprintConfigurator<BlueprintWeaponType, WeaponTypeConfigurator>
   {
     private WeaponTypeConfigurator(string name) : base(name) { }
@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.Category"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetCategory(WeaponCategory category)
     {
       return OnConfigureInternal(
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_TypeNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetTypeNameText(LocalizedString? typeNameText)
     {
       ValidateParam(typeNameText);
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_DefaultNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetDefaultNameText(LocalizedString? defaultNameText)
     {
       ValidateParam(defaultNameText);
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_DescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_MasterworkDescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetMasterworkDescriptionText(LocalizedString? masterworkDescriptionText)
     {
       ValidateParam(masterworkDescriptionText);
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_MagicDescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetMagicDescriptionText(LocalizedString? magicDescriptionText)
     {
       ValidateParam(magicDescriptionText);
@@ -127,7 +127,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_VisualParameters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetVisualParameters(WeaponVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
@@ -157,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_AttackType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetAttackType(AttackType attackType)
     {
       return OnConfigureInternal(
@@ -170,7 +170,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_AttackRange"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetAttackRange(Feet attackRange)
     {
       return OnConfigureInternal(
@@ -183,7 +183,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_BaseDamage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetBaseDamage(DiceFormula baseDamage)
     {
       return OnConfigureInternal(
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_DamageType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetDamageType(DamageTypeDescription damageType)
     {
       ValidateParam(damageType);
@@ -211,7 +211,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_CriticalRollEdge"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetCriticalRollEdge(int criticalRollEdge)
     {
       return OnConfigureInternal(
@@ -224,7 +224,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_CriticalModifier"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetCriticalModifier(DamageCriticalModifierType criticalModifier)
     {
       return OnConfigureInternal(
@@ -237,7 +237,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_FighterGroupFlags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetFighterGroupFlags(WeaponFighterGroupFlags fighterGroupFlags)
     {
       return OnConfigureInternal(
@@ -250,7 +250,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_Weight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetWeight(float weight)
     {
       return OnConfigureInternal(
@@ -263,7 +263,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsTwoHanded"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetIsTwoHanded(bool isTwoHanded)
     {
       return OnConfigureInternal(
@@ -276,7 +276,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsLight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetIsLight(bool isLight)
     {
       return OnConfigureInternal(
@@ -289,7 +289,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsMonk"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetIsMonk(bool isMonk)
     {
       return OnConfigureInternal(
@@ -302,7 +302,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsNatural"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetIsNatural(bool isNatural)
     {
       return OnConfigureInternal(
@@ -315,7 +315,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_IsUnarmed"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetIsUnarmed(bool isUnarmed)
     {
       return OnConfigureInternal(
@@ -328,7 +328,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_OverrideAttackBonusStat"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetOverrideAttackBonusStat(bool overrideAttackBonusStat)
     {
       return OnConfigureInternal(
@@ -341,7 +341,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_AttackBonusStatOverride"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetAttackBonusStatOverride(StatType attackBonusStatOverride)
     {
       return OnConfigureInternal(
@@ -356,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    [Generated]
+    
     public WeaponTypeConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    [Generated]
+    
     public WeaponTypeConfigurator AddToEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -386,7 +386,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    [Generated]
+    
     public WeaponTypeConfigurator RemoveFromEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -404,7 +404,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintWeaponType.m_Destructible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public WeaponTypeConfigurator SetDestructible(bool destructible)
     {
       return OnConfigureInternal(
@@ -419,7 +419,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public WeaponTypeConfigurator SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(

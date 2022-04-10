@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BlueprintAiTouch"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAiTouch))]
+  
   public class AiTouchConfigurator : BaseAiActionConfigurator<BlueprintAiTouch, AiTouchConfigurator>
   {
     private AiTouchConfigurator(string name) : base(name) { }

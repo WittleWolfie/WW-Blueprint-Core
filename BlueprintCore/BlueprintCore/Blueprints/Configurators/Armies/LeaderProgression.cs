@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   /// Configurator for <see cref="BlueprintLeaderProgression"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintLeaderProgression))]
+  
   public class LeaderProgressionConfigurator : BaseBlueprintConfigurator<BlueprintLeaderProgression, LeaderProgressionConfigurator>
   {
     private LeaderProgressionConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintLeaderProgression.m_ProgressionType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LeaderProgressionConfigurator SetProgressionType(LeaderProgressionType progressionType)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintLeaderProgression.m_ProgressionName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LeaderProgressionConfigurator SetProgressionName(LocalizedString? progressionName)
     {
       ValidateParam(progressionName);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LeaderProgressionConfigurator SetLevels(LeaderLevel[]? levels)
     {
       ValidateParam(levels);
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Adds to <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LeaderProgressionConfigurator AddToLevels(params LeaderLevel[] levels)
     {
       ValidateParam(levels);
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes from <see cref="BlueprintLeaderProgression.m_Levels"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LeaderProgressionConfigurator RemoveFromLevels(params LeaderLevel[] levels)
     {
       ValidateParam(levels);

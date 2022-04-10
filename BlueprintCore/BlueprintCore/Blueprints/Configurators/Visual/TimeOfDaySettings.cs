@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   /// Configurator for <see cref="BlueprintTimeOfDaySettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTimeOfDaySettings))]
+  
   public class TimeOfDaySettingsConfigurator : BaseBlueprintConfigurator<BlueprintTimeOfDaySettings, TimeOfDaySettingsConfigurator>
   {
     private TimeOfDaySettingsConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="BlueprintTimeOfDaySettings.Morning"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TimeOfDaySettingsConfigurator SetMorning(GameObject morning)
     {
       ValidateParam(morning);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="BlueprintTimeOfDaySettings.Day"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TimeOfDaySettingsConfigurator SetDay(GameObject day)
     {
       ValidateParam(day);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="BlueprintTimeOfDaySettings.Evening"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TimeOfDaySettingsConfigurator SetEvening(GameObject evening)
     {
       ValidateParam(evening);
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="BlueprintTimeOfDaySettings.Night"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TimeOfDaySettingsConfigurator SetNight(GameObject night)
     {
       ValidateParam(night);

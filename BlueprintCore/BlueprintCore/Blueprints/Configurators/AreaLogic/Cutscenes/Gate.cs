@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
   /// Implements common fields and components for blueprints inheriting from <see cref="Gate"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(Gate))]
+  
   public abstract class BaseGateConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : Gate
@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.Color"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetColor(Color color)
     {
       return OnConfigureInternal(
@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.m_Tracks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetTracks(List<Track>? tracks)
     {
       ValidateParam(tracks);
@@ -51,7 +51,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Adds to <see cref="Gate.m_Tracks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToTracks(params Track[] tracks)
     {
       ValidateParam(tracks);
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Removes from <see cref="Gate.m_Tracks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromTracks(params Track[] tracks)
     {
       ValidateParam(tracks);
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.m_Op"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetOp(Operation op)
     {
       return OnConfigureInternal(
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.m_ActivationMode"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetActivationMode(Gate.ActivationModeType activationMode)
     {
       return OnConfigureInternal(
@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.WhenTrackIsSkipped"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetWhenTrackIsSkipped(Gate.SkipTracksModeType whenTrackIsSkipped)
     {
       return OnConfigureInternal(
@@ -118,7 +118,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.PauseForOneFrame"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetPauseForOneFrame(bool pauseForOneFrame)
     {
       return OnConfigureInternal(
@@ -133,7 +133,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
   /// Configurator for <see cref="Gate"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(Gate))]
+  
   public class GateConfigurator : BaseBlueprintConfigurator<Gate, GateConfigurator>
   {
     private GateConfigurator(string name) : base(name) { }
@@ -154,7 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.Color"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GateConfigurator SetColor(Color color)
     {
       return OnConfigureInternal(
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.m_Tracks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GateConfigurator SetTracks(List<Track>? tracks)
     {
       ValidateParam(tracks);
@@ -182,7 +182,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Adds to <see cref="Gate.m_Tracks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GateConfigurator AddToTracks(params Track[] tracks)
     {
       ValidateParam(tracks);
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Removes from <see cref="Gate.m_Tracks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GateConfigurator RemoveFromTracks(params Track[] tracks)
     {
       ValidateParam(tracks);
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.m_Op"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GateConfigurator SetOp(Operation op)
     {
       return OnConfigureInternal(
@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.m_ActivationMode"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GateConfigurator SetActivationMode(Gate.ActivationModeType activationMode)
     {
       return OnConfigureInternal(
@@ -236,7 +236,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.WhenTrackIsSkipped"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GateConfigurator SetWhenTrackIsSkipped(Gate.SkipTracksModeType whenTrackIsSkipped)
     {
       return OnConfigureInternal(
@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Gate.PauseForOneFrame"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GateConfigurator SetPauseForOneFrame(bool pauseForOneFrame)
     {
       return OnConfigureInternal(

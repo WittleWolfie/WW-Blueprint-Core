@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="SavingThrowConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(SavingThrowConsideration))]
+  
   public class SavingThrowConsiderationConfigurator : BaseConsiderationConfigurator<SavingThrowConsideration, SavingThrowConsiderationConfigurator>
   {
     private SavingThrowConsiderationConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="SavingThrowConsideration.SaveType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SavingThrowConsiderationConfigurator SetSaveType(SavingThrowType saveType)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="SavingThrowConsideration.LowScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SavingThrowConsiderationConfigurator SetLowScore(float lowScore)
     {
       return OnConfigureInternal(
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="SavingThrowConsideration.HighScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SavingThrowConsiderationConfigurator SetHighScore(float highScore)
     {
       return OnConfigureInternal(

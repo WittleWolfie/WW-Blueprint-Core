@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
   /// Configurator for <see cref="BlueprintUnitUpgrader"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnitUpgrader))]
+  
   public class UnitUpgraderConfigurator : BaseBlueprintConfigurator<BlueprintUnitUpgrader, UnitUpgraderConfigurator>
   {
     private UnitUpgraderConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
     /// <summary>
     /// Sets <see cref="BlueprintUnitUpgrader.ApplyFromPlaceholder"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitUpgraderConfigurator SetApplyFromPlaceholder(bool applyFromPlaceholder)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
     /// <summary>
     /// Sets <see cref="BlueprintUnitUpgrader.Actions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitUpgraderConfigurator SetActions(ActionsBuilder? actions)
     {
       return OnConfigureInternal(

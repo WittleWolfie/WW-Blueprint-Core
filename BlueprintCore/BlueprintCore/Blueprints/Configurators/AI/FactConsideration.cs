@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="FactConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(FactConsideration))]
+  
   public class FactConsiderationConfigurator : BaseConsiderationConfigurator<FactConsideration, FactConsiderationConfigurator>
   {
     private FactConsiderationConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public FactConsiderationConfigurator SetFact(string[]? fact)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public FactConsiderationConfigurator AddToFact(params string[] fact)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public FactConsiderationConfigurator RemoveFromFact(params string[] fact)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="FactConsideration.HasFactScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactConsiderationConfigurator SetHasFactScore(float hasFactScore)
     {
       return OnConfigureInternal(
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="FactConsideration.NoFactScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactConsiderationConfigurator SetNoFactScore(float noFactScore)
     {
       return OnConfigureInternal(

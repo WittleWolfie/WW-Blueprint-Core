@@ -34,7 +34,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
     /// </para>
     /// </remarks>
-    [Implements(typeof(PrerequisiteSelectionPossible))]
+    
     public TBuilder PrerequisiteSelectionPossible(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -51,7 +51,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteArchetypeLevel))]
+    
     public TBuilder PrerequisiteArchetype(
         string clazz,
         string archetype,
@@ -70,7 +70,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType">PrerequisiteCasterType</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCasterType))]
+    
     public TBuilder PrerequisiteCasterType(
         bool isArcane,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -87,7 +87,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel">PrerequisiteCasterTypeSpellLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCasterTypeSpellLevel))]
+    
     public TBuilder PrerequisiteCasterTypeSpellLevel(
         bool isArcane,
         bool onlySpontaneous,
@@ -106,7 +106,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCharacterLevel">PrerequisiteCharacterLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCharacterLevel))]
+    
     public TBuilder PrerequisiteCharacterLevel(
         int minLevel,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -125,7 +125,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassLevel))]
+    
     public TBuilder PrerequisiteClassLevel(
         string clazz,
         int minLevel,
@@ -146,7 +146,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassSpellLevel))]
+    
     public TBuilder PrerequisiteClassSpellLevel(
         string clazz,
         int minSpellLevel,
@@ -167,7 +167,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
-    [Implements(typeof(PrerequisiteEtude))]
+    
     public TBuilder PrerequisiteEtude(
         string etude,
         bool playing = true,
@@ -186,7 +186,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeature))]
+    
     public TBuilder PrerequisiteFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -203,7 +203,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeaturesFromList))]
+    
     public TBuilder PrerequisiteFeaturesFromList(
         string[] features,
         int requiredNumber = 1,
@@ -221,7 +221,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteIsPet">PrerequisiteIsPet</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteIsPet))]
+    
     public TBuilder PrerequisiteIsPet(
         bool negate = false,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -236,7 +236,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
+    
     public TBuilder PrerequisiteMainCharacter(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -251,7 +251,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
+    
     public TBuilder PrerequisiteCompanion(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -267,7 +267,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMythicLevel">PrerequisiteMythicLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMythicLevel))]
+    
     public TBuilder PrerequisiteMythicLevel(
         int level,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -287,7 +287,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteNoArchetype))]
+    
     public TBuilder PrerequisiteNoArchetype(
         string clazz,
         string archetype,
@@ -306,7 +306,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteNoClassLevel))]
+    
     public TBuilder PrerequisiteNoClass(
         string clazz,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -323,7 +323,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteNoFeature))]
+    
     public TBuilder PrerequisiteNoFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -338,7 +338,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient">PrerequisiteNotProficient</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteNotProficient))]
+    
     public TBuilder PrerequisiteNotProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -361,7 +361,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// 
     /// <param name="spellFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     /// <param name="spellAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public TBuilder PrerequisiteParameterizedSpellFeature(
         string spellFeature,
         string spellAbility,
@@ -383,7 +383,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public TBuilder PrerequisiteParameterizedWeaponFeature(
         string feature,
         WeaponCategory weapon,
@@ -404,7 +404,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public TBuilder PrerequisiteParameterizedSpellSchoolFeature(
         string feature,
         SpellSchool school,
@@ -424,7 +424,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="weaponFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedWeaponSubcategory))]
+    
     public TBuilder PrerequisiteParameterizedWeaponSubcategory(
         string weaponFeature,
         WeaponSubCategory weapon,
@@ -441,7 +441,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePet">PrerequisitePet</see>
     /// </summary>
-    [Implements(typeof(PrerequisitePet))]
+    
     public TBuilder PrerequisitePet(
         PetType type,
         bool negate = false,
@@ -460,7 +460,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisitePlayerHasFeature))]
+    
     public TBuilder PrerequisitePlayerHasFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -475,7 +475,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="PrerequisiteProficiency"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteProficiency))]
+    
     public TBuilder PrerequisiteProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -495,7 +495,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="PrerequisiteStatValue"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteStatValue))]
+    
     public TBuilder PrerequisiteStat(
         StatType type,
         int minValue,
@@ -512,13 +512,13 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds or modifies <see cref="PrerequisiteAlignment"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
       return OnConfigureInternal(blueprint => AddPrerequisiteAlignment(blueprint, alignments.ToList()));
     }
 
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     private static void AddPrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
     {
       var component = bp.GetComponent<PrerequisiteAlignment>();
@@ -533,13 +533,13 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Modifies <see cref="PrerequisiteAlignment"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
       return OnConfigureInternal(blueprint => RemovePrerequisiteAlignment(blueprint, alignments.ToList()));
     }
 
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     private static void RemovePrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
     {
       var component = bp.GetComponent<PrerequisiteAlignment>();

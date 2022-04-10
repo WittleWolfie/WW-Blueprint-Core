@@ -15,7 +15,6 @@ using Kingmaker.UnitLogic.Alignments;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static BlueprintCoreGen.Blueprints.Configurators.Abilities.AbilityConfigurator;
 
 namespace BlueprintCoreGen.Templates.BlueprintComponents
 {
@@ -30,7 +29,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(AbilityCasterAlignment))]
+    
     public TBuilder RequireCasterAlignment(AlignmentMaskType alignment, string? ignoreFact = null)
     {
       var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
@@ -46,7 +45,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(AbilityCasterHasFacts))]
+    
     public TBuilder RequireCasterFacts(params string[] facts)
     {
       var hasFacts = new AbilityCasterHasFacts
@@ -61,7 +60,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(AbilityCasterHasNoFacts))]
+    
     public TBuilder RequireCasterHasNoFacts(params string[] facts)
     {
       var hasNoFacts = new AbilityCasterHasNoFacts
@@ -82,7 +81,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// 
     /// <param name="parameterizedWeaponFeature"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature">BlueprintParametrizedFeature</see></param>
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(AbilityCasterHasChosenWeapon))]
+    
     public TBuilder RequireCasterHasChosenWeapon(
         string parameterizedWeaponFeature, string? ignoreFact = null)
     {
@@ -100,7 +99,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/>
     /// </summary>
-    [Implements(typeof(AbilityCasterHasWeaponWithRangeType))]
+    
     public TBuilder RequireCasterWeaponRange(WeaponRangeType range)
     {
       var hasWeaponRange = new AbilityCasterHasWeaponWithRangeType { RangeType = range };
@@ -110,7 +109,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="AbilityCasterInCombat"/>
     /// </summary>
-    [Implements(typeof(AbilityCasterInCombat))]
+    
     public TBuilder RequireCasterInCombat(bool requireInCombat = true)
     {
       var isInCombat = new AbilityCasterInCombat { Not = !requireInCombat };
@@ -122,7 +121,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(AbilityCasterIsOnFavoredTerrain))]
+    
     public TBuilder RequireCasterOnFavoredTerrain(string? ignoreFeature = null)
     {
       var onFavoredTerrain = new AbilityCasterIsOnFavoredTerrain();
@@ -138,7 +137,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(TargetHasBuffsFromCaster))]
+    
     public TBuilder RequireTargetHasBuffsFromCaster(string[] buffs, bool requireAllBuffs = false)
     {
       var hasBuffs = new TargetHasBuffsFromCaster
@@ -152,7 +151,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="AbilityCanTargetDead"/>
     /// </summary>
-    [Implements(typeof(AbilityCanTargetDead))]
+    
     public TBuilder CanTargetDead()
     {
       return AddUniqueComponent(new AbilityCanTargetDead(), ComponentMerge.Skip);
@@ -161,8 +160,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="AbilityDeliveredByWeapon"/>
     /// </summary>
-    [DeliverEffectAttr]
-    [Implements(typeof(AbilityDeliveredByWeapon))]
+    
     public TBuilder DeliveredByWeapon()
     {
       return AddUniqueComponent(new AbilityDeliveredByWeapon(), ComponentMerge.Skip);
@@ -173,8 +171,6 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
-    [ApplyEffectAttr]
-    [Implements(typeof(AbilityEffectRunAction))]
     public TBuilder RunActions(
         ActionsBuilder actions,
         SavingThrowType savingThrow = SavingThrowType.Unknown,
@@ -189,7 +185,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
       return AddUniqueComponent(run, mergeBehavior, merge ?? MergeRunActions);
     }
 
-    [Implements(typeof(AbilityEffectRunAction))]
+    
     private static void MergeRunActions(BlueprintComponent current, BlueprintComponent other)
     {
       var source = current as AbilityEffectRunAction;
@@ -202,7 +198,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
-    [Implements(typeof(AbilityEffectMiss))]
+    
     public TBuilder OnMiss(
         ActionsBuilder actions,
         bool useTargetSelector = true,
@@ -217,7 +213,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
       return AddUniqueComponent(onMiss, mergeBehavior, merge ?? MergeMissActions);
     }
 
-    [Implements(typeof(AbilityEffectMiss))]
+    
     private static void MergeMissActions(BlueprintComponent current, BlueprintComponent other)
     {
       var source = current as AbilityEffectMiss;
@@ -228,7 +224,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="AbilityExecuteActionOnCast"/>
     /// </summary>
-    [Implements(typeof(AbilityExecuteActionOnCast))]
+    
     public TBuilder OnCast(ActionsBuilder actions, ConditionsBuilder? checker = null)
     {
       var onCast = new AbilityExecuteActionOnCast
@@ -242,7 +238,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="SpellComponent"/>
     /// </summary>
-    [Implements(typeof(SpellComponent))]
+    
     public TBuilder SetSpellSchool(
         SpellSchool school,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -255,7 +251,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="CantripComponent"/>
     /// </summary>
-    [Implements(typeof(CantripComponent))]
+    
     public TBuilder MakeCantrip()
     {
       return AddUniqueComponent(new CantripComponent(), ComponentMerge.Skip);
@@ -264,7 +260,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Removes <see cref="CantripComponent"/>
     /// </summary>
-    [Implements(typeof(CantripComponent))]
+    
     public TBuilder MakeNotCantrip()
     {
       return RemoveComponents(c => c is CantripComponent);
@@ -275,7 +271,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="abilities"><see cref="BlueprintAbility"/> Updates the parent of each ability to this blueprint</param>
-    [Implements(typeof(AbilityVariants))]
+    
     public TBuilder AddVariants(params string[] abilities)
     {
       return OnConfigureInternal(
@@ -284,7 +280,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
                   blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
     }
 
-    [Implements(typeof(AbilityVariants))]
+    
     private static void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
     {
       var component = bp.GetComponent<AbilityVariants>();
@@ -303,7 +299,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// </summary>
     /// 
     /// <param name="abilities"><see cref="BlueprintAbility"/> Removes this blueprint as the parent of each ability</param>
-    [Implements(typeof(AbilityVariants))]
+    
     public TBuilder RemoveVariants(params string[] abilities)
     {
       return OnConfigureInternal(
@@ -312,7 +308,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
                   blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
     }
 
-    [Implements(typeof(AbilityVariants))]
+    
     private static void RemoveVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
     {
       var component = bp.GetComponent<AbilityVariants>();

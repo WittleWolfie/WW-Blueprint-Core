@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="CommandCooldownConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(CommandCooldownConsideration))]
+  
   public class CommandCooldownConsiderationConfigurator : BaseConsiderationConfigurator<CommandCooldownConsideration, CommandCooldownConsiderationConfigurator>
   {
     private CommandCooldownConsiderationConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="CommandCooldownConsideration.CommandType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CommandCooldownConsiderationConfigurator SetCommandType(UnitCommand.CommandType commandType)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="CommandCooldownConsideration.OnCooldownScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CommandCooldownConsiderationConfigurator SetOnCooldownScore(float onCooldownScore)
     {
       return OnConfigureInternal(
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="CommandCooldownConsideration.OffCooldownScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CommandCooldownConsiderationConfigurator SetOffCooldownScore(float offCooldownScore)
     {
       return OnConfigureInternal(

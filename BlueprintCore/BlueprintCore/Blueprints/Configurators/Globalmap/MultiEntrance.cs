@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
   /// Configurator for <see cref="BlueprintMultiEntrance"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintMultiEntrance))]
+  
   public class MultiEntranceConfigurator : BaseBlueprintConfigurator<BlueprintMultiEntrance, MultiEntranceConfigurator>
   {
     private MultiEntranceConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintMultiEntrance.Map"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MultiEntranceConfigurator SetMap(BlueprintMultiEntrance.BlueprintMultiEntranceMap map)
     {
       return OnConfigureInternal(
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintMultiEntrance.Name"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MultiEntranceConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    [Generated]
+    
     public MultiEntranceConfigurator SetEntries(string[]? entries)
     {
       return OnConfigureInternal(
@@ -77,7 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    [Generated]
+    
     public MultiEntranceConfigurator AddToEntries(params string[] entries)
     {
       return OnConfigureInternal(
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    [Generated]
+    
     public MultiEntranceConfigurator RemoveFromEntries(params string[] entries)
     {
       return OnConfigureInternal(

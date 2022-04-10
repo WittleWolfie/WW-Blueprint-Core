@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
   /// Configurator for <see cref="BlueprintKingdomArtisan"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomArtisan))]
+  
   public class KingdomArtisanConfigurator : BaseBlueprintConfigurator<BlueprintKingdomArtisan, KingdomArtisanConfigurator>
   {
     private KingdomArtisanConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// </summary>
     ///
     /// <param name="shopBlueprint"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetShopBlueprint(string? shopBlueprint)
     {
       return OnConfigureInternal(
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// </summary>
     ///
     /// <param name="itemDecks"><see cref="Kingmaker.Kingdom.Artisans.ArtisanItemDeck"/></param>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetItemDecks(string[]? itemDecks)
     {
       return OnConfigureInternal(
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// </summary>
     ///
     /// <param name="itemDecks"><see cref="Kingmaker.Kingdom.Artisans.ArtisanItemDeck"/></param>
-    [Generated]
+    
     public KingdomArtisanConfigurator AddToItemDecks(params string[] itemDecks)
     {
       return OnConfigureInternal(
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// </summary>
     ///
     /// <param name="itemDecks"><see cref="Kingmaker.Kingdom.Artisans.ArtisanItemDeck"/></param>
-    [Generated]
+    
     public KingdomArtisanConfigurator RemoveFromItemDecks(params string[] itemDecks)
     {
       return OnConfigureInternal(
@@ -98,7 +98,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.Tiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetTiers(BlueprintKingdomArtisan.TierData[]? tiers)
     {
       ValidateParam(tiers);
@@ -113,7 +113,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Adds to <see cref="BlueprintKingdomArtisan.Tiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomArtisanConfigurator AddToTiers(params BlueprintKingdomArtisan.TierData[] tiers)
     {
       ValidateParam(tiers);
@@ -127,7 +127,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Removes from <see cref="BlueprintKingdomArtisan.Tiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomArtisanConfigurator RemoveFromTiers(params BlueprintKingdomArtisan.TierData[] tiers)
     {
       ValidateParam(tiers);
@@ -143,7 +143,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// </summary>
     ///
     /// <param name="masterpiece"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetMasterpiece(string? masterpiece)
     {
       return OnConfigureInternal(
@@ -156,7 +156,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.MasterpieceUnlock"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetMasterpieceUnlock(ConditionsBuilder? masterpieceUnlock)
     {
       return OnConfigureInternal(
@@ -171,7 +171,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// </summary>
     ///
     /// <param name="helpProject"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetHelpProject(string? helpProject)
     {
       return OnConfigureInternal(
@@ -184,7 +184,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.OnProductionStarted"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetOnProductionStarted(ActionsBuilder? onProductionStarted)
     {
       return OnConfigureInternal(
@@ -197,7 +197,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.OnGiftReady"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetOnGiftReady(ActionsBuilder? onGiftReady)
     {
       return OnConfigureInternal(
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.OnGiftCollected"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetOnGiftCollected(ActionsBuilder? onGiftCollected)
     {
       return OnConfigureInternal(
@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Artisans
     /// <summary>
     /// Sets <see cref="BlueprintKingdomArtisan.CanCollectGift"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomArtisanConfigurator SetCanCollectGift(ConditionsBuilder? canCollectGift)
     {
       return OnConfigureInternal(

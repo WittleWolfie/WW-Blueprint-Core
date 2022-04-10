@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
   /// Configurator for <see cref="BlueprintRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintRoot))]
+  
   public class RootConfigurator : BaseBlueprintConfigurator<BlueprintRoot, RootConfigurator>
   {
     private RootConfigurator(string name) : base(name) { }
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="defaultPlayerCharacter"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public RootConfigurator SetDefaultPlayerCharacter(string? defaultPlayerCharacter)
     {
       return OnConfigureInternal(
@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="selectablePlayerCharacters"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public RootConfigurator SetSelectablePlayerCharacters(string[]? selectablePlayerCharacters)
     {
       return OnConfigureInternal(
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="selectablePlayerCharacters"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public RootConfigurator AddToSelectablePlayerCharacters(params string[] selectablePlayerCharacters)
     {
       return OnConfigureInternal(
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="selectablePlayerCharacters"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public RootConfigurator RemoveFromSelectablePlayerCharacters(params string[] selectablePlayerCharacters)
     {
       return OnConfigureInternal(
@@ -114,7 +114,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="playerFaction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public RootConfigurator SetPlayerFaction(string? playerFaction)
     {
       return OnConfigureInternal(
@@ -127,7 +127,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.CompanionsAI"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetCompanionsAI(bool companionsAI)
     {
       return OnConfigureInternal(
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="kingFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
+    
     public RootConfigurator SetKingFlag(string? kingFlag)
     {
       return OnConfigureInternal(
@@ -155,7 +155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.MinProjectileMissDeviation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetMinProjectileMissDeviation(float minProjectileMissDeviation)
     {
       return OnConfigureInternal(
@@ -168,7 +168,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.MaxProjectileMissDeviation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetMaxProjectileMissDeviation(float maxProjectileMissDeviation)
     {
       return OnConfigureInternal(
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.HumanAnimationSet"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetHumanAnimationSet(AnimationSet humanAnimationSet)
     {
       ValidateParam(humanAnimationSet);
@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="newGamePreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
-    [Generated]
+    
     public RootConfigurator SetNewGamePreset(string? newGamePreset)
     {
       return OnConfigureInternal(
@@ -211,7 +211,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.StartGameActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetStartGameActions(ActionsBuilder? startGameActions)
     {
       return OnConfigureInternal(
@@ -224,7 +224,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Dialog"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetDialog(DialogRoot dialog)
     {
       ValidateParam(dialog);
@@ -239,7 +239,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Cheats"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetCheats(CheatRoot cheats)
     {
       ValidateParam(cheats);
@@ -256,7 +256,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="rE"><see cref="Kingmaker.RandomEncounters.Settings.RandomEncountersRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetRE(string? rE)
     {
       return OnConfigureInternal(
@@ -269,7 +269,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.m_GlobalMap"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetGlobalMap(GlobalMapRoot globalMap)
     {
       ValidateParam(globalMap);
@@ -284,7 +284,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Progression"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetProgression(ProgressionRoot progression)
     {
       ValidateParam(progression);
@@ -299,7 +299,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.CharGen"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetCharGen(CharGenRoot charGen)
     {
       ValidateParam(charGen);
@@ -314,7 +314,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Prefabs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetPrefabs(Prefabs prefabs)
     {
       ValidateParam(prefabs);
@@ -329,7 +329,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.OccludedCharacterColors"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetOccludedCharacterColors(OccludedCharacterColors occludedCharacterColors)
     {
       ValidateParam(occludedCharacterColors);
@@ -344,7 +344,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.UIRoot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetUIRoot(UIRoot uIRoot)
     {
       ValidateParam(uIRoot);
@@ -359,7 +359,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Quests"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetQuests(QuestsRoot quests)
     {
       ValidateParam(quests);
@@ -374,7 +374,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Vendors"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetVendors(VendorsRoot vendors)
     {
       ValidateParam(vendors);
@@ -389,7 +389,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.SystemMechanics"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetSystemMechanics(SystemMechanicsRoot systemMechanics)
     {
       ValidateParam(systemMechanics);
@@ -404,7 +404,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.StatusBuffs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetStatusBuffs(StatusBuffsRoot statusBuffs)
     {
       ValidateParam(statusBuffs);
@@ -419,7 +419,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Cursors"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetCursors(CursorRoot cursors)
     {
       ValidateParam(cursors);
@@ -434,7 +434,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.WeatherSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetWeatherSettings(WeatherRoot weatherSettings)
     {
       ValidateParam(weatherSettings);
@@ -449,7 +449,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.DlcSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetDlcSettings(DlcRoot dlcSettings)
     {
       ValidateParam(dlcSettings);
@@ -464,7 +464,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.NewGameSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetNewGameSettings(NewGameRoot newGameSettings)
     {
       ValidateParam(newGameSettings);
@@ -479,7 +479,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.SurfaceTypeData"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetSurfaceTypeData(SurfaceTypeData surfaceTypeData)
     {
       ValidateParam(surfaceTypeData);
@@ -496,7 +496,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="invisibleKittenUnit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public RootConfigurator SetInvisibleKittenUnit(string? invisibleKittenUnit)
     {
       return OnConfigureInternal(
@@ -509,7 +509,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.OptimizationDummyUnit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetOptimizationDummyUnit(PrefabLink? optimizationDummyUnit)
     {
       ValidateParam(optimizationDummyUnit);
@@ -526,7 +526,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="coinItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public RootConfigurator SetCoinItem(string? coinItem)
     {
       return OnConfigureInternal(
@@ -539,7 +539,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.LocalizedTexts"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetLocalizedTexts(LocalizedTexts localizedTexts)
     {
       ValidateParam(localizedTexts);
@@ -554,7 +554,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.SettingsRoot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SettingsRoot(UISettingsRoot settingsRoot)
     {
       ValidateParam(settingsRoot);
@@ -569,7 +569,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.m_DifficultyList"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetDifficultyList(DifficultyPresetsList difficultyList)
     {
       ValidateParam(difficultyList);
@@ -584,7 +584,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.SettingsValues"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SettingsValues(SettingsValues settingsValues)
     {
       ValidateParam(settingsValues);
@@ -599,7 +599,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.StealthEffectPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetStealthEffectPrefab(GameObject stealthEffectPrefab)
     {
       ValidateParam(stealthEffectPrefab);
@@ -614,7 +614,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.ExitStealthEffectPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetExitStealthEffectPrefab(GameObject exitStealthEffectPrefab)
     {
       ValidateParam(exitStealthEffectPrefab);
@@ -629,7 +629,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.WeaponModelSizing"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetWeaponModelSizing(WeaponModelSizeSettings weaponModelSizing)
     {
       ValidateParam(weaponModelSizing);
@@ -644,7 +644,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.MountModelSizing"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetMountModelSizing(MountModelSizeSetting mountModelSizing)
     {
       ValidateParam(mountModelSizing);
@@ -659,7 +659,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Sound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetSound(SoundRoot sound)
     {
       ValidateParam(sound);
@@ -676,7 +676,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="cutscenesRoot"><see cref="Kingmaker.Blueprints.Root.CutscenesRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetCutscenesRoot(string? cutscenesRoot)
     {
       return OnConfigureInternal(
@@ -691,7 +691,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="kingdom"><see cref="Kingmaker.Kingdom.Blueprints.KingdomRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetKingdom(string? kingdom)
     {
       return OnConfigureInternal(
@@ -706,7 +706,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="corruptionRoot"><see cref="Kingmaker.Corruption.BlueprintCorruptionRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetCorruptionRoot(string? corruptionRoot)
     {
       return OnConfigureInternal(
@@ -721,7 +721,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="armyRoot"><see cref="Kingmaker.Kingdom.Blueprints.ArmyRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetArmyRoot(string? armyRoot)
     {
       return OnConfigureInternal(
@@ -736,7 +736,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="craftRoot"><see cref="Kingmaker.Craft.CraftRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetCraftRoot(string? craftRoot)
     {
       return OnConfigureInternal(
@@ -751,7 +751,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="leadersRoot"><see cref="Kingmaker.Kingdom.Blueprints.LeadersRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetLeadersRoot(string? leadersRoot)
     {
       return OnConfigureInternal(
@@ -766,7 +766,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="moraleRoot"><see cref="Kingmaker.Armies.Blueprints.MoraleRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetMoraleRoot(string? moraleRoot)
     {
       return OnConfigureInternal(
@@ -781,7 +781,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="tacticalCombat"><see cref="Kingmaker.Armies.TacticalCombat.Blueprints.BlueprintTacticalCombatRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetTacticalCombat(string? tacticalCombat)
     {
       return OnConfigureInternal(
@@ -794,7 +794,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Calendar"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetCalendar(CalendarRoot calendar)
     {
       ValidateParam(calendar);
@@ -811,7 +811,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="formations"><see cref="Kingmaker.Blueprints.Root.FormationsRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetFormations(string? formations)
     {
       return OnConfigureInternal(
@@ -824,7 +824,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.RazerColorData"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetRazerColorData(RazerColorData razerColorData)
     {
       ValidateParam(razerColorData);
@@ -839,7 +839,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Animation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetAnimation(AnimationRoot animation)
     {
       ValidateParam(animation);
@@ -854,7 +854,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Camping"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetCamping(CampingRoot camping)
     {
       ValidateParam(camping);
@@ -871,7 +871,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="fxRoot"><see cref="Kingmaker.Blueprints.Root.Fx.FxRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetFxRoot(string? fxRoot)
     {
       return OnConfigureInternal(
@@ -886,7 +886,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="hitSystemRoot"><see cref="Kingmaker.Visual.HitSystem.HitSystemRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetHitSystemRoot(string? hitSystemRoot)
     {
       return OnConfigureInternal(
@@ -901,7 +901,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="playerUpgradeActions"><see cref="Kingmaker.Blueprints.Root.PlayerUpgradeActionsRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetPlayerUpgradeActions(string? playerUpgradeActions)
     {
       return OnConfigureInternal(
@@ -916,7 +916,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="customCompanion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public RootConfigurator SetCustomCompanion(string? customCompanion)
     {
       return OnConfigureInternal(
@@ -929,7 +929,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.CustomCompanionBaseCost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetCustomCompanionBaseCost(int customCompanionBaseCost)
     {
       return OnConfigureInternal(
@@ -942,7 +942,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.StandartPerceptionRadius"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetStandartPerceptionRadius(int standartPerceptionRadius)
     {
       return OnConfigureInternal(
@@ -955,7 +955,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.AreaEffectAutoDestroySeconds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetAreaEffectAutoDestroySeconds(int areaEffectAutoDestroySeconds)
     {
       return OnConfigureInternal(
@@ -968,7 +968,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.AnnoyingConditionsAutoDestroySeconds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetAnnoyingConditionsAutoDestroySeconds(int annoyingConditionsAutoDestroySeconds)
     {
       return OnConfigureInternal(
@@ -981,7 +981,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.DefaultDissolveTexture"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetDefaultDissolveTexture(Texture2D defaultDissolveTexture)
     {
       ValidateParam(defaultDissolveTexture);
@@ -996,7 +996,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.Achievements"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetAchievements(AchievementsRoot achievements)
     {
       ValidateParam(achievements);
@@ -1013,7 +1013,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="unitTypes"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
-    [Generated]
+    
     public RootConfigurator SetUnitTypes(string[]? unitTypes)
     {
       return OnConfigureInternal(
@@ -1028,7 +1028,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="unitTypes"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
-    [Generated]
+    
     public RootConfigurator AddToUnitTypes(params string[] unitTypes)
     {
       return OnConfigureInternal(
@@ -1043,7 +1043,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="unitTypes"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
-    [Generated]
+    
     public RootConfigurator RemoveFromUnitTypes(params string[] unitTypes)
     {
       return OnConfigureInternal(
@@ -1061,7 +1061,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="BlueprintRoot.TestUIStyles"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RootConfigurator SetTestUIStyles(TestUIStylesRoot testUIStyles)
     {
       ValidateParam(testUIStyles);
@@ -1078,7 +1078,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="dungeon"><see cref="Kingmaker.Dungeon.Blueprints.BlueprintDungeonRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetDungeon(string? dungeon)
     {
       return OnConfigureInternal(
@@ -1093,7 +1093,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="consoleRoot"><see cref="Kingmaker.Blueprints.Root.ConsoleRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetConsoleRoot(string? consoleRoot)
     {
       return OnConfigureInternal(
@@ -1108,7 +1108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="blueprintTrapSettingsRoot"><see cref="Kingmaker.Blueprints.BlueprintTrapSettingsRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetBlueprintTrapSettingsRoot(string? blueprintTrapSettingsRoot)
     {
       return OnConfigureInternal(
@@ -1123,7 +1123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="interactionRoot"><see cref="Kingmaker.Interaction.BlueprintInteractionRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetInteractionRoot(string? interactionRoot)
     {
       return OnConfigureInternal(
@@ -1138,7 +1138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="blueprintMythicsSettingsReference"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicsSettings"/></param>
-    [Generated]
+    
     public RootConfigurator SetBlueprintMythicsSettingsReference(string? blueprintMythicsSettingsReference)
     {
       return OnConfigureInternal(
@@ -1153,7 +1153,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="customAiConsiderations"><see cref="Kingmaker.AI.Blueprints.CustomAiConsiderationsRoot"/></param>
-    [Generated]
+    
     public RootConfigurator SetCustomAiConsiderations(string? customAiConsiderations)
     {
       return OnConfigureInternal(
@@ -1168,7 +1168,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="blueprintBugReportTutorialReference"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
-    [Generated]
+    
     public RootConfigurator SetBlueprintBugReportTutorialReference(string? blueprintBugReportTutorialReference)
     {
       return OnConfigureInternal(

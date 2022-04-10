@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   /// Configurator for <see cref="BlueprintDlcRewardCampaign"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDlcRewardCampaign))]
+  
   public class DlcRewardCampaignConfigurator : BaseDlcRewardConfigurator<BlueprintDlcRewardCampaign, DlcRewardCampaignConfigurator>
   {
     private DlcRewardCampaignConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets <see cref="BlueprintDlcRewardCampaign.ScreenshotForImportSave"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DlcRewardCampaignConfigurator SetScreenshotForImportSave(Texture2D screenshotForImportSave)
     {
       ValidateParam(screenshotForImportSave);

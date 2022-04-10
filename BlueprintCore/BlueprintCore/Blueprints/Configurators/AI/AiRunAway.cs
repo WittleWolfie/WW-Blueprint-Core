@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BlueprintAiRunAway"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAiRunAway))]
+  
   public class AiRunAwayConfigurator : BaseAiActionConfigurator<BlueprintAiRunAway, AiRunAwayConfigurator>
   {
     private AiRunAwayConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiRunAway.BecameStalker"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiRunAwayConfigurator SetBecameStalker(bool becameStalker)
     {
       return OnConfigureInternal(

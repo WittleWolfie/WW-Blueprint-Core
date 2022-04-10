@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   /// Configurator for <see cref="BlueprintCampingEncounter"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCampingEncounter))]
+  
   public class CampingEncounterConfigurator : BaseBlueprintConfigurator<BlueprintCampingEncounter, CampingEncounterConfigurator>
   {
     private CampingEncounterConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.Chance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CampingEncounterConfigurator SetChance(int chance)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CampingEncounterConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.EncounterActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CampingEncounterConfigurator SetEncounterActions(ActionsBuilder? encounterActions)
     {
       return OnConfigureInternal(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.InterruptsRest"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CampingEncounterConfigurator SetInterruptsRest(bool interruptsRest)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.PartyTired"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CampingEncounterConfigurator SetPartyTired(bool partyTired)
     {
       return OnConfigureInternal(
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.MainCharacterTired"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CampingEncounterConfigurator SetMainCharacterTired(bool mainCharacterTired)
     {
       return OnConfigureInternal(
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintCampingEncounter.NotOnGlobalMap"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CampingEncounterConfigurator SetNotOnGlobalMap(bool notOnGlobalMap)
     {
       return OnConfigureInternal(

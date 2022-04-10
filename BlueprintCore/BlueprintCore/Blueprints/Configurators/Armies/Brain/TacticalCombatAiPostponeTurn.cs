@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   /// Configurator for <see cref="BlueprintTacticalCombatAiPostponeTurn"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTacticalCombatAiPostponeTurn))]
+  
   public class TacticalCombatAiPostponeTurnConfigurator : BaseTacticalCombatAiActionConfigurator<BlueprintTacticalCombatAiPostponeTurn, TacticalCombatAiPostponeTurnConfigurator>
   {
     private TacticalCombatAiPostponeTurnConfigurator(string name) : base(name) { }

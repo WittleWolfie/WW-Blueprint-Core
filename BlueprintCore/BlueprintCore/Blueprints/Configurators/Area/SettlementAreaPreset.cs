@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintSettlementAreaPreset"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintSettlementAreaPreset))]
+  
   public class SettlementAreaPresetConfigurator : BaseAreaPresetConfigurator<BlueprintSettlementAreaPreset, SettlementAreaPresetConfigurator>
   {
     private SettlementAreaPresetConfigurator(string name) : base(name) { }
@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    [Generated]
+    
     public SettlementAreaPresetConfigurator SetStartSettlement(string? startSettlement)
     {
       return OnConfigureInternal(
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startSettlementPoint"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
+    
     public SettlementAreaPresetConfigurator SetStartSettlementPoint(string? startSettlementPoint)
     {
       return OnConfigureInternal(
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlementLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementAreaPresetConfigurator SetStartSettlementLevel(SettlementState.LevelType startSettlementLevel)
     {
       return OnConfigureInternal(

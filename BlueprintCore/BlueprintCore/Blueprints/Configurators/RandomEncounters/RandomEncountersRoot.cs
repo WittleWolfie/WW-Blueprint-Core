@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   /// Configurator for <see cref="RandomEncountersRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(RandomEncountersRoot))]
+  
   public class RandomEncountersRootConfigurator : BaseBlueprintConfigurator<RandomEncountersRoot, RandomEncountersRootConfigurator>
   {
     private RandomEncountersRootConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.EncountersEnabled"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetEncountersEnabled(bool encountersEnabled)
     {
       return OnConfigureInternal(
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.m_Chapters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetChapters(RandomEncounterChapterSettings[]? chapters)
     {
       ValidateParam(chapters);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Adds to <see cref="RandomEncountersRoot.m_Chapters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator AddToChapters(params RandomEncounterChapterSettings[] chapters)
     {
       ValidateParam(chapters);
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Removes from <see cref="RandomEncountersRoot.m_Chapters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator RemoveFromChapters(params RandomEncounterChapterSettings[] chapters)
     {
       ValidateParam(chapters);
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.EncounterPawnPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetEncounterPawnPrefab(GlobalMapRandomEncounterPawn encounterPawnPrefab)
     {
       ValidateParam(encounterPawnPrefab);
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.EncounterPawnOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetEncounterPawnOffset(float encounterPawnOffset)
     {
       return OnConfigureInternal(
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.EncounterPawnDistanceFromLocation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetEncounterPawnDistanceFromLocation(float encounterPawnDistanceFromLocation)
     {
       return OnConfigureInternal(
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// </summary>
     ///
     /// <param name="trashLootSettings"><see cref="Kingmaker.Blueprints.Loot.TrashLootSettings"/></param>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetTrashLootSettings(string? trashLootSettings)
     {
       return OnConfigureInternal(
@@ -144,7 +144,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.ZoneSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetZoneSettings(ZoneCombatRandomEncounterSettings[]? zoneSettings)
     {
       ValidateParam(zoneSettings);
@@ -159,7 +159,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Adds to <see cref="RandomEncountersRoot.ZoneSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator AddToZoneSettings(params ZoneCombatRandomEncounterSettings[] zoneSettings)
     {
       ValidateParam(zoneSettings);
@@ -173,7 +173,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Removes from <see cref="RandomEncountersRoot.ZoneSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator RemoveFromZoneSettings(params ZoneCombatRandomEncounterSettings[] zoneSettings)
     {
       ValidateParam(zoneSettings);
@@ -189,7 +189,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// </summary>
     ///
     /// <param name="encounters"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintRandomEncounter"/></param>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetEncounters(string[]? encounters)
     {
       return OnConfigureInternal(
@@ -204,7 +204,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// </summary>
     ///
     /// <param name="encounters"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintRandomEncounter"/></param>
-    [Generated]
+    
     public RandomEncountersRootConfigurator AddToEncounters(params string[] encounters)
     {
       return OnConfigureInternal(
@@ -219,7 +219,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// </summary>
     ///
     /// <param name="encounters"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintRandomEncounter"/></param>
-    [Generated]
+    
     public RandomEncountersRootConfigurator RemoveFromEncounters(params string[] encounters)
     {
       return OnConfigureInternal(
@@ -237,7 +237,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.Armies"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetArmies(ArmySettings[]? armies)
     {
       ValidateParam(armies);
@@ -252,7 +252,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Adds to <see cref="RandomEncountersRoot.Armies"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator AddToArmies(params ArmySettings[] armies)
     {
       ValidateParam(armies);
@@ -266,7 +266,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Removes from <see cref="RandomEncountersRoot.Armies"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator RemoveFromArmies(params ArmySettings[] armies)
     {
       ValidateParam(armies);
@@ -280,7 +280,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.m_Vendor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetVendor(REVendor vendor)
     {
       ValidateParam(vendor);
@@ -295,7 +295,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.MaxExperiencePerUnitDivisor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetMaxExperiencePerUnitDivisor(int maxExperiencePerUnitDivisor)
     {
       return OnConfigureInternal(
@@ -308,7 +308,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.MinExperiencePerUnitDivisor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetMinExperiencePerUnitDivisor(int minExperiencePerUnitDivisor)
     {
       return OnConfigureInternal(
@@ -321,7 +321,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="RandomEncountersRoot.MaxTargetExperienceDivisor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncountersRootConfigurator SetMaxTargetExperienceDivisor(int maxTargetExperienceDivisor)
     {
       return OnConfigureInternal(

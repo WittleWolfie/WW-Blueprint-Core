@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   /// Configurator for <see cref="BlueprintItemEquipmentShirt"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemEquipmentShirt))]
+  
   public class ItemEquipmentShirtConfigurator : BaseItemEquipmentSimpleConfigurator<BlueprintItemEquipmentShirt, ItemEquipmentShirtConfigurator>
   {
     private ItemEquipmentShirtConfigurator(string name) : base(name) { }

@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   /// Configurator for <see cref="BlueprintDungeonShrine"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDungeonShrine))]
+  
   public class DungeonShrineConfigurator : BaseSpawnableObjectConfigurator<BlueprintDungeonShrine, DungeonShrineConfigurator>
   {
     private DungeonShrineConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="useCondition"><see cref="Kingmaker.ElementsSystem.ConditionsHolder"/></param>
-    [Generated]
+    
     public DungeonShrineConfigurator SetUseCondition(string? useCondition)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="checkPassedActions"><see cref="Kingmaker.ElementsSystem.ActionsHolder"/></param>
-    [Generated]
+    
     public DungeonShrineConfigurator SetCheckPassedActions(string? checkPassedActions)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="checkFailedActions"><see cref="Kingmaker.ElementsSystem.ActionsHolder"/></param>
-    [Generated]
+    
     public DungeonShrineConfigurator SetCheckFailedActions(string? checkFailedActions)
     {
       return OnConfigureInternal(

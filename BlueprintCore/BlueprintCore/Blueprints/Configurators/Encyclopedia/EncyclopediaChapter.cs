@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   /// Configurator for <see cref="BlueprintEncyclopediaChapter"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintEncyclopediaChapter))]
+  
   public class EncyclopediaChapterConfigurator : BaseEncyclopediaPageConfigurator<BlueprintEncyclopediaChapter, EncyclopediaChapterConfigurator>
   {
     private EncyclopediaChapterConfigurator(string name) : base(name) { }

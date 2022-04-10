@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintClassAdditionalVisualSettingsProgression"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintClassAdditionalVisualSettingsProgression))]
+  
   public class ClassAdditionalVisualSettingsProgressionConfigurator : BaseBlueprintConfigurator<BlueprintClassAdditionalVisualSettingsProgression, ClassAdditionalVisualSettingsProgressionConfigurator>
   {
     private ClassAdditionalVisualSettingsProgressionConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsProgressionConfigurator SetEntries(BlueprintClassAdditionalVisualSettingsProgression.Entry[]? entries)
     {
       ValidateParam(entries);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsProgressionConfigurator AddToEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] entries)
     {
       ValidateParam(entries);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsProgressionConfigurator RemoveFromEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] entries)
     {
       ValidateParam(entries);

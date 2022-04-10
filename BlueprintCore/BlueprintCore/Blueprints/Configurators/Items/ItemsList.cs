@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
   /// Configurator for <see cref="BlueprintItemsList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemsList))]
+  
   public class ItemsListConfigurator : BaseBlueprintConfigurator<BlueprintItemsList, ItemsListConfigurator>
   {
     private ItemsListConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public ItemsListConfigurator SetItems(string[]? items)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public ItemsListConfigurator AddToItems(params string[] items)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public ItemsListConfigurator RemoveFromItems(params string[] items)
     {
       return OnConfigureInternal(

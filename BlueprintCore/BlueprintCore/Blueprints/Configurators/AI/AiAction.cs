@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintAiAction"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAiAction))]
+  
   public abstract class BaseAiActionConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintAiAction
@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.AdditionalBehaviour"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAdditionalBehaviour(bool additionalBehaviour)
     {
       return OnConfigureInternal(
@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.MinDifficulty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetMinDifficulty(GameDifficultyOption minDifficulty)
     {
       return OnConfigureInternal(
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.InvertDifficultyRequirements"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetInvertDifficultyRequirements(bool invertDifficultyRequirements)
     {
       return OnConfigureInternal(
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.OncePerRound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetOncePerRound(bool oncePerRound)
     {
       return OnConfigureInternal(
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.CooldownRounds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCooldownRounds(int cooldownRounds)
     {
       return OnConfigureInternal(
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.CooldownDice"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCooldownDice(DiceFormula cooldownDice)
     {
       return OnConfigureInternal(
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.StartCooldownRounds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetStartCooldownRounds(int startCooldownRounds)
     {
       return OnConfigureInternal(
@@ -114,7 +114,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.CombatCount"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCombatCount(int combatCount)
     {
       return OnConfigureInternal(
@@ -127,7 +127,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.UseWhenAIDisabled"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetUseWhenAIDisabled(bool useWhenAIDisabled)
     {
       return OnConfigureInternal(
@@ -140,7 +140,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.UseOnLimitedAI"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetUseOnLimitedAI(bool useOnLimitedAI)
     {
       return OnConfigureInternal(
@@ -153,7 +153,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiAction.BaseScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetBaseScore(float baseScore)
     {
       return OnConfigureInternal(
@@ -168,7 +168,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public TBuilder SetActorConsiderations(string[]? actorConsiderations)
     {
       return OnConfigureInternal(
@@ -183,7 +183,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public TBuilder AddToActorConsiderations(params string[] actorConsiderations)
     {
       return OnConfigureInternal(
@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromActorConsiderations(params string[] actorConsiderations)
     {
       return OnConfigureInternal(
@@ -218,7 +218,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public TBuilder SetTargetConsiderations(string[]? targetConsiderations)
     {
       return OnConfigureInternal(
@@ -233,7 +233,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public TBuilder AddToTargetConsiderations(params string[] targetConsiderations)
     {
       return OnConfigureInternal(
@@ -248,7 +248,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromTargetConsiderations(params string[] targetConsiderations)
     {
       return OnConfigureInternal(

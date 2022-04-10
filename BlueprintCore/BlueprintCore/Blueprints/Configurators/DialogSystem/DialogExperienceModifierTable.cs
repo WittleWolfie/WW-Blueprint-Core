@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintDialogExperienceModifierTable"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDialogExperienceModifierTable))]
+  
   public class DialogExperienceModifierTableConfigurator : BaseBlueprintConfigurator<BlueprintDialogExperienceModifierTable, DialogExperienceModifierTableConfigurator>
   {
     private DialogExperienceModifierTableConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierLow"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogExperienceModifierTableConfigurator SetMultiplierLow(float multiplierLow)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierNormal"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogExperienceModifierTableConfigurator SetMultiplierNormal(float multiplierNormal)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierHigh"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DialogExperienceModifierTableConfigurator SetMultiplierHigh(float multiplierHigh)
     {
       return OnConfigureInternal(

@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
 {
   /// <summary>Configurator for <see cref="BlueprintBuff"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintBuff))]
+  
   public class BuffConfigurator : BaseUnitFactConfigurator<BlueprintBuff, BuffConfigurator>
   {
     private BuffConfigurator(string name) : base(name) { }
@@ -171,7 +171,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddEffectFastHealing"/>
     /// </summary>
-    [Implements(typeof(AddEffectFastHealing))]
+    
     public BuffConfigurator FastHealing(int baseValue, ContextValue? bonusValue = null)
     {
       var fastHealing = new AddEffectFastHealing
@@ -185,7 +185,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="RemoveWhenCombatEnded"/>
     /// </summary>
-    [Implements(typeof(RemoveWhenCombatEnded))]
+    
     public BuffConfigurator RemoveWhenCombatEnds()
     {
       return AddUniqueComponent(new RemoveWhenCombatEnded(), ComponentMerge.Skip);
@@ -194,7 +194,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.Mechanics.Buffs.BuffSleeping">BuffSleeping</see>
     /// </summary>
-    [Implements(typeof(BuffSleeping))]
+    
     public BuffConfigurator BuffSleeping(
         int? wakeupPerceptionDC = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -208,7 +208,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddContextStatBonus"/>
     /// </summary>
-    [Implements(typeof(AddContextStatBonus))]
+    
     public BuffConfigurator AddContextStatBonus(
         StatType stat,
         ContextValue value,
@@ -233,7 +233,7 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     /// 
     /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
+    
     public BuffConfigurator AddContextRankConfig(ContextRankConfig rankConfig)
     {
       return AddComponent(rankConfig);
@@ -242,13 +242,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds or modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     public BuffConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
     }
 
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
     {
       var component = bp.GetComponent<SpellDescriptorComponent>();
@@ -263,13 +263,13 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     public BuffConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
     }
 
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
     {
       var component = bp.GetComponent<SpellDescriptorComponent>();
@@ -280,8 +280,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="GlobalMapSpeedModifier"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(GlobalMapSpeedModifier))]
+    
+    
     public BuffConfigurator AddGlobalMapSpeedModifier(
         float speedModifier = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -295,8 +295,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddForceMove"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddForceMove))]
+    
+    
     public BuffConfigurator AddForceMove(
         ContextValue? feetPerRound = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -312,8 +312,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddGoldenDragonSkillBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddGoldenDragonSkillBonus))]
+    
+    
     public BuffConfigurator AddGoldenDragonSkillBonus(
         ModifierDescriptor descriptor = default,
         StatType stat = default)
@@ -327,8 +327,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddNocticulaBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddNocticulaBonus))]
+    
+    
     public BuffConfigurator AddNocticulaBonus(
         ModifierDescriptor descriptor = default,
         ContextValue? highestStatBonus = null,
@@ -351,8 +351,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddRestTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddRestTrigger))]
+    
+    
     public BuffConfigurator AddRestTrigger(
         ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -366,8 +366,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddRunwayLogic"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddRunwayLogic))]
+    
+    
     public BuffConfigurator AddRunwayLogic(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -381,8 +381,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="feat"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(AddTemporaryFeat))]
+    
+    
     public BuffConfigurator AddTemporaryFeat(
         string? feat = null)
     {
@@ -394,8 +394,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddTricksterAthleticBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddTricksterAthleticBonus))]
+    
+    
     public BuffConfigurator AddTricksterAthleticBonus(
         ModifierDescriptor descriptor = default,
         bool isAdded = default)
@@ -409,8 +409,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddWeaponEnhancementBonusToStat"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddWeaponEnhancementBonusToStat))]
+    
+    
     public BuffConfigurator AddWeaponEnhancementBonusToStat(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -428,8 +428,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="enchantmentBlueprint"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
-    [Generated]
-    [Implements(typeof(BuffEnchantAnyWeapon))]
+    
+    
     public BuffConfigurator AddBuffEnchantAnyWeapon(
         string? enchantmentBlueprint = null,
         EquipSlotBase.SlotType slot = default)
@@ -446,8 +446,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     ///
     /// <param name="enchantmentBlueprint"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
     /// <param name="weaponBlueprint"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    [Generated]
-    [Implements(typeof(BuffEnchantSpecificWeaponWorn))]
+    
+    
     public BuffConfigurator AddBuffEnchantSpecificWeaponWorn(
         string? enchantmentBlueprint = null,
         string? weaponBlueprint = null,
@@ -465,8 +465,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="enchantmentBlueprint"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintItemEnchantment"/></param>
-    [Generated]
-    [Implements(typeof(BuffEnchantWornItem))]
+    
+    
     public BuffConfigurator AddBuffEnchantWornItem(
         string? enchantmentBlueprint = null,
         bool allWeapons = default,
@@ -482,8 +482,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="Bugurt"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(Bugurt))]
+    
+    
     public BuffConfigurator AddBugurt(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -495,8 +495,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="DropLootAndDestroyOnDeactivate"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DropLootAndDestroyOnDeactivate))]
+    
+    
     public BuffConfigurator AddDropLootAndDestroyOnDeactivate(
         IDisposable coroutine,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -512,8 +512,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="LimbsApartDismembermentRestricted"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LimbsApartDismembermentRestricted))]
+    
+    
     public BuffConfigurator AddLimbsApartDismembermentRestricted(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -525,8 +525,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="MountedShield"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MountedShield))]
+    
+    
     public BuffConfigurator AddMountedShield(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -542,8 +542,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="RemoveBuffIfPartyNotInCombat"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RemoveBuffIfPartyNotInCombat))]
+    
+    
     public BuffConfigurator AddRemoveBuffIfPartyNotInCombat(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -555,8 +555,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="SetMagusFeatureActive"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SetMagusFeatureActive))]
+    
+    
     public BuffConfigurator AddSetMagusFeatureActive(
         SetMagusFeatureActive.FeatureType feature = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -572,8 +572,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="upgradeFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(ShroudOfWater))]
+    
+    
     public BuffConfigurator AddShroudOfWater(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -593,8 +593,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="UniqueBuff"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(UniqueBuff))]
+    
+    
     public BuffConfigurator AddUniqueBuff(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -608,8 +608,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="blade"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    [Generated]
-    [Implements(typeof(AddKineticistBlade))]
+    
+    
     public BuffConfigurator AddKineticistBlade(
         string? blade = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -632,8 +632,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <param name="additionalLimbs"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     /// <param name="secondaryAdditionalLimbs"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(Polymorph))]
+    
+    
     public BuffConfigurator AddPolymorph(
         UnitViewLink prefab,
         UnitViewLink prefabFemale,
@@ -693,8 +693,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="RemoveBuffOnLoad"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RemoveBuffOnLoad))]
+    
+    
     public BuffConfigurator AddRemoveBuffOnLoad(
         bool onlyFromParty = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -708,8 +708,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="RemoveBuffOnTurnOn"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RemoveBuffOnTurnOn))]
+    
+    
     public BuffConfigurator AddRemoveBuffOnTurnOn(
         bool onlyFromParty = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -725,8 +725,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="areaEffect"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbilityAreaEffect"/></param>
-    [Generated]
-    [Implements(typeof(AddAreaEffect))]
+    
+    
     public BuffConfigurator AddAreaEffect(
         string? areaEffect = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -740,8 +740,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddAttackBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddAttackBonus))]
+    
+    
     public BuffConfigurator AddAttackBonus(
         int bonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -755,8 +755,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddCheatDamageBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddCheatDamageBonus))]
+    
+    
     public BuffConfigurator AddCheatDamageBonus(
         int bonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -770,8 +770,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddDispelMagicFailedTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddDispelMagicFailedTrigger))]
+    
+    
     public BuffConfigurator AddDispelMagicFailedTrigger(
         ActionsBuilder? actionOnOwner = null,
         ActionsBuilder? actionOnCaster = null,
@@ -787,8 +787,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddEffectContextFastHealing"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddEffectContextFastHealing))]
+    
+    
     public BuffConfigurator AddEffectContextFastHealing(
         ContextValue? bonus = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -804,8 +804,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddEffectProtectionFromElement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddEffectProtectionFromElement))]
+    
+    
     public BuffConfigurator AddEffectProtectionFromElement(
         string element,
         int shieldCapacity = default,
@@ -821,8 +821,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddEffectRegeneration"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddEffectRegeneration))]
+    
+    
     public BuffConfigurator AddEffectRegeneration(
         int heal = default,
         bool unremovable = default,
@@ -846,8 +846,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddGenericStatBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddGenericStatBonus))]
+    
+    
     public BuffConfigurator AddGenericStatBonus(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -863,8 +863,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddMirrorImage"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddMirrorImage))]
+    
+    
     public BuffConfigurator AddMirrorImage(
         ContextDiceValue? count = null,
         int maxCount = default,
@@ -882,8 +882,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddSpellSchool"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddSpellSchool))]
+    
+    
     public BuffConfigurator AddSpellSchool(
         SpellSchool school = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -897,8 +897,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="IsPositiveEffect"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(IsPositiveEffect))]
+    
+    
     public BuffConfigurator AddIsPositiveEffect(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -910,8 +910,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="NegativeLevelComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(NegativeLevelComponent))]
+    
+    
     public BuffConfigurator AddNegativeLevelComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -923,8 +923,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="RemoveBuffIfCasterIsMissing"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RemoveBuffIfCasterIsMissing))]
+    
+    
     public BuffConfigurator AddRemoveBuffIfCasterIsMissing(
         bool removeOnCasterDeath = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -938,8 +938,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="ResurrectionLogic"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ResurrectionLogic))]
+    
+    
     public BuffConfigurator AddResurrectionLogic(
         GameObject firstFx,
         GameObject secondFx,
@@ -962,8 +962,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="SetBuffOnsetDelay"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SetBuffOnsetDelay))]
+    
+    
     public BuffConfigurator AddSetBuffOnsetDelay(
         ContextDurationValue delay,
         ActionsBuilder? onStart = null,
@@ -981,8 +981,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="SpecialAnimationState"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SpecialAnimationState))]
+    
+    
     public BuffConfigurator AddSpecialAnimationState(
         UnitAnimationActionBuffState animation,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -998,8 +998,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="SummonedUnitBuff"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SummonedUnitBuff))]
+    
+    
     public BuffConfigurator AddSummonedUnitBuff(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1011,8 +1011,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="WeaponAttackTypeDamageBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(WeaponAttackTypeDamageBonus))]
+    
+    
     public BuffConfigurator AddWeaponAttackTypeDamageBonus(
         WeaponRangeType type = default,
         int attackBonus = default,
@@ -1036,8 +1036,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="customProperty"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
-    [Generated]
-    [Implements(typeof(ContextCalculateAbilityParams))]
+    
+    
     public BuffConfigurator AddContextCalculateAbilityParams(
         bool useKineticistMainStat = default,
         StatType statType = default,
@@ -1070,8 +1070,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
+    
+    
     public BuffConfigurator AddContextCalculateAbilityParamsBasedOnClass(
         bool useKineticistMainStat = default,
         StatType statType = default,
@@ -1089,8 +1089,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="ContextCalculateSharedValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ContextCalculateSharedValue))]
+    
+    
     public BuffConfigurator AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
         ContextDiceValue? value = null,
@@ -1108,8 +1108,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="ContextSetAbilityParams"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ContextSetAbilityParams))]
+    
+    
     public BuffConfigurator AddContextSetAbilityParams(
         bool add10ToDC = default,
         ContextValue? dC = null,
@@ -1136,8 +1136,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AbilityDifficultyLimitDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityDifficultyLimitDC))]
+    
+    
     public BuffConfigurator AddAbilityDifficultyLimitDC(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1149,8 +1149,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AttackBonusAgainstTacticalOwner"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AttackBonusAgainstTacticalOwner))]
+    
+    
     public BuffConfigurator AddAttackBonusAgainstTacticalOwner(
         TargetFilter targetFilter,
         ContextValue? value = null,
@@ -1171,8 +1171,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AttackBonusAgainstTacticalTarget"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AttackBonusAgainstTacticalTarget))]
+    
+    
     public BuffConfigurator AddAttackBonusAgainstTacticalTarget(
         TargetFilter targetFilter,
         ContextValue? value = null,
@@ -1193,8 +1193,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="DamageBonusAgainstTacticalOwner"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DamageBonusAgainstTacticalOwner))]
+    
+    
     public BuffConfigurator AddDamageBonusAgainstTacticalOwner(
         TargetFilter targetFilter,
         Kingmaker.UnitLogic.Mechanics.ValueType _valueType = default,
@@ -1217,8 +1217,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="DamageBonusAgainstTacticalTarget"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DamageBonusAgainstTacticalTarget))]
+    
+    
     public BuffConfigurator AddDamageBonusAgainstTacticalTarget(
         TargetFilter targetFilter,
         Kingmaker.UnitLogic.Mechanics.ValueType _valueType = default,
@@ -1243,8 +1243,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="newAbilities"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(ReplaceSquadAbilities))]
+    
+    
     public BuffConfigurator AddReplaceSquadAbilities(
         string[]? newAbilities = null,
         bool forOneTurn = default,
@@ -1262,8 +1262,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="aiAttackNearestAction"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiAction"/></param>
-    [Generated]
-    [Implements(typeof(TacticalCombatConfusion))]
+    
+    
     public BuffConfigurator AddTacticalCombatConfusion(
         string? aiAttackNearestAction = null,
         ActionsBuilder? harmSelfAction = null,
@@ -1279,8 +1279,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="TacticalMoraleChanceModifier"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TacticalMoraleChanceModifier))]
+    
+    
     public BuffConfigurator AddTacticalMoraleChanceModifier(
         bool changePositiveMorale = default,
         ContextValue? positiveMoraleChancePercentDelta = null,
@@ -1303,8 +1303,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="ModifyArmyUnitSpellPower"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ModifyArmyUnitSpellPower))]
+    
+    
     public BuffConfigurator AddModifyArmyUnitSpellPower(
         ContextValue? percentModifier = null,
         ModifierDescriptor descriptor = default,
@@ -1322,8 +1322,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="TargetingBlind"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TargetingBlind))]
+    
+    
     public BuffConfigurator AddTargetingBlind(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1337,8 +1337,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="checkBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(BodyguardACBonus))]
+    
+    
     public BuffConfigurator AddBodyguardACBonus(
         string? checkBuff = null,
         ModifierDescriptor descriptor = default,
@@ -1360,8 +1360,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <param name="checkedBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="extraEffectBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="exceptionFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(BuffExtraEffects))]
+    
+    
     public BuffConfigurator AddBuffExtraEffects(
         string? checkedBuff = null,
         string? extraEffectBuff = null,
@@ -1380,8 +1380,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     ///
     /// <param name="checkBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="cooldownBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(InHarmsWay))]
+    
+    
     public BuffConfigurator AddInHarmsWay(
         string? checkBuff = null,
         string? cooldownBuff = null)
@@ -1397,8 +1397,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="cooldownBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(IndomitableMount))]
+    
+    
     public BuffConfigurator AddIndomitableMount(
         string? cooldownBuff = null)
     {
@@ -1410,8 +1410,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="MetamagicOnNextSpell"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MetamagicOnNextSpell))]
+    
+    
     public BuffConfigurator AddMetamagicOnNextSpell(
         Metamagic metamagic = default,
         bool doNotRemove = default,
@@ -1432,8 +1432,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     ///
     /// <param name="rodAbility"><see cref="Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility"/></param>
     /// <param name="abilitiesWhiteList"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(MetamagicRodMechanics))]
+    
+    
     public BuffConfigurator AddMetamagicRodMechanics(
         Metamagic metamagic = default,
         int maxSpellLevel = default,
@@ -1453,8 +1453,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="cooldownBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(MountedCombat))]
+    
+    
     public BuffConfigurator AddMountedCombat(
         string? cooldownBuff = null)
     {
@@ -1468,8 +1468,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="faction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
-    [Implements(typeof(NeutralToFaction))]
+    
+    
     public BuffConfigurator AddNeutralToFaction(
         string? faction = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1485,8 +1485,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="spell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(SpecificSpellDamageBonus))]
+    
+    
     public BuffConfigurator AddSpecificSpellDamageBonus(
         string[]? spell = null,
         int bonus = default,
@@ -1504,8 +1504,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="masterAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(UnwillingShield))]
+    
+    
     public BuffConfigurator AddUnwillingShield(
         string? masterAbility = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1521,8 +1521,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="masterAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(UnwillingShieldTarget))]
+    
+    
     public BuffConfigurator AddUnwillingShieldTarget(
         string? masterAbility = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1536,8 +1536,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="ACBonusAgainstCaster"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ACBonusAgainstCaster))]
+    
+    
     public BuffConfigurator AddACBonusAgainstCaster(
         ContextValue? value = null,
         ModifierDescriptor descriptor = default,
@@ -1555,8 +1555,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="ACBonusAgainstTarget"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ACBonusAgainstTarget))]
+    
+    
     public BuffConfigurator AddACBonusAgainstTarget(
         ContextValue? value = null,
         bool checkCaster = default,
@@ -1581,8 +1581,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     ///
     /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     /// <param name="checkedFact"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(AddAdditionalLimbIfHasFact))]
+    
+    
     public BuffConfigurator AddAdditionalLimbIfHasFact(
         string? weapon = null,
         string? checkedFact = null,
@@ -1598,8 +1598,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddStatBonusAbilityValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddStatBonusAbilityValue))]
+    
+    
     public BuffConfigurator AddStatBonusAbilityValue(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -1619,8 +1619,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="checkedFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AddStatBonusIfHasFact))]
+    
+    
     public BuffConfigurator AddStatBonusIfHasFact(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -1644,8 +1644,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddStatBonusIfHasSkill"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddStatBonusIfHasSkill))]
+    
+    
     public BuffConfigurator AddStatBonusIfHasSkill(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -1667,8 +1667,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AddStatBonusScaled"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddStatBonusScaled))]
+    
+    
     public BuffConfigurator AddStatBonusScaled(
         BuffScaling scaling,
         ModifierDescriptor descriptor = default,
@@ -1690,8 +1690,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(ApplyBuffOnHit))]
+    
+    
     public BuffConfigurator AddApplyBuffOnHit(
         Rounds time,
         string? buff = null,
@@ -1707,8 +1707,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AttackBonusAgainstCaster"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AttackBonusAgainstCaster))]
+    
+    
     public BuffConfigurator AddAttackBonusAgainstCaster(
         ContextValue? value = null,
         ModifierDescriptor descriptor = default,
@@ -1726,8 +1726,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="AttackBonusAgainstTarget"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AttackBonusAgainstTarget))]
+    
+    
     public BuffConfigurator AddAttackBonusAgainstTarget(
         ContextValue? value = null,
         ModifierDescriptor descriptor = default,
@@ -1753,8 +1753,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="BuffInvisibility"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuffInvisibility))]
+    
+    
     public BuffConfigurator AddBuffInvisibility(
         bool notDispellAfterOffensiveAction = default,
         int stealthBonus = default,
@@ -1776,8 +1776,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="BuffPoisonStatDamage"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuffPoisonStatDamage))]
+    
+    
     public BuffConfigurator AddBuffPoisonStatDamage(
         DiceFormula value,
         ModifierDescriptor descriptor = default,
@@ -1803,8 +1803,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="BuffPoisonStatDamageContext"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuffPoisonStatDamageContext))]
+    
+    
     public BuffConfigurator AddBuffPoisonStatDamageContext(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -1835,8 +1835,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="ControlledProjectileHolder"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ControlledProjectileHolder))]
+    
+    
     public BuffConfigurator AddControlledProjectileHolder(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1848,8 +1848,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="DamageBonusAgainstTarget"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DamageBonusAgainstTarget))]
+    
+    
     public BuffConfigurator AddDamageBonusAgainstTarget(
         ContextValue? value = null,
         bool checkCaster = default,
@@ -1871,8 +1871,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="EqualForce"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EqualForce))]
+    
+    
     public BuffConfigurator AddEqualForce(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1884,8 +1884,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="GreaterSnapShotBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(GreaterSnapShotBonus))]
+    
+    
     public BuffConfigurator AddGreaterSnapShotBonus(
         ContextValue? value = null,
         ModifierDescriptor descriptor = default,
@@ -1903,8 +1903,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="IgnoreTargetDR"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(IgnoreTargetDR))]
+    
+    
     public BuffConfigurator AddIgnoreTargetDR(
         bool checkCaster = default,
         bool checkCasterFriend = default,
@@ -1920,8 +1920,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="OverrideLocoMotion"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(OverrideLocoMotion))]
+    
+    
     public BuffConfigurator AddOverrideLocoMotion(
         UnitAnimationActionLocoMotion locoMotion,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1937,8 +1937,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// <summary>
     /// Adds <see cref="RemovedByHeal"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RemovedByHeal))]
+    
+    
     public BuffConfigurator AddRemovedByHeal(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1952,8 +1952,8 @@ namespace BlueprintCore.Blueprints.Configurators.Buffs
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(HalfOfPairComponent))]
+    
+    
     public BuffConfigurator AddHalfOfPairComponent(
         int distanceToActivateInFeet = default,
         string? buff = null,

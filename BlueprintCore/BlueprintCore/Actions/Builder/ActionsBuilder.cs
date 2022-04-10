@@ -179,7 +179,7 @@ namespace BlueprintCore.Actions.Builder
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional">Conditional</see>
     /// </summary>
-    [Implements(typeof(Conditional))]
+    
     public ActionsBuilder Conditional(
         ConditionsBuilder conditions, ActionsBuilder? ifTrue = null, ActionsBuilder? ifFalse = null)
     {

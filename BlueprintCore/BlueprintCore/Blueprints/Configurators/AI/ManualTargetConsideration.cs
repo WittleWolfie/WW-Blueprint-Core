@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="ManualTargetConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ManualTargetConsideration))]
+  
   public class ManualTargetConsiderationConfigurator : BaseConsiderationConfigurator<ManualTargetConsideration, ManualTargetConsiderationConfigurator>
   {
     private ManualTargetConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ManualTargetConsideration.IsManualTargetScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ManualTargetConsiderationConfigurator SetIsManualTargetScore(float isManualTargetScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ManualTargetConsideration.NotManualTargetScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ManualTargetConsiderationConfigurator SetNotManualTargetScore(float notManualTargetScore)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ManualTargetConsideration.NoManualTargetScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ManualTargetConsiderationConfigurator SetNoManualTargetScore(float noManualTargetScore)
     {
       return OnConfigureInternal(

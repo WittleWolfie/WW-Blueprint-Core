@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="HealthConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(HealthConsideration))]
+  
   public class HealthConsiderationConfigurator : BaseConsiderationConfigurator<HealthConsideration, HealthConsiderationConfigurator>
   {
     private HealthConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="HealthConsideration.FullBorder"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HealthConsiderationConfigurator SetFullBorder(int fullBorder)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="HealthConsideration.DeadBorder"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HealthConsiderationConfigurator SetDeadBorder(int deadBorder)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="HealthConsideration.AboveFullScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HealthConsiderationConfigurator SetAboveFullScore(float aboveFullScore)
     {
       return OnConfigureInternal(
@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="HealthConsideration.BelowDeadScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HealthConsiderationConfigurator SetBelowDeadScore(float belowDeadScore)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="HealthConsideration.FullScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HealthConsiderationConfigurator SetFullScore(float fullScore)
     {
       return OnConfigureInternal(
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="HealthConsideration.DeadScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public HealthConsiderationConfigurator SetDeadScore(float deadScore)
     {
       return OnConfigureInternal(

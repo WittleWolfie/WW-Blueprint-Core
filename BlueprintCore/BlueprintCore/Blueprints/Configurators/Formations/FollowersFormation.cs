@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
   /// Configurator for <see cref="FollowersFormation"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(FollowersFormation))]
+  
   public class FollowersFormationConfigurator : BaseBlueprintConfigurator<FollowersFormation, FollowersFormationConfigurator>
   {
     private FollowersFormationConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Sets <see cref="FollowersFormation.m_PlayerOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FollowersFormationConfigurator SetPlayerOffset(Vector2 playerOffset)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Sets <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FollowersFormationConfigurator SetFormation(Vector2[]? formation)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Adds to <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FollowersFormationConfigurator AddToFormation(params Vector2[] formation)
     {
       return OnConfigureInternal(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Removes from <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FollowersFormationConfigurator RemoveFromFormation(params Vector2[] formation)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Sets <see cref="FollowersFormation.m_RepathDistance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FollowersFormationConfigurator SetRepathDistance(float repathDistance)
     {
       return OnConfigureInternal(
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Sets <see cref="FollowersFormation.m_RepathCooldownSec"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FollowersFormationConfigurator SetRepathCooldownSec(float repathCooldownSec)
     {
       return OnConfigureInternal(
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Sets <see cref="FollowersFormation.m_LookAngleRandomSpread"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FollowersFormationConfigurator SetLookAngleRandomSpread(float lookAngleRandomSpread)
     {
       return OnConfigureInternal(

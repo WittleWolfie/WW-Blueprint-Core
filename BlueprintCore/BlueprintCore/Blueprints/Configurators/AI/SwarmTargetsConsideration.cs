@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="SwarmTargetsConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(SwarmTargetsConsideration))]
+  
   public class SwarmTargetsConsiderationConfigurator : BaseConsiderationConfigurator<SwarmTargetsConsideration, SwarmTargetsConsiderationConfigurator>
   {
     private SwarmTargetsConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="SwarmTargetsConsideration.HasEnemiesScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SwarmTargetsConsiderationConfigurator SetHasEnemiesScore(float hasEnemiesScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="SwarmTargetsConsideration.NoEnemiesScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SwarmTargetsConsiderationConfigurator SetNoEnemiesScore(float noEnemiesScore)
     {
       return OnConfigureInternal(

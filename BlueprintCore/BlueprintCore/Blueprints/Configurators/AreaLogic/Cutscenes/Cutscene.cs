@@ -14,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
   /// Configurator for <see cref="Cutscene"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(Cutscene))]
+  
   public class CutsceneConfigurator : BaseGateConfigurator<Cutscene, CutsceneConfigurator>
   {
     private CutsceneConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.Priority"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetPriority(CutscenePriority priority)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.NonSkippable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetNonSkippable(bool nonSkippable)
     {
       return OnConfigureInternal(
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.ForbidDialogs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetForbidDialogs(bool forbidDialogs)
     {
       return OnConfigureInternal(
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.ForbidRandomIdles"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetForbidRandomIdles(bool forbidRandomIdles)
     {
       return OnConfigureInternal(
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.IsBackground"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetIsBackground(bool isBackground)
     {
       return OnConfigureInternal(
@@ -100,7 +100,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.Sleepless"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetSleepless(bool sleepless)
     {
       return OnConfigureInternal(
@@ -113,7 +113,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.AllowCopies"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetAllowCopies(bool allowCopies)
     {
       return OnConfigureInternal(
@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.AwakeRange"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetAwakeRange(float awakeRange)
     {
       return OnConfigureInternal(
@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.Anchors"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetAnchors(EntityReference[]? anchors)
     {
       ValidateParam(anchors);
@@ -154,7 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Adds to <see cref="Cutscene.Anchors"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator AddToAnchors(params EntityReference[] anchors)
     {
       ValidateParam(anchors);
@@ -168,7 +168,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Removes from <see cref="Cutscene.Anchors"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator RemoveFromAnchors(params EntityReference[] anchors)
     {
       ValidateParam(anchors);
@@ -182,7 +182,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.MarkedUnitHandling"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetMarkedUnitHandling(Cutscene.MarkedUnitHandlingType markedUnitHandling)
     {
       return OnConfigureInternal(
@@ -195,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.DefaultParameters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetDefaultParameters(ParametrizedContextSetter defaultParameters)
     {
       ValidateParam(defaultParameters);
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets <see cref="Cutscene.OnStopped"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CutsceneConfigurator SetOnStopped(ActionsBuilder? onStopped)
     {
       return OnConfigureInternal(
@@ -223,8 +223,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Adds <see cref="StopCutsceneWhenExitingArea"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(StopCutsceneWhenExitingArea))]
+    
+    
     public CutsceneConfigurator AddStopCutsceneWhenExitingArea(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -236,8 +236,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Adds <see cref="DestroyCutsceneOnLoad"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DestroyCutsceneOnLoad))]
+    
+    
     public CutsceneConfigurator AddDestroyCutsceneOnLoad(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)

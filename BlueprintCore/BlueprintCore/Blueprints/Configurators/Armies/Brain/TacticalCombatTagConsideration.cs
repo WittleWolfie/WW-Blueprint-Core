@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   /// Configurator for <see cref="TacticalCombatTagConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(TacticalCombatTagConsideration))]
+  
   public class TacticalCombatTagConsiderationConfigurator : BaseConsiderationConfigurator<TacticalCombatTagConsideration, TacticalCombatTagConsiderationConfigurator>
   {
     private TacticalCombatTagConsiderationConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="TacticalCombatTagConsideration.HasTagScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatTagConsiderationConfigurator SetHasTagScore(float hasTagScore)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="TacticalCombatTagConsideration.DoesNotHaveTagScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatTagConsiderationConfigurator SetDoesNotHaveTagScore(float doesNotHaveTagScore)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="TacticalCombatTagConsideration.Tag"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatTagConsiderationConfigurator SetTag(ArmyProperties tag)
     {
       return OnConfigureInternal(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="TacticalCombatTagConsideration.ShouldHaveAllTags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatTagConsiderationConfigurator SetShouldHaveAllTags(bool shouldHaveAllTags)
     {
       return OnConfigureInternal(

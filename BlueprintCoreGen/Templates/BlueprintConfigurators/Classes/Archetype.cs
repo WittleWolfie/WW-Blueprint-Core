@@ -6,7 +6,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
 {
   /// <summary>Configurator for <see cref="BlueprintArchetype"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArchetype))]
+  
   public class ArchetypeConfigurator : BaseBlueprintConfigurator<BlueprintArchetype, ArchetypeConfigurator>
   {
     private ArchetypeConfigurator(string name) : base(name) { }

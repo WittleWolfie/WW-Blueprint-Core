@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
   /// Configurator for <see cref="SettlementBlueprintArea"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(SettlementBlueprintArea))]
+  
   public class SettlementAreaConfigurator : BaseAreaConfigurator<SettlementBlueprintArea, SettlementAreaConfigurator>
   {
     private SettlementAreaConfigurator(string name) : base(name) { }

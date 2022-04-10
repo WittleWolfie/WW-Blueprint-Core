@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
   /// Configurator for <see cref="BlueprintEtude"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintEtude))]
+  
   public class EtudeConfigurator : BaseFactConfigurator<BlueprintEtude, EtudeConfigurator>
   {
     private EtudeConfigurator(string name) : base(name) { }
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="parent"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator SetParent(string? parent)
     {
       return OnConfigureInternal(
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Sets <see cref="BlueprintEtude.ActivationCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EtudeConfigurator SetActivationCondition(ConditionsBuilder? activationCondition)
     {
       return OnConfigureInternal(
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Sets <see cref="BlueprintEtude.CompletionCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EtudeConfigurator SetCompletionCondition(ConditionsBuilder? completionCondition)
     {
       return OnConfigureInternal(
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="synchronized"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator SetSynchronized(string[]? synchronized)
     {
       return OnConfigureInternal(
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="synchronized"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator AddToSynchronized(params string[] synchronized)
     {
       return OnConfigureInternal(
@@ -123,7 +123,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="synchronized"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator RemoveFromSynchronized(params string[] synchronized)
     {
       return OnConfigureInternal(
@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Sets <see cref="BlueprintEtude.m_AllowActionStart"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EtudeConfigurator SetAllowActionStart(bool allowActionStart)
     {
       return OnConfigureInternal(
@@ -156,7 +156,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="linkedAreaPart"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    [Generated]
+    
     public EtudeConfigurator SetLinkedAreaPart(string? linkedAreaPart)
     {
       return OnConfigureInternal(
@@ -169,7 +169,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Sets <see cref="BlueprintEtude.m_IncludeAreaParts"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EtudeConfigurator SetIncludeAreaParts(bool includeAreaParts)
     {
       return OnConfigureInternal(
@@ -184,7 +184,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="addedAreaMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public EtudeConfigurator SetAddedAreaMechanics(string[]? addedAreaMechanics)
     {
       return OnConfigureInternal(
@@ -199,7 +199,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="addedAreaMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public EtudeConfigurator AddToAddedAreaMechanics(params string[] addedAreaMechanics)
     {
       return OnConfigureInternal(
@@ -214,7 +214,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="addedAreaMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public EtudeConfigurator RemoveFromAddedAreaMechanics(params string[] addedAreaMechanics)
     {
       return OnConfigureInternal(
@@ -234,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="startsWith"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator SetStartsWith(string[]? startsWith)
     {
       return OnConfigureInternal(
@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="startsWith"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator AddToStartsWith(params string[] startsWith)
     {
       return OnConfigureInternal(
@@ -264,7 +264,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="startsWith"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator RemoveFromStartsWith(params string[] startsWith)
     {
       return OnConfigureInternal(
@@ -284,7 +284,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="startsOnComplete"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator SetStartsOnComplete(string[]? startsOnComplete)
     {
       return OnConfigureInternal(
@@ -299,7 +299,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="startsOnComplete"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator AddToStartsOnComplete(params string[] startsOnComplete)
     {
       return OnConfigureInternal(
@@ -314,7 +314,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="startsOnComplete"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public EtudeConfigurator RemoveFromStartsOnComplete(params string[] startsOnComplete)
     {
       return OnConfigureInternal(
@@ -332,7 +332,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Sets <see cref="BlueprintEtude.m_StartsParent"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EtudeConfigurator SetStartsParent(bool startsParent)
     {
       return OnConfigureInternal(
@@ -345,7 +345,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Sets <see cref="BlueprintEtude.m_CompletesParent"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EtudeConfigurator SetCompletesParent(bool completesParent)
     {
       return OnConfigureInternal(
@@ -360,7 +360,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="conflictingGroups"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtudeConflictingGroup"/></param>
-    [Generated]
+    
     public EtudeConfigurator SetConflictingGroups(string[]? conflictingGroups)
     {
       return OnConfigureInternal(
@@ -375,7 +375,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="conflictingGroups"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtudeConflictingGroup"/></param>
-    [Generated]
+    
     public EtudeConfigurator AddToConflictingGroups(params string[] conflictingGroups)
     {
       return OnConfigureInternal(
@@ -390,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="conflictingGroups"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtudeConflictingGroup"/></param>
-    [Generated]
+    
     public EtudeConfigurator RemoveFromConflictingGroups(params string[] conflictingGroups)
     {
       return OnConfigureInternal(
@@ -408,7 +408,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Sets <see cref="BlueprintEtude.Priority"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EtudeConfigurator SetPriority(int priority)
     {
       return OnConfigureInternal(
@@ -423,8 +423,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="tutorial"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketEnableTutorialSingle))]
+    
+    
     public EtudeConfigurator AddEtudeBracketEnableTutorialSingle(
         string? tutorial = null)
     {
@@ -438,8 +438,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="tutorials"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketEnableTutorials))]
+    
+    
     public EtudeConfigurator AddEtudeBracketEnableTutorials(
         string[]? tutorials = null)
     {
@@ -451,8 +451,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeCorruptionFreeZone"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeCorruptionFreeZone))]
+    
+    
     public EtudeConfigurator AddEtudeCorruptionFreeZone(
         bool clearAllCorruption = default)
     {
@@ -464,8 +464,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeDisableCooking"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeDisableCooking))]
+    
+    
     public EtudeConfigurator AddEtudeDisableCooking()
     {
       return AddComponent(new EtudeDisableCooking());
@@ -474,8 +474,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeDisableCraft"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeDisableCraft))]
+    
+    
     public EtudeConfigurator AddEtudeDisableCraft()
     {
       return AddComponent(new EtudeDisableCraft());
@@ -484,8 +484,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeOverrideCorruptionGrowth"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeOverrideCorruptionGrowth))]
+    
+    
     public EtudeConfigurator AddEtudeOverrideCorruptionGrowth(
         int corruptionGrowth = default)
     {
@@ -497,8 +497,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="BirthdayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BirthdayTrigger))]
+    
+    
     public EtudeConfigurator AddBirthdayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null)
@@ -512,8 +512,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EveryDayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryDayTrigger))]
+    
+    
     public EtudeConfigurator AddEveryDayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -529,8 +529,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EveryWeekTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryWeekTrigger))]
+    
+    
     public EtudeConfigurator AddEveryWeekTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -546,8 +546,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeCompleteTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeCompleteTrigger))]
+    
+    
     public EtudeConfigurator AddEtudeCompleteTrigger(
         ActionsBuilder? actions = null)
     {
@@ -559,8 +559,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeInvokeActionsDelayed"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeInvokeActionsDelayed))]
+    
+    
     public EtudeConfigurator AddEtudeInvokeActionsDelayed(
         int days = default,
         ActionsBuilder? actionList = null)
@@ -574,8 +574,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudePlayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudePlayTrigger))]
+    
+    
     public EtudeConfigurator AddEtudePlayTrigger(
         bool once = default,
         ConditionsBuilder? conditions = null,
@@ -591,8 +591,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="DisableMountRiding"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DisableMountRiding))]
+    
+    
     public EtudeConfigurator AddDisableMountRiding(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -604,8 +604,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketAudioEvents"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketAudioEvents))]
+    
+    
     public EtudeConfigurator AddEtudeBracketAudioEvents(
         AkEventReference[]? onEtudeStart = null,
         AkEventReference[]? onEtudeStop = null)
@@ -622,8 +622,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketAudioObjects"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketAudioObjects))]
+    
+    
     public EtudeConfigurator AddEtudeBracketAudioObjects(
         string connectedObjectName)
     {
@@ -635,8 +635,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketCampingAction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketCampingAction))]
+    
+    
     public EtudeConfigurator AddEtudeBracketCampingAction(
         ActionsBuilder? actions = null,
         bool skipRest = default)
@@ -650,8 +650,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketDetachPet"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketDetachPet))]
+    
+    
     public EtudeConfigurator AddEtudeBracketDetachPet(
         UnitEvaluator master,
         PetType petType = default)
@@ -667,8 +667,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketDisableCampingEncounters"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketDisableCampingEncounters))]
+    
+    
     public EtudeConfigurator AddEtudeBracketDisableCampingEncounters()
     {
       return AddComponent(new EtudeBracketDisableCampingEncounters());
@@ -677,8 +677,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketDisablePlayerRespec"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketDisablePlayerRespec))]
+    
+    
     public EtudeConfigurator AddEtudeBracketDisablePlayerRespec()
     {
       return AddComponent(new EtudeBracketDisablePlayerRespec());
@@ -687,8 +687,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketDisableRandomEncounters"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketDisableRandomEncounters))]
+    
+    
     public EtudeConfigurator AddEtudeBracketDisableRandomEncounters()
     {
       return AddComponent(new EtudeBracketDisableRandomEncounters());
@@ -700,8 +700,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///
     /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
     /// <param name="globalMapSpell"><see cref="Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketEnableAzataIsland))]
+    
+    
     public EtudeConfigurator AddEtudeBracketEnableAzataIsland(
         string? globalMap = null,
         string? globalMapSpell = null)
@@ -717,8 +717,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketEnableWarcamp))]
+    
+    
     public EtudeConfigurator AddEtudeBracketEnableWarcamp(
         string? globalMap = null)
     {
@@ -732,8 +732,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketFollowUnit))]
+    
+    
     public EtudeConfigurator AddEtudeBracketFollowUnit(
         UnitEvaluator leader,
         UnitEvaluator unit,
@@ -758,8 +758,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketForceCombatMode"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketForceCombatMode))]
+    
+    
     public EtudeConfigurator AddEtudeBracketForceCombatMode()
     {
       return AddComponent(new EtudeBracketForceCombatMode());
@@ -768,8 +768,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketIgnoreGameover"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketIgnoreGameover))]
+    
+    
     public EtudeConfigurator AddEtudeBracketIgnoreGameover(
         EtudeBracketGameModeWaiter gameModeWaiter,
         ActionsBuilder? actionList = null)
@@ -785,8 +785,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketMakePassive"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketMakePassive))]
+    
+    
     public EtudeConfigurator AddEtudeBracketMakePassive(
         UnitEvaluator unit)
     {
@@ -800,8 +800,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketMarkUnitEssential"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketMarkUnitEssential))]
+    
+    
     public EtudeConfigurator AddEtudeBracketMarkUnitEssential(
         UnitEvaluator target)
     {
@@ -815,8 +815,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketMusic"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketMusic))]
+    
+    
     public EtudeConfigurator AddEtudeBracketMusic(
         AkEventReference startTheme,
         AkEventReference stopTheme)
@@ -833,8 +833,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketOverrideActionsOnClick"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideActionsOnClick))]
+    
+    
     public EtudeConfigurator AddEtudeBracketOverrideActionsOnClick(
         UnitEvaluator unit,
         ActionsBuilder? actions = null,
@@ -852,8 +852,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketOverrideBark"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideBark))]
+    
+    
     public EtudeConfigurator AddEtudeBracketOverrideBark(
         UnitEvaluator unit,
         SharedStringAsset whatToBarkShared,
@@ -876,8 +876,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideDialog))]
+    
+    
     public EtudeConfigurator AddEtudeBracketOverrideDialog(
         UnitEvaluator unit,
         string? dialog = null,
@@ -895,8 +895,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketOverrideWeatherInclemency"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideWeatherInclemency))]
+    
+    
     public EtudeConfigurator AddEtudeBracketOverrideWeatherInclemency(
         EtudeBracketGameModeWaiter gameModeWaiter,
         InclemencyType inclemency = default)
@@ -912,8 +912,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketOverrideWeatherProfile"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketOverrideWeatherProfile))]
+    
+    
     public EtudeConfigurator AddEtudeBracketOverrideWeatherProfile(
         WeatherProfileExtended weatherProfile,
         EtudeBracketGameModeWaiter gameModeWaiter)
@@ -930,8 +930,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketPinCompanionInParty"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketPinCompanionInParty))]
+    
+    
     public EtudeConfigurator AddEtudeBracketPinCompanionInParty(
         UnitEvaluator unit)
     {
@@ -945,8 +945,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketPreventDirectControl"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketPreventDirectControl))]
+    
+    
     public EtudeConfigurator AddEtudeBracketPreventDirectControl(
         UnitEvaluator unit)
     {
@@ -960,8 +960,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketProgressBar"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketProgressBar))]
+    
+    
     public EtudeConfigurator AddEtudeBracketProgressBar(
         int maxProgress = default,
         LocalizedString? title = null)
@@ -977,8 +977,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketRestPhase"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketRestPhase))]
+    
+    
     public EtudeConfigurator AddEtudeBracketRestPhase(
         bool multiplePhases = default,
         RestPhase phase = default,
@@ -1004,8 +1004,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </summary>
     ///
     /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketSetCompanionPosition))]
+    
+    
     public EtudeConfigurator AddEtudeBracketSetCompanionPosition(
         EntityReference locator,
         string? companion = null,
@@ -1023,8 +1023,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketShowObjects"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketShowObjects))]
+    
+    
     public EtudeConfigurator AddEtudeBracketShowObjects(
         EntityReference[]? objects = null)
     {
@@ -1041,8 +1041,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///
     /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
     /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
-    [Implements(typeof(EtudeBracketSummonpoolOverrideDialog))]
+    
+    
     public EtudeConfigurator AddEtudeBracketSummonpoolOverrideDialog(
         string? summonPool = null,
         string? dialog = null,
@@ -1058,8 +1058,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeBracketTriggerAction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeBracketTriggerAction))]
+    
+    
     public EtudeConfigurator AddEtudeBracketTriggerAction(
         ActionsBuilder? onActivated = null,
         ActionsBuilder? onDeactivated = null)
@@ -1073,8 +1073,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeGameOverTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeGameOverTrigger))]
+    
+    
     public EtudeConfigurator AddEtudeGameOverTrigger(
         ActionsBuilder? onGameOver = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1088,8 +1088,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeIgnorePartyEncumbrance"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeIgnorePartyEncumbrance))]
+    
+    
     public EtudeConfigurator AddEtudeIgnorePartyEncumbrance()
     {
       return AddComponent(new EtudeIgnorePartyEncumbrance());
@@ -1098,8 +1098,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudeIgnorePersonalEncumbrance"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudeIgnorePersonalEncumbrance))]
+    
+    
     public EtudeConfigurator AddEtudeIgnorePersonalEncumbrance()
     {
       return AddComponent(new EtudeIgnorePersonalEncumbrance());
@@ -1108,8 +1108,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="EtudePeacefulZone"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EtudePeacefulZone))]
+    
+    
     public EtudeConfigurator AddEtudePeacefulZone()
     {
       return AddComponent(new EtudePeacefulZone());
@@ -1118,8 +1118,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="HideAllPets"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(HideAllPets))]
+    
+    
     public EtudeConfigurator AddHideAllPets(
         bool leaveAzataDragon = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1133,8 +1133,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <summary>
     /// Adds <see cref="CapitalCompanionLogic"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CapitalCompanionLogic))]
+    
+    
     public EtudeConfigurator AddCapitalCompanionLogic(
         bool restAllRemoteCompanions = default)
     {

@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
   /// Configurator for <see cref="BlueprintEtudeConflictingGroup"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintEtudeConflictingGroup))]
+  
   public class EtudeConflictingGroupConfigurator : BaseBlueprintConfigurator<BlueprintEtudeConflictingGroup, EtudeConflictingGroupConfigurator>
   {
     private EtudeConflictingGroupConfigurator(string name) : base(name) { }

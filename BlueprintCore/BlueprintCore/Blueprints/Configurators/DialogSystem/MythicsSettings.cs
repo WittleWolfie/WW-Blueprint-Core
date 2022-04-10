@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintMythicsSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintMythicsSettings))]
+  
   public class MythicsSettingsConfigurator : BaseBlueprintConfigurator<BlueprintMythicsSettings, MythicsSettingsConfigurator>
   {
     private MythicsSettingsConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
-    [Generated]
+    
     public MythicsSettingsConfigurator SetMythicsInfos(string[]? mythicsInfos)
     {
       return OnConfigureInternal(
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
-    [Generated]
+    
     public MythicsSettingsConfigurator AddToMythicsInfos(params string[] mythicsInfos)
     {
       return OnConfigureInternal(
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
-    [Generated]
+    
     public MythicsSettingsConfigurator RemoveFromMythicsInfos(params string[] mythicsInfos)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MythicsSettingsConfigurator SetMythicAlignments(MythicAlignment[]? mythicAlignments)
     {
       ValidateParam(mythicAlignments);
@@ -98,7 +98,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Adds to <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MythicsSettingsConfigurator AddToMythicAlignments(params MythicAlignment[] mythicAlignments)
     {
       ValidateParam(mythicAlignments);
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Removes from <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MythicsSettingsConfigurator RemoveFromMythicAlignments(params MythicAlignment[] mythicAlignments)
     {
       ValidateParam(mythicAlignments);
@@ -128,7 +128,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="tutorialChooseMythic"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
-    [Generated]
+    
     public MythicsSettingsConfigurator SetTutorialChooseMythic(string? tutorialChooseMythic)
     {
       return OnConfigureInternal(
@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MythicsSettingsConfigurator SetCharcaterLevelRestrictions(List<int>? charcaterLevelRestrictions)
     {
       return OnConfigureInternal(
@@ -154,7 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Adds to <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MythicsSettingsConfigurator AddToCharcaterLevelRestrictions(params int[] charcaterLevelRestrictions)
     {
       return OnConfigureInternal(
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Removes from <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MythicsSettingsConfigurator RemoveFromCharcaterLevelRestrictions(params int[] charcaterLevelRestrictions)
     {
       return OnConfigureInternal(

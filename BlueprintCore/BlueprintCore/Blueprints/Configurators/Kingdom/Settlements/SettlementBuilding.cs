@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
   /// Configurator for <see cref="BlueprintSettlementBuilding"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintSettlementBuilding))]
+  
   public class SettlementBuildingConfigurator : BaseFactConfigurator<BlueprintSettlementBuilding, SettlementBuildingConfigurator>
   {
     private SettlementBuildingConfigurator(string name) : base(name) { }
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.Name"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.MechanicalDescription"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetMechanicalDescription(LocalizedString? mechanicalDescription)
     {
       ValidateParam(mechanicalDescription);
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.CompletedPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetCompletedPrefab(PrefabLink? completedPrefab)
     {
       ValidateParam(completedPrefab);
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.UnfinishedPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetUnfinishedPrefab(PrefabLink? unfinishedPrefab)
     {
       ValidateParam(unfinishedPrefab);
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.BuildCost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetBuildCost(KingdomResourcesAmount buildCost)
     {
       return OnConfigureInternal(
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.StatChanges"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetStatChanges(KingdomStats.Changes statChanges)
     {
       ValidateParam(statChanges);
@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.MinLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetMinLevel(SettlementState.LevelType minLevel)
     {
       return OnConfigureInternal(
@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.SlotSizeX"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetSlotSizeX(int slotSizeX)
     {
       return OnConfigureInternal(
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.SlotSizeY"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetSlotSizeY(int slotSizeY)
     {
       return OnConfigureInternal(
@@ -188,7 +188,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.BuildTime"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetBuildTime(int buildTime)
     {
       return OnConfigureInternal(
@@ -201,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets <see cref="BlueprintSettlementBuilding.SpecialSlot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetSpecialSlot(SettlementState.SpecialSlotType specialSlot)
     {
       return OnConfigureInternal(
@@ -216,7 +216,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="upgradesTo"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
+    
     public SettlementBuildingConfigurator SetUpgradesTo(string? upgradesTo)
     {
       return OnConfigureInternal(
@@ -231,8 +231,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(LocationRadiusBuff))]
+    
+    
     public SettlementBuildingConfigurator AddLocationRadiusBuff(
         float radius = default,
         string? buff = null,
@@ -250,8 +250,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(AdjacencyRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddAdjacencyRestriction(
         bool invert = default,
         string[]? buildings = null)
@@ -265,8 +265,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="AlignmentRestriction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AlignmentRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddAlignmentRestriction(
         AlignmentMaskType allowed = default)
     {
@@ -278,8 +278,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="ArtisanRestriction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArtisanRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddArtisanRestriction()
     {
       return AddComponent(new ArtisanRestriction());
@@ -288,8 +288,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="Aviary"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(Aviary))]
+    
+    
     public SettlementBuildingConfigurator AddAviary(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -303,8 +303,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(BuildingAdjacencyBonus))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingAdjacencyBonus(
         KingdomStats.Changes stats,
         bool noSuchBuildings = default,
@@ -328,8 +328,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="BuildingAdjacentGrowthIncrease"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuildingAdjacentGrowthIncrease))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingAdjacentGrowthIncrease(
         bool allUnits = default,
         ArmyProperties properties = default,
@@ -349,8 +349,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="specificBuilding"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(BuildingAdjacentResourceIncrease))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingAdjacentResourceIncrease(
         int financeModifier = default,
         int basicsModifier = default,
@@ -374,8 +374,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff"/></param>
-    [Generated]
-    [Implements(typeof(BuildingAttachedBuff))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingAttachedBuff(
         string? buff = null,
         bool onlyInRegion = default)
@@ -391,8 +391,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(BuildingCountsAs))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingCountsAs(
         string[]? buildings = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -406,8 +406,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="BuildingGlobalGrowthIncrease"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuildingGlobalGrowthIncrease))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingGlobalGrowthIncrease(
         bool allUnits = default,
         ArmyProperties properties = default,
@@ -423,8 +423,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="BuildingLoneSlotBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuildingLoneSlotBonus))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingLoneSlotBonus(
         KingdomStats.Changes stats)
     {
@@ -438,8 +438,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="BuildingMoraleChangeBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuildingMoraleChangeBonus))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingMoraleChangeBonus(
         bool negative = default,
         bool positive = default,
@@ -460,8 +460,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///
     /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
     /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
-    [Implements(typeof(BuildingPartOfQuestObjective))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingPartOfQuestObjective(
         string[]? buildings = null,
         string? objective = null)
@@ -475,8 +475,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="BuildingResourceGrowthGlobalIncrease"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuildingResourceGrowthGlobalIncrease))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingResourceGrowthGlobalIncrease(
         int modifier = default,
         int financeModifier = default,
@@ -494,8 +494,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="BuildingResourceGrowthIncrease"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuildingResourceGrowthIncrease))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingResourceGrowthIncrease(
         KingdomResourcesAmount resourcesAmount)
     {
@@ -509,8 +509,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="affectedFlags"><see cref="Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag"/></param>
-    [Generated]
-    [Implements(typeof(BuildingSiegeDurationIncrease))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingSiegeDurationIncrease(
         int durationDeltaInDays = default,
         string[]? affectedFlags = null)
@@ -526,8 +526,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(BuildingTacticalUnitFactBonus))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingTacticalUnitFactBonus(
         BuildingTacticalUnitFactBonus.DistanceType distance = default,
         string[]? features = null,
@@ -545,8 +545,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(BuildingUnitGrowthIncrease))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingUnitGrowthIncrease(
         string? unit = null,
         int count = default)
@@ -562,8 +562,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="upgradeProject"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomUpgrade"/></param>
-    [Generated]
-    [Implements(typeof(BuildingUpgradeBonus))]
+    
+    
     public SettlementBuildingConfigurator AddBuildingUpgradeBonus(
         KingdomStats.Changes stats,
         string? upgradeProject = null,
@@ -583,8 +583,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="settlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    [Generated]
-    [Implements(typeof(CaptalLevelRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddCaptalLevelRestriction(
         string? settlement = null,
         SettlementState.LevelType level = default)
@@ -600,8 +600,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
-    [Generated]
-    [Implements(typeof(DLCRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddDLCRestriction(
         string? dlcReward = null)
     {
@@ -613,8 +613,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="LoneSlotRestriction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LoneSlotRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddLoneSlotRestriction()
     {
       return AddComponent(new LoneSlotRestriction());
@@ -623,8 +623,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="OncePerSettlementRestriction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(OncePerSettlementRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddOncePerSettlementRestriction()
     {
       return AddComponent(new OncePerSettlementRestriction());
@@ -635,8 +635,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(OtherBuildingRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddOtherBuildingRestriction(
         bool invert = default,
         bool requireAll = default,
@@ -654,8 +654,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="projects"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
-    [Generated]
-    [Implements(typeof(ProjectRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddProjectRestriction(
         string[]? projects = null)
     {
@@ -669,8 +669,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="settlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    [Generated]
-    [Implements(typeof(SpecificSettlementRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddSpecificSettlementRestriction(
         string? settlement = null,
         bool not = default)
@@ -684,8 +684,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="StatRankRestriction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(StatRankRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddStatRankRestriction(
         KingdomStats.Type stat = default,
         int rank = default,
@@ -701,8 +701,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="TeleportationCircle"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TeleportationCircle))]
+    
+    
     public SettlementBuildingConfigurator AddTeleportationCircle(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -716,8 +716,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="flag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
-    [Implements(typeof(UnlockRestriction))]
+    
+    
     public SettlementBuildingConfigurator AddUnlockRestriction(
         string? flag = null,
         bool mustBeLocked = default)
@@ -731,8 +731,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="BirthdayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BirthdayTrigger))]
+    
+    
     public SettlementBuildingConfigurator AddBirthdayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null)
@@ -748,8 +748,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="onlySpecificLeader"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(EventResolutonTrigger))]
+    
+    
     public SettlementBuildingConfigurator AddEventResolutonTrigger(
         BlueprintKingdomEvent.TagList requiredTags,
         bool applyToProblems = default,
@@ -779,8 +779,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="EventStartTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EventStartTrigger))]
+    
+    
     public SettlementBuildingConfigurator AddEventStartTrigger(
         BlueprintKingdomEvent.TagList requiredTags,
         bool applyToProblems = default,
@@ -802,8 +802,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="EveryDayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryDayTrigger))]
+    
+    
     public SettlementBuildingConfigurator AddEveryDayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -819,8 +819,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="EveryWeekTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryWeekTrigger))]
+    
+    
     public SettlementBuildingConfigurator AddEveryWeekTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -836,8 +836,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="KingdomAddMercenaryReroll"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomAddMercenaryReroll))]
+    
+    
     public SettlementBuildingConfigurator AddKingdomAddMercenaryReroll(
         int freeRerollsToAdd = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -851,8 +851,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="KingdomAddMercenarySlot"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomAddMercenarySlot))]
+    
+    
     public SettlementBuildingConfigurator AddKingdomAddMercenarySlot(
         int slotsToAdd = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -866,8 +866,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="KingdomConditionalStatChange"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomConditionalStatChange))]
+    
+    
     public SettlementBuildingConfigurator AddKingdomConditionalStatChange(
         KingdomStats.Changes stats,
         ConditionsBuilder? condition = null)
@@ -883,8 +883,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="KingdomEventFixedBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomEventFixedBonus))]
+    
+    
     public SettlementBuildingConfigurator AddKingdomEventFixedBonus(
         LeaderType leader = default,
         int leaderBonus = default)
@@ -900,8 +900,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </summary>
     ///
     /// <param name="onlySpecificLeader"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(KingdomEventModifier))]
+    
+    
     public SettlementBuildingConfigurator AddKingdomEventModifier(
         BlueprintKingdomEvent.TagList requiredTags,
         DiceFormula dice,
@@ -943,8 +943,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Adds <see cref="KingdomUnrestChangeTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomUnrestChangeTrigger))]
+    
+    
     public SettlementBuildingConfigurator AddKingdomUnrestChangeTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? action = null)

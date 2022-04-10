@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="LifeStateConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(LifeStateConsideration))]
+  
   public class LifeStateConsiderationConfigurator : BaseConsiderationConfigurator<LifeStateConsideration, LifeStateConsiderationConfigurator>
   {
     private LifeStateConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="LifeStateConsideration.AliveScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LifeStateConsiderationConfigurator SetAliveScore(float aliveScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="LifeStateConsideration.DeadScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LifeStateConsiderationConfigurator SetDeadScore(float deadScore)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="LifeStateConsideration.UnconsciousScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LifeStateConsiderationConfigurator SetUnconsciousScore(float unconsciousScore)
     {
       return OnConfigureInternal(

@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="ArmyRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ArmyRoot))]
+  
   public class ArmyRootConfigurator : BaseBlueprintConfigurator<ArmyRoot, ArmyRootConfigurator>
   {
     private ArmyRootConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_TravelingArmiesByChapter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetTravelingArmiesByChapter(ArmyRoot.ChapterSpawnInfo[]? travelingArmiesByChapter)
     {
       ValidateParam(travelingArmiesByChapter);
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds to <see cref="ArmyRoot.m_TravelingArmiesByChapter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator AddToTravelingArmiesByChapter(params ArmyRoot.ChapterSpawnInfo[] travelingArmiesByChapter)
     {
       ValidateParam(travelingArmiesByChapter);
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes from <see cref="ArmyRoot.m_TravelingArmiesByChapter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator RemoveFromTravelingArmiesByChapter(params ArmyRoot.ChapterSpawnInfo[] travelingArmiesByChapter)
     {
       ValidateParam(travelingArmiesByChapter);
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_MaxTravelingArmiesOnMap"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetMaxTravelingArmiesOnMap(int maxTravelingArmiesOnMap)
     {
       return OnConfigureInternal(
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.ResourceIcon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetResourceIcon(ArmyRoot.ResourceIcons resourceIcon)
     {
       ValidateParam(resourceIcon);
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="nobilitySettlementsProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetNobilitySettlementsProgression(string? nobilitySettlementsProgression)
     {
       return OnConfigureInternal(
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="nobilityBuildingsProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetNobilityBuildingsProgression(string? nobilityBuildingsProgression)
     {
       return OnConfigureInternal(
@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="nobilityIncomeProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetNobilityIncomeProgression(string? nobilityIncomeProgression)
     {
       return OnConfigureInternal(
@@ -151,7 +151,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="nobilityArmyStrengthProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetNobilityArmyStrengthProgression(string? nobilityArmyStrengthProgression)
     {
       return OnConfigureInternal(
@@ -166,7 +166,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="royalCourtLeadersProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetRoyalCourtLeadersProgression(string? royalCourtLeadersProgression)
     {
       return OnConfigureInternal(
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="royalCourtRanksProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetRoyalCourtRanksProgression(string? royalCourtRanksProgression)
     {
       return OnConfigureInternal(
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="royalCourtMissionProgressionChapter2"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetRoyalCourtMissionProgressionChapter2(string? royalCourtMissionProgressionChapter2)
     {
       return OnConfigureInternal(
@@ -211,7 +211,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="royalCourtMissionProgressionChapter3"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetRoyalCourtMissionProgressionChapter3(string? royalCourtMissionProgressionChapter3)
     {
       return OnConfigureInternal(
@@ -226,7 +226,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="nobilityPresetReward"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetNobilityPresetReward(string? nobilityPresetReward)
     {
       return OnConfigureInternal(
@@ -241,7 +241,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="summonArmiesMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
-    [Generated]
+    
     public ArmyRootConfigurator SetSummonArmiesMap(string? summonArmiesMap)
     {
       return OnConfigureInternal(
@@ -254,7 +254,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_MercenaryFreeRerollsStart"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetMercenaryFreeRerollsStart(int mercenaryFreeRerollsStart)
     {
       return OnConfigureInternal(
@@ -267,7 +267,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_MercenaryStartSlots"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetMercenaryStartSlots(int mercenaryStartSlots)
     {
       return OnConfigureInternal(
@@ -280,7 +280,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_RerollStartPrice"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetRerollStartPrice(KingdomResourcesAmount rerollStartPrice)
     {
       return OnConfigureInternal(
@@ -293,7 +293,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_MercenaryDefaultCountFormula"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetMercenaryDefaultCountFormula(DiceFormula mercenaryDefaultCountFormula)
     {
       return OnConfigureInternal(
@@ -306,7 +306,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_MercenaryDefaultCountBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetMercenaryDefaultCountBonus(int mercenaryDefaultCountBonus)
     {
       return OnConfigureInternal(
@@ -319,7 +319,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_MercenaryDefaultCountDivider"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetMercenaryDefaultCountDivider(float mercenaryDefaultCountDivider)
     {
       return OnConfigureInternal(
@@ -332,7 +332,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_OverpricedMercenaryCountMultiplier"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetOverpricedMercenaryCountMultiplier(float overpricedMercenaryCountMultiplier)
     {
       return OnConfigureInternal(
@@ -345,7 +345,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_OverpricedMercenaryPriceMultiplier"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetOverpricedMercenaryPriceMultiplier(float overpricedMercenaryPriceMultiplier)
     {
       return OnConfigureInternal(
@@ -358,7 +358,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_MercenaryPriceMoraleModifierCoefficient"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetMercenaryPriceMoraleModifierCoefficient(float mercenaryPriceMoraleModifierCoefficient)
     {
       return OnConfigureInternal(
@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_MercenaryFormulaMoraleCap"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetMercenaryFormulaMoraleCap(int mercenaryFormulaMoraleCap)
     {
       return OnConfigureInternal(
@@ -384,7 +384,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_ExperienceFinancesCoef"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetExperienceFinancesCoef(float experienceFinancesCoef)
     {
       return OnConfigureInternal(
@@ -397,7 +397,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_ExperienceMaterialsCoef"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetExperienceMaterialsCoef(float experienceMaterialsCoef)
     {
       return OnConfigureInternal(
@@ -410,7 +410,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_ExperienceFavorsCoef"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetExperienceFavorsCoef(float experienceFavorsCoef)
     {
       return OnConfigureInternal(
@@ -423,7 +423,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_ArmyDangerBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetArmyDangerBonus(int armyDangerBonus)
     {
       return OnConfigureInternal(
@@ -436,7 +436,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_ArmyDangerMultiplier"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetArmyDangerMultiplier(float armyDangerMultiplier)
     {
       return OnConfigureInternal(
@@ -449,7 +449,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="ArmyRoot.m_ArmyStrings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyRootConfigurator SetArmyStrings(ArmyStrings armyStrings)
     {
       ValidateParam(armyStrings);

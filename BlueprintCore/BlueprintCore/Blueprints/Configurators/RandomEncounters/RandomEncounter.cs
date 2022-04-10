@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   /// Configurator for <see cref="BlueprintRandomEncounter"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintRandomEncounter))]
+  
   public class RandomEncounterConfigurator : BaseBlueprintConfigurator<BlueprintRandomEncounter, RandomEncounterConfigurator>
   {
     private RandomEncounterConfigurator(string name) : base(name) { }
@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.ExcludeFromREList"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetExcludeFromREList(bool excludeFromREList)
     {
       return OnConfigureInternal(
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.IsPeaceful"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetIsPeaceful(bool isPeaceful)
     {
       return OnConfigureInternal(
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.Name"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.AvoidType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetAvoidType(EncounterAvoidType avoidType)
     {
       return OnConfigureInternal(
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.AvoidDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetAvoidDC(int avoidDC)
     {
       return OnConfigureInternal(
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.EncountersLimit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetEncountersLimit(int encountersLimit)
     {
       return OnConfigureInternal(
@@ -129,7 +129,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.PawnPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetPawnPrefab(GlobalMapRandomEncounterPawn pawnPrefab)
     {
       ValidateParam(pawnPrefab);
@@ -157,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetType(EncounterType type)
     {
       return OnConfigureInternal(
@@ -170,7 +170,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.DisableAutoSave"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetDisableAutoSave(bool disableAutoSave)
     {
       return OnConfigureInternal(
@@ -183,7 +183,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.OnEnter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetOnEnter(ActionsBuilder? onEnter)
     {
       return OnConfigureInternal(
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintRandomEncounter.CanBeCampingEncounter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomEncounterConfigurator SetCanBeCampingEncounter(bool canBeCampingEncounter)
     {
       return OnConfigureInternal(
@@ -211,7 +211,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// </summary>
     ///
     /// <param name="areaEntrance"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public RandomEncounterConfigurator SetAreaEntrance(string? areaEntrance)
     {
       return OnConfigureInternal(
@@ -226,7 +226,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// </summary>
     ///
     /// <param name="bookEvent"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
+    
     public RandomEncounterConfigurator SetBookEvent(string? bookEvent)
     {
       return OnConfigureInternal(

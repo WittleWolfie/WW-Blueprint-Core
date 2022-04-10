@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
 {
   /// <summary>Configurator for <see cref="BlueprintAbility"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAbility))]
+  
   public class AbilityConfigurator : BaseUnitFactConfigurator<BlueprintAbility, AbilityConfigurator>
   {
     private AbilityConfigurator(string name) : base(name) { }
@@ -329,7 +329,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(AbilityCasterAlignment))]
+    
     public AbilityConfigurator RequireCasterAlignment(AlignmentMaskType alignment, string? ignoreFact = null)
     {
       var hasAlignment = new AbilityCasterAlignment { Alignment = alignment };
@@ -345,7 +345,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(AbilityCasterHasFacts))]
+    
     public AbilityConfigurator RequireCasterFacts(params string[] facts)
     {
       var hasFacts = new AbilityCasterHasFacts
@@ -360,7 +360,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(AbilityCasterHasNoFacts))]
+    
     public AbilityConfigurator RequireCasterHasNoFacts(params string[] facts)
     {
       var hasNoFacts = new AbilityCasterHasNoFacts
@@ -381,7 +381,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// 
     /// <param name="parameterizedWeaponFeature"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintParametrizedFeature">BlueprintParametrizedFeature</see></param>
     /// <param name="ignoreFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact">BlueprintUnitFact</see></param>
-    [Implements(typeof(AbilityCasterHasChosenWeapon))]
+    
     public AbilityConfigurator RequireCasterHasChosenWeapon(
         string parameterizedWeaponFeature, string? ignoreFact = null)
     {
@@ -399,7 +399,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/>
     /// </summary>
-    [Implements(typeof(AbilityCasterHasWeaponWithRangeType))]
+    
     public AbilityConfigurator RequireCasterWeaponRange(WeaponRangeType range)
     {
       var hasWeaponRange = new AbilityCasterHasWeaponWithRangeType { RangeType = range };
@@ -409,7 +409,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCasterInCombat"/>
     /// </summary>
-    [Implements(typeof(AbilityCasterInCombat))]
+    
     public AbilityConfigurator RequireCasterInCombat(bool requireInCombat = true)
     {
       var isInCombat = new AbilityCasterInCombat { Not = !requireInCombat };
@@ -421,7 +421,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="ignoreFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(AbilityCasterIsOnFavoredTerrain))]
+    
     public AbilityConfigurator RequireCasterOnFavoredTerrain(string? ignoreFeature = null)
     {
       var onFavoredTerrain = new AbilityCasterIsOnFavoredTerrain();
@@ -437,7 +437,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff">BlueprintBuff</see></param>
-    [Implements(typeof(TargetHasBuffsFromCaster))]
+    
     public AbilityConfigurator RequireTargetHasBuffsFromCaster(string[] buffs, bool requireAllBuffs = false)
     {
       var hasBuffs = new TargetHasBuffsFromCaster
@@ -451,7 +451,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCanTargetDead"/>
     /// </summary>
-    [Implements(typeof(AbilityCanTargetDead))]
+    
     public AbilityConfigurator CanTargetDead()
     {
       return AddUniqueComponent(new AbilityCanTargetDead(), ComponentMerge.Skip);
@@ -461,7 +461,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// Adds <see cref="AbilityDeliveredByWeapon"/>
     /// </summary>
     [DeliverEffectAttr]
-    [Implements(typeof(AbilityDeliveredByWeapon))]
+    
     public AbilityConfigurator DeliveredByWeapon()
     {
       return AddUniqueComponent(new AbilityDeliveredByWeapon(), ComponentMerge.Skip);
@@ -473,7 +473,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
     [ApplyEffectAttr]
-    [Implements(typeof(AbilityEffectRunAction))]
+    
     public AbilityConfigurator RunActions(
         ActionsBuilder actions,
         SavingThrowType savingThrow = SavingThrowType.Unknown,
@@ -488,7 +488,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       return AddUniqueComponent(run, mergeBehavior, merge ?? MergeRunActions);
     }
 
-    [Implements(typeof(AbilityEffectRunAction))]
+    
     private static void MergeRunActions(BlueprintComponent current, BlueprintComponent other)
     {
       var source = current as AbilityEffectRunAction;
@@ -501,7 +501,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <remarks>Default Merge: Appends the given <see cref="Kingmaker.ElementsSystem.ActionList">ActionList</see></remarks>
-    [Implements(typeof(AbilityEffectMiss))]
+    
     public AbilityConfigurator OnMiss(
         ActionsBuilder actions,
         bool useTargetSelector = true,
@@ -516,7 +516,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
       return AddUniqueComponent(onMiss, mergeBehavior, merge ?? MergeMissActions);
     }
 
-    [Implements(typeof(AbilityEffectMiss))]
+    
     private static void MergeMissActions(BlueprintComponent current, BlueprintComponent other)
     {
       var source = current as AbilityEffectMiss;
@@ -527,7 +527,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityExecuteActionOnCast"/>
     /// </summary>
-    [Implements(typeof(AbilityExecuteActionOnCast))]
+    
     public AbilityConfigurator OnCast(ActionsBuilder actions, ConditionsBuilder? checker = null)
     {
       var onCast = new AbilityExecuteActionOnCast
@@ -541,7 +541,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="SpellComponent"/>
     /// </summary>
-    [Implements(typeof(SpellComponent))]
+    
     public AbilityConfigurator SetSpellSchool(
         SpellSchool school,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -554,7 +554,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="CantripComponent"/>
     /// </summary>
-    [Implements(typeof(CantripComponent))]
+    
     public AbilityConfigurator MakeCantrip()
     {
       return AddUniqueComponent(new CantripComponent(), ComponentMerge.Skip);
@@ -563,7 +563,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Removes <see cref="CantripComponent"/>
     /// </summary>
-    [Implements(typeof(CantripComponent))]
+    
     public AbilityConfigurator MakeNotCantrip()
     {
       return RemoveComponents(c => c is CantripComponent);
@@ -574,7 +574,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="abilities"><see cref="BlueprintAbility"/> Updates the parent of each ability to this blueprint</param>
-    [Implements(typeof(AbilityVariants))]
+    
     public AbilityConfigurator AddVariants(params string[] abilities)
     {
       return OnConfigureInternal(
@@ -583,7 +583,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
                   blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
     }
 
-    [Implements(typeof(AbilityVariants))]
+    
     private static void AddVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
     {
       var component = bp.GetComponent<AbilityVariants>();
@@ -602,7 +602,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <param name="abilities"><see cref="BlueprintAbility"/> Removes this blueprint as the parent of each ability</param>
-    [Implements(typeof(AbilityVariants))]
+    
     public AbilityConfigurator RemoveVariants(params string[] abilities)
     {
       return OnConfigureInternal(
@@ -611,7 +611,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
                   blueprint, abilities.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToList()));
     }
 
-    [Implements(typeof(AbilityVariants))]
+    
     private static void RemoveVariants(BlueprintAbility bp, List<BlueprintAbilityReference> variants)
     {
       var component = bp.GetComponent<AbilityVariants>();
@@ -636,7 +636,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
+    
     public AbilityConfigurator AddContextRankConfig(ContextRankConfig rankConfig)
     {
       return AddComponent(rankConfig);
@@ -645,13 +645,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds or modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     public AbilityConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
     }
 
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
     {
       var component = bp.GetComponent<SpellDescriptorComponent>();
@@ -666,13 +666,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     public AbilityConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
     }
 
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
     {
       var component = bp.GetComponent<SpellDescriptorComponent>();
@@ -683,8 +683,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="InPowerDismemberComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(InPowerDismemberComponent))]
+    
+    
     public AbilityConfigurator AddInPowerDismemberComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -696,8 +696,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="SplitDismemberComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SplitDismemberComponent))]
+    
+    
     public AbilityConfigurator AddSplitDismemberComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -709,8 +709,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="ActionPanelLogic"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ActionPanelLogic))]
+    
+    
     public AbilityConfigurator AddActionPanelLogic(
         int priority = default,
         ConditionsBuilder? autoFillConditions = null,
@@ -728,8 +728,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="CraftInfoComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CraftInfoComponent))]
+    
+    
     public AbilityConfigurator AddCraftInfoComponent(
         CraftSpellType spellType = default,
         CraftSavingThrow savingThrow = default,
@@ -747,8 +747,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityIsFullRoundInTurnBased"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityIsFullRoundInTurnBased))]
+    
+    
     public AbilityConfigurator AddAbilityIsFullRoundInTurnBased(
         bool fullRoundIfTurnBased = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -762,8 +762,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="LevelUpRecommendation"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LevelUpRecommendation))]
+    
+    
     public AbilityConfigurator AddLevelUpRecommendation(
         ClassesPriority[]? classPriorities = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -779,8 +779,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="ChirurgeonSpell"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ChirurgeonSpell))]
+    
+    
     public AbilityConfigurator AddChirurgeonSpell()
     {
       return AddComponent(new ChirurgeonSpell());
@@ -789,8 +789,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="PretendSpellLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PretendSpellLevel))]
+    
+    
     public AbilityConfigurator AddPretendSpellLevel(
         int spellLevel = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -806,8 +806,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="spellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
-    [Generated]
-    [Implements(typeof(SpellListComponent))]
+    
+    
     public AbilityConfigurator AddSpellListComponent(
         string? spellList = null,
         int spellLevel = default)
@@ -821,8 +821,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="SpellTypeOverride"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SpellTypeOverride))]
+    
+    
     public AbilityConfigurator AddSpellTypeOverride(
         SpellSource type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -836,8 +836,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityAcceptBurnOnCast"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityAcceptBurnOnCast))]
+    
+    
     public AbilityConfigurator AddAbilityAcceptBurnOnCast(
         int burnValue = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -856,8 +856,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="requiredResource"><see cref="Kingmaker.Blueprints.BlueprintAbilityResource"/></param>
     /// <param name="resourceCostIncreasingFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     /// <param name="resourceCostDecreasingFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityKineticist))]
+    
+    
     public AbilityConfigurator AddAbilityKineticist(
         int blastBurnCost = default,
         int infusionBurnCost = default,
@@ -893,8 +893,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="customProperty"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
-    [Generated]
-    [Implements(typeof(ContextCalculateAbilityParams))]
+    
+    
     public AbilityConfigurator AddContextCalculateAbilityParams(
         bool useKineticistMainStat = default,
         StatType statType = default,
@@ -927,8 +927,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
+    
+    
     public AbilityConfigurator AddContextCalculateAbilityParamsBasedOnClass(
         bool useKineticistMainStat = default,
         StatType statType = default,
@@ -946,8 +946,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="ContextCalculateSharedValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ContextCalculateSharedValue))]
+    
+    
     public AbilityConfigurator AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
         ContextDiceValue? value = null,
@@ -965,8 +965,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="ContextSetAbilityParams"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ContextSetAbilityParams))]
+    
+    
     public AbilityConfigurator AddContextSetAbilityParams(
         bool add10ToDC = default,
         ContextValue? dC = null,
@@ -998,8 +998,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(ArmyAbilityTeleportation))]
+    
+    
     public AbilityConfigurator AddArmyAbilityTeleportation(
         Feet radius,
         string portalBone,
@@ -1044,8 +1044,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityOnInBattleUnits"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityOnInBattleUnits))]
+    
+    
     public AbilityConfigurator AddAbilityOnInBattleUnits(
         AbilityOnInBattleUnits.AllyState factionType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1059,8 +1059,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityAffectLineOnGrid"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityAffectLineOnGrid))]
+    
+    
     public AbilityConfigurator AddAbilityAffectLineOnGrid(
         Feet spreadSpeed,
         bool vertical = default,
@@ -1080,8 +1080,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityAoERadius"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityAoERadius))]
+    
+    
     public AbilityConfigurator AddAbilityAoERadius(
         Feet radius,
         Kingmaker.UnitLogic.Abilities.Components.TargetType targetType = default,
@@ -1103,8 +1103,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityApplyFact))]
+    
+    
     public AbilityConfigurator AddAbilityApplyFact(
         ContextDurationValue duration,
         AbilityApplyFact.FactRestriction restriction = default,
@@ -1128,8 +1128,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="resource"><see cref="Kingmaker.Blueprints.BlueprintScriptableObject"/></param>
-    [Generated]
-    [Implements(typeof(AbilityConvertSpellLevelToResource))]
+    
+    
     public AbilityConfigurator AddAbilityConvertSpellLevelToResource(
         string? resource = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1143,8 +1143,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCustomAnimationByBuff"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCustomAnimationByBuff))]
+    
+    
     public AbilityConfigurator AddAbilityCustomAnimationByBuff(
         UnitAnimationActionClip defaultAnimation,
         AbilityCustomAnimationByBuff.Entry[]? variants = null,
@@ -1163,8 +1163,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCustomAttack"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCustomAttack))]
+    
+    
     public AbilityConfigurator AddAbilityCustomAttack(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1176,8 +1176,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCustomCharge"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCustomCharge))]
+    
+    
     public AbilityConfigurator AddAbilityCustomCharge(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1191,8 +1191,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="greaterFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomCleave))]
+    
+    
     public AbilityConfigurator AddAbilityCustomCleave(
         string? greaterFeature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1211,8 +1211,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomDimensionDoor))]
+    
+    
     public AbilityConfigurator AddAbilityCustomDimensionDoor(
         Feet radius,
         string portalBone,
@@ -1260,8 +1260,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="disappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="appearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomDimensionDoorSwap))]
+    
+    
     public AbilityConfigurator AddAbilityCustomDimensionDoorSwap(
         string portalBone,
         PrefabLink? portalFromPrefab = null,
@@ -1294,8 +1294,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomDimensionDoorTargets))]
+    
+    
     public AbilityConfigurator AddAbilityCustomDimensionDoorTargets(
         Feet radius,
         string portalBone,
@@ -1348,8 +1348,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomDweomerLeap))]
+    
+    
     public AbilityConfigurator AddAbilityCustomDweomerLeap(
         Feet radius,
         string portalBone,
@@ -1400,8 +1400,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="casterAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideDisappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="sideAppearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomFlashStep))]
+    
+    
     public AbilityConfigurator AddAbilityCustomFlashStep(
         Feet radius,
         string portalBone,
@@ -1448,8 +1448,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCustomFly"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCustomFly))]
+    
+    
     public AbilityConfigurator AddAbilityCustomFly(
         UnitAnimationActionBuffState animation,
         AnimationCurve takeOff,
@@ -1482,8 +1482,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="mythicBlueprint"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     /// <param name="rowdyFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomMeleeAttack))]
+    
+    
     public AbilityConfigurator AddAbilityCustomMeleeAttack(
         AbilityCustomMeleeAttack.AttackType type = default,
         int vitalStrikeMod = default,
@@ -1503,8 +1503,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCustomMove"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCustomMove))]
+    
+    
     public AbilityConfigurator AddAbilityCustomMove(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1518,8 +1518,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="addBuffWhileRunning"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomOverrun))]
+    
+    
     public AbilityConfigurator AddAbilityCustomOverrun(
         string? addBuffWhileRunning = null,
         float delayBeforeStart = default,
@@ -1547,8 +1547,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="projectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomTeleportation))]
+    
+    
     public AbilityConfigurator AddAbilityCustomTeleportation(
         string? projectile = null,
         PrefabLink? disappearFx = null,
@@ -1573,8 +1573,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCustomTongueGrab"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCustomTongueGrab))]
+    
+    
     public AbilityConfigurator AddAbilityCustomTongueGrab(
         UnitAnimationCustomTongueGrab animationAction,
         AnimationCurve stickCurve,
@@ -1607,8 +1607,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="mythicBlueprint"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
     /// <param name="rowdyFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(AbilityCustomVitalStrike))]
+    
+    
     public AbilityConfigurator AddAbilityCustomVitalStrike(
         int vitalStrikeMod = default,
         string? mythicBlueprint = null,
@@ -1626,8 +1626,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityDeliverAttackWithWeapon"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityDeliverAttackWithWeapon))]
+    
+    
     public AbilityConfigurator AddAbilityDeliverAttackWithWeapon(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1642,8 +1642,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="projectileFirst"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="projectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(AbilityDeliverChain))]
+    
+    
     public AbilityConfigurator AddAbilityDeliverChain(
         Feet radius,
         string? projectileFirst = null,
@@ -1674,8 +1674,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="projectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    [Generated]
-    [Implements(typeof(AbilityDeliverClashingRocks))]
+    
+    
     public AbilityConfigurator AddAbilityDeliverClashingRocks(
         Feet width,
         Feet distanceToTarget,
@@ -1699,8 +1699,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityDeliverDelay"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityDeliverDelay))]
+    
+    
     public AbilityConfigurator AddAbilityDeliverDelay(
         float delaySeconds = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1718,8 +1718,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="projectiles"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     /// <param name="controlledProjectileHolderBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AbilityDeliverProjectile))]
+    
+    
     public AbilityConfigurator AddAbilityDeliverProjectile(
         Feet length,
         Feet lineWidth,
@@ -1761,8 +1761,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="projectiles"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     /// <param name="controlledProjectileHolderBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AbilityDeliverProjectileOnGrid))]
+    
+    
     public AbilityConfigurator AddAbilityDeliverProjectileOnGrid(
         Feet length,
         Feet lineWidth,
@@ -1806,8 +1806,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="touchWeapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    [Generated]
-    [Implements(typeof(AbilityDeliverTouch))]
+    
+    
     public AbilityConfigurator AddAbilityDeliverTouch(
         string? touchWeapon = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1821,8 +1821,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityDemonCharge"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityDemonCharge))]
+    
+    
     public AbilityConfigurator AddAbilityDemonCharge(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1834,8 +1834,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityDifficultyLimitDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityDifficultyLimitDC))]
+    
+    
     public AbilityConfigurator AddAbilityDifficultyLimitDC(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1847,8 +1847,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityEffectRunActionOnClickedPoint"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityEffectRunActionOnClickedPoint))]
+    
+    
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedPoint(
         ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1862,8 +1862,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityEffectRunActionOnClickedTarget"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityEffectRunActionOnClickedTarget))]
+    
+    
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedTarget(
         ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1877,8 +1877,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityEffectRunActionOnClickedUnit"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityEffectRunActionOnClickedUnit))]
+    
+    
     public AbilityConfigurator AddAbilityEffectRunActionOnClickedUnit(
         ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1894,8 +1894,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="touchDeliveryAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(AbilityEffectStickyTouch))]
+    
+    
     public AbilityConfigurator AddAbilityEffectStickyTouch(
         string? touchDeliveryAbility = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1909,8 +1909,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityIsBomb"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityIsBomb))]
+    
+    
     public AbilityConfigurator AddAbilityIsBomb(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1922,8 +1922,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityKineticBlade"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityKineticBlade))]
+    
+    
     public AbilityConfigurator AddAbilityKineticBlade(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1937,8 +1937,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="improvedFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(AbilityMagusSpellRecallCostCalculator))]
+    
+    
     public AbilityConfigurator AddAbilityMagusSpellRecallCostCalculator(
         string? improvedFeature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1952,8 +1952,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityRequirementCanMove"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityRequirementCanMove))]
+    
+    
     public AbilityConfigurator AddAbilityRequirementCanMove(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1965,8 +1965,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityRequirementHasCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityRequirementHasCondition))]
+    
+    
     public AbilityConfigurator AddAbilityRequirementHasCondition(
         bool not = default,
         UnitCondition[]? conditions = null,
@@ -1984,8 +1984,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityRequirementHasItemInHands"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityRequirementHasItemInHands))]
+    
+    
     public AbilityConfigurator AddAbilityRequirementHasItemInHands(
         AbilityRequirementHasItemInHands.RequirementType type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -2003,8 +2003,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="requiredResource"><see cref="Kingmaker.Blueprints.BlueprintAbilityResource"/></param>
     /// <param name="resourceCostIncreasingFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     /// <param name="resourceCostDecreasingFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityResourceLogic))]
+    
+    
     public AbilityConfigurator AddAbilityResourceLogic(
         string? requiredResource = null,
         bool isSpendResource = default,
@@ -2028,8 +2028,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityRestoreSpellSlot"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityRestoreSpellSlot))]
+    
+    
     public AbilityConfigurator AddAbilityRestoreSpellSlot(
         bool anySpellLevel = default,
         int spellLevel = default,
@@ -2045,8 +2045,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityRestoreSpontaneousSpell"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityRestoreSpontaneousSpell))]
+    
+    
     public AbilityConfigurator AddAbilityRestoreSpontaneousSpell(
         bool anySpellLevel = default,
         int spellLevel = default,
@@ -2065,8 +2065,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="factor"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
     /// <param name="spellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
-    [Generated]
-    [Implements(typeof(AbilityShadowSpell))]
+    
+    
     public AbilityConfigurator AddAbilityShadowSpell(
         bool anySchool = default,
         SpellSchool school = default,
@@ -2090,8 +2090,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="unitFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityShowIfCasterHasFact))]
+    
+    
     public AbilityConfigurator AddAbilityShowIfCasterHasFact(
         string? unitFact = null,
         bool not = default,
@@ -2107,8 +2107,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilitySillyFeed"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilitySillyFeed))]
+    
+    
     public AbilityConfigurator AddAbilitySillyFeed(
         UnitAnimationActionClip animation,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -2127,8 +2127,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="disappearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
     /// <param name="appearProjectile"><see cref="Kingmaker.Blueprints.BlueprintProjectile"/></param>
-    [Generated]
-    [Implements(typeof(AbilitySwitchDualCompanion))]
+    
+    
     public AbilityConfigurator AddAbilitySwitchDualCompanion(
         GameObject portalPrefab,
         string portalBone,
@@ -2158,8 +2158,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetsAround"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetsAround))]
+    
+    
     public AbilityConfigurator AddAbilityTargetsAround(
         Feet radius,
         Feet spreadSpeed,
@@ -2181,8 +2181,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetsAroundOnGrid"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetsAroundOnGrid))]
+    
+    
     public AbilityConfigurator AddAbilityTargetsAroundOnGrid(
         Feet spreadSpeed,
         int diameterInCells = default,
@@ -2204,8 +2204,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityUseOnRest"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityUseOnRest))]
+    
+    
     public AbilityConfigurator AddAbilityUseOnRest(
         AbilityUseOnRestType type = default,
         int baseValue = default,
@@ -2227,8 +2227,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilitySwtichDualCompanionChecker"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilitySwtichDualCompanionChecker))]
+    
+    
     public AbilityConfigurator AddAbilitySwtichDualCompanionChecker(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2240,8 +2240,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetAlignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetAlignment))]
+    
+    
     public AbilityConfigurator AddAbilityTargetAlignment(
         AlignmentMaskType alignment = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -2258,8 +2258,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="recentlyDeadBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="undeadFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityTargetBreathOfLife))]
+    
+    
     public AbilityConfigurator AddAbilityTargetBreathOfLife(
         string? recentlyDeadBuff = null,
         string? undeadFact = null,
@@ -2275,8 +2275,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetCanSeeCaster"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetCanSeeCaster))]
+    
+    
     public AbilityConfigurator AddAbilityTargetCanSeeCaster(
         bool not = default)
     {
@@ -2288,8 +2288,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetCellsRestriction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetCellsRestriction))]
+    
+    
     public AbilityConfigurator AddAbilityTargetCellsRestriction(
         List<int>? allowedColumns = null,
         bool factionDependent = default,
@@ -2311,8 +2311,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="checkBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AbilityTargetDivineTroth))]
+    
+    
     public AbilityConfigurator AddAbilityTargetDivineTroth(
         string? checkBuff = null)
     {
@@ -2326,8 +2326,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="factToCheck"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityTargetHPCondition))]
+    
+    
     public AbilityConfigurator AddAbilityTargetHPCondition(
         int currentHPLessThan = default,
         bool inverted = default,
@@ -2347,8 +2347,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetHasCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetHasCondition))]
+    
+    
     public AbilityConfigurator AddAbilityTargetHasCondition(
         UnitCondition condition = default,
         bool not = default)
@@ -2364,8 +2364,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AbilityTargetHasConditionOrBuff))]
+    
+    
     public AbilityConfigurator AddAbilityTargetHasConditionOrBuff(
         bool not = default,
         UnitCondition condition = default,
@@ -2385,8 +2385,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="checkedFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityTargetHasFact))]
+    
+    
     public AbilityConfigurator AddAbilityTargetHasFact(
         string[]? checkedFacts = null,
         bool inverted = default)
@@ -2400,8 +2400,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetHasMeleeWeaponInPrimaryHand"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetHasMeleeWeaponInPrimaryHand))]
+    
+    
     public AbilityConfigurator AddAbilityTargetHasMeleeWeaponInPrimaryHand(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2416,8 +2416,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     ///
     /// <param name="checkedFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     /// <param name="unlessFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AbilityTargetHasNoFactUnless))]
+    
+    
     public AbilityConfigurator AddAbilityTargetHasNoFactUnless(
         string[]? checkedFacts = null,
         string? unlessFact = null)
@@ -2431,8 +2431,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetHasOneOfConditionsOrHP"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetHasOneOfConditionsOrHP))]
+    
+    
     public AbilityConfigurator AddAbilityTargetHasOneOfConditionsOrHP(
         UnitCondition[]? condition = null,
         bool needHPCondition = default,
@@ -2452,8 +2452,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsAlly"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsAlly))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsAlly(
         bool not = default)
     {
@@ -2465,8 +2465,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsAnimalCompanion"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsAnimalCompanion))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsAnimalCompanion(
         bool not = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -2480,8 +2480,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsAreaEffectFromCaster"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsAreaEffectFromCaster))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsAreaEffectFromCaster(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2493,8 +2493,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsDeadAnimalCompanion"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsDeadAnimalCompanion))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsDeadAnimalCompanion(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2506,8 +2506,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsDeadCompanion"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsDeadCompanion))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsDeadCompanion(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2519,8 +2519,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsFavoredEnemy"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsFavoredEnemy))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsFavoredEnemy()
     {
       return AddComponent(new AbilityTargetIsFavoredEnemy());
@@ -2529,8 +2529,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsNotDevoured"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsNotDevoured))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsNotDevoured(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2542,8 +2542,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsPartyMember"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsPartyMember))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsPartyMember(
         bool not = default)
     {
@@ -2555,8 +2555,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsSuitableMount"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsSuitableMount))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsSuitableMount(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2568,8 +2568,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetIsSuitableMountSize"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetIsSuitableMountSize))]
+    
+    
     public AbilityConfigurator AddAbilityTargetIsSuitableMountSize(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2581,8 +2581,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetMaximumHitDice"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetMaximumHitDice))]
+    
+    
     public AbilityConfigurator AddAbilityTargetMaximumHitDice(
         int hitDice = default)
     {
@@ -2594,8 +2594,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetNotSelf"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetNotSelf))]
+    
+    
     public AbilityConfigurator AddAbilityTargetNotSelf(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2607,8 +2607,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetRangeRestriction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetRangeRestriction))]
+    
+    
     public AbilityConfigurator AddAbilityTargetRangeRestriction(
         Feet distance,
         CompareOperation.Type compareType = default,
@@ -2624,8 +2624,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetStatCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetStatCondition))]
+    
+    
     public AbilityConfigurator AddAbilityTargetStatCondition(
         StatType stat = default,
         int greaterThan = default,
@@ -2641,8 +2641,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityTargetStoneToFlesh"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityTargetStoneToFlesh))]
+    
+    
     public AbilityConfigurator AddAbilityTargetStoneToFlesh(
         bool canBeNotPetrified = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -2656,8 +2656,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="DimensionDoorRestrictionIgnorance"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DimensionDoorRestrictionIgnorance))]
+    
+    
     public AbilityConfigurator AddDimensionDoorRestrictionIgnorance(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2669,8 +2669,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCasterMainWeaponCheck"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCasterMainWeaponCheck))]
+    
+    
     public AbilityConfigurator AddAbilityCasterMainWeaponCheck(
         WeaponCategory[]? category = null)
     {
@@ -2682,8 +2682,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCasterMainWeaponIsMelee"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCasterMainWeaponIsMelee))]
+    
+    
     public AbilityConfigurator AddAbilityCasterMainWeaponIsMelee()
     {
       return AddComponent(new AbilityCasterMainWeaponIsMelee());
@@ -2692,8 +2692,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCasterMainWeaponIsTwoHanded"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCasterMainWeaponIsTwoHanded))]
+    
+    
     public AbilityConfigurator AddAbilityCasterMainWeaponIsTwoHanded()
     {
       return AddComponent(new AbilityCasterMainWeaponIsTwoHanded());
@@ -2702,8 +2702,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityCasterNotPolymorphed"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityCasterNotPolymorphed))]
+    
+    
     public AbilityConfigurator AddAbilityCasterNotPolymorphed(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2715,8 +2715,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityMaxSquadsRestriction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityMaxSquadsRestriction))]
+    
+    
     public AbilityConfigurator AddAbilityMaxSquadsRestriction(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2728,8 +2728,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilitySpawnFx"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilitySpawnFx))]
+    
+    
     public AbilityConfigurator AddAbilitySpawnFx(
         PrefabLink? prefabLink = null,
         AbilitySpawnFxTime time = default,
@@ -2759,8 +2759,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="ArmyAbilityHook"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmyAbilityHook))]
+    
+    
     public AbilityConfigurator AddArmyAbilityHook(
         AnimationCurve pullCurve,
         float pullSpeed = default,
@@ -2780,8 +2780,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="CustomAreaOnGrid"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CustomAreaOnGrid))]
+    
+    
     public AbilityConfigurator AddCustomAreaOnGrid(
         List<Vector2Int>? affectedCells = null,
         bool ignoreObstaclesAndUnits = default,
@@ -2801,8 +2801,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="abilityWithCellsProvider"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(TacticalCombatCellsProviderLink))]
+    
+    
     public AbilityConfigurator AddTacticalCombatCellsProviderLink(
         string? abilityWithCellsProvider = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -2816,8 +2816,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="TacticalCombatDefenseAbility"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TacticalCombatDefenseAbility))]
+    
+    
     public AbilityConfigurator AddTacticalCombatDefenseAbility(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2829,8 +2829,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="PureRecommendation"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PureRecommendation))]
+    
+    
     public AbilityConfigurator AddPureRecommendation(
         RecommendationPriority priority = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -2844,8 +2844,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="RecommendationAccomplishedSneakAttacker"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationAccomplishedSneakAttacker))]
+    
+    
     public AbilityConfigurator AddRecommendationAccomplishedSneakAttacker()
     {
       return AddComponent(new RecommendationAccomplishedSneakAttacker());
@@ -2854,8 +2854,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="RecommendationBaseAttackPart"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationBaseAttackPart))]
+    
+    
     public AbilityConfigurator AddRecommendationBaseAttackPart(
         float minPart = default,
         bool notRecommendIfHigher = default,
@@ -2873,8 +2873,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="companionRank"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(RecommendationCompanionBoon))]
+    
+    
     public AbilityConfigurator AddRecommendationCompanionBoon(
         string? companionRank = null)
     {
@@ -2888,8 +2888,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(RecommendationHasFeature))]
+    
+    
     public AbilityConfigurator AddRecommendationHasFeature(
         string? feature = null,
         bool mandatory = default)
@@ -2905,8 +2905,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(RecommendationNoFeatFromGroup))]
+    
+    
     public AbilityConfigurator AddRecommendationNoFeatFromGroup(
         string[]? features = null,
         bool goodIfNoFeature = default)
@@ -2920,8 +2920,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="RecommendationRequiresSpellbook"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationRequiresSpellbook))]
+    
+    
     public AbilityConfigurator AddRecommendationRequiresSpellbook(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -2933,8 +2933,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="RecommendationRequiresSpellbookSource"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationRequiresSpellbookSource))]
+    
+    
     public AbilityConfigurator AddRecommendationRequiresSpellbookSource(
         bool arcane = default,
         bool divine = default,
@@ -2952,8 +2952,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="RecommendationStatComparison"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationStatComparison))]
+    
+    
     public AbilityConfigurator AddRecommendationStatComparison(
         StatType higherStat = default,
         StatType lowerStat = default,
@@ -2971,8 +2971,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="RecommendationStatMiminum"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationStatMiminum))]
+    
+    
     public AbilityConfigurator AddRecommendationStatMiminum(
         StatType stat = default,
         int minimalValue = default,
@@ -2988,8 +2988,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="RecommendationWeaponSubcategoryFocus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationWeaponSubcategoryFocus))]
+    
+    
     public AbilityConfigurator AddRecommendationWeaponSubcategoryFocus(
         WeaponSubCategory subcategory = default,
         bool hasFocus = default,
@@ -3005,8 +3005,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="RecommendationWeaponTypeFocus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationWeaponTypeFocus))]
+    
+    
     public AbilityConfigurator AddRecommendationWeaponTypeFocus(
         WeaponRangeType weaponRangeType = default,
         bool hasFocus = default,
@@ -3022,8 +3022,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="StatRecommendationChange"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(StatRecommendationChange))]
+    
+    
     public AbilityConfigurator AddStatRecommendationChange(
         StatType stat = default,
         bool recommended = default)
@@ -3037,8 +3037,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="HideFeatureInInspect"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(HideFeatureInInspect))]
+    
+    
     public AbilityConfigurator AddHideFeatureInInspect()
     {
       return AddComponent(new HideFeatureInInspect());

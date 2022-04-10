@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintFeatureSelectMythicSpellbook"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFeatureSelectMythicSpellbook))]
+  
   public class FeatureSelectMythicSpellbookConfigurator : BaseFeatureConfigurator<BlueprintFeatureSelectMythicSpellbook, FeatureSelectMythicSpellbookConfigurator>
   {
     private FeatureSelectMythicSpellbookConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FeatureSelectMythicSpellbookConfigurator SetCachedItems(List<IFeatureSelectionItem>? cachedItems)
     {
       ValidateParam(cachedItems);
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FeatureSelectMythicSpellbookConfigurator AddToCachedItems(params IFeatureSelectionItem[] cachedItems)
     {
       ValidateParam(cachedItems);
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FeatureSelectMythicSpellbookConfigurator RemoveFromCachedItems(params IFeatureSelectionItem[] cachedItems)
     {
       ValidateParam(cachedItems);
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="allowedSpellbooks"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    [Generated]
+    
     public FeatureSelectMythicSpellbookConfigurator SetAllowedSpellbooks(string[]? allowedSpellbooks)
     {
       return OnConfigureInternal(
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="allowedSpellbooks"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    [Generated]
+    
     public FeatureSelectMythicSpellbookConfigurator AddToAllowedSpellbooks(params string[] allowedSpellbooks)
     {
       return OnConfigureInternal(
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="allowedSpellbooks"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    [Generated]
+    
     public FeatureSelectMythicSpellbookConfigurator RemoveFromAllowedSpellbooks(params string[] allowedSpellbooks)
     {
       return OnConfigureInternal(
@@ -128,7 +128,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="mythicSpellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
-    [Generated]
+    
     public FeatureSelectMythicSpellbookConfigurator SetMythicSpellList(string? mythicSpellList)
     {
       return OnConfigureInternal(

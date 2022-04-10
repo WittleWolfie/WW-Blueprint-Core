@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="TargetSelfConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(TargetSelfConsideration))]
+  
   public class TargetSelfConsiderationConfigurator : BaseConsiderationConfigurator<TargetSelfConsideration, TargetSelfConsiderationConfigurator>
   {
     private TargetSelfConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="TargetSelfConsideration.SelfScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TargetSelfConsiderationConfigurator SetSelfScore(float selfScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="TargetSelfConsideration.OthersScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TargetSelfConsiderationConfigurator SetOthersScore(float othersScore)
     {
       return OnConfigureInternal(

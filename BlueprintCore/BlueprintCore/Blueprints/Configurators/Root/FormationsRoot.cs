@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
   /// Configurator for <see cref="FormationsRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(FormationsRoot))]
+  
   public class FormationsRootConfigurator : BaseBlueprintConfigurator<FormationsRoot, FormationsRootConfigurator>
   {
     private FormationsRootConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="predefinedFormations"><see cref="Kingmaker.Formations.BlueprintPartyFormation"/></param>
-    [Generated]
+    
     public FormationsRootConfigurator SetPredefinedFormations(string[]? predefinedFormations)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="predefinedFormations"><see cref="Kingmaker.Formations.BlueprintPartyFormation"/></param>
-    [Generated]
+    
     public FormationsRootConfigurator AddToPredefinedFormations(params string[] predefinedFormations)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="predefinedFormations"><see cref="Kingmaker.Formations.BlueprintPartyFormation"/></param>
-    [Generated]
+    
     public FormationsRootConfigurator RemoveFromPredefinedFormations(params string[] predefinedFormations)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="followersFormation"><see cref="Kingmaker.Formations.FollowersFormation"/></param>
-    [Generated]
+    
     public FormationsRootConfigurator SetFollowersFormation(string? followersFormation)
     {
       return OnConfigureInternal(
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="FormationsRoot.FormationsScale"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FormationsRootConfigurator SetFormationsScale(float formationsScale)
     {
       return OnConfigureInternal(
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="FormationsRoot.MinSpaceFactor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FormationsRootConfigurator SetMinSpaceFactor(float minSpaceFactor)
     {
       return OnConfigureInternal(
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="FormationsRoot.AutoFormation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FormationsRootConfigurator SetAutoFormation(FormationsRoot.AutoFormationSettings autoFormation)
     {
       ValidateParam(autoFormation);

@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
   /// Configurator for <see cref="BlueprintCreditsRoles"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCreditsRoles))]
+  
   public class CreditsRolesConfigurator : BaseBlueprintConfigurator<BlueprintCreditsRoles, CreditsRolesConfigurator>
   {
     private CreditsRolesConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsRolesConfigurator SetRoles(List<CreditRole>? roles)
     {
       ValidateParam(roles);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Adds to <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsRolesConfigurator AddToRoles(params CreditRole[] roles)
     {
       ValidateParam(roles);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Removes from <see cref="BlueprintCreditsRoles.Roles"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CreditsRolesConfigurator RemoveFromRoles(params CreditRole[] roles)
     {
       ValidateParam(roles);

@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="RandomConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(RandomConsideration))]
+  
   public class RandomConsiderationConfigurator : BaseConsiderationConfigurator<RandomConsideration, RandomConsiderationConfigurator>
   {
     private RandomConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="RandomConsideration.MinScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomConsiderationConfigurator SetMinScore(float minScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="RandomConsideration.MaxScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RandomConsiderationConfigurator SetMaxScore(float maxScore)
     {
       return OnConfigureInternal(

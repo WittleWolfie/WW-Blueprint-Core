@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
   /// Configurator for <see cref="BlueprintAreaEffectPitVisualSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAreaEffectPitVisualSettings))]
+  
   public class AreaEffectPitVisualSettingsConfigurator : BaseBlueprintConfigurator<BlueprintAreaEffectPitVisualSettings, AreaEffectPitVisualSettingsConfigurator>
   {
     private AreaEffectPitVisualSettingsConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.DepthMeters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEffectPitVisualSettingsConfigurator SetDepthMeters(float depthMeters)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.HoleEdgeMeters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEffectPitVisualSettingsConfigurator SetHoleEdgeMeters(float holeEdgeMeters)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.UnitDisappearFx"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEffectPitVisualSettingsConfigurator SetUnitDisappearFx(PrefabLink? unitDisappearFx)
     {
       ValidateParam(unitDisappearFx);
@@ -72,7 +72,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.UnitAppearFx"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEffectPitVisualSettingsConfigurator SetUnitAppearFx(PrefabLink? unitAppearFx)
     {
       ValidateParam(unitAppearFx);
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.FallXZCurve"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEffectPitVisualSettingsConfigurator SetFallXZCurve(AnimationCurve fallXZCurve)
     {
       ValidateParam(fallXZCurve);
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.FallYCurve"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEffectPitVisualSettingsConfigurator SetFallYCurve(AnimationCurve fallYCurve)
     {
       ValidateParam(fallYCurve);
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.ClimbXZCurve"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEffectPitVisualSettingsConfigurator SetClimbXZCurve(AnimationCurve climbXZCurve)
     {
       ValidateParam(climbXZCurve);
@@ -132,7 +132,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.ClimbYCurve"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaEffectPitVisualSettingsConfigurator SetClimbYCurve(AnimationCurve climbYCurve)
     {
       ValidateParam(climbYCurve);

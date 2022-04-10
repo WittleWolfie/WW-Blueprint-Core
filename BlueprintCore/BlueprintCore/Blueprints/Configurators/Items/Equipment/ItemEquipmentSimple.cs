@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintItemEquipmentSimple"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemEquipmentSimple))]
+  
   public abstract class BaseItemEquipmentSimpleConfigurator<T, TBuilder>
       : BaseItemEquipmentConfigurator<T, TBuilder>
       where T : BlueprintItemEquipmentSimple
@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public TBuilder SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public TBuilder AddToEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -53,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipmentSimple.m_InventoryEquipSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetInventoryEquipSound(string inventoryEquipSound)
     {
       return OnConfigureInternal(

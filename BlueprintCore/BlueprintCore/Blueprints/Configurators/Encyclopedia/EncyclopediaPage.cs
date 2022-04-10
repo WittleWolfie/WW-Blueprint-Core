@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintEncyclopediaPage"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintEncyclopediaPage))]
+  
   public abstract class BaseEncyclopediaPageConfigurator<T, TBuilder>
       : BaseEncyclopediaNodeConfigurator<T, TBuilder>
       where T : BlueprintEncyclopediaPage
@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// </summary>
     ///
     /// <param name="parentAsset"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaNode"/></param>
-    [Generated]
+    
     public TBuilder SetParentAsset(string? parentAsset)
     {
       return OnConfigureInternal(
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Sets <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetBlocks(List<BlueprintEncyclopediaBlock>? blocks)
     {
       ValidateParam(blocks);
@@ -53,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Adds to <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToBlocks(params BlueprintEncyclopediaBlock[] blocks)
     {
       ValidateParam(blocks);
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Removes from <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromBlocks(params BlueprintEncyclopediaBlock[] blocks)
     {
       ValidateParam(blocks);
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   /// Configurator for <see cref="BlueprintEncyclopediaPage"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintEncyclopediaPage))]
+  
   public class EncyclopediaPageConfigurator : BaseEncyclopediaNodeConfigurator<BlueprintEncyclopediaPage, EncyclopediaPageConfigurator>
   {
     private EncyclopediaPageConfigurator(string name) : base(name) { }
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// </summary>
     ///
     /// <param name="parentAsset"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaNode"/></param>
-    [Generated]
+    
     public EncyclopediaPageConfigurator SetParentAsset(string? parentAsset)
     {
       return OnConfigureInternal(
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Sets <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EncyclopediaPageConfigurator SetBlocks(List<BlueprintEncyclopediaBlock>? blocks)
     {
       ValidateParam(blocks);
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Adds to <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EncyclopediaPageConfigurator AddToBlocks(params BlueprintEncyclopediaBlock[] blocks)
     {
       ValidateParam(blocks);
@@ -148,7 +148,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Removes from <see cref="BlueprintEncyclopediaPage.Blocks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public EncyclopediaPageConfigurator RemoveFromBlocks(params BlueprintEncyclopediaBlock[] blocks)
     {
       ValidateParam(blocks);

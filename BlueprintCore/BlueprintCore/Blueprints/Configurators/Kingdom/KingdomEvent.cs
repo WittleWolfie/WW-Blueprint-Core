@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintKingdomEvent"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomEvent))]
+  
   public class KingdomEventConfigurator : BaseKingdomEventBaseConfigurator<BlueprintKingdomEvent, KingdomEventConfigurator>
   {
     private KingdomEventConfigurator(string name) : base(name) { }
@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.IsOpportunity"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomEventConfigurator SetIsOpportunity(bool isOpportunity)
     {
       return OnConfigureInternal(
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.ForceOneTimeOnly"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomEventConfigurator SetForceOneTimeOnly(bool forceOneTimeOnly)
     {
       return OnConfigureInternal(
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="dependsOnQuest"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuest"/></param>
-    [Generated]
+    
     public KingdomEventConfigurator SetDependsOnQuest(string? dependsOnQuest)
     {
       return OnConfigureInternal(
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.m_Tags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomEventConfigurator SetTags(BlueprintKingdomEvent.TagList tags)
     {
       ValidateParam(tags);
@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.RequiredTags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomEventConfigurator SetRequiredTags(EventLocationTagList requiredTags)
     {
       ValidateParam(requiredTags);
@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.OnTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomEventConfigurator SetOnTrigger(ActionsBuilder? onTrigger)
     {
       return OnConfigureInternal(
@@ -118,7 +118,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.StatsOnTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomEventConfigurator SetStatsOnTrigger(KingdomStats.Changes statsOnTrigger)
     {
       ValidateParam(statsOnTrigger);
@@ -133,7 +133,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEvent.UnapplyTriggerOnResolve"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomEventConfigurator SetUnapplyTriggerOnResolve(bool unapplyTriggerOnResolve)
     {
       return OnConfigureInternal(
@@ -146,8 +146,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="EventRecurrence"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EventRecurrence))]
+    
+    
     public KingdomEventConfigurator AddEventRecurrence(
         KingdomStats.Changes statsOnRecurrence,
         int recurrencePeriod = default,

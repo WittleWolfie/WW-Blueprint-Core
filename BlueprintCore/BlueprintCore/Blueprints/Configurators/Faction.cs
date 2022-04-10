@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintFaction"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFaction))]
+  
   public class FactionConfigurator : BaseBlueprintConfigurator<BlueprintFaction, FactionConfigurator>
   {
     private FactionConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public FactionConfigurator SetAttackFactions(string[]? attackFactions)
     {
       return OnConfigureInternal(
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public FactionConfigurator AddToAttackFactions(params string[] attackFactions)
     {
       return OnConfigureInternal(
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public FactionConfigurator RemoveFromAttackFactions(params string[] attackFactions)
     {
       return OnConfigureInternal(
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public FactionConfigurator SetAllyFactions(string[]? allyFactions)
     {
       return OnConfigureInternal(
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public FactionConfigurator AddToAllyFactions(params string[] allyFactions)
     {
       return OnConfigureInternal(
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public FactionConfigurator RemoveFromAllyFactions(params string[] allyFactions)
     {
       return OnConfigureInternal(
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintFaction.m_AllyFactionsBehaviour"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactionConfigurator SetAllyFactionsBehaviour(BlueprintFaction.EAllyFactions allyFactionsBehaviour)
     {
       return OnConfigureInternal(
@@ -143,7 +143,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintFaction.Peaceful"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactionConfigurator SetPeaceful(bool peaceful)
     {
       return OnConfigureInternal(
@@ -156,7 +156,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintFaction.AlwaysEnemy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactionConfigurator SetAlwaysEnemy(bool alwaysEnemy)
     {
       return OnConfigureInternal(
@@ -169,7 +169,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintFaction.EnemyForEveryone"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactionConfigurator SetEnemyForEveryone(bool enemyForEveryone)
     {
       return OnConfigureInternal(
@@ -182,7 +182,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintFaction.Neutral"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactionConfigurator SetNeutral(bool neutral)
     {
       return OnConfigureInternal(
@@ -195,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintFaction.IsDirectlyControllable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactionConfigurator SetIsDirectlyControllable(bool isDirectlyControllable)
     {
       return OnConfigureInternal(
@@ -208,7 +208,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintFaction.NeverJoinCombat"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FactionConfigurator SetNeverJoinCombat(bool neverJoinCombat)
     {
       return OnConfigureInternal(

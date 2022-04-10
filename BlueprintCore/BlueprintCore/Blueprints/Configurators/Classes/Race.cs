@@ -14,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintRace"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintRace))]
+  
   public class RaceConfigurator : BaseFeatureConfigurator<BlueprintRace, RaceConfigurator>
   {
     private RaceConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.SoundKey"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetSoundKey(string soundKey)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.RaceId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetRaceId(Race raceId)
     {
       return OnConfigureInternal(
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.SelectableRaceStat"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetSelectableRaceStat(bool selectableRaceStat)
     {
       return OnConfigureInternal(
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.Size"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetSize(Size size)
     {
       return OnConfigureInternal(
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
-    [Generated]
+    
     public RaceConfigurator SetFeatures(string[]? features)
     {
       return OnConfigureInternal(
@@ -104,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
-    [Generated]
+    
     public RaceConfigurator AddToFeatures(params string[] features)
     {
       return OnConfigureInternal(
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
-    [Generated]
+    
     public RaceConfigurator RemoveFromFeatures(params string[] features)
     {
       return OnConfigureInternal(
@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="presets"><see cref="Kingmaker.Blueprints.CharGen.BlueprintRaceVisualPreset"/></param>
-    [Generated]
+    
     public RaceConfigurator SetPresets(string[]? presets)
     {
       return OnConfigureInternal(
@@ -154,7 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="presets"><see cref="Kingmaker.Blueprints.CharGen.BlueprintRaceVisualPreset"/></param>
-    [Generated]
+    
     public RaceConfigurator AddToPresets(params string[] presets)
     {
       return OnConfigureInternal(
@@ -169,7 +169,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="presets"><see cref="Kingmaker.Blueprints.CharGen.BlueprintRaceVisualPreset"/></param>
-    [Generated]
+    
     public RaceConfigurator RemoveFromPresets(params string[] presets)
     {
       return OnConfigureInternal(
@@ -187,7 +187,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.LinkHairAndSkinColorsCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetLinkHairAndSkinColorsCondition(Condition linkHairAndSkinColorsCondition)
     {
       ValidateParam(linkHairAndSkinColorsCondition);
@@ -202,7 +202,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.MaleOptions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetMaleOptions(CustomizationOptions maleOptions)
     {
       ValidateParam(maleOptions);
@@ -217,7 +217,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.FemaleOptions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetFemaleOptions(CustomizationOptions femaleOptions)
     {
       ValidateParam(femaleOptions);
@@ -232,7 +232,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.MaleSpeedSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetMaleSpeedSettings(UnitAnimationSettings maleSpeedSettings)
     {
       ValidateParam(maleSpeedSettings);
@@ -247,7 +247,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.FemaleSpeedSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetFemaleSpeedSettings(UnitAnimationSettings femaleSpeedSettings)
     {
       ValidateParam(femaleSpeedSettings);
@@ -262,7 +262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator SetSpecialDollTypes(BlueprintRace.SpecialDollTypeEntry[]? specialDollTypes)
     {
       ValidateParam(specialDollTypes);
@@ -277,7 +277,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator AddToSpecialDollTypes(params BlueprintRace.SpecialDollTypeEntry[] specialDollTypes)
     {
       ValidateParam(specialDollTypes);
@@ -291,7 +291,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintRace.SpecialDollTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceConfigurator RemoveFromSpecialDollTypes(params BlueprintRace.SpecialDollTypeEntry[] specialDollTypes)
     {
       ValidateParam(specialDollTypes);

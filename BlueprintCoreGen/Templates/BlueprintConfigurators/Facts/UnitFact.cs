@@ -9,7 +9,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Facts
   /// Implements common fields and component support for blueprints inheriting from <see cref="BlueprintUnitFact"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnitFact))]
+  
   public abstract class BaseUnitFactConfigurator<T, TBuilder> : BaseFactConfigurator<T, TBuilder>
       where T : BlueprintUnitFact
       where TBuilder : BaseUnitFactConfigurator<T, TBuilder>

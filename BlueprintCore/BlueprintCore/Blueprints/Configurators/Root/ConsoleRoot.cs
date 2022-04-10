@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
   /// Configurator for <see cref="ConsoleRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ConsoleRoot))]
+  
   public class ConsoleRootConfigurator : BaseBlueprintConfigurator<ConsoleRoot, ConsoleRootConfigurator>
   {
     private ConsoleRootConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="ConsoleRoot.Icons"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ConsoleRootConfigurator SetIcons(GamePadIcons icons)
     {
       ValidateParam(icons);
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// </summary>
     ///
     /// <param name="texts"><see cref="Kingmaker.Blueprints.Console.GamePadTexts"/></param>
-    [Generated]
+    
     public ConsoleRootConfigurator SetTexts(string? texts)
     {
       return OnConfigureInternal(
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets <see cref="ConsoleRoot.InGameMenuIcons"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ConsoleRootConfigurator SetInGameMenuIcons(ConsoleRoot.UIInGameMenuIcons inGameMenuIcons)
     {
       ValidateParam(inGameMenuIcons);

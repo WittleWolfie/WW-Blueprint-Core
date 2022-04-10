@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
   /// Configurator for <see cref="BlueprintGlobalMapPoint"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintGlobalMapPoint))]
+  
   public class GlobalMapPointConfigurator : BaseBlueprintConfigurator<BlueprintGlobalMapPoint, GlobalMapPointConfigurator>
   {
     private GlobalMapPointConfigurator(string name) : base(name) { }
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="globalMap"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetGlobalMap(string? globalMap)
     {
       return OnConfigureInternal(
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetType(GlobalMapPointType type)
     {
       return OnConfigureInternal(
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.IsHidden"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetIsHidden(bool isHidden)
     {
       return OnConfigureInternal(
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.RevealedOnStart"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetRevealedOnStart(bool revealedOnStart)
     {
       return OnConfigureInternal(
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ExploreOnEnter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetExploreOnEnter(bool exploreOnEnter)
     {
       return OnConfigureInternal(
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ClosedOnStart"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetClosedOnStart(bool closedOnStart)
     {
       return OnConfigureInternal(
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Name"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -151,7 +151,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.FakeName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetFakeName(LocalizedString? fakeName)
     {
       ValidateParam(fakeName);
@@ -166,7 +166,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.FakeDescription"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetFakeDescription(LocalizedString? fakeDescription)
     {
       ValidateParam(fakeDescription);
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.DcPerception"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetDcPerception(int dcPerception)
     {
       return OnConfigureInternal(
@@ -194,7 +194,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.DCModifiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetDCModifiers(DCModifier[]? dCModifiers)
     {
       ValidateParam(dCModifiers);
@@ -209,7 +209,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Adds to <see cref="BlueprintGlobalMapPoint.DCModifiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator AddToDCModifiers(params DCModifier[] dCModifiers)
     {
       ValidateParam(dCModifiers);
@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes from <see cref="BlueprintGlobalMapPoint.DCModifiers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator RemoveFromDCModifiers(params DCModifier[] dCModifiers)
     {
       ValidateParam(dCModifiers);
@@ -237,7 +237,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.OverrideRandomEncounterZoneSize"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetOverrideRandomEncounterZoneSize(bool overrideRandomEncounterZoneSize)
     {
       return OnConfigureInternal(
@@ -250,7 +250,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.NoRandomEncounterZoneSize"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetNoRandomEncounterZoneSize(float noRandomEncounterZoneSize)
     {
       return OnConfigureInternal(
@@ -265,7 +265,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="areaEntrance"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetAreaEntrance(string? areaEntrance)
     {
       return OnConfigureInternal(
@@ -280,7 +280,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="entrances"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntrance"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetEntrances(string? entrances)
     {
       return OnConfigureInternal(
@@ -295,7 +295,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="bookEvent"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetBookEvent(string? bookEvent)
     {
       return OnConfigureInternal(
@@ -308,7 +308,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.PossibleToRevealCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetPossibleToRevealCondition(ConditionsBuilder? possibleToRevealCondition)
     {
       return OnConfigureInternal(
@@ -323,7 +323,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="locationVariations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPointVariation"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetLocationVariations(string[]? locationVariations)
     {
       return OnConfigureInternal(
@@ -338,7 +338,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="locationVariations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPointVariation"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator AddToLocationVariations(params string[] locationVariations)
     {
       return OnConfigureInternal(
@@ -353,7 +353,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="locationVariations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPointVariation"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator RemoveFromLocationVariations(params string[] locationVariations)
     {
       return OnConfigureInternal(
@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.HasKingdomResource"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetHasKingdomResource(bool hasKingdomResource)
     {
       return OnConfigureInternal(
@@ -384,7 +384,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ResourceStats"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetResourceStats(KingdomStats.Changes resourceStats)
     {
       ValidateParam(resourceStats);
@@ -399,7 +399,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ResourceName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetResourceName(LocalizedString? resourceName)
     {
       ValidateParam(resourceName);
@@ -414,7 +414,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.HasIngredients"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetHasIngredients(bool hasIngredients)
     {
       return OnConfigureInternal(
@@ -427,7 +427,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Ingredients"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetIngredients(IngredientPair[]? ingredients)
     {
       ValidateParam(ingredients);
@@ -442,7 +442,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Adds to <see cref="BlueprintGlobalMapPoint.Ingredients"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator AddToIngredients(params IngredientPair[] ingredients)
     {
       ValidateParam(ingredients);
@@ -456,7 +456,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes from <see cref="BlueprintGlobalMapPoint.Ingredients"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator RemoveFromIngredients(params IngredientPair[] ingredients)
     {
       ValidateParam(ingredients);
@@ -470,7 +470,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.HasLoot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetHasLoot(bool hasLoot)
     {
       return OnConfigureInternal(
@@ -483,7 +483,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Loot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetLoot(LootEntry[]? loot)
     {
       ValidateParam(loot);
@@ -498,7 +498,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Adds to <see cref="BlueprintGlobalMapPoint.Loot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator AddToLoot(params LootEntry[] loot)
     {
       ValidateParam(loot);
@@ -512,7 +512,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes from <see cref="BlueprintGlobalMapPoint.Loot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator RemoveFromLoot(params LootEntry[] loot)
     {
       ValidateParam(loot);
@@ -526,7 +526,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.AdditionalArmyExperience"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetAdditionalArmyExperience(int additionalArmyExperience)
     {
       return OnConfigureInternal(
@@ -539,7 +539,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ResourceFoundDescription"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetResourceFoundDescription(LocalizedString? resourceFoundDescription)
     {
       ValidateParam(resourceFoundDescription);
@@ -556,7 +556,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="armyObjective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetArmyObjective(string? armyObjective)
     {
       return OnConfigureInternal(
@@ -569,7 +569,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.Region"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetRegion(RegionId region)
     {
       return OnConfigureInternal(
@@ -582,7 +582,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.ForceShowNameInUI"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetForceShowNameInUI(bool forceShowNameInUI)
     {
       return OnConfigureInternal(
@@ -595,7 +595,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.OverrideEnterConfirmationText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetOverrideEnterConfirmationText(bool overrideEnterConfirmationText)
     {
       return OnConfigureInternal(
@@ -608,7 +608,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.CustomEnterConfirmationText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetCustomEnterConfirmationText(LocalizedString? customEnterConfirmationText)
     {
       ValidateParam(customEnterConfirmationText);
@@ -623,7 +623,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.OnEnterActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetOnEnterActions(ActionsBuilder? onEnterActions)
     {
       return OnConfigureInternal(
@@ -638,7 +638,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="demonGarrison"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetDemonGarrison(string? demonGarrison)
     {
       return OnConfigureInternal(
@@ -653,7 +653,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="garrisonLeader"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetGarrisonLeader(string? garrisonLeader)
     {
       return OnConfigureInternal(
@@ -666,7 +666,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.AutoDefeatData"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetAutoDefeatData(AutoDefeatData autoDefeatData)
     {
       ValidateParam(autoDefeatData);
@@ -681,7 +681,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.UseCustomClosedText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetUseCustomClosedText(bool useCustomClosedText)
     {
       return OnConfigureInternal(
@@ -694,7 +694,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.CustomClosedText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetCustomClosedText(LocalizedString? customClosedText)
     {
       ValidateParam(customClosedText);
@@ -709,7 +709,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapPoint.GlobalMapZone"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapPointConfigurator SetGlobalMapZone(GlobalMapZone globalMapZone)
     {
       return OnConfigureInternal(
@@ -724,8 +724,8 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(LocationRadiusBuff))]
+    
+    
     public GlobalMapPointConfigurator AddLocationRadiusBuff(
         float radius = default,
         string? buff = null,
@@ -743,8 +743,8 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="requiredCompanions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(LocationRestriction))]
+    
+    
     public GlobalMapPointConfigurator AddLocationRestriction(
         ConditionsBuilder? ignoreCondition = null,
         ConditionsBuilder? allowedCondition = null,
@@ -766,8 +766,8 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Adds <see cref="LocationRevealedTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LocationRevealedTrigger))]
+    
+    
     public GlobalMapPointConfigurator AddLocationRevealedTrigger(
         bool onlyOnce = default,
         ActionsBuilder? onReveal = null,

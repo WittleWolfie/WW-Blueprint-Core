@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintTrapSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTrapSettings))]
+  
   public class TrapSettingsConfigurator : BaseBlueprintConfigurator<BlueprintTrapSettings, TrapSettingsConfigurator>
   {
     private TrapSettingsConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettings.ActorLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapSettingsConfigurator SetActorLevel(int actorLevel)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettings.ActorStatMod"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapSettingsConfigurator SetActorStatMod(BlueprintTrapSettings.IntRange actorStatMod)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="trapActor"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TrapSettingsConfigurator SetTrapActor(string? trapActor)
     {
       return OnConfigureInternal(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettings.DisableDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapSettingsConfigurator SetDisableDC(BlueprintTrapSettings.IntRange disableDC)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettings.PerceptionDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapSettingsConfigurator SetPerceptionDC(BlueprintTrapSettings.IntRange perceptionDC)
     {
       return OnConfigureInternal(

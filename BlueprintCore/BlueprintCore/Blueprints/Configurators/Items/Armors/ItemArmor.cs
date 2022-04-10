@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
   /// Configurator for <see cref="BlueprintItemArmor"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemArmor))]
+  
   public class ItemArmorConfigurator : BaseItemEquipmentConfigurator<BlueprintItemArmor, ItemArmorConfigurator>
   {
     private ItemArmorConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Armors.BlueprintArmorType"/></param>
-    [Generated]
+    
     public ItemArmorConfigurator SetType(string? type)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintItemArmor.m_Size"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemArmorConfigurator SetSize(Size size)
     {
       return OnConfigureInternal(
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintItemArmor.m_VisualParameters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemArmorConfigurator SetVisualParameters(ArmorVisualParameters visualParameters)
     {
       ValidateParam(visualParameters);
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public ItemArmorConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public ItemArmorConfigurator AddToEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    [Generated]
+    
     public ItemArmorConfigurator RemoveFromEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintItemArmor.m_OverrideShardItem"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemArmorConfigurator SetOverrideShardItem(bool overrideShardItem)
     {
       return OnConfigureInternal(
@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintItemArmor.m_OverrideDestructible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemArmorConfigurator SetOverrideDestructible(bool overrideDestructible)
     {
       return OnConfigureInternal(

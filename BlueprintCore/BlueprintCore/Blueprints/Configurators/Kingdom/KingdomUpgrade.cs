@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintKingdomUpgrade"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomUpgrade))]
+  
   public class KingdomUpgradeConfigurator : BaseKingdomProjectConfigurator<BlueprintKingdomUpgrade, KingdomUpgradeConfigurator>
   {
     private KingdomUpgradeConfigurator(string name) : base(name) { }

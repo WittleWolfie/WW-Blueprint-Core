@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Console
   /// Configurator for <see cref="GamePadTexts"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(GamePadTexts))]
+  
   public class GamePadTextsConfigurator : BaseBlueprintConfigurator<GamePadTexts, GamePadTextsConfigurator>
   {
     private GamePadTextsConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     /// <summary>
     /// Sets <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GamePadTextsConfigurator SetLayers(List<GamePadTexts.GamePadTextsLayer>? layers)
     {
       ValidateParam(layers);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     /// <summary>
     /// Adds to <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GamePadTextsConfigurator AddToLayers(params GamePadTexts.GamePadTextsLayer[] layers)
     {
       ValidateParam(layers);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     /// <summary>
     /// Removes from <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GamePadTextsConfigurator RemoveFromLayers(params GamePadTexts.GamePadTextsLayer[] layers)
     {
       ValidateParam(layers);

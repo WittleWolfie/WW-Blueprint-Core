@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintItem"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItem))]
+  
   public abstract class BaseItemConfigurator<T, TBuilder>
       : BaseFactConfigurator<T, TBuilder>
       where T : BlueprintItem
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_DisplayNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDisplayNameText(LocalizedString? displayNameText)
     {
       ValidateParam(displayNameText);
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_DescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_FlavorText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetFlavorText(LocalizedString? flavorText)
     {
       ValidateParam(flavorText);
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetNonIdentifiedNameText(LocalizedString? nonIdentifiedNameText)
     {
       ValidateParam(nonIdentifiedNameText);
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetNonIdentifiedDescriptionText(LocalizedString? nonIdentifiedDescriptionText)
     {
       ValidateParam(nonIdentifiedDescriptionText);
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -123,7 +123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Cost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCost(int cost)
     {
       return OnConfigureInternal(
@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Weight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetWeight(float weight)
     {
       return OnConfigureInternal(
@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_IsNotable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIsNotable(bool isNotable)
     {
       return OnConfigureInternal(
@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_ForceStackable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetForceStackable(bool forceStackable)
     {
       return OnConfigureInternal(
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Destructible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDestructible(bool destructible)
     {
       return OnConfigureInternal(
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public TBuilder SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(
@@ -203,7 +203,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_MiscellaneousType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetMiscellaneousType(BlueprintItem.MiscellaneousItemType miscellaneousType)
     {
       return OnConfigureInternal(
@@ -216,7 +216,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_InventoryPutSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetInventoryPutSound(string inventoryPutSound)
     {
       return OnConfigureInternal(
@@ -229,7 +229,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_InventoryTakeSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetInventoryTakeSound(string inventoryTakeSound)
     {
       return OnConfigureInternal(
@@ -242,7 +242,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.NeedSkinningForCollect"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetNeedSkinningForCollect(bool needSkinningForCollect)
     {
       return OnConfigureInternal(
@@ -255,7 +255,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetTrashLootTypes(TrashLootType[]? trashLootTypes)
     {
       return OnConfigureInternal(
@@ -268,7 +268,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds to <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
       return OnConfigureInternal(
@@ -281,7 +281,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Removes from <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
       return OnConfigureInternal(
@@ -294,7 +294,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCachedEnchantments(List<BlueprintItemEnchantment>? cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
@@ -309,7 +309,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds to <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
@@ -323,7 +323,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Removes from <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
@@ -339,8 +339,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
-    [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
+    
+    
     public TBuilder AddItemEnchantmentEnableWhileEtudePlaying(
         string? etude = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -354,8 +354,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="AddItemShowInfoCallback"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddItemShowInfoCallback))]
+    
+    
     public TBuilder AddItemShowInfoCallback(
         bool once = default,
         ActionsBuilder? action = null,
@@ -371,8 +371,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="BuildPointsReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuildPointsReplacement))]
+    
+    
     public TBuilder AddBuildPointsReplacement(
         int cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -386,8 +386,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="ConsumableEventBonusReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ConsumableEventBonusReplacement))]
+    
+    
     public TBuilder AddConsumableEventBonusReplacement(
         int cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -403,8 +403,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="recipe"><see cref="Kingmaker.Controllers.Rest.Cooking.BlueprintCookingRecipe"/></param>
-    [Generated]
-    [Implements(typeof(CopyRecipe))]
+    
+    
     public TBuilder AddCopyRecipe(
         string? recipe = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -420,8 +420,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="customSpell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(CopyScroll))]
+    
+    
     public TBuilder AddCopyScroll(
         string? customSpell = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -435,8 +435,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="IdentifySkillReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(IdentifySkillReplacement))]
+    
+    
     public TBuilder AddIdentifySkillReplacement(
         IdentifySkillReplacement.SkillType skillType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -452,8 +452,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="dialogReference"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
-    [Implements(typeof(ItemDialog))]
+    
+    
     public TBuilder AddItemDialog(
         ConditionsBuilder? conditions = null,
         LocalizedString? itemName = null,
@@ -476,8 +476,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///
     /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     /// <param name="changeTo"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(ItemDlcRestriction))]
+    
+    
     public TBuilder AddItemDlcRestriction(
         string? dlcReward = null,
         string? changeTo = null,
@@ -498,8 +498,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///
     /// <param name="flagToCheck"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     /// <param name="polymorphItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(ItemPolymorph))]
+    
+    
     public TBuilder AddItemPolymorph(
         string? flagToCheck = null,
         string[]? polymorphItems = null)
@@ -513,8 +513,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="MoneyReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MoneyReplacement))]
+    
+    
     public TBuilder AddMoneyReplacement(
         long cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -528,8 +528,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="EnchantmentAddBuffWhileInStealth"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
+    
+    
     public TBuilder AddEnchantmentAddBuffWhileInStealth(
         EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[]? buffs = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -545,8 +545,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="IgnoreResistanceForDamageFromEnchantment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(IgnoreResistanceForDamageFromEnchantment))]
+    
+    
     public TBuilder AddIgnoreResistanceForDamageFromEnchantment(
         IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -562,8 +562,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
-    [Generated]
-    [Implements(typeof(WeaponTypeAttackEnchant))]
+    
+    
     public TBuilder AddWeaponTypeAttackEnchant(
         string? type = null,
         int bonus = default,
@@ -581,7 +581,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
   /// Configurator for <see cref="BlueprintItem"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItem))]
+  
   public class ItemConfigurator : BaseFactConfigurator<BlueprintItem, ItemConfigurator>
   {
     private ItemConfigurator(string name) : base(name) { }
@@ -602,7 +602,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_DisplayNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetDisplayNameText(LocalizedString? displayNameText)
     {
       ValidateParam(displayNameText);
@@ -617,7 +617,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_DescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetDescriptionText(LocalizedString? descriptionText)
     {
       ValidateParam(descriptionText);
@@ -632,7 +632,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_FlavorText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetFlavorText(LocalizedString? flavorText)
     {
       ValidateParam(flavorText);
@@ -647,7 +647,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedNameText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetNonIdentifiedNameText(LocalizedString? nonIdentifiedNameText)
     {
       ValidateParam(nonIdentifiedNameText);
@@ -662,7 +662,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetNonIdentifiedDescriptionText(LocalizedString? nonIdentifiedDescriptionText)
     {
       ValidateParam(nonIdentifiedDescriptionText);
@@ -677,7 +677,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -692,7 +692,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Cost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetCost(int cost)
     {
       return OnConfigureInternal(
@@ -705,7 +705,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Weight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetWeight(float weight)
     {
       return OnConfigureInternal(
@@ -718,7 +718,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_IsNotable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetIsNotable(bool isNotable)
     {
       return OnConfigureInternal(
@@ -731,7 +731,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_ForceStackable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetForceStackable(bool forceStackable)
     {
       return OnConfigureInternal(
@@ -744,7 +744,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_Destructible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetDestructible(bool destructible)
     {
       return OnConfigureInternal(
@@ -759,7 +759,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="shardItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public ItemConfigurator SetShardItem(string? shardItem)
     {
       return OnConfigureInternal(
@@ -772,7 +772,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_MiscellaneousType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetMiscellaneousType(BlueprintItem.MiscellaneousItemType miscellaneousType)
     {
       return OnConfigureInternal(
@@ -785,7 +785,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_InventoryPutSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetInventoryPutSound(string inventoryPutSound)
     {
       return OnConfigureInternal(
@@ -798,7 +798,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_InventoryTakeSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetInventoryTakeSound(string inventoryTakeSound)
     {
       return OnConfigureInternal(
@@ -811,7 +811,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.NeedSkinningForCollect"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetNeedSkinningForCollect(bool needSkinningForCollect)
     {
       return OnConfigureInternal(
@@ -824,7 +824,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetTrashLootTypes(TrashLootType[]? trashLootTypes)
     {
       return OnConfigureInternal(
@@ -837,7 +837,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds to <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator AddToTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
       return OnConfigureInternal(
@@ -850,7 +850,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Removes from <see cref="BlueprintItem.TrashLootTypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator RemoveFromTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
       return OnConfigureInternal(
@@ -863,7 +863,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator SetCachedEnchantments(List<BlueprintItemEnchantment>? cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
@@ -878,7 +878,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds to <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator AddToCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
@@ -892,7 +892,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Removes from <see cref="BlueprintItem.m_CachedEnchantments"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemConfigurator RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
     {
       ValidateParam(cachedEnchantments);
@@ -908,8 +908,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
-    [Implements(typeof(ItemEnchantmentEnableWhileEtudePlaying))]
+    
+    
     public ItemConfigurator AddItemEnchantmentEnableWhileEtudePlaying(
         string? etude = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -923,8 +923,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="AddItemShowInfoCallback"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddItemShowInfoCallback))]
+    
+    
     public ItemConfigurator AddItemShowInfoCallback(
         bool once = default,
         ActionsBuilder? action = null,
@@ -940,8 +940,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="BuildPointsReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BuildPointsReplacement))]
+    
+    
     public ItemConfigurator AddBuildPointsReplacement(
         int cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -955,8 +955,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="ConsumableEventBonusReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ConsumableEventBonusReplacement))]
+    
+    
     public ItemConfigurator AddConsumableEventBonusReplacement(
         int cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -972,8 +972,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="recipe"><see cref="Kingmaker.Controllers.Rest.Cooking.BlueprintCookingRecipe"/></param>
-    [Generated]
-    [Implements(typeof(CopyRecipe))]
+    
+    
     public ItemConfigurator AddCopyRecipe(
         string? recipe = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -989,8 +989,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="customSpell"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(CopyScroll))]
+    
+    
     public ItemConfigurator AddCopyScroll(
         string? customSpell = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1004,8 +1004,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="IdentifySkillReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(IdentifySkillReplacement))]
+    
+    
     public ItemConfigurator AddIdentifySkillReplacement(
         IdentifySkillReplacement.SkillType skillType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1021,8 +1021,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="dialogReference"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
-    [Implements(typeof(ItemDialog))]
+    
+    
     public ItemConfigurator AddItemDialog(
         ConditionsBuilder? conditions = null,
         LocalizedString? itemName = null,
@@ -1045,8 +1045,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///
     /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
     /// <param name="changeTo"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(ItemDlcRestriction))]
+    
+    
     public ItemConfigurator AddItemDlcRestriction(
         string? dlcReward = null,
         string? changeTo = null,
@@ -1067,8 +1067,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///
     /// <param name="flagToCheck"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
     /// <param name="polymorphItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(ItemPolymorph))]
+    
+    
     public ItemConfigurator AddItemPolymorph(
         string? flagToCheck = null,
         string[]? polymorphItems = null)
@@ -1082,8 +1082,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="MoneyReplacement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MoneyReplacement))]
+    
+    
     public ItemConfigurator AddMoneyReplacement(
         long cost = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1097,8 +1097,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="EnchantmentAddBuffWhileInStealth"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EnchantmentAddBuffWhileInStealth))]
+    
+    
     public ItemConfigurator AddEnchantmentAddBuffWhileInStealth(
         EnchantmentAddBuffWhileInStealth.BuffAndDeactivateDuration[]? buffs = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1114,8 +1114,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Adds <see cref="IgnoreResistanceForDamageFromEnchantment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(IgnoreResistanceForDamageFromEnchantment))]
+    
+    
     public ItemConfigurator AddIgnoreResistanceForDamageFromEnchantment(
         IgnoreResistanceForDamageFromEnchantment.IgnoreType type = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1131,8 +1131,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// </summary>
     ///
     /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
-    [Generated]
-    [Implements(typeof(WeaponTypeAttackEnchant))]
+    
+    
     public ItemConfigurator AddWeaponTypeAttackEnchant(
         string? type = null,
         int bonus = default,

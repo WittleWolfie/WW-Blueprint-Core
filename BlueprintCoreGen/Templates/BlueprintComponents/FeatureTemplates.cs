@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Sets the contents of <see cref="FeatureTagsComponent"/>
     /// </summary>
-    [Implements(typeof(FeatureTagsComponent))]
+    
     public TBuilder SetFeatureTags(params FeatureTag[] tags)
     {
       return OnConfigureInternal(
@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds to <see cref="FeatureTagsComponent"/>
     /// </summary>
-    [Implements(typeof(FeatureTagsComponent))]
+    
     public TBuilder AddToFeatureTags(params FeatureTag[] tags)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Removes from <see cref="FeatureTagsComponent"/>
     /// </summary>
-    [Implements(typeof(FeatureTagsComponent))]
+    
     public TBuilder RemoveFromFeatureTags(params FeatureTag[] tags)
     {
       return OnConfigureInternal(

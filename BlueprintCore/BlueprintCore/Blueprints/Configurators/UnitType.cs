@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintUnitType"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnitType))]
+  
   public class UnitTypeConfigurator : BaseBlueprintConfigurator<BlueprintUnitType, UnitTypeConfigurator>
   {
     private UnitTypeConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnitType.KnowledgeStat"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitTypeConfigurator SetKnowledgeStat(StatType knowledgeStat)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnitType.Image"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitTypeConfigurator SetImage(Sprite image)
     {
       ValidateParam(image);
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnitType.Name"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitTypeConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnitType.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitTypeConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public UnitTypeConfigurator SetSignatureAbilities(string[]? signatureAbilities)
     {
       return OnConfigureInternal(
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public UnitTypeConfigurator AddToSignatureAbilities(params string[] signatureAbilities)
     {
       return OnConfigureInternal(
@@ -123,7 +123,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public UnitTypeConfigurator RemoveFromSignatureAbilities(params string[] signatureAbilities)
     {
       return OnConfigureInternal(

@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   /// Configurator for <see cref="BlueprintArmorEnchantment"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArmorEnchantment))]
+  
   public class ArmorEnchantmentConfigurator : BaseEquipmentEnchantmentConfigurator<BlueprintArmorEnchantment, ArmorEnchantmentConfigurator>
   {
     private ArmorEnchantmentConfigurator(string name) : base(name) { }
@@ -33,8 +33,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="ArmorEnhancementBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmorEnhancementBonus))]
+    
+    
     public ArmorEnchantmentConfigurator AddArmorEnhancementBonus(
         int enhancementValue = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -50,8 +50,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </summary>
     ///
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(AddSavesFixerArmorRecalculator))]
+    
+    
     public ArmorEnchantmentConfigurator AddSavesFixerArmorRecalculator(
         string? feature = null)
     {
@@ -63,8 +63,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Adds <see cref="AdvanceArmorStats"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AdvanceArmorStats))]
+    
+    
     public ArmorEnchantmentConfigurator AddAdvanceArmorStats(
         int maxDexBonusShift = default,
         int armorCheckPenaltyShift = default,

@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
   /// Configurator for <see cref="CastsGroup"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(CastsGroup))]
+  
   public class CastsGroupConfigurator : BaseBlueprintConfigurator<CastsGroup, CastsGroupConfigurator>
   {
     private CastsGroupConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="CastsGroup.m_ArcaneCasts"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CastsGroupConfigurator SetArcaneCasts(CastGroupForSpellSource arcaneCasts)
     {
       ValidateParam(arcaneCasts);
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="CastsGroup.m_DivineCasts"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CastsGroupConfigurator SetDivineCasts(CastGroupForSpellSource divineCasts)
     {
       ValidateParam(divineCasts);

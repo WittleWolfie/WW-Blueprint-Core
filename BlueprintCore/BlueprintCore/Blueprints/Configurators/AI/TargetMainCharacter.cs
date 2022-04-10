@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="TargetMainCharacter"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(TargetMainCharacter))]
+  
   public class TargetMainCharacterConfigurator : BaseConsiderationConfigurator<TargetMainCharacter, TargetMainCharacterConfigurator>
   {
     private TargetMainCharacterConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="TargetMainCharacter.IsMainCharacterScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TargetMainCharacterConfigurator SetIsMainCharacterScore(float isMainCharacterScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="TargetMainCharacter.OthersScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TargetMainCharacterConfigurator SetOthersScore(float othersScore)
     {
       return OnConfigureInternal(

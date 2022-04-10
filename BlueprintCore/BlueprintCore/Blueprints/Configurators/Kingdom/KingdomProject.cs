@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintKingdomProject"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomProject))]
+  
   public abstract class BaseKingdomProjectConfigurator<T, TBuilder>
       : BaseKingdomEventBaseConfigurator<T, TBuilder>
       where T : BlueprintKingdomProject
@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.ProjectType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetProjectType(KingdomProjectType projectType)
     {
       return OnConfigureInternal(
@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.ProjectStartCost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetProjectStartCost(KingdomResourcesAmount projectStartCost)
     {
       return OnConfigureInternal(
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetMechanicalDescription(LocalizedString? mechanicalDescription)
     {
       ValidateParam(mechanicalDescription);
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetSpendRulerTimeDays(int spendRulerTimeDays)
     {
       return OnConfigureInternal(
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.Repeatable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetRepeatable(bool repeatable)
     {
       return OnConfigureInternal(
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.Cooldown"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCooldown(int cooldown)
     {
       return OnConfigureInternal(
@@ -104,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.IsRankUpProject"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIsRankUpProject(bool isRankUpProject)
     {
       return OnConfigureInternal(
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.RankupProjectFor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetRankupProjectFor(KingdomStats.Type rankupProjectFor)
     {
       return OnConfigureInternal(
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.AIPriority"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAIPriority(int aIPriority)
     {
       return OnConfigureInternal(
@@ -145,8 +145,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(EventItemCost))]
+    
+    
     public TBuilder AddEventItemCost(
         string[]? items = null,
         int amount = default,
@@ -164,8 +164,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="projects"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
-    [Generated]
-    [Implements(typeof(ExclusiveProjects))]
+    
+    
     public TBuilder AddExclusiveProjects(
         string[]? projects = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -181,8 +181,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
-    [Implements(typeof(FinishObjectiveOnTrigger))]
+    
+    
     public TBuilder AddFinishObjectiveOnTrigger(
         string? objective = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -196,8 +196,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="MarkAsCrusadeProject"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MarkAsCrusadeProject))]
+    
+    
     public TBuilder AddMarkAsCrusadeProject(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -211,7 +211,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintKingdomProject"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomProject))]
+  
   public class KingdomProjectConfigurator : BaseKingdomEventBaseConfigurator<BlueprintKingdomProject, KingdomProjectConfigurator>
   {
     private KingdomProjectConfigurator(string name) : base(name) { }
@@ -232,7 +232,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.ProjectType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetProjectType(KingdomProjectType projectType)
     {
       return OnConfigureInternal(
@@ -245,7 +245,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.ProjectStartCost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetProjectStartCost(KingdomResourcesAmount projectStartCost)
     {
       return OnConfigureInternal(
@@ -258,7 +258,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetMechanicalDescription(LocalizedString? mechanicalDescription)
     {
       ValidateParam(mechanicalDescription);
@@ -273,7 +273,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetSpendRulerTimeDays(int spendRulerTimeDays)
     {
       return OnConfigureInternal(
@@ -286,7 +286,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.Repeatable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetRepeatable(bool repeatable)
     {
       return OnConfigureInternal(
@@ -299,7 +299,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.Cooldown"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetCooldown(int cooldown)
     {
       return OnConfigureInternal(
@@ -312,7 +312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.IsRankUpProject"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetIsRankUpProject(bool isRankUpProject)
     {
       return OnConfigureInternal(
@@ -325,7 +325,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.RankupProjectFor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetRankupProjectFor(KingdomStats.Type rankupProjectFor)
     {
       return OnConfigureInternal(
@@ -338,7 +338,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomProject.AIPriority"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomProjectConfigurator SetAIPriority(int aIPriority)
     {
       return OnConfigureInternal(
@@ -353,8 +353,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(EventItemCost))]
+    
+    
     public KingdomProjectConfigurator AddEventItemCost(
         string[]? items = null,
         int amount = default,
@@ -372,8 +372,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="projects"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject"/></param>
-    [Generated]
-    [Implements(typeof(ExclusiveProjects))]
+    
+    
     public KingdomProjectConfigurator AddExclusiveProjects(
         string[]? projects = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -389,8 +389,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="objective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
-    [Implements(typeof(FinishObjectiveOnTrigger))]
+    
+    
     public KingdomProjectConfigurator AddFinishObjectiveOnTrigger(
         string? objective = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -404,8 +404,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="MarkAsCrusadeProject"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MarkAsCrusadeProject))]
+    
+    
     public KingdomProjectConfigurator AddMarkAsCrusadeProject(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)

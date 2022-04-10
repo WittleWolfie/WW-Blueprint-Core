@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintBrain"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintBrain))]
+  
   public abstract class BaseBrainConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintBrain
@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    [Generated]
+    
     public TBuilder SetActions(string[]? actions)
     {
       return OnConfigureInternal(
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    [Generated]
+    
     public TBuilder AddToActions(params string[] actions)
     {
       return OnConfigureInternal(
@@ -53,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromActions(params string[] actions)
     {
       return OnConfigureInternal(
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BlueprintBrain"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintBrain))]
+  
   public class BrainConfigurator : BaseBlueprintConfigurator<BlueprintBrain, BrainConfigurator>
   {
     private BrainConfigurator(string name) : base(name) { }
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    [Generated]
+    
     public BrainConfigurator SetActions(string[]? actions)
     {
       return OnConfigureInternal(
@@ -111,7 +111,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    [Generated]
+    
     public BrainConfigurator AddToActions(params string[] actions)
     {
       return OnConfigureInternal(
@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    [Generated]
+    
     public BrainConfigurator RemoveFromActions(params string[] actions)
     {
       return OnConfigureInternal(

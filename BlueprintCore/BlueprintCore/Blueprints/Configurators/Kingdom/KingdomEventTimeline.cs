@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintKingdomEventTimeline"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomEventTimeline))]
+  
   public class KingdomEventTimelineConfigurator : BaseBlueprintConfigurator<BlueprintKingdomEventTimeline, KingdomEventTimelineConfigurator>
   {
     private KingdomEventTimelineConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventTimeline.Entries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomEventTimelineConfigurator SetEntries(BlueprintKingdomEventTimeline.EntryList entries)
     {
       ValidateParam(entries);

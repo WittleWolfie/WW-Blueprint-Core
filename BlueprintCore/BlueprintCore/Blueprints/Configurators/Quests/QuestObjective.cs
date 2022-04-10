@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
   /// Configurator for <see cref="BlueprintQuestObjective"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintQuestObjective))]
+  
   public class QuestObjectiveConfigurator : BaseFactConfigurator<BlueprintQuestObjective, QuestObjectiveConfigurator>
   {
     private QuestObjectiveConfigurator(string name) : base(name) { }
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="addendums"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetAddendums(string[]? addendums)
     {
       return OnConfigureInternal(
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="addendums"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator AddToAddendums(params string[] addendums)
     {
       return OnConfigureInternal(
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="addendums"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator RemoveFromAddendums(params string[] addendums)
     {
       return OnConfigureInternal(
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="areas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetAreas(string[]? areas)
     {
       return OnConfigureInternal(
@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="areas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator AddToAreas(params string[] areas)
     {
       return OnConfigureInternal(
@@ -125,7 +125,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="areas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator RemoveFromAreas(params string[] areas)
     {
       return OnConfigureInternal(
@@ -143,7 +143,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.Title"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="locations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetLocations(string[]? locations)
     {
       return OnConfigureInternal(
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="locations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator AddToLocations(params string[] locations)
     {
       return OnConfigureInternal(
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="locations"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator RemoveFromLocations(params string[] locations)
     {
       return OnConfigureInternal(
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="multiEntranceEntries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetMultiEntranceEntries(string[]? multiEntranceEntries)
     {
       return OnConfigureInternal(
@@ -225,7 +225,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="multiEntranceEntries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator AddToMultiEntranceEntries(params string[] multiEntranceEntries)
     {
       return OnConfigureInternal(
@@ -240,7 +240,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="multiEntranceEntries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator RemoveFromMultiEntranceEntries(params string[] multiEntranceEntries)
     {
       return OnConfigureInternal(
@@ -258,7 +258,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -273,7 +273,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.AutoFailDays"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetAutoFailDays(int autoFailDays)
     {
       return OnConfigureInternal(
@@ -286,7 +286,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.IsFakeFail"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetIsFakeFail(bool isFakeFail)
     {
       return OnConfigureInternal(
@@ -299,7 +299,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.StartOnKingdomTime"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetStartOnKingdomTime(bool startOnKingdomTime)
     {
       return OnConfigureInternal(
@@ -312,7 +312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.m_FinishParent"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetFinishParent(bool finishParent)
     {
       return OnConfigureInternal(
@@ -325,7 +325,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.m_Hidden"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetHidden(bool hidden)
     {
       return OnConfigureInternal(
@@ -340,7 +340,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="nextObjectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetNextObjectives(string[]? nextObjectives)
     {
       return OnConfigureInternal(
@@ -355,7 +355,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="nextObjectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator AddToNextObjectives(params string[] nextObjectives)
     {
       return OnConfigureInternal(
@@ -370,7 +370,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="nextObjectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator RemoveFromNextObjectives(params string[] nextObjectives)
     {
       return OnConfigureInternal(
@@ -390,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="quest"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuest"/></param>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetQuest(string? quest)
     {
       return OnConfigureInternal(
@@ -403,7 +403,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestObjective.m_Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestObjectiveConfigurator SetType(BlueprintQuestObjective.Type type)
     {
       return OnConfigureInternal(
@@ -416,8 +416,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="QuestObjectiveCallback"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(QuestObjectiveCallback))]
+    
+    
     public QuestObjectiveConfigurator AddQuestObjectiveCallback(
         ActionsBuilder? onComplete = null,
         ActionsBuilder? onFail = null,
@@ -433,8 +433,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="TimedObjectiveTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TimedObjectiveTrigger))]
+    
+    
     public QuestObjectiveConfigurator AddTimedObjectiveTrigger(
         int daysTillTrigger = default,
         ActionsBuilder? action = null,
@@ -450,8 +450,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="Experience"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(Experience))]
+    
+    
     public QuestObjectiveConfigurator AddExperience(
         IntEvaluator count,
         EncounterType encounter = default,
@@ -478,8 +478,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     ///
     /// <param name="targetObjective"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
     /// <param name="unlock"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
-    [Implements(typeof(ChangeObjectiveOnUnlockTrigger))]
+    
+    
     public QuestObjectiveConfigurator AddChangeObjectiveOnUnlockTrigger(
         bool checkUnlockStatusOnStart = default,
         ChangeObjectiveOnUnlockTrigger.ObjectiveStatus setStatus = default,
@@ -501,8 +501,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="unlock"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
-    [Implements(typeof(GiveUnlockOnObjectiveTrigger))]
+    
+    
     public QuestObjectiveConfigurator AddGiveUnlockOnObjectiveTrigger(
         QuestObjectiveState objectiveState = default,
         string? unlock = null,
@@ -520,8 +520,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
-    [Generated]
-    [Implements(typeof(SummonPoolCountTrigger))]
+    
+    
     public QuestObjectiveConfigurator AddSummonPoolCountTrigger(
         int count = default,
         SummonPoolCountTrigger.ObjectiveStatus setStatus = default,
@@ -539,8 +539,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="ObjectiveStatusTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ObjectiveStatusTrigger))]
+    
+    
     public QuestObjectiveConfigurator AddObjectiveStatusTrigger(
         QuestObjectiveState objectiveState = default,
         ConditionsBuilder? conditions = null,

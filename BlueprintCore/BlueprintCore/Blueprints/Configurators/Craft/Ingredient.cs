@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
   /// Configurator for <see cref="BlueprintIngredient"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintIngredient))]
+  
   public class IngredientConfigurator : BaseItemConfigurator<BlueprintIngredient, IngredientConfigurator>
   {
     private IngredientConfigurator(string name) : base(name) { }

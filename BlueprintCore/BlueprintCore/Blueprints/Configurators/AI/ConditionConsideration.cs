@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="ConditionConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ConditionConsideration))]
+  
   public class ConditionConsiderationConfigurator : BaseConsiderationConfigurator<ConditionConsideration, ConditionConsiderationConfigurator>
   {
     private ConditionConsiderationConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ConditionConsiderationConfigurator SetConditions(UnitCondition[]? conditions)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Adds to <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ConditionConsiderationConfigurator AddToConditions(params UnitCondition[] conditions)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes from <see cref="ConditionConsideration.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ConditionConsiderationConfigurator RemoveFromConditions(params UnitCondition[] conditions)
     {
       return OnConfigureInternal(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ConditionConsideration.HasCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ConditionConsiderationConfigurator SetHasCondition(float hasCondition)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ConditionConsideration.NoCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ConditionConsiderationConfigurator SetNoCondition(float noCondition)
     {
       return OnConfigureInternal(

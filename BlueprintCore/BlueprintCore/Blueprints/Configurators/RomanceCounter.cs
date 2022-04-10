@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintRomanceCounter"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintRomanceCounter))]
+  
   public class RomanceCounterConfigurator : BaseBlueprintConfigurator<BlueprintRomanceCounter, RomanceCounterConfigurator>
   {
     private RomanceCounterConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="counterFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
+    
     public RomanceCounterConfigurator SetCounterFlag(string? counterFlag)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="minValueFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
+    
     public RomanceCounterConfigurator SetMinValueFlag(string? minValueFlag)
     {
       return OnConfigureInternal(
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="maxValueFlag"><see cref="Kingmaker.Blueprints.BlueprintUnlockableFlag"/></param>
-    [Generated]
+    
     public RomanceCounterConfigurator SetMaxValueFlag(string? maxValueFlag)
     {
       return OnConfigureInternal(

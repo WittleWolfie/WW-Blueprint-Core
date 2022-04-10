@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Implements common fields and component support for blueprints inheriting from <see cref="BlueprintFeature"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFeature))]
+  
   public abstract class BaseFeatureConfigurator<T, TBuilder> : FeatureBaseConfigurator<T, TBuilder>
       where T : BlueprintFeature
       where TBuilder : BaseFeatureConfigurator<T, TBuilder>
@@ -138,7 +138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddContextStatBonus"/>
     /// </summary>
-    [Implements(typeof(AddContextStatBonus))]
+    
     public TBuilder AddContextStatBonus(
         StatType stat,
         ContextValue value,
@@ -163,7 +163,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
+    
     public TBuilder AddContextRankConfig(ContextRankConfig rankConfig)
     {
       return AddComponent(rankConfig);
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteArchetypeLevel))]
+    
     public TBuilder PrerequisiteArchetype(
         string clazz,
         string archetype,
@@ -194,7 +194,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType">PrerequisiteCasterType</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCasterType))]
+    
     public TBuilder PrerequisiteCasterType(
         bool isArcane,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -211,7 +211,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel">PrerequisiteCasterTypeSpellLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCasterTypeSpellLevel))]
+    
     public TBuilder PrerequisiteCasterTypeSpellLevel(
         bool isArcane,
         bool onlySpontaneous,
@@ -230,7 +230,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCharacterLevel">PrerequisiteCharacterLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCharacterLevel))]
+    
     public TBuilder PrerequisiteCharacterLevel(
         int minLevel,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassLevel))]
+    
     public TBuilder PrerequisiteClassLevel(
         string clazz,
         int minLevel,
@@ -270,7 +270,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassSpellLevel))]
+    
     public TBuilder PrerequisiteClassSpellLevel(
         string clazz,
         int minSpellLevel,
@@ -291,7 +291,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
-    [Implements(typeof(PrerequisiteEtude))]
+    
     public TBuilder PrerequisiteEtude(
         string etude,
         bool playing = true,
@@ -310,7 +310,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeature))]
+    
     public TBuilder PrerequisiteFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -327,7 +327,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeaturesFromList))]
+    
     public TBuilder PrerequisiteFeaturesFromList(
         string[] features,
         int requiredNumber = 1,
@@ -345,7 +345,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteIsPet">PrerequisiteIsPet</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteIsPet))]
+    
     public TBuilder PrerequisiteIsPet(
         bool negate = false,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -360,7 +360,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
+    
     public TBuilder PrerequisiteMainCharacter(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -375,7 +375,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
+    
     public TBuilder PrerequisiteCompanion(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -391,7 +391,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMythicLevel">PrerequisiteMythicLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMythicLevel))]
+    
     public TBuilder PrerequisiteMythicLevel(
         int level,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -411,7 +411,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteNoArchetype))]
+    
     public TBuilder PrerequisiteNoArchetype(
         string clazz,
         string archetype,
@@ -430,7 +430,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteNoClassLevel))]
+    
     public TBuilder PrerequisiteNoClass(
         string clazz,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -447,7 +447,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteNoFeature))]
+    
     public TBuilder PrerequisiteNoFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -462,7 +462,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient">PrerequisiteNotProficient</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteNotProficient))]
+    
     public TBuilder PrerequisiteNotProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -485,7 +485,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="spellFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     /// <param name="spellAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public TBuilder PrerequisiteParameterizedSpellFeature(
         string spellFeature,
         string spellAbility,
@@ -507,7 +507,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public TBuilder PrerequisiteParameterizedWeaponFeature(
         string feature,
         WeaponCategory weapon,
@@ -528,7 +528,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public TBuilder PrerequisiteParameterizedSpellSchoolFeature(
         string feature,
         SpellSchool school,
@@ -548,7 +548,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="weaponFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedWeaponSubcategory))]
+    
     public TBuilder PrerequisiteParameterizedWeaponSubcategory(
         string weaponFeature,
         WeaponSubCategory weapon,
@@ -565,7 +565,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePet">PrerequisitePet</see>
     /// </summary>
-    [Implements(typeof(PrerequisitePet))]
+    
     public TBuilder PrerequisitePet(
         PetType type,
         bool negate = false,
@@ -584,7 +584,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisitePlayerHasFeature))]
+    
     public TBuilder PrerequisitePlayerHasFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -599,7 +599,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteProficiency"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteProficiency))]
+    
     public TBuilder PrerequisiteProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -619,7 +619,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteStatValue"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteStatValue))]
+    
     public TBuilder PrerequisiteStat(
         StatType type,
         int minValue,
@@ -636,13 +636,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds or modifies <see cref="PrerequisiteAlignment"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     public TBuilder AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
       return OnConfigureInternal(blueprint => AddPrerequisiteAlignment(blueprint, alignments.ToList()));
     }
 
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     private static void AddPrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
     {
       var component = bp.GetComponent<PrerequisiteAlignment>();
@@ -657,13 +657,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="PrerequisiteAlignment"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     public TBuilder RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
       return OnConfigureInternal(blueprint => RemovePrerequisiteAlignment(blueprint, alignments.ToList()));
     }
 
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     private static void RemovePrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
     {
       var component = bp.GetComponent<PrerequisiteAlignment>();
@@ -674,13 +674,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds or modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     public TBuilder AddSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
     }
 
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
     {
       var component = bp.GetComponent<SpellDescriptorComponent>();
@@ -695,13 +695,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     public TBuilder RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
     }
 
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
     {
       var component = bp.GetComponent<SpellDescriptorComponent>();
@@ -714,8 +714,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="spell"><see cref="Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell"/></param>
-    [Generated]
-    [Implements(typeof(AddGlobalMapSpellFeature))]
+    
+    
     public TBuilder AddGlobalMapSpellFeature(
         string? spell = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -729,8 +729,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="FeatureSurvivesRespec"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(FeatureSurvivesRespec))]
+    
+    
     public TBuilder AddFeatureSurvivesRespec(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -742,8 +742,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="LevelUpRecommendation"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LevelUpRecommendation))]
+    
+    
     public TBuilder AddLevelUpRecommendation(
         ClassesPriority[]? classPriorities = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -759,8 +759,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PrerequisiteCondition))]
+    
+    
     public TBuilder AddPrerequisiteCondition(
         Condition condition,
         LocalizedString? uIText = null,
@@ -785,8 +785,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="loreMaster"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(PrerequisiteLoreMaster))]
+    
+    
     public TBuilder AddPrerequisiteLoreMaster(
         string? loreMaster = null,
         int rating = default,
@@ -808,8 +808,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="featureSelection"><see cref="Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection"/></param>
-    [Generated]
-    [Implements(typeof(AddFeaturesFromSelectionToDescription))]
+    
+    
     public TBuilder AddFeaturesFromSelectionToDescription(
         LocalizedString? introduction = null,
         string? featureSelection = null,
@@ -827,8 +827,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddGoldenDragonSkillBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddGoldenDragonSkillBonus))]
+    
+    
     public TBuilder AddGoldenDragonSkillBonus(
         ModifierDescriptor descriptor = default,
         StatType stat = default)
@@ -842,8 +842,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddLocustSwarmMechanicPart"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddLocustSwarmMechanicPart))]
+    
+    
     public TBuilder AddLocustSwarmMechanicPart(
         int swarmStartStrength = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -857,8 +857,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddMagusMechanicPart"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddMagusMechanicPart))]
+    
+    
     public TBuilder AddMagusMechanicPart(
         AddMagusMechanicPart.Feature feature = default)
     {
@@ -870,8 +870,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddNocticulaBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddNocticulaBonus))]
+    
+    
     public TBuilder AddNocticulaBonus(
         ModifierDescriptor descriptor = default,
         ContextValue? highestStatBonus = null,
@@ -894,8 +894,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddRestTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddRestTrigger))]
+    
+    
     public TBuilder AddRestTrigger(
         ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -912,8 +912,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <param name="spellLists"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
     /// <param name="spells"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(AddSpellsToDescription))]
+    
+    
     public TBuilder AddSpellsToDescription(
         LocalizedString? introduction = null,
         string[]? spellLists = null,
@@ -931,8 +931,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddTricksterAthleticBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddTricksterAthleticBonus))]
+    
+    
     public TBuilder AddTricksterAthleticBonus(
         ModifierDescriptor descriptor = default,
         bool isAdded = default)
@@ -946,8 +946,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddWeaponEnhancementBonusToStat"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddWeaponEnhancementBonusToStat))]
+    
+    
     public TBuilder AddWeaponEnhancementBonusToStat(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -963,8 +963,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="MountedShield"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MountedShield))]
+    
+    
     public TBuilder AddMountedShield(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -982,8 +982,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="upgradeFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(ShroudOfWater))]
+    
+    
     public TBuilder AddShroudOfWater(
         ModifierDescriptor descriptor = default,
         StatType stat = default,
@@ -1003,8 +1003,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddDispelMagicSuccessTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddDispelMagicSuccessTrigger))]
+    
+    
     public TBuilder AddDispelMagicSuccessTrigger(
         bool triggerOnAreaEffectsDispell = default,
         ActionsBuilder? actionOnTarget = null,
@@ -1022,8 +1022,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="customProperty"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
-    [Generated]
-    [Implements(typeof(ContextCalculateAbilityParams))]
+    
+    
     public TBuilder AddContextCalculateAbilityParams(
         bool useKineticistMainStat = default,
         StatType statType = default,
@@ -1056,8 +1056,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
+    
+    
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
         bool useKineticistMainStat = default,
         StatType statType = default,
@@ -1075,8 +1075,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="ContextCalculateSharedValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ContextCalculateSharedValue))]
+    
+    
     public TBuilder AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
         ContextDiceValue? value = null,
@@ -1094,8 +1094,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="ContextSetAbilityParams"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ContextSetAbilityParams))]
+    
+    
     public TBuilder AddContextSetAbilityParams(
         bool add10ToDC = default,
         ContextValue? dC = null,
@@ -1122,8 +1122,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AbilityDifficultyLimitDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityDifficultyLimitDC))]
+    
+    
     public TBuilder AddAbilityDifficultyLimitDC(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1135,8 +1135,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="TacticalMoraleChanceModifier"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TacticalMoraleChanceModifier))]
+    
+    
     public TBuilder AddTacticalMoraleChanceModifier(
         bool changePositiveMorale = default,
         ContextValue? positiveMoraleChancePercentDelta = null,
@@ -1159,8 +1159,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PureRecommendation"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PureRecommendation))]
+    
+    
     public TBuilder AddPureRecommendation(
         RecommendationPriority priority = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1174,8 +1174,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="RecommendationAccomplishedSneakAttacker"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationAccomplishedSneakAttacker))]
+    
+    
     public TBuilder AddRecommendationAccomplishedSneakAttacker()
     {
       return AddComponent(new RecommendationAccomplishedSneakAttacker());
@@ -1184,8 +1184,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="RecommendationBaseAttackPart"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationBaseAttackPart))]
+    
+    
     public TBuilder AddRecommendationBaseAttackPart(
         float minPart = default,
         bool notRecommendIfHigher = default,
@@ -1203,8 +1203,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="companionRank"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(RecommendationCompanionBoon))]
+    
+    
     public TBuilder AddRecommendationCompanionBoon(
         string? companionRank = null)
     {
@@ -1218,8 +1218,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(RecommendationHasFeature))]
+    
+    
     public TBuilder AddRecommendationHasFeature(
         string? feature = null,
         bool mandatory = default)
@@ -1235,8 +1235,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(RecommendationNoFeatFromGroup))]
+    
+    
     public TBuilder AddRecommendationNoFeatFromGroup(
         string[]? features = null,
         bool goodIfNoFeature = default)
@@ -1250,8 +1250,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="RecommendationRequiresSpellbook"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationRequiresSpellbook))]
+    
+    
     public TBuilder AddRecommendationRequiresSpellbook(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1263,8 +1263,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="RecommendationRequiresSpellbookSource"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationRequiresSpellbookSource))]
+    
+    
     public TBuilder AddRecommendationRequiresSpellbookSource(
         bool arcane = default,
         bool divine = default,
@@ -1282,8 +1282,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="RecommendationStatComparison"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationStatComparison))]
+    
+    
     public TBuilder AddRecommendationStatComparison(
         StatType higherStat = default,
         StatType lowerStat = default,
@@ -1301,8 +1301,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="RecommendationStatMiminum"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationStatMiminum))]
+    
+    
     public TBuilder AddRecommendationStatMiminum(
         StatType stat = default,
         int minimalValue = default,
@@ -1318,8 +1318,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="RecommendationWeaponSubcategoryFocus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationWeaponSubcategoryFocus))]
+    
+    
     public TBuilder AddRecommendationWeaponSubcategoryFocus(
         WeaponSubCategory subcategory = default,
         bool hasFocus = default,
@@ -1335,8 +1335,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="RecommendationWeaponTypeFocus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecommendationWeaponTypeFocus))]
+    
+    
     public TBuilder AddRecommendationWeaponTypeFocus(
         WeaponRangeType weaponRangeType = default,
         bool hasFocus = default,
@@ -1352,8 +1352,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="StatRecommendationChange"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(StatRecommendationChange))]
+    
+    
     public TBuilder AddStatRecommendationChange(
         StatType stat = default,
         bool recommended = default)
@@ -1367,8 +1367,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteFullStatValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PrerequisiteFullStatValue))]
+    
+    
     public TBuilder AddPrerequisiteFullStatValue(
         StatType stat = default,
         int value = default,
@@ -1390,8 +1390,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    [Generated]
-    [Implements(typeof(AddSpellbookFeature))]
+    
+    
     public TBuilder AddSpellbookFeature(
         string? spellbook = null,
         int casterLevel = default)
@@ -1407,8 +1407,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    [Generated]
-    [Implements(typeof(AddSpellbookLevel))]
+    
+    
     public TBuilder AddSpellbookLevel(
         string? spellbook = null)
     {
@@ -1420,8 +1420,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="AddSpellsPerDay"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddSpellsPerDay))]
+    
+    
     public TBuilder AddSpellsPerDay(
         int amount = default,
         int[]? levels = null)
@@ -1435,8 +1435,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="ArmorSpeedPenaltyRemoval"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmorSpeedPenaltyRemoval))]
+    
+    
     public TBuilder AddArmorSpeedPenaltyRemoval()
     {
       return AddComponent(new ArmorSpeedPenaltyRemoval());
@@ -1449,8 +1449,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <param name="checkedBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="extraEffectBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="exceptionFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(BuffExtraEffects))]
+    
+    
     public TBuilder AddBuffExtraEffects(
         string? checkedBuff = null,
         string? extraEffectBuff = null,
@@ -1466,8 +1466,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="HarmoniousMage"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(HarmoniousMage))]
+    
+    
     public TBuilder AddHarmoniousMage()
     {
       return AddComponent(new HarmoniousMage());
@@ -1476,8 +1476,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="SavesFixerRecalculate"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SavesFixerRecalculate))]
+    
+    
     public TBuilder AddSavesFixerRecalculate(
         int version = default)
     {

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintFeatureReplaceSpellbook"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFeatureReplaceSpellbook))]
+  
   public class FeatureReplaceSpellbookConfigurator : BaseFeatureConfigurator<BlueprintFeatureReplaceSpellbook, FeatureReplaceSpellbookConfigurator>
   {
     private FeatureReplaceSpellbookConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    [Generated]
+    
     public FeatureReplaceSpellbookConfigurator SetSpellbook(string? spellbook)
     {
       return OnConfigureInternal(

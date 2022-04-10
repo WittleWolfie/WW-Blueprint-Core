@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintFeatureBase"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFeatureBase))]
+  
   public abstract class FeatureBaseConfigurator<T, TBuilder> : BaseUnitFactConfigurator<T, TBuilder>
       where T : BlueprintFeatureBase
       where TBuilder : FeatureBaseConfigurator<T, TBuilder>
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the contents of <see cref="FeatureTagsComponent"/>
     /// </summary>
-    [Implements(typeof(FeatureTagsComponent))]
+    
     public TBuilder SetFeatureTags(params FeatureTag[] tags)
     {
       return OnConfigureInternal(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="FeatureTagsComponent"/>
     /// </summary>
-    [Implements(typeof(FeatureTagsComponent))]
+    
     public TBuilder AddToFeatureTags(params FeatureTag[] tags)
     {
       return OnConfigureInternal(
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="FeatureTagsComponent"/>
     /// </summary>
-    [Implements(typeof(FeatureTagsComponent))]
+    
     public TBuilder RemoveFromFeatureTags(params FeatureTag[] tags)
     {
       return OnConfigureInternal(
@@ -104,8 +104,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="HideFeatureInInspect"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(HideFeatureInInspect))]
+    
+    
     public TBuilder AddHideFeatureInInspect()
     {
       return AddComponent(new HideFeatureInInspect());

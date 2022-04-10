@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintProjectileTrajectory"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintProjectileTrajectory))]
+  
   public class ProjectileTrajectoryConfigurator : BaseBlueprintConfigurator<BlueprintProjectileTrajectory, ProjectileTrajectoryConfigurator>
   {
     private ProjectileTrajectoryConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectileTrajectory.UpDirection"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator SetUpDirection(Vector3 upDirection)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectileTrajectory.PlaneOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator SetPlaneOffset(TrajectoryOffset[]? planeOffset)
     {
       ValidateParam(planeOffset);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds to <see cref="BlueprintProjectileTrajectory.PlaneOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator AddToPlaneOffset(params TrajectoryOffset[] planeOffset)
     {
       ValidateParam(planeOffset);
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes from <see cref="BlueprintProjectileTrajectory.PlaneOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator RemoveFromPlaneOffset(params TrajectoryOffset[] planeOffset)
     {
       ValidateParam(planeOffset);
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectileTrajectory.UpOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator SetUpOffset(TrajectoryOffset[]? upOffset)
     {
       ValidateParam(upOffset);
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds to <see cref="BlueprintProjectileTrajectory.UpOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator AddToUpOffset(params TrajectoryOffset[] upOffset)
     {
       ValidateParam(upOffset);
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes from <see cref="BlueprintProjectileTrajectory.UpOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator RemoveFromUpOffset(params TrajectoryOffset[] upOffset)
     {
       ValidateParam(upOffset);
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectileTrajectory.AmplitudeScaleByLifetime"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator SetAmplitudeScaleByLifetime(AnimationCurve amplitudeScaleByLifetime)
     {
       ValidateParam(amplitudeScaleByLifetime);
@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectileTrajectory.AmplitudeScaleByFullDistance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileTrajectoryConfigurator SetAmplitudeScaleByFullDistance(AnimationCurve amplitudeScaleByFullDistance)
     {
       ValidateParam(amplitudeScaleByFullDistance);

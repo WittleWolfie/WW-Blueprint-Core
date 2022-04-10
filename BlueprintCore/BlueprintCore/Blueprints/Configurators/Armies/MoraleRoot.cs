@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   /// Configurator for <see cref="MoraleRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(MoraleRoot))]
+  
   public class MoraleRootConfigurator : BaseBlueprintConfigurator<MoraleRoot, MoraleRootConfigurator>
   {
     private MoraleRootConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="MoraleRoot.m_MoraleBorder"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MoraleRootConfigurator SetMoraleBorder(Vector2Int moraleBorder)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="MoraleRoot.m_DevineForNegative"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MoraleRootConfigurator SetDevineForNegative(float devineForNegative)
     {
       return OnConfigureInternal(
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="MoraleRoot.m_DevineForPositive"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MoraleRootConfigurator SetDevineForPositive(float devineForPositive)
     {
       return OnConfigureInternal(
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="negativeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public MoraleRootConfigurator SetNegativeFacts(string[]? negativeFacts)
     {
       return OnConfigureInternal(
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="negativeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public MoraleRootConfigurator AddToNegativeFacts(params string[] negativeFacts)
     {
       return OnConfigureInternal(
@@ -104,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="negativeFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public MoraleRootConfigurator RemoveFromNegativeFacts(params string[] negativeFacts)
     {
       return OnConfigureInternal(
@@ -124,7 +124,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="globalArmiesMoraleBuff"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff"/></param>
-    [Generated]
+    
     public MoraleRootConfigurator SetGlobalArmiesMoraleBuff(string? globalArmiesMoraleBuff)
     {
       return OnConfigureInternal(
@@ -137,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="MoraleRoot.BaseMoraleValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MoraleRootConfigurator SetBaseMoraleValue(LocalizedString? baseMoraleValue)
     {
       ValidateParam(baseMoraleValue);
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="MoraleRoot.ArmyEffectOnSquad"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MoraleRootConfigurator SetArmyEffectOnSquad(LocalizedString? armyEffectOnSquad)
     {
       ValidateParam(armyEffectOnSquad);
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="MoraleRoot.UnitNotHaveMorale"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MoraleRootConfigurator SetUnitNotHaveMorale(LocalizedString? unitNotHaveMorale)
     {
       ValidateParam(unitNotHaveMorale);

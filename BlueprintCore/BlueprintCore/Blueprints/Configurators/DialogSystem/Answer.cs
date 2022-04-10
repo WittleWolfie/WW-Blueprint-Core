@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintAnswer"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAnswer))]
+  
   public class AnswerConfigurator : BaseAnswerBaseConfigurator<BlueprintAnswer, AnswerConfigurator>
   {
     private AnswerConfigurator(string name) : base(name) { }
@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.Text"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetText(LocalizedString? text)
     {
       ValidateParam(text);
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.NextCue"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetNextCue(CueSelection nextCue)
     {
       ValidateParam(nextCue);
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.ShowOnce"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetShowOnce(bool showOnce)
     {
       return OnConfigureInternal(
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.ShowOnceCurrentDialog"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetShowOnceCurrentDialog(bool showOnceCurrentDialog)
     {
       return OnConfigureInternal(
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.ShowCheck"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetShowCheck(ShowCheck showCheck)
     {
       ValidateParam(showCheck);
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.Experience"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetExperience(DialogExperience experience)
     {
       return OnConfigureInternal(
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.DebugMode"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetDebugMode(bool debugMode)
     {
       return OnConfigureInternal(
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.CharacterSelection"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetCharacterSelection(CharacterSelection characterSelection)
     {
       ValidateParam(characterSelection);
@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.ShowConditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetShowConditions(ConditionsBuilder? showConditions)
     {
       return OnConfigureInternal(
@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.SelectConditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetSelectConditions(ConditionsBuilder? selectConditions)
     {
       return OnConfigureInternal(
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.RequireValidCue"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetRequireValidCue(bool requireValidCue)
     {
       return OnConfigureInternal(
@@ -188,7 +188,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.AddToHistory"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetAddToHistory(bool addToHistory)
     {
       return OnConfigureInternal(
@@ -201,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.OnSelect"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetOnSelect(ActionsBuilder? onSelect)
     {
       return OnConfigureInternal(
@@ -214,7 +214,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetFakeChecks(CheckData[]? fakeChecks)
     {
       ValidateParam(fakeChecks);
@@ -229,7 +229,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Adds to <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator AddToFakeChecks(params CheckData[] fakeChecks)
     {
       ValidateParam(fakeChecks);
@@ -243,7 +243,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Removes from <see cref="BlueprintAnswer.FakeChecks"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator RemoveFromFakeChecks(params CheckData[] fakeChecks)
     {
       ValidateParam(fakeChecks);
@@ -257,7 +257,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintAnswer.AlignmentShift"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AnswerConfigurator SetAlignmentShift(AlignmentShift alignmentShift)
     {
       ValidateParam(alignmentShift);
@@ -274,8 +274,8 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(ActingCompanion))]
+    
+    
     public AnswerConfigurator AddActingCompanion(
         string? companion = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,

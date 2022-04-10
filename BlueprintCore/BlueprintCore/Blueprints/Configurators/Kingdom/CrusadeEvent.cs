@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintCrusadeEvent"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCrusadeEvent))]
+  
   public class CrusadeEventConfigurator : BaseKingdomEventBaseConfigurator<BlueprintCrusadeEvent, CrusadeEventConfigurator>
   {
     private CrusadeEventConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CrusadeEventConfigurator SetEventSolutions(EventSolution[]? eventSolutions)
     {
       ValidateParam(eventSolutions);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds to <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CrusadeEventConfigurator AddToEventSolutions(params EventSolution[] eventSolutions)
     {
       ValidateParam(eventSolutions);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes from <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CrusadeEventConfigurator RemoveFromEventSolutions(params EventSolution[] eventSolutions)
     {
       ValidateParam(eventSolutions);

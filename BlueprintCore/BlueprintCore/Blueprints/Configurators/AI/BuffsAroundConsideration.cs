@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BuffsAroundConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BuffsAroundConsideration))]
+  
   public class BuffsAroundConsiderationConfigurator : BaseUnitsAroundConsiderationConfigurator<BuffsAroundConsideration, BuffsAroundConsiderationConfigurator>
   {
     private BuffsAroundConsiderationConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffsAroundConsiderationConfigurator SetBuffs(string[]? buffs)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffsAroundConsiderationConfigurator AddToBuffs(params string[] buffs)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffsAroundConsiderationConfigurator RemoveFromBuffs(params string[] buffs)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BuffsAroundConsideration.CheckAbsence"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BuffsAroundConsiderationConfigurator SetCheckAbsence(bool checkAbsence)
     {
       return OnConfigureInternal(

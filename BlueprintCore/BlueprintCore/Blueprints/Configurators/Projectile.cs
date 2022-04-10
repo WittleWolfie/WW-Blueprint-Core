@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintProjectile"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintProjectile))]
+  
   public class ProjectileConfigurator : BaseBlueprintConfigurator<BlueprintProjectile, ProjectileConfigurator>
   {
     private ProjectileConfigurator(string name) : base(name) { }
@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.Speed"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetSpeed(float speed)
     {
       return OnConfigureInternal(
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.MinTime"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetMinTime(float minTime)
     {
       return OnConfigureInternal(
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.View"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetView(ProjectileLink view)
     {
       ValidateParam(view);
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.CastFx"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetCastFx(PrefabLink? castFx)
     {
       ValidateParam(castFx);
@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.CastEffectDuration"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetCastEffectDuration(float castEffectDuration)
     {
       return OnConfigureInternal(
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.LifetimeParticlesAfterHit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetLifetimeParticlesAfterHit(float lifetimeParticlesAfterHit)
     {
       return OnConfigureInternal(
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.ProjectileHit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetProjectileHit(ProjectileHitSettings projectileHit)
     {
       ValidateParam(projectileHit);
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.DamageHit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetDamageHit(DamageHitSettings damageHit)
     {
       ValidateParam(damageHit);
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.SourceBone"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetSourceBone(string sourceBone)
     {
       return OnConfigureInternal(
@@ -159,7 +159,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.SourceBoneOffsetAtTarget"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetSourceBoneOffsetAtTarget(bool sourceBoneOffsetAtTarget)
     {
       return OnConfigureInternal(
@@ -172,7 +172,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.UseSourceBoneScale"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetUseSourceBoneScale(bool useSourceBoneScale)
     {
       return OnConfigureInternal(
@@ -185,7 +185,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.SourceBoneCorpulenceOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetSourceBoneCorpulenceOffset(float sourceBoneCorpulenceOffset)
     {
       return OnConfigureInternal(
@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.TargetBone"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetTargetBone(string targetBone)
     {
       return OnConfigureInternal(
@@ -211,7 +211,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.TargetBoneOnCrit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetTargetBoneOnCrit(string targetBoneOnCrit)
     {
       return OnConfigureInternal(
@@ -224,7 +224,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.TargetBoneOffsetMultiplier"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetTargetBoneOffsetMultiplier(float targetBoneOffsetMultiplier)
     {
       return OnConfigureInternal(
@@ -237,7 +237,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.FallsOnMiss"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetFallsOnMiss(bool fallsOnMiss)
     {
       return OnConfigureInternal(
@@ -250,7 +250,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.MissMinRadius"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetMissMinRadius(float missMinRadius)
     {
       return OnConfigureInternal(
@@ -263,7 +263,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.MissMaxRadius"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetMissMaxRadius(float missMaxRadius)
     {
       return OnConfigureInternal(
@@ -276,7 +276,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.MissRaycastDistance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetMissRaycastDistance(float missRaycastDistance)
     {
       return OnConfigureInternal(
@@ -289,7 +289,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.AddRagdollImpulse"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetAddRagdollImpulse(float addRagdollImpulse)
     {
       return OnConfigureInternal(
@@ -304,7 +304,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="trajectory"><see cref="Kingmaker.Blueprints.BlueprintProjectileTrajectory"/></param>
-    [Generated]
+    
     public ProjectileConfigurator SetTrajectory(string? trajectory)
     {
       return OnConfigureInternal(
@@ -317,7 +317,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.FollowTerrain"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetFollowTerrain(bool followTerrain)
     {
       return OnConfigureInternal(
@@ -330,7 +330,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.StuckArrowPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetStuckArrowPrefab(GameObject stuckArrowPrefab)
     {
       ValidateParam(stuckArrowPrefab);
@@ -345,7 +345,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintProjectile.DeflectedArrowPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProjectileConfigurator SetDeflectedArrowPrefab(GameObject deflectedArrowPrefab)
     {
       ValidateParam(deflectedArrowPrefab);
@@ -360,8 +360,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="CannotSneakAttack"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CannotSneakAttack))]
+    
+    
     public ProjectileConfigurator AddCannotSneakAttack(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)

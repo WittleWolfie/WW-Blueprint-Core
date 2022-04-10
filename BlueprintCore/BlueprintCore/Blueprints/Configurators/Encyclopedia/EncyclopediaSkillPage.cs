@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   /// Configurator for <see cref="BlueprintEncyclopediaSkillPage"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintEncyclopediaSkillPage))]
+  
   public class EncyclopediaSkillPageConfigurator : BaseEncyclopediaPageConfigurator<BlueprintEncyclopediaSkillPage, EncyclopediaSkillPageConfigurator>
   {
     private EncyclopediaSkillPageConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// </summary>
     ///
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public EncyclopediaSkillPageConfigurator SetClass(string? clazz)
     {
       return OnConfigureInternal(

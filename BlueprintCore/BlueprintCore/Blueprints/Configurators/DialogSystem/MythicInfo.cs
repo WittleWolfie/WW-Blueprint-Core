@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Configurator for <see cref="BlueprintMythicInfo"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintMythicInfo))]
+  
   public class MythicInfoConfigurator : BaseBlueprintConfigurator<BlueprintMythicInfo, MythicInfoConfigurator>
   {
     private MythicInfoConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintMythicInfo._mythic"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MythicInfoConfigurator Set_mythic(Mythic _mythic)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// </summary>
     ///
     /// <param name="_etudeReference"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public MythicInfoConfigurator Set_etudeReference(string? _etudeReference)
     {
       return OnConfigureInternal(
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintMythicInfo._mythicName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MythicInfoConfigurator Set_mythicName(LocalizedString? _mythicName)
     {
       ValidateParam(_mythicName);

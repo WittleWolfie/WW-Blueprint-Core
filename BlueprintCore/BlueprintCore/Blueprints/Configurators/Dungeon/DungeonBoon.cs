@@ -14,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   /// Configurator for <see cref="BlueprintDungeonBoon"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDungeonBoon))]
+  
   public class DungeonBoonConfigurator : BaseBlueprintConfigurator<BlueprintDungeonBoon, DungeonBoonConfigurator>
   {
     private DungeonBoonConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonBoon.Name"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonBoonConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonBoon.Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonBoonConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonBoon.m_Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonBoonConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonBoon.MinStage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonBoonConfigurator SetMinStage(int minStage)
     {
       return OnConfigureInternal(
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonBoon.m_CachedLogic"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonBoonConfigurator SetCachedLogic(DungeonBoonLogic cachedLogic)
     {
       ValidateParam(cachedLogic);
@@ -108,8 +108,8 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds <see cref="BoonLogicExperience"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BoonLogicExperience))]
+    
+    
     public DungeonBoonConfigurator AddBoonLogicExperience(
         int step = default,
         int start = default,
@@ -125,8 +125,8 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds <see cref="BoonLogicExperienceRate"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BoonLogicExperienceRate))]
+    
+    
     public DungeonBoonConfigurator AddBoonLogicExperienceRate(
         int step = default,
         int start = default,
@@ -142,8 +142,8 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds <see cref="BoonLogicGold"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BoonLogicGold))]
+    
+    
     public DungeonBoonConfigurator AddBoonLogicGold(
         int step = default,
         int start = default,
@@ -159,8 +159,8 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds <see cref="BoonLogicItem"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BoonLogicItem))]
+    
+    
     public DungeonBoonConfigurator AddBoonLogicItem(
         bool isRandomItemOfType = default,
         DungeonLootType[]? type = null,
@@ -184,8 +184,8 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(BoonLogicPartyBuff))]
+    
+    
     public DungeonBoonConfigurator AddBoonLogicPartyBuff(
         DungeonBoonLogic.ProgressionType progression = default,
         bool mainCharacterOnly = default,

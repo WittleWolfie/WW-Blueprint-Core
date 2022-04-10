@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
   /// Configurator for <see cref="BlueprintGlobalMagicSpell"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintGlobalMagicSpell))]
+  
   public class GlobalMagicSpellConfigurator : BaseBlueprintConfigurator<BlueprintGlobalMagicSpell, GlobalMagicSpellConfigurator>
   {
     private GlobalMagicSpellConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMagicSpellConfigurator SetSpellName(LocalizedString? spellName)
     {
       ValidateParam(spellName);
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMagicSpellConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMagicSpellConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_VFX"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMagicSpellConfigurator SetVFX(PrefabLink? vFX)
     {
       ValidateParam(vFX);
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_HoursCooldown"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMagicSpellConfigurator SetHoursCooldown(GlobalMagicValue hoursCooldown)
     {
       ValidateParam(hoursCooldown);
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_Executor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMagicSpellConfigurator SetExecutor(BlueprintGlobalMagicSpell.ExecutorGlobalMagicSpell executor)
     {
       ValidateParam(executor);
@@ -123,7 +123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMagicSpellConfigurator SetSpellActions(ActionsBuilder? spellActions)
     {
       return OnConfigureInternal(
@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMagicSpell.m_SetCooldownManually"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMagicSpellConfigurator SetCooldownManually(bool setCooldownManually)
     {
       return OnConfigureInternal(

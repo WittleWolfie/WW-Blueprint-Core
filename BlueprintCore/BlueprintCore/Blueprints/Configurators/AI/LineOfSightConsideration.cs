@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="LineOfSightConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(LineOfSightConsideration))]
+  
   public class LineOfSightConsiderationConfigurator : BaseConsiderationConfigurator<LineOfSightConsideration, LineOfSightConsiderationConfigurator>
   {
     private LineOfSightConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="LineOfSightConsideration.HasNoLosScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LineOfSightConsiderationConfigurator SetHasNoLosScore(float hasNoLosScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="LineOfSightConsideration.HasLosScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LineOfSightConsiderationConfigurator SetHasLosScore(float hasLosScore)
     {
       return OnConfigureInternal(

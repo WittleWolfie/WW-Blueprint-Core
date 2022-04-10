@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintCharacterClassGroup"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCharacterClassGroup))]
+  
   public class CharacterClassGroupConfigurator : BaseBlueprintConfigurator<BlueprintCharacterClassGroup, CharacterClassGroupConfigurator>
   {
     private CharacterClassGroupConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public CharacterClassGroupConfigurator SetCharacterClasses(string[]? characterClasses)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public CharacterClassGroupConfigurator AddToCharacterClasses(params string[] characterClasses)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public CharacterClassGroupConfigurator RemoveFromCharacterClasses(params string[] characterClasses)
     {
       return OnConfigureInternal(

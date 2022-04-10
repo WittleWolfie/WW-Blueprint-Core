@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   /// Configurator for <see cref="BlueprintDungeonRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDungeonRoot))]
+  
   public class DungeonRootConfigurator : BaseBlueprintConfigurator<BlueprintDungeonRoot, DungeonRootConfigurator>
   {
     private DungeonRootConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.DebugOutput"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetDebugOutput(BlueprintDungeonRoot.DebugOutputSettings debugOutput)
     {
       ValidateParam(debugOutput);
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Test"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetTest(BlueprintDungeonRoot.TestSettings test)
     {
       ValidateParam(test);
@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="localization"><see cref="Kingmaker.Dungeon.Blueprints.BlueprintDungeonLocalizedStrings"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetLocalization(string? localization)
     {
       return OnConfigureInternal(
@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="newGamePreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetNewGamePreset(string? newGamePreset)
     {
       return OnConfigureInternal(
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.BoonsPoolSize"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetBoonsPoolSize(int boonsPoolSize)
     {
       return OnConfigureInternal(
@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.QuestItemPerStageChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetQuestItemPerStageChance(int questItemPerStageChance)
     {
       return OnConfigureInternal(
@@ -120,7 +120,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="unitsWithQuestItems"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetUnitsWithQuestItems(string? unitsWithQuestItems)
     {
       return OnConfigureInternal(
@@ -135,7 +135,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="mainVendorTable"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetMainVendorTable(string? mainVendorTable)
     {
       return OnConfigureInternal(
@@ -150,7 +150,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="divineVendorTable"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetDivineVendorTable(string? divineVendorTable)
     {
       return OnConfigureInternal(
@@ -165,7 +165,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="corruptedFighterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetCorruptedFighterClass(string? corruptedFighterClass)
     {
       return OnConfigureInternal(
@@ -180,7 +180,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="corruptedArcherClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetCorruptedArcherClass(string? corruptedArcherClass)
     {
       return OnConfigureInternal(
@@ -195,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="corruptedCasterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetCorruptedCasterClass(string? corruptedCasterClass)
     {
       return OnConfigureInternal(
@@ -208,7 +208,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.StartSetting"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetStartSetting(DungeonStageSetting startSetting)
     {
       return OnConfigureInternal(
@@ -221,7 +221,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FirstChangeSettingStage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetFirstChangeSettingStage(int firstChangeSettingStage)
     {
       return OnConfigureInternal(
@@ -234,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ChangeSettingFrequency"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetChangeSettingFrequency(int changeSettingFrequency)
     {
       return OnConfigureInternal(
@@ -247,7 +247,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.RoomsPerStage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetRoomsPerStage(int roomsPerStage)
     {
       return OnConfigureInternal(
@@ -260,7 +260,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.EmptyRoomsPerStage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetEmptyRoomsPerStage(int emptyRoomsPerStage)
     {
       return OnConfigureInternal(
@@ -273,7 +273,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FirstBossStage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetFirstBossStage(int firstBossStage)
     {
       return OnConfigureInternal(
@@ -286,7 +286,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.BossFrequency"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetBossFrequency(int bossFrequency)
     {
       return OnConfigureInternal(
@@ -299,7 +299,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FirstMiniBossStage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetFirstMiniBossStage(int firstMiniBossStage)
     {
       return OnConfigureInternal(
@@ -312,7 +312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.MiniBossFrequency"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetMiniBossFrequency(int miniBossFrequency)
     {
       return OnConfigureInternal(
@@ -325,7 +325,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.HardEncountersPerStage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetHardEncountersPerStage(int hardEncountersPerStage)
     {
       return OnConfigureInternal(
@@ -338,7 +338,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.AdditionalHardEncounterChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetAdditionalHardEncounterChance(int additionalHardEncounterChance)
     {
       return OnConfigureInternal(
@@ -351,7 +351,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ApplyThemeChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetApplyThemeChance(int applyThemeChance)
     {
       return OnConfigureInternal(
@@ -364,7 +364,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.AdditionalShrineChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetAdditionalShrineChance(int additionalShrineChance)
     {
       return OnConfigureInternal(
@@ -377,7 +377,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.AdditionalLockedChestChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetAdditionalLockedChestChance(int additionalLockedChestChance)
     {
       return OnConfigureInternal(
@@ -390,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.SecretEncounterChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetSecretEncounterChance(int secretEncounterChance)
     {
       return OnConfigureInternal(
@@ -403,7 +403,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FinalBossPortalChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetFinalBossPortalChance(int finalBossPortalChance)
     {
       return OnConfigureInternal(
@@ -416,7 +416,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.FirstIncreaseCRStage"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetFirstIncreaseCRStage(int firstIncreaseCRStage)
     {
       return OnConfigureInternal(
@@ -429,7 +429,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.IncreaseCRFrequency"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetIncreaseCRFrequency(int increaseCRFrequency)
     {
       return OnConfigureInternal(
@@ -442,7 +442,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.BossCRBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetBossCRBonus(int bossCRBonus)
     {
       return OnConfigureInternal(
@@ -455,7 +455,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.MiniBossCRBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetMiniBossCRBonus(int miniBossCRBonus)
     {
       return OnConfigureInternal(
@@ -468,7 +468,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.HardEncounterCRBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetHardEncounterCRBonus(int hardEncounterCRBonus)
     {
       return OnConfigureInternal(
@@ -481,7 +481,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.RoomCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetRoomCRBonuses(int[]? roomCRBonuses)
     {
       return OnConfigureInternal(
@@ -494,7 +494,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.RoomCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToRoomCRBonuses(params int[] roomCRBonuses)
     {
       return OnConfigureInternal(
@@ -507,7 +507,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.RoomCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromRoomCRBonuses(params int[] roomCRBonuses)
     {
       return OnConfigureInternal(
@@ -520,7 +520,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.EveryRoomCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetEveryRoomCRBonuses(BlueprintDungeonRoot.StageCRBonus[]? everyRoomCRBonuses)
     {
       ValidateParam(everyRoomCRBonuses);
@@ -535,7 +535,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.EveryRoomCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToEveryRoomCRBonuses(params BlueprintDungeonRoot.StageCRBonus[] everyRoomCRBonuses)
     {
       ValidateParam(everyRoomCRBonuses);
@@ -549,7 +549,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.EveryRoomCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromEveryRoomCRBonuses(params BlueprintDungeonRoot.StageCRBonus[] everyRoomCRBonuses)
     {
       ValidateParam(everyRoomCRBonuses);
@@ -563,7 +563,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.CorruptedUnitChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetCorruptedUnitChance(int corruptedUnitChance)
     {
       return OnConfigureInternal(
@@ -576,7 +576,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.UnitsCountInPack"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetUnitsCountInPack(BlueprintDungeonRoot.UnitsPerPack[]? unitsCountInPack)
     {
       ValidateParam(unitsCountInPack);
@@ -591,7 +591,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.UnitsCountInPack"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToUnitsCountInPack(params BlueprintDungeonRoot.UnitsPerPack[] unitsCountInPack)
     {
       ValidateParam(unitsCountInPack);
@@ -605,7 +605,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.UnitsCountInPack"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromUnitsCountInPack(params BlueprintDungeonRoot.UnitsPerPack[] unitsCountInPack)
     {
       ValidateParam(unitsCountInPack);
@@ -619,7 +619,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.UnitsCountInBossPack"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetUnitsCountInBossPack(BlueprintDungeonRoot.UnitsPerPack[]? unitsCountInBossPack)
     {
       ValidateParam(unitsCountInBossPack);
@@ -634,7 +634,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.UnitsCountInBossPack"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToUnitsCountInBossPack(params BlueprintDungeonRoot.UnitsPerPack[] unitsCountInBossPack)
     {
       ValidateParam(unitsCountInBossPack);
@@ -648,7 +648,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.UnitsCountInBossPack"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromUnitsCountInBossPack(params BlueprintDungeonRoot.UnitsPerPack[] unitsCountInBossPack)
     {
       ValidateParam(unitsCountInBossPack);
@@ -662,7 +662,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.PacksCountInRoom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetPacksCountInRoom(BlueprintDungeonRoot.ValueWithWeight[]? packsCountInRoom)
     {
       ValidateParam(packsCountInRoom);
@@ -677,7 +677,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.PacksCountInRoom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToPacksCountInRoom(params BlueprintDungeonRoot.ValueWithWeight[] packsCountInRoom)
     {
       ValidateParam(packsCountInRoom);
@@ -691,7 +691,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.PacksCountInRoom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromPacksCountInRoom(params BlueprintDungeonRoot.ValueWithWeight[] packsCountInRoom)
     {
       ValidateParam(packsCountInRoom);
@@ -705,7 +705,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.PacksCountInBossRoom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetPacksCountInBossRoom(BlueprintDungeonRoot.ValueWithWeight[]? packsCountInBossRoom)
     {
       ValidateParam(packsCountInBossRoom);
@@ -720,7 +720,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.PacksCountInBossRoom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToPacksCountInBossRoom(params BlueprintDungeonRoot.ValueWithWeight[] packsCountInBossRoom)
     {
       ValidateParam(packsCountInBossRoom);
@@ -734,7 +734,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.PacksCountInBossRoom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromPacksCountInBossRoom(params BlueprintDungeonRoot.ValueWithWeight[] packsCountInBossRoom)
     {
       ValidateParam(packsCountInBossRoom);
@@ -748,7 +748,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Armies"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetArmies(DungeonArmySettings[]? armies)
     {
       ValidateParam(armies);
@@ -763,7 +763,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.Armies"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToArmies(params DungeonArmySettings[] armies)
     {
       ValidateParam(armies);
@@ -777,7 +777,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.Armies"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromArmies(params DungeonArmySettings[] armies)
     {
       ValidateParam(armies);
@@ -791,7 +791,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Roaming"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetRoaming(RoamingUnitSettings roaming)
     {
       ValidateParam(roaming);
@@ -806,7 +806,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.CustomBosses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetCustomBosses(BlueprintDungeonRoot.CustomBossSettings[]? customBosses)
     {
       ValidateParam(customBosses);
@@ -821,7 +821,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.CustomBosses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToCustomBosses(params BlueprintDungeonRoot.CustomBossSettings[] customBosses)
     {
       ValidateParam(customBosses);
@@ -835,7 +835,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.CustomBosses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromCustomBosses(params BlueprintDungeonRoot.CustomBossSettings[] customBosses)
     {
       ValidateParam(customBosses);
@@ -851,7 +851,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="stageUnits"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetStageUnits(string? stageUnits)
     {
       return OnConfigureInternal(
@@ -864,7 +864,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.LootTableSmall"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetLootTableSmall(BlueprintDungeonRoot.LootTypeWeight[]? lootTableSmall)
     {
       ValidateParam(lootTableSmall);
@@ -879,7 +879,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.LootTableSmall"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToLootTableSmall(params BlueprintDungeonRoot.LootTypeWeight[] lootTableSmall)
     {
       ValidateParam(lootTableSmall);
@@ -893,7 +893,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.LootTableSmall"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromLootTableSmall(params BlueprintDungeonRoot.LootTypeWeight[] lootTableSmall)
     {
       ValidateParam(lootTableSmall);
@@ -907,7 +907,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.LootTableBig"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetLootTableBig(BlueprintDungeonRoot.LootTypeWeight[]? lootTableBig)
     {
       ValidateParam(lootTableBig);
@@ -922,7 +922,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.LootTableBig"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToLootTableBig(params BlueprintDungeonRoot.LootTypeWeight[] lootTableBig)
     {
       ValidateParam(lootTableBig);
@@ -936,7 +936,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.LootTableBig"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromLootTableBig(params BlueprintDungeonRoot.LootTypeWeight[] lootTableBig)
     {
       ValidateParam(lootTableBig);
@@ -950,7 +950,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.LootCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetLootCRBonuses(BlueprintDungeonRoot.ValueWithWeight[]? lootCRBonuses)
     {
       ValidateParam(lootCRBonuses);
@@ -965,7 +965,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.LootCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToLootCRBonuses(params BlueprintDungeonRoot.ValueWithWeight[] lootCRBonuses)
     {
       ValidateParam(lootCRBonuses);
@@ -979,7 +979,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.LootCRBonuses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromLootCRBonuses(params BlueprintDungeonRoot.ValueWithWeight[] lootCRBonuses)
     {
       ValidateParam(lootCRBonuses);
@@ -993,7 +993,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Loot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetLoot(DungeonLootRoot loot)
     {
       ValidateParam(loot);
@@ -1008,7 +1008,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Items"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetItems(BlueprintDungeonRoot.ItemsList[]? items)
     {
       ValidateParam(items);
@@ -1023,7 +1023,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.Items"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToItems(params BlueprintDungeonRoot.ItemsList[] items)
     {
       ValidateParam(items);
@@ -1037,7 +1037,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.Items"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromItems(params BlueprintDungeonRoot.ItemsList[] items)
     {
       ValidateParam(items);
@@ -1053,7 +1053,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="essentials"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetEssentials(string[]? essentials)
     {
       return OnConfigureInternal(
@@ -1068,7 +1068,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="essentials"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator AddToEssentials(params string[] essentials)
     {
       return OnConfigureInternal(
@@ -1083,7 +1083,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="essentials"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromEssentials(params string[] essentials)
     {
       return OnConfigureInternal(
@@ -1103,7 +1103,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="packSpawnLoot"><see cref="Kingmaker.Dungeon.Blueprints.BlueprintGenericPackLoot"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetPackSpawnLoot(string? packSpawnLoot)
     {
       return OnConfigureInternal(
@@ -1116,7 +1116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.TrapDisabledEvent"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetTrapDisabledEvent(string trapDisabledEvent)
     {
       return OnConfigureInternal(
@@ -1129,7 +1129,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.TrapDisableFailedEvent"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetTrapDisableFailedEvent(string trapDisableFailedEvent)
     {
       return OnConfigureInternal(
@@ -1142,7 +1142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.TrapInteractionStartedEvent"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetTrapInteractionStartedEvent(string trapInteractionStartedEvent)
     {
       return OnConfigureInternal(
@@ -1155,7 +1155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.TrapInteractionEndedEvent"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetTrapInteractionEndedEvent(string trapInteractionEndedEvent)
     {
       return OnConfigureInternal(
@@ -1170,7 +1170,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="finalBossPortal"><see cref="Kingmaker.RandomEncounters.Settings.BlueprintSpawnableObject"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetFinalBossPortal(string? finalBossPortal)
     {
       return OnConfigureInternal(
@@ -1183,7 +1183,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.SpecialObjects"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetSpecialObjects(BlueprintDungeonRoot.SpecialObjectsList[]? specialObjects)
     {
       ValidateParam(specialObjects);
@@ -1198,7 +1198,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.SpecialObjects"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToSpecialObjects(params BlueprintDungeonRoot.SpecialObjectsList[] specialObjects)
     {
       ValidateParam(specialObjects);
@@ -1212,7 +1212,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.SpecialObjects"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromSpecialObjects(params BlueprintDungeonRoot.SpecialObjectsList[] specialObjects)
     {
       ValidateParam(specialObjects);
@@ -1228,7 +1228,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="boons"><see cref="Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoon"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetBoons(string[]? boons)
     {
       return OnConfigureInternal(
@@ -1243,7 +1243,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="boons"><see cref="Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoon"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator AddToBoons(params string[] boons)
     {
       return OnConfigureInternal(
@@ -1258,7 +1258,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="boons"><see cref="Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoon"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromBoons(params string[] boons)
     {
       return OnConfigureInternal(
@@ -1276,7 +1276,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ThemeBuffs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetThemeBuffs(BlueprintDungeonRoot.ThemeBuffSettings[]? themeBuffs)
     {
       ValidateParam(themeBuffs);
@@ -1291,7 +1291,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.ThemeBuffs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToThemeBuffs(params BlueprintDungeonRoot.ThemeBuffSettings[] themeBuffs)
     {
       ValidateParam(themeBuffs);
@@ -1305,7 +1305,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.ThemeBuffs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromThemeBuffs(params BlueprintDungeonRoot.ThemeBuffSettings[] themeBuffs)
     {
       ValidateParam(themeBuffs);
@@ -1319,7 +1319,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ThemeAudioScenes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetThemeAudioScenes(BlueprintDungeonRoot.ThemeAudioSettings[]? themeAudioScenes)
     {
       ValidateParam(themeAudioScenes);
@@ -1334,7 +1334,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.ThemeAudioScenes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToThemeAudioScenes(params BlueprintDungeonRoot.ThemeAudioSettings[] themeAudioScenes)
     {
       ValidateParam(themeAudioScenes);
@@ -1348,7 +1348,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.ThemeAudioScenes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromThemeAudioScenes(params BlueprintDungeonRoot.ThemeAudioSettings[] themeAudioScenes)
     {
       ValidateParam(themeAudioScenes);
@@ -1364,7 +1364,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="trapActor"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetTrapActor(string? trapActor)
     {
       return OnConfigureInternal(
@@ -1377,7 +1377,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.Traps"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetTraps(BlueprintDungeonRoot.TrapAndMinStage[]? traps)
     {
       ValidateParam(traps);
@@ -1392,7 +1392,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Adds to <see cref="BlueprintDungeonRoot.Traps"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator AddToTraps(params BlueprintDungeonRoot.TrapAndMinStage[] traps)
     {
       ValidateParam(traps);
@@ -1406,7 +1406,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Removes from <see cref="BlueprintDungeonRoot.Traps"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromTraps(params BlueprintDungeonRoot.TrapAndMinStage[] traps)
     {
       ValidateParam(traps);
@@ -1420,7 +1420,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ExperienceRewardForCompleteStageStart"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetExperienceRewardForCompleteStageStart(int experienceRewardForCompleteStageStart)
     {
       return OnConfigureInternal(
@@ -1433,7 +1433,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets <see cref="BlueprintDungeonRoot.ExperienceRewardForCompleteStageStep"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DungeonRootConfigurator SetExperienceRewardForCompleteStageStep(int experienceRewardForCompleteStageStep)
     {
       return OnConfigureInternal(
@@ -1448,7 +1448,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="enterPoints"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator SetEnterPoints(string[]? enterPoints)
     {
       return OnConfigureInternal(
@@ -1463,7 +1463,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="enterPoints"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator AddToEnterPoints(params string[] enterPoints)
     {
       return OnConfigureInternal(
@@ -1478,7 +1478,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </summary>
     ///
     /// <param name="enterPoints"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public DungeonRootConfigurator RemoveFromEnterPoints(params string[] enterPoints)
     {
       return OnConfigureInternal(

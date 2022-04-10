@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintCharacterClass"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCharacterClass))]
+  
   public class CharacterClassConfigurator : BaseBlueprintConfigurator<BlueprintCharacterClass, CharacterClassConfigurator>
   {
     private CharacterClassConfigurator(string name) : base(name) { }
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.LocalizedName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.LocalizedDescription"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetLocalizedDescription(LocalizedString? localizedDescription)
     {
       ValidateParam(localizedDescription);
@@ -77,7 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.LocalizedDescriptionShort"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetLocalizedDescriptionShort(LocalizedString? localizedDescriptionShort)
     {
       ValidateParam(localizedDescriptionShort);
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.m_Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.SkillPoints"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetSkillPoints(int skillPoints)
     {
       return OnConfigureInternal(
@@ -120,7 +120,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.HitDie"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetHitDie(DiceType hitDie)
     {
       return OnConfigureInternal(
@@ -133,7 +133,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.HideIfRestricted"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetHideIfRestricted(bool hideIfRestricted)
     {
       return OnConfigureInternal(
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.PrestigeClass"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetPrestigeClass(bool prestigeClass)
     {
       return OnConfigureInternal(
@@ -159,7 +159,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.IsMythic"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetIsMythic(bool isMythic)
     {
       return OnConfigureInternal(
@@ -172,7 +172,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.m_IsHigherMythic"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetIsHigherMythic(bool isHigherMythic)
     {
       return OnConfigureInternal(
@@ -187,7 +187,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="baseAttackBonus"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetBaseAttackBonus(string? baseAttackBonus)
     {
       return OnConfigureInternal(
@@ -202,7 +202,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="fortitudeSave"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetFortitudeSave(string? fortitudeSave)
     {
       return OnConfigureInternal(
@@ -217,7 +217,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="reflexSave"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetReflexSave(string? reflexSave)
     {
       return OnConfigureInternal(
@@ -232,7 +232,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="willSave"><see cref="Kingmaker.Blueprints.Classes.BlueprintStatProgression"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetWillSave(string? willSave)
     {
       return OnConfigureInternal(
@@ -247,7 +247,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="progression"><see cref="Kingmaker.Blueprints.Classes.BlueprintProgression"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetProgression(string? progression)
     {
       return OnConfigureInternal(
@@ -262,7 +262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetSpellbook(string? spellbook)
     {
       return OnConfigureInternal(
@@ -275,7 +275,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.ClassSkills"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetClassSkills(StatType[]? classSkills)
     {
       return OnConfigureInternal(
@@ -288,7 +288,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintCharacterClass.ClassSkills"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator AddToClassSkills(params StatType[] classSkills)
     {
       return OnConfigureInternal(
@@ -301,7 +301,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintCharacterClass.ClassSkills"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromClassSkills(params StatType[] classSkills)
     {
       return OnConfigureInternal(
@@ -314,7 +314,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.IsDivineCaster"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetIsDivineCaster(bool isDivineCaster)
     {
       return OnConfigureInternal(
@@ -327,7 +327,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.IsArcaneCaster"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetIsArcaneCaster(bool isArcaneCaster)
     {
       return OnConfigureInternal(
@@ -342,7 +342,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="archetypes"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetArchetypes(string[]? archetypes)
     {
       return OnConfigureInternal(
@@ -357,7 +357,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="archetypes"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator AddToArchetypes(params string[] archetypes)
     {
       return OnConfigureInternal(
@@ -372,7 +372,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="archetypes"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromArchetypes(params string[] archetypes)
     {
       return OnConfigureInternal(
@@ -390,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.StartingGold"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetStartingGold(int startingGold)
     {
       return OnConfigureInternal(
@@ -405,7 +405,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="startingItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetStartingItems(string[]? startingItems)
     {
       return OnConfigureInternal(
@@ -420,7 +420,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="startingItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator AddToStartingItems(params string[] startingItems)
     {
       return OnConfigureInternal(
@@ -435,7 +435,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="startingItems"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromStartingItems(params string[] startingItems)
     {
       return OnConfigureInternal(
@@ -453,7 +453,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.PrimaryColor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetPrimaryColor(int primaryColor)
     {
       return OnConfigureInternal(
@@ -466,7 +466,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.SecondaryColor"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetSecondaryColor(int secondaryColor)
     {
       return OnConfigureInternal(
@@ -481,7 +481,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="equipmentEntities"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetEquipmentEntities(string[]? equipmentEntities)
     {
       return OnConfigureInternal(
@@ -496,7 +496,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="equipmentEntities"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator AddToEquipmentEntities(params string[] equipmentEntities)
     {
       return OnConfigureInternal(
@@ -511,7 +511,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="equipmentEntities"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromEquipmentEntities(params string[] equipmentEntities)
     {
       return OnConfigureInternal(
@@ -529,7 +529,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetMaleEquipmentEntities(EquipmentEntityLink[]? maleEquipmentEntities)
     {
       ValidateParam(maleEquipmentEntities);
@@ -544,7 +544,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator AddToMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
     {
       ValidateParam(maleEquipmentEntities);
@@ -558,7 +558,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
     {
       ValidateParam(maleEquipmentEntities);
@@ -572,7 +572,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetFemaleEquipmentEntities(EquipmentEntityLink[]? femaleEquipmentEntities)
     {
       ValidateParam(femaleEquipmentEntities);
@@ -587,7 +587,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator AddToFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
     {
       ValidateParam(femaleEquipmentEntities);
@@ -601,7 +601,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
     {
       ValidateParam(femaleEquipmentEntities);
@@ -615,7 +615,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.m_Difficulty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetDifficulty(int difficulty)
     {
       return OnConfigureInternal(
@@ -628,7 +628,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.RecommendedAttributes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetRecommendedAttributes(StatType[]? recommendedAttributes)
     {
       return OnConfigureInternal(
@@ -641,7 +641,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintCharacterClass.RecommendedAttributes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator AddToRecommendedAttributes(params StatType[] recommendedAttributes)
     {
       return OnConfigureInternal(
@@ -654,7 +654,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintCharacterClass.RecommendedAttributes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromRecommendedAttributes(params StatType[] recommendedAttributes)
     {
       return OnConfigureInternal(
@@ -667,7 +667,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetNotRecommendedAttributes(StatType[]? notRecommendedAttributes)
     {
       return OnConfigureInternal(
@@ -680,7 +680,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator AddToNotRecommendedAttributes(params StatType[] notRecommendedAttributes)
     {
       return OnConfigureInternal(
@@ -693,7 +693,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromNotRecommendedAttributes(params StatType[] notRecommendedAttributes)
     {
       return OnConfigureInternal(
@@ -708,7 +708,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetSignatureAbilities(string[]? signatureAbilities)
     {
       return OnConfigureInternal(
@@ -723,7 +723,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator AddToSignatureAbilities(params string[] signatureAbilities)
     {
       return OnConfigureInternal(
@@ -738,7 +738,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator RemoveFromSignatureAbilities(params string[] signatureAbilities)
     {
       return OnConfigureInternal(
@@ -758,7 +758,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="defaultBuild"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetDefaultBuild(string? defaultBuild)
     {
       return OnConfigureInternal(
@@ -773,7 +773,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="additionalVisualSettings"><see cref="Kingmaker.Blueprints.Classes.BlueprintClassAdditionalVisualSettingsProgression"/></param>
-    [Generated]
+    
     public CharacterClassConfigurator SetAdditionalVisualSettings(string? additionalVisualSettings)
     {
       return OnConfigureInternal(
@@ -786,7 +786,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintCharacterClass.VisualSettingsPriority"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CharacterClassConfigurator SetVisualSettingsPriority(int visualSettingsPriority)
     {
       return OnConfigureInternal(
@@ -802,7 +802,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteArchetypeLevel))]
+    
     public CharacterClassConfigurator PrerequisiteArchetype(
         string clazz,
         string archetype,
@@ -821,7 +821,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType">PrerequisiteCasterType</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCasterType))]
+    
     public CharacterClassConfigurator PrerequisiteCasterType(
         bool isArcane,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -838,7 +838,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel">PrerequisiteCasterTypeSpellLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCasterTypeSpellLevel))]
+    
     public CharacterClassConfigurator PrerequisiteCasterTypeSpellLevel(
         bool isArcane,
         bool onlySpontaneous,
@@ -857,7 +857,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCharacterLevel">PrerequisiteCharacterLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCharacterLevel))]
+    
     public CharacterClassConfigurator PrerequisiteCharacterLevel(
         int minLevel,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -876,7 +876,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassLevel))]
+    
     public CharacterClassConfigurator PrerequisiteClassLevel(
         string clazz,
         int minLevel,
@@ -897,7 +897,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassSpellLevel))]
+    
     public CharacterClassConfigurator PrerequisiteClassSpellLevel(
         string clazz,
         int minSpellLevel,
@@ -918,7 +918,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
-    [Implements(typeof(PrerequisiteEtude))]
+    
     public CharacterClassConfigurator PrerequisiteEtude(
         string etude,
         bool playing = true,
@@ -937,7 +937,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeature))]
+    
     public CharacterClassConfigurator PrerequisiteFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -954,7 +954,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeaturesFromList))]
+    
     public CharacterClassConfigurator PrerequisiteFeaturesFromList(
         string[] features,
         int requiredNumber = 1,
@@ -972,7 +972,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteIsPet">PrerequisiteIsPet</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteIsPet))]
+    
     public CharacterClassConfigurator PrerequisiteIsPet(
         bool negate = false,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -987,7 +987,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
+    
     public CharacterClassConfigurator PrerequisiteMainCharacter(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -1002,7 +1002,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
+    
     public CharacterClassConfigurator PrerequisiteCompanion(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -1018,7 +1018,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMythicLevel">PrerequisiteMythicLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMythicLevel))]
+    
     public CharacterClassConfigurator PrerequisiteMythicLevel(
         int level,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -1038,7 +1038,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteNoArchetype))]
+    
     public CharacterClassConfigurator PrerequisiteNoArchetype(
         string clazz,
         string archetype,
@@ -1057,7 +1057,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteNoClassLevel))]
+    
     public CharacterClassConfigurator PrerequisiteNoClass(
         string clazz,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -1074,7 +1074,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteNoFeature))]
+    
     public CharacterClassConfigurator PrerequisiteNoFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -1089,7 +1089,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient">PrerequisiteNotProficient</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteNotProficient))]
+    
     public CharacterClassConfigurator PrerequisiteNotProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -1112,7 +1112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="spellFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     /// <param name="spellAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public CharacterClassConfigurator PrerequisiteParameterizedSpellFeature(
         string spellFeature,
         string spellAbility,
@@ -1134,7 +1134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public CharacterClassConfigurator PrerequisiteParameterizedWeaponFeature(
         string feature,
         WeaponCategory weapon,
@@ -1155,7 +1155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public CharacterClassConfigurator PrerequisiteParameterizedSpellSchoolFeature(
         string feature,
         SpellSchool school,
@@ -1175,7 +1175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="weaponFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedWeaponSubcategory))]
+    
     public CharacterClassConfigurator PrerequisiteParameterizedWeaponSubcategory(
         string weaponFeature,
         WeaponSubCategory weapon,
@@ -1192,7 +1192,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePet">PrerequisitePet</see>
     /// </summary>
-    [Implements(typeof(PrerequisitePet))]
+    
     public CharacterClassConfigurator PrerequisitePet(
         PetType type,
         bool negate = false,
@@ -1211,7 +1211,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisitePlayerHasFeature))]
+    
     public CharacterClassConfigurator PrerequisitePlayerHasFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -1226,7 +1226,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteProficiency"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteProficiency))]
+    
     public CharacterClassConfigurator PrerequisiteProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -1246,7 +1246,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteStatValue"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteStatValue))]
+    
     public CharacterClassConfigurator PrerequisiteStat(
         StatType type,
         int minValue,
@@ -1263,13 +1263,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds or modifies <see cref="PrerequisiteAlignment"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     public CharacterClassConfigurator AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
       return OnConfigureInternal(blueprint => AddPrerequisiteAlignment(blueprint, alignments.ToList()));
     }
 
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     private static void AddPrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
     {
       var component = bp.GetComponent<PrerequisiteAlignment>();
@@ -1284,13 +1284,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="PrerequisiteAlignment"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     public CharacterClassConfigurator RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
       return OnConfigureInternal(blueprint => RemovePrerequisiteAlignment(blueprint, alignments.ToList()));
     }
 
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     private static void RemovePrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
     {
       var component = bp.GetComponent<PrerequisiteAlignment>();
@@ -1301,8 +1301,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="DeityDependencyClass"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DeityDependencyClass))]
+    
+    
     public CharacterClassConfigurator AddDeityDependencyClass(
         bool isDeityDependencyClass = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1316,8 +1316,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="HideClassIfPrerequisitesRequiredComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(HideClassIfPrerequisitesRequiredComponent))]
+    
+    
     public CharacterClassConfigurator AddHideClassIfPrerequisitesRequiredComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1331,8 +1331,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="portraits"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
-    [Generated]
-    [Implements(typeof(MythicClassArtComponent))]
+    
+    
     public CharacterClassConfigurator AddMythicClassArtComponent(
         SpriteLink selectorPortrait,
         SpriteLink selectorPortraitLineart,
@@ -1371,8 +1371,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="MythicClassLockComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MythicClassLockComponent))]
+    
+    
     public CharacterClassConfigurator AddMythicClassLockComponent(
         Mythic[]? locks = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1386,8 +1386,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="SkipLevelsForSpellProgression"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SkipLevelsForSpellProgression))]
+    
+    
     public CharacterClassConfigurator AddSkipLevelsForSpellProgression(
         int[]? levels = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1401,8 +1401,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PrerequisiteCondition))]
+    
+    
     public CharacterClassConfigurator AddPrerequisiteCondition(
         Condition condition,
         LocalizedString? uIText = null,
@@ -1427,8 +1427,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="loreMaster"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(PrerequisiteLoreMaster))]
+    
+    
     public CharacterClassConfigurator AddPrerequisiteLoreMaster(
         string? loreMaster = null,
         int rating = default,
@@ -1448,8 +1448,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteFullStatValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PrerequisiteFullStatValue))]
+    
+    
     public CharacterClassConfigurator AddPrerequisiteFullStatValue(
         StatType stat = default,
         int value = default,

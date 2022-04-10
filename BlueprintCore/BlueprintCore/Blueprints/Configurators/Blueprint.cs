@@ -165,7 +165,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// </code>
   /// </example>
   /// </remarks>
-  [Configures(typeof(BlueprintScriptableObject))]
+  
   public abstract class BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintScriptableObject
       where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
@@ -350,8 +350,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
-    [Generated]
-    [Implements(typeof(DlcCondition))]
+    
+    
     public TBuilder AddDlcCondition(
         string? dlcReward = null,
         bool hideInstead = default,
@@ -369,8 +369,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AddBuffOnCorruptionClear))]
+    
+    
     public TBuilder AddBuffOnCorruptionClear(
         string? buff = null,
         int targetBuffRank = default,
@@ -386,8 +386,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AddPlayerLeaveCombatTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddPlayerLeaveCombatTrigger))]
+    
+    
     public TBuilder AddPlayerLeaveCombatTrigger(
         ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -403,8 +403,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="weaponType"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
-    [Generated]
-    [Implements(typeof(ReplaceDamageDice))]
+    
+    
     public TBuilder AddReplaceDamageDice(
         string? weaponType = null,
         ReplaceDamageDice.Progression[]? progressions = null,
@@ -422,8 +422,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="UnitPropertyComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitPropertyComponent))]
+    
+    
     public TBuilder AddUnitPropertyComponent(
         string name,
         PropertySettings settings,
@@ -446,8 +446,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AddInitiatorAttackRollTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddInitiatorAttackRollTrigger))]
+    
+    
     public TBuilder AddInitiatorAttackRollTrigger(
         bool onlyHit = default,
         bool criticalHit = default,
@@ -475,8 +475,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="weaponType"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
-    [Generated]
-    [Implements(typeof(AddInitiatorAttackWithWeaponTrigger))]
+    
+    
     public TBuilder AddInitiatorAttackWithWeaponTrigger(
         Feet distanceLessEqual,
         bool waitForAttackResolve = default,
@@ -544,8 +544,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AddTargetAttackRollTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddTargetAttackRollTrigger))]
+    
+    
     public TBuilder AddTargetAttackRollTrigger(
         bool onlyHit = default,
         bool criticalHit = default,
@@ -577,8 +577,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AddTargetBeforeAttackRollTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddTargetBeforeAttackRollTrigger))]
+    
+    
     public TBuilder AddTargetBeforeAttackRollTrigger(
         SpellDescriptorWrapper spellDescriptors,
         bool onlyMelee = default,
@@ -604,8 +604,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="weaponType"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
-    [Generated]
-    [Implements(typeof(AdditionalDiceOnAttack))]
+    
+    
     public TBuilder AdditionalDiceOnAttack(
         Feet distanceLessEqual,
         DamageTypeDescription damageType,
@@ -677,8 +677,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AdditionalStatBonusOnAttackDamage"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AdditionalStatBonusOnAttackDamage))]
+    
+    
     public TBuilder AdditionalStatBonusOnAttackDamage(
         ConditionEnum fullAttack = default,
         ConditionEnum firstAttack = default,
@@ -700,8 +700,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AllAttacksEnhancement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AllAttacksEnhancement))]
+    
+    
     public TBuilder AddAllAttacksEnhancement(
         int bonus = default,
         ModifierDescriptor descriptor = default)
@@ -715,8 +715,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="BashingFinish"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BashingFinish))]
+    
+    
     public TBuilder AddBashingFinish()
     {
       return AddComponent(new BashingFinish());
@@ -725,8 +725,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="DestructiveShockwave"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DestructiveShockwave))]
+    
+    
     public TBuilder AddDestructiveShockwave()
     {
       return AddComponent(new DestructiveShockwave());
@@ -735,8 +735,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ShieldMaster"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ShieldMaster))]
+    
+    
     public TBuilder AddShieldMaster()
     {
       return AddComponent(new ShieldMaster());
@@ -748,8 +748,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <param name="demonArmies"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
     /// <param name="crusadeLeader"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
-    [Generated]
-    [Implements(typeof(ArmyBattleResultsTrigger))]
+    
+    
     public TBuilder AddArmyBattleResultsTrigger(
         ActionsBuilder? onCrusadersVictory = null,
         ActionsBuilder? onDemonsVictory = null,
@@ -777,8 +777,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="regions"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
-    [Generated]
-    [Implements(typeof(KingdomRegionClaimedTrigger))]
+    
+    
     public TBuilder AddKingdomRegionClaimedTrigger(
         string[]? regions = null,
         ActionsBuilder? actions = null)
@@ -794,8 +794,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="settlementLocation"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
-    [Implements(typeof(SettlementSiegeTrigger))]
+    
+    
     public TBuilder AddSettlementSiegeTrigger(
         bool specificLocation = default,
         string? settlementLocation = null,
@@ -817,8 +817,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="armyUnits"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(ArmyUnitRecruitedTrigger))]
+    
+    
     public TBuilder AddArmyUnitRecruitedTrigger(
         MercenariesIncludeOption mercenariesFilter = default,
         bool byTag = default,
@@ -844,8 +844,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="LeaderRecruitedTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LeaderRecruitedTrigger))]
+    
+    
     public TBuilder AddLeaderRecruitedTrigger(
         ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -859,8 +859,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="SummonUnitsAfterArmyBattle"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SummonUnitsAfterArmyBattle))]
+    
+    
     public TBuilder AddSummonUnitsAfterArmyBattle(
         SummonUnitsAfterArmyBattle.SummonGroup[]? groups = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -876,8 +876,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ArmyAbilityTags"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmyAbilityTags))]
+    
+    
     public TBuilder AddArmyAbilityTags(
         ArmyProperties properties = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -893,8 +893,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
-    [Implements(typeof(GarrisonDefeatedTrigger))]
+    
+    
     public TBuilder AddGarrisonDefeatedTrigger(
         string? location = null,
         ActionsBuilder? actions = null)
@@ -910,8 +910,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="location"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
-    [Implements(typeof(PlayerVisitGlobalMapLocationTrigger))]
+    
+    
     public TBuilder AddPlayerVisitGlobalMapLocationTrigger(
         string? location = null,
         ActionsBuilder? actions = null)
@@ -925,8 +925,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="RecalculateFeatures"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecalculateFeatures))]
+    
+    
     public TBuilder AddRecalculateFeatures(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -938,8 +938,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="OnIsleStateEnterTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(OnIsleStateEnterTrigger))]
+    
+    
     public TBuilder AddOnIsleStateEnterTrigger(
         IsleEvaluator isleEvaluator,
         string targetState,
@@ -957,8 +957,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="OnIsleStateExitTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(OnIsleStateExitTrigger))]
+    
+    
     public TBuilder AddOnIsleStateExitTrigger(
         IsleEvaluator isleEvaluator,
         string targetState,
@@ -976,8 +976,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ActivateTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ActivateTrigger))]
+    
+    
     public TBuilder AddActivateTrigger(
         bool once = default,
         bool alsoOnAreaLoad = default,
@@ -995,8 +995,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AreaDidLoadTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AreaDidLoadTrigger))]
+    
+    
     public TBuilder AddAreaDidLoadTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null)
@@ -1012,8 +1012,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="companionBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(CompanionRecruitTrigger))]
+    
+    
     public TBuilder AddCompanionRecruitTrigger(
         string? companionBlueprint = null,
         ActionsBuilder? actions = null)
@@ -1029,8 +1029,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="companionBlueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(CompanionUnrecruitTrigger))]
+    
+    
     public TBuilder AddCompanionUnrecruitTrigger(
         string? companionBlueprint = null,
         bool triggerOnDeath = default,
@@ -1046,8 +1046,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="CustomEventTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CustomEventTrigger))]
+    
+    
     public TBuilder AddCustomEventTrigger(
         string id,
         ActionsBuilder? actions = null)
@@ -1061,8 +1061,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="DamageTypeTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DamageTypeTrigger))]
+    
+    
     public TBuilder AddDamageTypeTrigger(
         UnitEvaluator unit,
         ActionsBuilder? actions = null,
@@ -1082,8 +1082,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="DeactivateTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DeactivateTrigger))]
+    
+    
     public TBuilder AddDeactivateTrigger(
         ConditionsBuilder? conditions = null,
         ActionsBuilder? actions = null)
@@ -1097,8 +1097,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="DeviceInteractionTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DeviceInteractionTrigger))]
+    
+    
     public TBuilder AddDeviceInteractionTrigger(
         ActionsBuilder? actions = null,
         ActionsBuilder? restrictedActions = null)
@@ -1112,8 +1112,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EvaluatedUnitCombatTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EvaluatedUnitCombatTrigger))]
+    
+    
     public TBuilder AddEvaluatedUnitCombatTrigger(
         UnitEvaluator unit,
         ActionsBuilder? actions = null,
@@ -1131,8 +1131,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EvaluatedUnitDeathTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EvaluatedUnitDeathTrigger))]
+    
+    
     public TBuilder AddEvaluatedUnitDeathTrigger(
         UnitEvaluator unit,
         bool anyUnit = default,
@@ -1150,8 +1150,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="EvaluatedUnitHealthTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EvaluatedUnitHealthTrigger))]
+    
+    
     public TBuilder AddEvaluatedUnitHealthTrigger(
         UnitEvaluator unit,
         bool once = default,
@@ -1173,8 +1173,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ExperienceTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ExperienceTrigger))]
+    
+    
     public TBuilder AddExperienceTrigger(
         int experience = default,
         ConditionsBuilder? conditions = null,
@@ -1192,8 +1192,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="GenericInteractionTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(GenericInteractionTrigger))]
+    
+    
     public TBuilder AddGenericInteractionTrigger(
         EntityReference mapObject,
         ActionsBuilder? actions = null,
@@ -1213,8 +1213,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="itemToCheck"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(ItemInContainerTrigger))]
+    
+    
     public TBuilder AddItemInContainerTrigger(
         MapObjectEvaluator mapObject,
         string? itemToCheck = null,
@@ -1234,8 +1234,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="LevelUpTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LevelUpTrigger))]
+    
+    
     public TBuilder AddLevelUpTrigger(
         UnitEvaluator unit,
         ConditionsBuilder? conditions = null,
@@ -1253,8 +1253,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="MapObjectDestroyTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MapObjectDestroyTrigger))]
+    
+    
     public TBuilder AddMapObjectDestroyTrigger(
         ActionsBuilder? destroyedActions = null,
         ActionsBuilder? destructionFailedActions = null,
@@ -1270,8 +1270,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="MapObjectPerceptionTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MapObjectPerceptionTrigger))]
+    
+    
     public TBuilder AddMapObjectPerceptionTrigger(
         ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1287,8 +1287,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="item"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(PartyInventoryTrigger))]
+    
+    
     public TBuilder AddPartyInventoryTrigger(
         string? item = null,
         ActionsBuilder? onAddActions = null,
@@ -1304,8 +1304,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="PerceptionTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PerceptionTrigger))]
+    
+    
     public TBuilder AddPerceptionTrigger(
         UnitEvaluator unit,
         MapObjectEvaluator mapObject,
@@ -1326,8 +1326,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="item"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(PlayerOpenItemDescriptionFirstTimeTrigger))]
+    
+    
     public TBuilder AddPlayerOpenItemDescriptionFirstTimeTrigger(
         string? item = null,
         ActionsBuilder? action = null,
@@ -1343,8 +1343,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="RestTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RestTrigger))]
+    
+    
     public TBuilder AddRestTrigger(
         bool once = default,
         RestResult restResults = default,
@@ -1364,8 +1364,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ScriptZoneTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ScriptZoneTrigger))]
+    
+    
     public TBuilder AddScriptZoneTrigger(
         EntityReference scriptZone,
         string unitRef,
@@ -1389,8 +1389,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="SkillCheckInteractionTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(SkillCheckInteractionTrigger))]
+    
+    
     public TBuilder AddSkillCheckInteractionTrigger(
         ActionsBuilder? onSuccess = null,
         ActionsBuilder? onFailure = null)
@@ -1406,8 +1406,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="targetUnit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(SpawnUnitTrigger))]
+    
+    
     public TBuilder AddSpawnUnitTrigger(
         string? targetUnit = null,
         ActionsBuilder? actions = null)
@@ -1423,8 +1423,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="spells"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(SpellCastTrigger))]
+    
+    
     public TBuilder AddSpellCastTrigger(
         EntityReference scriptZone,
         string[]? spells = null,
@@ -1444,8 +1444,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="summonPool"><see cref="Kingmaker.Blueprints.BlueprintSummonPool"/></param>
-    [Generated]
-    [Implements(typeof(SummonPoolTrigger))]
+    
+    
     public TBuilder AddSummonPoolTrigger(
         int count = default,
         SummonPoolTrigger.ChangeTypes changeType = default,
@@ -1465,8 +1465,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="TimeOfDayChangedTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TimeOfDayChangedTrigger))]
+    
+    
     public TBuilder AddTimeOfDayChangedTrigger(
         ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1480,8 +1480,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="UIEventTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(UIEventTrigger))]
+    
+    
     public TBuilder AddUIEventTrigger(
         UIEventType eventType = default,
         ConditionsBuilder? conditions = null,
@@ -1501,8 +1501,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(UnitHealthTrigger))]
+    
+    
     public TBuilder AddUnitHealthTrigger(
         string? unit = null,
         int percentage = default,
@@ -1518,8 +1518,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="TrapTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TrapTrigger))]
+    
+    
     public TBuilder AddTrapTrigger(
         MapObjectEvaluator trap,
         ActionsBuilder? onActivation = null,
@@ -1706,7 +1706,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// </code>
   /// </example>
   /// </remarks>
-  [Configures(typeof(BlueprintScriptableObject))]
+  
   public class BlueprintConfigurator<T> : BaseBlueprintConfigurator<T, BlueprintConfigurator<T>>
       where T : BlueprintScriptableObject, new()
   {

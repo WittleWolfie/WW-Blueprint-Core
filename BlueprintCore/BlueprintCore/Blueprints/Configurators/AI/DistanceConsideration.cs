@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="DistanceConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(DistanceConsideration))]
+  
   public class DistanceConsiderationConfigurator : BaseConsiderationConfigurator<DistanceConsideration, DistanceConsiderationConfigurator>
   {
     private DistanceConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="DistanceConsideration.MinDistance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DistanceConsiderationConfigurator SetMinDistance(float minDistance)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="DistanceConsideration.MaxDistance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DistanceConsiderationConfigurator SetMaxDistance(float maxDistance)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="DistanceConsideration.MaxDistanceScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DistanceConsiderationConfigurator SetMaxDistanceScore(float maxDistanceScore)
     {
       return OnConfigureInternal(
@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="DistanceConsideration.MinDistanceScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DistanceConsiderationConfigurator SetMinDistanceScore(float minDistanceScore)
     {
       return OnConfigureInternal(

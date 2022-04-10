@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
   /// Configurator for <see cref="BlueprintHiddenItem"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintHiddenItem))]
+  
   public class HiddenItemConfigurator : BaseItemConfigurator<BlueprintHiddenItem, HiddenItemConfigurator>
   {
     private HiddenItemConfigurator(string name) : base(name) { }

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintCueBase"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCueBase))]
+  
   public abstract class BaseCueBaseConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintCueBase
@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCueBase.ShowOnce"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetShowOnce(bool showOnce)
     {
       return OnConfigureInternal(
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCueBase.ShowOnceCurrentDialog"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetShowOnceCurrentDialog(bool showOnceCurrentDialog)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets <see cref="BlueprintCueBase.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetConditions(ConditionsBuilder? conditions)
     {
       return OnConfigureInternal(

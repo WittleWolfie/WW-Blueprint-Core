@@ -15,7 +15,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintKingdomEventBase"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomEventBase))]
+  
   public abstract class BaseKingdomEventBaseConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintKingdomEventBase
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.InfoType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetInfoType(KingomEventInfoType infoType)
     {
       return OnConfigureInternal(
@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.LocalizedName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetLocalizedName(LocalizedString? localizedName)
     {
       ValidateParam(localizedName);
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.LocalizedDescription"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetLocalizedDescription(LocalizedString? localizedDescription)
     {
       ValidateParam(localizedDescription);
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.TriggerCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetTriggerCondition(ConditionsBuilder? triggerCondition)
     {
       return OnConfigureInternal(
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.ResolutionTime"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetResolutionTime(int resolutionTime)
     {
       return OnConfigureInternal(
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.ResolveAutomatically"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetResolveAutomatically(bool resolveAutomatically)
     {
       return OnConfigureInternal(
@@ -108,7 +108,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.NeedToVisitTheThroneRoom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetNeedToVisitTheThroneRoom(bool needToVisitTheThroneRoom)
     {
       return OnConfigureInternal(
@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.AICanCheat"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAICanCheat(bool aICanCheat)
     {
       return OnConfigureInternal(
@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.SkipRoll"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetSkipRoll(bool skipRoll)
     {
       return OnConfigureInternal(
@@ -147,7 +147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.ResolutionDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetResolutionDC(int resolutionDC)
     {
       return OnConfigureInternal(
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.AutoResolveResult"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAutoResolveResult(EventResult.MarginType autoResolveResult)
     {
       return OnConfigureInternal(
@@ -173,7 +173,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.Solutions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetSolutions(PossibleEventSolutions solutions)
     {
       ValidateParam(solutions);
@@ -188,7 +188,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.DefaultResolutionType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDefaultResolutionType(LeaderType defaultResolutionType)
     {
       return OnConfigureInternal(
@@ -201,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.DefaultResolutionDescription"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDefaultResolutionDescription(LocalizedString? defaultResolutionDescription)
     {
       ValidateParam(defaultResolutionDescription);
@@ -216,7 +216,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomEventBase.AIStopping"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAIStopping(bool aIStopping)
     {
       return OnConfigureInternal(
@@ -231,8 +231,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="blueprint"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
-    [Generated]
-    [Implements(typeof(EventDynamicCostFeast))]
+    
+    
     public TBuilder AddEventDynamicCostFeast(
         KingdomResourcesAmount costPerUse,
         string? blueprint = null,
@@ -251,8 +251,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///
     /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
     /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
-    [Implements(typeof(EventAISolution))]
+    
+    
     public TBuilder AddEventAISolution(
         ConditionsBuilder? condition = null,
         string? dialog = null,
@@ -270,8 +270,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="EventFinalResults"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EventFinalResults))]
+    
+    
     public TBuilder AddEventFinalResults(
         EventResult[]? results = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,

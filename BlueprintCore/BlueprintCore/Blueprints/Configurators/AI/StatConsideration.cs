@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="StatConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(StatConsideration))]
+  
   public class StatConsiderationConfigurator : BaseConsiderationConfigurator<StatConsideration, StatConsiderationConfigurator>
   {
     private StatConsiderationConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="StatConsideration.Stat"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public StatConsiderationConfigurator SetStat(StatType stat)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="StatConsideration.Value"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public StatConsiderationConfigurator SetValue(int value)
     {
       return OnConfigureInternal(
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="StatConsideration.GreaterThanValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public StatConsiderationConfigurator SetGreaterThanValue(float greaterThanValue)
     {
       return OnConfigureInternal(
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="StatConsideration.LesserThanValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public StatConsiderationConfigurator SetLesserThanValue(float lesserThanValue)
     {
       return OnConfigureInternal(

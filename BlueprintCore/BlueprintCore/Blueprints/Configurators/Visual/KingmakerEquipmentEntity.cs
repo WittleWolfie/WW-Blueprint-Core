@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   /// Configurator for <see cref="KingmakerEquipmentEntity"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(KingmakerEquipmentEntity))]
+  
   public class KingmakerEquipmentEntityConfigurator : BaseBlueprintConfigurator<KingmakerEquipmentEntity, KingmakerEquipmentEntityConfigurator>
   {
     private KingmakerEquipmentEntityConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator SetMaleArray(EquipmentEntityLink[]? maleArray)
     {
       ValidateParam(maleArray);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator AddToMaleArray(params EquipmentEntityLink[] maleArray)
     {
       ValidateParam(maleArray);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator RemoveFromMaleArray(params EquipmentEntityLink[] maleArray)
     {
       ValidateParam(maleArray);
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator SetFemaleArray(EquipmentEntityLink[]? femaleArray)
     {
       ValidateParam(femaleArray);
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator AddToFemaleArray(params EquipmentEntityLink[] femaleArray)
     {
       ValidateParam(femaleArray);
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator RemoveFromFemaleArray(params EquipmentEntityLink[] femaleArray)
     {
       ValidateParam(femaleArray);
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="KingmakerEquipmentEntity.m_RaceDependent"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator SetRaceDependent(bool raceDependent)
     {
       return OnConfigureInternal(
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator SetRaceDependentArrays(KingmakerEquipmentEntity.TwoLists[]? raceDependentArrays)
     {
       ValidateParam(raceDependentArrays);
@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator AddToRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
     {
       ValidateParam(raceDependentArrays);
@@ -159,7 +159,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes from <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingmakerEquipmentEntityConfigurator RemoveFromRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
     {
       ValidateParam(raceDependentArrays);

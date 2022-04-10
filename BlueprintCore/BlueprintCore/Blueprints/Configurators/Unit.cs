@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintUnit"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnit))]
+  
   public class UnitConfigurator : BaseUnitFactConfigurator<BlueprintUnit, UnitConfigurator>
   {
     private UnitConfigurator(string name) : base(name) { }
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="type"><see cref="Kingmaker.Blueprints.BlueprintUnitType"/></param>
-    [Generated]
+    
     public UnitConfigurator SetType(string? type)
     {
       return OnConfigureInternal(
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.LocalizedName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetLocalizedName(SharedStringAsset localizedName)
     {
       ValidateParam(localizedName);
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Gender"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetGender(Gender gender)
     {
       return OnConfigureInternal(
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Size"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetSize(Size size)
     {
       return OnConfigureInternal(
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.IsLeftHanded"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetIsLeftHanded(bool isLeftHanded)
     {
       return OnConfigureInternal(
@@ -132,7 +132,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Color"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetColor(Color color)
     {
       return OnConfigureInternal(
@@ -147,7 +147,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="race"><see cref="Kingmaker.Blueprints.Classes.BlueprintRace"/></param>
-    [Generated]
+    
     public UnitConfigurator SetRace(string? race)
     {
       return OnConfigureInternal(
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Alignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetAlignment(Alignment alignment)
     {
       return OnConfigureInternal(
@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="portrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
-    [Generated]
+    
     public UnitConfigurator SetPortrait(string? portrait)
     {
       return OnConfigureInternal(
@@ -188,7 +188,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Prefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetPrefab(UnitViewLink prefab)
     {
       ValidateParam(prefab);
@@ -205,7 +205,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="customizationPreset"><see cref="Kingmaker.UnitLogic.Customization.UnitCustomizationPreset"/></param>
-    [Generated]
+    
     public UnitConfigurator SetCustomizationPreset(string? customizationPreset)
     {
       return OnConfigureInternal(
@@ -218,7 +218,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Visual"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetVisual(UnitVisualParams visual)
     {
       ValidateParam(visual);
@@ -235,7 +235,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="faction"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    [Generated]
+    
     public UnitConfigurator SetFaction(string? faction)
     {
       return OnConfigureInternal(
@@ -248,7 +248,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.FactionOverrides"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetFactionOverrides(FactionOverrides factionOverrides)
     {
       ValidateParam(factionOverrides);
@@ -265,7 +265,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="startingInventory"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public UnitConfigurator SetStartingInventory(string[]? startingInventory)
     {
       return OnConfigureInternal(
@@ -280,7 +280,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="startingInventory"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public UnitConfigurator AddToStartingInventory(params string[] startingInventory)
     {
       return OnConfigureInternal(
@@ -295,7 +295,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="startingInventory"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
+    
     public UnitConfigurator RemoveFromStartingInventory(params string[] startingInventory)
     {
       return OnConfigureInternal(
@@ -315,7 +315,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="brain"><see cref="Kingmaker.AI.Blueprints.BlueprintBrain"/></param>
-    [Generated]
+    
     public UnitConfigurator SetBrain(string? brain)
     {
       return OnConfigureInternal(
@@ -330,7 +330,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="alternativeBrains"><see cref="Kingmaker.AI.Blueprints.BlueprintBrain"/></param>
-    [Generated]
+    
     public UnitConfigurator SetAlternativeBrains(string[]? alternativeBrains)
     {
       return OnConfigureInternal(
@@ -345,7 +345,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="alternativeBrains"><see cref="Kingmaker.AI.Blueprints.BlueprintBrain"/></param>
-    [Generated]
+    
     public UnitConfigurator AddToAlternativeBrains(params string[] alternativeBrains)
     {
       return OnConfigureInternal(
@@ -360,7 +360,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="alternativeBrains"><see cref="Kingmaker.AI.Blueprints.BlueprintBrain"/></param>
-    [Generated]
+    
     public UnitConfigurator RemoveFromAlternativeBrains(params string[] alternativeBrains)
     {
       return OnConfigureInternal(
@@ -378,7 +378,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Body"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetBody(BlueprintUnit.UnitBody body)
     {
       ValidateParam(body);
@@ -393,7 +393,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Strength"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetStrength(int strength)
     {
       return OnConfigureInternal(
@@ -406,7 +406,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Dexterity"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetDexterity(int dexterity)
     {
       return OnConfigureInternal(
@@ -419,7 +419,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Constitution"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetConstitution(int constitution)
     {
       return OnConfigureInternal(
@@ -432,7 +432,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Intelligence"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetIntelligence(int intelligence)
     {
       return OnConfigureInternal(
@@ -445,7 +445,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Wisdom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetWisdom(int wisdom)
     {
       return OnConfigureInternal(
@@ -458,7 +458,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Charisma"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetCharisma(int charisma)
     {
       return OnConfigureInternal(
@@ -471,7 +471,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Speed"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetSpeed(Feet speed)
     {
       return OnConfigureInternal(
@@ -484,7 +484,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.BaseAttackBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetBaseAttackBonus(int baseAttackBonus)
     {
       return OnConfigureInternal(
@@ -497,7 +497,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.Skills"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetSkills(BlueprintUnit.UnitSkills skills)
     {
       ValidateParam(skills);
@@ -512,7 +512,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.MaxHP"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetMaxHP(int maxHP)
     {
       return OnConfigureInternal(
@@ -527,7 +527,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="additionalTemplates"><see cref="Kingmaker.Blueprints.BlueprintUnitTemplate"/></param>
-    [Generated]
+    
     public UnitConfigurator SetAdditionalTemplates(string[]? additionalTemplates)
     {
       return OnConfigureInternal(
@@ -542,7 +542,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="additionalTemplates"><see cref="Kingmaker.Blueprints.BlueprintUnitTemplate"/></param>
-    [Generated]
+    
     public UnitConfigurator AddToAdditionalTemplates(params string[] additionalTemplates)
     {
       return OnConfigureInternal(
@@ -557,7 +557,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="additionalTemplates"><see cref="Kingmaker.Blueprints.BlueprintUnitTemplate"/></param>
-    [Generated]
+    
     public UnitConfigurator RemoveFromAdditionalTemplates(params string[] additionalTemplates)
     {
       return OnConfigureInternal(
@@ -577,7 +577,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public UnitConfigurator SetAddFacts(string[]? addFacts)
     {
       return OnConfigureInternal(
@@ -592,7 +592,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public UnitConfigurator AddToAddFacts(params string[] addFacts)
     {
       return OnConfigureInternal(
@@ -607,7 +607,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="addFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
+    
     public UnitConfigurator RemoveFromAddFacts(params string[] addFacts)
     {
       return OnConfigureInternal(
@@ -625,7 +625,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.IsCheater"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetIsCheater(bool isCheater)
     {
       return OnConfigureInternal(
@@ -638,7 +638,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.IsFake"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetIsFake(bool isFake)
     {
       return OnConfigureInternal(
@@ -651,7 +651,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.m_PS4ChunkId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetPS4ChunkId(PS4ChunkId pS4ChunkId)
     {
       return OnConfigureInternal(
@@ -664,7 +664,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.m_HasAssignedChunkId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetHasAssignedChunkId(bool hasAssignedChunkId)
     {
       return OnConfigureInternal(
@@ -677,7 +677,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintUnit.m_CachedTags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitConfigurator SetCachedTags(AddTags cachedTags)
     {
       ValidateParam(cachedTags);
@@ -694,8 +694,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="upgraders"><see cref="Kingmaker.EntitySystem.Persistence.Versioning.BlueprintUnitUpgrader"/></param>
-    [Generated]
-    [Implements(typeof(UnitUpgraderComponent))]
+    
+    
     public UnitConfigurator AddUnitUpgraderComponent(
         string[]? upgraders = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -718,8 +718,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <param name="partyBuffOnRandomEncounter"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="enemiesBuffOnRandomEncounter"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="dlcReward"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
-    [Generated]
-    [Implements(typeof(CampingSpecialAbility))]
+    
+    
     public UnitConfigurator AddCampingSpecialAbility(
         LocalizedString? name = null,
         LocalizedString? description = null,
@@ -768,8 +768,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="blueprintRace"><see cref="Kingmaker.Blueprints.Classes.BlueprintRace"/></param>
-    [Generated]
-    [Implements(typeof(OverrideAnimationRaceComponent))]
+    
+    
     public UnitConfigurator AddOverrideAnimationRaceComponent(
         string? blueprintRace = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -785,8 +785,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="pairCompanion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(DualCompanionComponent))]
+    
+    
     public UnitConfigurator AddDualCompanionComponent(
         string? pairCompanion = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -800,8 +800,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="LockedCompanionComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(LockedCompanionComponent))]
+    
+    
     public UnitConfigurator AddLockedCompanionComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -813,8 +813,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="UnitAggroFilter"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitAggroFilter))]
+    
+    
     public UnitConfigurator AddUnitAggroFilter(
         ConditionsBuilder? filterCondition = null,
         ActionsBuilder? actionsOnAggro = null,
@@ -830,8 +830,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="DisableAllFx"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DisableAllFx))]
+    
+    
     public UnitConfigurator AddDisableAllFx(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -845,8 +845,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="blueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(ReplaceUnitBlueprintForRespec))]
+    
+    
     public UnitConfigurator AddReplaceUnitBlueprintForRespec(
         string? blueprint = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -860,8 +860,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="UnitIsStoryCompanion"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitIsStoryCompanion))]
+    
+    
     public UnitConfigurator AddUnitIsStoryCompanion(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -875,8 +875,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="blueprintPet"><see cref="Kingmaker.Blueprints.BlueprintPet"/></param>
-    [Generated]
-    [Implements(typeof(AddClassLevelsToPets))]
+    
+    
     public UnitConfigurator AddClassLevelsToPets(
         string? blueprintPet = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -890,8 +890,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ClassLevelLimit"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ClassLevelLimit))]
+    
+    
     public UnitConfigurator AddClassLevelLimit(
         int levelLimit = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -905,8 +905,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="MythicLevelLimit"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MythicLevelLimit))]
+    
+    
     public UnitConfigurator AddMythicLevelLimit(
         int levelLimit = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -920,8 +920,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="Experience"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(Experience))]
+    
+    
     public UnitConfigurator AddExperience(
         IntEvaluator count,
         EncounterType encounter = default,
@@ -945,8 +945,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="NoStartingItemsComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(NoStartingItemsComponent))]
+    
+    
     public UnitConfigurator AddNoStartingItemsComponent(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -958,8 +958,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="PregenUnitComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PregenUnitComponent))]
+    
+    
     public UnitConfigurator AddPregenUnitComponent(
         LocalizedString? pregenName = null,
         LocalizedString? pregenDescription = null,
@@ -982,8 +982,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="StartingStatPointsComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(StartingStatPointsComponent))]
+    
+    
     public UnitConfigurator AddStartingStatPointsComponent(
         int startingStatPoints = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -997,8 +997,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ActionsOnClick"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ActionsOnClick))]
+    
+    
     public UnitConfigurator AddActionsOnClick(
         ActionsBuilder? actions = null,
         float overrideDistance = default,
@@ -1022,8 +1022,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="BarkOnClick"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BarkOnClick))]
+    
+    
     public UnitConfigurator AddBarkOnClick(
         LocalizedString? bark = null,
         bool showOnUser = default,
@@ -1053,8 +1053,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="dialog"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    [Generated]
-    [Implements(typeof(DialogOnClick))]
+    
+    
     public UnitConfigurator AddDialogOnClick(
         string? dialog = null,
         ActionsBuilder? noDialogActions = null,
@@ -1082,8 +1082,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="abilities"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(AddAbilityToCharacterComponent))]
+    
+    
     public UnitConfigurator AddAbilityToCharacterComponent(
         string[]? abilities = null)
     {
@@ -1095,8 +1095,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AddAmbushBehaviour"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddAmbushBehaviour))]
+    
+    
     public UnitConfigurator AddAmbushBehaviour(
         float joinCombatDisatnce = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1112,8 +1112,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="loot"><see cref="Kingmaker.Blueprints.Loot.BlueprintUnitLoot"/></param>
-    [Generated]
-    [Implements(typeof(AddLoot))]
+    
+    
     public UnitConfigurator AddLoot(
         string? loot = null)
     {
@@ -1127,8 +1127,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="loot"><see cref="Kingmaker.Blueprints.Loot.BlueprintUnitLoot"/></param>
-    [Generated]
-    [Implements(typeof(AddLootToVendorTable))]
+    
+    
     public UnitConfigurator AddLootToVendorTable(
         string? loot = null)
     {
@@ -1140,8 +1140,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AddPostLoadActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddPostLoadActions))]
+    
+    
     public UnitConfigurator AddPostLoadActions(
         ActionsBuilder? actions = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1157,8 +1157,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="m_Table"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
-    [Generated]
-    [Implements(typeof(AddSharedVendor))]
+    
+    
     public UnitConfigurator AddSharedVendor(
         string? m_Table = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1172,8 +1172,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="AddTags"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AddTags))]
+    
+    
     public UnitConfigurator AddTags(
         bool useInRandomEncounter = default,
         bool useInDungeon = default,
@@ -1199,8 +1199,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="loot"><see cref="Kingmaker.Blueprints.Loot.BlueprintUnitLoot"/></param>
-    [Generated]
-    [Implements(typeof(AddVendorItems))]
+    
+    
     public UnitConfigurator AddVendorItems(
         string? loot = null)
     {
@@ -1212,8 +1212,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ChangeVendorPrices"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ChangeVendorPrices))]
+    
+    
     public UnitConfigurator AddChangeVendorPrices(
         Dictionary<BlueprintItem, long> itemsToBuyCosts,
         Dictionary<BlueprintItem, long> itemsToSellCosts,
@@ -1233,8 +1233,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="PregenDollSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PregenDollSettings))]
+    
+    
     public UnitConfigurator AddPregenDollSettings(
         PregenDollSettings.Entry defaultValue,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1250,8 +1250,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="NPCWithAura"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(NPCWithAura))]
+    
+    
     public UnitConfigurator AddNPCWithAura(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -1265,8 +1265,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="activatableAbilities"><see cref="Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility"/></param>
-    [Generated]
-    [Implements(typeof(AddActivatableAbilityComponent))]
+    
+    
     public UnitConfigurator AddActivatableAbilityComponent(
         string[]? activatableAbilities = null)
     {
@@ -1278,8 +1278,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="NonHumanoidCompanion"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(NonHumanoidCompanion))]
+    
+    
     public UnitConfigurator AddNonHumanoidCompanion()
     {
       return AddComponent(new NonHumanoidCompanion());
@@ -1290,8 +1290,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="newFact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(FixUnitOnPostLoad_AddNewFact))]
+    
+    
     public UnitConfigurator AddFixUnitOnPostLoad_AddNewFact(
         string taskId,
         string comment,
@@ -1309,8 +1309,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="table"><see cref="Kingmaker.Blueprints.Items.BlueprintSharedVendorTable"/></param>
-    [Generated]
-    [Implements(typeof(ReturnVendorTable))]
+    
+    
     public UnitConfigurator AddReturnVendorTable(
         string taskId,
         string comment,
@@ -1326,8 +1326,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ArmyCriticalDamage"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmyCriticalDamage))]
+    
+    
     public UnitConfigurator AddArmyCriticalDamage(
         ContextValue? chanceBase = null,
         ContextValue? chanceMultiplier = null,
@@ -1350,8 +1350,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ArmySwitchWeaponSlotInMelee"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmySwitchWeaponSlotInMelee))]
+    
+    
     public UnitConfigurator AddArmySwitchWeaponSlotInMelee(
         int slotIndexForMelee = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1365,8 +1365,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="TacticalMoraleModifier"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TacticalMoraleModifier))]
+    
+    
     public UnitConfigurator AddTacticalMoraleModifier(
         TargetFilter targetFilter,
         TacticalMoraleModifier.FactionTarget factionTarget = default,
@@ -1384,8 +1384,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ArmyUnitComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmyUnitComponent))]
+    
+    
     public UnitConfigurator AddArmyUnitComponent(
         Sprite icon,
         KingdomResourcesAmount recruitmentPrice,
@@ -1418,8 +1418,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds <see cref="ArmyUnitSpellPower"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmyUnitSpellPower))]
+    
+    
     public UnitConfigurator AddArmyUnitSpellPower(
         int spellPower = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -1435,8 +1435,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(BuffOnEntityCreated))]
+    
+    
     public UnitConfigurator AddBuffOnEntityCreated(
         string? buff = null)
     {
@@ -1450,8 +1450,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    [Generated]
-    [Implements(typeof(AddEquipmentToPet))]
+    
+    
     public UnitConfigurator AddEquipmentToPet(
         string[]? items = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,

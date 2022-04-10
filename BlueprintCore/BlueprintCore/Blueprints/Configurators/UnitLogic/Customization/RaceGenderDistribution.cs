@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
   /// Configurator for <see cref="RaceGenderDistribution"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(RaceGenderDistribution))]
+  
   public class RaceGenderDistributionConfigurator : BaseBlueprintConfigurator<RaceGenderDistribution, RaceGenderDistributionConfigurator>
   {
     private RaceGenderDistributionConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Sets <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceGenderDistributionConfigurator SetRaces(RaceEntry[]? races)
     {
       ValidateParam(races);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Adds to <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceGenderDistributionConfigurator AddToRaces(params RaceEntry[] races)
     {
       ValidateParam(races);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Removes from <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceGenderDistributionConfigurator RemoveFromRaces(params RaceEntry[] races)
     {
       ValidateParam(races);
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Sets <see cref="RaceGenderDistribution.LeftHandedChance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceGenderDistributionConfigurator SetLeftHandedChance(float leftHandedChance)
     {
       return OnConfigureInternal(
@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Sets <see cref="RaceGenderDistribution.MaleBaseWeight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceGenderDistributionConfigurator SetMaleBaseWeight(float maleBaseWeight)
     {
       return OnConfigureInternal(
@@ -99,7 +99,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Sets <see cref="RaceGenderDistribution.FemaleBaseWeight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public RaceGenderDistributionConfigurator SetFemaleBaseWeight(float femaleBaseWeight)
     {
       return OnConfigureInternal(

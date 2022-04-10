@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   /// Configurator for <see cref="BlueprintArmyLeader"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArmyLeader))]
+  
   public class ArmyLeaderConfigurator : BaseBlueprintConfigurator<BlueprintArmyLeader, ArmyLeaderConfigurator>
   {
     private ArmyLeaderConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintArmyLeader.m_LeaderName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyLeaderConfigurator SetLeaderName(LocalizedString? leaderName)
     {
       ValidateParam(leaderName);
@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="portrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
-    [Generated]
+    
     public ArmyLeaderConfigurator SetPortrait(string? portrait)
     {
       return OnConfigureInternal(
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintArmyLeader.m_StartingLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyLeaderConfigurator SetStartingLevel(int startingLevel)
     {
       return OnConfigureInternal(
@@ -77,7 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="leaderProgression"><see cref="Kingmaker.Armies.BlueprintLeaderProgression"/></param>
-    [Generated]
+    
     public ArmyLeaderConfigurator SetLeaderProgression(string? leaderProgression)
     {
       return OnConfigureInternal(
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public ArmyLeaderConfigurator SetUnit(string? unit)
     {
       return OnConfigureInternal(
@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="baseSkills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    [Generated]
+    
     public ArmyLeaderConfigurator SetBaseSkills(string[]? baseSkills)
     {
       return OnConfigureInternal(
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="baseSkills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    [Generated]
+    
     public ArmyLeaderConfigurator AddToBaseSkills(params string[] baseSkills)
     {
       return OnConfigureInternal(
@@ -137,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="baseSkills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    [Generated]
+    
     public ArmyLeaderConfigurator RemoveFromBaseSkills(params string[] baseSkills)
     {
       return OnConfigureInternal(

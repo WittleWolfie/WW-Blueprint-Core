@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>Configurator for <see cref="BlueprintArchetype"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArchetype))]
+  
   public class ArchetypeConfigurator : BaseBlueprintConfigurator<BlueprintArchetype, ArchetypeConfigurator>
   {
     private ArchetypeConfigurator(string name) : base(name) { }
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteArchetypeLevel))]
+    
     public ArchetypeConfigurator PrerequisiteArchetype(
         string clazz,
         string archetype,
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType">PrerequisiteCasterType</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCasterType))]
+    
     public ArchetypeConfigurator PrerequisiteCasterType(
         bool isArcane,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel">PrerequisiteCasterTypeSpellLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCasterTypeSpellLevel))]
+    
     public ArchetypeConfigurator PrerequisiteCasterTypeSpellLevel(
         bool isArcane,
         bool onlySpontaneous,
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCharacterLevel">PrerequisiteCharacterLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteCharacterLevel))]
+    
     public ArchetypeConfigurator PrerequisiteCharacterLevel(
         int minLevel,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -135,7 +135,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassLevel))]
+    
     public ArchetypeConfigurator PrerequisiteClassLevel(
         string clazz,
         int minLevel,
@@ -156,7 +156,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteClassSpellLevel))]
+    
     public ArchetypeConfigurator PrerequisiteClassSpellLevel(
         string clazz,
         int minSpellLevel,
@@ -177,7 +177,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="etude"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude">BlueprintEtude</see></param>
-    [Implements(typeof(PrerequisiteEtude))]
+    
     public ArchetypeConfigurator PrerequisiteEtude(
         string etude,
         bool playing = true,
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeature))]
+    
     public ArchetypeConfigurator PrerequisiteFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -213,7 +213,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteFeaturesFromList))]
+    
     public ArchetypeConfigurator PrerequisiteFeaturesFromList(
         string[] features,
         int requiredNumber = 1,
@@ -231,7 +231,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteIsPet">PrerequisiteIsPet</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteIsPet))]
+    
     public ArchetypeConfigurator PrerequisiteIsPet(
         bool negate = false,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -246,7 +246,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
+    
     public ArchetypeConfigurator PrerequisiteMainCharacter(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -261,7 +261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMainCharacter">PrerequisiteMainCharacter</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMainCharacter))]
+    
     public ArchetypeConfigurator PrerequisiteCompanion(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -277,7 +277,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteMythicLevel">PrerequisiteMythicLevel</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteMythicLevel))]
+    
     public ArchetypeConfigurator PrerequisiteMythicLevel(
         int level,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -297,7 +297,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
     /// <param name="archetype"><see cref="Kingmaker.Blueprints.Classes.BlueprintArchetype">BlueprintArchetype</see></param>
-    [Implements(typeof(PrerequisiteNoArchetype))]
+    
     public ArchetypeConfigurator PrerequisiteNoArchetype(
         string clazz,
         string archetype,
@@ -316,7 +316,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass">BlueprintCharacterClass</see></param>
-    [Implements(typeof(PrerequisiteNoClassLevel))]
+    
     public ArchetypeConfigurator PrerequisiteNoClass(
         string clazz,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -333,7 +333,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteNoFeature))]
+    
     public ArchetypeConfigurator PrerequisiteNoFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -348,7 +348,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteNotProficient">PrerequisiteNotProficient</see>
     /// </summary>
-    [Implements(typeof(PrerequisiteNotProficient))]
+    
     public ArchetypeConfigurator PrerequisiteNotProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// 
     /// <param name="spellFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
     /// <param name="spellAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility">BlueprintAbility</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public ArchetypeConfigurator PrerequisiteParameterizedSpellFeature(
         string spellFeature,
         string spellAbility,
@@ -393,7 +393,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public ArchetypeConfigurator PrerequisiteParameterizedWeaponFeature(
         string feature,
         WeaponCategory weapon,
@@ -414,7 +414,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedFeature))]
+    
     public ArchetypeConfigurator PrerequisiteParameterizedSpellSchoolFeature(
         string feature,
         SpellSchool school,
@@ -434,7 +434,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="weaponFeature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisiteParametrizedWeaponSubcategory))]
+    
     public ArchetypeConfigurator PrerequisiteParameterizedWeaponSubcategory(
         string weaponFeature,
         WeaponSubCategory weapon,
@@ -451,7 +451,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisitePet">PrerequisitePet</see>
     /// </summary>
-    [Implements(typeof(PrerequisitePet))]
+    
     public ArchetypeConfigurator PrerequisitePet(
         PetType type,
         bool negate = false,
@@ -470,7 +470,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// 
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature">BlueprintFeature</see></param>
-    [Implements(typeof(PrerequisitePlayerHasFeature))]
+    
     public ArchetypeConfigurator PrerequisitePlayerHasFeature(
         string feature,
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
@@ -485,7 +485,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteProficiency"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteProficiency))]
+    
     public ArchetypeConfigurator PrerequisiteProficient(
         WeaponCategory[] weapons,
         ArmorProficiencyGroup[] armors,
@@ -505,7 +505,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteStatValue"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteStatValue))]
+    
     public ArchetypeConfigurator PrerequisiteStat(
         StatType type,
         int minValue,
@@ -522,13 +522,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds or modifies <see cref="PrerequisiteAlignment"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     public ArchetypeConfigurator AddPrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
       return OnConfigureInternal(blueprint => AddPrerequisiteAlignment(blueprint, alignments.ToList()));
     }
 
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     private static void AddPrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
     {
       var component = bp.GetComponent<PrerequisiteAlignment>();
@@ -543,13 +543,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="PrerequisiteAlignment"/>
     /// </summary>
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     public ArchetypeConfigurator RemovePrerequisiteAlignment(params AlignmentMaskType[] alignments)
     {
       return OnConfigureInternal(blueprint => RemovePrerequisiteAlignment(blueprint, alignments.ToList()));
     }
 
-    [Implements(typeof(PrerequisiteAlignment))]
+    
     private static void RemovePrerequisiteAlignment(BlueprintScriptableObject bp, List<AlignmentMaskType> alignments)
     {
       var component = bp.GetComponent<PrerequisiteAlignment>();
@@ -560,8 +560,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="DeityDependencyClass"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DeityDependencyClass))]
+    
+    
     public ArchetypeConfigurator AddDeityDependencyClass(
         bool isDeityDependencyClass = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -575,8 +575,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PrerequisiteCondition))]
+    
+    
     public ArchetypeConfigurator AddPrerequisiteCondition(
         Condition condition,
         LocalizedString? uIText = null,
@@ -601,8 +601,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="loreMaster"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(PrerequisiteLoreMaster))]
+    
+    
     public ArchetypeConfigurator AddPrerequisiteLoreMaster(
         string? loreMaster = null,
         int rating = default,
@@ -622,8 +622,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds <see cref="PrerequisiteFullStatValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(PrerequisiteFullStatValue))]
+    
+    
     public ArchetypeConfigurator AddPrerequisiteFullStatValue(
         StatType stat = default,
         int value = default,

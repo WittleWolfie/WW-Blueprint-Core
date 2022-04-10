@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintCompanionStory"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCompanionStory))]
+  
   public class CompanionStoryConfigurator : BaseBlueprintConfigurator<BlueprintCompanionStory, CompanionStoryConfigurator>
   {
     private CompanionStoryConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public CompanionStoryConfigurator SetCompanion(string? companion)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Title"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CompanionStoryConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CompanionStoryConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Image"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CompanionStoryConfigurator SetImage(Sprite image)
     {
       ValidateParam(image);
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Gender"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CompanionStoryConfigurator SetGender(Gender gender)
     {
       return OnConfigureInternal(

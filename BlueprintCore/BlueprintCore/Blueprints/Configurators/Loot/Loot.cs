@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
   /// Configurator for <see cref="BlueprintLoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintLoot))]
+  
   public class LootConfigurator : BaseBlueprintConfigurator<BlueprintLoot, LootConfigurator>
   {
     private LootConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="BlueprintLoot.Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LootConfigurator SetType(LootType type)
     {
       return OnConfigureInternal(
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="BlueprintLoot.IsSuperTrash"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LootConfigurator SetIsSuperTrash(bool isSuperTrash)
     {
       return OnConfigureInternal(
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="BlueprintLoot.Identify"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LootConfigurator SetIdentify(bool identify)
     {
       return OnConfigureInternal(
@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="BlueprintLoot.Setting"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LootConfigurator Setting(LootSetting setting)
     {
       return OnConfigureInternal(
@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// </summary>
     ///
     /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public LootConfigurator SetArea(string? area)
     {
       return OnConfigureInternal(
@@ -99,7 +99,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="BlueprintLoot.ContainerName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LootConfigurator SetContainerName(string containerName)
     {
       return OnConfigureInternal(
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="BlueprintLoot.Items"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LootConfigurator SetItems(LootEntry[]? items)
     {
       ValidateParam(items);
@@ -127,7 +127,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds to <see cref="BlueprintLoot.Items"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LootConfigurator AddToItems(params LootEntry[] items)
     {
       ValidateParam(items);
@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Removes from <see cref="BlueprintLoot.Items"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LootConfigurator RemoveFromItems(params LootEntry[] items)
     {
       ValidateParam(items);

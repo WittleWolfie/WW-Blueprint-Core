@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   /// Configurator for <see cref="BlueprintTacticalCombatAiCastSpell"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTacticalCombatAiCastSpell))]
+  
   public class TacticalCombatAiCastSpellConfigurator : BaseTacticalCombatAiActionConfigurator<BlueprintTacticalCombatAiCastSpell, TacticalCombatAiCastSpellConfigurator>
   {
     private TacticalCombatAiCastSpellConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// </summary>
     ///
     /// <param name="ability"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
+    
     public TacticalCombatAiCastSpellConfigurator SetAbility(string? ability)
     {
       return OnConfigureInternal(
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatAiCastSpell.m_ForceTargetSelf"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatAiCastSpellConfigurator SetForceTargetSelf(bool forceTargetSelf)
     {
       return OnConfigureInternal(
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatAiCastSpell.m_ForceTargetEnemy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatAiCastSpellConfigurator SetForceTargetEnemy(bool forceTargetEnemy)
     {
       return OnConfigureInternal(

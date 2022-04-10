@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
   /// Configurator for <see cref="BlueprintQuestGroups"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintQuestGroups))]
+  
   public class QuestGroupsConfigurator : BaseBlueprintConfigurator<BlueprintQuestGroups, QuestGroupsConfigurator>
   {
     private QuestGroupsConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuestGroups.Groups"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestGroupsConfigurator SetGroups(QuestGroup[]? groups)
     {
       ValidateParam(groups);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds to <see cref="BlueprintQuestGroups.Groups"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestGroupsConfigurator AddToGroups(params QuestGroup[] groups)
     {
       ValidateParam(groups);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Removes from <see cref="BlueprintQuestGroups.Groups"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestGroupsConfigurator RemoveFromGroups(params QuestGroup[] groups)
     {
       ValidateParam(groups);

@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="ComplexConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ComplexConsideration))]
+  
   public class ComplexConsiderationConfigurator : BaseConsiderationConfigurator<ComplexConsideration, ComplexConsiderationConfigurator>
   {
     private ComplexConsiderationConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="considerations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public ComplexConsiderationConfigurator SetConsiderations(string[]? considerations)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="considerations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public ComplexConsiderationConfigurator AddToConsiderations(params string[] considerations)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="considerations"><see cref="Kingmaker.AI.Blueprints.Considerations.Consideration"/></param>
-    [Generated]
+    
     public ComplexConsiderationConfigurator RemoveFromConsiderations(params string[] considerations)
     {
       return OnConfigureInternal(

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   /// Configurator for <see cref="BlueprintTacticalCombatObstaclesMap"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTacticalCombatObstaclesMap))]
+  
   public class TacticalCombatObstaclesMapConfigurator : BaseBlueprintConfigurator<BlueprintTacticalCombatObstaclesMap, TacticalCombatObstaclesMapConfigurator>
   {
     private TacticalCombatObstaclesMapConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatObstaclesMapConfigurator SetObstacles(BlueprintTacticalCombatObstaclesMap.MapObstacle[]? obstacles)
     {
       ValidateParam(obstacles);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Adds to <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatObstaclesMapConfigurator AddToObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
     {
       ValidateParam(obstacles);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes from <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatObstaclesMapConfigurator RemoveFromObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
     {
       ValidateParam(obstacles);

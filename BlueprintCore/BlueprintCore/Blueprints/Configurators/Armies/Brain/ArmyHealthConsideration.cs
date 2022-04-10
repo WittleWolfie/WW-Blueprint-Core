@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   /// Configurator for <see cref="ArmyHealthConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ArmyHealthConsideration))]
+  
   public class ArmyHealthConsiderationConfigurator : BaseConsiderationConfigurator<ArmyHealthConsideration, ArmyHealthConsiderationConfigurator>
   {
     private ArmyHealthConsiderationConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="ArmyHealthConsideration.FullBorder"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyHealthConsiderationConfigurator SetFullBorder(float fullBorder)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="ArmyHealthConsideration.DeadBorder"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyHealthConsiderationConfigurator SetDeadBorder(float deadBorder)
     {
       return OnConfigureInternal(
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="ArmyHealthConsideration.FullScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyHealthConsiderationConfigurator SetFullScore(float fullScore)
     {
       return OnConfigureInternal(
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="ArmyHealthConsideration.DeadScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyHealthConsiderationConfigurator SetDeadScore(float deadScore)
     {
       return OnConfigureInternal(

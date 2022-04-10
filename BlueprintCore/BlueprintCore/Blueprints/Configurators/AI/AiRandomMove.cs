@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BlueprintAiRandomMove"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAiRandomMove))]
+  
   public class AiRandomMoveConfigurator : BaseAiActionConfigurator<BlueprintAiRandomMove, AiRandomMoveConfigurator>
   {
     private AiRandomMoveConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiRandomMove.RoamingRadiusInFeet"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiRandomMoveConfigurator SetRoamingRadiusInFeet(int roamingRadiusInFeet)
     {
       return OnConfigureInternal(

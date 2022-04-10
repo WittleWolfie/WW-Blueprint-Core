@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BuffConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BuffConsideration))]
+  
   public class BuffConsiderationConfigurator : BaseConsiderationConfigurator<BuffConsideration, BuffConsiderationConfigurator>
   {
     private BuffConsiderationConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffConsiderationConfigurator SetBuffs(string[]? buffs)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffConsiderationConfigurator AddToBuffs(params string[] buffs)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffConsiderationConfigurator RemoveFromBuffs(params string[] buffs)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BuffConsideration.HasBuffScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BuffConsiderationConfigurator SetHasBuffScore(float hasBuffScore)
     {
       return OnConfigureInternal(
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BuffConsideration.NoBuffScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BuffConsiderationConfigurator SetNoBuffScore(float noBuffScore)
     {
       return OnConfigureInternal(
@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BuffConsideration.FromCaster"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BuffConsiderationConfigurator SetFromCaster(bool fromCaster)
     {
       return OnConfigureInternal(

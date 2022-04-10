@@ -8,7 +8,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Classes
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintFeatureBase"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFeatureBase))]
+  
   public abstract class FeatureBaseConfigurator<T, TBuilder> : BaseUnitFactConfigurator<T, TBuilder>
       where T : BlueprintFeatureBase
       where TBuilder : FeatureBaseConfigurator<T, TBuilder>

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
   /// Configurator for <see cref="BlueprintSpellsTable"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintSpellsTable))]
+  
   public class SpellsTableConfigurator : BaseBlueprintConfigurator<BlueprintSpellsTable, SpellsTableConfigurator>
   {
     private SpellsTableConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Sets <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SpellsTableConfigurator SetLevels(SpellsLevelEntry[]? levels)
     {
       ValidateParam(levels);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Adds to <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SpellsTableConfigurator AddToLevels(params SpellsLevelEntry[] levels)
     {
       ValidateParam(levels);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Removes from <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SpellsTableConfigurator RemoveFromLevels(params SpellsLevelEntry[] levels)
     {
       ValidateParam(levels);

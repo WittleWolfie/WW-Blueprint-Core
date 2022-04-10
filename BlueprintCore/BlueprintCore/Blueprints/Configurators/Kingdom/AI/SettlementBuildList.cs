@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
   /// Configurator for <see cref="SettlementBuildList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(SettlementBuildList))]
+  
   public class SettlementBuildListConfigurator : BaseBlueprintConfigurator<SettlementBuildList, SettlementBuildListConfigurator>
   {
     private SettlementBuildListConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// </summary>
     ///
     /// <param name="buildArea"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public SettlementBuildListConfigurator SetBuildArea(string? buildArea)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// <summary>
     /// Sets <see cref="SettlementBuildList.SlotSetupPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildListConfigurator SetSlotSetupPrefab(SettlementsBuildSlots slotSetupPrefab)
     {
       ValidateParam(slotSetupPrefab);
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// <summary>
     /// Sets <see cref="SettlementBuildList.List"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildListConfigurator SetList(List<SettlementBuildList.Entry>? list)
     {
       ValidateParam(list);
@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// <summary>
     /// Adds to <see cref="SettlementBuildList.List"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildListConfigurator AddToList(params SettlementBuildList.Entry[] list)
     {
       ValidateParam(list);
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// <summary>
     /// Removes from <see cref="SettlementBuildList.List"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SettlementBuildListConfigurator RemoveFromList(params SettlementBuildList.Entry[] list)
     {
       ValidateParam(list);

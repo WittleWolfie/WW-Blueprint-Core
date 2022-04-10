@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
   /// Configurator for <see cref="BlueprintSharedVendorTable"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintSharedVendorTable))]
+  
   public class SharedVendorTableConfigurator : BaseUnitLootConfigurator<BlueprintSharedVendorTable, SharedVendorTableConfigurator>
   {
     private SharedVendorTableConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets <see cref="BlueprintSharedVendorTable.AutoIdentifyAllItems"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SharedVendorTableConfigurator SetAutoIdentifyAllItems(bool autoIdentifyAllItems)
     {
       return OnConfigureInternal(

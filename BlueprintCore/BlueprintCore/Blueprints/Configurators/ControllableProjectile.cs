@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintControllableProjectile"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintControllableProjectile))]
+  
   public class ControllableProjectileConfigurator : BaseBlueprintConfigurator<BlueprintControllableProjectile, ControllableProjectileConfigurator>
   {
     private ControllableProjectileConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_OnCreatureCastPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ControllableProjectileConfigurator SetOnCreatureCastPrefab(PrefabLink? onCreatureCastPrefab)
     {
       ValidateParam(onCreatureCastPrefab);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_OnCreaturePrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ControllableProjectileConfigurator SetOnCreaturePrefab(PrefabLink? onCreaturePrefab)
     {
       ValidateParam(onCreaturePrefab);
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_HeightOffset"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ControllableProjectileConfigurator SetHeightOffset(float heightOffset)
     {
       return OnConfigureInternal(
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_RotationLifetime"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ControllableProjectileConfigurator SetRotationLifetime(float rotationLifetime)
     {
       return OnConfigureInternal(
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_RotationCurve"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ControllableProjectileConfigurator SetRotationCurve(AnimationCurve rotationCurve)
     {
       ValidateParam(rotationCurve);
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_PreparationStartSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ControllableProjectileConfigurator SetPreparationStartSound(string preparationStartSound)
     {
       return OnConfigureInternal(
@@ -115,7 +115,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintControllableProjectile.m_PreparationEndSound"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ControllableProjectileConfigurator SetPreparationEndSound(string preparationEndSound)
     {
       return OnConfigureInternal(

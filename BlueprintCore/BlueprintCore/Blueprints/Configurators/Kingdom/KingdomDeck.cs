@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintKingdomDeck"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomDeck))]
+  
   public class KingdomDeckConfigurator : BaseBlueprintConfigurator<BlueprintKingdomDeck, KingdomDeckConfigurator>
   {
     private KingdomDeckConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="events"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
-    [Generated]
+    
     public KingdomDeckConfigurator SetEvents(string[]? events)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="events"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
-    [Generated]
+    
     public KingdomDeckConfigurator AddToEvents(params string[] events)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="events"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEvent"/></param>
-    [Generated]
+    
     public KingdomDeckConfigurator RemoveFromEvents(params string[] events)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomDeck.IsPriority"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomDeckConfigurator SetIsPriority(bool isPriority)
     {
       return OnConfigureInternal(

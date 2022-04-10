@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintSpawnableObject"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintSpawnableObject))]
+  
   public abstract class BaseSpawnableObjectConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintSpawnableObject
@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetPrefab(PrefabLink? prefab)
     {
       ValidateParam(prefab);
@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   /// Configurator for <see cref="BlueprintSpawnableObject"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintSpawnableObject))]
+  
   public class SpawnableObjectConfigurator : BaseBlueprintConfigurator<BlueprintSpawnableObject, SpawnableObjectConfigurator>
   {
     private SpawnableObjectConfigurator(string name) : base(name) { }
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SpawnableObjectConfigurator SetPrefab(PrefabLink? prefab)
     {
       ValidateParam(prefab);

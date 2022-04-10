@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
 {
   /// <summary>Configurator for <see cref="BlueprintAbilityAreaEffect"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAbilityAreaEffect))]
+  
   public class AbilityAreaEffectConfigurator
       : BaseBlueprintConfigurator<BlueprintAbilityAreaEffect, AbilityAreaEffectConfigurator>
   {
@@ -144,7 +144,7 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     /// 
     /// <remarks>Use <see cref="Components.ContextRankConfigs">ContextRankConfigs</see> to create the config</remarks>
-    [Implements(typeof(ContextRankConfig))]
+    
     public AbilityAreaEffectConfigurator AddContextRankConfig(ContextRankConfig rankConfig)
     {
       return AddComponent(rankConfig);
@@ -153,13 +153,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds or modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     public AbilityAreaEffectConfigurator AddSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       return OnConfigureInternal(blueprint => AddSpellDescriptors(blueprint, descriptors.ToList()));
     }
 
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     private static void AddSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
     {
       var component = bp.GetComponent<SpellDescriptorComponent>();
@@ -174,13 +174,13 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Modifies <see cref="SpellDescriptorComponent"/>
     /// </summary>
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     public AbilityAreaEffectConfigurator RemoveSpellDescriptors(params SpellDescriptor[] descriptors)
     {
       return OnConfigureInternal(blueprint => RemoveSpellDescriptors(blueprint, descriptors.ToList()));
     }
 
-    [Implements(typeof(SpellDescriptorComponent))]
+    
     private static void RemoveSpellDescriptors(BlueprintScriptableObject bp, List<SpellDescriptor> descriptors)
     {
       var component = bp.GetComponent<SpellDescriptorComponent>();
@@ -193,8 +193,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="feature"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(UniqueAreaEffect))]
+    
+    
     public AbilityAreaEffectConfigurator AddUniqueAreaEffect(
         string? feature = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -210,8 +210,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="customProperty"><see cref="Kingmaker.UnitLogic.Mechanics.Properties.BlueprintUnitProperty"/></param>
-    [Generated]
-    [Implements(typeof(ContextCalculateAbilityParams))]
+    
+    
     public AbilityAreaEffectConfigurator AddContextCalculateAbilityParams(
         bool useKineticistMainStat = default,
         StatType statType = default,
@@ -244,8 +244,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="characterClass"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(ContextCalculateAbilityParamsBasedOnClass))]
+    
+    
     public AbilityAreaEffectConfigurator AddContextCalculateAbilityParamsBasedOnClass(
         bool useKineticistMainStat = default,
         StatType statType = default,
@@ -263,8 +263,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="ContextCalculateSharedValue"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ContextCalculateSharedValue))]
+    
+    
     public AbilityAreaEffectConfigurator AddContextCalculateSharedValue(
         AbilitySharedValue valueType = default,
         ContextDiceValue? value = null,
@@ -282,8 +282,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="ContextSetAbilityParams"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ContextSetAbilityParams))]
+    
+    
     public AbilityAreaEffectConfigurator AddContextSetAbilityParams(
         bool add10ToDC = default,
         ContextValue? dC = null,
@@ -310,8 +310,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityDifficultyLimitDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityDifficultyLimitDC))]
+    
+    
     public AbilityAreaEffectConfigurator AddAbilityDifficultyLimitDC(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -325,8 +325,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AbilityAreaEffectBuff))]
+    
+    
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectBuff(
         ConditionsBuilder? condition = null,
         bool checkConditionEveryRound = default,
@@ -344,8 +344,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityAreaEffectMovement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityAreaEffectMovement))]
+    
+    
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectMovement(
         Feet distancePerRound,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -359,8 +359,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbilityAreaEffectRunAction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbilityAreaEffectRunAction))]
+    
+    
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectRunAction(
         ActionsBuilder? unitEnter = null,
         ActionsBuilder? unitExit = null,
@@ -382,8 +382,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(AbilityAreaEffectSpecialBehaviour))]
+    
+    
     public AbilityAreaEffectConfigurator AddAbilityAreaEffectSpecialBehaviour(
         Buff buffFact,
         SpecialBehaviour behaviour = default,
@@ -405,8 +405,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="AbillityAreaEffectRoundFX"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(AbillityAreaEffectRoundFX))]
+    
+    
     public AbilityAreaEffectConfigurator AddAbillityAreaEffectRoundFX(
         PrefabLink? prefabLink = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -427,8 +427,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <param name="unitOnEdgeBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
     /// <param name="effectsImmunityFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
     /// <param name="evadingImmunityFacts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AreaEffectPit))]
+    
+    
     public AbilityAreaEffectConfigurator AddAreaEffectPit(
         string? visualSettings = null,
         ContextValue? climbDC = null,
@@ -462,8 +462,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="CustomAreaOnGrid"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CustomAreaOnGrid))]
+    
+    
     public AbilityAreaEffectConfigurator AddCustomAreaOnGrid(
         List<Vector2Int>? affectedCells = null,
         bool ignoreObstaclesAndUnits = default,
@@ -483,8 +483,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// </summary>
     ///
     /// <param name="abilityWithCellsProvider"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(TacticalCombatCellsProviderLink))]
+    
+    
     public AbilityAreaEffectConfigurator AddTacticalCombatCellsProviderLink(
         string? abilityWithCellsProvider = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -498,8 +498,8 @@ namespace BlueprintCore.Blueprints.Configurators.Abilities
     /// <summary>
     /// Adds <see cref="TacticalCombatResurrection"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(TacticalCombatResurrection))]
+    
+    
     public AbilityAreaEffectConfigurator AddTacticalCombatResurrection(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)

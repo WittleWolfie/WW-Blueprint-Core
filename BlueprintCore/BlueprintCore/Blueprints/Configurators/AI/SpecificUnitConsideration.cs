@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="SpecificUnitBlueprintConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(SpecificUnitBlueprintConsideration))]
+  
   public class SpecificUnitConsiderationConfigurator : BaseConsiderationConfigurator<SpecificUnitBlueprintConsideration, SpecificUnitConsiderationConfigurator>
   {
     private SpecificUnitConsiderationConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public SpecificUnitConsiderationConfigurator SetUnit(string? unit)
     {
       return OnConfigureInternal(
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="SpecificUnitBlueprintConsideration.CorrectUnitScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SpecificUnitConsiderationConfigurator SetCorrectUnitScore(float correctUnitScore)
     {
       return OnConfigureInternal(
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="SpecificUnitBlueprintConsideration.IncorrectUnitScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public SpecificUnitConsiderationConfigurator SetIncorrectUnitScore(float incorrectUnitScore)
     {
       return OnConfigureInternal(

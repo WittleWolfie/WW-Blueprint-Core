@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintPet"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintPet))]
+  
   public class PetConfigurator : BaseBlueprintConfigurator<BlueprintPet, PetConfigurator>
   {
     private PetConfigurator(string name) : base(name) { }

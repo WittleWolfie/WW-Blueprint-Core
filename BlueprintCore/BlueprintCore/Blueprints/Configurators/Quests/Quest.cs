@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
   /// Configurator for <see cref="BlueprintQuest"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintQuest))]
+  
   public class QuestConfigurator : BaseFactConfigurator<BlueprintQuest, QuestConfigurator>
   {
     private QuestConfigurator(string name) : base(name) { }
@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuest.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuest.Title"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestConfigurator SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuest.CompletionText"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestConfigurator SetCompletionText(LocalizedString? completionText)
     {
       ValidateParam(completionText);
@@ -84,7 +84,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuest.m_Group"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestConfigurator SetGroup(QuestGroupId group)
     {
       return OnConfigureInternal(
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuest.m_DescriptionPriority"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestConfigurator SetDescriptionPriority(int descriptionPriority)
     {
       return OnConfigureInternal(
@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuest.m_Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestConfigurator SetType(QuestType type)
     {
       return OnConfigureInternal(
@@ -123,7 +123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets <see cref="BlueprintQuest.m_LastChapter"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public QuestConfigurator SetLastChapter(int lastChapter)
     {
       return OnConfigureInternal(
@@ -138,7 +138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="objectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestConfigurator SetObjectives(string[]? objectives)
     {
       return OnConfigureInternal(
@@ -153,7 +153,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="objectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestConfigurator AddToObjectives(params string[] objectives)
     {
       return OnConfigureInternal(
@@ -168,7 +168,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="objectives"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public QuestConfigurator RemoveFromObjectives(params string[] objectives)
     {
       return OnConfigureInternal(
@@ -188,8 +188,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </summary>
     ///
     /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(QuestRelatesToCompanionStory))]
+    
+    
     public QuestConfigurator AddQuestRelatesToCompanionStory(
         string? companion = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -203,8 +203,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="CrusadeMissionComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CrusadeMissionComponent))]
+    
+    
     public QuestConfigurator AddCrusadeMissionComponent(
         int chapter = default)
     {
@@ -216,8 +216,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="NobilityArmyRequestComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(NobilityArmyRequestComponent))]
+    
+    
     public QuestConfigurator AddNobilityArmyRequestComponent()
     {
       return AddComponent(new NobilityArmyRequestComponent());
@@ -226,8 +226,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="NobilityBuildingsRequestComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(NobilityBuildingsRequestComponent))]
+    
+    
     public QuestConfigurator AddNobilityBuildingsRequestComponent()
     {
       return AddComponent(new NobilityBuildingsRequestComponent());
@@ -236,8 +236,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="NobilityIncomeRequestComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(NobilityIncomeRequestComponent))]
+    
+    
     public QuestConfigurator AddNobilityIncomeRequestComponent()
     {
       return AddComponent(new NobilityIncomeRequestComponent());
@@ -246,8 +246,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="NobilitySettlementsRequestComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(NobilitySettlementsRequestComponent))]
+    
+    
     public QuestConfigurator AddNobilitySettlementsRequestComponent()
     {
       return AddComponent(new NobilitySettlementsRequestComponent());
@@ -256,8 +256,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="RoyalCourtLeaderRequestComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RoyalCourtLeaderRequestComponent))]
+    
+    
     public QuestConfigurator AddRoyalCourtLeaderRequestComponent()
     {
       return AddComponent(new RoyalCourtLeaderRequestComponent());
@@ -266,8 +266,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="RoyalCourtMissionsRequestComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RoyalCourtMissionsRequestComponent))]
+    
+    
     public QuestConfigurator AddRoyalCourtMissionsRequestComponent()
     {
       return AddComponent(new RoyalCourtMissionsRequestComponent());
@@ -276,8 +276,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="RoyalCourtRanksRequestComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RoyalCourtRanksRequestComponent))]
+    
+    
     public QuestConfigurator AddRoyalCourtRanksRequestComponent()
     {
       return AddComponent(new RoyalCourtRanksRequestComponent());
@@ -286,8 +286,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="RoyalCourtVictoryRequestComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RoyalCourtVictoryRequestComponent))]
+    
+    
     public QuestConfigurator AddRoyalCourtVictoryRequestComponent()
     {
       return AddComponent(new RoyalCourtVictoryRequestComponent());
@@ -296,8 +296,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Adds <see cref="Experience"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(Experience))]
+    
+    
     public QuestConfigurator AddExperience(
         IntEvaluator count,
         EncounterType encounter = default,

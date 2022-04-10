@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintKingdomBuff"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomBuff))]
+  
   public class KingdomBuffConfigurator : BaseFactConfigurator<BlueprintKingdomBuff, KingdomBuffConfigurator>
   {
     private KingdomBuffConfigurator(string name) : base(name) { }
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomBuff.DisplayName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomBuffConfigurator SetDisplayName(LocalizedString? displayName)
     {
       ValidateParam(displayName);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomBuff.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomBuffConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomBuff.Icon"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomBuffConfigurator SetIcon(Sprite icon)
     {
       ValidateParam(icon);
@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomBuff.DurationDays"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomBuffConfigurator SetDurationDays(int durationDays)
     {
       return OnConfigureInternal(
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomBuff.StatChanges"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomBuffConfigurator SetStatChanges(KingdomStats.Changes statChanges)
     {
       ValidateParam(statChanges);
@@ -118,7 +118,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomBuff.OnApply"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomBuffConfigurator SetOnApply(ActionsBuilder? onApply)
     {
       return OnConfigureInternal(
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets <see cref="BlueprintKingdomBuff.OnRemove"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomBuffConfigurator SetOnRemove(ActionsBuilder? onRemove)
     {
       return OnConfigureInternal(
@@ -144,8 +144,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="ChangeGlobalMagicPower"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ChangeGlobalMagicPower))]
+    
+    
     public KingdomBuffConfigurator AddChangeGlobalMagicPower(
         GlobalMagicValue changeValue,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -163,8 +163,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="units"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(KingdomUnitsGrowthIncrease))]
+    
+    
     public KingdomBuffConfigurator AddKingdomUnitsGrowthIncrease(
         bool allUnits = default,
         ArmyProperties properties = default,
@@ -184,8 +184,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="BirthdayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BirthdayTrigger))]
+    
+    
     public KingdomBuffConfigurator AddBirthdayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null)
@@ -201,8 +201,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(BuildingCostModifier))]
+    
+    
     public KingdomBuffConfigurator AddBuildingCostModifier(
         float modifier = default,
         string[]? buildings = null,
@@ -220,8 +220,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="buildings"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(BuildingSequenceCostMultiplierReduce))]
+    
+    
     public KingdomBuffConfigurator AddBuildingSequenceCostMultiplierReduce(
         float reduceMultiplierBy = default,
         string[]? buildings = null,
@@ -240,8 +240,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///
     /// <param name="specificSettlement"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintRegion"/></param>
     /// <param name="specificBuilding"><see cref="Kingmaker.Kingdom.Settlements.BlueprintSettlementBuilding"/></param>
-    [Generated]
-    [Implements(typeof(BuildingTrigger))]
+    
+    
     public KingdomBuffConfigurator AddBuildingTrigger(
         string? specificSettlement = null,
         string? specificBuilding = null,
@@ -261,8 +261,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="ChangeKingdomMoraleMinimum"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ChangeKingdomMoraleMinimum))]
+    
+    
     public KingdomBuffConfigurator AddChangeKingdomMoraleMinimum(
         int minValueDelta = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -278,8 +278,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="onlySpecificLeader"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(EventResolutonTrigger))]
+    
+    
     public KingdomBuffConfigurator AddEventResolutonTrigger(
         BlueprintKingdomEvent.TagList requiredTags,
         bool applyToProblems = default,
@@ -309,8 +309,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="EventStartTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EventStartTrigger))]
+    
+    
     public KingdomBuffConfigurator AddEventStartTrigger(
         BlueprintKingdomEvent.TagList requiredTags,
         bool applyToProblems = default,
@@ -332,8 +332,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="EveryDayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryDayTrigger))]
+    
+    
     public KingdomBuffConfigurator AddEveryDayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -349,8 +349,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="EveryWeekTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryWeekTrigger))]
+    
+    
     public KingdomBuffConfigurator AddEveryWeekTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -366,8 +366,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="GlobalArmiesMoraleModifier"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(GlobalArmiesMoraleModifier))]
+    
+    
     public KingdomBuffConfigurator AddGlobalArmiesMoraleModifier(
         ArmyFaction faction = default,
         int moraleModifier = default,
@@ -383,8 +383,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomAddMercenaryReroll"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomAddMercenaryReroll))]
+    
+    
     public KingdomBuffConfigurator AddKingdomAddMercenaryReroll(
         int freeRerollsToAdd = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -398,8 +398,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomAddMercenarySlot"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomAddMercenarySlot))]
+    
+    
     public KingdomBuffConfigurator AddKingdomAddMercenarySlot(
         int slotsToAdd = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -413,8 +413,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomConditionalStatChange"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomConditionalStatChange))]
+    
+    
     public KingdomBuffConfigurator AddKingdomConditionalStatChange(
         KingdomStats.Changes stats,
         ConditionsBuilder? condition = null)
@@ -430,8 +430,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomEventFixedBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomEventFixedBonus))]
+    
+    
     public KingdomBuffConfigurator AddKingdomEventFixedBonus(
         LeaderType leader = default,
         int leaderBonus = default)
@@ -447,8 +447,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="onlySpecificLeader"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(KingdomEventModifier))]
+    
+    
     public KingdomBuffConfigurator AddKingdomEventModifier(
         BlueprintKingdomEvent.TagList requiredTags,
         DiceFormula dice,
@@ -490,8 +490,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomIncomeModifier"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomIncomeModifier))]
+    
+    
     public KingdomBuffConfigurator AddKingdomIncomeModifier(
         int modifier = default,
         int financeModifier = default,
@@ -509,8 +509,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomIncomePerSettlement"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomIncomePerSettlement))]
+    
+    
     public KingdomBuffConfigurator AddKingdomIncomePerSettlement(
         KingdomResourcesAmount resourcesPerVillage,
         KingdomResourcesAmount resourcesPerTown,
@@ -526,8 +526,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomIncomePerStat"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomIncomePerStat))]
+    
+    
     public KingdomBuffConfigurator AddKingdomIncomePerStat(
         KingdomResourcesAmount resourcesPerRank,
         KingdomStats.Type stat = default)
@@ -541,8 +541,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomIncomePerUnrest"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomIncomePerUnrest))]
+    
+    
     public KingdomBuffConfigurator AddKingdomIncomePerUnrest(
         KingdomResourcesAmount resourcesPerUnrest)
     {
@@ -554,8 +554,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomMoraleEffectMultiplier"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomMoraleEffectMultiplier))]
+    
+    
     public KingdomBuffConfigurator AddKingdomMoraleEffectMultiplier(
         float incomeMultiplier = default,
         float unitMultiplier = default,
@@ -571,8 +571,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomMoraleForArmies"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomMoraleForArmies))]
+    
+    
     public KingdomBuffConfigurator AddKingdomMoraleForArmies(
         ArmyFaction faction = default,
         float multiplier = default,
@@ -591,8 +591,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///
     /// <param name="armyUnits"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(KingdomTacticalArmyFeature))]
+    
+    
     public KingdomBuffConfigurator AddKingdomTacticalArmyFeature(
         MercenariesIncludeOption mercenariesFilter = default,
         bool byTag = default,
@@ -616,8 +616,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomUnrestChangeTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomUnrestChangeTrigger))]
+    
+    
     public KingdomBuffConfigurator AddKingdomUnrestChangeTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? action = null)
@@ -631,8 +631,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="MaxArmySquadsBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(MaxArmySquadsBonus))]
+    
+    
     public KingdomBuffConfigurator AddMaxArmySquadsBonus(
         int bonus = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -648,8 +648,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="units"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(RecruitCostModifier))]
+    
+    
     public KingdomBuffConfigurator AddRecruitCostModifier(
         float modifier = default,
         bool allUnits = default,
@@ -673,8 +673,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="RecruitDisable"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(RecruitDisable))]
+    
+    
     public KingdomBuffConfigurator AddRecruitDisable(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -688,8 +688,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="buff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
-    [Implements(typeof(RegionBasedPartyBuff))]
+    
+    
     public KingdomBuffConfigurator AddRegionBasedPartyBuff(
         RegionBasedPartyBuff.TargetType target = default,
         string? buff = null)
@@ -705,8 +705,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="specificSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    [Generated]
-    [Implements(typeof(SettlementTrigger))]
+    
+    
     public KingdomBuffConfigurator AddSettlementTrigger(
         string? specificSettlement = null,
         ConditionsBuilder? condition = null,
@@ -722,8 +722,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomStatFromCrusadeResources"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomStatFromCrusadeResources))]
+    
+    
     public KingdomBuffConfigurator AddKingdomStatFromCrusadeResources(
         KingdomStats.Type stat = default,
         float statPerFinances = default,
@@ -741,8 +741,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomStatFromLeaderExperience"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomStatFromLeaderExperience))]
+    
+    
     public KingdomBuffConfigurator AddKingdomStatFromLeaderExperience(
         KingdomStats.Type stat = default,
         float statPerLeaderExperience = default,
@@ -758,8 +758,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="KingdomStatFromRecruitment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(KingdomStatFromRecruitment))]
+    
+    
     public KingdomBuffConfigurator AddKingdomStatFromRecruitment(
         KingdomStats.Type stat = default,
         float statPerExp = default)
@@ -776,8 +776,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///
     /// <param name="skill"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
     /// <param name="skillsList"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    [Generated]
-    [Implements(typeof(KingdomGainSkillToLeaders))]
+    
+    
     public KingdomBuffConfigurator AddKingdomGainSkillToLeaders(
         ArmyFaction targetFactions = default,
         int minLevel = default,
@@ -797,8 +797,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Adds <see cref="ArmyGlobalMapMovementBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(ArmyGlobalMapMovementBonus))]
+    
+    
     public KingdomBuffConfigurator AddArmyGlobalMapMovementBonus(
         int dailyMovementPoints = default,
         int maxMovementPoints = default)

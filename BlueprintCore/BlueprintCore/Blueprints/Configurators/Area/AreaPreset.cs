@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintAreaPreset"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAreaPreset))]
+  
   public abstract class BaseAreaPresetConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintAreaPreset
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public TBuilder SetArea(string? area)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="enterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public TBuilder SetEnterPoint(string? enterPoint)
     {
       return OnConfigureInternal(
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="globalMapLocation"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
+    
     public TBuilder SetGlobalMapLocation(string? globalMapLocation)
     {
       return OnConfigureInternal(
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="alsoLoadMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public TBuilder SetAlsoLoadMechanics(string[]? alsoLoadMechanics)
     {
       return OnConfigureInternal(
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="alsoLoadMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public TBuilder AddToAlsoLoadMechanics(params string[] alsoLoadMechanics)
     {
       return OnConfigureInternal(
@@ -104,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="alsoLoadMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromAlsoLoadMechanics(params string[] alsoLoadMechanics)
     {
       return OnConfigureInternal(
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.MakeAutosave"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetMakeAutosave(bool makeAutosave)
     {
       return OnConfigureInternal(
@@ -135,7 +135,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_OverrideGameDifficulty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetOverrideGameDifficulty(DifficultyPresetAsset overrideGameDifficulty)
     {
       ValidateParam(overrideGameDifficulty);
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="playerCharacter"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder SetPlayerCharacter(string? playerCharacter)
     {
       return OnConfigureInternal(
@@ -165,7 +165,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.CharGen"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCharGen(bool charGen)
     {
       return OnConfigureInternal(
@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.Alignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAlignment(Alignment alignment)
     {
       return OnConfigureInternal(
@@ -191,7 +191,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.PartyXp"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetPartyXp(int partyXp)
     {
       return OnConfigureInternal(
@@ -206,7 +206,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder SetCompanions(string[]? companions)
     {
       return OnConfigureInternal(
@@ -221,7 +221,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder AddToCompanions(params string[] companions)
     {
       return OnConfigureInternal(
@@ -236,7 +236,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromCompanions(params string[] companions)
     {
       return OnConfigureInternal(
@@ -256,7 +256,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companionsRemote"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder SetCompanionsRemote(string[]? companionsRemote)
     {
       return OnConfigureInternal(
@@ -271,7 +271,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companionsRemote"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder AddToCompanionsRemote(params string[] companionsRemote)
     {
       return OnConfigureInternal(
@@ -286,7 +286,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companionsRemote"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromCompanionsRemote(params string[] companionsRemote)
     {
       return OnConfigureInternal(
@@ -306,7 +306,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="exCompanions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder SetExCompanions(string[]? exCompanions)
     {
       return OnConfigureInternal(
@@ -321,7 +321,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="exCompanions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder AddToExCompanions(params string[] exCompanions)
     {
       return OnConfigureInternal(
@@ -336,7 +336,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="exCompanions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromExCompanions(params string[] exCompanions)
     {
       return OnConfigureInternal(
@@ -354,7 +354,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.StartGameActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetStartGameActions(ActionsBuilder? startGameActions)
     {
       return OnConfigureInternal(
@@ -367,7 +367,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.UnlockedFlags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetUnlockedFlags(List<UnlockValuePair>? unlockedFlags)
     {
       ValidateParam(unlockedFlags);
@@ -382,7 +382,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintAreaPreset.UnlockedFlags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToUnlockedFlags(params UnlockValuePair[] unlockedFlags)
     {
       ValidateParam(unlockedFlags);
@@ -396,7 +396,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintAreaPreset.UnlockedFlags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromUnlockedFlags(params UnlockValuePair[] unlockedFlags)
     {
       ValidateParam(unlockedFlags);
@@ -412,7 +412,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder SetStartedQuests(string[]? startedQuests)
     {
       return OnConfigureInternal(
@@ -427,7 +427,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder AddToStartedQuests(params string[] startedQuests)
     {
       return OnConfigureInternal(
@@ -442,7 +442,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromStartedQuests(params string[] startedQuests)
     {
       return OnConfigureInternal(
@@ -462,7 +462,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="finishedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder SetFinishedQuests(string[]? finishedQuests)
     {
       return OnConfigureInternal(
@@ -477,7 +477,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="finishedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder AddToFinishedQuests(params string[] finishedQuests)
     {
       return OnConfigureInternal(
@@ -492,7 +492,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="finishedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromFinishedQuests(params string[] finishedQuests)
     {
       return OnConfigureInternal(
@@ -512,7 +512,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="failedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder SetFailedQuests(string[]? failedQuests)
     {
       return OnConfigureInternal(
@@ -527,7 +527,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="failedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder AddToFailedQuests(params string[] failedQuests)
     {
       return OnConfigureInternal(
@@ -542,7 +542,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="failedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromFailedQuests(params string[] failedQuests)
     {
       return OnConfigureInternal(
@@ -562,7 +562,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudesNonRecursively"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder SetStartEtudesNonRecursively(string[]? startEtudesNonRecursively)
     {
       return OnConfigureInternal(
@@ -577,7 +577,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudesNonRecursively"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder AddToStartEtudesNonRecursively(params string[] startEtudesNonRecursively)
     {
       return OnConfigureInternal(
@@ -592,7 +592,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudesNonRecursively"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromStartEtudesNonRecursively(params string[] startEtudesNonRecursively)
     {
       return OnConfigureInternal(
@@ -612,7 +612,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder SetStartEtudes(string[]? startEtudes)
     {
       return OnConfigureInternal(
@@ -627,7 +627,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder AddToStartEtudes(params string[] startEtudes)
     {
       return OnConfigureInternal(
@@ -642,7 +642,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromStartEtudes(params string[] startEtudes)
     {
       return OnConfigureInternal(
@@ -662,7 +662,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="forceCompleteEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder SetForceCompleteEtudes(string[]? forceCompleteEtudes)
     {
       return OnConfigureInternal(
@@ -677,7 +677,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="forceCompleteEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder AddToForceCompleteEtudes(params string[] forceCompleteEtudes)
     {
       return OnConfigureInternal(
@@ -692,7 +692,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="forceCompleteEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromForceCompleteEtudes(params string[] forceCompleteEtudes)
     {
       return OnConfigureInternal(
@@ -712,7 +712,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="cuesSeen"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public TBuilder SetCuesSeen(string[]? cuesSeen)
     {
       return OnConfigureInternal(
@@ -727,7 +727,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="cuesSeen"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public TBuilder AddToCuesSeen(params string[] cuesSeen)
     {
       return OnConfigureInternal(
@@ -742,7 +742,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="cuesSeen"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromCuesSeen(params string[] cuesSeen)
     {
       return OnConfigureInternal(
@@ -762,7 +762,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="answersSelected"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
+    
     public TBuilder SetAnswersSelected(string[]? answersSelected)
     {
       return OnConfigureInternal(
@@ -777,7 +777,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="answersSelected"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
+    
     public TBuilder AddToAnswersSelected(params string[] answersSelected)
     {
       return OnConfigureInternal(
@@ -792,7 +792,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="answersSelected"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromAnswersSelected(params string[] answersSelected)
     {
       return OnConfigureInternal(
@@ -810,7 +810,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.HasKingdom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetHasKingdom(bool hasKingdom)
     {
       return OnConfigureInternal(
@@ -823,7 +823,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.KingdomManagementIsVisible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetKingdomManagementIsVisible(bool kingdomManagementIsVisible)
     {
       return OnConfigureInternal(
@@ -838,7 +838,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="activeEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
-    [Generated]
+    
     public TBuilder SetActiveEvents(string[]? activeEvents)
     {
       return OnConfigureInternal(
@@ -853,7 +853,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="activeEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
-    [Generated]
+    
     public TBuilder AddToActiveEvents(params string[] activeEvents)
     {
       return OnConfigureInternal(
@@ -868,7 +868,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="activeEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromActiveEvents(params string[] activeEvents)
     {
       return OnConfigureInternal(
@@ -886,7 +886,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.AddResources"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAddResources(KingdomResourcesAmount addResources)
     {
       return OnConfigureInternal(
@@ -899,7 +899,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.AddConsumableEventBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAddConsumableEventBonus(int addConsumableEventBonus)
     {
       return OnConfigureInternal(
@@ -912,7 +912,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_KingdomDay"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetKingdomDay(int kingdomDay)
     {
       return OnConfigureInternal(
@@ -925,7 +925,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_KingdomIncomePerClaimed"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetKingdomIncomePerClaimed(KingdomResourcesAmount kingdomIncomePerClaimed)
     {
       return OnConfigureInternal(
@@ -938,7 +938,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_KingdomIncomePerUpgraded"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetKingdomIncomePerUpgraded(KingdomResourcesAmount kingdomIncomePerUpgraded)
     {
       return OnConfigureInternal(
@@ -951,7 +951,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_Stats"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetStats(BlueprintAreaPreset.KingdomsStatsPreset stats)
     {
       ValidateParam(stats);
@@ -966,7 +966,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_Regions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetRegions(BlueprintAreaPreset.KingdomsRegionPreset[]? regions)
     {
       ValidateParam(regions);
@@ -981,7 +981,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintAreaPreset.m_Regions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToRegions(params BlueprintAreaPreset.KingdomsRegionPreset[] regions)
     {
       ValidateParam(regions);
@@ -995,7 +995,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintAreaPreset.m_Regions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromRegions(params BlueprintAreaPreset.KingdomsRegionPreset[] regions)
     {
       ValidateParam(regions);
@@ -1009,7 +1009,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_History"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetHistory(BlueprintAreaPreset.KingdomsEventHistoryPreset[]? history)
     {
       ValidateParam(history);
@@ -1024,7 +1024,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintAreaPreset.m_History"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToHistory(params BlueprintAreaPreset.KingdomsEventHistoryPreset[] history)
     {
       ValidateParam(history);
@@ -1038,7 +1038,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintAreaPreset.m_History"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromHistory(params BlueprintAreaPreset.KingdomsEventHistoryPreset[] history)
     {
       ValidateParam(history);
@@ -1054,7 +1054,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintAreaPreset"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAreaPreset))]
+  
   public class AreaPresetConfigurator : BaseBlueprintConfigurator<BlueprintAreaPreset, AreaPresetConfigurator>
   {
     private AreaPresetConfigurator(string name) : base(name) { }
@@ -1077,7 +1077,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetArea(string? area)
     {
       return OnConfigureInternal(
@@ -1092,7 +1092,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="enterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetEnterPoint(string? enterPoint)
     {
       return OnConfigureInternal(
@@ -1107,7 +1107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="globalMapLocation"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetGlobalMapLocation(string? globalMapLocation)
     {
       return OnConfigureInternal(
@@ -1122,7 +1122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="alsoLoadMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetAlsoLoadMechanics(string[]? alsoLoadMechanics)
     {
       return OnConfigureInternal(
@@ -1137,7 +1137,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="alsoLoadMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToAlsoLoadMechanics(params string[] alsoLoadMechanics)
     {
       return OnConfigureInternal(
@@ -1152,7 +1152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="alsoLoadMechanics"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaMechanics"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromAlsoLoadMechanics(params string[] alsoLoadMechanics)
     {
       return OnConfigureInternal(
@@ -1170,7 +1170,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.MakeAutosave"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetMakeAutosave(bool makeAutosave)
     {
       return OnConfigureInternal(
@@ -1183,7 +1183,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_OverrideGameDifficulty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetOverrideGameDifficulty(DifficultyPresetAsset overrideGameDifficulty)
     {
       ValidateParam(overrideGameDifficulty);
@@ -1200,7 +1200,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="playerCharacter"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetPlayerCharacter(string? playerCharacter)
     {
       return OnConfigureInternal(
@@ -1213,7 +1213,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.CharGen"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetCharGen(bool charGen)
     {
       return OnConfigureInternal(
@@ -1226,7 +1226,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.Alignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetAlignment(Alignment alignment)
     {
       return OnConfigureInternal(
@@ -1239,7 +1239,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.PartyXp"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetPartyXp(int partyXp)
     {
       return OnConfigureInternal(
@@ -1254,7 +1254,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetCompanions(string[]? companions)
     {
       return OnConfigureInternal(
@@ -1269,7 +1269,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToCompanions(params string[] companions)
     {
       return OnConfigureInternal(
@@ -1284,7 +1284,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromCompanions(params string[] companions)
     {
       return OnConfigureInternal(
@@ -1304,7 +1304,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companionsRemote"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetCompanionsRemote(string[]? companionsRemote)
     {
       return OnConfigureInternal(
@@ -1319,7 +1319,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companionsRemote"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToCompanionsRemote(params string[] companionsRemote)
     {
       return OnConfigureInternal(
@@ -1334,7 +1334,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="companionsRemote"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromCompanionsRemote(params string[] companionsRemote)
     {
       return OnConfigureInternal(
@@ -1354,7 +1354,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="exCompanions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetExCompanions(string[]? exCompanions)
     {
       return OnConfigureInternal(
@@ -1369,7 +1369,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="exCompanions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToExCompanions(params string[] exCompanions)
     {
       return OnConfigureInternal(
@@ -1384,7 +1384,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="exCompanions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromExCompanions(params string[] exCompanions)
     {
       return OnConfigureInternal(
@@ -1402,7 +1402,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.StartGameActions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetStartGameActions(ActionsBuilder? startGameActions)
     {
       return OnConfigureInternal(
@@ -1415,7 +1415,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.UnlockedFlags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetUnlockedFlags(List<UnlockValuePair>? unlockedFlags)
     {
       ValidateParam(unlockedFlags);
@@ -1430,7 +1430,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintAreaPreset.UnlockedFlags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator AddToUnlockedFlags(params UnlockValuePair[] unlockedFlags)
     {
       ValidateParam(unlockedFlags);
@@ -1444,7 +1444,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintAreaPreset.UnlockedFlags"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromUnlockedFlags(params UnlockValuePair[] unlockedFlags)
     {
       ValidateParam(unlockedFlags);
@@ -1460,7 +1460,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetStartedQuests(string[]? startedQuests)
     {
       return OnConfigureInternal(
@@ -1475,7 +1475,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToStartedQuests(params string[] startedQuests)
     {
       return OnConfigureInternal(
@@ -1490,7 +1490,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromStartedQuests(params string[] startedQuests)
     {
       return OnConfigureInternal(
@@ -1510,7 +1510,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="finishedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetFinishedQuests(string[]? finishedQuests)
     {
       return OnConfigureInternal(
@@ -1525,7 +1525,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="finishedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToFinishedQuests(params string[] finishedQuests)
     {
       return OnConfigureInternal(
@@ -1540,7 +1540,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="finishedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromFinishedQuests(params string[] finishedQuests)
     {
       return OnConfigureInternal(
@@ -1560,7 +1560,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="failedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetFailedQuests(string[]? failedQuests)
     {
       return OnConfigureInternal(
@@ -1575,7 +1575,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="failedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToFailedQuests(params string[] failedQuests)
     {
       return OnConfigureInternal(
@@ -1590,7 +1590,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="failedQuests"><see cref="Kingmaker.Blueprints.Quests.BlueprintQuestObjective"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromFailedQuests(params string[] failedQuests)
     {
       return OnConfigureInternal(
@@ -1610,7 +1610,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudesNonRecursively"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetStartEtudesNonRecursively(string[]? startEtudesNonRecursively)
     {
       return OnConfigureInternal(
@@ -1625,7 +1625,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudesNonRecursively"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToStartEtudesNonRecursively(params string[] startEtudesNonRecursively)
     {
       return OnConfigureInternal(
@@ -1640,7 +1640,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudesNonRecursively"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromStartEtudesNonRecursively(params string[] startEtudesNonRecursively)
     {
       return OnConfigureInternal(
@@ -1660,7 +1660,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetStartEtudes(string[]? startEtudes)
     {
       return OnConfigureInternal(
@@ -1675,7 +1675,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToStartEtudes(params string[] startEtudes)
     {
       return OnConfigureInternal(
@@ -1690,7 +1690,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="startEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromStartEtudes(params string[] startEtudes)
     {
       return OnConfigureInternal(
@@ -1710,7 +1710,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="forceCompleteEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetForceCompleteEtudes(string[]? forceCompleteEtudes)
     {
       return OnConfigureInternal(
@@ -1725,7 +1725,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="forceCompleteEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToForceCompleteEtudes(params string[] forceCompleteEtudes)
     {
       return OnConfigureInternal(
@@ -1740,7 +1740,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="forceCompleteEtudes"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromForceCompleteEtudes(params string[] forceCompleteEtudes)
     {
       return OnConfigureInternal(
@@ -1760,7 +1760,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="cuesSeen"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetCuesSeen(string[]? cuesSeen)
     {
       return OnConfigureInternal(
@@ -1775,7 +1775,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="cuesSeen"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToCuesSeen(params string[] cuesSeen)
     {
       return OnConfigureInternal(
@@ -1790,7 +1790,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="cuesSeen"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromCuesSeen(params string[] cuesSeen)
     {
       return OnConfigureInternal(
@@ -1810,7 +1810,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="answersSelected"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetAnswersSelected(string[]? answersSelected)
     {
       return OnConfigureInternal(
@@ -1825,7 +1825,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="answersSelected"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToAnswersSelected(params string[] answersSelected)
     {
       return OnConfigureInternal(
@@ -1840,7 +1840,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="answersSelected"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswer"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromAnswersSelected(params string[] answersSelected)
     {
       return OnConfigureInternal(
@@ -1858,7 +1858,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.HasKingdom"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetHasKingdom(bool hasKingdom)
     {
       return OnConfigureInternal(
@@ -1871,7 +1871,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.KingdomManagementIsVisible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetKingdomManagementIsVisible(bool kingdomManagementIsVisible)
     {
       return OnConfigureInternal(
@@ -1886,7 +1886,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="activeEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator SetActiveEvents(string[]? activeEvents)
     {
       return OnConfigureInternal(
@@ -1901,7 +1901,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="activeEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator AddToActiveEvents(params string[] activeEvents)
     {
       return OnConfigureInternal(
@@ -1916,7 +1916,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="activeEvents"><see cref="Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventBase"/></param>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromActiveEvents(params string[] activeEvents)
     {
       return OnConfigureInternal(
@@ -1934,7 +1934,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.AddResources"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetAddResources(KingdomResourcesAmount addResources)
     {
       return OnConfigureInternal(
@@ -1947,7 +1947,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.AddConsumableEventBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetAddConsumableEventBonus(int addConsumableEventBonus)
     {
       return OnConfigureInternal(
@@ -1960,7 +1960,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_KingdomDay"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetKingdomDay(int kingdomDay)
     {
       return OnConfigureInternal(
@@ -1973,7 +1973,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_KingdomIncomePerClaimed"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetKingdomIncomePerClaimed(KingdomResourcesAmount kingdomIncomePerClaimed)
     {
       return OnConfigureInternal(
@@ -1986,7 +1986,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_KingdomIncomePerUpgraded"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetKingdomIncomePerUpgraded(KingdomResourcesAmount kingdomIncomePerUpgraded)
     {
       return OnConfigureInternal(
@@ -1999,7 +1999,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_Stats"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetStats(BlueprintAreaPreset.KingdomsStatsPreset stats)
     {
       ValidateParam(stats);
@@ -2014,7 +2014,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_Regions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetRegions(BlueprintAreaPreset.KingdomsRegionPreset[]? regions)
     {
       ValidateParam(regions);
@@ -2029,7 +2029,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintAreaPreset.m_Regions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator AddToRegions(params BlueprintAreaPreset.KingdomsRegionPreset[] regions)
     {
       ValidateParam(regions);
@@ -2043,7 +2043,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintAreaPreset.m_Regions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromRegions(params BlueprintAreaPreset.KingdomsRegionPreset[] regions)
     {
       ValidateParam(regions);
@@ -2057,7 +2057,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintAreaPreset.m_History"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator SetHistory(BlueprintAreaPreset.KingdomsEventHistoryPreset[]? history)
     {
       ValidateParam(history);
@@ -2072,7 +2072,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintAreaPreset.m_History"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator AddToHistory(params BlueprintAreaPreset.KingdomsEventHistoryPreset[] history)
     {
       ValidateParam(history);
@@ -2086,7 +2086,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintAreaPreset.m_History"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaPresetConfigurator RemoveFromHistory(params BlueprintAreaPreset.KingdomsEventHistoryPreset[] history)
     {
       ValidateParam(history);

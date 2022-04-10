@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   /// Configurator for <see cref="BlueprintTacticalCombatAiAttack"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTacticalCombatAiAttack))]
+  
   public class TacticalCombatAiAttackConfigurator : BaseTacticalCombatAiActionConfigurator<BlueprintTacticalCombatAiAttack, TacticalCombatAiAttackConfigurator>
   {
     private TacticalCombatAiAttackConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Sets <see cref="BlueprintTacticalCombatAiAttack.CanAttackAllies"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TacticalCombatAiAttackConfigurator SetCanAttackAllies(bool canAttackAllies)
     {
       return OnConfigureInternal(

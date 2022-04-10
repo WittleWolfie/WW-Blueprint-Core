@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
   /// Configurator for <see cref="BlueprintKingdomMoraleFlag"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintKingdomMoraleFlag))]
+  
   public class KingdomMoraleFlagConfigurator : BaseFactConfigurator<BlueprintKingdomMoraleFlag, KingdomMoraleFlagConfigurator>
   {
     private KingdomMoraleFlagConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_DisplayName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomMoraleFlagConfigurator SetDisplayName(LocalizedString? displayName)
     {
       ValidateParam(displayName);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomMoraleFlagConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_NeutralDuration"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomMoraleFlagConfigurator SetNeutralDuration(int neutralDuration)
     {
       return OnConfigureInternal(
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_NegativeWarningDuration"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomMoraleFlagConfigurator SetNegativeWarningDuration(int negativeWarningDuration)
     {
       return OnConfigureInternal(
@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_PerDayBonus"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomMoraleFlagConfigurator SetPerDayBonus(int perDayBonus)
     {
       return OnConfigureInternal(
@@ -100,7 +100,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_PerDayPenalty"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomMoraleFlagConfigurator SetPerDayPenalty(int perDayPenalty)
     {
       return OnConfigureInternal(
@@ -113,7 +113,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_FlagType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomMoraleFlagConfigurator SetFlagType(BlueprintKingdomMoraleFlag.FlagType flagType)
     {
       return OnConfigureInternal(
@@ -126,7 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets <see cref="BlueprintKingdomMoraleFlag.m_CounterDecrementPerDay"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public KingdomMoraleFlagConfigurator SetCounterDecrementPerDay(int counterDecrementPerDay)
     {
       return OnConfigureInternal(

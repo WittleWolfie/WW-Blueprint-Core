@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
   /// Configurator for <see cref="FxRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(FxRoot))]
+  
   public class FxRootConfigurator : BaseBlueprintConfigurator<FxRoot, FxRootConfigurator>
   {
     private FxRootConfigurator(string name) : base(name) { }
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// </summary>
     ///
     /// <param name="singleHandCasts"><see cref="Kingmaker.Blueprints.Root.Fx.CastsGroup"/></param>
-    [Generated]
+    
     public FxRootConfigurator SetSingleHandCasts(string? singleHandCasts)
     {
       return OnConfigureInternal(
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// </summary>
     ///
     /// <param name="doubleHandCasts"><see cref="Kingmaker.Blueprints.Root.Fx.CastsGroup"/></param>
-    [Generated]
+    
     public FxRootConfigurator SetDoubleHandCasts(string? doubleHandCasts)
     {
       return OnConfigureInternal(
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// </summary>
     ///
     /// <param name="headCasts"><see cref="Kingmaker.Blueprints.Root.Fx.CastsGroup"/></param>
-    [Generated]
+    
     public FxRootConfigurator SetHeadCasts(string? headCasts)
     {
       return OnConfigureInternal(
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// </summary>
     ///
     /// <param name="torsoCasts"><see cref="Kingmaker.Blueprints.Root.Fx.CastsGroup"/></param>
-    [Generated]
+    
     public FxRootConfigurator SetTorsoCasts(string? torsoCasts)
     {
       return OnConfigureInternal(
@@ -93,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.FallEventStrings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetFallEventStrings(string[]? fallEventStrings)
     {
       return OnConfigureInternal(
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Adds to <see cref="FxRoot.FallEventStrings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator AddToFallEventStrings(params string[] fallEventStrings)
     {
       return OnConfigureInternal(
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Removes from <see cref="FxRoot.FallEventStrings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator RemoveFromFallEventStrings(params string[] fallEventStrings)
     {
       return OnConfigureInternal(
@@ -132,7 +132,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.DustOnFallPrefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetDustOnFallPrefab(GameObject dustOnFallPrefab)
     {
       ValidateParam(dustOnFallPrefab);
@@ -147,7 +147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.PoolEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetPoolEntries(PoolEntry[]? poolEntries)
     {
       ValidateParam(poolEntries);
@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Adds to <see cref="FxRoot.PoolEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator AddToPoolEntries(params PoolEntry[] poolEntries)
     {
       ValidateParam(poolEntries);
@@ -176,7 +176,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Removes from <see cref="FxRoot.PoolEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator RemoveFromPoolEntries(params PoolEntry[] poolEntries)
     {
       ValidateParam(poolEntries);
@@ -190,7 +190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.OverrideDeathPrefabsFromEnergy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[]? overrideDeathPrefabsFromEnergy)
     {
       ValidateParam(overrideDeathPrefabsFromEnergy);
@@ -205,7 +205,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Adds to <see cref="FxRoot.OverrideDeathPrefabsFromEnergy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator AddToOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] overrideDeathPrefabsFromEnergy)
     {
       ValidateParam(overrideDeathPrefabsFromEnergy);
@@ -219,7 +219,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Removes from <see cref="FxRoot.OverrideDeathPrefabsFromEnergy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator RemoveFromOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] overrideDeathPrefabsFromEnergy)
     {
       ValidateParam(overrideDeathPrefabsFromEnergy);
@@ -233,7 +233,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.IntensityMultiplierMorning"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetIntensityMultiplierMorning(float intensityMultiplierMorning)
     {
       return OnConfigureInternal(
@@ -246,7 +246,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.IntensityMultiplierDay"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetIntensityMultiplierDay(float intensityMultiplierDay)
     {
       return OnConfigureInternal(
@@ -259,7 +259,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.IntensityMultiplierEvening"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetIntensityMultiplierEvening(float intensityMultiplierEvening)
     {
       return OnConfigureInternal(
@@ -272,7 +272,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.IntensityMultiplierNight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetIntensityMultiplierNight(float intensityMultiplierNight)
     {
       return OnConfigureInternal(
@@ -285,7 +285,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.RangeMultiplierMorning"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetRangeMultiplierMorning(float rangeMultiplierMorning)
     {
       return OnConfigureInternal(
@@ -298,7 +298,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.RangeMultiplierDay"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetRangeMultiplierDay(float rangeMultiplierDay)
     {
       return OnConfigureInternal(
@@ -311,7 +311,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.RangeMultiplierEvening"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetRangeMultiplierEvening(float rangeMultiplierEvening)
     {
       return OnConfigureInternal(
@@ -324,7 +324,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.RangeMultiplierNight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetRangeMultiplierNight(float rangeMultiplierNight)
     {
       return OnConfigureInternal(
@@ -337,7 +337,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.RaceFxSnapMapScaleSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetRaceFxSnapMapScaleSettings(RaceFxScaleSettings raceFxSnapMapScaleSettings)
     {
       ValidateParam(raceFxSnapMapScaleSettings);
@@ -352,7 +352,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.RaceFxSnapToLocatorScaleSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetRaceFxSnapToLocatorScaleSettings(RaceFxScaleSettings raceFxSnapToLocatorScaleSettings)
     {
       ValidateParam(raceFxSnapToLocatorScaleSettings);
@@ -367,7 +367,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.RaceFxFluidFogInteractionScaleSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetRaceFxFluidFogInteractionScaleSettings(RaceFxScaleSettings raceFxFluidFogInteractionScaleSettings)
     {
       ValidateParam(raceFxFluidFogInteractionScaleSettings);
@@ -382,7 +382,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.DefaultLifetimeSeconds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetDefaultLifetimeSeconds(float defaultLifetimeSeconds)
     {
       return OnConfigureInternal(
@@ -395,7 +395,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.FadeOutTimeSeconds"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetFadeOutTimeSeconds(float fadeOutTimeSeconds)
     {
       return OnConfigureInternal(
@@ -408,7 +408,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.MaxFootprintsCountPerUnit"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetMaxFootprintsCountPerUnit(int maxFootprintsCountPerUnit)
     {
       return OnConfigureInternal(
@@ -421,7 +421,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.MinDistanceBetweenFootprints"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetMinDistanceBetweenFootprints(float minDistanceBetweenFootprints)
     {
       return OnConfigureInternal(
@@ -436,7 +436,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// </summary>
     ///
     /// <param name="footprintsReferences"><see cref="Kingmaker.Blueprints.Footrprints.BlueprintFootprintType"/></param>
-    [Generated]
+    
     public FxRootConfigurator SetFootprintsReferences(string[]? footprintsReferences)
     {
       return OnConfigureInternal(
@@ -451,7 +451,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// </summary>
     ///
     /// <param name="footprintsReferences"><see cref="Kingmaker.Blueprints.Footrprints.BlueprintFootprintType"/></param>
-    [Generated]
+    
     public FxRootConfigurator AddToFootprintsReferences(params string[] footprintsReferences)
     {
       return OnConfigureInternal(
@@ -466,7 +466,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// </summary>
     ///
     /// <param name="footprintsReferences"><see cref="Kingmaker.Blueprints.Footrprints.BlueprintFootprintType"/></param>
-    [Generated]
+    
     public FxRootConfigurator RemoveFromFootprintsReferences(params string[] footprintsReferences)
     {
       return OnConfigureInternal(
@@ -484,7 +484,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.FootprintsLocators"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetFootprintsLocators(FxRoot.FootprintLocators[]? footprintsLocators)
     {
       ValidateParam(footprintsLocators);
@@ -499,7 +499,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Adds to <see cref="FxRoot.FootprintsLocators"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator AddToFootprintsLocators(params FxRoot.FootprintLocators[] footprintsLocators)
     {
       ValidateParam(footprintsLocators);
@@ -513,7 +513,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Removes from <see cref="FxRoot.FootprintsLocators"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator RemoveFromFootprintsLocators(params FxRoot.FootprintLocators[] footprintsLocators)
     {
       ValidateParam(footprintsLocators);
@@ -527,7 +527,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.m_DeathFxsInitialized"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetDeathFxsInitialized(bool deathFxsInitialized)
     {
       return OnConfigureInternal(
@@ -540,7 +540,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator SetCachedOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[]? cachedOverrideDeathPrefabsFromEnergy)
     {
       ValidateParam(cachedOverrideDeathPrefabsFromEnergy);
@@ -555,7 +555,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Adds to <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator AddToCachedOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] cachedOverrideDeathPrefabsFromEnergy)
     {
       ValidateParam(cachedOverrideDeathPrefabsFromEnergy);
@@ -569,7 +569,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Removes from <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public FxRootConfigurator RemoveFromCachedOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] cachedOverrideDeathPrefabsFromEnergy)
     {
       ValidateParam(cachedOverrideDeathPrefabsFromEnergy);

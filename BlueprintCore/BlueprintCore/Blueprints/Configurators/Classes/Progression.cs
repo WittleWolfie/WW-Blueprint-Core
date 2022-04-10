@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintProgression"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintProgression))]
+  
   public class ProgressionConfigurator : BaseFeatureConfigurator<BlueprintProgression, ProgressionConfigurator>
   {
     private ProgressionConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintProgression.m_Classes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator SetClasses(BlueprintProgression.ClassWithLevel[]? classes)
     {
       ValidateParam(classes);
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintProgression.m_Classes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator AddToClasses(params BlueprintProgression.ClassWithLevel[] classes)
     {
       ValidateParam(classes);
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintProgression.m_Classes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator RemoveFromClasses(params BlueprintProgression.ClassWithLevel[] classes)
     {
       ValidateParam(classes);
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintProgression.m_Archetypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator SetArchetypes(BlueprintProgression.ArchetypeWithLevel[]? archetypes)
     {
       ValidateParam(archetypes);
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintProgression.m_Archetypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator AddToArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
     {
       ValidateParam(archetypes);
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintProgression.m_Archetypes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator RemoveFromArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
     {
       ValidateParam(archetypes);
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintProgression.ForAllOtherClasses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator SetForAllOtherClasses(bool forAllOtherClasses)
     {
       return OnConfigureInternal(
@@ -130,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator SetAlternateProgressionClasses(BlueprintProgression.ClassWithLevel[]? alternateProgressionClasses)
     {
       ValidateParam(alternateProgressionClasses);
@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator AddToAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
     {
       ValidateParam(alternateProgressionClasses);
@@ -159,7 +159,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator RemoveFromAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
     {
       ValidateParam(alternateProgressionClasses);
@@ -173,7 +173,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintProgression.AlternateProgressionType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator SetAlternateProgressionType(AlternateProgressionType alternateProgressionType)
     {
       return OnConfigureInternal(
@@ -186,7 +186,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintProgression.LevelEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator SetLevelEntries(LevelEntry[]? levelEntries)
     {
       ValidateParam(levelEntries);
@@ -201,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintProgression.LevelEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator AddToLevelEntries(params LevelEntry[] levelEntries)
     {
       ValidateParam(levelEntries);
@@ -215,7 +215,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintProgression.LevelEntries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator RemoveFromLevelEntries(params LevelEntry[] levelEntries)
     {
       ValidateParam(levelEntries);
@@ -229,7 +229,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintProgression.UIGroups"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator SetUIGroups(UIGroup[]? uIGroups)
     {
       ValidateParam(uIGroups);
@@ -244,7 +244,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintProgression.UIGroups"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator AddToUIGroups(params UIGroup[] uIGroups)
     {
       ValidateParam(uIGroups);
@@ -258,7 +258,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintProgression.UIGroups"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator RemoveFromUIGroups(params UIGroup[] uIGroups)
     {
       ValidateParam(uIGroups);
@@ -274,7 +274,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="uIDeterminatorsGroup"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
-    [Generated]
+    
     public ProgressionConfigurator SetUIDeterminatorsGroup(string[]? uIDeterminatorsGroup)
     {
       return OnConfigureInternal(
@@ -289,7 +289,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="uIDeterminatorsGroup"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
-    [Generated]
+    
     public ProgressionConfigurator AddToUIDeterminatorsGroup(params string[] uIDeterminatorsGroup)
     {
       return OnConfigureInternal(
@@ -304,7 +304,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="uIDeterminatorsGroup"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeatureBase"/></param>
-    [Generated]
+    
     public ProgressionConfigurator RemoveFromUIDeterminatorsGroup(params string[] uIDeterminatorsGroup)
     {
       return OnConfigureInternal(
@@ -324,7 +324,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="exclusiveProgression"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
+    
     public ProgressionConfigurator SetExclusiveProgression(string? exclusiveProgression)
     {
       return OnConfigureInternal(
@@ -337,7 +337,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintProgression.GiveFeaturesForPreviousLevels"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ProgressionConfigurator SetGiveFeaturesForPreviousLevels(bool giveFeaturesForPreviousLevels)
     {
       return OnConfigureInternal(
@@ -352,7 +352,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="featuresRankIncrease"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
+    
     public ProgressionConfigurator SetFeaturesRankIncrease(string[]? featuresRankIncrease)
     {
       return OnConfigureInternal(
@@ -367,7 +367,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="featuresRankIncrease"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
+    
     public ProgressionConfigurator AddToFeaturesRankIncrease(params string[] featuresRankIncrease)
     {
       return OnConfigureInternal(
@@ -382,7 +382,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="featuresRankIncrease"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
+    
     public ProgressionConfigurator RemoveFromFeaturesRankIncrease(params string[] featuresRankIncrease)
     {
       return OnConfigureInternal(

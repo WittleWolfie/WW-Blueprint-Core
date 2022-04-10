@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintArea"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArea))]
+  
   public abstract class BaseAreaConfigurator<T, TBuilder>
       : BaseAreaPartConfigurator<T, TBuilder>
       where T : BlueprintArea
@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    [Generated]
+    
     public TBuilder SetParts(string[]? parts)
     {
       return OnConfigureInternal(
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    [Generated]
+    
     public TBuilder AddToParts(params string[] parts)
     {
       return OnConfigureInternal(
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromParts(params string[] parts)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.IsGlobalMap"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIsGlobalMap(bool isGlobalMap)
     {
       return OnConfigureInternal(
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CameraScrollMultiplier"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCameraScrollMultiplier(float cameraScrollMultiplier)
     {
       return OnConfigureInternal(
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.SetDefaultCameraRotation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDefaultCameraRotation(bool setDefaultCameraRotation)
     {
       return OnConfigureInternal(
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CameraRotation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCameraRotation(float cameraRotation)
     {
       return OnConfigureInternal(
@@ -135,7 +135,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CampingSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCampingSettings(CampingSettings campingSettings)
     {
       ValidateParam(campingSettings);
@@ -150,7 +150,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.RandomEncounterSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetRandomEncounterSettings(RandomEncounterSettings randomEncounterSettings)
     {
       ValidateParam(randomEncounterSettings);
@@ -165,7 +165,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.Designer"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDesigner(BlueprintArea.Designers designer)
     {
       return OnConfigureInternal(
@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.ArtSetting"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetArtSetting(BlueprintArea.SettingType artSetting)
     {
       return OnConfigureInternal(
@@ -191,7 +191,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.AreaName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetAreaName(LocalizedString? areaName)
     {
       ValidateParam(areaName);
@@ -206,7 +206,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.ExcludeFromSave"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetExcludeFromSave(bool excludeFromSave)
     {
       return OnConfigureInternal(
@@ -219,7 +219,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.PS4ChunkId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetPS4ChunkId(PS4ChunkId pS4ChunkId)
     {
       return OnConfigureInternal(
@@ -232,7 +232,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetLoadingScreenSprites(List<SpriteLink>? loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
@@ -247,7 +247,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
@@ -261,7 +261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
@@ -277,7 +277,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="defaultPreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
-    [Generated]
+    
     public TBuilder SetDefaultPreset(string? defaultPreset)
     {
       return OnConfigureInternal(
@@ -290,7 +290,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CR"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCR(int cR)
     {
       return OnConfigureInternal(
@@ -303,7 +303,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.OverrideCorruption"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetOverrideCorruption(bool overrideCorruption)
     {
       return OnConfigureInternal(
@@ -316,7 +316,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CorruptionGrowth"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCorruptionGrowth(int corruptionGrowth)
     {
       return OnConfigureInternal(
@@ -329,7 +329,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.LootSetting"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetLootSetting(LootSetting lootSetting)
     {
       return OnConfigureInternal(
@@ -344,7 +344,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public TBuilder SetHotAreas(string[]? hotAreas)
     {
       return OnConfigureInternal(
@@ -359,7 +359,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public TBuilder AddToHotAreas(params string[] hotAreas)
     {
       return OnConfigureInternal(
@@ -374,7 +374,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromHotAreas(params string[] hotAreas)
     {
       return OnConfigureInternal(
@@ -392,8 +392,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="CampingEncounterIncreaseDifficulty"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CampingEncounterIncreaseDifficulty))]
+    
+    
     public TBuilder AddCampingEncounterIncreaseDifficulty(
         float increaseChance = default,
         int increaseDifficulty = default,
@@ -412,8 +412,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///
     /// <param name="defaultEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     /// <param name="goodAvoidanceEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
-    [Implements(typeof(CombatRandomEncounterAreaSettings))]
+    
+    
     public TBuilder AddCombatRandomEncounterAreaSettings(
         string? defaultEnterPoint = null,
         string? goodAvoidanceEnterPoint = null,
@@ -437,8 +437,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="settlementRef"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    [Generated]
-    [Implements(typeof(AreaSettlementLink))]
+    
+    
     public TBuilder AddAreaSettlementLink(
         string? settlementRef = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -452,8 +452,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="OverrideCampingAction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(OverrideCampingAction))]
+    
+    
     public TBuilder AddOverrideCampingAction(
         ActionsBuilder? onRestActions = null,
         bool skipRest = default,
@@ -469,8 +469,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="BirthdayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BirthdayTrigger))]
+    
+    
     public TBuilder AddBirthdayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null)
@@ -484,8 +484,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="EveryDayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryDayTrigger))]
+    
+    
     public TBuilder AddEveryDayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -501,8 +501,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="EveryWeekTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryWeekTrigger))]
+    
+    
     public TBuilder AddEveryWeekTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -522,8 +522,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <param name="aIBuildListVillage"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
     /// <param name="aIBuildListTown"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
     /// <param name="aIBuildListCity"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
-    [Generated]
-    [Implements(typeof(SettlementAISettings))]
+    
+    
     public TBuilder AddSettlementAISettings(
         string? aIBuildListVillage = null,
         string? aIBuildListTown = null,
@@ -543,7 +543,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintArea"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArea))]
+  
   public class AreaConfigurator : BaseAreaPartConfigurator<BlueprintArea, AreaConfigurator>
   {
     private AreaConfigurator(string name) : base(name) { }
@@ -566,7 +566,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    [Generated]
+    
     public AreaConfigurator SetParts(string[]? parts)
     {
       return OnConfigureInternal(
@@ -581,7 +581,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    [Generated]
+    
     public AreaConfigurator AddToParts(params string[] parts)
     {
       return OnConfigureInternal(
@@ -596,7 +596,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="parts"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    [Generated]
+    
     public AreaConfigurator RemoveFromParts(params string[] parts)
     {
       return OnConfigureInternal(
@@ -614,7 +614,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.IsGlobalMap"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetIsGlobalMap(bool isGlobalMap)
     {
       return OnConfigureInternal(
@@ -627,7 +627,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CameraScrollMultiplier"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetCameraScrollMultiplier(float cameraScrollMultiplier)
     {
       return OnConfigureInternal(
@@ -640,7 +640,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.SetDefaultCameraRotation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetDefaultCameraRotation(bool setDefaultCameraRotation)
     {
       return OnConfigureInternal(
@@ -653,7 +653,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CameraRotation"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetCameraRotation(float cameraRotation)
     {
       return OnConfigureInternal(
@@ -666,7 +666,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CampingSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetCampingSettings(CampingSettings campingSettings)
     {
       ValidateParam(campingSettings);
@@ -681,7 +681,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.RandomEncounterSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetRandomEncounterSettings(RandomEncounterSettings randomEncounterSettings)
     {
       ValidateParam(randomEncounterSettings);
@@ -696,7 +696,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.Designer"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetDesigner(BlueprintArea.Designers designer)
     {
       return OnConfigureInternal(
@@ -709,7 +709,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.ArtSetting"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetArtSetting(BlueprintArea.SettingType artSetting)
     {
       return OnConfigureInternal(
@@ -722,7 +722,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.AreaName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetAreaName(LocalizedString? areaName)
     {
       ValidateParam(areaName);
@@ -737,7 +737,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.ExcludeFromSave"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetExcludeFromSave(bool excludeFromSave)
     {
       return OnConfigureInternal(
@@ -750,7 +750,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.PS4ChunkId"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetPS4ChunkId(PS4ChunkId pS4ChunkId)
     {
       return OnConfigureInternal(
@@ -763,7 +763,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetLoadingScreenSprites(List<SpriteLink>? loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
@@ -778,7 +778,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator AddToLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
@@ -792,7 +792,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes from <see cref="BlueprintArea.LoadingScreenSprites"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator RemoveFromLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       ValidateParam(loadingScreenSprites);
@@ -808,7 +808,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="defaultPreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
-    [Generated]
+    
     public AreaConfigurator SetDefaultPreset(string? defaultPreset)
     {
       return OnConfigureInternal(
@@ -821,7 +821,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CR"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetCR(int cR)
     {
       return OnConfigureInternal(
@@ -834,7 +834,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.OverrideCorruption"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetOverrideCorruption(bool overrideCorruption)
     {
       return OnConfigureInternal(
@@ -847,7 +847,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.CorruptionGrowth"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetCorruptionGrowth(int corruptionGrowth)
     {
       return OnConfigureInternal(
@@ -860,7 +860,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintArea.LootSetting"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AreaConfigurator SetLootSetting(LootSetting lootSetting)
     {
       return OnConfigureInternal(
@@ -875,7 +875,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public AreaConfigurator SetHotAreas(string[]? hotAreas)
     {
       return OnConfigureInternal(
@@ -890,7 +890,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public AreaConfigurator AddToHotAreas(params string[] hotAreas)
     {
       return OnConfigureInternal(
@@ -905,7 +905,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="hotAreas"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    [Generated]
+    
     public AreaConfigurator RemoveFromHotAreas(params string[] hotAreas)
     {
       return OnConfigureInternal(
@@ -923,8 +923,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="CampingEncounterIncreaseDifficulty"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(CampingEncounterIncreaseDifficulty))]
+    
+    
     public AreaConfigurator AddCampingEncounterIncreaseDifficulty(
         float increaseChance = default,
         int increaseDifficulty = default,
@@ -943,8 +943,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///
     /// <param name="defaultEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
     /// <param name="goodAvoidanceEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    [Generated]
-    [Implements(typeof(CombatRandomEncounterAreaSettings))]
+    
+    
     public AreaConfigurator AddCombatRandomEncounterAreaSettings(
         string? defaultEnterPoint = null,
         string? goodAvoidanceEnterPoint = null,
@@ -968,8 +968,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </summary>
     ///
     /// <param name="settlementRef"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    [Generated]
-    [Implements(typeof(AreaSettlementLink))]
+    
+    
     public AreaConfigurator AddAreaSettlementLink(
         string? settlementRef = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -983,8 +983,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="OverrideCampingAction"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(OverrideCampingAction))]
+    
+    
     public AreaConfigurator AddOverrideCampingAction(
         ActionsBuilder? onRestActions = null,
         bool skipRest = default,
@@ -1000,8 +1000,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="BirthdayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(BirthdayTrigger))]
+    
+    
     public AreaConfigurator AddBirthdayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null)
@@ -1015,8 +1015,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="EveryDayTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryDayTrigger))]
+    
+    
     public AreaConfigurator AddEveryDayTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -1032,8 +1032,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="EveryWeekTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EveryWeekTrigger))]
+    
+    
     public AreaConfigurator AddEveryWeekTrigger(
         ConditionsBuilder? condition = null,
         ActionsBuilder? actions = null,
@@ -1053,8 +1053,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <param name="aIBuildListVillage"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
     /// <param name="aIBuildListTown"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
     /// <param name="aIBuildListCity"><see cref="Kingmaker.Kingdom.AI.SettlementBuildList"/></param>
-    [Generated]
-    [Implements(typeof(SettlementAISettings))]
+    
+    
     public AreaConfigurator AddSettlementAISettings(
         string? aIBuildListVillage = null,
         string? aIBuildListTown = null,

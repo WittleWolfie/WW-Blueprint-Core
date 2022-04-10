@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
   /// Configurator for <see cref="BlueprintCategoryDefaults"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCategoryDefaults))]
+  
   public class CategoryDefaultsConfigurator : BaseBlueprintConfigurator<BlueprintCategoryDefaults, CategoryDefaultsConfigurator>
   {
     private CategoryDefaultsConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CategoryDefaultsConfigurator SetEntries(BlueprintCategoryDefaults.CategoryDefaultEntry[]? entries)
     {
       ValidateParam(entries);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Adds to <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CategoryDefaultsConfigurator AddToEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
     {
       ValidateParam(entries);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Removes from <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CategoryDefaultsConfigurator RemoveFromEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
     {
       ValidateParam(entries);

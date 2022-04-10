@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
   /// Configurator for <see cref="BlueprintBarkBanter"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintBarkBanter))]
+  
   public class BarkBanterConfigurator : BaseBlueprintConfigurator<BlueprintBarkBanter, BarkBanterConfigurator>
   {
     private BarkBanterConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Sets <see cref="BlueprintBarkBanter.m_SpeakerType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator SetSpeakerType(SpeakerType speakerType)
     {
       return OnConfigureInternal(
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// </summary>
     ///
     /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
+    
     public BarkBanterConfigurator SetUnit(string? unit)
     {
       return OnConfigureInternal(
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Sets <see cref="BlueprintBarkBanter.Conditions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator SetConditions(BanterConditions conditions)
     {
       ValidateParam(conditions);
@@ -75,7 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Sets <see cref="BlueprintBarkBanter.m_Weight"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator SetWeight(float weight)
     {
       return OnConfigureInternal(
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Sets <see cref="BlueprintBarkBanter.FirstPhrase"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator SetFirstPhrase(LocalizedString[]? firstPhrase)
     {
       ValidateParam(firstPhrase);
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Adds to <see cref="BlueprintBarkBanter.FirstPhrase"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator AddToFirstPhrase(params LocalizedString[] firstPhrase)
     {
       ValidateParam(firstPhrase);
@@ -117,7 +117,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Removes from <see cref="BlueprintBarkBanter.FirstPhrase"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator RemoveFromFirstPhrase(params LocalizedString[] firstPhrase)
     {
       ValidateParam(firstPhrase);
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Sets <see cref="BlueprintBarkBanter.Responses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator SetResponses(BlueprintBarkBanter.BanterResponseEntry[]? responses)
     {
       ValidateParam(responses);
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Adds to <see cref="BlueprintBarkBanter.Responses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator AddToResponses(params BlueprintBarkBanter.BanterResponseEntry[] responses)
     {
       ValidateParam(responses);
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Removes from <see cref="BlueprintBarkBanter.Responses"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BarkBanterConfigurator RemoveFromResponses(params BlueprintBarkBanter.BanterResponseEntry[] responses)
     {
       ValidateParam(responses);

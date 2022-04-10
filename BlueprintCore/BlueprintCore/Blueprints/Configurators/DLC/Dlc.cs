@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   /// Configurator for <see cref="BlueprintDlc"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDlc))]
+  
   public class DlcConfigurator : BaseBlueprintConfigurator<BlueprintDlc, DlcConfigurator>
   {
     private DlcConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets <see cref="BlueprintDlc.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DlcConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -50,7 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// </summary>
     ///
     /// <param name="rewardReferences"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
-    [Generated]
+    
     public DlcConfigurator SetRewardReferences(string[]? rewardReferences)
     {
       return OnConfigureInternal(
@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// </summary>
     ///
     /// <param name="rewardReferences"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
-    [Generated]
+    
     public DlcConfigurator AddToRewardReferences(params string[] rewardReferences)
     {
       return OnConfigureInternal(
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// </summary>
     ///
     /// <param name="rewardReferences"><see cref="Kingmaker.DLC.BlueprintDlcReward"/></param>
-    [Generated]
+    
     public DlcConfigurator RemoveFromRewardReferences(params string[] rewardReferences)
     {
       return OnConfigureInternal(
@@ -98,8 +98,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Adds <see cref="DlcStoreCheat"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DlcStoreCheat))]
+    
+    
     public DlcConfigurator AddDlcStoreCheat(
         bool isAvailableInEditor = default,
         bool isAvailableInDevBuild = default,
@@ -115,8 +115,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Adds <see cref="DlcStoreEpic"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DlcStoreEpic))]
+    
+    
     public DlcConfigurator AddDlcStoreEpic(
         string epicId,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -130,8 +130,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Adds <see cref="DlcStoreGog"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DlcStoreGog))]
+    
+    
     public DlcConfigurator AddDlcStoreGog(
         ulong gogId = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -145,8 +145,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Adds <see cref="DlcStoreSteam"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DlcStoreSteam))]
+    
+    
     public DlcConfigurator AddDlcStoreSteam(
         uint steamId = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="ActiveCommandConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ActiveCommandConsideration))]
+  
   public class ActiveCommandConsiderationConfigurator : BaseConsiderationConfigurator<ActiveCommandConsideration, ActiveCommandConsiderationConfigurator>
   {
     private ActiveCommandConsiderationConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ActiveCommandConsideration.CommandType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ActiveCommandConsiderationConfigurator SetCommandType(UnitCommand.CommandType commandType)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ActiveCommandConsideration.HasCommandScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ActiveCommandConsiderationConfigurator SetHasCommandScore(float hasCommandScore)
     {
       return OnConfigureInternal(
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ActiveCommandConsideration.NoCommandScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ActiveCommandConsiderationConfigurator SetNoCommandScore(float noCommandScore)
     {
       return OnConfigureInternal(

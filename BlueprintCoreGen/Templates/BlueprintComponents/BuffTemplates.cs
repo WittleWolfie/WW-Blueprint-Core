@@ -17,7 +17,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="AddEffectFastHealing"/>
     /// </summary>
-    [Implements(typeof(AddEffectFastHealing))]
+    
     public TBuilder FastHealing(int baseValue, ContextValue? bonusValue = null)
     {
       var fastHealing = new AddEffectFastHealing
@@ -31,7 +31,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="RemoveWhenCombatEnded"/>
     /// </summary>
-    [Implements(typeof(RemoveWhenCombatEnded))]
+    
     public TBuilder RemoveWhenCombatEnds()
     {
       return AddUniqueComponent(new RemoveWhenCombatEnded(), ComponentMerge.Skip);
@@ -40,7 +40,7 @@ namespace BlueprintCoreGen.Templates.BlueprintComponents
     /// <summary>
     /// Adds <see cref="Kingmaker.Designers.Mechanics.Buffs.BuffSleeping">BuffSleeping</see>
     /// </summary>
-    [Implements(typeof(BuffSleeping))]
+    
     public TBuilder BuffSleeping(
         int? wakeupPerceptionDC = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,

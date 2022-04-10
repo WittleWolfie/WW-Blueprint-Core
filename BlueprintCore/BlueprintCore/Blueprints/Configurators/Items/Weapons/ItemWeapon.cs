@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
   /// Configurator for <see cref="BlueprintItemWeapon"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemWeapon))]
+  
   public class ItemWeaponConfigurator : BaseItemEquipmentHandConfigurator<BlueprintItemWeapon, ItemWeaponConfigurator>
   {
     private ItemWeaponConfigurator(string name) : base(name) { }
@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
-    [Generated]
+    
     public ItemWeaponConfigurator SetType(string? type)
     {
       return OnConfigureInternal(
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_Size"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetSize(Size size)
     {
       return OnConfigureInternal(
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    [Generated]
+    
     public ItemWeaponConfigurator SetEnchantments(string[]? enchantments)
     {
       return OnConfigureInternal(
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    [Generated]
+    
     public ItemWeaponConfigurator AddToEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    [Generated]
+    
     public ItemWeaponConfigurator RemoveFromEnchantments(params string[] enchantments)
     {
       return OnConfigureInternal(
@@ -115,7 +115,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_OverrideDamageDice"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetOverrideDamageDice(bool overrideDamageDice)
     {
       return OnConfigureInternal(
@@ -128,7 +128,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_DamageDice"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetDamageDice(DiceFormula damageDice)
     {
       return OnConfigureInternal(
@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_OverrideDamageType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetOverrideDamageType(bool overrideDamageType)
     {
       return OnConfigureInternal(
@@ -154,7 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_DamageType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetDamageType(DamageTypeDescription damageType)
     {
       ValidateParam(damageType);
@@ -169,7 +169,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.Double"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetDouble(bool doubleValue)
     {
       return OnConfigureInternal(
@@ -184,7 +184,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// </summary>
     ///
     /// <param name="secondWeapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    [Generated]
+    
     public ItemWeaponConfigurator SetSecondWeapon(string? secondWeapon)
     {
       return OnConfigureInternal(
@@ -197,7 +197,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.KeepInPolymorph"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetKeepInPolymorph(bool keepInPolymorph)
     {
       return OnConfigureInternal(
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_OverrideShardItem"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetOverrideShardItem(bool overrideShardItem)
     {
       return OnConfigureInternal(
@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_OverrideDestructible"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetOverrideDestructible(bool overrideDestructible)
     {
       return OnConfigureInternal(
@@ -236,7 +236,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets <see cref="BlueprintItemWeapon.m_AlwaysPrimary"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ItemWeaponConfigurator SetAlwaysPrimary(bool alwaysPrimary)
     {
       return OnConfigureInternal(
@@ -252,8 +252,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     ///
     /// <param name="activationAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
     /// <param name="blast"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
-    [Implements(typeof(WeaponKineticBlade))]
+    
+    
     public ItemWeaponConfigurator AddWeaponKineticBlade(
         string? activationAbility = null,
         string? blast = null,

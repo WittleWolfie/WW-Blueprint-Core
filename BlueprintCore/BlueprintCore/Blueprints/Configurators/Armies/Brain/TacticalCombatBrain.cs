@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   /// Configurator for <see cref="BlueprintTacticalCombatBrain"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTacticalCombatBrain))]
+  
   public class TacticalCombatBrainConfigurator : BaseBrainConfigurator<BlueprintTacticalCombatBrain, TacticalCombatBrainConfigurator>
   {
     private TacticalCombatBrainConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// </summary>
     ///
     /// <param name="tacticalActions"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiAction"/></param>
-    [Generated]
+    
     public TacticalCombatBrainConfigurator SetTacticalActions(string[]? tacticalActions)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// </summary>
     ///
     /// <param name="tacticalActions"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiAction"/></param>
-    [Generated]
+    
     public TacticalCombatBrainConfigurator AddToTacticalActions(params string[] tacticalActions)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// </summary>
     ///
     /// <param name="tacticalActions"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiAction"/></param>
-    [Generated]
+    
     public TacticalCombatBrainConfigurator RemoveFromTacticalActions(params string[] tacticalActions)
     {
       return OnConfigureInternal(

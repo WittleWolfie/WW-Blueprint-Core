@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Implements common fields and components for blueprints inheriting from <see cref="Consideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(Consideration))]
+  
   public abstract class BaseConsiderationConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : Consideration
@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="Consideration.BaseScoreModifier"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetBaseScoreModifier(float baseScoreModifier)
     {
       return OnConfigureInternal(

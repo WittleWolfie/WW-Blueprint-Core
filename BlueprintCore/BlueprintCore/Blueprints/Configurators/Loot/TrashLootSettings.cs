@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
   /// Configurator for <see cref="TrashLootSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(TrashLootSettings))]
+  
   public class TrashLootSettingsConfigurator : BaseBlueprintConfigurator<TrashLootSettings, TrashLootSettingsConfigurator>
   {
     private TrashLootSettingsConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="TrashLootSettings.CRToCost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator SetCRToCost(int[]? cRToCost)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds to <see cref="TrashLootSettings.CRToCost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator AddToCRToCost(params int[] cRToCost)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Removes from <see cref="TrashLootSettings.CRToCost"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator RemoveFromCRToCost(params int[] cRToCost)
     {
       return OnConfigureInternal(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="TrashLootSettings.ChanceToIncreaseItemsCount"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator SetChanceToIncreaseItemsCount(int[]? chanceToIncreaseItemsCount)
     {
       return OnConfigureInternal(
@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds to <see cref="TrashLootSettings.ChanceToIncreaseItemsCount"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator AddToChanceToIncreaseItemsCount(params int[] chanceToIncreaseItemsCount)
     {
       return OnConfigureInternal(
@@ -96,7 +96,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Removes from <see cref="TrashLootSettings.ChanceToIncreaseItemsCount"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator RemoveFromChanceToIncreaseItemsCount(params int[] chanceToIncreaseItemsCount)
     {
       return OnConfigureInternal(
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="TrashLootSettings.Types"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator SetTypes(List<TrashLootSettings.TypeSettings>? types)
     {
       ValidateParam(types);
@@ -124,7 +124,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds to <see cref="TrashLootSettings.Types"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator AddToTypes(params TrashLootSettings.TypeSettings[] types)
     {
       ValidateParam(types);
@@ -138,7 +138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Removes from <see cref="TrashLootSettings.Types"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator RemoveFromTypes(params TrashLootSettings.TypeSettings[] types)
     {
       ValidateParam(types);
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="TrashLootSettings.Table"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator SetTable(TrashLootSettings.TypeChance[]? table)
     {
       ValidateParam(table);
@@ -167,7 +167,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds to <see cref="TrashLootSettings.Table"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator AddToTable(params TrashLootSettings.TypeChance[] table)
     {
       ValidateParam(table);
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Removes from <see cref="TrashLootSettings.Table"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator RemoveFromTable(params TrashLootSettings.TypeChance[] table)
     {
       ValidateParam(table);
@@ -195,7 +195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets <see cref="TrashLootSettings.SuperTrashLoot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator SetSuperTrashLoot(TrashLootSettings.SettingAndItems[]? superTrashLoot)
     {
       ValidateParam(superTrashLoot);
@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Adds to <see cref="TrashLootSettings.SuperTrashLoot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator AddToSuperTrashLoot(params TrashLootSettings.SettingAndItems[] superTrashLoot)
     {
       ValidateParam(superTrashLoot);
@@ -224,7 +224,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Removes from <see cref="TrashLootSettings.SuperTrashLoot"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrashLootSettingsConfigurator RemoveFromSuperTrashLoot(params TrashLootSettings.SettingAndItems[] superTrashLoot)
     {
       ValidateParam(superTrashLoot);

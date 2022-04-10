@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintDynamicMapObject"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDynamicMapObject))]
+  
   public class DynamicMapObjectConfigurator : BaseMapObjectConfigurator<BlueprintDynamicMapObject, DynamicMapObjectConfigurator>
   {
     private DynamicMapObjectConfigurator(string name) : base(name) { }

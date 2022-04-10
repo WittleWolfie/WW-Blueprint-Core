@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   /// Configurator for <see cref="BlueprintArmyPresetList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArmyPresetList))]
+  
   public class ArmyPresetListConfigurator : BaseBlueprintConfigurator<BlueprintArmyPresetList, ArmyPresetListConfigurator>
   {
     private ArmyPresetListConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
-    [Generated]
+    
     public ArmyPresetListConfigurator SetPresets(string[]? presets)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
-    [Generated]
+    
     public ArmyPresetListConfigurator AddToPresets(params string[] presets)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </summary>
     ///
     /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
-    [Generated]
+    
     public ArmyPresetListConfigurator RemoveFromPresets(params string[] presets)
     {
       return OnConfigureInternal(

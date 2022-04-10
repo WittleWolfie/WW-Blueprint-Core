@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintMapObject"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintMapObject))]
+  
   public abstract class BaseMapObjectConfigurator<T, TBuilder>
       : BaseLogicConnectorConfigurator<T, TBuilder>
       where T : BlueprintMapObject
@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets <see cref="BlueprintMapObject.Prefab"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetPrefab(GameObject prefab)
     {
       ValidateParam(prefab);

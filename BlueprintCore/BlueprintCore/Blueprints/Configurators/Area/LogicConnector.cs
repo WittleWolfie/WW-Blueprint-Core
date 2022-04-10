@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintLogicConnector"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintLogicConnector))]
+  
   public abstract class BaseLogicConnectorConfigurator<T, TBuilder>
       : BaseFactConfigurator<T, TBuilder>
       where T : BlueprintLogicConnector
@@ -23,8 +23,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DamageToMapObjectTrigger))]
+    
+    
     public TBuilder AddDamageToMapObjectTrigger(
         ActionsBuilder? actions = null,
         bool checkEnergyType = default,
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   /// Configurator for <see cref="BlueprintLogicConnector"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintLogicConnector))]
+  
   public class LogicConnectorConfigurator : BaseFactConfigurator<BlueprintLogicConnector, LogicConnectorConfigurator>
   {
     private LogicConnectorConfigurator(string name) : base(name) { }
@@ -67,8 +67,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(DamageToMapObjectTrigger))]
+    
+    
     public LogicConnectorConfigurator AddDamageToMapObjectTrigger(
         ActionsBuilder? actions = null,
         bool checkEnergyType = default,

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
   /// Configurator for <see cref="BlueprintGlobalMapEdge"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintGlobalMapEdge))]
+  
   public class GlobalMapEdgeConfigurator : BaseBlueprintConfigurator<BlueprintGlobalMapEdge, GlobalMapEdgeConfigurator>
   {
     private GlobalMapEdgeConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapEdge.Type"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapEdgeConfigurator SetType(GlobalMapEdgeType type)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapEdge.Priority"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapEdgeConfigurator SetPriority(GlobalMapEdgePriority priority)
     {
       return OnConfigureInternal(
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="point1"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
+    
     public GlobalMapEdgeConfigurator SetPoint1(string? point1)
     {
       return OnConfigureInternal(
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </summary>
     ///
     /// <param name="point2"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    [Generated]
+    
     public GlobalMapEdgeConfigurator SetPoint2(string? point2)
     {
       return OnConfigureInternal(
@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapEdge.LockCondition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapEdgeConfigurator SetLockCondition(ConditionsBuilder? lockCondition)
     {
       return OnConfigureInternal(
@@ -99,7 +99,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintGlobalMapEdge.Length"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public GlobalMapEdgeConfigurator SetLength(float length)
     {
       return OnConfigureInternal(

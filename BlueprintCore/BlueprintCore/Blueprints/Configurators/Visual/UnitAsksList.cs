@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   /// Configurator for <see cref="BlueprintUnitAsksList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintUnitAsksList))]
+  
   public class UnitAsksListConfigurator : BaseBlueprintConfigurator<BlueprintUnitAsksList, UnitAsksListConfigurator>
   {
     private UnitAsksListConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets <see cref="BlueprintUnitAsksList.DisplayName"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public UnitAsksListConfigurator SetDisplayName(LocalizedString? displayName)
     {
       ValidateParam(displayName);
@@ -48,8 +48,8 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds <see cref="UnitAsksComponent"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(UnitAsksComponent))]
+    
+    
     public UnitAsksListConfigurator AddUnitAsksComponent(
         string previewSound,
         UnitAsksComponent.Bark aggro,

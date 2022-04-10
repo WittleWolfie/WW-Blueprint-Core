@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintDlcReward"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDlcReward))]
+  
   public abstract class BaseDlcRewardConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintDlcReward
@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDlcs(List<BlueprintDlc>? dlcs)
     {
       ValidateParam(dlcs);
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Adds to <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder AddToDlcs(params BlueprintDlc[] dlcs)
     {
       ValidateParam(dlcs);
@@ -66,7 +66,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Removes from <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder RemoveFromDlcs(params BlueprintDlc[] dlcs)
     {
       ValidateParam(dlcs);
@@ -80,7 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_IsAvailable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIsAvailable(bool? isAvailable)
     {
       return OnConfigureInternal(
@@ -95,7 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   /// Configurator for <see cref="BlueprintDlcReward"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintDlcReward))]
+  
   public class DlcRewardConfigurator : BaseBlueprintConfigurator<BlueprintDlcReward, DlcRewardConfigurator>
   {
     private DlcRewardConfigurator(string name) : base(name) { }
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.Description"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DlcRewardConfigurator SetDescription(LocalizedString? description)
     {
       ValidateParam(description);
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DlcRewardConfigurator SetDlcs(List<BlueprintDlc>? dlcs)
     {
       ValidateParam(dlcs);
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Adds to <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DlcRewardConfigurator AddToDlcs(params BlueprintDlc[] dlcs)
     {
       ValidateParam(dlcs);
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Removes from <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DlcRewardConfigurator RemoveFromDlcs(params BlueprintDlc[] dlcs)
     {
       ValidateParam(dlcs);
@@ -174,7 +174,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets <see cref="BlueprintDlcReward.m_IsAvailable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public DlcRewardConfigurator SetIsAvailable(bool? isAvailable)
     {
       return OnConfigureInternal(

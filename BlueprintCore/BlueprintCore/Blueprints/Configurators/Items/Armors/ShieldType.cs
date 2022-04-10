@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
   /// Configurator for <see cref="BlueprintShieldType"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintShieldType))]
+  
   public class ShieldTypeConfigurator : BaseArmorTypeConfigurator<BlueprintShieldType, ShieldTypeConfigurator>
   {
     private ShieldTypeConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets <see cref="BlueprintShieldType.m_HandVisualParameters"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ShieldTypeConfigurator SetHandVisualParameters(WeaponVisualParameters handVisualParameters)
     {
       ValidateParam(handVisualParameters);

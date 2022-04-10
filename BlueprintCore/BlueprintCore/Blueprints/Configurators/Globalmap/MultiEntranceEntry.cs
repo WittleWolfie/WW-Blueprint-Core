@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
   /// Configurator for <see cref="BlueprintMultiEntranceEntry"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintMultiEntranceEntry))]
+  
   public class MultiEntranceEntryConfigurator : BaseBlueprintConfigurator<BlueprintMultiEntranceEntry, MultiEntranceEntryConfigurator>
   {
     private MultiEntranceEntryConfigurator(string name) : base(name) { }
@@ -32,7 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintMultiEntranceEntry.Name"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MultiEntranceEntryConfigurator SetName(LocalizedString? name)
     {
       ValidateParam(name);
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintMultiEntranceEntry.m_Condition"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MultiEntranceEntryConfigurator SetCondition(ConditionsBuilder? condition)
     {
       return OnConfigureInternal(
@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets <see cref="BlueprintMultiEntranceEntry.m_Actions"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public MultiEntranceEntryConfigurator SetActions(ActionsBuilder? actions)
     {
       return OnConfigureInternal(

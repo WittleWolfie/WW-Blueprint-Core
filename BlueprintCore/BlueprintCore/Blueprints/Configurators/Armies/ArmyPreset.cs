@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   /// Configurator for <see cref="BlueprintArmyPreset"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArmyPreset))]
+  
   public class ArmyPresetConfigurator : BaseBlueprintConfigurator<BlueprintArmyPreset, ArmyPresetConfigurator>
   {
     private ArmyPresetConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintArmyPreset.Morale"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyPresetConfigurator SetMorale(int morale)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintArmyPreset.Squads"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyPresetConfigurator SetSquads(BlueprintArmyPreset.UnitAndCount[]? squads)
     {
       ValidateParam(squads);
@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Adds to <see cref="BlueprintArmyPreset.Squads"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyPresetConfigurator AddToSquads(params BlueprintArmyPreset.UnitAndCount[] squads)
     {
       ValidateParam(squads);
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes from <see cref="BlueprintArmyPreset.Squads"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyPresetConfigurator RemoveFromSquads(params BlueprintArmyPreset.UnitAndCount[] squads)
     {
       ValidateParam(squads);
@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="leader"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
-    [Generated]
+    
     public ArmyPresetConfigurator SetLeader(string? leader)
     {
       return OnConfigureInternal(
@@ -102,7 +102,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets <see cref="BlueprintArmyPreset.m_ArmyType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ArmyPresetConfigurator SetArmyType(ArmyType armyType)
     {
       return OnConfigureInternal(

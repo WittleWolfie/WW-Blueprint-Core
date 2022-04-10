@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="LastTargetConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(LastTargetConsideration))]
+  
   public class LastTargetConsiderationConfigurator : BaseConsiderationConfigurator<LastTargetConsideration, LastTargetConsiderationConfigurator>
   {
     private LastTargetConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="LastTargetConsideration.SameLastTargetScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LastTargetConsiderationConfigurator SetSameLastTargetScore(float sameLastTargetScore)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="LastTargetConsideration.OtherLastTargetScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LastTargetConsiderationConfigurator SetOtherLastTargetScore(float otherLastTargetScore)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="LastTargetConsideration.NoLastTargetScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public LastTargetConsiderationConfigurator SetNoLastTargetScore(float noLastTargetScore)
     {
       return OnConfigureInternal(

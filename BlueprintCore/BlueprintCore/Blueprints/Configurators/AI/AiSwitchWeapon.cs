@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BlueprintAiSwitchWeapon"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAiSwitchWeapon))]
+  
   public class AiSwitchWeaponConfigurator : BaseAiActionConfigurator<BlueprintAiSwitchWeapon, AiSwitchWeaponConfigurator>
   {
     private AiSwitchWeaponConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiSwitchWeapon.SwitchTo"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiSwitchWeaponConfigurator SetSwitchTo(SwitchMode switchTo)
     {
       return OnConfigureInternal(

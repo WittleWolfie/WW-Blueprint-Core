@@ -8,7 +8,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="ThreatedByConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(ThreatedByConsideration))]
+  
   public class ThreatedByConsiderationConfigurator : BaseConsiderationConfigurator<ThreatedByConsideration, ThreatedByConsiderationConfigurator>
   {
     private ThreatedByConsiderationConfigurator(string name) : base(name) { }
@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ThreatedByConsideration.MinCount"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ThreatedByConsiderationConfigurator SetMinCount(int minCount)
     {
       return OnConfigureInternal(
@@ -42,7 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ThreatedByConsideration.MaxCount"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ThreatedByConsiderationConfigurator SetMaxCount(int maxCount)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ThreatedByConsideration.BelowMinScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ThreatedByConsiderationConfigurator SetBelowMinScore(float belowMinScore)
     {
       return OnConfigureInternal(
@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ThreatedByConsideration.MinScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ThreatedByConsiderationConfigurator SetMinScore(float minScore)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ThreatedByConsideration.MaxScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ThreatedByConsiderationConfigurator SetMaxScore(float maxScore)
     {
       return OnConfigureInternal(
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="ThreatedByConsideration.ExtraTargetScore"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ThreatedByConsiderationConfigurator SetExtraTargetScore(float extraTargetScore)
     {
       return OnConfigureInternal(

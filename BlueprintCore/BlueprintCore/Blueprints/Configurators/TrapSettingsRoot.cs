@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators
   /// Configurator for <see cref="BlueprintTrapSettingsRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintTrapSettingsRoot))]
+  
   public class TrapSettingsRootConfigurator : BaseBlueprintConfigurator<BlueprintTrapSettingsRoot, TrapSettingsRootConfigurator>
   {
     private TrapSettingsRootConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettingsRoot.m_DefaultPerceptionRadius"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapSettingsRootConfigurator SetDefaultPerceptionRadius(float defaultPerceptionRadius)
     {
       return OnConfigureInternal(
@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettingsRoot.m_DisableDCMargin"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapSettingsRootConfigurator SetDisableDCMargin(int disableDCMargin)
     {
       return OnConfigureInternal(
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
-    [Generated]
+    
     public TrapSettingsRootConfigurator Settings(string[]? settings)
     {
       return OnConfigureInternal(
@@ -73,7 +73,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
-    [Generated]
+    
     public TrapSettingsRootConfigurator AddToSettings(params string[] settings)
     {
       return OnConfigureInternal(
@@ -88,7 +88,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </summary>
     ///
     /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
-    [Generated]
+    
     public TrapSettingsRootConfigurator RemoveFromSettings(params string[] settings)
     {
       return OnConfigureInternal(
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettingsRoot.EasyDisableDCDelta"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapSettingsRootConfigurator SetEasyDisableDCDelta(int easyDisableDCDelta)
     {
       return OnConfigureInternal(
@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets <see cref="BlueprintTrapSettingsRoot.HardDisableDCDelta"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TrapSettingsRootConfigurator SetHardDisableDCDelta(int hardDisableDCDelta)
     {
       return OnConfigureInternal(

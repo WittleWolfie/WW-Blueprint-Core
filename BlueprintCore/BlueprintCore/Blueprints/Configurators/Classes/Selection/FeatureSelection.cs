@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
   /// <summary>Configurator for <see cref="BlueprintFeatureSelection"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintFeatureSelection))]
+  
   public class FeatureSelectionConfigurator
       : BaseFeatureConfigurator<BlueprintFeatureSelection, FeatureSelectionConfigurator>
   {
@@ -123,7 +123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
     /// </para>
     /// </remarks>
-    [Implements(typeof(PrerequisiteSelectionPossible))]
+    
     public FeatureSelectionConfigurator PrerequisiteSelectionPossible(
         Prerequisite.GroupType group = Prerequisite.GroupType.All,
         bool checkInProgression = false,
@@ -139,8 +139,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </summary>
     ///
     /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    [Generated]
-    [Implements(typeof(NoSelectionIfAlreadyHasFeature))]
+    
+    
     public FeatureSelectionConfigurator AddNoSelectionIfAlreadyHasFeature(
         bool anyFeatureFromSelection = default,
         string[]? features = null,

@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
   /// Configurator for <see cref="BlueprintCorruptionRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintCorruptionRoot))]
+  
   public class CorruptionRootConfigurator : BaseBlueprintConfigurator<BlueprintCorruptionRoot, CorruptionRootConfigurator>
   {
     private CorruptionRootConfigurator(string name) : base(name) { }
@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Sets <see cref="BlueprintCorruptionRoot.m_Progression"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CorruptionRootConfigurator SetProgression(CorruptionProgression progression)
     {
       ValidateParam(progression);
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Sets <see cref="BlueprintCorruptionRoot.m_DefaultCorruptionGrowth"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CorruptionRootConfigurator SetDefaultCorruptionGrowth(int defaultCorruptionGrowth)
     {
       return OnConfigureInternal(
@@ -58,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Sets <see cref="BlueprintCorruptionRoot.m_DSSuccessCoefficient"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CorruptionRootConfigurator SetDSSuccessCoefficient(float dSSuccessCoefficient)
     {
       return OnConfigureInternal(
@@ -71,7 +71,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Sets <see cref="BlueprintCorruptionRoot.m_DSCriticalFailCoefficient"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CorruptionRootConfigurator SetDSCriticalFailCoefficient(float dSCriticalFailCoefficient)
     {
       return OnConfigureInternal(
@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// </summary>
     ///
     /// <param name="globalMapBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public CorruptionRootConfigurator SetGlobalMapBuff(string? globalMapBuff)
     {
       return OnConfigureInternal(
@@ -99,7 +99,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Sets <see cref="BlueprintCorruptionRoot.m_GlobalMapBuffDurationMinutes"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CorruptionRootConfigurator SetGlobalMapBuffDurationMinutes(int globalMapBuffDurationMinutes)
     {
       return OnConfigureInternal(
@@ -112,7 +112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Sets <see cref="BlueprintCorruptionRoot.m_SpeedModifierDC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CorruptionRootConfigurator SetSpeedModifierDC(int speedModifierDC)
     {
       return OnConfigureInternal(
@@ -125,7 +125,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Sets <see cref="BlueprintCorruptionRoot.m_SpeedModifierDCIncrement"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public CorruptionRootConfigurator SetSpeedModifierDCIncrement(int speedModifierDCIncrement)
     {
       return OnConfigureInternal(

@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   /// Configurator for <see cref="BlueprintClassAdditionalVisualSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintClassAdditionalVisualSettings))]
+  
   public class ClassAdditionalVisualSettingsConfigurator : BaseBlueprintConfigurator<BlueprintClassAdditionalVisualSettings, ClassAdditionalVisualSettingsConfigurator>
   {
     private ClassAdditionalVisualSettingsConfigurator(string name) : base(name) { }
@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     ///
     /// <param name="prerequisite"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator SetPrerequisite(string? prerequisite)
     {
       return OnConfigureInternal(
@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintClassAdditionalVisualSettings.ColorRamps"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator SetColorRamps(BlueprintClassAdditionalVisualSettings.ColorRamp[]? colorRamps)
     {
       ValidateParam(colorRamps);
@@ -62,7 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to <see cref="BlueprintClassAdditionalVisualSettings.ColorRamps"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator AddToColorRamps(params BlueprintClassAdditionalVisualSettings.ColorRamp[] colorRamps)
     {
       ValidateParam(colorRamps);
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes from <see cref="BlueprintClassAdditionalVisualSettings.ColorRamps"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator RemoveFromColorRamps(params BlueprintClassAdditionalVisualSettings.ColorRamp[] colorRamps)
     {
       ValidateParam(colorRamps);
@@ -90,7 +90,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintClassAdditionalVisualSettings.OverrideFootprintType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator SetOverrideFootprintType(bool overrideFootprintType)
     {
       return OnConfigureInternal(
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintClassAdditionalVisualSettings.FootprintType"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator SetFootprintType(FootprintType footprintType)
     {
       return OnConfigureInternal(
@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintClassAdditionalVisualSettings.CommonSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator SetCommonSettings(BlueprintClassAdditionalVisualSettings.SettingsData commonSettings)
     {
       ValidateParam(commonSettings);
@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintClassAdditionalVisualSettings.InGameSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator SetInGameSettings(BlueprintClassAdditionalVisualSettings.SettingsData inGameSettings)
     {
       ValidateParam(inGameSettings);
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets <see cref="BlueprintClassAdditionalVisualSettings.DollRoomSettings"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public ClassAdditionalVisualSettingsConfigurator SetDollRoomSettings(BlueprintClassAdditionalVisualSettings.SettingsData dollRoomSettings)
     {
       ValidateParam(dollRoomSettings);

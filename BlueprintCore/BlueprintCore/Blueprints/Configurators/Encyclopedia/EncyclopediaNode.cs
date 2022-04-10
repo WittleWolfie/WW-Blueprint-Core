@@ -11,7 +11,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintEncyclopediaNode"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintEncyclopediaNode))]
+  
   public abstract class BaseEncyclopediaNodeConfigurator<T, TBuilder>
       : BaseBlueprintConfigurator<T, TBuilder>
       where T : BlueprintEncyclopediaNode
@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Sets <see cref="BlueprintEncyclopediaNode.Title"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetTitle(LocalizedString? title)
     {
       ValidateParam(title);
@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Sets <see cref="BlueprintEncyclopediaNode.m_Expanded"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetExpanded(bool expanded)
     {
       return OnConfigureInternal(
@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// </summary>
     ///
     /// <param name="childPages"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaPage"/></param>
-    [Generated]
+    
     public TBuilder SetChildPages(string[]? childPages)
     {
       return OnConfigureInternal(
@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// </summary>
     ///
     /// <param name="childPages"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaPage"/></param>
-    [Generated]
+    
     public TBuilder AddToChildPages(params string[] childPages)
     {
       return OnConfigureInternal(
@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// </summary>
     ///
     /// <param name="childPages"><see cref="Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaPage"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromChildPages(params string[] childPages)
     {
       return OnConfigureInternal(

@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   /// Configurator for <see cref="BlueprintLeaderSkillsList"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintLeaderSkillsList))]
+  
   public class LeaderSkillsListConfigurator : BaseBlueprintConfigurator<BlueprintLeaderSkillsList, LeaderSkillsListConfigurator>
   {
     private LeaderSkillsListConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="skills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    [Generated]
+    
     public LeaderSkillsListConfigurator SetSkills(string[]? skills)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="skills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    [Generated]
+    
     public LeaderSkillsListConfigurator AddToSkills(params string[] skills)
     {
       return OnConfigureInternal(
@@ -63,7 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </summary>
     ///
     /// <param name="skills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    [Generated]
+    
     public LeaderSkillsListConfigurator RemoveFromSkills(params string[] skills)
     {
       return OnConfigureInternal(

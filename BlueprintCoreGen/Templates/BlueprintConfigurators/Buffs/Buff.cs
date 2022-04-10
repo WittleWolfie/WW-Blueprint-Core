@@ -12,7 +12,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Buffs
 {
   /// <summary>Configurator for <see cref="BlueprintBuff"/>.</summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintBuff))]
+  
   public class BuffConfigurator : BaseUnitFactConfigurator<BlueprintBuff, BuffConfigurator>
   {
     private BuffConfigurator(string name) : base(name) { }

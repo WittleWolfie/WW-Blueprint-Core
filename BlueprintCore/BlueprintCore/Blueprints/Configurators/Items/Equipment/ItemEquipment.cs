@@ -14,7 +14,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintItemEquipment"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemEquipment))]
+  
   public abstract class BaseItemEquipmentConfigurator<T, TBuilder>
       : BaseItemConfigurator<T, TBuilder>
       where T : BlueprintItemEquipment
@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.CR"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCR(int cR)
     {
       return OnConfigureInternal(
@@ -40,7 +40,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="ability"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
+    
     public TBuilder SetAbility(string? ability)
     {
       return OnConfigureInternal(
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="activatableAbility"><see cref="Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility"/></param>
-    [Generated]
+    
     public TBuilder SetActivatableAbility(string? activatableAbility)
     {
       return OnConfigureInternal(
@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.SpendCharges"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetSpendCharges(bool spendCharges)
     {
       return OnConfigureInternal(
@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.Charges"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCharges(int charges)
     {
       return OnConfigureInternal(
@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.RestoreChargesOnRest"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetRestoreChargesOnRest(bool restoreChargesOnRest)
     {
       return OnConfigureInternal(
@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.CasterLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetCasterLevel(int casterLevel)
     {
       return OnConfigureInternal(
@@ -120,7 +120,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.SpellLevel"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetSpellLevel(int spellLevel)
     {
       return OnConfigureInternal(
@@ -133,7 +133,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.DC"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetDC(int dC)
     {
       return OnConfigureInternal(
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.IsNonRemovable"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetIsNonRemovable(bool isNonRemovable)
     {
       return OnConfigureInternal(
@@ -161,7 +161,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="equipmentEntity"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public TBuilder SetEquipmentEntity(string? equipmentEntity)
     {
       return OnConfigureInternal(
@@ -176,7 +176,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public TBuilder SetEquipmentEntityAlternatives(string[]? equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -191,7 +191,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public TBuilder AddToEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -206,7 +206,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="equipmentEntityAlternatives"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    [Generated]
+    
     public TBuilder RemoveFromEquipmentEntityAlternatives(params string[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
@@ -224,7 +224,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets <see cref="BlueprintItemEquipment.m_ForcedRampColorPresetIndex"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public TBuilder SetForcedRampColorPresetIndex(int forcedRampColorPresetIndex)
     {
       return OnConfigureInternal(
@@ -239,8 +239,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    [Generated]
-    [Implements(typeof(AddFactToEquipmentWielder))]
+    
+    
     public TBuilder AddFactToEquipmentWielder(
         string? fact = null)
     {
@@ -252,8 +252,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Adds <see cref="EquipmentRestrictionAlignment"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EquipmentRestrictionAlignment))]
+    
+    
     public TBuilder AddEquipmentRestrictionAlignment(
         AlignmentMaskType alignment = default)
     {
@@ -265,8 +265,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Adds <see cref="EquipmentRestrictionCannotEquip"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EquipmentRestrictionCannotEquip))]
+    
+    
     public TBuilder AddEquipmentRestrictionCannotEquip()
     {
       return AddComponent(new EquipmentRestrictionCannotEquip());
@@ -277,8 +277,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="clazz"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(EquipmentRestrictionClass))]
+    
+    
     public TBuilder AddEquipmentRestrictionClass(
         string? clazz = null,
         bool not = default)
@@ -294,8 +294,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="classes"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    [Generated]
-    [Implements(typeof(EquipmentRestrictionHasAnyClassFromList))]
+    
+    
     public TBuilder AddEquipmentRestrictionHasAnyClassFromList(
         bool not = default,
         string[]? classes = null,
@@ -311,8 +311,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Adds <see cref="EquipmentRestrictionMainPlayer"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EquipmentRestrictionMainPlayer))]
+    
+    
     public TBuilder AddEquipmentRestrictionMainPlayer(
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -326,8 +326,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </summary>
     ///
     /// <param name="blueprint"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    [Generated]
-    [Implements(typeof(EquipmentRestrictionSpecialUnit))]
+    
+    
     public TBuilder AddEquipmentRestrictionSpecialUnit(
         string? blueprint = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
@@ -341,8 +341,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Adds <see cref="EquipmentRestrictionStat"/> (Auto Generated)
     /// </summary>
-    [Generated]
-    [Implements(typeof(EquipmentRestrictionStat))]
+    
+    
     public TBuilder AddEquipmentRestrictionStat(
         StatType stat = default,
         int minValue = default)

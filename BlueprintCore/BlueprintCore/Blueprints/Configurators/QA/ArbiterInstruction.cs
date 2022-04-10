@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
   /// Configurator for <see cref="BlueprintArbiterInstruction"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintArbiterInstruction))]
+  
   public class ArbiterInstructionConfigurator : BaseBlueprintConfigurator<BlueprintArbiterInstruction, ArbiterInstructionConfigurator>
   {
     private ArbiterInstructionConfigurator(string name) : base(name) { }
@@ -34,8 +34,8 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///
     /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     /// <param name="overrideAreaPreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
-    [Generated]
-    [Implements(typeof(ArbiterAreaTest))]
+    
+    
     public ArbiterInstructionConfigurator AddArbiterAreaTest(
         ArbiterElementList areaParts,
         string? area = null,
@@ -61,8 +61,8 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// </summary>
     ///
     /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    [Generated]
-    [Implements(typeof(ArbiterWeaponTest))]
+    
+    
     public ArbiterInstructionConfigurator AddArbiterWeaponTest(
         string? weapon = null)
     {

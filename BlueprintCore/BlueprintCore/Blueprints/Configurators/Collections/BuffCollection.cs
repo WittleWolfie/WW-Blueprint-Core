@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Collections
   /// Configurator for <see cref="BuffCollection"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BuffCollection))]
+  
   public class BuffCollectionConfigurator : BaseBlueprintConfigurator<BuffCollection, BuffCollectionConfigurator>
   {
     private BuffCollectionConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Collections
     /// <summary>
     /// Sets <see cref="BuffCollection.CheckHidden"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public BuffCollectionConfigurator SetCheckHidden(bool checkHidden)
     {
       return OnConfigureInternal(
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Collections
     /// </summary>
     ///
     /// <param name="buffList"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffCollectionConfigurator SetBuffList(string[]? buffList)
     {
       return OnConfigureInternal(
@@ -61,7 +61,7 @@ namespace BlueprintCore.Blueprints.Configurators.Collections
     /// </summary>
     ///
     /// <param name="buffList"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffCollectionConfigurator AddToBuffList(params string[] buffList)
     {
       return OnConfigureInternal(
@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Collections
     /// </summary>
     ///
     /// <param name="buffList"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    [Generated]
+    
     public BuffCollectionConfigurator RemoveFromBuffList(params string[] buffList)
     {
       return OnConfigureInternal(

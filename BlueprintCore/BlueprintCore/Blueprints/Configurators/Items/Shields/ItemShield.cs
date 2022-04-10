@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
   /// Configurator for <see cref="BlueprintItemShield"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintItemShield))]
+  
   public class ItemShieldConfigurator : BaseItemEquipmentHandConfigurator<BlueprintItemShield, ItemShieldConfigurator>
   {
     private ItemShieldConfigurator(string name) : base(name) { }
@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     /// </summary>
     ///
     /// <param name="weaponComponent"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    [Generated]
+    
     public ItemShieldConfigurator SetWeaponComponent(string? weaponComponent)
     {
       return OnConfigureInternal(
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     /// </summary>
     ///
     /// <param name="armorComponent"><see cref="Kingmaker.Blueprints.Items.Armors.BlueprintItemArmor"/></param>
-    [Generated]
+    
     public ItemShieldConfigurator SetArmorComponent(string? armorComponent)
     {
       return OnConfigureInternal(

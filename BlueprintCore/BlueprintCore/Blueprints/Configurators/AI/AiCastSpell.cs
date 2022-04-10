@@ -10,7 +10,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   /// Configurator for <see cref="BlueprintAiCastSpell"/>.
   /// </summary>
   /// <inheritdoc/>
-  [Configures(typeof(BlueprintAiCastSpell))]
+  
   public class AiCastSpellConfigurator : BaseAiActionConfigurator<BlueprintAiCastSpell, AiCastSpellConfigurator>
   {
     private AiCastSpellConfigurator(string name) : base(name) { }
@@ -31,7 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.m_MinCasterSqrDistanceToLocator"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetMinCasterSqrDistanceToLocator(float minCasterSqrDistanceToLocator)
     {
       return OnConfigureInternal(
@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.m_MinPartySqrDistanceToLocator"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetMinPartySqrDistanceToLocator(float minPartySqrDistanceToLocator)
     {
       return OnConfigureInternal(
@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.m_MaxPartySqrDistanceToLocator"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetMaxPartySqrDistanceToLocator(float maxPartySqrDistanceToLocator)
     {
       return OnConfigureInternal(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.m_AffectedByImpatience"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetAffectedByImpatience(bool affectedByImpatience)
     {
       return OnConfigureInternal(
@@ -85,7 +85,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="ability"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
+    
     public AiCastSpellConfigurator SetAbility(string? ability)
     {
       return OnConfigureInternal(
@@ -98,7 +98,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.m_ForceTargetSelf"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetForceTargetSelf(bool forceTargetSelf)
     {
       return OnConfigureInternal(
@@ -111,7 +111,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.m_ForceTargetEnemy"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetForceTargetEnemy(bool forceTargetEnemy)
     {
       return OnConfigureInternal(
@@ -124,7 +124,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.m_RandomVariant"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetRandomVariant(bool randomVariant)
     {
       return OnConfigureInternal(
@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="variant"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
+    
     public AiCastSpellConfigurator SetVariant(string? variant)
     {
       return OnConfigureInternal(
@@ -154,7 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="variantsSet"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
+    
     public AiCastSpellConfigurator SetVariantsSet(string[]? variantsSet)
     {
       return OnConfigureInternal(
@@ -169,7 +169,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="variantsSet"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
+    
     public AiCastSpellConfigurator AddToVariantsSet(params string[] variantsSet)
     {
       return OnConfigureInternal(
@@ -184,7 +184,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// </summary>
     ///
     /// <param name="variantsSet"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    [Generated]
+    
     public AiCastSpellConfigurator RemoveFromVariantsSet(params string[] variantsSet)
     {
       return OnConfigureInternal(
@@ -202,7 +202,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.Locators"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetLocators(EntityReference[]? locators)
     {
       ValidateParam(locators);
@@ -217,7 +217,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Adds to <see cref="BlueprintAiCastSpell.Locators"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator AddToLocators(params EntityReference[] locators)
     {
       ValidateParam(locators);
@@ -231,7 +231,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes from <see cref="BlueprintAiCastSpell.Locators"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator RemoveFromLocators(params EntityReference[] locators)
     {
       ValidateParam(locators);
@@ -245,7 +245,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.CheckCasterDistance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetCheckCasterDistance(bool checkCasterDistance)
     {
       return OnConfigureInternal(
@@ -258,7 +258,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.MinCasterDistanceToLocator"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetMinCasterDistanceToLocator(float minCasterDistanceToLocator)
     {
       return OnConfigureInternal(
@@ -271,7 +271,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.CheckPartyDistance"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetCheckPartyDistance(bool checkPartyDistance)
     {
       return OnConfigureInternal(
@@ -284,7 +284,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.MinPartyDistanceToLocator"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetMinPartyDistanceToLocator(float minPartyDistanceToLocator)
     {
       return OnConfigureInternal(
@@ -297,7 +297,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets <see cref="BlueprintAiCastSpell.MaxPartyDistanceToLocator"/> (Auto Generated)
     /// </summary>
-    [Generated]
+    
     public AiCastSpellConfigurator SetMaxPartyDistanceToLocator(float maxPartyDistanceToLocator)
     {
       return OnConfigureInternal(
