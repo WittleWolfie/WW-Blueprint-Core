@@ -2,10 +2,12 @@
 using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using BlueprintCoreGen.CodeGen.Params;
 using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace BlueprintCoreGen.CodeGen.Methods
 {
@@ -68,9 +70,14 @@ namespace BlueprintCoreGen.CodeGen.Methods
       // Remarks & Examples
       method.AddLine($"///");
       method.AddLine($"/// <remarks>");
-      methodOverride.Remarks.ForEach(line => method.AddLine($"/// {line}"));
+      methodOverride.Remarks.ForEach(paragraph => AddRemark(method, paragraph));
       method.AddLine($"///");
-
+      var componentNameAttr = elementType.GetCustomAttribute<ComponentNameAttribute>();
+      if (componentNameAttr is not null)
+      {
+        AddRemark(method, $"ComponentName: {componentNameAttr.Name}");
+        method.AddLine($"///");
+      }
       method.AddLine($"/// <list type=\"bullet\">");
       method.AddLine($"/// <listheader>Used by</listheader>");
       Examples.GetFor(elementType).ForEach(
@@ -141,6 +148,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddLine($"}}");
 
       return method;
+    }
+
+    private static void AddRemark(MethodImpl method, string paragraph)
+    {
+      method.AddLine(@"<para>");
+      method.AddLine($"/// {paragraph}");
+      method.AddLine(@"</para>");
     }
 
     /// <summary>
