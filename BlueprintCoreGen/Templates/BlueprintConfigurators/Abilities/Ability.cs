@@ -324,7 +324,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators.Abilities
       Blueprint.Parent = null;
       if (parentVariants == null)
       {
-        AddValidationWarning($"Tried to remove an invalid parent.");
+        Logger.Warn($"Tried to remove an invalid parent.");
         return;
       }
       parentVariants.m_Variants =
