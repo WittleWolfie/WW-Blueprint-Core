@@ -12,9 +12,6 @@ using Kingmaker.Utility;
 
 namespace BlueprintCoreGen.CodeGen.Params
 {
-
-  // TODO: For blueprint fields there should be some kind of list of methods where the field determines which are
-  // relevant. This allows for things like the custom LevelEntry modifier requested by phoenix.
   public static class ParametersFactory
   {
     /// <summary>
@@ -30,7 +27,6 @@ namespace BlueprintCoreGen.CodeGen.Params
     {
       return CreateForConstructor(objectType, methodOverride, extraParams: null);
     }
-
 
     /// <summary>
     /// Returns a list of parameters used to construct a unique BlueprintComponent object.
@@ -244,6 +240,10 @@ namespace BlueprintCoreGen.CodeGen.Params
       return "null";
     }
 
+    // TODO: Validation parenting is technically supported but doesn't work yet. Need to figure out how to handle the
+    // case where an ActionsBuilder or ConditionsBuilder accepts a builder as an input. At that point there is no
+    // Validator to point to so the child would need to ignore it. Somehow need to store child values? Maybe the
+    // Validator can special case ActionsBuilder/ConditionsBuilder types?
     private static List<string> GetValidationFmt(Type type, Type? blueprintType, Type? enumerableType)
     {
       if (ShouldSkipValidation(type, blueprintType)
