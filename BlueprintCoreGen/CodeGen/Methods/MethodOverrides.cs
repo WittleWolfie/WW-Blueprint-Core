@@ -40,7 +40,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public string MethodName { get; private set; } = string.Empty;
 
     /// <summary>
-    /// Remarks added to the method's comments. Uses XML Doc syntax. Each entry is a new line.
+    /// Remarks added to the method's comments. Uses XML Doc syntax. Each entry is a new paragraph.
     /// </summary>
     public List<string> Remarks { get; } = new();
 

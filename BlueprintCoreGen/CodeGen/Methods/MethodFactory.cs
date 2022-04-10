@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Utils;
+using BlueprintCoreGen.CodeGen.Builders;
 using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using BlueprintCoreGen.CodeGen.Params;
 using Kingmaker.Blueprints;
@@ -29,21 +30,21 @@ namespace BlueprintCoreGen.CodeGen.Methods
   public static class MethodFactory
   {
     public static List<IMethod> CreateForComponent(
-      Type componentType, ConstructorMethod constructorMethod, string returnType)
+      Type componentType, ConstructorMethod componentMethod, string returnType)
     {
       List<IMethod> methods = new();
 
-      if (!constructorMethod.Methods.Any())
+      if (!componentMethod.Methods.Any())
       {
-        methods.Add(CreateForComponent(componentType, constructorMethod, returnType, constructorMethod));
+        methods.Add(CreateForComponent(componentType, componentMethod, returnType, componentMethod));
         return methods;
       }
 
-      foreach (var methodOverride in constructorMethod.Methods)
+      foreach (var methodOverride in componentMethod.Methods)
       {
         methods.Add(
           CreateForComponent(
-            componentType, constructorMethod, returnType, MethodOverride.Merge(constructorMethod, methodOverride)));
+            componentType, componentMethod, returnType, MethodOverride.Merge(componentMethod, methodOverride)));
       }
 
       return methods;
@@ -52,15 +53,94 @@ namespace BlueprintCoreGen.CodeGen.Methods
     private static readonly ComponentMergeParameter ComponentMergeParam = new();
     private static readonly MergeParameter MergeParam = new();
     private static IMethod CreateForComponent(
-      Type componentType, ConstructorMethod constructorMethod, string returnType, MethodOverride methodOverride)
+      Type componentType, ConstructorMethod componentMethod, string returnType, MethodOverride methodOverride)
     {
+      var method = new MethodImpl();
+      var componentTypeName = TypeTool.GetName(componentType);
       var isUnique = componentType.GetCustomAttribute<AllowMultipleComponentsAttribute>() is not null;
       var parameters =
         isUnique
           ? ParametersFactory.CreateForConstructor(componentType, methodOverride, ComponentMergeParam, MergeParam)
           : ParametersFactory.CreateForConstructor(componentType, methodOverride);
 
-      return null;
+      // Imports
+      method.AddImport(componentType);
+      method.AddParameterImports(parameters);
+      method.AddTypeNameImports(methodOverride.Imports);
+
+      // Comment summary
+      method.AddCommentSummary($"Adds <see cref=\"{componentTypeName}\"/>");
+
+      // Remarks & Examples
+      method.AddRemarks(componentType, methodOverride.Remarks);
+
+      // Parameter comments
+      method.AddParameterComments(parameters);
+
+      var methodName =
+        string.IsNullOrEmpty(methodOverride.MethodName)
+          ? GetComponentMethodName(componentTypeName)
+          : methodOverride.MethodName;
+      if (!parameters.Any())
+      {
+        method.AddLine($"public {returnType} {methodName}()");
+        method.AddLine(@"{");
+        if (isUnique)
+        {
+          method.AddLine($"  return AddUniqueComponent(new {componentTypeName}(), mergeBehavior, merge);");
+        }
+        else
+        {
+          method.AddLine($"  return AddComponent(new {componentTypeName}());");
+        }
+        method.AddLine(@"}");
+        return method;
+      }
+
+      // Declarations
+      var declarations =
+          parameters.Select(field => field.Declaration).Where(declaration => !string.IsNullOrEmpty(declaration));
+      if (!declarations.Any())
+      {
+        method.AddLine($"public {returnType} {methodName}()");
+      }
+      else
+      {
+        method.AddLine($"public {returnType} {methodName}(");
+        declarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"    {declaration},"));
+        method.AddLine($"    {declarations.Last()})");
+      }
+      method.AddLine(@"{");
+
+      // Constructor & assignment
+      if (string.IsNullOrEmpty(componentMethod.ConstructorRhs))
+      {
+        method.AddLine($"  var component = new {componentTypeName}();");
+      }
+      else
+      {
+        method.AddLine($"  var component = {componentMethod.ConstructorRhs};");
+      }
+      parameters.SelectMany(field => field.GetOperation("component", "Validate"))
+        .Where(line => !string.IsNullOrEmpty(line))
+        .ToList()
+        .ForEach(line => method.AddLine($"  {line}"));
+
+      // Extra lines from override
+      methodOverride.ExtraFmtLines.ForEach(line => method.AddLine($"  {string.Format(line, "component")}"));
+
+      // Return
+      if (isUnique)
+      {
+        method.AddLine($"  return AddUniqueComponent(component, mergeBehavior, merge);");
+      }
+      else
+      {
+        method.AddLine($"  return AddComponent(component);");
+      }
+      method.AddLine(@"}");
+
+      return method;
     }
 
     public static List<IMethod> CreateForBuilder(Type elementType, ConstructorMethod constructorMethod)
@@ -93,49 +173,22 @@ namespace BlueprintCoreGen.CodeGen.Methods
       // Imports
       method.AddImport(elementType);
       method.AddImport(typeof(ElementTool));
-      parameters.ForEach(param => param.Imports.ForEach(import => method.AddImport(import)));
-      methodOverride.Imports.ForEach(import => method.AddImport(TypeTool.TypeByName(import)!));
+      method.AddParameterImports(parameters);
+      method.AddTypeNameImports(methodOverride.Imports);
 
       // Comment summary
-      method.AddLine($"/// <summary>");
-      method.AddLine($"/// Adds <see cref=\"{elementTypeName}\"/>");
-      method.AddLine($"/// </summary>");
+      method.AddCommentSummary($"Adds <see cref=\"{elementTypeName}\"/>");
 
       // Remarks & Examples
-      method.AddLine($"///");
-      method.AddLine($"/// <remarks>");
-      methodOverride.Remarks.ForEach(paragraph => AddRemark(method, paragraph));
-      method.AddLine($"///");
-      var componentNameAttr = elementType.GetCustomAttribute<ComponentNameAttribute>();
-      if (componentNameAttr is not null)
-      {
-        AddRemark(method, $"ComponentName: {componentNameAttr.Name}");
-        method.AddLine($"///");
-      }
-      method.AddLine($"/// <list type=\"bullet\">");
-      method.AddLine($"/// <listheader>Used by</listheader>");
-      Examples.GetFor(elementType).ForEach(
-        example =>
-          method.AddLine(
-            $"/// <item><term>{example.BlueprintName}</term><description>{example.BlueprintGuid}</description></item>"));
-      method.AddLine($"/// </list>");
-      method.AddLine($"/// </remarks>");
+      method.AddRemarks(elementType, methodOverride.Remarks);
 
       // Parameter comments
-      var paramComments =
-          parameters.Select(field => field.Comment).Where(comment => comment is not null && comment.Any()).ToList();
-      if (paramComments.Any())
-      {
-        method.AddLine($"///");
-        paramComments.ForEach(
-            comment =>
-            {
-              comment.ForEach(line => method.AddLine($"/// {line}"));
-            });
-      }
+      method.AddParameterComments(parameters);
 
       var methodName =
-        string.IsNullOrEmpty(methodOverride.MethodName) ? GetMethodName(elementTypeName) : methodOverride.MethodName;
+        string.IsNullOrEmpty(methodOverride.MethodName)
+          ? GetBuilderMethodName(elementTypeName)
+          : methodOverride.MethodName;
       if (!parameters.Any())
       {
         method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");
@@ -184,19 +237,12 @@ namespace BlueprintCoreGen.CodeGen.Methods
       return method;
     }
 
-    private static void AddRemark(MethodImpl method, string paragraph)
-    {
-      method.AddLine(@"<para>");
-      method.AddLine($"/// {paragraph}");
-      method.AddLine(@"</para>");
-    }
-
     /// <summary>
     /// Removes unnecessary method name prefixes, e.g. ActionGoDeeperIntoDungeon > GoDeeperIntoDungeon.
     /// </summary>
     private static readonly List<string> IgnoreMethodNamePrefixes =
       new() { "Action", "ContextAction", "Condition", "ContextCondition" };
-    private static string GetMethodName(string elementTypeName)
+    private static string GetBuilderMethodName(string elementTypeName)
     {
       var methodName = elementTypeName;
       foreach (var prefix in IgnoreMethodNamePrefixes)
@@ -207,6 +253,18 @@ namespace BlueprintCoreGen.CodeGen.Methods
         }
       }
       return methodName;
+    }
+
+    /// <summary>
+    /// Prefixes the name w/ Add unless it's redundant
+    /// </summary>
+    private static string GetComponentMethodName(string componentTypeName)
+    {
+      if (componentTypeName.StartsWith("Add"))
+      {
+        return componentTypeName;
+      }
+      return $"Add{componentTypeName}";
     }
 
     private class MethodImpl : IMethod
@@ -232,6 +290,68 @@ namespace BlueprintCoreGen.CodeGen.Methods
       public void AddLine(string line)
       {
         Lines.Add(line);
+      }
+
+      public void AddParameterImports(List<IParameter> parameters)
+      {
+        parameters.ForEach(param => param.Imports.ForEach(import => AddImport(import)));
+      }
+
+      public void AddTypeNameImports(List<string> typeNames)
+      {
+        typeNames.ForEach(import => AddImport(TypeTool.TypeByName(import)));
+      }
+
+      public void AddCommentSummary(string summary)
+      {
+        AddLine(@"/// <summary>");
+        AddLine($"/// {summary}");
+        AddLine(@"/// </summary>");
+        AddLine(@"///");
+      }
+
+      public void AddRemarks(Type constructedType, List<string> remarks)
+      {
+        AddLine(@"/// <remarks>");
+        remarks.ForEach(paragraph => AddRemark(paragraph));
+        AddLine(@"///");
+        var componentNameAttr = constructedType.GetCustomAttribute<ComponentNameAttribute>();
+        if (componentNameAttr is not null)
+        {
+          AddRemark($"ComponentName: {componentNameAttr.Name}");
+          AddLine(@"///");
+        }
+        AddLine($"/// <list type=\"bullet\">");
+        AddLine(@"/// <listheader>Used by</listheader>");
+        Examples.GetFor(constructedType).ForEach(
+          example =>
+            AddLine(
+              $"/// <item><term>{example.BlueprintName}</term>" +
+              $"<description>{example.BlueprintGuid}</description></item>"));
+        AddLine($"/// </list>");
+        AddLine($"/// </remarks>");
+      }
+
+      public void AddParameterComments(List<IParameter> parameters)
+      {
+        var paramComments =
+          parameters.Select(field => field.Comment).Where(comment => comment is not null && comment.Any()).ToList();
+        if (paramComments.Any())
+        {
+          AddLine(@"///");
+          paramComments.ForEach(
+              comment =>
+              {
+                comment.ForEach(line => AddLine($"/// {line}"));
+              });
+        }
+      }
+
+      private void AddRemark(string paragraph)
+      {
+        AddLine(@"<para>");
+        AddLine($"/// {paragraph}");
+        AddLine(@"</para>");
       }
     }
   }
