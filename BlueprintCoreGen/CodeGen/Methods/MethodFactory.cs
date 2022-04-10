@@ -49,13 +49,15 @@ namespace BlueprintCoreGen.CodeGen.Methods
       return methods;
     }
 
+    private static readonly ComponentMergeParameter ComponentMergeParam = new();
+    private static readonly MergeParameter MergeParam = new();
     private static IMethod CreateForComponent(
       Type componentType, ConstructorMethod constructorMethod, string returnType, MethodOverride methodOverride)
     {
       var isUnique = componentType.GetCustomAttribute<AllowMultipleComponentsAttribute>() is not null;
       var parameters =
         isUnique
-          ? ParametersFactory.CreateForUniqueComponentConstructor(componentType, methodOverride)
+          ? ParametersFactory.CreateForConstructor(componentType, methodOverride, ComponentMergeParam, MergeParam)
           : ParametersFactory.CreateForConstructor(componentType, methodOverride);
 
       return null;

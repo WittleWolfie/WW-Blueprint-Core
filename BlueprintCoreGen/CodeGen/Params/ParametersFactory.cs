@@ -23,27 +23,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// By default, will create a parameter for every field in the object. Behavior can be modified using
     /// methodOverride.
     /// </remarks>
-    public static List<IParameter> CreateForConstructor(Type objectType, MethodOverride methodOverride)
-    {
-      return CreateForConstructor(objectType, methodOverride);
-    }
-
-    private static readonly ComponentMergeParameter ComponentMergeParam = new();
-    private static readonly MergeParameter MergeParam = new();
-    /// <summary>
-    /// Returns a list of parameters used to construct a unique BlueprintComponent object.
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// By default, will create a parameter for every field in the object. Behavior can be modified using
-    /// methodOverride.
-    /// </remarks>
-    public static List<IParameter> CreateForUniqueComponentConstructor(Type objectType, MethodOverride methodOverride)
-    {
-      return CreateForConstructor(objectType, methodOverride, ComponentMergeParam, MergeParam);
-    }
-
-    private static List<IParameter> CreateForConstructor(
+    public static List<IParameter> CreateForConstructor(
       Type objectType, MethodOverride methodOverride, params IParameterInternal[] extraParams)
     {
       return
