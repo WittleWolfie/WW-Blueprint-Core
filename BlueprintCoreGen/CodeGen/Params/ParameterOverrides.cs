@@ -55,7 +55,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     public override void ApplyTo(FieldParameter param)
     {
       param.SetConstantValue(Value);
-      param.SetCommentFmt(new());
+      param.AddCommentFmt(new());
     }
   }
 
@@ -123,7 +123,16 @@ namespace BlueprintCoreGen.CodeGen.Params
 
       if (!string.IsNullOrEmpty(DefaultValue)) { fieldParameter.SetDefaultValue(DefaultValue); }
 
-      if (!string.IsNullOrEmpty(CommentFmt)) { fieldParameter.SetCommentFmt(new() { CommentFmt }); }
+      if (!string.IsNullOrEmpty(CommentFmt))
+      {
+        fieldParameter.AddCommentFmt(
+          new()
+          {
+            "<para>",
+            CommentFmt,
+            "</para>"
+          });
+      }
 
       if (!string.IsNullOrEmpty(AssignmentFmtRhs)) { fieldParameter.SetAssignmentFmtRhs(AssignmentFmtRhs); }
 

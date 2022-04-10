@@ -198,9 +198,9 @@ namespace BlueprintCoreGen.CodeGen.Params
       ExtraAssignmentFmtLines = extraAssignmentFmtLines;
     }
 
-    public void SetCommentFmt(List<string> commentFmt)
+    public void AddCommentFmt(List<string> commentFmt)
     {
-      CommentFmt = commentFmt;
+      CommentFmt.AddRange(commentFmt);
     }
 
     private List<string> GetComment()

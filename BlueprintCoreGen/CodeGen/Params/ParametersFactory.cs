@@ -7,14 +7,14 @@ using System.Reflection;
 using System.Text;
 using Newtonsoft.Json.Linq;
 using System.IO;
-using HarmonyLib;
+using UnityEngine;
+using Kingmaker.Utility;
 
 namespace BlueprintCoreGen.CodeGen.Params
 {
 
   // TODO: For blueprint fields there should be some kind of list of methods where the field determines which are
   // relevant. This allows for things like the custom LevelEntry modifier requested by phoenix.
-
   public static class ParametersFactory
   {
     /// <summary>
@@ -82,7 +82,7 @@ namespace BlueprintCoreGen.CodeGen.Params
               GetParamName(info.Name),
               GetTypeName(info.FieldType, blueprintType, enumerableType),
               GetImports(info.FieldType).Concat(imports).ToList(),
-              GetCommentFmt(blueprintType),
+              GetCommentFmt(info, blueprintType),
               GetDefaultValue(),
               GetValidationFmt(info.FieldType, blueprintType, enumerableType),
               GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
@@ -175,30 +175,47 @@ namespace BlueprintCoreGen.CodeGen.Params
       return imports;
     }
 
-    private static List<string> GetCommentFmt(Type? blueprintType)
+    private static List<string> GetCommentFmt(FieldInfo info, Type? blueprintType)
     {
+      List<string> commentFmt = new();
+      var tooltipAttr = info.GetCustomAttribute<TooltipAttribute>();
+      if (tooltipAttr is not null)
+      {
+        AddParagraphToComments(commentFmt, $"Tooltip: {tooltipAttr.tooltip}");
+      }
+
+      var infoBox = info.GetCustomAttribute<InfoBoxAttribute>();
+      if (infoBox is not null)
+      {
+        AddParagraphToComments(commentFmt, $"InfoBox: {infoBox.Text}");
+      }
+
       if (blueprintType is not null)
       {
-        return GetBlueprintCommentFmt(blueprintType);
+        AddBlueprintParagraphToComments(commentFmt, blueprintType);
       }
-      return new();
+      return commentFmt;
     }
 
-    // Also used by MethodOverrides
-    public static List<string> GetBlueprintCommentFmt(Type blueprintType)
+    private static void AddParagraphToComments(List<string> comments, params string[] paragraph)
     {
-      return
-        new()
-        {
-          $"Blueprint of type {TypeTool.GetName(blueprintType)}. You can pass in the blueprint using:",
-          $"<list type =\"bullet\">",
-          $"  <item><term>A blueprint instance</term></item>",
-          $"  <item><term>A blueprint reference</term></item>",
-          $"  <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>",
-          $"  <item><term>A blueprint name registered with <see cref=\"BlueprintCore.Utils.BlueprintTool\">BlueprintTool</see></term></item>",
-          $"</list>",
-          $"See <see cref=\"BlueprintCore.Utils.Blueprint{{{{T, TRef}}}}\">Blueprint</see> for more details.",
-        };
+      comments.Add(@"<para>");
+      paragraph.ForEach(line => comments.Add(line));
+      comments.Add(@"</para>");
+    }
+
+    private static void AddBlueprintParagraphToComments(List<string> comments, Type blueprintType)
+    {
+      AddParagraphToComments(
+        comments,
+        $"Blueprint of type {TypeTool.GetName(blueprintType)}. You can pass in the blueprint using:",
+        $"<list type =\"bullet\">",
+        $"  <item><term>A blueprint instance</term></item>",
+        $"  <item><term>A blueprint reference</term></item>",
+        $"  <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>",
+        $"  <item><term>A blueprint name registered with <see cref=\"BlueprintCore.Utils.BlueprintTool\">BlueprintTool</see></term></item>",
+        $"</list>",
+        $"See <see cref=\"BlueprintCore.Utils.Blueprint{{{{T, TRef}}}}\">Blueprint</see> for more details.");
     }
 
     public static string GetDefaultValue()
