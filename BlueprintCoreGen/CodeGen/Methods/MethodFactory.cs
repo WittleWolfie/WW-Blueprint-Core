@@ -27,6 +27,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
     List<string> GetLines();
   }
 
+  // TODO: Create Blueprint field methods
+  // TODO: Add config overrides for components & fields
   public static class MethodFactory
   {
     public static List<IMethod> CreateForComponent(

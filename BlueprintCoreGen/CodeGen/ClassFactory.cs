@@ -27,6 +27,7 @@ namespace BlueprintCoreGen.CodeGen
     List<Type> GetHandledTypes();
   }
 
+  // TODO: CreateConfigurator
   public static class ClassFactory
   {
     public static IClassFile CreateBuilderExtension(IBuilderExtension builderExtension)
