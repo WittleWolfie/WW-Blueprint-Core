@@ -25,9 +25,11 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// </remarks>
     public static List<IParameter> CreateForConstructor(Type objectType, MethodOverride methodOverride)
     {
-      return CreateForConstructor(objectType, methodOverride, extraParams: null);
+      return CreateForConstructor(objectType, methodOverride);
     }
 
+    private static readonly ComponentMergeParameter ComponentMergeParam = new();
+    private static readonly MergeParameter MergeParam = new();
     /// <summary>
     /// Returns a list of parameters used to construct a unique BlueprintComponent object.
     /// </summary>
@@ -38,11 +40,11 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// </remarks>
     public static List<IParameter> CreateForUniqueComponentConstructor(Type objectType, MethodOverride methodOverride)
     {
-      return CreateForConstructor(objectType, methodOverride, extraParams: null);
+      return CreateForConstructor(objectType, methodOverride, ComponentMergeParam, MergeParam);
     }
 
     private static List<IParameter> CreateForConstructor(
-      Type objectType, MethodOverride methodOverride, List<IParameterInternal>? extraParams = null)
+      Type objectType, MethodOverride methodOverride, params IParameterInternal[] extraParams)
     {
       return
         objectType.GetFields()
@@ -51,7 +53,7 @@ namespace BlueprintCoreGen.CodeGen.Params
           .Where(fieldParam => !fieldParam.Ignore)
           .Select(fieldParam => fieldParam as IParameterInternal)
           .Concat(methodOverride.GetExtraParams() ?? new List<IParameterInternal>())
-          .Concat(extraParams ?? new List<IParameterInternal>())
+          .Concat(extraParams)
           .OrderBy(param => !string.IsNullOrEmpty(param.Declaration) ? 0 : 1)
           .ThenBy(param => param.Required ? 0 : 1)
           .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)

@@ -1,7 +1,6 @@
 ﻿using BlueprintCore.Utils;
 using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using BlueprintCoreGen.CodeGen.Params;
-using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using System;
@@ -58,8 +57,6 @@ namespace BlueprintCoreGen.CodeGen.Methods
         isUnique
           ? ParametersFactory.CreateForUniqueComponentConstructor(componentType, methodOverride)
           : ParametersFactory.CreateForConstructor(componentType, methodOverride);
-
-
 
       return null;
     }

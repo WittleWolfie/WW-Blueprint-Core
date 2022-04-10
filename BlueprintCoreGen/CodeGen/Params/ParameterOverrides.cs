@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -231,6 +232,56 @@ namespace BlueprintCoreGen.CodeGen.Params
       param.SetIsNullable(IsNullable);
       if (!string.IsNullOrEmpty(ParamName)) { param.SetParamName(ParamName); }
       if (!string.IsNullOrEmpty(DefaultValue)) { param.SetDefaultValue(DefaultValue); }
+    }
+  }
+
+  /// <summary>
+  /// Represents ComponentMerge parameter for unique components.
+  /// </summary>
+  public class ComponentMergeParameter : IParameterInternal
+  {
+    public bool Required { get; } = false;
+
+    public string ParamName { get; } = "mergeBehavior";
+
+    public List<Type> Imports { get; } = new();
+
+    public List<string> Comment { get; } =
+      new()
+      {
+        "Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail."
+      };
+
+    public string Declaration { get; } = "ComponentMerge mergeBehavior = ComponentMerge.Merge";
+
+    public List<string> GetOperation(string objectName, string validateFunction)
+    {
+      return new();
+    }
+  }
+
+  /// <summary>
+  /// Represents merge lambda parameter for unique components.
+  /// </summary>
+  public class MergeParameter : IParameterInternal
+  {
+    public bool Required { get; } = false;
+
+    public string ParamName { get; } = "merge";
+
+    public List<Type> Imports { get; } = new() { typeof(Action), typeof(BlueprintComponent) };
+
+    public List<string> Comment { get; } =
+    new ()
+      {
+        "If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components."
+      };
+
+    public string Declaration { get; } = "Action<BlueprintComponent, BlueprintComponent>? merge = null";
+
+    public List<string> GetOperation(string objectName, string validateFunction)
+    {
+      return new();
     }
   }
 
