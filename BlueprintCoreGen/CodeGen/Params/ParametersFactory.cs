@@ -18,7 +18,7 @@ namespace BlueprintCoreGen.CodeGen.Params
   public static class ParametersFactory
   {
     /// <summary>
-    /// Returns an list of parameters used to construct an object of the specified type. The list is ordered such
+    /// Returns a list of parameters used to construct an object of the specified type. The list is ordered such
     /// that optional parameters are at the end.
     /// </summary>
     /// 
@@ -28,6 +28,26 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// </remarks>
     public static List<IParameter> CreateForConstructor(Type objectType, MethodOverride methodOverride)
     {
+      return CreateForConstructor(objectType, methodOverride, extraParams: null);
+    }
+
+
+    /// <summary>
+    /// Returns a list of parameters used to construct a unique BlueprintComponent object.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// By default, will create a parameter for every field in the object. Behavior can be modified using
+    /// methodOverride.
+    /// </remarks>
+    public static List<IParameter> CreateForUniqueComponentConstructor(Type objectType, MethodOverride methodOverride)
+    {
+      return CreateForConstructor(objectType, methodOverride, extraParams: null);
+    }
+
+    private static List<IParameter> CreateForConstructor(
+      Type objectType, MethodOverride methodOverride, List<IParameterInternal>? extraParams = null)
+    {
       return
         objectType.GetFields()
           .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
@@ -35,6 +55,7 @@ namespace BlueprintCoreGen.CodeGen.Params
           .Where(fieldParam => !fieldParam.Ignore)
           .Select(fieldParam => fieldParam as IParameterInternal)
           .Concat(methodOverride.GetExtraParams() ?? new List<IParameterInternal>())
+          .Concat(extraParams ?? new List<IParameterInternal>())
           .OrderBy(param => !string.IsNullOrEmpty(param.Declaration) ? 0 : 1)
           .ThenBy(param => param.Required ? 0 : 1)
           .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)

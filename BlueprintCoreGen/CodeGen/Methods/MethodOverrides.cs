@@ -172,9 +172,9 @@ namespace BlueprintCoreGen.CodeGen.Methods
   public class MethodOverride : BaseMethodOverride { } 
 
   /// <summary>
-  /// Represents an "Action" or "Condition" game type builder (constructor) method.
+  /// Represents a game type constructor method. e.g. AddAction(), AddCondition(), AddComponent()
   /// </summary>
-  public class BuilderMethod : MethodOverride
+  public class ConstructorMethod : MethodOverride
   {
     /// <summary>
     /// TypeName represented by this object. If there is a type name conflict this must be fully qualified.

@@ -38,7 +38,7 @@ namespace BlueprintCoreGen.CodeGen.Builders
     /// <summary>
     /// List of methods in the extension.
     /// </summary>
-    public List<BuilderMethod> Methods { get; }
+    public List<ConstructorMethod> Methods { get; }
   }
 
   public enum BuilderType
@@ -192,15 +192,15 @@ namespace BlueprintCoreGen.CodeGen.Builders
       public string ParentType { get; }
 
       private readonly string OverrideFilePath;
-      private List<BuilderMethod>? m_BuilderMethods;
-      public List<BuilderMethod> Methods
+      private List<ConstructorMethod>? m_BuilderMethods;
+      public List<ConstructorMethod> Methods
       {
         get
         {
           if (m_BuilderMethods == null)
           {
             JArray array = JArray.Parse(File.ReadAllText(OverrideFilePath));
-            m_BuilderMethods = array.ToObject<List<BuilderMethod>>();
+            m_BuilderMethods = array.ToObject<List<ConstructorMethod>>();
           }
           return m_BuilderMethods!;
         }

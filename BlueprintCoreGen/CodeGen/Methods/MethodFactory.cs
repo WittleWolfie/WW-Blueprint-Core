@@ -29,28 +29,63 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
   public static class MethodFactory
   {
-    public static List<IMethod> CreateForBuilder(Type elementType, BuilderMethod builderMethod)
+    public static List<IMethod> CreateForComponent(
+      Type componentType, ConstructorMethod constructorMethod, string returnType)
+    {
+      List<IMethod> methods = new();
+
+      if (!constructorMethod.Methods.Any())
+      {
+        methods.Add(CreateForComponent(componentType, constructorMethod, returnType, constructorMethod));
+        return methods;
+      }
+
+      foreach (var methodOverride in constructorMethod.Methods)
+      {
+        methods.Add(
+          CreateForComponent(
+            componentType, constructorMethod, returnType, MethodOverride.Merge(constructorMethod, methodOverride)));
+      }
+
+      return methods;
+    }
+
+    private static IMethod CreateForComponent(
+      Type componentType, ConstructorMethod constructorMethod, string returnType, MethodOverride methodOverride)
+    {
+      var isUnique = componentType.GetCustomAttribute<AllowMultipleComponentsAttribute>() is not null;
+      var parameters =
+        isUnique
+          ? ParametersFactory.CreateForUniqueComponentConstructor(componentType, methodOverride)
+          : ParametersFactory.CreateForConstructor(componentType, methodOverride);
+
+
+
+      return null;
+    }
+
+    public static List<IMethod> CreateForBuilder(Type elementType, ConstructorMethod constructorMethod)
     {
       List<IMethod> methods = new();
       var builderType = elementType.IsSubclassOf(typeof(Condition)) ? "ConditionsBuilder" : "ActionsBuilder";
 
-      if (!builderMethod.Methods.Any())
+      if (!constructorMethod.Methods.Any())
       {
-        methods.Add(CreateForBuilder(elementType, builderType, builderMethod, builderMethod));
+        methods.Add(CreateForBuilder(elementType, constructorMethod, builderType, constructorMethod));
         return methods;
       }
 
-      foreach (var methodOverride in builderMethod.Methods)
+      foreach (var methodOverride in constructorMethod.Methods)
       {
         methods.Add(
           CreateForBuilder(
-            elementType, builderType, MethodOverride.Merge(builderMethod, methodOverride), builderMethod));
+            elementType, constructorMethod, builderType, MethodOverride.Merge(constructorMethod, methodOverride)));
       }
       return methods;
     }
 
     private static IMethod CreateForBuilder(
-      Type elementType, string builderType, MethodOverride methodOverride, BuilderMethod builderMethod)
+      Type elementType, ConstructorMethod builderMethod, string builderType, MethodOverride methodOverride)
     {
       var method = new MethodImpl();
       var elementTypeName = TypeTool.GetName(elementType);
