@@ -342,3 +342,4 @@ docs/manifest.json
 # Tutorial config
 Tutorials/BlueprintCore
 BlueprintCore/log.txt
+lib/Assembly-CSharp.dll
