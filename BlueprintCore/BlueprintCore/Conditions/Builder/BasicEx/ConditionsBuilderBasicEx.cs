@@ -418,12 +418,16 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         bool money = default,
         string? itemToCheck = null,
         int quantity = default,
+        bool ignoreRemoteCompanions = default,
+        bool checkInPlayerHubChest = default,
         bool negate = false)
     {
       var element = ElementTool.Create<ItemsEnough>();
       element.Money = money;
       element.m_ItemToCheck = BlueprintTool.GetRef<BlueprintItemReference>(itemToCheck);
       element.Quantity = quantity;
+      element.IgnoreRemoteCompanions = ignoreRemoteCompanions;
+      element.CheckInPlayerHubChest = checkInPlayerHubChest;
       element.Not = negate;
       return builder.Add(element);
     }

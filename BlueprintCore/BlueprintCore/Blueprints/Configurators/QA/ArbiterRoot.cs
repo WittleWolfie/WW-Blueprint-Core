@@ -2,6 +2,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.QA.Arbiter;
 using System.Linq;
+using UnityEngine;
 
 #nullable enable
 namespace BlueprintCore.Blueprints.Configurators.QA
@@ -26,6 +27,32 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     {
       BlueprintTool.Create<BlueprintArbiterRoot>(name, guid);
       return For(name);
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintArbiterRoot.ProjectId"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArbiterRootConfigurator SetProjectId(string projectId)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ProjectId = projectId;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintArbiterRoot.Resolution"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ArbiterRootConfigurator SetResolution(Vector2Int resolution)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.Resolution = resolution;
+          });
     }
 
     /// <summary>

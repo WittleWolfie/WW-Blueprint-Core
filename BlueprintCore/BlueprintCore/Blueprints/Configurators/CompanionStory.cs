@@ -1,7 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
-using UnityEngine;
+using Kingmaker.ResourceLinks;
 
 #nullable enable
 namespace BlueprintCore.Blueprints.Configurators
@@ -74,17 +74,17 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintCompanionStory.Image"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCompanionStory.m_ImageLink"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CompanionStoryConfigurator SetImage(Sprite image)
+    public CompanionStoryConfigurator SetImageLink(SpriteLink imageLink)
     {
-      ValidateParam(image);
+      ValidateParam(imageLink);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.Image = image;
+            bp.m_ImageLink = imageLink;
           });
     }
 

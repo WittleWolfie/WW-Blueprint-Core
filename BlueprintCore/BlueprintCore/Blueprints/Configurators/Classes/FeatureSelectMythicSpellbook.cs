@@ -137,5 +137,20 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
             bp.m_MythicSpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(mythicSpellList);
           });
     }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintFeatureSelectMythicSpellbook.m_SpellKnownForSpontaneous"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="spellKnownForSpontaneous"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable"/></param>
+    [Generated]
+    public FeatureSelectMythicSpellbookConfigurator SetSpellKnownForSpontaneous(string? spellKnownForSpontaneous)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_SpellKnownForSpontaneous = BlueprintTool.GetRef<BlueprintSpellsTableReference>(spellKnownForSpontaneous);
+          });
+    }
   }
 }

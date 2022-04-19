@@ -76,67 +76,73 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     }
 
     /// <summary>
-    /// Sets <see cref="AchievementData.SteamId"/> (Auto Generated)
+    /// Sets <see cref="AchievementData.Steam"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetSteamId(string steamId)
+    public AchievementDataConfigurator SetSteam(AchievementData.PlatformSettingsSteam steam)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.SteamId = steamId;
+            bp.Steam = steam;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="AchievementData.GogId"/> (Auto Generated)
+    /// Sets <see cref="AchievementData.GOG"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetGogId(string gogId)
+    public AchievementDataConfigurator SetGOG(AchievementData.PlatformSettingsGOG gOG)
     {
+      ValidateParam(gOG);
+    
       return OnConfigureInternal(
           bp =>
           {
-            bp.GogId = gogId;
+            bp.GOG = gOG;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="AchievementData.EpicId"/> (Auto Generated)
+    /// Sets <see cref="AchievementData.Epic"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetEpicId(string epicId)
+    public AchievementDataConfigurator SetEpic(AchievementData.PlatformSettingsEpic epic)
     {
       return OnConfigureInternal(
           bp =>
           {
-            bp.EpicId = epicId;
+            bp.Epic = epic;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="AchievementData.PS4TrophyID"/> (Auto Generated)
+    /// Sets <see cref="AchievementData.PS4"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetPS4TrophyID(int pS4TrophyID)
+    public AchievementDataConfigurator SetPS4(AchievementData.PlatformSettingsPS4 pS4)
     {
+      ValidateParam(pS4);
+    
       return OnConfigureInternal(
           bp =>
           {
-            bp.PS4TrophyID = pS4TrophyID;
+            bp.PS4 = pS4;
           });
     }
 
     /// <summary>
-    /// Sets <see cref="AchievementData.XboxId"/> (Auto Generated)
+    /// Sets <see cref="AchievementData.XBoxOne"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public AchievementDataConfigurator SetXboxId(string xboxId)
+    public AchievementDataConfigurator SetXBoxOne(AchievementData.PlatformSettingsXBoxOne xBoxOne)
     {
+      ValidateParam(xBoxOne);
+    
       return OnConfigureInternal(
           bp =>
           {
-            bp.XboxId = xboxId;
+            bp.XBoxOne = xBoxOne;
           });
     }
 

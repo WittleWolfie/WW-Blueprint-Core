@@ -130,6 +130,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintItemEnchantment.m_HiddenInUI"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetHiddenInUI(bool hiddenInUI)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_HiddenInUI = hiddenInUI;
+          });
+    }
+
+    /// <summary>
     /// Adds <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see>
     /// </summary>
     /// 

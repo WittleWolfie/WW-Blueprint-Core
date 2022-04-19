@@ -12,6 +12,7 @@ using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -599,9 +600,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         EncounterType encounter = default,
         int cR = default,
         float modifier = default,
-        bool dummy = default)
+        bool dummy = default,
+        bool useCustomBattlelogMessage = default,
+        LocalizedString? customBattlelogMessage = null)
     {
       builder.Validate(count);
+      builder.Validate(customBattlelogMessage);
     
       var element = ElementTool.Create<GainExp>();
       element.Encounter = encounter;
@@ -609,6 +613,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Modifier = modifier;
       element.Count = count;
       element.Dummy = dummy;
+      element.UseCustomBattlelogMessage = useCustomBattlelogMessage;
+      element.CustomBattlelogMessage = customBattlelogMessage ?? Constants.Empty.String;
       return builder.Add(element);
     }
 

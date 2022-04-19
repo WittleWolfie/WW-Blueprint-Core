@@ -29,14 +29,14 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     }
 
     /// <summary>
-    /// Adds <see cref="ArbiterAreaTest"/> (Auto Generated)
+    /// Adds <see cref="AreaCheckerComponent"/> (Auto Generated)
     /// </summary>
     ///
     /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
     /// <param name="overrideAreaPreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
     [Generated]
-    [Implements(typeof(ArbiterAreaTest))]
-    public ArbiterInstructionConfigurator AddArbiterAreaTest(
+    [Implements(typeof(AreaCheckerComponent))]
+    public ArbiterInstructionConfigurator AddAreaCheckerComponent(
         ArbiterElementList areaParts,
         string? area = null,
         string? overrideAreaPreset = null,
@@ -46,7 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     {
       ValidateParam(areaParts);
     
-      var component = new ArbiterAreaTest();
+      var component = new AreaCheckerComponent();
       component.Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
       component.OverrideAreaPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(overrideAreaPreset);
       component.OverrideTimeOfDay = overrideTimeOfDay;
@@ -57,16 +57,16 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     }
 
     /// <summary>
-    /// Adds <see cref="ArbiterWeaponTest"/> (Auto Generated)
+    /// Adds <see cref="WeaponCheckerComponent"/> (Auto Generated)
     /// </summary>
     ///
     /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
     [Generated]
-    [Implements(typeof(ArbiterWeaponTest))]
-    public ArbiterInstructionConfigurator AddArbiterWeaponTest(
+    [Implements(typeof(WeaponCheckerComponent))]
+    public ArbiterInstructionConfigurator AddWeaponCheckerComponent(
         string? weapon = null)
     {
-      var component = new ArbiterWeaponTest();
+      var component = new WeaponCheckerComponent();
       component.Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
       return AddComponent(component);
     }

@@ -148,6 +148,33 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="DisableCompanionPartyChecks"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="companions"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(DisableCompanionPartyChecks))]
+    public ComponentListConfigurator AddDisableCompanionPartyChecks(
+        DisableCompanionPartyChecks.ModeType mode = default,
+        string[]? companions = null)
+    {
+      var component = new DisableCompanionPartyChecks();
+      component.m_Mode = mode;
+      component.m_Companions = companions.Select(name => BlueprintTool.GetRef<BlueprintUnitReference>(name)).ToArray();
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EtudeBracketAllowMythicPortrait"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(EtudeBracketAllowMythicPortrait))]
+    public ComponentListConfigurator AddEtudeBracketAllowMythicPortrait()
+    {
+      return AddComponent(new EtudeBracketAllowMythicPortrait());
+    }
+
+    /// <summary>
     /// Adds <see cref="EtudeBracketAudioEvents"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -445,12 +472,14 @@ namespace BlueprintCore.Blueprints.Configurators
     [Implements(typeof(EtudeBracketOverrideWeatherInclemency))]
     public ComponentListConfigurator AddEtudeBracketOverrideWeatherInclemency(
         EtudeBracketGameModeWaiter gameModeWaiter,
-        InclemencyType inclemency = default)
+        InclemencyType inclemency = default,
+        bool instantly = default)
     {
       ValidateParam(gameModeWaiter);
     
       var component = new EtudeBracketOverrideWeatherInclemency();
       component.Inclemency = inclemency;
+      component.m_Instantly = instantly;
       component.m_GameModeWaiter = gameModeWaiter;
       return AddComponent(component);
     }
@@ -530,12 +559,14 @@ namespace BlueprintCore.Blueprints.Configurators
     public ComponentListConfigurator AddEtudeBracketSetCompanionPosition(
         EntityReference locator,
         string? companion = null,
+        bool ignoreWhenEx = default,
         bool shouldRelease = default)
     {
       ValidateParam(locator);
     
       var component = new EtudeBracketSetCompanionPosition();
       component.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
+      component.m_IgnoreWhenEx = ignoreWhenEx;
       component.m_Locator = locator;
       component.m_ShouldRelease = shouldRelease;
       return AddComponent(component);

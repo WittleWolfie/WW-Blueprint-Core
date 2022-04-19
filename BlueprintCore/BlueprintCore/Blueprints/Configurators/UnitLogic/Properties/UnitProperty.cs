@@ -452,6 +452,21 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Adds <see cref="SpellLevelGetter"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(SpellLevelGetter))]
+    public UnitPropertyConfigurator AddSpellLevelGetter(
+        PropertySettings settings)
+    {
+      ValidateParam(settings);
+    
+      var component = new SpellLevelGetter();
+      component.Settings = settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="SummClassLevelGetter"/> (Auto Generated)
     /// </summary>
     ///

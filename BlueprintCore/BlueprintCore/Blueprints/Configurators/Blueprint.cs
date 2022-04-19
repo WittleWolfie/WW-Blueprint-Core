@@ -609,6 +609,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AdditionalDiceOnAttack(
         Feet distanceLessEqual,
         DamageTypeDescription damageType,
+        AdditionalDiceOnAttack.WeaponOptions attackType = default,
         bool onlyOnFullAttack = default,
         bool onlyOnFirstAttack = default,
         bool onHit = default,
@@ -642,6 +643,7 @@ namespace BlueprintCore.Blueprints.Configurators
       ValidateParam(damageEntries);
     
       var component = new AdditionalDiceOnAttack();
+      component.AttackType = attackType;
       component.OnlyOnFullAttack = onlyOnFullAttack;
       component.OnlyOnFirstAttack = onlyOnFirstAttack;
       component.OnHit = onHit;

@@ -1002,10 +1002,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Generated]
     [Implements(typeof(AddEnergyDamageDivisor))]
     public TBuilder AddEnergyDamageDivisor(
+        DamageEnergyTypeFlag affectedEnergyType = default,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
     {
       var component = new AddEnergyDamageDivisor();
+      component.AffectedEnergyType = affectedEnergyType;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -2405,6 +2407,19 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.m_SpellCommandType = spellCommandType;
       component.m_NewCommandType = newCommandType;
       component.m_RequireFullRound = requireFullRound;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CombatLogNotification"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(CombatLogNotification))]
+    public TBuilder AddCombatLogNotification(
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new CombatLogNotification();
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
 
@@ -3971,6 +3986,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddInitiatorSavingThrowTrigger(
         bool onlyPass = default,
         bool onlyFail = default,
+        bool specificSave = default,
+        SavingThrowType chooseSave = default,
         ActionsBuilder? action = null,
         ComponentMerge mergeBehavior = ComponentMerge.Replace,
         Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
@@ -3978,6 +3995,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       var component = new AddInitiatorSavingThrowTrigger();
       component.OnlyPass = onlyPass;
       component.OnlyFail = onlyFail;
+      component.SpecificSave = specificSave;
+      component.ChooseSave = chooseSave;
       component.Action = action?.Build() ?? Constants.Empty.Actions;
       return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
@@ -10842,6 +10861,35 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
+    /// Adds <see cref="BuffSpellSubstitution"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="spells"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
+    /// <param name="excludedSpells"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
+    /// <param name="protectionBuffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
+    [Generated]
+    [Implements(typeof(BuffSpellSubstitution))]
+    public TBuilder AddBuffSpellSubstitution(
+        float chance = default,
+        ContextValue? dC = null,
+        string[]? spells = null,
+        string[]? excludedSpells = null,
+        string[]? protectionBuffs = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      ValidateParam(dC);
+    
+      var component = new BuffSpellSubstitution();
+      component.Chance = chance;
+      component.DC = dC ?? ContextValues.Constant(0);
+      component.m_Spells = spells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.m_ExcludedSpells = excludedSpells.Select(name => BlueprintTool.GetRef<BlueprintAbilityReference>(name)).ToArray();
+      component.m_ProtectionBuffs = protectionBuffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
     /// Adds <see cref="BuffStatPenaltyDice"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -11137,6 +11185,19 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.m_CheckedFact = BlueprintTool.GetRef<BlueprintFeatureReference>(checkedFact);
       component.Scale = scale;
       component.Scaling = scaling;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HealWithOutgoingDamage"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(HealWithOutgoingDamage))]
+    public TBuilder AddHealWithOutgoingDamage(
+        float fraction = default)
+    {
+      var component = new HealWithOutgoingDamage();
+      component.Fraction = fraction;
       return AddComponent(component);
     }
 
@@ -11772,6 +11833,27 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.UsePool = usePool;
       component.Pool = pool ?? ContextValues.Constant(0);
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ModifyOutgoingHealAmount"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="facts"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
+    [Generated]
+    [Implements(typeof(ModifyOutgoingHealAmount))]
+    public TBuilder AddModifyOutgoingHealAmount(
+        string[]? facts = null,
+        float multiplierIfHasAnyFact = default,
+        float multiplierIfHasNoFacts = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new ModifyOutgoingHealAmount();
+      component.m_Facts = facts.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
+      component.MultiplierIfHasAnyFact = multiplierIfHasAnyFact;
+      component.MultiplierIfHasNoFacts = multiplierIfHasNoFacts;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }

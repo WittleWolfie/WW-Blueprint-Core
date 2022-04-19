@@ -160,6 +160,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <summary>
+    /// Sets <see cref="BlueprintItem.m_IsJunk"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public TBuilder SetIsJunk(bool isJunk)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsJunk = isJunk;
+          });
+    }
+
+    /// <summary>
     /// Sets <see cref="BlueprintItem.m_ForceStackable"/> (Auto Generated)
     /// </summary>
     [Generated]
@@ -725,6 +738,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items
           bp =>
           {
             bp.m_IsNotable = isNotable;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintItem.m_IsJunk"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public ItemConfigurator SetIsJunk(bool isJunk)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_IsJunk = isJunk;
           });
     }
 

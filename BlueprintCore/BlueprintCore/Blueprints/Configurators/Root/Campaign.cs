@@ -3,8 +3,10 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
+using Kingmaker.Settings;
+using System;
 using System.Linq;
-using UnityEngine;
 
 #nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Root
@@ -29,21 +31,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     {
       BlueprintTool.Create<BlueprintCampaign>(name, guid);
       return For(name);
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCampaign.m_StartGamePreset"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="startGamePreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
-    [Generated]
-    public CampaignConfigurator SetStartGamePreset(string? startGamePreset)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_StartGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(startGamePreset);
-          });
     }
 
     /// <summary>
@@ -77,17 +64,17 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintCampaign.KeyArt"/> (Auto Generated)
+    /// Sets <see cref="BlueprintCampaign.KeyArtLink"/> (Auto Generated)
     /// </summary>
     [Generated]
-    public CampaignConfigurator SetKeyArt(Sprite keyArt)
+    public CampaignConfigurator SetKeyArtLink(SpriteLink keyArtLink)
     {
-      ValidateParam(keyArt);
+      ValidateParam(keyArtLink);
     
       return OnConfigureInternal(
           bp =>
           {
-            bp.KeyArt = keyArt;
+            bp.KeyArtLink = keyArtLink;
           });
     }
 
@@ -114,6 +101,34 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp =>
           {
             bp.HideInRelease = hideInRelease;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCampaign.ToBeContinued"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    public CampaignConfigurator SetToBeContinued(bool toBeContinued)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.ToBeContinued = toBeContinued;
+          });
+    }
+
+    /// <summary>
+    /// Sets <see cref="BlueprintCampaign.m_StartGamePreset"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="startGamePreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
+    [Generated]
+    public CampaignConfigurator SetStartGamePreset(string? startGamePreset)
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            bp.m_StartGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(startGamePreset);
           });
     }
 
@@ -249,6 +264,40 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           {
             bp.ImportSettings = bp.ImportSettings.Where(item => !importSettings.Contains(item)).ToArray();
           });
+    }
+
+    /// <summary>
+    /// Adds <see cref="BlueprintCampaignCustomCompanion"/> (Auto Generated)
+    /// </summary>
+    ///
+    /// <param name="customCompanion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
+    [Generated]
+    [Implements(typeof(BlueprintCampaignCustomCompanion))]
+    public CampaignConfigurator AddBlueprintCampaignCustomCompanion(
+        string? customCompanion = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new BlueprintCampaignCustomCompanion();
+      component.m_CustomCompanion = BlueprintTool.GetRef<BlueprintUnitReference>(customCompanion);
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BlueprintCampaignRestBehaviour"/> (Auto Generated)
+    /// </summary>
+    [Generated]
+    [Implements(typeof(BlueprintCampaignRestBehaviour))]
+    public CampaignConfigurator AddBlueprintCampaignRestBehaviour(
+        bool removeDeathDoor = default,
+        GameDifficultyOption removeDeathDoorDifficultyMax = default,
+        ComponentMerge mergeBehavior = ComponentMerge.Replace,
+        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
+    {
+      var component = new BlueprintCampaignRestBehaviour();
+      component.m_RemoveDeathDoor = removeDeathDoor;
+      component.m_RemoveDeathDoorDifficultyMax = removeDeathDoorDifficultyMax;
+      return AddUniqueComponent(component, mergeBehavior, mergeAction);
     }
   }
 }
