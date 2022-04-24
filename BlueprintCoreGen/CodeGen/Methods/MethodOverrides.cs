@@ -205,5 +205,10 @@ namespace BlueprintCoreGen.CodeGen.Methods
     /// </remarks>
     [JsonProperty]
     public List<MethodOverride> Methods { get; private set; } = new();
+
+    public ConstructorMethod(string typeName)
+    {
+      TypeName = typeName;
+    }
   }
 }
