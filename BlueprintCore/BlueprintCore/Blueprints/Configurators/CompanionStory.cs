@@ -74,21 +74,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Sets <see cref="BlueprintCompanionStory.Image"/> (Auto Generated)
-    /// </summary>
-    
-    public CompanionStoryConfigurator SetImage(Sprite image)
-    {
-      ValidateParam(image);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Image = image;
-          });
-    }
-
-    /// <summary>
     /// Sets <see cref="BlueprintCompanionStory.Gender"/> (Auto Generated)
     /// </summary>
     

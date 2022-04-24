@@ -27,48 +27,5 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       BlueprintTool.Create<BlueprintArbiterInstruction>(name, guid);
       return For(name);
     }
-
-    /// <summary>
-    /// Adds <see cref="ArbiterAreaTest"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    /// <param name="overrideAreaPreset"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPreset"/></param>
-    
-    
-    public ArbiterInstructionConfigurator AddArbiterAreaTest(
-        ArbiterElementList areaParts,
-        string? area = null,
-        string? overrideAreaPreset = null,
-        bool overrideTimeOfDay = default,
-        TimeOfDay timeOfDay = default,
-        bool makeMapScreenshot = default)
-    {
-      ValidateParam(areaParts);
-
-      var component = new ArbiterAreaTest();
-      component.Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
-      component.OverrideAreaPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(overrideAreaPreset);
-      component.OverrideTimeOfDay = overrideTimeOfDay;
-      component.TimeOfDay = timeOfDay;
-      component.MakeMapScreenshot = makeMapScreenshot;
-      component.AreaParts = areaParts;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ArbiterWeaponTest"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="weapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    
-    
-    public ArbiterInstructionConfigurator AddArbiterWeaponTest(
-        string? weapon = null)
-    {
-      var component = new ArbiterWeaponTest();
-      component.Weapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(weapon);
-      return AddComponent(component);
-    }
   }
 }

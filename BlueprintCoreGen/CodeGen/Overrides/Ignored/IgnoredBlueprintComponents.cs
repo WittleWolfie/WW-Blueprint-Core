@@ -62,7 +62,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(TutorialTriggerLowGroupHealth),
         typeof(TutorialSolverAllFromTrigger),
         typeof(TutorialSolverItemFromTrigger),
-        typeof(ArbiterWeaponTest),
         typeof(LocationRevealedTrigger),
         typeof(BoonLogicExperience),
         typeof(BoonLogicExperienceRate),

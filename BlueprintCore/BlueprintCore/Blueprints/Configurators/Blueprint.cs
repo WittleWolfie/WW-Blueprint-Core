@@ -1550,7 +1550,7 @@ namespace BlueprintCore.Blueprints.Configurators
 
     protected void AddValidationWarning(string msg) { ValidationWarnings.AppendLine(msg); }
 
-    protected void ValidateParam(object? obj) { Validator.Check(obj).ForEach(AddValidationWarning); }
+    protected void ValidateParam(object? obj) { /* Validator.Check(obj).ForEach(AddValidationWarning); */ }
 
     protected void ValidateParam<P>(IEnumerable<P>? objects)
     {
@@ -1601,8 +1601,8 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     private void ValidateBase()
-    {
-      foreach (var error in Validator.Check(Blueprint)) { AddValidationWarning(error); }
+    {/*
+      foreach (var error in Validator.Check(Blueprint)) { AddValidationWarning(error); } */
 
       ValidateComponents();
     }
@@ -1616,8 +1616,8 @@ namespace BlueprintCore.Blueprints.Configurators
       if (Blueprint.Components == null) { return; }
       var componentTypes = new HashSet<Type>();
       foreach (BlueprintComponent component in Blueprint.Components)
-      {
-        foreach (var error in Validator.Check(component)) { AddValidationWarning(error); }
+      { /*
+        foreach (var error in Validator.Check(component)) { AddValidationWarning(error); } */
 
         var componentType = component.GetType();
         Attribute[] attrs = Attribute.GetCustomAttributes(componentType);

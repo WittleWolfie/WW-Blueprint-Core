@@ -9020,16 +9020,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
-          typeof(ArbiterAreaTest),
-          new()
-          {
-            new Blueprint("Act1_HorgusManorBasement", "d4d886b0e5e54d9d9f1bb79ccd886260"),
-            new Blueprint("GrayGarrison_Legend", "086a3185e2dc48f5a7a3733e906a9cf0"),
-            new Blueprint("Ziggurat", "fe94dc31669628948b1c3290148f3112"),
-          }
-        },
-
-        {
           typeof(UnitAsksComponent),
           new()
           {
