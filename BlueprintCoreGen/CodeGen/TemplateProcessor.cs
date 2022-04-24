@@ -1,4 +1,4 @@
-﻿using BlueprintCoreGen.CodeGen.Builders;
+﻿using BlueprintCoreGen.CodeGen.Class;
 using System;
 using System.Collections.Generic;
 using System.IO;

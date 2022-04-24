@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.IO;
 
-namespace BlueprintCoreGen.CodeGen.Builders
+namespace BlueprintCoreGen.CodeGen.Class
 {
   /// <summary>
   /// Contains basic information needed to generate a builder extension class.

@@ -1,5 +1,5 @@
 ﻿using BlueprintCore.Utils;
-using BlueprintCoreGen.CodeGen.Builders;
+using BlueprintCoreGen.CodeGen.Class;
 using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using BlueprintCoreGen.CodeGen.Params;
 using Kingmaker.Blueprints;

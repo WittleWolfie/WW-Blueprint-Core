@@ -1,5 +1,4 @@
-﻿using BlueprintCoreGen.CodeGen.Builders;
-using BlueprintCoreGen.CodeGen.Methods;
+﻿using BlueprintCoreGen.CodeGen.Methods;
 using BlueprintCoreGen.CodeGen.Overrides.Ignored;
 using HarmonyLib;
 using System;
@@ -7,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BlueprintCoreGen.CodeGen
+namespace BlueprintCoreGen.CodeGen.Class
 {
   public interface IClassFile
   {
@@ -69,6 +68,10 @@ namespace BlueprintCoreGen.CodeGen
       extensionClass.AddLine(@"  }");
       extensionClass.AddLine(@"}");
       return extensionClass;
+    }
+
+    public static IClassFile CreateConfigurator() {
+      return null;
     }
 
     private class ClassImpl : IClassFile

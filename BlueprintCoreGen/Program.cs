@@ -1,5 +1,6 @@
 ﻿using BlueprintCoreGen.Analysis;
 using BlueprintCoreGen.CodeGen;
+using BlueprintCoreGen.CodeGen.Class;
 using HarmonyLib;
 using Kingmaker.ElementsSystem;
 using System;
