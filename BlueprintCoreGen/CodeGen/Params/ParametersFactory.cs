@@ -14,7 +14,7 @@ namespace BlueprintCoreGen.CodeGen.Params
 {
   public static class ParametersFactory
   {
-    public static IParameter CreateForConfigurator(
+    public static List<IParameter> CreateForConfiguratorField(
       FieldInfo field, MethodOverride methodOverride, params IParameterInternal[] extraParams)
     {
       // TODO

@@ -218,6 +218,12 @@ namespace BlueprintCoreGen.CodeGen.Methods
   public class FieldMethod : MethodOverride
   {
     [JsonProperty]
-    public List<MethodOverride> Methods { get; private set; } = new();
+    public List<MethodOverride> SetMethods { get; private set; } = new();
+
+    [JsonProperty]
+    public List<MethodOverride> AddToMethods { get; private set; } = new();
+
+    [JsonProperty]
+    public List<MethodOverride> RemoveFromMethods { get; private set; } = new();
   }
 }
