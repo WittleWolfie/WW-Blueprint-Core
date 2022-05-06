@@ -35,7 +35,7 @@ namespace BlueprintCoreGen.CodeGen.Class
     /// <summary>
     /// Indicates whether the configurator is abstract.
     /// </summary>
-    public string IsAbstract { get; }
+    public bool IsAbstract { get; }
 
     /// <summary>
     /// List of constructor methods for available blueprint components.
