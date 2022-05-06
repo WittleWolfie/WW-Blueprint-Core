@@ -44,7 +44,7 @@ namespace BlueprintCoreGen.CodeGen.Class
   {
     private static readonly Type BlueprintTypeRoot = typeof(BlueprintScriptableObject);
 
-    public static IConfigurator Get(Type[] gameTypes)
+    public static List<IConfigurator> Get(Type[] gameTypes)
     {
       // Create an initial list of supported blueprint configurator types
       var blueprintTypes =
@@ -72,7 +72,57 @@ namespace BlueprintCoreGen.CodeGen.Class
           });
       }
 
-      return null;
+      List<IConfigurator> configurators = new();
+      foreach (var blueprintType in blueprintTypes)
+      {
+        var relativeNamespace =
+          string.Join('.', blueprintType.Namespace!.Split('.').Where(pkg => !IgnoredNamespacePackages.Contains(pkg)));
+        var nameSpace = GetNamespace(relativeNamespace);
+        var className = GetClassName(blueprintType);
+        var abstractClassName = $"Base{className}";
+        var typeName = TypeTool.GetName(blueprintType);
+
+        if (blueprintType.IsAbstract)
+        {
+          configurators.Add(
+            new ConfiguratorImpl(
+              GetFilePath(relativeNamespace, abstractClassName),
+              nameSpace,
+              abstractClassName,
+              $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+              componentMethodsByBlueprintType[blueprintType]));
+          continue;
+        }
+
+        if (gameTypes.ToList().Exists(t => t.IsSubclassOf(blueprintType)))
+        {
+          configurators.Add(
+            new ConfiguratorImpl(
+              GetFilePath(relativeNamespace, abstractClassName),
+              nameSpace,
+              abstractClassName,
+              $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+              componentMethodsByBlueprintType[blueprintType]));
+          configurators.Add(
+            new ConfiguratorImpl(
+              GetFilePath(relativeNamespace, className),
+              nameSpace,
+              className,
+              $"Configurator for <see cref=\"{typeName}\"/>.",
+              new())); // All the methods are in the base class
+          continue;
+        }
+
+        configurators.Add(
+          new ConfiguratorImpl(
+            GetFilePath(relativeNamespace, className),
+            nameSpace,
+            className,
+            $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+            componentMethodsByBlueprintType[blueprintType]));
+      }
+
+      return configurators;
     }
 
     private static Dictionary<Type, ConstructorMethod> GetComponentMethodsByType(Type[] gameTypes)
@@ -119,6 +169,52 @@ namespace BlueprintCoreGen.CodeGen.Class
       return allowedOn;
     }
 
+    private static readonly List<string> IgnoredNamespacePackages =
+        new()
+        {
+          "Kingmaker",
+          "Blueprints",
+          "TacticalCombat",
+          "Considerations",
+          "Controllers",
+          "Rest",
+          "GlobalMagic",
+          "Designers",
+          "Mechanics",
+          "Persistence",
+          "Versioning",
+          "Arbiter",
+          "Clockwork",
+          "Settings",
+          "CharacterSystem",
+          "HitSystem",
+          "LightSelector",
+          "Sound"
+        };
+    private static string GetNamespace(string relativeNamespace)
+    {
+      if (string.IsNullOrEmpty(relativeNamespace))
+      {
+        return "BlueprintCore.Blueprints.Configurators";
+      }
+      return $"BlueprintCore.Blueprints.Configurators.{relativeNamespace}";
+    }
+
+    private static string GetClassName(Type blueprintType)
+    {
+      if (blueprintType == BlueprintTypeRoot)
+      {
+        return "BlueprintConfigurator";
+      }
+      return $"{TypeTool.GetName(blueprintType).Replace("Blueprint", "")}Configurator";
+    }
+
+    private static string GetFilePath(string relativeNamespace, string className)
+    {
+      return
+        $"BlueprintConfigurators/{relativeNamespace.Replace('.', '/')}/{className.Replace("Configurator", "")}.cs";
+    }
+
     private class ConfiguratorImpl : IConfigurator
     {
       public string FilePath { get; }
@@ -131,9 +227,18 @@ namespace BlueprintCoreGen.CodeGen.Class
 
       public List<ConstructorMethod> ComponentMethods { get; }
 
-      public ConfiguratorImpl()
+      public ConfiguratorImpl(
+        string filePath,
+        string nameSpace,
+        string className,
+        string summary,
+        List<ConstructorMethod> componentMethods)
       {
-
+        FilePath = filePath;
+        Namespace = nameSpace;
+        ClassName = className;
+        Summary = summary;
+        ComponentMethods = componentMethods;
       }
     }
   }
