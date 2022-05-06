@@ -33,9 +33,9 @@ namespace BlueprintCoreGen.CodeGen.Class
     public string ParentClassName { get; }
 
     /// <summary>
-    /// Class summary comment.
+    /// Name of the blueprint type supported, e.g. BlueprintFeature
     /// </summary>
-    public string Summary { get; }
+    public string TypeName { get; }
 
     /// <summary>
     /// Indicates whether the configurator is abstract.
@@ -106,7 +106,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               nameSpace,
               abstractClassName,
               parentClassName,
-              $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+              typeName,
               /* isAbstract= */ true,
               componentMethodsByBlueprintType[blueprintType]);
           configuratorImpl.IsRoot = blueprintType == BlueprintTypeRoot;
@@ -122,7 +122,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               nameSpace,
               abstractClassName,
               parentClassName,
-              $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+              typeName,
               /* isAbstract= */ true,
               componentMethodsByBlueprintType[blueprintType]));
           configurators.Add(
@@ -131,7 +131,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               nameSpace,
               className,
               abstractClassName,
-              $"Configurator for <see cref=\"{typeName}\"/>.",
+              typeName,
               /* isAbstract= */ false,
               new())); // All the methods are in the base class
           continue;
@@ -143,7 +143,7 @@ namespace BlueprintCoreGen.CodeGen.Class
             nameSpace,
             className,
             parentClassName,
-            $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+            typeName,
             /* isAbstract= */ false,
             componentMethodsByBlueprintType[blueprintType]));
       }
@@ -251,7 +251,7 @@ namespace BlueprintCoreGen.CodeGen.Class
 
       public string ParentClassName { get; }
 
-      public string Summary { get; }
+      public string TypeName { get; }
 
       public bool IsAbstract { get; }
 
@@ -264,7 +264,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         string nameSpace,
         string className,
         string parentClassName,
-        string summary,
+        string typeName,
         bool isAbstract,
         List<ConstructorMethod> componentMethods)
       {
@@ -272,7 +272,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         Namespace = nameSpace;
         ClassName = className;
         ParentClassName = parentClassName;
-        Summary = summary;
+        TypeName = typeName;
         IsAbstract = isAbstract;
         ComponentMethods = componentMethods;
       }
