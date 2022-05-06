@@ -33,15 +33,19 @@ namespace BlueprintCoreGen.CodeGen.Methods
   {
     public static List<IMethod> CreateForField(FieldInfo field, FieldMethod fieldMethod, string returnType)
     {
-      List<IMethod> methods = new List<IMethod>();
+      List<IMethod> methods = new();
 
       if (fieldMethod.SetMethods.Any())
       {
-        methods.Add(CreateForField());
+        foreach (var methodOverride in fieldMethod.SetMethods)
+        {
+          methods.Add(
+            CreateSetField(field, fieldMethod, returnType, MethodOverride.Merge(fieldMethod, methodOverride)));
+        }
       }
       else
       {
-        methods.Add(CreateForField())
+        methods.Add(CreateSetField(field, fieldMethod, returnType, fieldMethod));
       }
 
       if (TypeTool.GetEnumerableType(field.FieldType) is not null)
