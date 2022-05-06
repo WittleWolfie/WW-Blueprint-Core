@@ -49,6 +49,8 @@ namespace BlueprintCoreGen.CodeGen.Class
 
     // TODO: Field methods
 
+    // TODO: New method
+
     /// <summary>
     /// True for the root configurator, i.e. BlueprintConfigurator
     /// </summary>

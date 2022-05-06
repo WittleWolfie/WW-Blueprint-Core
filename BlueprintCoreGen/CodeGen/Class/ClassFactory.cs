@@ -70,8 +70,54 @@ namespace BlueprintCoreGen.CodeGen.Class
       return extensionClass;
     }
 
-    public static IClassFile CreateConfigurator() {
-      return null;
+    public static IClassFile CreateConfigurator(IConfigurator configurator) {
+      var configuratorClass = new ClassImpl(configurator.FilePath);
+
+      // Namespace
+      configuratorClass.AddLine($"namespace {configurator.Namespace}");
+      configuratorClass.AddLine(@"{");
+
+      // Comments
+      configuratorClass.AddLine($"  /// <summary>");
+      if (configurator.IsAbstract)
+      {
+        configuratorClass.AddLine(
+          $"  /// Implements common fields and components for blueprints inheriting from <see cref=\"{configurator.TypeName}\"/>.");
+      }
+      else
+      {
+        configuratorClass.AddLine($"  /// Configurator for <see cref=\"{configurator.TypeName}\"/>.");
+      }
+      configuratorClass.AddLine($"  /// </summary>");
+      // TODO: Use config to create root BlueprintConfigurator remarks
+      if (!configurator.IsRoot)
+      {
+        configuratorClass.AddLine($"  /// <inheritdoc/>");
+      }
+
+      // Class declaration
+      if (configurator.IsAbstract)
+      {
+        configuratorClass.AddLine($"  public abstract class {configurator.ClassName}<T, TBuilder>");
+        configuratorClass.AddLine($"    : {configurator.ParentClassName}<T, TBuilder>");
+        configuratorClass.AddLine($"    where T : {configurator.TypeName}");
+        configuratorClass.AddLine($"    where TBuilder : {configurator.ClassName}<T, TBuilder>");
+        configuratorClass.AddLine($"  {{");
+        configuratorClass.AddLine($"    protected {configurator.ClassName}(string name) : base(name) {{ }}");
+      }
+      else
+      {
+        configuratorClass.AddLine($"  public class {configurator.ClassName}");
+        configuratorClass.AddLine($"    : {configurator.ParentClassName}<{configurator.TypeName}, {configurator.ClassName}>");
+        configuratorClass.AddLine($"  {{");
+        configuratorClass.AddLine($"    private {configurator.ClassName}(string name) : base(name) {{ }}");
+      }
+
+      // TODO: Add Methods
+
+      configuratorClass.AddLine($"  }}");
+      configuratorClass.AddLine($"}}");
+      return configuratorClass;
     }
 
     private class ClassImpl : IClassFile
