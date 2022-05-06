@@ -113,7 +113,23 @@ namespace BlueprintCoreGen.CodeGen.Class
         configuratorClass.AddLine($"    private {configurator.ClassName}(string name) : base(name) {{ }}");
       }
 
-      // TODO: Add Methods
+      configurator.ComponentMethods.ForEach(
+        componentMethod =>
+        {
+          Type type = TypeTool.TypeByName(componentMethod.TypeName)!;
+          if (!Ignored.ShouldIgnore(type))
+          {
+            MethodFactory.CreateForComponent(
+                type, componentMethod, configurator.IsAbstract ? "TBuilder" : configurator.ClassName)
+              .ForEach(
+                method =>
+                {
+                  method.GetImports().ForEach(import => configuratorClass.AddImport(import));
+                  configuratorClass.AddLine("");
+                  method.GetLines().ForEach(line => configuratorClass.AddLine($"    {line}"));
+                });
+          }
+        });
 
       configuratorClass.AddLine($"  }}");
       configuratorClass.AddLine($"}}");
