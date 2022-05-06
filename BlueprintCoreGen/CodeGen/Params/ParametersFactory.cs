@@ -14,6 +14,13 @@ namespace BlueprintCoreGen.CodeGen.Params
 {
   public static class ParametersFactory
   {
+    public static IParameter CreateForConfigurator(
+      FieldInfo field, MethodOverride methodOverride, params IParameterInternal[] extraParams)
+    {
+      // TODO
+      return null;
+    }
+
     /// <summary>
     /// Returns a list of parameters used to construct an object of the specified type. The list is ordered such
     /// that optional parameters are at the end.

@@ -211,4 +211,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
       TypeName = typeName;
     }
   }
+
+  /// <summary>
+  /// Represents a method for a field in a blueprint configurator. e.g. SetValue(), AddToValue(), RemoveFromValue()
+  /// </summary>
+  public class FieldMethod : MethodOverride
+  {
+    [JsonProperty]
+    public List<MethodOverride> Methods { get; private set; } = new();
+  }
 }

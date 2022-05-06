@@ -113,6 +113,13 @@ namespace BlueprintCoreGen.CodeGen.Class
         configuratorClass.AddLine($"    private {configurator.ClassName}(string name) : base(name) {{ }}");
       }
 
+      // New Methods
+      // TODO
+
+      // Field Methods
+      // TODO
+
+      // Component Methods
       configurator.ComponentMethods.ForEach(
         componentMethod =>
         {

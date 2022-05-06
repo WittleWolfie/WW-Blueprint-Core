@@ -31,6 +31,23 @@ namespace BlueprintCoreGen.CodeGen.Methods
   // TODO: Add config overrides for components & fields
   public static class MethodFactory
   {
+    public static List<IMethod> CreateForField(FieldInfo field, FieldMethod fieldMethod, string returnType)
+    {
+      List<IMethod> methods = new List<IMethod>();
+
+      if (!fieldMethod.Methods.Any())
+      {
+        methods.Add(null);
+        return methods;
+      }
+
+      foreach (var methodOverride in fieldMethod.Methods)
+      {
+        methods.Add(null);
+      }
+      return methods;
+    }
+
     public static List<IMethod> CreateForComponent(
       Type componentType, ConstructorMethod componentMethod, string returnType)
     {
@@ -48,7 +65,6 @@ namespace BlueprintCoreGen.CodeGen.Methods
           CreateForComponent(
             componentType, componentMethod, returnType, MethodOverride.Merge(componentMethod, methodOverride)));
       }
-
       return methods;
     }
 
