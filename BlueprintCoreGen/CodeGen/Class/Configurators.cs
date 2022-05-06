@@ -28,6 +28,11 @@ namespace BlueprintCoreGen.CodeGen.Class
     public string ClassName { get; }
 
     /// <summary>
+    /// Name of the parent configurator, e.g. BaseFeatureConfigurator
+    /// </summary>
+    public string ParentClassName { get; }
+
+    /// <summary>
     /// Class summary comment.
     /// </summary>
     public string Summary { get; }
@@ -43,6 +48,11 @@ namespace BlueprintCoreGen.CodeGen.Class
     public List<ConstructorMethod> ComponentMethods { get; }
 
     // TODO: Field methods
+
+    /// <summary>
+    /// True for the root configurator, i.e. BlueprintConfigurator
+    /// </summary>
+    public bool IsRoot { get; }
   }
 
   public static class Configurators
@@ -84,19 +94,23 @@ namespace BlueprintCoreGen.CodeGen.Class
           string.Join('.', blueprintType.Namespace!.Split('.').Where(pkg => !IgnoredNamespacePackages.Contains(pkg)));
         var nameSpace = GetNamespace(relativeNamespace);
         var className = GetClassName(blueprintType);
+        var parentClassName = $"Base{GetClassName(blueprintType.BaseType!)}";
         var abstractClassName = $"Base{className}";
         var typeName = TypeTool.GetName(blueprintType);
 
         if (blueprintType.IsAbstract)
         {
-          configurators.Add(
+          var configuratorImpl =
             new ConfiguratorImpl(
               GetFilePath(relativeNamespace, abstractClassName),
               nameSpace,
               abstractClassName,
+              parentClassName,
               $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
-            /* isAbstract= */ true,
-              componentMethodsByBlueprintType[blueprintType]));
+              /* isAbstract= */ true,
+              componentMethodsByBlueprintType[blueprintType]);
+          configuratorImpl.IsRoot = blueprintType == BlueprintTypeRoot;
+          configurators.Add(configuratorImpl);
           continue;
         }
 
@@ -107,6 +121,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               GetFilePath(relativeNamespace, abstractClassName),
               nameSpace,
               abstractClassName,
+              parentClassName,
               $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
             /* isAbstract= */ true,
               componentMethodsByBlueprintType[blueprintType]));
@@ -115,6 +130,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               GetFilePath(relativeNamespace, className),
               nameSpace,
               className,
+              abstractClassName,
               $"Configurator for <see cref=\"{typeName}\"/>.",
             /* isAbstract= */ false,
               new())); // All the methods are in the base class
@@ -126,6 +142,7 @@ namespace BlueprintCoreGen.CodeGen.Class
             GetFilePath(relativeNamespace, className),
             nameSpace,
             className,
+            parentClassName,
             $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
             /* isAbstract= */ false,
             componentMethodsByBlueprintType[blueprintType]));
@@ -232,16 +249,21 @@ namespace BlueprintCoreGen.CodeGen.Class
 
       public string ClassName { get; }
 
+      public string ParentClassName { get; }
+
       public string Summary { get; }
 
       public bool IsAbstract { get; }
 
       public List<ConstructorMethod> ComponentMethods { get; }
 
+      public bool IsRoot { get; set; } = false;
+
       public ConfiguratorImpl(
         string filePath,
         string nameSpace,
         string className,
+        string parentClassName,
         string summary,
         bool isAbstract,
         List<ConstructorMethod> componentMethods)
@@ -249,6 +271,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         FilePath = filePath;
         Namespace = nameSpace;
         ClassName = className;
+        ParentClassName = parentClassName;
         Summary = summary;
         IsAbstract = isAbstract;
         ComponentMethods = componentMethods;
