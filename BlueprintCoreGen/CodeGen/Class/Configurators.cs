@@ -33,6 +33,11 @@ namespace BlueprintCoreGen.CodeGen.Class
     public string Summary { get; }
 
     /// <summary>
+    /// Indicates whether the configurator is abstract.
+    /// </summary>
+    public string IsAbstract { get; }
+
+    /// <summary>
     /// List of constructor methods for available blueprint components.
     /// </summary>
     public List<ConstructorMethod> ComponentMethods { get; }
@@ -90,6 +95,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               nameSpace,
               abstractClassName,
               $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+            /* isAbstract= */ true,
               componentMethodsByBlueprintType[blueprintType]));
           continue;
         }
@@ -102,6 +108,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               nameSpace,
               abstractClassName,
               $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+            /* isAbstract= */ true,
               componentMethodsByBlueprintType[blueprintType]));
           configurators.Add(
             new ConfiguratorImpl(
@@ -109,6 +116,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               nameSpace,
               className,
               $"Configurator for <see cref=\"{typeName}\"/>.",
+            /* isAbstract= */ false,
               new())); // All the methods are in the base class
           continue;
         }
@@ -119,6 +127,7 @@ namespace BlueprintCoreGen.CodeGen.Class
             nameSpace,
             className,
             $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
+            /* isAbstract= */ false,
             componentMethodsByBlueprintType[blueprintType]));
       }
 
@@ -225,6 +234,8 @@ namespace BlueprintCoreGen.CodeGen.Class
 
       public string Summary { get; }
 
+      public bool IsAbstract { get; }
+
       public List<ConstructorMethod> ComponentMethods { get; }
 
       public ConfiguratorImpl(
@@ -232,12 +243,14 @@ namespace BlueprintCoreGen.CodeGen.Class
         string nameSpace,
         string className,
         string summary,
+        bool isAbstract,
         List<ConstructorMethod> componentMethods)
       {
         FilePath = filePath;
         Namespace = nameSpace;
         ClassName = className;
         Summary = summary;
+        IsAbstract = isAbstract;
         ComponentMethods = componentMethods;
       }
     }
