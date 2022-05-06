@@ -123,7 +123,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               abstractClassName,
               parentClassName,
               $"Implements common fields and components for blueprints inheriting from <see cref=\"{typeName}\"/>.",
-            /* isAbstract= */ true,
+              /* isAbstract= */ true,
               componentMethodsByBlueprintType[blueprintType]));
           configurators.Add(
             new ConfiguratorImpl(
@@ -132,7 +132,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               className,
               abstractClassName,
               $"Configurator for <see cref=\"{typeName}\"/>.",
-            /* isAbstract= */ false,
+              /* isAbstract= */ false,
               new())); // All the methods are in the base class
           continue;
         }
