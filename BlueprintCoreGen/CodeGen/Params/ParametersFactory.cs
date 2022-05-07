@@ -9,26 +9,15 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using UnityEngine;
 using Kingmaker.Utility;
+using static BlueprintCoreGen.CodeGen.Params.BlueprintFieldParameter;
 
 namespace BlueprintCoreGen.CodeGen.Params
 {
   public static class ParametersFactory
   {
-    public static List<IParameter> CreateForSetField(FieldInfo field, MethodOverride methodOverride, bool isBitFlag)
-    { 
-      return null;
-    }
-
-    public static List<IParameter> CreateForRemoveFromField(
+    public static IBlueprintParameter CreateForBlueprintField(
       FieldInfo field, MethodOverride methodOverride, bool isBitFlag)
-    {
-      // TODO
-      return null;
-    }
-
-    public static List<IParameter> CreateForAddToField(FieldInfo field, MethodOverride methodOverride, bool isBitFlag)
-    {
-      // TODO
+    { 
       return null;
     }
 
@@ -114,7 +103,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     }
 
     private static BlueprintFieldParameter CreateBlueprintFieldParameter(
-      FieldInfo info, Type sourceType, MethodOverride methodOverride, string operationFmt)
+      FieldInfo info, Type sourceType, MethodOverride methodOverride)
     {
       var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
@@ -124,16 +113,24 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (blueprintType is not null) { imports.Add(blueprintType); }
       if (enumerableType is not null) { imports.Add(enumerableType); }
 
+      var isEnumerable = enumerableType is not null;
+      var isBitFlag = TypeTool.IsBitFlag(info.FieldType);
       BlueprintFieldParameter param =
         new(
+          info.Name,
           GetParamName(info.Name),
-          GetTypeNameForParams(info.FieldType, blueprintType, enumerableType),
-          /* useParams= */ enumerableType is not null || TypeTool.IsBitFlag(info.FieldType),
+          GetTypeName(info.FieldType, blueprintType, enumerableType),
+          GetParamsTypeName(info.FieldType, blueprintType, enumerableType),
           GetImports(info.FieldType).Concat(imports).ToList(),
           GetCommentFmt(info, blueprintType),
           GetDefaultValueForBlueprintField(info.FieldType),
           GetValidationFmt(info.FieldType, blueprintType, enumerableType),
-          operationFmt);
+          GetAssignmentFmtForBlueprintField(info.FieldType, blueprintType, enumerableType),
+          isEnumerable || isBitFlag ? GetAddOperationFmt(info) : new(),
+          isEnumerable || isBitFlag ? GetRemoveOperationFmt(info) : new(),
+          isEnumerable ? GetRemovePredicateFmt(info) : new(),
+          isEnumerable ? GetClearOperationFmt(info) : new(),
+          isEnumerable ? GetModifyOperationFmt(info) : new());
 
       // Apply type specific, then field specific, then method specific overrides (priority order).
       GetTypeOverride(info.FieldType)?.ApplyTo(param);
@@ -211,7 +208,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       return TypeTool.GetName(type);
     }
 
-    private static string GetTypeNameForParams(Type type, Type? blueprintType, Type? enumerableType)
+    private static string GetParamsTypeName(Type type, Type? blueprintType, Type? enumerableType)
     {
       if (blueprintType is not null)
       {
@@ -381,9 +378,73 @@ namespace BlueprintCoreGen.CodeGen.Params
       return "";
     }
 
-    private static string GetSetOperation()
+    private static string GetAssignmentFmtForBlueprintField(Type type, Type? blueprintType, Type? enumerableType)
     {
-      return "";
+      if (TypeTool.IsBitFlag(type))
+      {
+        return $"{{0}}.Aggregate(({TypeTool.GetName(type)}) 0, (f1, f2) => f1 | f2);";
+      }
+      return GetAssignmentFmt(type, blueprintType, enumerableType);
+    }
+
+    private static List<string> GetAddOperationFmt(FieldInfo field)
+    {
+      List<string> addOperationFmt = new();
+      if (TypeTool.IsBitFlag(field.FieldType))
+      {
+        addOperationFmt.Add($"{{1}}.ForEach(f => {{0}}.{field.Name} |= f);");
+      }
+      else if (field.FieldType.IsArray)
+      {
+        addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new();");
+        addOperationFmt.Add($"{{0}}.{field.Name} = CommonTool.Append({{0}}.{field.Name}, {{1}});");
+      }
+      else
+      {
+        addOperationFmt.Add($"{{0}}.{field.Name}.AddRange({{1}});");
+      }
+      return addOperationFmt;
+    }
+
+    private static List<string> GetRemoveOperationFmt(FieldInfo field)
+    {
+      List<string> removeOperationFmt = new();
+      if (TypeTool.IsBitFlag(field.FieldType))
+      {
+        removeOperationFmt.Add($"{{1}}.ForEach(f => {{0}}.{field.Name} &= ~f);");
+      }
+      else 
+      {
+        var toEnumerable = field.FieldType.IsArray ? "ToArray()" : "ToList()";
+        removeOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{ return; }}");
+        removeOperationFmt.Add(
+          $"{{0}}.{field.Name} = {{0}}.{field.Name}.Where(val => !{{1}}.Contains(val)).{toEnumerable};");
+      }
+      return removeOperationFmt;
+    }
+
+    private static List<string> GetRemovePredicateFmt(FieldInfo field)
+    {
+      List<string> removeOperationFmt = new();
+      var toEnumerable = field.FieldType.IsArray ? "ToArray()" : "ToList()";
+      removeOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{ return; }}");
+      removeOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name}.Where({{1}}).{toEnumerable};");
+      return removeOperationFmt;
+    }
+
+    private static List<string> GetClearOperationFmt(FieldInfo field)
+    {
+      List<string> clearOperationFmt = new();
+      clearOperationFmt.Add($"{{0}}.{field.Name} = new();");
+      return clearOperationFmt;
+    }
+
+    private static List<string> GetModifyOperationFmt(FieldInfo field)
+    {
+      List<string> modifyOperationFmt = new();
+      modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{ return; }}");
+      modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach(val => {{1}}.Invoke(val));");
+      return modifyOperationFmt;
     }
   }
 }

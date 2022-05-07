@@ -50,6 +50,43 @@ namespace BlueprintCoreGen.CodeGen.Params
     string ParamName { get; }
   }
 
+  /// <summary>
+  /// Extension of IParameter to support blueprint field parameters which may have Add and Remove operations.
+  /// </summary>
+  public interface IBlueprintParameter : IParameter
+  {
+    /// <summary>
+    /// Parameter declaration when defined using params, e.g. params string[] names
+    /// </summary>
+    string ParamsDeclaration { get; }
+
+    /// <summary>
+    /// Returns a statement which uses the parameter to add values to a field on the object. The provided validation
+    /// function is called on the parameter before use.
+    /// </summary>
+    List<string> GetAddOperation(string objectName, string validateFunction);
+
+    /// <summary>
+    /// Returns a statement which uses the parameter to remove values from a field on the object. The provided
+    /// validation function is called on the parameter before use.
+    /// </summary>
+    List<string> GetRemoveOperation(string objectName, string validateFunction);
+
+    /// <summary>
+    /// Returns a statement which uses the parameter to remove values matching a predicate from a field on the object.
+    /// </summary>
+    List<string> GetRemovePredicateOperation(string objectName);
+
+    /// <summary>
+    /// Returns a statement which clears a field on the object.
+    /// </summary>
+    List<string> GetClearOperation(string objectName);
+
+    /// <summary>
+    /// Returns a statement which executes an action on all values in a field on the object.
+    /// </summary>
+    List<string> GetModifyOperation (string objectName);
+  }
 
   /// <summary>
   /// Internal representation of a parameter used to specify a field value.
@@ -78,7 +115,7 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private string FieldName { get; }
     public string ParamName { get; private set; }
-    private string TypeName { get; set; }
+    protected string TypeName { get; set; }
 
     /// <summary>
     /// Comment format string where {0} is the parameter name
@@ -216,7 +253,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       return CommentFmt;
     }
 
-    private string GetDeclaration()
+    protected virtual string GetDeclaration()
     {
       if (SkipDeclaration) { return ""; }
 
@@ -273,102 +310,106 @@ namespace BlueprintCoreGen.CodeGen.Params
   /// <summary>
   /// Internal representation of a parameter used for a blueprint configurator field method.
   /// </summary>
-  public class BlueprintFieldParameter : IParameterInternal
+  public class BlueprintFieldParameter : FieldParameter, IBlueprintParameter
   {
-    public List<Type> Imports { get; }
+    /// <summary>
+    /// Type name used for ParamsDeclaration
+    /// </summary>
+    private string ParamsTypeName { get; }
+    public string ParamsDeclaration => GetParamsDeclaration();
 
     /// <summary>
-    /// Comment format string where {0} is the parameter name
+    /// Format string lines for adding content to the blueprint field where {0} is the object name and {1} is the
+    /// parameter name.
     /// </summary>
-    private List<string> CommentFmt { get; set; }
-    public List<string> Comment => GetComment();
+    private List<string> AddOperationFmt { get; }
 
     /// <summary>
-    /// If set, the parameter is declared using "params"
+    /// Format string lines for removing content from the blueprint field where {0} is the object name and {1} is the
+    /// parameter name.
     /// </summary>
-    private bool UseParams { get; set; }
-    public string Declaration => GetDeclaration();
+    private List<string> RemoveOperationFmt { get; }
 
     /// <summary>
-    /// Default value for optional parameters
+    /// Format string lines for removing content from the blueprint field where {0} is the object name and {1} is the
+    /// predicate name.
     /// </summary>
-    private string? DefaultValue { get; set; }
-    public bool Required => string.IsNullOrEmpty(DefaultValue);
-
-    public string ParamName { get; private set; }
-    private string TypeName { get; set; }
+    private List<string> RemovePredicateOperationFmt { get; }
 
     /// <summary>
-    /// Operation format string where {0} is the object name and {1} is the parameter name 
+    /// Format string lines for removing all content from the blueprint field where {0} is the object name.
     /// </summary>
-    private string OperationFmt { get; set; }
+    private List<string> ClearOperationFmt { get; }
 
     /// <summary>
-    /// Validation format string where {0} is the validation function and {1} is the parameter name
+    /// Format string lines for modifying content in the blueprint field where {0} is the object name, {1} is action
+    /// name.
     /// </summary>
-    private string ValidationFmt { get; set; }
-
-    /// <summary>
-    /// Operation format strings for additional lines of code after the assignment statement, where {0} is the
-    /// object name and {1} is the parameter name
-    /// </summary>
-    private List<string> ExtraOperationFmt { get; set; }
+    private List<string> ModifyOperationFmt { get; }
 
     public BlueprintFieldParameter(
-      string paramName,
-      string typeName,
-      bool useParams,
-      List<Type> imports,
-      List<string> commentFmt,
-      string defaultValue,
-      string validationFmt,
-      string operationFmt)
+        string fieldName,
+        string paramName,
+        string typeName,
+        string paramsTypeName,
+        List<Type> imports,
+        List<string> commentFmt,
+        string defaultValue,
+        string validationFmt,
+        string assignmentRhsFmt,
+        List<string> addOperationFmt,
+        List<string> removeOperationFmt,
+        List<string> removePredicateOperationFmt,
+        List<string> clearOperationFmt,
+        List<string> modifyOperationFmt)
+      : base(
+        fieldName,
+        paramName,
+        typeName,
+        imports,
+        commentFmt,
+        defaultValue,
+        validationFmt,
+        assignmentRhsFmt,
+        /* assignmentIfNullRhs= */string.Empty)
     {
-      ParamName = paramName;
-      TypeName = typeName;
-      UseParams = useParams;
-
-      Imports = imports;
-      CommentFmt = commentFmt;
-      DefaultValue = defaultValue;
-
-      ValidationFmt = validationFmt;
-      OperationFmt = operationFmt;
-      ExtraOperationFmt = new();
+      ParamsTypeName = paramsTypeName;
+      AddOperationFmt = addOperationFmt;
+      RemoveOperationFmt = removeOperationFmt;
+      RemovePredicateOperationFmt = removePredicateOperationFmt;
+      ClearOperationFmt = clearOperationFmt;
+      ModifyOperationFmt = modifyOperationFmt;
+      SetIsNullable(false);
     }
 
-    private List<string> GetComment()
+    private string GetParamsDeclaration()
     {
-      if (CommentFmt.Any())
-      {
-        return CommentFmt.Prepend("<param name=\"{0}\">")
-          .Append("</param>")
-          .Select(line => string.Format(line, ParamName))
-          .ToList();
-      }
-      return CommentFmt;
+      return $"params {ParamsTypeName}[] {ParamName}";
     }
 
-    private string GetDeclaration()
+    public List<string> GetAddOperation(string objectName, string validateFunction)
     {
-      if (UseParams)
-      {
-        return $"params {TypeName}[] {ParamName}";
-      }
-
-      var declaration = $"{TypeName} {ParamName}";
-      return string.IsNullOrEmpty(DefaultValue)
-          ? declaration
-          : $"{declaration} = {DefaultValue}";
+      return AddOperationFmt.Select(line => string.Format(line, objectName, ParamName)).ToList();
     }
 
-    public List<string> GetOperation(string objectName, string validateFunction)
+    public List<string> GetRemoveOperation(string objectName, string validateFunction)
     {
-      List<string> operation = new();
-      operation.Add(string.Format(ValidationFmt, validateFunction, ParamName));
-      operation.Add(string.Format(OperationFmt, objectName, ParamName));
-      operation.AddRange(ExtraOperationFmt.Select(line => string.Format(line, objectName, ParamName)));
-      return operation;
+      return RemoveOperationFmt.Select(line => string.Format(line, objectName, ParamName)).ToList();
+    }
+
+    public List<string> GetRemovePredicateOperation(string objectName, string predicateName)
+    {
+      return RemovePredicateOperationFmt.Select(line => string.Format(line, objectName, predicateName)).ToList();
+    }
+
+    public List<string> GetClearOperation(string objectName)
+    {
+      return ClearOperationFmt.Select(line => string.Format(line, objectName)).ToList();
+    }
+
+    public List<string> GetModifyOperation(string objectName, string actionName)
+    {
+      return ModifyOperationFmt.Select(line => string.Format(line, objectName, actionName)).ToList();
     }
   }
 }
