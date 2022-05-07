@@ -6,6 +6,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
@@ -39,13 +40,12 @@ namespace BlueprintCoreGen.CodeGen.Methods
       {
         foreach (var methodOverride in fieldMethod.SetMethods)
         {
-          methods.Add(
-            CreateSetField(field, fieldMethod, returnType, MethodOverride.Merge(fieldMethod, methodOverride)));
+          methods.Add(CreateSetField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride)));
         }
       }
       else
       {
-        methods.Add(CreateSetField(field, fieldMethod, returnType, fieldMethod));
+        methods.Add(CreateSetField(field, returnType, fieldMethod));
       }
 
       if (TypeTool.GetEnumerableType(field.FieldType) is not null)
@@ -69,9 +69,45 @@ namespace BlueprintCoreGen.CodeGen.Methods
     }
 
     private static IMethod CreateSetField(
-      FieldInfo field, FieldMethod fieldMethod, string returnType, MethodOverride methodOverride)
+      FieldInfo field, string returnType, MethodOverride methodOverride)
     {
+      var method = new MethodImpl();
+      var parameters = ParametersFactory.CreateForSetField(field, methodOverride);
 
+      // Imports
+      method.AddImport(field.FieldType);
+      method.AddParameterImports(parameters);
+      method.AddTypeNameImports(methodOverride.Imports);
+
+      // Comment summary
+      method.AddCommentSummary($"Sets <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/>");
+
+      // Remarks
+      method.AddRemarks(methodOverride.Remarks);
+
+      // Parameter comments
+      method.AddParameterComments(parameters);
+
+      var methodName =
+        string.IsNullOrEmpty(methodOverride.MethodName)
+          ? GetFieldMethodName("Set", field.Name)
+          : methodOverride.MethodName;
+
+      // Declarations
+      var declarations = parameters.Select(param => param.Declaration);
+      method.AddLine($"public {returnType} {methodName}(");
+      declarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"  {declaration}"));
+      method.AddLine($"  {declarations.Last()})");
+      method.AddLine($"{{");
+
+      // Assignment & extra lines
+      var operation =
+        parameters.SelectMany(param => param.GetOperation("bp", "Validate"))
+          .Concat(methodOverride.ExtraFmtLines.Select(line => $"{string.Format(line, "bp")}"));
+      AddOnConfigure(method, operation.ToList());
+      method.AddLine($"}}");
+
+      return method;
     }
 
     public static List<IMethod> CreateForComponent(
@@ -281,6 +317,12 @@ namespace BlueprintCoreGen.CodeGen.Methods
       return method;
     }
 
+    private static string GetFieldMethodName(string prefix, string fieldName)
+    {
+      var convertedFieldName = fieldName[0].ToString().ToUpper() + fieldName[1..];
+      return $"{prefix}{convertedFieldName}";
+    }
+
     /// <summary>
     /// Removes unnecessary method name prefixes, e.g. ActionGoDeeperIntoDungeon > GoDeeperIntoDungeon.
     /// </summary>
@@ -309,6 +351,15 @@ namespace BlueprintCoreGen.CodeGen.Methods
         return componentTypeName;
       }
       return $"Add{componentTypeName}";
+    }
+
+    private static void AddOnConfigure(MethodImpl method, List<string> onConfigure)
+    {
+      method.AddLine($"  return OnConfigureInternal(");
+      method.AddLine($"    bp =>");
+      method.AddLine($"    {{");
+      onConfigure.ForEach(line => method.AddLine($"      {line}"));
+      method.AddLine($"    }});");
     }
 
     private class MethodImpl : IMethod
@@ -374,6 +425,15 @@ namespace BlueprintCoreGen.CodeGen.Methods
               $"<description>{example.BlueprintGuid}</description></item>"));
         AddLine($"/// </list>");
         AddLine($"/// </remarks>");
+      }
+
+      public void AddRemarks(List<string> remarks)
+      {
+        if (!remarks.Any()) { return; }
+
+        AddLine(@"/// <remarks>");
+        remarks.ForEach(paragraph => AddRemark(paragraph));
+        AddLine(@"/// </remarks>");
       }
 
       public void AddParameterComments(List<IParameter> parameters)
