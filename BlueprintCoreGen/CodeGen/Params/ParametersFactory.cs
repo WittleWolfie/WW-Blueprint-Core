@@ -15,10 +15,12 @@ namespace BlueprintCoreGen.CodeGen.Params
 {
   public static class ParametersFactory
   {
-    public static IBlueprintParameter CreateForBlueprintField(
-      FieldInfo field, MethodOverride methodOverride, bool isBitFlag)
+    /// <summary>
+    /// Returns a parameter which can be used to construct any field modification methods.
+    /// </summary>
+    public static IBlueprintParameter CreateForBlueprintField(Type blueprintType, FieldInfo field)
     { 
-      return null;
+      return CreateBlueprintFieldParameter(field, blueprintType);
     }
 
     /// <summary>
@@ -102,8 +104,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       return param;
     }
 
-    private static BlueprintFieldParameter CreateBlueprintFieldParameter(
-      FieldInfo info, Type sourceType, MethodOverride methodOverride)
+    private static BlueprintFieldParameter CreateBlueprintFieldParameter(FieldInfo info, Type sourceType)
     {
       var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
@@ -132,11 +133,7 @@ namespace BlueprintCoreGen.CodeGen.Params
           isEnumerable ? GetClearOperationFmt(info) : new(),
           isEnumerable ? GetModifyOperationFmt(info) : new());
 
-      // Apply type specific, then field specific, then method specific overrides (priority order).
       GetTypeOverride(info.FieldType)?.ApplyTo(param);
-      GetFieldOverride(info.Name, sourceType)?.ApplyTo(param);
-      methodOverride.ApplyTo(info, param);
-
       return param;
     }
 
