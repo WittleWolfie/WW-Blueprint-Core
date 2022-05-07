@@ -120,7 +120,7 @@ namespace BlueprintCoreGen.CodeGen.Params
         List<Type> imports,
         List<string> commentFmt,
         string defaultValue,
-        List<string> validationFmt,
+        string validationFmt,
         string assignmentRhsFmt,
         string assignmentIfNullRhs)
     {
@@ -132,7 +132,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       CommentFmt = commentFmt;
       DefaultValue = defaultValue;
 
-      ValidationFmt = validationFmt;
+      ValidationFmt = new() { validationFmt };
       AssignmentFmtRhs = assignmentRhsFmt;
       AssignmentIfNullRhs = assignmentIfNullRhs;
       ExtraAssignmentFmtLines = new();
@@ -270,6 +270,9 @@ namespace BlueprintCoreGen.CodeGen.Params
     }
   }
 
+  /// <summary>
+  /// Internal representation of a parameter used for a blueprint configurator field method.
+  /// </summary>
   public class BlueprintFieldParameter : IParameterInternal
   {
     public List<Type> Imports { get; }
@@ -314,6 +317,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     public BlueprintFieldParameter(
       string paramName,
       string typeName,
+      bool useParams,
       List<Type> imports,
       List<string> commentFmt,
       string defaultValue,
@@ -322,6 +326,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     {
       ParamName = paramName;
       TypeName = typeName;
+      UseParams = useParams;
 
       Imports = imports;
       CommentFmt = commentFmt;

@@ -15,8 +15,7 @@ namespace BlueprintCoreGen.CodeGen.Params
   public static class ParametersFactory
   {
     public static List<IParameter> CreateForSetField(FieldInfo field, MethodOverride methodOverride, bool isBitFlag)
-    {
-      
+    { 
       return null;
     }
 
@@ -76,15 +75,15 @@ namespace BlueprintCoreGen.CodeGen.Params
         });
 
       return ignoredField
-          || info.Name.Contains("__BackingField") // Compiler generated field
-                                                  // Skip constant, static, and read-only
-          || info.IsLiteral
-          || info.IsStatic
-          || info.IsInitOnly;
+        || info.Name.Contains("__BackingField") // Compiler generated field
+                                                // Skip constant, static, and read-only
+        || info.IsLiteral
+        || info.IsStatic
+        || info.IsInitOnly;
     }
 
     private static FieldParameter CreateFieldParameter(
-        FieldInfo info, Type sourceType, MethodOverride methodOverride)
+      FieldInfo info, Type sourceType, MethodOverride methodOverride)
     {
       var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
       var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
@@ -95,16 +94,46 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (enumerableType is not null) { imports.Add(enumerableType); }
 
       FieldParameter param =
-          new(
-              info.Name,
-              GetParamName(info.Name),
-              GetTypeName(info.FieldType, blueprintType, enumerableType),
-              GetImports(info.FieldType).Concat(imports).ToList(),
-              GetCommentFmt(info, blueprintType),
-              GetDefaultValue(),
-              GetValidationFmt(info.FieldType, blueprintType, enumerableType),
-              GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
-              GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
+        new(
+          info.Name,
+          GetParamName(info.Name),
+          GetTypeName(info.FieldType, blueprintType, enumerableType),
+          GetImports(info.FieldType).Concat(imports).ToList(),
+          GetCommentFmt(info, blueprintType),
+          GetDefaultValue(),
+          GetValidationFmt(info.FieldType, blueprintType, enumerableType),
+          GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
+          GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
+
+      // Apply type specific, then field specific, then method specific overrides (priority order).
+      GetTypeOverride(info.FieldType)?.ApplyTo(param);
+      GetFieldOverride(info.Name, sourceType)?.ApplyTo(param);
+      methodOverride.ApplyTo(info, param);
+
+      return param;
+    }
+
+    private static BlueprintFieldParameter CreateBlueprintFieldParameter(
+      FieldInfo info, Type sourceType, MethodOverride methodOverride, string operationFmt)
+    {
+      var blueprintType = TypeTool.GetBlueprintType(info.FieldType);
+      var enumerableType = TypeTool.GetEnumerableType(info.FieldType);
+
+      // These are annoying to pull out of the recursive GetImports function, so handle them separately.
+      List<Type> imports = new();
+      if (blueprintType is not null) { imports.Add(blueprintType); }
+      if (enumerableType is not null) { imports.Add(enumerableType); }
+
+      BlueprintFieldParameter param =
+        new(
+          GetParamName(info.Name),
+          GetTypeNameForParams(info.FieldType, blueprintType, enumerableType),
+          /* useParams= */ enumerableType is not null || TypeTool.IsBitFlag(info.FieldType),
+          GetImports(info.FieldType).Concat(imports).ToList(),
+          GetCommentFmt(info, blueprintType),
+          GetDefaultValueForBlueprintField(info.FieldType),
+          GetValidationFmt(info.FieldType, blueprintType, enumerableType),
+          operationFmt);
 
       // Apply type specific, then field specific, then method specific overrides (priority order).
       GetTypeOverride(info.FieldType)?.ApplyTo(param);
@@ -182,6 +211,24 @@ namespace BlueprintCoreGen.CodeGen.Params
       return TypeTool.GetName(type);
     }
 
+    private static string GetTypeNameForParams(Type type, Type? blueprintType, Type? enumerableType)
+    {
+      if (blueprintType is not null)
+      {
+        if (enumerableType is not null)
+        {
+          return $"Blueprint<{TypeTool.GetName(blueprintType)}, {TypeTool.GetName(enumerableType)}>";
+        }
+        return $"Blueprint<{TypeTool.GetName(blueprintType)}, {TypeTool.GetName(type)}>";
+      }
+
+      if (enumerableType is not null)
+      {
+        return TypeTool.GetName(enumerableType);
+      }
+      return TypeTool.GetName(type);
+    }
+
     private static List<Type> GetImports(Type type)
     {
       List<Type> imports = new() { type, typeof(Enumerable), typeof(List<>) };
@@ -241,24 +288,33 @@ namespace BlueprintCoreGen.CodeGen.Params
       return "null";
     }
 
+    public static string GetDefaultValueForBlueprintField(Type fieldType)
+    {
+      if (fieldType == typeof(bool))
+      {
+        return "true";
+      }
+      return "";
+    }
+
     // TODO: Validation parenting is technically supported but doesn't work yet. Need to figure out how to handle the
     // case where an ActionsBuilder or ConditionsBuilder accepts a builder as an input. At that point there is no
     // Validator to point to so the child would need to ignore it. Somehow need to store child values? Maybe the
     // Validator can special case ActionsBuilder/ConditionsBuilder types?
-    private static List<string> GetValidationFmt(Type type, Type? blueprintType, Type? enumerableType)
+    private static string GetValidationFmt(Type type, Type? blueprintType, Type? enumerableType)
     {
       if (ShouldSkipValidation(type, blueprintType)
           || (enumerableType is not null && ShouldSkipValidation(enumerableType, blueprintType)))
       {
-        return new();
+        return "";
       }
 
       if (enumerableType is not null)
       {
-        return new() { "foreach (var item in {1}) {{ {0}(item); }}" };
+        return "foreach (var item in {1}) {{ {0}(item); }}";
       }
 
-      return new() { "{0}({1});" };
+      return "{0}({1});";
     }
 
     private static bool ShouldSkipValidation(Type type, Type? blueprintType)
@@ -322,6 +378,11 @@ namespace BlueprintCoreGen.CodeGen.Params
         return $"BlueprintTool.GetRef<{TypeTool.GetName(type)}>(null)";
       }
 
+      return "";
+    }
+
+    private static string GetSetOperation()
+    {
       return "";
     }
   }
