@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 
 namespace BlueprintCoreGen.CodeGen.Params
@@ -87,7 +88,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Default value for optional parameters
     /// </summary>
-    public string? DefaultValue { get; private set; }
+    private string? DefaultValue { get; set; }
 
     public bool Required => string.IsNullOrEmpty(DefaultValue);
 
@@ -266,6 +267,103 @@ namespace BlueprintCoreGen.CodeGen.Params
       assignmentIfNull.Add($"  {objectName}.{FieldName} = {AssignmentIfNullRhs};");
       assignmentIfNull.Add($"}}");
       return assignmentIfNull;
+    }
+  }
+
+  public class BlueprintFieldParameter : IParameterInternal
+  {
+    public List<Type> Imports { get; }
+
+    /// <summary>
+    /// Comment format string where {0} is the parameter name
+    /// </summary>
+    private List<string> CommentFmt { get; set; }
+    public List<string> Comment => GetComment();
+
+    /// <summary>
+    /// If set, the parameter is declared using "params"
+    /// </summary>
+    private bool UseParams { get; set; }
+    public string Declaration => GetDeclaration();
+
+    /// <summary>
+    /// Default value for optional parameters
+    /// </summary>
+    private string? DefaultValue { get; set; }
+    public bool Required => string.IsNullOrEmpty(DefaultValue);
+
+    public string ParamName { get; private set; }
+    private string TypeName { get; set; }
+
+    /// <summary>
+    /// Operation format string where {0} is the object name and {1} is the parameter name 
+    /// </summary>
+    private string OperationFmt { get; set; }
+
+    /// <summary>
+    /// Validation format string where {0} is the validation function and {1} is the parameter name
+    /// </summary>
+    private string ValidationFmt { get; set; }
+
+    /// <summary>
+    /// Operation format strings for additional lines of code after the assignment statement, where {0} is the
+    /// object name and {1} is the parameter name
+    /// </summary>
+    private List<string> ExtraOperationFmt { get; set; }
+
+    public BlueprintFieldParameter(
+      string paramName,
+      string typeName,
+      List<Type> imports,
+      List<string> commentFmt,
+      string defaultValue,
+      string validationFmt,
+      string operationFmt)
+    {
+      ParamName = paramName;
+      TypeName = typeName;
+
+      Imports = imports;
+      CommentFmt = commentFmt;
+      DefaultValue = defaultValue;
+
+      ValidationFmt = validationFmt;
+      OperationFmt = operationFmt;
+      ExtraOperationFmt = new();
+    }
+
+    private List<string> GetComment()
+    {
+      if (CommentFmt.Any())
+      {
+        return CommentFmt.Prepend("<param name=\"{0}\">")
+          .Append("</param>")
+          .Select(line => string.Format(line, ParamName))
+          .ToList();
+      }
+      return CommentFmt;
+    }
+
+    private string GetDeclaration()
+    {
+      if (UseParams)
+      {
+        return $"params {TypeName}[] {ParamName}";
+      }
+
+      var declaration = $"{TypeName} {ParamName}";
+      return string.IsNullOrEmpty(DefaultValue)
+          ? declaration
+          : $"{declaration} = {DefaultValue}";
+    }
+
+    public List<string> GetOperation(string objectName, string validateFunction)
+    {
+      List<string> operation = new();
+      operation.Add(string.Format(ValidationFmt, validateFunction, ParamName));
+      operation.Add(string.Format(OperationFmt, objectName, ParamName));
+      operation.AddRange(ExtraOperationFmt.Select(line => string.Format(line, objectName, ParamName)));
+      return operation;
     }
   }
 }
