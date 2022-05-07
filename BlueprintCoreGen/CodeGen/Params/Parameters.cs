@@ -70,12 +70,12 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// Returns a statement which uses the parameter to remove values from a field on the object. The provided
     /// validation function is called on the parameter before use.
     /// </summary>
-    List<string> GetRemoveOperation(string objectName, string validateFunction);
+    List<string> GetRemoveOperation(string objectName);
 
     /// <summary>
     /// Returns a statement which uses the parameter to remove values matching a predicate from a field on the object.
     /// </summary>
-    List<string> GetRemovePredicateOperation(string objectName);
+    List<string> GetRemovePredicateOperation(string objectName, string predicateName);
 
     /// <summary>
     /// Returns a statement which clears a field on the object.
@@ -85,7 +85,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Returns a statement which executes an action on all values in a field on the object.
     /// </summary>
-    List<string> GetModifyOperation (string objectName);
+    List<string> GetModifyOperation (string objectName, string actionName);
   }
 
   /// <summary>
@@ -392,7 +392,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       return AddOperationFmt.Select(line => string.Format(line, objectName, ParamName)).ToList();
     }
 
-    public List<string> GetRemoveOperation(string objectName, string validateFunction)
+    public List<string> GetRemoveOperation(string objectName)
     {
       return RemoveOperationFmt.Select(line => string.Format(line, objectName, ParamName)).ToList();
     }

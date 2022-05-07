@@ -30,81 +30,131 @@ namespace BlueprintCoreGen.CodeGen.Methods
   // TODO: Add config overrides for configurator methods
   public static class MethodFactory
   {
-    public static List<IMethod> CreateForField(FieldInfo field, FieldMethod fieldMethod, string returnType)
+    private static readonly string OnConfigureObjName = "bp";
+    private static readonly string BlueprintValidateFunction = "Validate";
+    public static List<IMethod> CreateForField(
+      Type blueprintType, FieldInfo field, FieldMethod fieldMethod, string returnType)
     {
       List<IMethod> methods = new();
       var isBitFlag = TypeTool.IsBitFlag(field.FieldType);
 
-      if (fieldMethod.SetMethods.Any())
+      IBlueprintParameter parameter = ParametersFactory.CreateForBlueprintField(blueprintType, field);
+      methods.Add(
+        CreateFieldMethod(
+          field,
+          returnType,
+          fieldMethod,
+          parameter,
+          parameter.GetOperation(OnConfigureObjName, BlueprintValidateFunction),
+          isBitFlag ? parameter.ParamsDeclaration : parameter.Declaration,
+          "Sets",
+          "Set"));
+
+      var addOperation = parameter.GetAddOperation(OnConfigureObjName, BlueprintValidateFunction);
+      if (addOperation.Any())
       {
-        foreach (var methodOverride in fieldMethod.SetMethods)
-        {
-          methods.Add(CreateSetField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride), isBitFlag));
-        }
-      }
-      else
-      {
-        methods.Add(CreateSetField(field, returnType, fieldMethod, isBitFlag));
+        methods.Add(
+          CreateFieldMethod(
+            field,
+            returnType,
+            fieldMethod,
+            parameter,
+            addOperation,
+            parameter.ParamsDeclaration,
+            "Adds to",
+            "AddTo"));
       }
 
-      if (TypeTool.GetEnumerableType(field.FieldType) is not null || isBitFlag)
+      var removeOperation = parameter.GetRemoveOperation(OnConfigureObjName);
+      if (removeOperation.Any())
       {
-        if (fieldMethod.AddToMethods.Any())
-        {
-          foreach (var methodOverride in fieldMethod.AddToMethods)
-          {
-            methods.Add(
-              CreateAddToField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride), isBitFlag));
-          }
-        }
-        else
-        {
-          methods.Add(CreateAddToField(field, returnType, fieldMethod, isBitFlag));
-        }
+        methods.Add(
+          CreateFieldMethod(
+            field,
+            returnType,
+            fieldMethod,
+            parameter,
+            removeOperation,
+            parameter.ParamsDeclaration,
+            "Removes from",
+            "RemoveFrom"));
+      }
 
-        if (fieldMethod.RemoveFromMethods.Any())
-        {
-          foreach (var methodOverride in fieldMethod.RemoveFromMethods)
-          {
-            methods.Add(
-              CreateRemoveFromField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride), isBitFlag));
-          }
-        }
-        else
-        {
-          methods.Add(CreateRemoveFromField(field, returnType, fieldMethod, isBitFlag));
-        }
+      var removePredicateOperation = parameter.GetRemovePredicateOperation(OnConfigureObjName, "predicate");
+      if (removePredicateOperation.Any())
+      {
+        methods.Add(
+          CreateFieldMethod(
+            field,
+            returnType,
+            fieldMethod,
+            parameter,
+            removePredicateOperation,
+            $"{GetPredicateTypeName(field.FieldType)} predicate",
+            "Removes from",
+            "RemoveFrom"));
+      }
+
+      var clearOperation = parameter.GetClearOperation(OnConfigureObjName);
+      if (clearOperation.Any())
+      {
+        methods.Add(
+          CreateFieldMethod(
+            field,
+            returnType,
+            fieldMethod,
+            parameter,
+            clearOperation,
+            "",
+            "Removes from",
+            "RemoveFrom"));
+      }
+
+      var modifyOperation = parameter.GetModifyOperation(OnConfigureObjName, "action");
+      if (modifyOperation.Any())
+      {
+        methods.Add(
+          CreateFieldMethod(
+            field,
+            returnType,
+            fieldMethod,
+            parameter,
+            modifyOperation,
+            $"{GetActionTypeName(field.FieldType)} action",
+            "Removes from",
+            "RemoveFrom"));
       }
 
       return methods;
     }
 
-    private static IMethod CreateSetField(
-      FieldInfo field, string returnType, MethodOverride methodOverride, bool isBitFlag)
+    private static string GetPredicateTypeName(Type type)
     {
-      return CreateFieldMethod(
-        field, returnType, methodOverride, ParametersFactory.CreateForSetField(field, methodOverride), "Sets", "Set");
+      var enumerableType = TypeTool.GetEnumerableType(type);
+      if (enumerableType is not null)
+      {
+        return $"Func<{TypeTool.GetName(enumerableType)}, bool>";
+      }
+      return $"Func<{TypeTool.GetName(type)}, bool>";
     }
 
-    private static IMethod CreateAddToField(
-      FieldInfo field, string returnType, MethodOverride methodOverride, bool isBitFlag)
+    private static string GetActionTypeName(Type type)
     {
-      return CreateFieldMethod(
-        field, returnType, methodOverride, ParametersFactory.CreateForAddToField(field, methodOverride), "Adds to", "AddTo");
-    }
-
-    private static IMethod CreateRemoveFromField(
-      FieldInfo field, string returnType, MethodOverride methodOverride, bool isBitFlag)
-    {
-      return CreateFieldMethod(
-        field, returnType, methodOverride, ParametersFactory.CreateForRemoveFromField(field, methodOverride), "Removes from", "RemoveFrom");
+      var enumerableType = TypeTool.GetEnumerableType(type);
+      if (enumerableType is not null)
+      {
+        return $"Action<{TypeTool.GetName(enumerableType)}>";
+      }
+      return $"Action<{TypeTool.GetName(type)}>";
     }
 
     private static IMethod CreateFieldMethod(
       FieldInfo field,
       string returnType,
       MethodOverride methodOverride,
-      List<IParameter> parameters,
+      IBlueprintParameter parameter,
+      List<string> operation,
+      string parameterDeclaration,
       string commentPrefix,
       string methodPrefix)
     {
@@ -112,7 +162,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       // Imports
       method.AddImport(field.FieldType);
-      method.AddParameterImports(parameters);
+      method.AddImport(typeof(Action));
+      method.AddParameterImports(new() { parameter });
       method.AddTypeNameImports(methodOverride.Imports);
 
       // Comment summary
@@ -123,25 +174,19 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddRemarks(methodOverride.Remarks);
 
       // Parameter comments
-      method.AddParameterComments(parameters);
+      method.AddParameterComments(new() { parameter });
 
       var methodName =
         string.IsNullOrEmpty(methodOverride.MethodName)
           ? GetFieldMethodName(methodPrefix, field.Name)
           : methodOverride.MethodName;
 
-      // Declarations
-      var declarations = parameters.Select(param => param.Declaration);
-      method.AddLine($"public {returnType} {methodName}(");
-      declarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"  {declaration}"));
-      method.AddLine($"  {declarations.Last()})");
+      // Declaration
+      method.AddLine($"public {returnType} {methodName}({parameterDeclaration})");
       method.AddLine($"{{");
 
       // Assignment & extra lines
-      var operation =
-        parameters.SelectMany(param => param.GetOperation("bp", "Validate"))
-          .Concat(methodOverride.ExtraFmtLines.Select(line => $"{string.Format(line, "bp")}"));
-      AddOnConfigure(method, operation.ToList());
+      AddOnConfigure(method, operation);
       method.AddLine($"}}");
 
       return method;
