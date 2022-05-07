@@ -1,12 +1,10 @@
 ﻿using BlueprintCore.Utils;
-using BlueprintCoreGen.CodeGen.Class;
 using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using BlueprintCoreGen.CodeGen.Params;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
@@ -28,8 +26,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
     List<string> GetLines();
   }
 
-  // TODO: Create Blueprint field methods
-  // TODO: Add config overrides for components & fields
+  // TODO: Create configurator instantiation methods methods
+  // TODO: Add config overrides for configurator methods
   public static class MethodFactory
   {
     public static List<IMethod> CreateForField(FieldInfo field, FieldMethod fieldMethod, string returnType)
@@ -52,27 +50,59 @@ namespace BlueprintCoreGen.CodeGen.Methods
       {
         if (fieldMethod.AddToMethods.Any())
         {
+          foreach (var methodOverride in fieldMethod.AddToMethods)
+          {
+            methods.Add(CreateAddToField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride)));
+          }
         }
         else
         {
+          methods.Add(CreateAddToField(field, returnType, fieldMethod));
         }
 
         if (fieldMethod.RemoveFromMethods.Any())
         {
+          foreach (var methodOverride in fieldMethod.RemoveFromMethods)
+          {
+            methods.Add(CreateRemoveFromField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride)));
+          }
         }
         else
         {
+          methods.Add(CreateRemoveFromField(field, returnType, fieldMethod));
         }
       }
 
       return methods;
     }
 
-    private static IMethod CreateSetField(
-      FieldInfo field, string returnType, MethodOverride methodOverride)
+    private static IMethod CreateSetField(FieldInfo field, string returnType, MethodOverride methodOverride)
+    {
+      return CreateFieldMethod(
+        field, returnType, methodOverride, ParametersFactory.CreateForSetField(field, methodOverride), "Sets", "Set");
+    }
+
+    private static IMethod CreateAddToField(FieldInfo field, string returnType, MethodOverride methodOverride)
+    {
+      return CreateFieldMethod(
+        field, returnType, methodOverride, ParametersFactory.CreateForAddToField(field, methodOverride), "Adds to", "AddTo");
+    }
+
+    private static IMethod CreateRemoveFromField(FieldInfo field, string returnType, MethodOverride methodOverride)
+    {
+      return CreateFieldMethod(
+        field, returnType, methodOverride, ParametersFactory.CreateForRemoveFromField(field, methodOverride), "Removes from", "RemoveFrom");
+    }
+
+    private static IMethod CreateFieldMethod(
+      FieldInfo field,
+      string returnType,
+      MethodOverride methodOverride,
+      List<IParameter> parameters,
+      string commentPrefix,
+      string methodPrefix)
     {
       var method = new MethodImpl();
-      var parameters = ParametersFactory.CreateForSetField(field, methodOverride);
 
       // Imports
       method.AddImport(field.FieldType);
@@ -80,7 +110,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddTypeNameImports(methodOverride.Imports);
 
       // Comment summary
-      method.AddCommentSummary($"Sets <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/>");
+      method.AddCommentSummary(
+        $"{commentPrefix} <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/>");
 
       // Remarks
       method.AddRemarks(methodOverride.Remarks);
@@ -90,7 +121,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       var methodName =
         string.IsNullOrEmpty(methodOverride.MethodName)
-          ? GetFieldMethodName("Set", field.Name)
+          ? GetFieldMethodName(methodPrefix, field.Name)
           : methodOverride.MethodName;
 
       // Declarations
