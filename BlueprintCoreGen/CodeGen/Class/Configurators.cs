@@ -108,6 +108,10 @@ namespace BlueprintCoreGen.CodeGen.Class
         var abstractClassName = $"Base{className}";
         var typeName = TypeTool.GetName(blueprintType);
 
+        List<FieldMethod> fieldMethods = new();
+        // TODO: Add ignored field handling
+        blueprintType.GetFields().ToList().ForEach(field => fieldMethods.Add(new(field.Name)));
+
         if (blueprintType.IsAbstract)
         {
           var configuratorImpl =
@@ -119,7 +123,8 @@ namespace BlueprintCoreGen.CodeGen.Class
               typeName,
               blueprintType,
               /* isAbstract= */ true,
-              componentMethodsByBlueprintType[blueprintType]);
+              componentMethodsByBlueprintType[blueprintType],
+              fieldMethods);
           configuratorImpl.IsRoot = blueprintType == BlueprintTypeRoot;
           configurators.Add(configuratorImpl);
           continue;
@@ -134,7 +139,8 @@ namespace BlueprintCoreGen.CodeGen.Class
             typeName,
             blueprintType,
             /* isAbstract= */ true,
-            componentMethodsByBlueprintType[blueprintType]));
+            componentMethodsByBlueprintType[blueprintType],
+            fieldMethods));
         configurators.Add(
           new ConfiguratorImpl(
             GetFilePath(relativeNamespace, className),
@@ -144,7 +150,8 @@ namespace BlueprintCoreGen.CodeGen.Class
             typeName,
             blueprintType,
             /* isAbstract= */ false,
-            new())); // All the methods are in the base class
+            new(), // All the methods are in the base class
+            new())); 
       }
 
       return configurators;
@@ -257,9 +264,9 @@ namespace BlueprintCoreGen.CodeGen.Class
 
       public List<ConstructorMethod> ComponentMethods { get; }
 
-      public bool IsRoot { get; set; } = false;
+      public List<FieldMethod> FieldMethods { get; }
 
-      public List<FieldMethod> FieldMethods => throw new NotImplementedException();
+      public bool IsRoot { get; set; } = false;
 
       public ConfiguratorImpl(
         string filePath,
@@ -269,7 +276,8 @@ namespace BlueprintCoreGen.CodeGen.Class
         string typeName,
         Type blueprintType,
         bool isAbstract,
-        List<ConstructorMethod> componentMethods)
+        List<ConstructorMethod> componentMethods,
+        List<FieldMethod> fieldMethods)
       {
         FilePath = filePath;
         Namespace = nameSpace;
@@ -279,6 +287,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         BlueprintType = blueprintType;
         IsAbstract = isAbstract;
         ComponentMethods = componentMethods;
+        FieldMethods = fieldMethods;
       }
     }
   }

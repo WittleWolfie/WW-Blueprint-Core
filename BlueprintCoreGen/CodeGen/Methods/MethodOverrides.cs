@@ -237,5 +237,10 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
     [JsonProperty]
     public MethodOverride Modify { get; private set; }
+
+    public FieldMethod(string fieldName)
+    {
+      FieldName = fieldName;
+    }
   }
 }
