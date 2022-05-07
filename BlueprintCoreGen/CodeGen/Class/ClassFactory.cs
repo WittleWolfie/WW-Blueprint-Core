@@ -117,7 +117,19 @@ namespace BlueprintCoreGen.CodeGen.Class
       // TODO
 
       // Field Methods
-      // TODO
+      configurator.FieldMethods.ForEach(
+        fieldMethod =>
+        {
+          MethodFactory.CreateForField(
+              configurator.BlueprintType, fieldMethod, configurator.IsAbstract ? "TBuilder" : configurator.ClassName)
+            .ForEach(
+              method =>
+              {
+                method.GetImports().ForEach(import => configuratorClass.AddImport(import));
+                configuratorClass.AddLine("");
+                method.GetLines().ForEach(line => configuratorClass.AddLine($"    {line}"));
+              });
+        });
 
       // Component Methods
       configurator.ComponentMethods.ForEach(

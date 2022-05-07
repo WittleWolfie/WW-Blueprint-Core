@@ -38,6 +38,11 @@ namespace BlueprintCoreGen.CodeGen.Class
     public string TypeName { get; }
 
     /// <summary>
+    /// Type of blueprint, e.g. BlueprintFeature
+    /// </summary>
+    public Type BlueprintType { get; }
+
+    /// <summary>
     /// Indicates whether the configurator is abstract.
     /// </summary>
     public bool IsAbstract { get; }
@@ -47,7 +52,10 @@ namespace BlueprintCoreGen.CodeGen.Class
     /// </summary>
     public List<ConstructorMethod> ComponentMethods { get; }
 
-    // TODO: Field methods
+    /// <summary>
+    /// List of field methods for the blueprint.
+    /// </summary>
+    public List<FieldMethod> FieldMethods { get; }
 
     // TODO: New method
 
@@ -109,6 +117,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               abstractClassName,
               parentClassName,
               typeName,
+              blueprintType,
               /* isAbstract= */ true,
               componentMethodsByBlueprintType[blueprintType]);
           configuratorImpl.IsRoot = blueprintType == BlueprintTypeRoot;
@@ -116,38 +125,26 @@ namespace BlueprintCoreGen.CodeGen.Class
           continue;
         }
 
-        if (gameTypes.ToList().Exists(t => t.IsSubclassOf(blueprintType)))
-        {
-          configurators.Add(
-            new ConfiguratorImpl(
-              GetFilePath(relativeNamespace, abstractClassName),
-              nameSpace,
-              abstractClassName,
-              parentClassName,
-              typeName,
-              /* isAbstract= */ true,
-              componentMethodsByBlueprintType[blueprintType]));
-          configurators.Add(
-            new ConfiguratorImpl(
-              GetFilePath(relativeNamespace, className),
-              nameSpace,
-              className,
-              abstractClassName,
-              typeName,
-              /* isAbstract= */ false,
-              new())); // All the methods are in the base class
-          continue;
-        }
-
+        configurators.Add(
+          new ConfiguratorImpl(
+            GetFilePath(relativeNamespace, abstractClassName),
+            nameSpace,
+            abstractClassName,
+            parentClassName,
+            typeName,
+            blueprintType,
+            /* isAbstract= */ true,
+            componentMethodsByBlueprintType[blueprintType]));
         configurators.Add(
           new ConfiguratorImpl(
             GetFilePath(relativeNamespace, className),
             nameSpace,
             className,
-            parentClassName,
+            abstractClassName,
             typeName,
+            blueprintType,
             /* isAbstract= */ false,
-            componentMethodsByBlueprintType[blueprintType]));
+            new())); // All the methods are in the base class
       }
 
       return configurators;
@@ -255,11 +252,14 @@ namespace BlueprintCoreGen.CodeGen.Class
 
       public string TypeName { get; }
 
+      public Type BlueprintType { get; }
       public bool IsAbstract { get; }
 
       public List<ConstructorMethod> ComponentMethods { get; }
 
       public bool IsRoot { get; set; } = false;
+
+      public List<FieldMethod> FieldMethods => throw new NotImplementedException();
 
       public ConfiguratorImpl(
         string filePath,
@@ -267,6 +267,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         string className,
         string parentClassName,
         string typeName,
+        Type blueprintType,
         bool isAbstract,
         List<ConstructorMethod> componentMethods)
       {
@@ -275,6 +276,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         ClassName = className;
         ParentClassName = parentClassName;
         TypeName = typeName;
+        BlueprintType = blueprintType;
         IsAbstract = isAbstract;
         ComponentMethods = componentMethods;
       }

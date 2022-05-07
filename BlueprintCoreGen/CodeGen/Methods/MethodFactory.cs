@@ -33,9 +33,10 @@ namespace BlueprintCoreGen.CodeGen.Methods
     private static readonly string OnConfigureObjName = "bp";
     private static readonly string BlueprintValidateFunction = "Validate";
     public static List<IMethod> CreateForField(
-      Type blueprintType, FieldInfo field, FieldMethod fieldMethod, string returnType)
+      Type blueprintType, FieldMethod fieldMethod, string returnType)
     {
       List<IMethod> methods = new();
+      FieldInfo field = blueprintType.GetField(fieldMethod.FieldName)!;
       var isBitFlag = TypeTool.IsBitFlag(field.FieldType);
 
       IBlueprintParameter parameter = ParametersFactory.CreateForBlueprintField(blueprintType, field);
@@ -43,7 +44,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
         CreateFieldMethod(
           field,
           returnType,
-          fieldMethod,
+          fieldMethod.Set,
           parameter,
           parameter.GetOperation(OnConfigureObjName, BlueprintValidateFunction),
           isBitFlag ? parameter.ParamsDeclaration : parameter.Declaration,
@@ -57,7 +58,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           CreateFieldMethod(
             field,
             returnType,
-            fieldMethod,
+            fieldMethod.AddTo,
             parameter,
             addOperation,
             parameter.ParamsDeclaration,
@@ -72,7 +73,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           CreateFieldMethod(
             field,
             returnType,
-            fieldMethod,
+            fieldMethod.RemoveFrom,
             parameter,
             removeOperation,
             parameter.ParamsDeclaration,
@@ -87,7 +88,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           CreateFieldMethod(
             field,
             returnType,
-            fieldMethod,
+            fieldMethod.RemoveFromPredicate,
             parameter,
             removePredicateOperation,
             $"{GetPredicateTypeName(field.FieldType)} predicate",
@@ -102,7 +103,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           CreateFieldMethod(
             field,
             returnType,
-            fieldMethod,
+            fieldMethod.Clear,
             parameter,
             clearOperation,
             "",
@@ -117,7 +118,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           CreateFieldMethod(
             field,
             returnType,
-            fieldMethod,
+            fieldMethod.Modify,
             parameter,
             modifyOperation,
             $"{GetActionTypeName(field.FieldType)} action",
