@@ -30,6 +30,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
   // TODO: Add config overrides for configurator methods
   public static class MethodFactory
   {
+    public static List<IMethod> CreateForNewConfigurator(Type blueprintType)
+    {
+      List<IMethod> methods = new();
+
+      return methods;
+    }
+
     private static readonly string OnConfigureObjName = "bp";
     private static readonly string BlueprintValidateFunction = "Validate";
     public static List<IMethod> CreateForField(
