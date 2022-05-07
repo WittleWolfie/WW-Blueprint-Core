@@ -112,6 +112,14 @@ namespace BlueprintCoreGen.CodeGen
           ?.GetGenericArguments()[0];
     }
 
+    /// <summary>
+    /// Returns whether the given type is a bit flag enum.
+    /// </summary>
+    public static bool IsBitFlag(Type type)
+    {
+      return type.IsEnum && type.GetAttribute<FlagsAttribute>() is not null;
+    }
+
     // TODO: Delete? Seems like this isn't needed.
     private static string GetSimpleTypeName(Type type)
     {

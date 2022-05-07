@@ -14,14 +14,20 @@ namespace BlueprintCoreGen.CodeGen.Params
 {
   public static class ParametersFactory
   {
-    public enum FieldOperation
+    public static List<IParameter> CreateForSetField(FieldInfo field, MethodOverride methodOverride, bool isBitFlag)
     {
-      Set,
-      AddTo,
-      RemoveFrom
+      
+      return null;
     }
-    public static List<IParameter> CreateForConfiguratorField(
-      FieldInfo field, MethodOverride methodOverride, params IParameterInternal[] extraParams)
+
+    public static List<IParameter> CreateForRemoveFromField(
+      FieldInfo field, MethodOverride methodOverride, bool isBitFlag)
+    {
+      // TODO
+      return null;
+    }
+
+    public static List<IParameter> CreateForAddToField(FieldInfo field, MethodOverride methodOverride, bool isBitFlag)
     {
       // TODO
       return null;

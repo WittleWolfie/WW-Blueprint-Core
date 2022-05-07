@@ -33,62 +33,68 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public static List<IMethod> CreateForField(FieldInfo field, FieldMethod fieldMethod, string returnType)
     {
       List<IMethod> methods = new();
+      var isBitFlag = TypeTool.IsBitFlag(field.FieldType);
 
       if (fieldMethod.SetMethods.Any())
       {
         foreach (var methodOverride in fieldMethod.SetMethods)
         {
-          methods.Add(CreateSetField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride)));
+          methods.Add(CreateSetField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride), isBitFlag));
         }
       }
       else
       {
-        methods.Add(CreateSetField(field, returnType, fieldMethod));
+        methods.Add(CreateSetField(field, returnType, fieldMethod, isBitFlag));
       }
 
-      if (TypeTool.GetEnumerableType(field.FieldType) is not null)
+      if (TypeTool.GetEnumerableType(field.FieldType) is not null || isBitFlag)
       {
         if (fieldMethod.AddToMethods.Any())
         {
           foreach (var methodOverride in fieldMethod.AddToMethods)
           {
-            methods.Add(CreateAddToField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride)));
+            methods.Add(
+              CreateAddToField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride), isBitFlag));
           }
         }
         else
         {
-          methods.Add(CreateAddToField(field, returnType, fieldMethod));
+          methods.Add(CreateAddToField(field, returnType, fieldMethod, isBitFlag));
         }
 
         if (fieldMethod.RemoveFromMethods.Any())
         {
           foreach (var methodOverride in fieldMethod.RemoveFromMethods)
           {
-            methods.Add(CreateRemoveFromField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride)));
+            methods.Add(
+              CreateRemoveFromField(field, returnType, MethodOverride.Merge(fieldMethod, methodOverride), isBitFlag));
           }
         }
         else
         {
-          methods.Add(CreateRemoveFromField(field, returnType, fieldMethod));
+          methods.Add(CreateRemoveFromField(field, returnType, fieldMethod, isBitFlag));
         }
       }
 
       return methods;
     }
 
-    private static IMethod CreateSetField(FieldInfo field, string returnType, MethodOverride methodOverride)
+    private static IMethod CreateSetField(
+      FieldInfo field, string returnType, MethodOverride methodOverride, bool isBitFlag)
     {
       return CreateFieldMethod(
         field, returnType, methodOverride, ParametersFactory.CreateForSetField(field, methodOverride), "Sets", "Set");
     }
 
-    private static IMethod CreateAddToField(FieldInfo field, string returnType, MethodOverride methodOverride)
+    private static IMethod CreateAddToField(
+      FieldInfo field, string returnType, MethodOverride methodOverride, bool isBitFlag)
     {
       return CreateFieldMethod(
         field, returnType, methodOverride, ParametersFactory.CreateForAddToField(field, methodOverride), "Adds to", "AddTo");
     }
 
-    private static IMethod CreateRemoveFromField(FieldInfo field, string returnType, MethodOverride methodOverride)
+    private static IMethod CreateRemoveFromField(
+      FieldInfo field, string returnType, MethodOverride methodOverride, bool isBitFlag)
     {
       return CreateFieldMethod(
         field, returnType, methodOverride, ParametersFactory.CreateForRemoveFromField(field, methodOverride), "Removes from", "RemoveFrom");
