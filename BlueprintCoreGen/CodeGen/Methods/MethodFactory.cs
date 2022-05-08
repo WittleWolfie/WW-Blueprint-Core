@@ -144,8 +144,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             parameter,
             clearOperation,
             "",
-            "Removes from",
-            "RemoveFrom"));
+            "Clear",
+            "Clear"));
       }
 
       var modifyOperation = parameter.GetModifyOperation(OnConfigureObjName, "action");
@@ -159,8 +159,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             parameter,
             modifyOperation,
             $"{GetActionTypeName(field.FieldType)} action",
-            "Removes from",
-            "RemoveFrom"));
+            "Modifies",
+            "Modify"));
       }
 
       return methods;
