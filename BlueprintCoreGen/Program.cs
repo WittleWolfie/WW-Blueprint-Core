@@ -31,7 +31,7 @@ namespace BlueprintCoreGen
       }
 
       TypeTool.InitTypesByName(gameTypes, blueprintCoreTypes);
-      TemplateProcessor.Run(gameTypes);
+      ClassProcessor.Run(gameTypes);
 
       StringBuilder unhandledTypes = new();
 
@@ -47,7 +47,7 @@ namespace BlueprintCoreGen
       Directory.CreateDirectory(AnalysisDir);
       File.WriteAllText($"{AnalysisDir}/unhandled_types.txt", unhandledTypes.ToString());
 
-      TemplateProcessor.ConfiguratorClasses.ForEach(configuratorClass => WriteClassToFile(configuratorClass));
+      ClassProcessor.ConfiguratorClasses.ForEach(configuratorClass => WriteClassToFile(configuratorClass));
     }
 
     /// <summary>
@@ -56,12 +56,12 @@ namespace BlueprintCoreGen
     private static List<Type> ProcessActions(Type[] gameTypes)
     {
       HashSet<Type> implementedActionTypes = new();
-      foreach (IClassFile actionClass in TemplateProcessor.ActionClasses)
+      foreach (IClassFile actionClass in ClassProcessor.ActionClasses)
       {
         WriteClassToFile(actionClass);
         implementedActionTypes.UnionWith(actionClass.GetHandledTypes());
       }
-      return TemplateProcessor.GetUnhandledTypes(typeof(GameAction), implementedActionTypes, gameTypes);
+      return ClassProcessor.GetUnhandledTypes(typeof(GameAction), implementedActionTypes, gameTypes);
     }
 
     /// <summary>
@@ -70,12 +70,12 @@ namespace BlueprintCoreGen
     private static List<Type> ProcessConditions(Type[] gameTypes)
     {
       HashSet<Type> implementedConditionTypes = new();
-      foreach (IClassFile conditionClass in TemplateProcessor.ConditionClasses)
+      foreach (IClassFile conditionClass in ClassProcessor.ConditionClasses)
       {
         WriteClassToFile(conditionClass);
         implementedConditionTypes.UnionWith(conditionClass.GetHandledTypes());
       }
-      return TemplateProcessor.GetUnhandledTypes(typeof(Condition), implementedConditionTypes, gameTypes);
+      return ClassProcessor.GetUnhandledTypes(typeof(Condition), implementedConditionTypes, gameTypes);
     }
 
     private static void WriteClassToFile(IClassFile classToWrite)
