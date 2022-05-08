@@ -76,7 +76,7 @@ namespace BlueprintCoreGen.CodeGen.Class
             !Ignored.ShouldIgnore(t)
             && (t.Equals(BlueprintTypeRoot) || t.IsSubclassOf(BlueprintTypeRoot)));
 
-      Dictionary<Type, List<ConstructorMethod>> componentMethodsByBlueprintType = new();
+      Dictionary<Type, HashSet<ConstructorMethod>> componentMethodsByBlueprintType = new();
       foreach (Type blueprintType in blueprintTypes)
       {
         componentMethodsByBlueprintType.Add(blueprintType, new());
@@ -290,7 +290,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         string typeName,
         Type blueprintType,
         bool isAbstract,
-        List<ConstructorMethod> componentMethods,
+        HashSet<ConstructorMethod> componentMethods,
         List<FieldMethod> fieldMethods)
       {
         FilePath = filePath;
@@ -300,7 +300,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         TypeName = typeName;
         BlueprintType = blueprintType;
         IsAbstract = isAbstract;
-        ComponentMethods = componentMethods;
+        ComponentMethods = componentMethods.ToList();
         FieldMethods = fieldMethods;
       }
     }
