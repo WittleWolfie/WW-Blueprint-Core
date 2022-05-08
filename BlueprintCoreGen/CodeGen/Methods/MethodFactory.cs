@@ -523,11 +523,11 @@ namespace BlueprintCoreGen.CodeGen.Methods
         AddLine(@"/// <summary>");
         AddLine($"/// {summary}");
         AddLine(@"/// </summary>");
-        AddLine(@"///");
       }
 
       public void AddRemarks(Type constructedType, List<string> remarks)
       {
+        AddLine(@"///");
         AddLine(@"/// <remarks>");
         remarks.ForEach(paragraph => AddRemark(paragraph));
         AddLine(@"///");
