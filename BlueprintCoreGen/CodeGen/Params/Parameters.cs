@@ -247,7 +247,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       {
         return CommentFmt.Prepend("<param name=\"{0}\">")
           .Append("</param>")
-          .Select(line => string.Format(line, ParamName))
+          .Select(line => line.Replace(@"{0}", ParamName))
           .ToList();
       }
       return CommentFmt;

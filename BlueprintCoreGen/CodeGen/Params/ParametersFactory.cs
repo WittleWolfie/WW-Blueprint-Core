@@ -410,7 +410,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       else if (enumerableType is not null)
       {
         var toEnumerable = field.FieldType.IsArray ? "ToArray()" : "ToList()";
-        removeOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{ return; }}");
+        removeOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
         removeOperationFmt.Add(
           $"{{0}}.{field.Name} = {{0}}.{field.Name}.Where(val => !{{1}}.Contains(val)).{toEnumerable};");
       }
@@ -423,7 +423,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (enumerableType is not null)
       {
         var toEnumerable = field.FieldType.IsArray ? "ToArray()" : "ToList()";
-        removeOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{ return; }}");
+        removeOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
         removeOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name}.Where({{1}}).{toEnumerable};");
       }
       return removeOperationFmt;
@@ -444,12 +444,12 @@ namespace BlueprintCoreGen.CodeGen.Params
       List<string> modifyOperationFmt = new();
       if (enumerableType is not null)
       {
-        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{ return; }}");
+        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
         modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach(val => {{1}}.Invoke(val));");
       }
       else if (!TypeTool.IsBitFlag(field.FieldType))
       {
-        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{ return; }}");
+        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
         modifyOperationFmt.Add($"{{1}}.Invoke({{0}}.{field.Name}));");
       }
       return modifyOperationFmt;

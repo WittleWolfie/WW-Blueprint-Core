@@ -221,22 +221,22 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public string FieldName { get; private set; }
 
     [JsonProperty]
-    public MethodOverride Set { get; private set; }
+    public MethodOverride Set { get; private set; } = new();
 
     [JsonProperty]
-    public MethodOverride AddTo { get; private set; }
+    public MethodOverride AddTo { get; private set; } = new();
 
     [JsonProperty]
-    public MethodOverride RemoveFrom { get; private set; }
+    public MethodOverride RemoveFrom { get; private set; } = new();
 
     [JsonProperty]
-    public MethodOverride RemoveFromPredicate { get; private set; }
+    public MethodOverride RemoveFromPredicate { get; private set; } = new();
 
     [JsonProperty]
-    public MethodOverride Clear { get; private set; }
+    public MethodOverride Clear { get; private set; } = new();
 
     [JsonProperty]
-    public MethodOverride Modify { get; private set; }
+    public MethodOverride Modify { get; private set; } = new();
 
     public FieldMethod(string fieldName)
     {
