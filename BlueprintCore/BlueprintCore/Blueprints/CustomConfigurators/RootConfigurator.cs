@@ -1,3 +1,6 @@
+﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Components;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -5,14 +8,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace BlueprintCoreGen.Blueprints.Configurators
+namespace BlueprintCore.BlueprintCore.Blueprints.CustomConfigurators
 {
-  /// <summary>Fluent API for creating and modifying blueprints.</summary>
+  /// <summary>Builder API for creating and modifying blueprints.</summary>
   /// 
   /// <remarks>
   /// <para>
-  /// Implementation is done using the
+  /// Implementation is based on the
   /// <see href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</see>.
   /// </para>
   /// 
@@ -21,23 +25,21 @@ namespace BlueprintCoreGen.Blueprints.Configurators
   /// <item>
   ///   <term>Blueprint Creation</term>
   ///   <description>
-  ///     Each configurator provides a function to create a new blueprint and register it in the game library.
+  ///     Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
+  ///     configurator API includes methods to set or modify fields and create or remove <see cref="BlueprintComponent"/>s.
   ///   </description>
   /// </item>
   /// <item>
-  ///   <term>Component Type Safety</term>
+  ///   <term>Blueprint Component Safety</term>
   ///   <description>
   ///     <para>
-  ///     Blueprints are very permissive; any <see cref="BlueprintComponent"/> can be added to any blueprint type. In
-  ///     reality many component types are only functional on certain types of blueprints, defined using attributes.
+  ///     Most <see cref="BlueprintComponent"/> types only function in specific blueprints. The configurator API only
+  ///     exposes methods for component types supported by that blueprint. This relies on manual tuning and type
+  ///     attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
+  ///     component types.
   ///     </para>
   ///     <para>
-  ///     The configurator API mimics the inheritance structure of blueprint types in the game to restrict the available
-  ///     types of components. The API does not perfectly implement these restrictions because inheritance cannot
-  ///     represent the restrictions completely. In those cases type safety is provided through validation.
-  ///     </para>
-  ///     <para>
-  ///     See <see href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</see>
+  ///     See <see href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</see>
   ///     for more information on component and blueprint type safety.
   ///     </para>
   ///   </description>
@@ -46,33 +48,33 @@ namespace BlueprintCoreGen.Blueprints.Configurators
   ///   <term>Validation</term>
   ///   <description>
   ///     <para>
-  ///     When <see cref="Configure"/> is called a combination of Owlcat provided and custom validation logic checks the
-  ///     blueprint for errors. All errors are then logged. This validates the blueprint only contains supported
-  ///     component types as well as checking for some implicit usage errors, such as
-  ///     <see href="https://github.com/TylerGoeringer/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</see>
+  ///     When <see cref="Configure"/> is called the blueprint is run through validation to detect configuration issues
+  ///     which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
+  ///     complicated configuration problems such as
+  ///     <see href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</see>
   ///     usage.
   ///     </para>
-  ///     <para>See <see cref="Validator"/> for more details on how validation works.</para>
+  ///     <para>
+  ///     Validation uses a combination of code from the game library and manually tuned logic. See
+  ///     <see cref="Validator"/> for more details on how validation works.
+  ///     </para>
   ///   </description>
   /// </item>
   /// <item>
-  ///   <term>Fluent API</term>
+  ///   <term>Builder Style API</term>
   ///   <description>
   ///     <para>
-  ///     The API is designed to minimize boilerplate required to modify blueprints and create components. Configurators
-  ///     work with the <see cref="ActionsBuilder"/> and
-  ///     <see cref="Conditions.Builder.ConditionsBuilder">ConditionsBuilder</see> APIs as well.
+  ///     The API is designed to minimize boilerplate required to modify blueprints and create components.
+  ///     Configurators work seamlessly with the <see cref="ActionsBuilder"/> and <see cref="ConditionsBuilder"/> APIs.
   ///     </para>
   ///     <para>
-  ///     Complicated components such as
-  ///     <see cref="Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig">ContextRankConfig</see> which do not
-  ///     work well with the configurator API have their own helper classes.
-  ///     e.g. <see cref="Components.ContextRankConfigs">ContextRankConfigs</see>
+  ///     Some complicated components, notably <see cref="ContextRankConfig"/>, cannot be well implemented within the
+  ///     configurator API and have their own helper classes: <see cref="ContextRankConfigs">ContextRankConfigs</see>.
   ///     </para>
   ///   </description>
   /// </item>
   /// </list>
-  /// 
+  /// TODO: Update the example
   /// <example>
   /// Add the Skald's Vigor and Greater Skald's Vigor feats (minus UI icons):
   /// <code>
@@ -137,17 +139,16 @@ namespace BlueprintCoreGen.Blueprints.Configurators
   /// </code>
   /// </example>
   /// </remarks>
-  
-  public abstract class BaseBlueprintConfigurator<T, TBuilder>
-      where T : BlueprintScriptableObject
-      where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
+  public abstract class RootConfigurator<T, TBuilder>
+    where T: BlueprintScriptableObject
+    where TBuilder : RootConfigurator<T, TBuilder>
   {
     /// <summary>Describes how to resolve conflicts when multiple unique components are added to a blueprint.</summary>
     /// 
     /// <remarks>
     /// When adding a component that is unique, the function accepts a <see cref="ComponentMerge"/> and
     /// <see cref="Action"/> argument to resolve the conflict. Whenever possible, a reasonable default behavior is
-    /// provided. Usually this is in the form of concatenating two components that represent lists or combining flags.
+    /// provided.
     /// </remarks>
     public enum ComponentMerge
     {
@@ -161,8 +162,14 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       Merge
     }
 
-    // [Replace("Get", "GetInternal")]
-    protected static readonly LogWrapper Logger = LogWrapper.Get("BlueprintConfigurator");
+    protected static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintConfigurator");
+
+    protected readonly TBuilder Self;
+    protected readonly T Blueprint;
+
+    private bool Configured = false;
+    private readonly Validator Validator;
+    private readonly List<object> ToValidate = new();
 
     private readonly List<BlueprintComponent> Components = new();
     private readonly HashSet<UniqueComponent> UniqueComponents = new();
@@ -170,20 +177,11 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     private readonly List<Action<T>> InternalOnConfigure = new();
     private readonly List<Action<T>> ExternalOnConfigure = new();
 
-    private bool Configured = false;
-    private readonly Validator Validator;
-    private readonly List<object> ToValidate = new();
-
-    protected readonly TBuilder Self;
-    protected readonly string Name;
-    protected readonly T Blueprint;
-
-    protected BaseBlueprintConfigurator(string name)
+    protected RootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint)
     {
       Self = (TBuilder)this;
-      Name = name;
-      Validator = new(name, typeof(T).Name);
-      Blueprint = BlueprintTool.Get<T>(name);
+      Blueprint = blueprint.Instance;
+      Validator = new(Blueprint.name, typeof(T).Name);
     }
 
     /// <summary>Commits the configuration changes to the blueprint.</summary>
@@ -198,13 +196,13 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     {
       if (Configured)
       {
-        throw new InvalidOperationException($"{Name} has already been configured.");
+        throw new InvalidOperationException($"{Blueprint.name} has already been configured.");
       }
 
       Configured = true;
-      Logger.Verbose($"Configuring {Name}.");
+      Logger.Verbose($"Configuring {Blueprint.name}.");
       ConfigureComponents();
-      OnConfigure();
+      OnConfigurePrivate();
       Blueprint.OnEnable();
 
       Validator.Check(Blueprint);
@@ -229,12 +227,12 @@ namespace BlueprintCoreGen.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Adds a <see cref="BlueprintComponent"/> of the specified type to the blueprint.
+    /// Creates a new <see cref="BlueprintComponent"/> of the specified type and adds it to the blueprint.
     /// </summary>
     /// 
     /// <remarks>
-    /// It is recommended to only call this from within a configurator class or when adding a component type not
-    /// supported by the configurator.
+    /// This is intended to support component types not implemented in the configurator API, such as custom components
+    /// of your own or from another mod library.
     /// </remarks>
     /// 
     /// <param name="init">Optional initialization <see cref="Action"/> run on the component.</param>
@@ -243,6 +241,26 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       var component = new C();
       init?.Invoke(component);
       return AddComponent(component);
+    }
+
+    /// <summary>Adds the specified <see cref="BlueprintComponent"/> to the blueprint with merge handling.</summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// This is intended to support component types not implemented in the configurator API, such as custom components
+    /// of your own or from another mod library.
+    /// </para>
+    /// <para>
+    /// Use this for components which should be unique within the blueprint.
+    /// </para>
+    /// </remarks>
+    public TBuilder AddUniqueComponent(
+        BlueprintComponent component,
+        ComponentMerge behavior = ComponentMerge.Fail,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null)
+    {
+      UniqueComponents.Add(new UniqueComponent(component, behavior, merge));
+      return Self;
     }
 
     /// <summary>
@@ -258,6 +276,15 @@ namespace BlueprintCoreGen.Blueprints.Configurators
             var component = bp.GetComponent<C>();
             if (component is not null) { edit.Invoke(component); }
           });
+    }
+
+    /// <summary>Removed components from the blueprint matching the specified predicate.</summary>
+    /// 
+    /// <remarks>Has no effect on components added with the configurator.</remarks>
+    public TBuilder RemoveComponents(Func<BlueprintComponent, bool> predicate)
+    {
+      ComponentsToRemove.AddRange(Blueprint.Components.Where(predicate));
+      return Self;
     }
 
     /// <summary>Executes the specified actions when <see cref="Configure"/> is called.</summary>
@@ -283,37 +310,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       return Self;
     }
 
-    /// <summary>Adds the specified <see cref="BlueprintComponent"/> to the blueprint with merge handling.</summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// It is recommended to only call this from within a configurator class or when adding a component type not
-    /// supported by the configurator.
-    /// </para>
-    /// <para>
-    /// Use this for types without the <see cref="AllowMultipleComponentsAttribute"/>.
-    /// </para>
-    /// </remarks>
-    public TBuilder AddUniqueComponent(
-        BlueprintComponent component,
-        ComponentMerge behavior = ComponentMerge.Fail,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null)
-    {
-      UniqueComponents.Add(new UniqueComponent(component, behavior, merge));
-      return Self;
-    }
-
-    /// <summary>Removed components from the blueprint matching the specified predicate.</summary>
-    /// 
-    /// <remarks>Has no effect on components added with the configurator.</remarks>
-    public TBuilder RemoveComponents(Func<BlueprintComponent, bool> predicate)
-    {
-      ComponentsToRemove.AddRange(Blueprint.Components.Where(predicate));
-      return Self;
-    }
-
-    // [GenerateComponents]
-
     //----- Start: Configure & Validate
 
     protected void Validate(object? obj)
@@ -322,18 +318,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
       {
         ToValidate.Add(obj);
       }
-    }
-
-    protected void ValidateParam<P>(IEnumerable<P>? objects)
-    {
-      if (objects is null) { return; }
-      foreach (var obj in objects) { Validate(obj); }
-    }
-
-    private void OnConfigure()
-    {
-      InternalOnConfigure.ForEach(action => action.Invoke(Blueprint));
-      ExternalOnConfigure.ForEach(action => action.Invoke(Blueprint));
     }
 
     private void ConfigureComponents()
@@ -355,9 +339,7 @@ namespace BlueprintCoreGen.Blueprints.Configurators
             Components.Add(component.Component);
             break;
           case ComponentMerge.Merge:
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            component.Merge(current, component.Component);
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            component.Merge!(current, component.Component);
             break;
           case ComponentMerge.Fail:
           default:
@@ -370,6 +352,12 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         Blueprint.Components = Blueprint.Components.Except(ComponentsToRemove).ToArray();
       }
       Blueprint.AddComponents(Components.ToArray());
+    }
+
+    private void OnConfigurePrivate()
+    {
+      InternalOnConfigure.ForEach(action => action.Invoke(Blueprint));
+      ExternalOnConfigure.ForEach(action => action.Invoke(Blueprint));
     }
 
     private struct UniqueComponent
@@ -387,50 +375,6 @@ namespace BlueprintCoreGen.Blueprints.Configurators
         Behavior = behavior;
         Merge = merge;
       }
-    }
-  }
-
-  /// <summary>Configurator for any blueprint inheriting from <see cref="BlueprintScriptableObject"/>.</summary>
-  /// 
-  /// <remarks>
-  /// <para>
-  /// Prefer using the explicit configurator implementations wherever available.
-  /// </para>
-  /// 
-  /// <para>
-  /// BlueprintConfigurator is useful for types not supported by the library. Because it is generically typed it will
-  /// not expose functions for all supported component types or functions for fields. Instead you can use
-  /// <see cref="BaseBlueprintConfigurator{T, TBuilder}.AddComponent">AddComponent</see>,
-  /// <see cref="BaseBlueprintConfigurator{T, TBuilder}.AddUniqueComponent">AddUniqueComponent</see>,
-  /// and <see cref="BaseBlueprintConfigurator{T, TBuilder}.OnConfigure">OnConfigure</see>. This enables the
-  /// configurator API without a specific type implementation and ensures your blueprints are validated.
-  /// </para>
-  /// 
-  /// <example>
-  /// <code>
-  /// BlueprintConfigurator&lt;BlueprintDlc>.New(DlcGuid)
-  ///     .OnConfigure(dlc => dlc.Description = LocalizedDlcDescription)
-  ///     .Configure();
-  /// </code>
-  /// </example>
-  /// </remarks>
-  
-  public class BlueprintConfigurator<T> : BaseBlueprintConfigurator<T, BlueprintConfigurator<T>>
-      where T : BlueprintScriptableObject, new()
-  {
-    private BlueprintConfigurator(string name) : base(name) { }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static BlueprintConfigurator<T> For(string name)
-    {
-      return new BlueprintConfigurator<T>(name);
-    }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
-    public static BlueprintConfigurator<T> New(string name, string guid)
-    {
-      BlueprintTool.Create<T>(name, guid);
-      return For(name);
     }
   }
 }
