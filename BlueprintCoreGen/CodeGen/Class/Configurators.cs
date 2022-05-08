@@ -98,11 +98,12 @@ namespace BlueprintCoreGen.CodeGen.Class
       List<IConfigurator> configurators = new();
       foreach (var blueprintType in blueprintTypes)
       {
+        var isRoot = blueprintType == BlueprintTypeRoot;
         var relativeNamespace =
           string.Join('.', blueprintType.Namespace!.Split('.').Where(pkg => !IgnoredNamespacePackages.Contains(pkg)));
         var nameSpace = GetNamespace(relativeNamespace);
         var className = GetClassName(blueprintType);
-        var parentClassName = $"Base{GetClassName(blueprintType.BaseType!)}";
+        var parentClassName = isRoot ? "RootConfigurator" : $"Base{GetClassName(blueprintType.BaseType!)}";
         var abstractClassName = $"Base{className}";
         var typeName = TypeTool.GetName(blueprintType);
 
@@ -123,7 +124,7 @@ namespace BlueprintCoreGen.CodeGen.Class
               /* isAbstract= */ true,
               componentMethodsByBlueprintType[blueprintType],
               fieldMethods);
-          configuratorImpl.IsRoot = blueprintType == BlueprintTypeRoot;
+          configuratorImpl.IsRoot = isRoot;
           configurators.Add(configuratorImpl);
           continue;
         }
