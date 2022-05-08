@@ -132,7 +132,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Validation format string where {0} is the validation function and {1} is the parameter name
     /// </summary>
-    private List<string> ValidationFmt { get; set; }
+    private List<string> ValidationFmt { get; set; } = new();
 
     /// <summary>
     /// Assignment format string for the right hand side of an assignment statement, where {0} is the parameter name
@@ -169,7 +169,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       CommentFmt = commentFmt;
       DefaultValue = defaultValue;
 
-      ValidationFmt = new() { validationFmt };
+      if (!string.IsNullOrEmpty(validationFmt)) { ValidationFmt.Add(validationFmt); }
       AssignmentFmtRhs = assignmentRhsFmt;
       AssignmentIfNullRhs = assignmentIfNullRhs;
       ExtraAssignmentFmtLines = new();

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace BlueprintCoreGen.CodeGen.Methods
 {
@@ -438,8 +439,9 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
     private static string GetFieldMethodName(string prefix, string fieldName)
     {
-      var convertedFieldName = fieldName[0].ToString().ToUpper() + fieldName[1..];
-      return $"{prefix}{convertedFieldName}";
+      var paramName = new StringBuilder(ParametersFactory.GetParamName(fieldName));
+      paramName[0] = char.ToUpper(paramName[0]);
+      return $"{prefix}{paramName}";
     }
 
     /// <summary>
