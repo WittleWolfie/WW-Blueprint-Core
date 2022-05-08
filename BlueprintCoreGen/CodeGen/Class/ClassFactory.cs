@@ -103,18 +103,25 @@ namespace BlueprintCoreGen.CodeGen.Class
         configuratorClass.AddLine($"    where T : {configurator.TypeName}");
         configuratorClass.AddLine($"    where TBuilder : {configurator.ClassName}<T, TBuilder>");
         configuratorClass.AddLine($"  {{");
-        configuratorClass.AddLine($"    protected {configurator.ClassName}(string name) : base(name) {{ }}");
+        configuratorClass.AddLine($"    protected {configurator.ClassName}(Blueprint<{configurator.TypeName}, BlueprintReference<{configurator.TypeName}>> blueprint) : base(blueprint) {{ }}");
       }
       else
       {
         configuratorClass.AddLine($"  public class {configurator.ClassName}");
         configuratorClass.AddLine($"    : {configurator.ParentClassName}<{configurator.TypeName}, {configurator.ClassName}>");
         configuratorClass.AddLine($"  {{");
-        configuratorClass.AddLine($"    private {configurator.ClassName}(string name) : base(name) {{ }}");
-      }
+        configuratorClass.AddLine($"    private {configurator.ClassName}(Blueprint<{configurator.TypeName}, BlueprintReference<{configurator.TypeName}>> blueprint) : base(blueprint) {{ }}");
 
-      // New Methods
-      // TODO
+        // Instantiation methods
+        MethodFactory.CreateForNewConfigurator(configurator.BlueprintType, configurator.ClassName)
+          .ForEach(
+            method =>
+            {
+              method.GetImports().ForEach(import => configuratorClass.AddImport(import));
+              configuratorClass.AddLine("");
+              method.GetLines().ForEach(line => configuratorClass.AddLine($"    {line}"));
+            });
+      }
 
       // Field Methods
       configurator.FieldMethods.ForEach(

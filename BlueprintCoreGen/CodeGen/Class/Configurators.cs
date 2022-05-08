@@ -130,7 +130,9 @@ namespace BlueprintCoreGen.CodeGen.Class
           continue;
         }
 
-        configurators.Add(
+        if (gameTypes.ToList().Exists(t => t.IsSubclassOf(blueprintType)))
+        {
+          configurators.Add(
           new ConfiguratorImpl(
             GetFilePath(relativeNamespace, abstractClassName),
             nameSpace,
@@ -141,6 +143,20 @@ namespace BlueprintCoreGen.CodeGen.Class
             /* isAbstract= */ true,
             componentMethodsByBlueprintType[blueprintType],
             fieldMethods));
+          configurators.Add(
+            new ConfiguratorImpl(
+              GetFilePath(relativeNamespace, className),
+              nameSpace,
+              className,
+              abstractClassName,
+              typeName,
+              blueprintType,
+              /* isAbstract= */ false,
+              new(), // All the methods are in the base class
+              new()));
+          continue;
+        }
+
         configurators.Add(
           new ConfiguratorImpl(
             GetFilePath(relativeNamespace, className),
@@ -150,8 +166,8 @@ namespace BlueprintCoreGen.CodeGen.Class
             typeName,
             blueprintType,
             /* isAbstract= */ false,
-            new(), // All the methods are in the base class
-            new())); 
+            componentMethodsByBlueprintType[blueprintType],
+            fieldMethods));
       }
 
       return configurators;

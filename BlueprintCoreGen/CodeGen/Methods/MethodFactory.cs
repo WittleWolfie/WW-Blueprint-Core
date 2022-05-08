@@ -26,15 +26,44 @@ namespace BlueprintCoreGen.CodeGen.Methods
     List<string> GetLines();
   }
 
-  // TODO: Create configurator instantiation methods methods
   // TODO: Add config overrides for configurator methods
   public static class MethodFactory
   {
-    public static List<IMethod> CreateForNewConfigurator(Type blueprintType)
+    public static List<IMethod> CreateForNewConfigurator(Type blueprintType, string returnType)
     {
-      List<IMethod> methods = new();
+      var typeName = TypeTool.GetName(blueprintType);
 
-      return methods;
+      MethodImpl forBp = new();
+      forBp.AddImport(typeof(BlueprintTool));
+      forBp.AddCommentSummary("Returns a configurator to modify the specified blueprint.");
+      forBp.AddRemarks(
+        new()
+        {
+          "Use this to modify existing blueprints, such as blueprints from the base game.",
+          "If you're using <see href=\"https://github.com/OwlcatOpenSource/WrathModificationTemplate\">WrathModificationTemplate</see> blueprints defined in JSON already exist."
+        });
+
+      forBp.AddLine($"public static {returnType} For(Blueprint<{typeName}, BlueprintReference<{typeName}>> blueprint)");
+      forBp.AddLine($"{{");
+      forBp.AddLine($"  return new {returnType}(blueprint);");
+      forBp.AddLine($"}}");
+
+      MethodImpl newBp = new();
+      forBp.AddCommentSummary("Creates a new blueprint and returns a new configurator to modify it.");
+      forBp.AddRemarks(
+        new()
+        {
+          "After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.",
+          "An implicit cast converts the string to <see cref=\"Blueprint<,>\"/>, exposing the blueprint instance and its reference."
+        });
+       
+      forBp.AddLine($"public static {returnType} New(string name, string guid)");
+      forBp.AddLine($"{{");
+      forBp.AddLine($"  BlueprintTool.Create<{typeName}>(name, guid);");
+      forBp.AddLine($"  return For(name);");
+      forBp.AddLine($"}}");
+
+      return new() { forBp, newBp };
     }
 
     private static readonly string OnConfigureObjName = "bp";
