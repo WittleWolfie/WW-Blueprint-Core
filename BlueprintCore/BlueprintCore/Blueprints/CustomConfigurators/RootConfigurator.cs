@@ -192,6 +192,8 @@ namespace BlueprintCore.BlueprintCore.Blueprints.CustomConfigurators
     /// </para>
     /// Throws <see cref="InvalidOperationException"/> if called twice on the same configurator.
     /// </remarks>
+    ///
+    /// <returns>The configured blueprint.</returns>
     public T Configure()
     {
       if (Configured)

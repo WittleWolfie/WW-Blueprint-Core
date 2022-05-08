@@ -89,7 +89,6 @@ namespace BlueprintCoreGen.CodeGen.Class
         configuratorClass.AddLine($"  /// Configurator for <see cref=\"{configurator.TypeName}\"/>.");
       }
       configuratorClass.AddLine($"  /// </summary>");
-      // TODO: Use config to create root BlueprintConfigurator remarks
       if (!configurator.IsRoot)
       {
         configuratorClass.AddLine($"  /// <inheritdoc/>");
