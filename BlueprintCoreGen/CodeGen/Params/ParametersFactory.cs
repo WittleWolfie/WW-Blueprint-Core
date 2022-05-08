@@ -174,7 +174,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Returns a parameter name derived from the field name.
     /// </summary>
-    private static string GetParamName(string fieldName)
+    internal static string GetParamName(string fieldName)
     {
       StringBuilder paramName = new(fieldName);
       if (paramName[0] == 'm' && paramName[1] == '_')
