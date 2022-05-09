@@ -75,7 +75,7 @@ namespace BlueprintCoreGen.CodeGen.Class
     public static IClassFile CreateConfigurator(IConfigurator configurator) {
       var configuratorClass = new ClassImpl(configurator.FilePath);
       configuratorClass.AddImport(configurator.BlueprintType);
-      configuratorClass.AddImport(typeof(BlueprintReference));
+      configuratorClass.AddImport(typeof(BlueprintReference<>));
       configuratorClass.AddImport(typeof(RootConfigurator<,>));
 
       // Namespace
