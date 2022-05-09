@@ -102,10 +102,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="BlueprintCore\Blueprints\Configurators\" />
-  </ItemGroup>
 	
   <Target Name="Publicize" AfterTargets="Clean">
     <ItemGroup>
