@@ -243,13 +243,15 @@ namespace BlueprintCoreGen.CodeGen.Params
       var tooltipAttr = info.GetCustomAttribute<TooltipAttribute>();
       if (tooltipAttr is not null)
       {
-        AddParagraphToComments(commentFmt, $"Tooltip: {tooltipAttr.tooltip}");
+        var safeTooltip = tooltipAttr.tooltip.Replace("\n", " ").Replace("\r", " ");
+        AddParagraphToComments(commentFmt, $"Tooltip: {safeTooltip}");
       }
 
       var infoBox = info.GetCustomAttribute<InfoBoxAttribute>();
       if (infoBox is not null)
       {
-        AddParagraphToComments(commentFmt, $"InfoBox: {infoBox.Text}");
+        var safeInfoBox = infoBox.Text.Replace("\n", " ").Replace("\r", " ");
+        AddParagraphToComments(commentFmt, $"InfoBox: {safeInfoBox}");
       }
 
       if (blueprintType is not null)
@@ -261,9 +263,9 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private static void AddParagraphToComments(List<string> comments, params string[] paragraph)
     {
-      comments.Add(@"/// <para>");
-      paragraph.ForEach(line => comments.Add($"/// {line}"));
-      comments.Add(@"/// </para>");
+      comments.Add(@"<para>");
+      paragraph.ForEach(line => comments.Add(line));
+      comments.Add(@"</para>");
     }
 
     private static void AddBlueprintParagraphToComments(List<string> comments, Type blueprintType)
