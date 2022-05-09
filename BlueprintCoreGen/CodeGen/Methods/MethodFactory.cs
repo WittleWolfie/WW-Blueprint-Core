@@ -573,9 +573,9 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       private void AddRemark(string paragraph)
       {
-        AddLine(@"<para>");
+        AddLine(@"/// <para>");
         AddLine($"/// {paragraph}");
-        AddLine(@"</para>");
+        AddLine(@"/// </para>");
       }
     }
   }
