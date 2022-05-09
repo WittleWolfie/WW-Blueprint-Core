@@ -2,6 +2,7 @@
 using BlueprintCoreGen.CodeGen.Methods;
 using BlueprintCoreGen.CodeGen.Overrides.Ignored;
 using HarmonyLib;
+using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,6 +74,8 @@ namespace BlueprintCoreGen.CodeGen.Class
 
     public static IClassFile CreateConfigurator(IConfigurator configurator) {
       var configuratorClass = new ClassImpl(configurator.FilePath);
+      configuratorClass.AddImport(configurator.BlueprintType);
+      configuratorClass.AddImport(typeof(BlueprintReference));
       configuratorClass.AddImport(typeof(RootConfigurator<,>));
 
       // Namespace
