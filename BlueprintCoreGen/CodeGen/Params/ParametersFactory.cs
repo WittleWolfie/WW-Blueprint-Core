@@ -261,9 +261,9 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private static void AddParagraphToComments(List<string> comments, params string[] paragraph)
     {
-      comments.Add(@"<para>");
-      paragraph.ForEach(line => comments.Add(line));
-      comments.Add(@"</para>");
+      comments.Add(@"/// <para>");
+      paragraph.ForEach(line => comments.Add($"/// {line}"));
+      comments.Add(@"/// </para>");
     }
 
     private static void AddBlueprintParagraphToComments(List<string> comments, Type blueprintType)
