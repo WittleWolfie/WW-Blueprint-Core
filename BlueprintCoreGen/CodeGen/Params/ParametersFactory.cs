@@ -460,7 +460,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
       if (enumerableType is not null)
       {
-        modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach(val => {{1}}.Invoke(val);");
+        modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach(val => {{1}}.Invoke(val));");
       }
       else if (!TypeTool.IsBitFlag(field.FieldType))
       {
