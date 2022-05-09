@@ -123,11 +123,17 @@ namespace BlueprintCoreGen.CodeGen.Params
           GetCommentFmt(info, blueprintType),
           GetDefaultValueForBlueprintField(info.FieldType),
           GetValidationFmt(info.FieldType, blueprintType, enumerableType),
+          GetSetComment(info),
           GetAssignmentFmtForBlueprintField(info.FieldType, blueprintType, enumerableType),
+          GetAddComment(info),
           GetAddOperationFmt(info, enumerableType),
+          GetRemoveComment(info),
           GetRemoveOperationFmt(info, enumerableType),
+          GetRemovePredicateComment(info),
           GetRemovePredicateFmt(info, enumerableType),
+          GetClearComment(info),
           GetClearOperationFmt(info, enumerableType),
+          GetModifyComment(info, enumerableType),
           GetModifyOperationFmt(info, enumerableType));
 
       GetTypeOverride(info.FieldType)?.ApplyTo(param);
@@ -372,6 +378,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       return "";
     }
 
+
     private static string GetAssignmentFmtForBlueprintField(Type type, Type? blueprintType, Type? enumerableType)
     {
       if (TypeTool.IsBitFlag(type))
@@ -441,18 +448,53 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private static List<string> GetModifyOperationFmt(FieldInfo field, Type? enumerableType)
     {
+      if (TypeTool.IsBitFlag(field.FieldType)) { return new(); }
+
       List<string> modifyOperationFmt = new();
+      modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
       if (enumerableType is not null)
       {
-        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
         modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach(val => {{1}}.Invoke(val));");
       }
       else if (!TypeTool.IsBitFlag(field.FieldType))
       {
-        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
         modifyOperationFmt.Add($"{{1}}.Invoke({{0}}.{field.Name}));");
       }
       return modifyOperationFmt;
+    }
+
+    private static string GetSetComment(FieldInfo field)
+    {
+      return $"Sets the value of <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/>";
+    }
+
+    private static string GetAddComment(FieldInfo field)
+    {
+      return $"Adds to the contents of <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/>";
+    }
+
+    private static string GetRemoveComment(FieldInfo field)
+    {
+      return $"Removes elements from <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/>";
+    }
+
+    private static string GetRemovePredicateComment(FieldInfo field)
+    {
+      return $"Removes elements from <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/> that match the provided predicate.";
+    }
+
+    private static string GetClearComment(FieldInfo field)
+    {
+      return $"Removes all elements from <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/>";
+    }
+
+    private static string GetModifyComment(FieldInfo field, Type? enumerableType)
+    {
+      if (enumerableType is not null)
+      {
+        return $"Modifies <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/> by invoking the provided action on each element.";
+      }
+      return $"Modifies <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/> by invoking the provided action.";
     }
   }
 }

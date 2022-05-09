@@ -61,10 +61,25 @@ namespace BlueprintCoreGen.CodeGen.Params
     string ParamsDeclaration { get; }
 
     /// <summary>
+    /// Comment summary for the set operation.
+    /// </summary>
+    string SetComment { get; }
+
+    /// <summary>
+    /// Comment summary for the add operation.
+    /// </summary>
+    string AddComment { get; }
+
+    /// <summary>
     /// Returns a statement which uses the parameter to add values to a field on the object. The provided validation
     /// function is called on the parameter before use.
     /// </summary>
     List<string> GetAddOperation(string objectName, string validateFunction);
+
+    /// <summary>
+    /// Comment summary for the remove operation.
+    /// </summary>
+    string RemoveComment { get; }
 
     /// <summary>
     /// Returns a statement which uses the parameter to remove values from a field on the object. The provided
@@ -73,9 +88,19 @@ namespace BlueprintCoreGen.CodeGen.Params
     List<string> GetRemoveOperation(string objectName);
 
     /// <summary>
+    /// Comment summary for the RemovePredicate operation.
+    /// </summary>
+    string RemovePredicateComment { get; }
+
+    /// <summary>
     /// Returns a statement which uses the parameter to remove values matching a predicate from a field on the object.
     /// </summary>
     List<string> GetRemovePredicateOperation(string objectName, string predicateName);
+
+    /// <summary>
+    /// Comment summary for the Clear operation.
+    /// </summary>
+    string ClearComment { get; }
 
     /// <summary>
     /// Returns a statement which clears a field on the object.
@@ -83,9 +108,14 @@ namespace BlueprintCoreGen.CodeGen.Params
     List<string> GetClearOperation(string objectName);
 
     /// <summary>
+    /// Comment summary for the Modify operation.
+    /// </summary>
+    string ModifyComment { get; }
+
+    /// <summary>
     /// Returns a statement which executes an action on all values in a field on the object.
     /// </summary>
-    List<string> GetModifyOperation (string objectName, string actionName);
+    List<string> GetModifyOperation(string objectName, string actionName);
   }
 
   /// <summary>
@@ -318,11 +348,17 @@ namespace BlueprintCoreGen.CodeGen.Params
     private string ParamsTypeName { get; }
     public string ParamsDeclaration => GetParamsDeclaration();
 
+    public string SetComment { get; }
+
+    public string AddComment { get; }
+
     /// <summary>
     /// Format string lines for adding content to the blueprint field where {0} is the object name and {1} is the
     /// parameter name.
     /// </summary>
     private List<string> AddOperationFmt { get; }
+
+    public string RemoveComment { get; }
 
     /// <summary>
     /// Format string lines for removing content from the blueprint field where {0} is the object name and {1} is the
@@ -330,16 +366,22 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// </summary>
     private List<string> RemoveOperationFmt { get; }
 
+    public string RemovePredicateComment { get; }
+
     /// <summary>
     /// Format string lines for removing content from the blueprint field where {0} is the object name and {1} is the
     /// predicate name.
     /// </summary>
     private List<string> RemovePredicateOperationFmt { get; }
 
+    public string ClearComment { get; }
+
     /// <summary>
     /// Format string lines for removing all content from the blueprint field where {0} is the object name.
     /// </summary>
     private List<string> ClearOperationFmt { get; }
+
+    public string ModifyComment { get; }
 
     /// <summary>
     /// Format string lines for modifying content in the blueprint field where {0} is the object name, {1} is action
@@ -356,11 +398,17 @@ namespace BlueprintCoreGen.CodeGen.Params
         List<string> commentFmt,
         string defaultValue,
         string validationFmt,
+        string setComment,
         string assignmentRhsFmt,
+        string addComment,
         List<string> addOperationFmt,
+        string removeComment,
         List<string> removeOperationFmt,
+        string removePredicateComment,
         List<string> removePredicateOperationFmt,
+        string clearComment,
         List<string> clearOperationFmt,
+        string modifyComment,
         List<string> modifyOperationFmt)
       : base(
         fieldName,
@@ -374,10 +422,16 @@ namespace BlueprintCoreGen.CodeGen.Params
         /* assignmentIfNullRhs= */string.Empty)
     {
       ParamsTypeName = paramsTypeName;
+      SetComment = setComment;
+      AddComment = addComment;
       AddOperationFmt = addOperationFmt;
+      RemoveComment = removeComment;
       RemoveOperationFmt = removeOperationFmt;
+      RemovePredicateComment = removePredicateComment;
       RemovePredicateOperationFmt = removePredicateOperationFmt;
+      ClearComment = clearComment;
       ClearOperationFmt = clearOperationFmt;
+      ModifyComment = modifyComment;
       ModifyOperationFmt = modifyOperationFmt;
       SetIsNullable(false);
     }

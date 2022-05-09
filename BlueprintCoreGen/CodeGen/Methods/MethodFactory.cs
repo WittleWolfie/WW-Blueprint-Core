@@ -85,7 +85,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           parameter,
           parameter.GetOperation(OnConfigureObjName, BlueprintValidateFunction),
           isBitFlag ? parameter.ParamsDeclaration : parameter.Declaration,
-          "Sets",
+          parameter.SetComment,
           "Set"));
 
       var addOperation = parameter.GetAddOperation(OnConfigureObjName, BlueprintValidateFunction);
@@ -99,7 +99,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
             parameter,
             addOperation,
             parameter.ParamsDeclaration,
-            "Adds to",
+            parameter.AddComment,
             "AddTo"));
       }
 
@@ -114,7 +114,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
             parameter,
             removeOperation,
             parameter.ParamsDeclaration,
-            "Removes from",
+            parameter.RemoveComment,
             "RemoveFrom"));
       }
 
@@ -129,7 +129,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
             parameter,
             removePredicateOperation,
             $"{GetPredicateTypeName(field.FieldType)} predicate",
-            "Removes from",
+            parameter.RemovePredicateComment,
             "RemoveFrom"));
       }
 
@@ -144,7 +144,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
             parameter,
             clearOperation,
             "",
-            "Clear",
+            parameter.ClearComment,
             "Clear"));
       }
 
@@ -159,7 +159,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
             parameter,
             modifyOperation,
             $"{GetActionTypeName(field.FieldType)} action",
-            "Modifies",
+            parameter.ModifyComment,
             "Modify"));
       }
 
@@ -193,7 +193,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       IBlueprintParameter parameter,
       List<string> operation,
       string parameterDeclaration,
-      string commentPrefix,
+      string commentSummary,
       string methodPrefix)
     {
       var method = new MethodImpl();
@@ -205,8 +205,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddTypeNameImports(methodOverride.Imports);
 
       // Comment summary
-      method.AddCommentSummary(
-        $"{commentPrefix} <see cref=\"{TypeTool.GetName(field.DeclaringType!)}.{field.Name}\"/>");
+      method.AddCommentSummary(commentSummary);
 
       // Remarks
       method.AddRemarks(methodOverride.Remarks);
