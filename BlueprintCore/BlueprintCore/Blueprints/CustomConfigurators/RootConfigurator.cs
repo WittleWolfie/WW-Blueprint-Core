@@ -10,6 +10,25 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.CustomConfigurators
 {
+  /// <summary>Describes how to resolve conflicts when multiple unique components are added to a blueprint.</summary>
+  /// 
+  /// <remarks>
+  /// When adding a component that is unique, the function accepts a <see cref="ComponentMerge"/> and
+  /// <see cref="Action"/> argument to resolve the conflict. Whenever possible, a reasonable default behavior is
+  /// provided.
+  /// </remarks>
+  public enum ComponentMerge
+  {
+    /// <summary>Default. Throws an exception.</summary>
+    Fail = 0,
+    /// <summary>Skips the new component. Useful for components without per-instance behavior.</summary>
+    Skip,
+    /// <summary>The new component is used and the existing component is removed.</summary>
+    Replace,
+    /// <summary>The two components are merged into one. Requires an <see cref="Action"/> to define merge behavior.</summary>
+    Merge
+  }
+
   /// <summary>Builder API for creating and modifying blueprints.</summary>
   /// 
   /// <remarks>
@@ -141,25 +160,6 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     where T: BlueprintScriptableObject
     where TBuilder : RootConfigurator<T, TBuilder>
   {
-    /// <summary>Describes how to resolve conflicts when multiple unique components are added to a blueprint.</summary>
-    /// 
-    /// <remarks>
-    /// When adding a component that is unique, the function accepts a <see cref="ComponentMerge"/> and
-    /// <see cref="Action"/> argument to resolve the conflict. Whenever possible, a reasonable default behavior is
-    /// provided.
-    /// </remarks>
-    public enum ComponentMerge
-    {
-      /// <summary>Default. Throws an exception.</summary>
-      Fail = 0,
-      /// <summary>Skips the new component. Useful for components without per-instance behavior.</summary>
-      Skip,
-      /// <summary>The new component is used and the existing component is removed.</summary>
-      Replace,
-      /// <summary>The two components are merged into one. Requires an <see cref="Action"/> to define merge behavior.</summary>
-      Merge
-    }
-
     protected static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintConfigurator");
 
     protected readonly TBuilder Self;
