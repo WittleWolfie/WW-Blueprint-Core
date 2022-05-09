@@ -107,6 +107,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         configuratorClass.AddLine($"    where T : {configurator.TypeName}");
         configuratorClass.AddLine($"    where TBuilder : {configurator.ClassName}<T, TBuilder>");
         configuratorClass.AddLine($"  {{");
+        // TODO: Blueprint might not work here because of casts? Oooh abstract ones need to use T / TBuilder
         configuratorClass.AddLine($"    protected {configurator.ClassName}(Blueprint<{configurator.TypeName}, BlueprintReference<{configurator.TypeName}>> blueprint) : base(blueprint) {{ }}");
       }
       else

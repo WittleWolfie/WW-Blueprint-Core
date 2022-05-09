@@ -67,6 +67,7 @@ namespace BlueprintCoreGen.CodeGen.Class
   {
     private static readonly Type BlueprintTypeRoot = typeof(BlueprintScriptableObject);
 
+    // TODO: Fix namespacing and imports (see previous ClassFactory code GetRelativeConfiguratorNamespace)
     public static List<IConfigurator> Get(Type[] gameTypes)
     {
       // Create an initial list of supported blueprint configurator types
