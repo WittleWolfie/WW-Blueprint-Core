@@ -17,8 +17,12 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Returns a parameter which can be used to construct any field modification methods.
     /// </summary>
-    public static IBlueprintParameter CreateForBlueprintField(Type blueprintType, FieldInfo field)
+    public static IBlueprintParameter? CreateForBlueprintField(Type blueprintType, FieldInfo field)
     { 
+      if (ShouldIgnore(field, blueprintType))
+      {
+        return null;
+      }
       return CreateBlueprintFieldParameter(field, blueprintType);
     }
 
@@ -456,11 +460,11 @@ namespace BlueprintCoreGen.CodeGen.Params
       modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
       if (enumerableType is not null)
       {
-        modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach(val => {{1}}.Invoke(val));");
+        modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach(val => {{1}}.Invoke(val);");
       }
       else if (!TypeTool.IsBitFlag(field.FieldType))
       {
-        modifyOperationFmt.Add($"{{1}}.Invoke({{0}}.{field.Name}));");
+        modifyOperationFmt.Add($"{{1}}.Invoke({{0}}.{field.Name});");
       }
       return modifyOperationFmt;
     }

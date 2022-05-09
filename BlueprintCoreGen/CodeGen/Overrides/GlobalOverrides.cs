@@ -64,6 +64,20 @@ namespace BlueprintCoreGen.CodeGen.Overrides
       {
         (typeof(Element), new() { "name" }),
         (typeof(BlueprintComponent), new() { "m_Flags", "m_PrototypeLink", "name" }),
+        (
+          typeof(BlueprintScriptableObject),
+          new()
+          {
+            "Components",
+            "m_AllElements",
+            "AssetGuid",
+            "m_PrototypeId",
+            "m_Overrides",
+            "Comment",
+            "name",
+            "m_ValidationStatus"
+          }
+        ),
       };
 
     public static Dictionary<Type, string> TypeNameOverrides =

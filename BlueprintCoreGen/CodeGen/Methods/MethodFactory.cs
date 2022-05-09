@@ -77,6 +77,12 @@ namespace BlueprintCoreGen.CodeGen.Methods
       var isBitFlag = TypeTool.IsBitFlag(field.FieldType);
 
       IBlueprintParameter parameter = ParametersFactory.CreateForBlueprintField(blueprintType, field);
+      if (parameter is null)
+      {
+        // Ignored field
+        return methods;
+      }
+
       methods.Add(
         CreateFieldMethod(
           field,
