@@ -39,6 +39,41 @@
   },
 
   {
+    "TypeName": "AddContextStatBonus",
+    "RequiredFields": [ "Stat", "Value" ],
+    "IgnoredFields": [ "HasMinimal" ],
+    "CustomFields": [
+      {
+        "FieldName": "Minimal",
+        "ExtraAssignmentFmtLines": [ "{0}.HasMinimal = {1} is null;" ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "AddEffectFastHealing",
+    "RequiredFields": [ "Heal" ]
+  },
+
+  {
+    "TypeName": "AddFacts",
+    "RequiredFields": [ "m_Facts" ]
+  },
+
+  {
+    "TypeName": "AddInitiatorSkillRollTrigger",
+    "RequiredFields": [ "OnlySuccess", "Skill" ]
+  },
+
+  {
+    "TypeName": "ContextRankConfig",
+    "Replace": "true",
+    "Remarks": [
+      "Use <see cref=\"ContextRankConfigs\"/> to create the ContextRankConfig component."
+    ]
+  },
+
+  {
     "TypeName": "SpellComponent",
     "RequiredFields": [ "School" ]
   },

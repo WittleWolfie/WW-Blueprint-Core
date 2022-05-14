@@ -240,6 +240,12 @@ namespace BlueprintCoreGen.CodeGen.Methods
     {
       List<IMethod> methods = new();
 
+      if (componentMethod.Replace)
+      {
+        methods.Add(CreateReplacementForComponent(componentType, componentMethod, returnType));
+        return methods;
+      }
+
       if (!componentMethod.Methods.Any())
       {
         methods.Add(CreateForComponent(componentType, componentMethod, returnType, componentMethod));
@@ -348,6 +354,31 @@ namespace BlueprintCoreGen.CodeGen.Methods
       return method;
     }
 
+    private static IMethod CreateReplacementForComponent(
+      Type componentType, ConstructorMethod componentMethod, string returnType)
+    {
+      var method = new MethodImpl();
+      var componentTypeName = TypeTool.GetName(componentType);
+
+      // Imports
+      method.AddImport(componentType);
+
+      // Comment summary
+      method.AddCommentSummary($"Adds <see cref=\"{componentTypeName}\"/>");
+
+      // Remarks & Examples
+      method.AddRemarks(componentType, componentMethod.Remarks);
+
+      var methodName =
+        string.IsNullOrEmpty(componentMethod.MethodName)
+          ? GetComponentMethodName(componentTypeName)
+          : componentMethod.MethodName;
+      method.AddLine($"public {returnType} {methodName}({componentTypeName} component)");
+      method.AddLine(@"{");
+        method.AddLine($"  return AddComponent(component);");
+      method.AddLine(@"}");
+      return method;
+    }
     public static List<IMethod> CreateForBuilder(Type elementType, ConstructorMethod constructorMethod)
     {
       List<IMethod> methods = new();

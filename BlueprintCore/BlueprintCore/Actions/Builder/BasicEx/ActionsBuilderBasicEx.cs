@@ -615,8 +615,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         this ActionsBuilder builder,
         DamageDescription damage,
         UnitEvaluator? damageSource = null,
-        bool? disableBattleLog = null,
-        bool? noSource = null)
+        bool? disableBattleLog = null)
     {
       var element = ElementTool.Create<DamageParty>();
       builder.Validate(damage);
@@ -625,7 +624,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.DamageSource = damageSource ?? element.DamageSource;
       element.NoSource = damageSource is null;
       element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
-      element.NoSource = noSource ?? element.NoSource;
       return builder.Add(element);
     }
 
@@ -654,7 +652,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         UnitEvaluator target,
         bool? disableBattleLog = null,
         bool? disableFxAndSound = null,
-        bool? noSource = null,
         UnitEvaluator? source = null)
     {
       var element = ElementTool.Create<DealDamage>();
@@ -664,7 +661,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Target = target;
       element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
       element.DisableFxAndSound = disableFxAndSound ?? element.DisableFxAndSound;
-      element.NoSource = noSource ?? element.NoSource;
       builder.Validate(source);
       element.Source = source ?? element.Source;
       element.NoSource = source is null;
@@ -692,7 +688,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         int? damageBonus = null,
         bool? disableBattleLog = null,
         bool? isDrain = null,
-        bool? noSource = null,
         UnitEvaluator? source = null)
     {
       var element = ElementTool.Create<DealStatDamage>();
@@ -703,7 +698,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.DamageBonus = damageBonus ?? element.DamageBonus;
       element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
       element.IsDrain = isDrain ?? element.IsDrain;
-      element.NoSource = noSource ?? element.NoSource;
       builder.Validate(source);
       element.Source = source ?? element.Source;
       element.NoSource = source is null;

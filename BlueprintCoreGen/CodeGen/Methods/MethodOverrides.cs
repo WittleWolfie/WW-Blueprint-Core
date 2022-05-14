@@ -183,6 +183,18 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public string TypeName { get; private set; } = string.Empty;
 
     /// <summary>
+    /// If true the method is replaced entirely with one that accepts the object to construct.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// This is useful when a utility class implements a custom constructor since it will still enforce type usage
+    /// constraints, e.g. ContextRankConfigs. Note that only remarks and examples are supported when this is true. This
+    /// is also currently not implemented for Builder constructors, only BlueprintComponent constructors.
+    /// </remarks>
+    [JsonProperty]
+    public bool Replace { get; private set; } = false;
+
+    /// <summary>
     /// Custom constructor. Used when there is no default constructor.
     /// </summary>
     [JsonProperty]

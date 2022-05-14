@@ -18,7 +18,6 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
@@ -38,6 +37,27 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     where TBuilder : BaseItemEnchantmentConfigurator<T, TBuilder>
   {
     protected BaseItemEnchantmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Adds <see cref="ContextRankConfig"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <para>
+    /// Use <see cref="ContextRankConfigs"/> to create the ContextRankConfig component.
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
+    /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddContextRankConfig(ContextRankConfig component)
+    {
+      return AddComponent(component);
+    }
 
     /// <summary>
     /// Adds <see cref="ContextCalculateAbilityParams"/>
@@ -172,232 +192,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         component.Value = Utils.Constants.Empty.DiceValue;
       }
       component.ValueType = valueType ?? component.ValueType;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ContextRankConfig"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
-    /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="additionalArchetypes">
-    /// <para>
-    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="archetype">
-    /// <para>
-    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="buff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="buffRankMultiplier">
-    /// <para>
-    /// InfoBox: Multiplies Buff's Rank before progression calculation.
-    /// </para>
-    /// </param>
-    /// <param name="clazz">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="customProperty">
-    /// <para>
-    /// Blueprint of type BlueprintUnitProperty. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="customPropertyList">
-    /// <para>
-    /// Blueprint of type BlueprintUnitProperty. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="feature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="featureList">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// <param name="specificModifier">
-    /// <para>
-    /// Tooltip: If set to a specific modifier then only bonus from that modifier is used. Use "None" value for bonus from all modifiers.
-    /// </para>
-    /// </param>
-    /// <param name="type">
-    /// <para>
-    /// Tooltip: Symbolic link to corresponding field in <DealDamage> components. Has no intrinsic meaning
-    /// </para>
-    /// </param>
-    /// <param name="useMax">
-    /// <para>
-    /// Tooltip: Allows to set maximum value. When calculated result is greater then set maximum, maximum value will be used
-    /// </para>
-    /// </param>
-    /// <param name="useMin">
-    /// <para>
-    /// Tooltip: Allows to set minimum value. When calculated result is less then set minimum, minumum value will be used
-    /// </para>
-    /// </param>
-    public TBuilder AddContextRankConfig(
-        List<Blueprint<BlueprintArchetype, BlueprintArchetypeReference>>? additionalArchetypes = null,
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
-        ContextRankBaseValueType? baseValueType = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
-        int? buffRankMultiplier = null,
-        List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>>? clazz = null,
-        ContextRankConfig.CustomProgressionItem[]? customProgression = null,
-        Blueprint<BlueprintUnitProperty, BlueprintUnitPropertyReference>? customProperty = null,
-        List<Blueprint<BlueprintUnitProperty, BlueprintUnitPropertyReference>>? customPropertyList = null,
-        bool? exceptClasses = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? featureList = null,
-        int? max = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        int? min = null,
-        ContextRankProgression? progression = null,
-        ModifierDescriptor? specificModifier = null,
-        int? startLevel = null,
-        StatType? stat = null,
-        int? stepLevel = null,
-        AbilityRankType? type = null,
-        bool? useMax = null,
-        bool? useMin = null)
-    {
-      var component = new ContextRankConfig();
-      component.m_AdditionalArchetypes = additionalArchetypes?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AdditionalArchetypes;
-      if (component.m_AdditionalArchetypes is null)
-      {
-        component.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
-      }
-      component.Archetype = archetype?.Reference ?? component.Archetype;
-      if (component.Archetype is null)
-      {
-        component.Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null);
-      }
-      component.m_BaseValueType = baseValueType ?? component.m_BaseValueType;
-      component.m_Buff = buff?.Reference ?? component.m_Buff;
-      if (component.m_Buff is null)
-      {
-        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_BuffRankMultiplier = buffRankMultiplier ?? component.m_BuffRankMultiplier;
-      component.m_Class = clazz?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Class;
-      if (component.m_Class is null)
-      {
-        component.m_Class = new BlueprintCharacterClassReference[0];
-      }
-      foreach (var item in customProgression) { Validate(item); }
-      component.m_CustomProgression = customProgression ?? component.m_CustomProgression;
-      if (component.m_CustomProgression is null)
-      {
-        component.m_CustomProgression = new ContextRankConfig.CustomProgressionItem[0];
-      }
-      component.m_CustomProperty = customProperty?.Reference ?? component.m_CustomProperty;
-      if (component.m_CustomProperty is null)
-      {
-        component.m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(null);
-      }
-      component.m_CustomPropertyList = customPropertyList?.Select(bp => bp.Reference)?.ToArray() ?? component.m_CustomPropertyList;
-      if (component.m_CustomPropertyList is null)
-      {
-        component.m_CustomPropertyList = new BlueprintUnitPropertyReference[0];
-      }
-      component.m_ExceptClasses = exceptClasses ?? component.m_ExceptClasses;
-      component.m_Feature = feature?.Reference ?? component.m_Feature;
-      if (component.m_Feature is null)
-      {
-        component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      component.m_FeatureList = featureList?.Select(bp => bp.Reference)?.ToArray() ?? component.m_FeatureList;
-      if (component.m_FeatureList is null)
-      {
-        component.m_FeatureList = new BlueprintFeatureReference[0];
-      }
-      component.m_Max = max ?? component.m_Max;
-      component.m_Min = min ?? component.m_Min;
-      component.m_Progression = progression ?? component.m_Progression;
-      component.m_SpecificModifier = specificModifier ?? component.m_SpecificModifier;
-      component.m_StartLevel = startLevel ?? component.m_StartLevel;
-      component.m_Stat = stat ?? component.m_Stat;
-      component.m_StepLevel = stepLevel ?? component.m_StepLevel;
-      component.m_Type = type ?? component.m_Type;
-      component.m_UseMax = useMax ?? component.m_UseMax;
-      component.m_UseMin = useMin ?? component.m_UseMin;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

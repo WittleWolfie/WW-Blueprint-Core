@@ -79,6 +79,106 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     protected BaseUnitFactConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Adds <see cref="AddFacts"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
+    /// <item><term>DrovierAspectOfTheFalconFeature</term><description>7c3a2b21ffb8faf49a4656a04487d8b4</description></item>
+    /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="facts">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="dummy">
+    /// <para>
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    public TBuilder AddFacts(
+        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> facts,
+        int? casterLevel = null,
+        bool? doNotRestoreMissingFacts = null,
+        Blueprint<BlueprintUnit, BlueprintUnitReference>? dummy = null,
+        bool? hasDifficultyRequirements = null,
+        bool? invertDifficultyRequirements = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        GameDifficultyOption? minDifficulty = null)
+    {
+      var component = new AddFacts();
+      component.m_Facts = facts?.Select(bp => bp.Reference)?.ToArray();
+      component.CasterLevel = casterLevel ?? component.CasterLevel;
+      component.DoNotRestoreMissingFacts = doNotRestoreMissingFacts ?? component.DoNotRestoreMissingFacts;
+      component.Dummy = dummy?.Reference ?? component.Dummy;
+      if (component.Dummy is null)
+      {
+        component.Dummy = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      component.HasDifficultyRequirements = hasDifficultyRequirements ?? component.HasDifficultyRequirements;
+      component.InvertDifficultyRequirements = invertDifficultyRequirements ?? component.InvertDifficultyRequirements;
+      component.MinDifficulty = minDifficulty ?? component.MinDifficulty;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddInitiatorSkillRollTrigger"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GloryDomainBaseBuff</term><description>55edcfff497a1e04a963f72c485da5cb</description></item>
+    /// <item><term>GuidanceBuff</term><description>ec931b882e806ce42906597e5585c13f</description></item>
+    /// <item><term>RangedLegerdemainUntargetable</term><description>5f632e786b68d8d4c8bb66275fc600a7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    public TBuilder AddInitiatorSkillRollTrigger(
+        bool onlySuccess,
+        StatType skill,
+        ActionsBuilder? action = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new AddInitiatorSkillRollTrigger();
+      component.OnlySuccess = onlySuccess;
+      component.Skill = skill;
+      component.Action = action?.Build() ?? component.Action;
+      if (component.Action is null)
+      {
+        component.Action = Utils.Constants.Empty.Actions;
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="FormationACBonus"/>
     /// </summary>
     ///
@@ -1831,76 +1931,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       Validate(equipmentEntity);
       component.EquipmentEntity = equipmentEntity ?? component.EquipmentEntity;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFacts"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>DrovierAspectOfTheFalconFeature</term><description>7c3a2b21ffb8faf49a4656a04487d8b4</description></item>
-    /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="dummy">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="facts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    public TBuilder AddFacts(
-        int? casterLevel = null,
-        bool? doNotRestoreMissingFacts = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? dummy = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
-        bool? hasDifficultyRequirements = null,
-        bool? invertDifficultyRequirements = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        GameDifficultyOption? minDifficulty = null)
-    {
-      var component = new AddFacts();
-      component.CasterLevel = casterLevel ?? component.CasterLevel;
-      component.DoNotRestoreMissingFacts = doNotRestoreMissingFacts ?? component.DoNotRestoreMissingFacts;
-      component.Dummy = dummy?.Reference ?? component.Dummy;
-      if (component.Dummy is null)
-      {
-        component.Dummy = BlueprintTool.GetRef<BlueprintUnitReference>(null);
-      }
-      component.m_Facts = facts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Facts;
-      if (component.m_Facts is null)
-      {
-        component.m_Facts = new BlueprintUnitFactReference[0];
-      }
-      component.HasDifficultyRequirements = hasDifficultyRequirements ?? component.HasDifficultyRequirements;
-      component.InvertDifficultyRequirements = invertDifficultyRequirements ?? component.InvertDifficultyRequirements;
-      component.MinDifficulty = minDifficulty ?? component.MinDifficulty;
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -7451,40 +7481,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.OnlyPass = onlyPass ?? component.OnlyPass;
       component.SpecificSave = specificSave ?? component.SpecificSave;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddInitiatorSkillRollTrigger"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>GloryDomainBaseBuff</term><description>55edcfff497a1e04a963f72c485da5cb</description></item>
-    /// <item><term>GuidanceBuff</term><description>ec931b882e806ce42906597e5585c13f</description></item>
-    /// <item><term>RangedLegerdemainUntargetable</term><description>5f632e786b68d8d4c8bb66275fc600a7</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    public TBuilder AddInitiatorSkillRollTrigger(
-        ActionsBuilder? action = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        bool? onlySuccess = null,
-        StatType? skill = null)
-    {
-      var component = new AddInitiatorSkillRollTrigger();
-      component.Action = action?.Build() ?? component.Action;
-      if (component.Action is null)
-      {
-        component.Action = Utils.Constants.Empty.Actions;
-      }
-      component.OnlySuccess = onlySuccess ?? component.OnlySuccess;
-      component.Skill = skill ?? component.Skill;
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
