@@ -28,6 +28,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs
     {
       return new BuffConfigurator(blueprint);
     }
+
     /// <summary>
     /// Creates a new blueprint and returns a new configurator to modify it.
     /// </summary>
@@ -45,9 +46,20 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs
       return For(name);
     }
 
-    public BuffConfigurator SetStackingType(StackingType type)
+    /// <inheritdoc cref="BaseBuffConfigurator{T, TBuilder}.SetStacking(StackingType)"/>
+    /// <remarks>
+    /// Use <see cref="BaseBuffConfigurator{T, TBuilder}.SetRanks(int)"/> for StackingType.Rank.
+    /// </remarks>
+    public new BuffConfigurator SetStacking(StackingType stacking)
     {
-      return this;
+      return base.SetStacking(stacking);
+    }
+
+    /// <inheritdoc cref="BaseBuffConfigurator{T, TBuilder}.SetRanks(int)"/>
+    public new BuffConfigurator SetRanks(int ranks)
+    {
+      base.SetRanks(ranks);
+      return OnConfigureInternal(bp => bp.Stacking = StackingType.Rank);
     }
   }
 }
