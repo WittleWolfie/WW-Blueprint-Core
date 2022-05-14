@@ -75,6 +75,7 @@ namespace BlueprintCoreGen.CodeGen.Class
     public static IClassFile CreateConfigurator(IConfigurator configurator) {
       var configuratorClass = new ClassImpl(configurator.FilePath);
       configuratorClass.AddImport(configurator.BlueprintType);
+      configuratorClass.AddImport(configurator.ParentNamespace);
       configuratorClass.AddImport(typeof(BlueprintReference<>));
       configuratorClass.AddImport(typeof(RootConfigurator<,>));
 
@@ -201,6 +202,11 @@ namespace BlueprintCoreGen.CodeGen.Class
       {
         string? import = TypeTool.GetImport(type);
         if (import != null) { Imports.Add(import); }
+      }
+
+      public void AddImport(string nameSpace)
+      {
+        Imports.Add($"using {nameSpace};");
       }
 
       public void AddLine(string line)

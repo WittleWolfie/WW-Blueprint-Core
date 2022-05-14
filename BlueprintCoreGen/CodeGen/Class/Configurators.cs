@@ -33,6 +33,11 @@ namespace BlueprintCoreGen.CodeGen.Class
     public string ParentClassName { get; }
 
     /// <summary>
+    /// Namespace of the parent configurator, e.g. BlueprintCore.Blueprints.Configurators
+    /// </summary>
+    public string ParentNamespace { get; }
+
+    /// <summary>
     /// Name of the blueprint type supported, e.g. BlueprintFeature
     /// </summary>
     public string TypeName { get; }
@@ -100,11 +105,11 @@ namespace BlueprintCoreGen.CodeGen.Class
       foreach (var blueprintType in blueprintTypes)
       {
         var isRoot = blueprintType == BlueprintTypeRoot;
-        var relativeNamespace =
-          string.Join('.', blueprintType.Namespace!.Split('.').Where(pkg => !IgnoredNamespacePackages.Contains(pkg)));
-        var nameSpace = GetNamespace(relativeNamespace);
+        var nameSpace = GetNamespace(blueprintType);
         var className = GetClassName(blueprintType);
         var parentClassName = isRoot ? "RootConfigurator" : $"Base{GetClassName(blueprintType.BaseType!)}";
+        var parentNamespace =
+          isRoot ? "BlueprintCore.Blueprints.CustomConfigurators" : GetNamespace(blueprintType.BaseType!);
         var abstractClassName = $"Base{className}";
         var typeName = TypeTool.GetName(blueprintType);
 
@@ -116,10 +121,11 @@ namespace BlueprintCoreGen.CodeGen.Class
         {
           var configuratorImpl =
             new ConfiguratorImpl(
-              GetFilePath(relativeNamespace, abstractClassName),
+              GetFilePath(nameSpace, abstractClassName),
               nameSpace,
               abstractClassName,
               parentClassName,
+              parentNamespace,
               typeName,
               blueprintType,
               /* isAbstract= */ true,
@@ -132,10 +138,11 @@ namespace BlueprintCoreGen.CodeGen.Class
 
         configurators.Add(
         new ConfiguratorImpl(
-          GetFilePath(relativeNamespace, abstractClassName),
+          GetFilePath(nameSpace, abstractClassName),
           nameSpace,
           abstractClassName,
           parentClassName,
+          parentNamespace,
           typeName,
           blueprintType,
           /* isAbstract= */ true,
@@ -143,10 +150,11 @@ namespace BlueprintCoreGen.CodeGen.Class
           fieldMethods));
         configurators.Add(
           new ConfiguratorImpl(
-            GetFilePath(relativeNamespace, className),
+            GetFilePath(nameSpace, className),
             nameSpace,
             className,
             abstractClassName,
+            nameSpace, // Parent is the abstract class above
             typeName,
             blueprintType,
             /* isAbstract= */ false,
@@ -201,6 +209,7 @@ namespace BlueprintCoreGen.CodeGen.Class
       return allowedOn;
     }
 
+    private static readonly string NamespaceRoot = "BlueprintCore.Blueprints.Configurators";
     private static readonly List<string> IgnoredNamespacePackages =
         new()
         {
@@ -223,13 +232,15 @@ namespace BlueprintCoreGen.CodeGen.Class
           "LightSelector",
           "Sound"
         };
-    private static string GetNamespace(string relativeNamespace)
+    private static string GetNamespace(Type blueprintType)
     {
+      var relativeNamespace =
+        string.Join('.', blueprintType.Namespace!.Split('.').Where(pkg => !IgnoredNamespacePackages.Contains(pkg)));
       if (string.IsNullOrEmpty(relativeNamespace))
       {
-        return "BlueprintCore.Blueprints.Configurators";
+        return NamespaceRoot;
       }
-      return $"BlueprintCore.Blueprints.Configurators.{relativeNamespace}";
+      return $"{NamespaceRoot}.{relativeNamespace}";
     }
 
     private static string GetClassName(Type blueprintType)
@@ -241,8 +252,9 @@ namespace BlueprintCoreGen.CodeGen.Class
       return $"{TypeTool.GetName(blueprintType).Replace("Blueprint", "")}Configurator";
     }
 
-    private static string GetFilePath(string relativeNamespace, string className)
+    private static string GetFilePath(string nameSpace, string className)
     {
+      var relativeNamespace = nameSpace.Replace(NamespaceRoot, "");
       return
         $"BlueprintConfigurators/{relativeNamespace.Replace('.', '/')}/{className.Replace("Configurator", "")}.cs";
     }
@@ -256,6 +268,8 @@ namespace BlueprintCoreGen.CodeGen.Class
       public string ClassName { get; }
 
       public string ParentClassName { get; }
+
+      public string ParentNamespace { get; }
 
       public string TypeName { get; }
 
@@ -273,6 +287,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         string nameSpace,
         string className,
         string parentClassName,
+        string parentNamespace,
         string typeName,
         Type blueprintType,
         bool isAbstract,
@@ -283,6 +298,7 @@ namespace BlueprintCoreGen.CodeGen.Class
         Namespace = nameSpace;
         ClassName = className;
         ParentClassName = parentClassName;
+        ParentNamespace = parentNamespace;
         TypeName = typeName;
         BlueprintType = blueprintType;
         IsAbstract = isAbstract;
