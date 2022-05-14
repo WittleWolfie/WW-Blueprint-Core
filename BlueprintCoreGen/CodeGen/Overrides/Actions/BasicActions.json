@@ -41,23 +41,9 @@
   {
     "TypeName": "AddItemToPlayer",
     "Remarks": [
-      "<list type=\"bullet\">",
-      "<item>",
-      "  <description>",
-      "    If the item is a <see cref=\"BlueprintItemEquipmentHand\"/> use <see cref=\"GiveHandSlotItemToPlayer\"/>",
-      "  </description>",
-      "</item>",
-      "<item>",
-      "  <description>",
-      "    If the item is a <see cref=\"BlueprintItemEquipment\"/> use <see cref=\"GiveEquipmentToPlayer\"/>",
-      "  </description>",
-      "</item>",
-      "<item>",
-      "  <description>",
-      "    For any other items use <see cref=\"GiveItemToPlayer\"/>.",
-      "  </description>",
-      "</item>",
-      "</list>"
+      "If the item is a <see cref=\"BlueprintItemEquipmentHand\"/> use <see cref=\"GiveHandSlotItemToPlayer\"/>",
+      "If the item is a <see cref=\"BlueprintItemEquipment\"/> use <see cref=\"GiveEquipmentToPlayer\"/>",
+      "For any other items use <see cref=\"GiveItemToPlayer\"/>."
     ],
     "Imports": [ "BlueprintItemEquipmentHand", "BlueprintItemEquipment" ],
     "CustomFields": [
