@@ -1,17 +1,4 @@
-﻿using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.RandomEncounters.Settings;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
-using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Buffs.Components;
-using Kingmaker.UnitLogic.Class.Kineticist;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace BlueprintCoreGen.CodeGen.Overrides
@@ -21,35 +8,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides
   /// </summary>
   public class GlobalOverrides
   {
-    // TODO: Move this to a config style override.
-    /// <summary>
-    /// Overrides the supported blueprint types of BlueprintComponents.
-    /// </summary>
-    public static readonly Dictionary<Type, List<Type>> AllowedBlueprintTypes =
-        new()
-        {
-          { typeof(CombatRandomEncounterAreaSettings), new() { typeof(BlueprintArea) } },
-          { typeof(AbilityUseOnRest), new() { typeof(BlueprintAbility) } },
-          { typeof(AddFactContextActions), new() { typeof(BlueprintFact) } },
-          { typeof(AddBuffActions), new() { typeof(BlueprintFact) } },
-          { typeof(AllowOnZoneSettings), new() { typeof(BlueprintAreaEnterPoint) } },
-          { typeof(ComponentsList), new() { typeof(BlueprintFact) } },
-          { typeof(AddClassLevelsToPets), new() { typeof(BlueprintUnit) } },
-          { typeof(ChangeVendorPrices), new() { typeof(BlueprintUnit) } },
-          { typeof(AbilityAcceptBurnOnCast), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityAoERadius), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityMagusSpellRecallCostCalculator), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityTargetCellsRestriction), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityTargetHasCondition), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityTargetHasConditionOrBuff), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityTargetHasOneOfConditionsOrHP), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityTargetIsAnimalCompanion), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityTargetIsSuitableMount), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityTargetIsSuitableMountSize), new() { typeof(BlueprintAbility) } },
-          { typeof(AbilityTargetRangeRestriction), new() { typeof(BlueprintAbility) } },
-          { typeof(AddEquipmentToPet), new() { typeof(BlueprintUnit) } }
-        };
-
     public static Dictionary<Type, string> TypeNameOverrides =
         new()
         {

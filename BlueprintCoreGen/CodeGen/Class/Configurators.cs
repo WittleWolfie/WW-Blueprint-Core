@@ -1,8 +1,10 @@
 ﻿using BlueprintCoreGen.CodeGen.Methods;
 using BlueprintCoreGen.CodeGen.Overrides.Ignored;
 using Kingmaker.Blueprints;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -172,13 +174,30 @@ namespace BlueprintCoreGen.CodeGen.Class
       Dictionary<Type, ConstructorMethod> componentMethodsByType = new();
       gameTypes.Where(t => t.IsSubclassOf(typeof(BlueprintComponent)) && !t.IsAbstract)
         .ToList()
-        .ForEach(t => componentMethodsByType.Add(t, new ConstructorMethod(t.FullName)));
+        .ForEach(t => componentMethodsByType.Add(t, new ConstructorMethod(t.FullName!)));
       return componentMethodsByType;
     }
 
+    private static Dictionary<Type, List<Type>>? AllowedBlueprintTypes;
     private static List<Type> GetAllowedBlueprintTypes(Type componentType)
     {
-      // TODO: Overrides
+      if (AllowedBlueprintTypes is null)
+      {
+        AllowedBlueprintTypes = new();
+        JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Components/AllowedBlueprints.json"));
+        List<AllowedBlueprintsOverride> overrides = array.ToObject<List<AllowedBlueprintsOverride>>();
+        overrides.ForEach(
+          componentOverride =>
+            AllowedBlueprintTypes.Add(
+              TypeTool.TypeByName(componentOverride.TypeName),
+              componentOverride.AllowedOn.Select(typeName => TypeTool.TypeByName(typeName)).ToList()));
+      }
+
+      if (AllowedBlueprintTypes.ContainsKey(componentType))
+      {
+        return AllowedBlueprintTypes[componentType];
+      }
+
       List<Type> allowedOn = new();
       Type current = componentType;
       while (current != typeof(BlueprintComponent))
@@ -258,6 +277,13 @@ namespace BlueprintCoreGen.CodeGen.Class
       var relativeNamespace = nameSpace.Replace(NamespaceRoot, "");
       return
         $"Configurators/{relativeNamespace.Replace('.', '/')}/{className.Replace("Configurator", "")}.cs";
+    }
+
+    private class AllowedBlueprintsOverride
+    {
+      public string TypeName;
+
+      public List<string> AllowedOn;
     }
 
     private class ConfiguratorImpl : IConfigurator

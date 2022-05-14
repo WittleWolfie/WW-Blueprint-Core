@@ -980,6 +980,41 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="ChangeVendorPrices"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC2_Millorn</term><description>3b91296c7ae04a1391dfe972ce1e3eaf</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    public TBuilder AddChangeVendorPrices(
+        Dictionary<BlueprintItem,long>? itemsToBuyCosts = null,
+        Dictionary<BlueprintItem,long>? itemsToSellCosts = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ChangeVendorPrices.Entry[]? priceOverrides = null)
+    {
+      var component = new ChangeVendorPrices();
+      Validate(itemsToBuyCosts);
+      component.m_ItemsToBuyCosts = itemsToBuyCosts ?? component.m_ItemsToBuyCosts;
+      Validate(itemsToSellCosts);
+      component.m_ItemsToSellCosts = itemsToSellCosts ?? component.m_ItemsToSellCosts;
+      foreach (var item in priceOverrides) { Validate(item); }
+      component.m_PriceOverrides = priceOverrides ?? component.m_PriceOverrides;
+      if (component.m_PriceOverrides is null)
+      {
+        component.m_PriceOverrides = new ChangeVendorPrices.Entry[0];
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="PregenDollSettings"/>
     /// </summary>
     ///

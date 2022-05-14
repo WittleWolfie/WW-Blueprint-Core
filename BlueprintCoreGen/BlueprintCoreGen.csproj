@@ -52,6 +52,9 @@
     <None Update="CodeGen\Overrides\Actions\ContextActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="CodeGen\Overrides\Components\AllowedBlueprints.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="CodeGen\Overrides\Conditions\StoryConditions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -94,5 +97,9 @@
     <None Update="UpdateCodeGen.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CodeGen\Overrides\Blueprints\" />
   </ItemGroup>
 </Project>

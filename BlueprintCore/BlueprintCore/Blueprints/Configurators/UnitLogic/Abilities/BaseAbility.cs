@@ -373,6 +373,27 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityAcceptBurnOnCast"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AerialEvasionAbility</term><description>41281aa38b6b27f4fa3a05c97cc01783</description></item>
+    /// <item><term>SearingFleshAbility</term><description>04a61f1221b79a742912cfd847b65911</description></item>
+    /// <item><term>ShroudOFWaterUpgradeAbility</term><description>84d77a1c06b800545aacd91210d3505c</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddAbilityAcceptBurnOnCast(
+        int? burnValue = null)
+    {
+      var component = new AbilityAcceptBurnOnCast();
+      component.BurnValue = burnValue ?? component.BurnValue;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityKineticist"/>
     /// </summary>
     ///
@@ -1079,6 +1100,39 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       component.m_SpreadSpeed = spreadSpeed ?? component.m_SpreadSpeed;
       component.m_TargetType = targetType ?? component.m_TargetType;
       component.m_Vertical = vertical ?? component.m_Vertical;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityAoERadius"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AcidFog</term><description>dbf99b00cd35d0a4491c6cc9e771b487</description></item>
+    /// <item><term>HungryPit</term><description>f63f4d1806b78604a952b3958892ce1c</description></item>
+    /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="diameterInCells">
+    /// <para>
+    /// InfoBox: For now only odd diameters can be used. 1 -> 1 cell, 3 -> 9 cells, ...
+    /// </para>
+    /// </param>
+    public TBuilder AddAbilityAoERadius(
+        bool? canBeUsedInTacticalCombat = null,
+        int? diameterInCells = null,
+        Feet? radius = null,
+        Kingmaker.UnitLogic.Abilities.Components.TargetType? targetType = null)
+    {
+      var component = new AbilityAoERadius();
+      component.m_CanBeUsedInTacticalCombat = canBeUsedInTacticalCombat ?? component.m_CanBeUsedInTacticalCombat;
+      component.m_DiameterInCells = diameterInCells ?? component.m_DiameterInCells;
+      component.m_Radius = radius ?? component.m_Radius;
+      component.m_TargetType = targetType ?? component.m_TargetType;
       return AddComponent(component);
     }
 
@@ -2863,6 +2917,42 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityMagusSpellRecallCostCalculator"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MagusSpellRecall</term><description>1bd76e00b6e056d42a8ecc1031dd43b4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="improvedFeature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddAbilityMagusSpellRecallCostCalculator(
+        Blueprint<BlueprintFeature, BlueprintFeatureReference>? improvedFeature = null)
+    {
+      var component = new AbilityMagusSpellRecallCostCalculator();
+      component.m_ImprovedFeature = improvedFeature?.Reference ?? component.m_ImprovedFeature;
+      if (component.m_ImprovedFeature is null)
+      {
+        component.m_ImprovedFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityRequirementCanMove"/>
     /// </summary>
     ///
@@ -3339,6 +3429,41 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityUseOnRest"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AngelBringBackCast</term><description>eb0d3e22826725d4199a3aac0db0ad50</description></item>
+    /// <item><term>InflictLightWoundsMass</term><description>9da37873d79ef0a468f969e4e5116ad2</description></item>
+    /// <item><term>WitchDoctorChannelEnergy</term><description>d470eb6b3b31fde4bb44ec753de0b862</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="baseValue">
+    /// <para>
+    /// InfoBox: `Approximated minimum` that would be used in Rest days count calculations
+    /// </para>
+    /// </param>
+    public TBuilder AddAbilityUseOnRest(
+        bool? addCasterLevel = null,
+        int? baseValue = null,
+        int? maxCasterLevel = null,
+        bool? multiplyByCasterLevel = null,
+        AbilityUseOnRestType? type = null)
+    {
+      var component = new AbilityUseOnRest();
+      component.AddCasterLevel = addCasterLevel ?? component.AddCasterLevel;
+      component.BaseValue = baseValue ?? component.BaseValue;
+      component.MaxCasterLevel = maxCasterLevel ?? component.MaxCasterLevel;
+      component.MultiplyByCasterLevel = multiplyByCasterLevel ?? component.MultiplyByCasterLevel;
+      component.Type = type ?? component.Type;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityVariants"/>
     /// </summary>
     ///
@@ -3506,6 +3631,48 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityTargetCellsRestriction"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Angel3SummonHeavenlyHostAbility</term><description>f317d44314a843e7aaf3fc202cbe9577</description></item>
+    /// <item><term>ArmySummonSchir</term><description>4212e78cab304071801f7cb6e9accc48</description></item>
+    /// <item><term>SummonSquad</term><description>6fd4d245dd129af45a802dedff113c0d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="allowedColumns">
+    /// <para>
+    /// InfoBox: Keep empty to allow all cells
+    /// </para>
+    /// </param>
+    /// <param name="factionDependent">
+    /// <para>
+    /// InfoBox: If True, 0 column means left for Crusaders and right for Demons
+    /// </para>
+    /// </param>
+    public TBuilder AddAbilityTargetCellsRestriction(
+        List<int>? allowedColumns = null,
+        int? diameter = null,
+        bool? factionDependent = null,
+        bool? onlyEmptyCells = null)
+    {
+      var component = new AbilityTargetCellsRestriction();
+      component.m_AllowedColumns = allowedColumns ?? component.m_AllowedColumns;
+      if (component.m_AllowedColumns is null)
+      {
+        component.m_AllowedColumns = new();
+      }
+      component.m_Diameter = diameter ?? component.m_Diameter;
+      component.m_FactionDependent = factionDependent ?? component.m_FactionDependent;
+      component.m_OnlyEmptyCells = onlyEmptyCells ?? component.m_OnlyEmptyCells;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityTargetDivineTroth"/>
     /// </summary>
     ///
@@ -3606,6 +3773,74 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       component.Inverted = inverted ?? component.Inverted;
       component.OverrideCurrentHPLessThan = overrideCurrentHPLessThan ?? component.OverrideCurrentHPLessThan;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetHasCondition"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BloodlineElementalWaterElementalMovementFeature</term><description>737ef897849327b45b88b83a797918c8</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    public TBuilder AddAbilityTargetHasCondition(
+        UnitCondition? condition = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        bool? not = null)
+    {
+      var component = new AbilityTargetHasCondition();
+      component.Condition = condition ?? component.Condition;
+      component.Not = not ?? component.Not;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetHasConditionOrBuff"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CoupDeGraceAbility</term><description>32280b137ca642c45be17e2d92898758</description></item>
+    /// <item><term>ExecutionerAssassinateAbility</term><description>3dad7f131aa884f4c972f2fb759d0df4</description></item>
+    /// <item><term>RepurposeForcedEnd</term><description>9520c680f8584c3b8c165fae9f05278d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddAbilityTargetHasConditionOrBuff(
+        List<Blueprint<BlueprintBuff, BlueprintBuffReference>>? buffs = null,
+        UnitCondition? condition = null,
+        bool? not = null)
+    {
+      var component = new AbilityTargetHasConditionOrBuff();
+      component.m_Buffs = buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Buffs;
+      if (component.m_Buffs is null)
+      {
+        component.m_Buffs = new BlueprintBuffReference[0];
+      }
+      component.Condition = condition ?? component.Condition;
+      component.Not = not ?? component.Not;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -3739,6 +3974,35 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityTargetHasOneOfConditionsOrHP"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BloodDrinkerAbility</term><description>be35623d2c561c649b98a1794216e9f9</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddAbilityTargetHasOneOfConditionsOrHP(
+        UnitCondition[]? condition = null,
+        int? currentHPLessThan = null,
+        bool? invertedHP = null,
+        bool? needHPCondition = null)
+    {
+      var component = new AbilityTargetHasOneOfConditionsOrHP();
+      component.Condition = condition ?? component.Condition;
+      if (component.Condition is null)
+      {
+        component.Condition = new UnitCondition[0];
+      }
+      component.CurrentHPLessThan = currentHPLessThan ?? component.CurrentHPLessThan;
+      component.InvertedHP = invertedHP ?? component.InvertedHP;
+      component.NeedHPCondition = needHPCondition ?? component.NeedHPCondition;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityTargetIsAlly"/>
     /// </summary>
     ///
@@ -3766,6 +4030,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       var component = new AbilityTargetIsAlly();
       component.Not = not ?? component.Not;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetIsAnimalCompanion"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>EmergencySwapAbility</term><description>b50ca9b5d6292fb42b8eab8e5d64842d</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddAbilityTargetIsAnimalCompanion(
+        bool? not = null)
+    {
+      var component = new AbilityTargetIsAnimalCompanion();
+      component.Not = not ?? component.Not;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -3866,6 +4149,38 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityTargetIsSuitableMount"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MountTargetAbility</term><description>9f8c0f4fcabdb3145b449826d17da18d</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddAbilityTargetIsSuitableMount()
+    {
+      return AddComponent(new AbilityTargetIsSuitableMount());
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetIsSuitableMountSize"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MountTargetAbility</term><description>9f8c0f4fcabdb3145b449826d17da18d</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddAbilityTargetIsSuitableMountSize()
+    {
+      return AddComponent(new AbilityTargetIsSuitableMountSize());
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityTargetMaximumHitDice"/>
     /// </summary>
     ///
@@ -3909,6 +4224,27 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityTargetNotSelf()
     {
       return AddComponent(new AbilityTargetNotSelf());
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetRangeRestriction"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>EmergencySwapAbility</term><description>b50ca9b5d6292fb42b8eab8e5d64842d</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddAbilityTargetRangeRestriction(
+        CompareOperation.Type? compareType = null,
+        Feet? distance = null)
+    {
+      var component = new AbilityTargetRangeRestriction();
+      component.CompareType = compareType ?? component.CompareType;
+      component.Distance = distance ?? component.Distance;
+      return AddComponent(component);
     }
 
     /// <summary>

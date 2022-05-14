@@ -6,9 +6,11 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Enums;
 using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.RandomEncounters;
+using Kingmaker.RandomEncounters.Settings;
 using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
@@ -43,6 +45,75 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       var component = new CampingEncounterIncreaseDifficulty();
       component.m_IncreaseChance = increaseChance ?? component.m_IncreaseChance;
       component.m_IncreaseDifficulty = increaseDifficulty ?? component.m_IncreaseDifficulty;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CombatRandomEncounterAreaSettings"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RE_KareliaCanyon</term><description>03fca664fc43fb040aae42bb0f41c23c</description></item>
+    /// <item><term>RE_SarkorisDisaster_2</term><description>c7125176689d3814199266e2ad2c3077</description></item>
+    /// <item><term>RE_WoundedForest</term><description>da702e8d79c6046439c17e7e9cbfd758</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="defaultEnterPoint">
+    /// <para>
+    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="goodAvoidanceEnterPoint">
+    /// <para>
+    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddCombatRandomEncounterAreaSettings(
+        GlobalMapZone[]? allowedNaturalSettings = null,
+        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? defaultEnterPoint = null,
+        CombatRandomEncounterAreaSettings.Formation[]? formations = null,
+        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? goodAvoidanceEnterPoint = null)
+    {
+      var component = new CombatRandomEncounterAreaSettings();
+      component.AllowedNaturalSettings = allowedNaturalSettings ?? component.AllowedNaturalSettings;
+      if (component.AllowedNaturalSettings is null)
+      {
+        component.AllowedNaturalSettings = new GlobalMapZone[0];
+      }
+      component.m_DefaultEnterPoint = defaultEnterPoint?.Reference ?? component.m_DefaultEnterPoint;
+      if (component.m_DefaultEnterPoint is null)
+      {
+        component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      foreach (var item in formations) { Validate(item); }
+      component.Formations = formations ?? component.Formations;
+      if (component.Formations is null)
+      {
+        component.Formations = new CombatRandomEncounterAreaSettings.Formation[0];
+      }
+      component.m_GoodAvoidanceEnterPoint = goodAvoidanceEnterPoint?.Reference ?? component.m_GoodAvoidanceEnterPoint;
+      if (component.m_GoodAvoidanceEnterPoint is null)
+      {
+        component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
       return AddComponent(component);
     }
 

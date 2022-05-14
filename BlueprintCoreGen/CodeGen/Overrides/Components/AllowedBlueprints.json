@@ -1,0 +1,101 @@
+﻿[
+  {
+    "TypeName": "AbilityAcceptBurnOnCast",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityAoERadius",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityMagusSpellRecallCostCalculator",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityTargetCellsRestriction",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityTargetHasCondition",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityTargetHasConditionOrBuff",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityTargetHasOneOfConditionsOrHP",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityTargetIsAnimalCompanion",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityTargetIsSuitableMount",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityTargetIsSuitableMountSize",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityTargetRangeRestriction",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AbilityUseOnRest",
+    "AllowedOn": [ "BlueprintAbility" ]
+  },
+
+  {
+    "TypeName": "AddBuffActions",
+    "AllowedOn": [ "BlueprintFact" ]
+  },
+
+  {
+    "TypeName": "AddClassLevelsToPets",
+    "AllowedOn": [ "BlueprintUnit" ]
+  },
+
+  {
+    "TypeName": "AddEquipmentToPet",
+    "AllowedOn": [ "BlueprintUnit" ]
+  },
+
+  {
+    "TypeName": "AddFactContextActions",
+    "AllowedOn": [ "BlueprintFact" ]
+  },
+
+  {
+    "TypeName": "AllowOnZoneSettings",
+    "AllowedOn": [ "BlueprintAreaEnterPoint" ]
+  },
+
+  {
+    "TypeName": "ChangeVendorPrices",
+    "AllowedOn": [ "BlueprintUnit" ]
+  },
+
+  {
+    "TypeName": "CombatRandomEncounterAreaSettings",
+    "AllowedOn": [ "BlueprintArea" ]
+  },
+
+  {
+    "TypeName": "ComponentsList",
+    "AllowedOn": [ "BlueprintFact" ]
+  }
+]
