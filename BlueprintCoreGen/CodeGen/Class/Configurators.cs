@@ -256,7 +256,7 @@ namespace BlueprintCoreGen.CodeGen.Class
     {
       var relativeNamespace = nameSpace.Replace(NamespaceRoot, "");
       return
-        $"BlueprintConfigurators/{relativeNamespace.Replace('.', '/')}/{className.Replace("Configurator", "")}.cs";
+        $"Configurators/{relativeNamespace.Replace('.', '/')}/{className.Replace("Configurator", "")}.cs";
     }
 
     private class ConfiguratorImpl : IConfigurator
