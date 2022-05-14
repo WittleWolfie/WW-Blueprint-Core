@@ -189,55 +189,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///
     /// <remarks>
     /// <para>
-    /// <list type="bullet">
+    /// If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
     /// </para>
     /// <para>
-    /// <item>
+    /// If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
     /// </para>
     /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// <item>
-    /// </para>
-    /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// <item>
-    /// </para>
-    /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     For any other items use <see cref="GiveItemToPlayer"/>.
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// </list>
+    /// For any other items use <see cref="GiveItemToPlayer"/>.
     /// </para>
     ///
     /// <para>
@@ -294,55 +252,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///
     /// <remarks>
     /// <para>
-    /// <list type="bullet">
+    /// If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
     /// </para>
     /// <para>
-    /// <item>
+    /// If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
     /// </para>
     /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// <item>
-    /// </para>
-    /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// <item>
-    /// </para>
-    /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     For any other items use <see cref="GiveItemToPlayer"/>.
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// </list>
+    /// For any other items use <see cref="GiveItemToPlayer"/>.
     /// </para>
     ///
     /// <para>
@@ -406,55 +322,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///
     /// <remarks>
     /// <para>
-    /// <list type="bullet">
+    /// If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
     /// </para>
     /// <para>
-    /// <item>
+    /// If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
     /// </para>
     /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     If the item is a <see cref="BlueprintItemEquipmentHand"/> use <see cref="GiveHandSlotItemToPlayer"/>
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// <item>
-    /// </para>
-    /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     If the item is a <see cref="BlueprintItemEquipment"/> use <see cref="GiveEquipmentToPlayer"/>
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// <item>
-    /// </para>
-    /// <para>
-    ///   <description>
-    /// </para>
-    /// <para>
-    ///     For any other items use <see cref="GiveItemToPlayer"/>.
-    /// </para>
-    /// <para>
-    ///   </description>
-    /// </para>
-    /// <para>
-    /// </item>
-    /// </para>
-    /// <para>
-    /// </list>
+    /// For any other items use <see cref="GiveItemToPlayer"/>.
     /// </para>
     ///
     /// <para>
