@@ -38,6 +38,35 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     protected BaseWeaponEnchantmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/>
+    /// </summary>
+    public TBuilder SetWeaponFxPrefab(PrefabLink weaponFxPrefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.WeaponFxPrefab = weaponFxPrefab;
+          if (bp.WeaponFxPrefab is null)
+          {
+            bp.WeaponFxPrefab = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyWeaponFxPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.WeaponFxPrefab is null) { return; }
+          action.Invoke(bp.WeaponFxPrefab);
+        });
+    }
+
+    /// <summary>
     /// Adds <see cref="TwoWeaponCriticalAdditionalAttackEnchant"/>
     /// </summary>
     ///

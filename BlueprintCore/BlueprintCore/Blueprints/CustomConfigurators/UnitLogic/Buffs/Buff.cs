@@ -1,17 +1,15 @@
-//***** AUTO-GENERATED - DO NOT EDIT *****//
-
+﻿using BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 
-namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
+namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintBuff"/>.
   /// </summary>
   /// <inheritdoc/>
-  public class BuffConfigurator
-    : BaseBuffConfigurator<BlueprintBuff, BuffConfigurator>
+  public class BuffConfigurator : BaseBuffConfigurator<BlueprintBuff, BuffConfigurator>
   {
     private BuffConfigurator(Blueprint<BlueprintBuff, BlueprintReference<BlueprintBuff>> blueprint) : base(blueprint) { }
 
@@ -38,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static BuffConfigurator New(string name, string guid)
@@ -47,5 +45,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       return For(name);
     }
 
+    public BuffConfigurator SetStackingType(StackingType type)
+    {
+      return this;
+    }
   }
 }

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,5 +17,29 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseConsiderationConfigurator<T, TBuilder>
   {
     protected BaseConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="Consideration.BaseScoreModifier"/>
+    /// </summary>
+    public TBuilder SetBaseScoreModifier(float baseScoreModifier)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BaseScoreModifier = baseScoreModifier;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="Consideration.BaseScoreModifier"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyBaseScoreModifier(Action<float> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.BaseScoreModifier);
+        });
+    }
   }
 }

@@ -3,6 +3,8 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.RandomEncounters.Settings;
+using Kingmaker.ResourceLinks;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
 {
@@ -16,5 +18,34 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     where TBuilder : BaseSpawnableObjectConfigurator<T, TBuilder>
   {
     protected BaseSpawnableObjectConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSpawnableObject.Prefab"/>
+    /// </summary>
+    public TBuilder SetPrefab(PrefabLink prefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Prefab = prefab;
+          if (bp.Prefab is null)
+          {
+            bp.Prefab = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSpawnableObject.Prefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Prefab is null) { return; }
+          action.Invoke(bp.Prefab);
+        });
+    }
   }
 }

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
@@ -16,5 +17,29 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where TBuilder : BaseTacticalCombatAiAttackConfigurator<T, TBuilder>
   {
     protected BaseTacticalCombatAiAttackConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatAiAttack.CanAttackAllies"/>
+    /// </summary>
+    public TBuilder SetCanAttackAllies(bool canAttackAllies = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CanAttackAllies = canAttackAllies;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTacticalCombatAiAttack.CanAttackAllies"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCanAttackAllies(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CanAttackAllies);
+        });
+    }
   }
 }

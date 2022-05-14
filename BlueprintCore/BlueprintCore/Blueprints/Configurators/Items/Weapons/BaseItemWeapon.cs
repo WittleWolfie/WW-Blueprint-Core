@@ -3,9 +3,17 @@
 using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Enums;
+using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Class.Kineticist;
+using Kingmaker.Utility;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
@@ -19,6 +27,528 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     where TBuilder : BaseItemWeaponConfigurator<T, TBuilder>
   {
     protected BaseItemWeaponConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_Type"/>
+    /// </summary>
+    ///
+    /// <param name="type">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetType(Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference> type)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Type = type?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_Type"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="type">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyType(Action<BlueprintWeaponTypeReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Type is null) { return; }
+          action.Invoke(bp.m_Type);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_Size"/>
+    /// </summary>
+    public TBuilder SetSize(Size size)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Size = size;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_Size"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySize(Action<Size> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_Size);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_Enchantments"/>
+    /// </summary>
+    ///
+    /// <param name="enchantments">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetEnchantments(List<Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>> enchantments)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Enchantments = enchantments?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintItemWeapon.m_Enchantments"/>
+    /// </summary>
+    ///
+    /// <param name="enchantments">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToEnchantments(params Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>[] enchantments)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Enchantments = bp.m_Enchantments ?? new BlueprintWeaponEnchantmentReference[0];
+          bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintItemWeapon.m_Enchantments"/>
+    /// </summary>
+    ///
+    /// <param name="enchantments">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromEnchantments(params Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>[] enchantments)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Enchantments is null) { return; }
+          bp.m_Enchantments = bp.m_Enchantments.Where(val => !enchantments.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintItemWeapon.m_Enchantments"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="enchantments">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromEnchantments(Func<BlueprintWeaponEnchantmentReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Enchantments is null) { return; }
+          bp.m_Enchantments = bp.m_Enchantments.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintItemWeapon.m_Enchantments"/>
+    /// </summary>
+    ///
+    /// <param name="enchantments">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearEnchantments()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Enchantments = new BlueprintWeaponEnchantmentReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_Enchantments"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="enchantments">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyEnchantments(Action<BlueprintWeaponEnchantmentReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Enchantments is null) { return; }
+          bp.m_Enchantments.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_OverrideDamageDice"/>
+    /// </summary>
+    public TBuilder SetOverrideDamageDice(bool overrideDamageDice = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_OverrideDamageDice = overrideDamageDice;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_OverrideDamageDice"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOverrideDamageDice(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_OverrideDamageDice);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_DamageDice"/>
+    /// </summary>
+    public TBuilder SetDamageDice(DiceFormula damageDice)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DamageDice = damageDice;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_DamageDice"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDamageDice(Action<DiceFormula> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_DamageDice);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_OverrideDamageType"/>
+    /// </summary>
+    public TBuilder SetOverrideDamageType(bool overrideDamageType = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_OverrideDamageType = overrideDamageType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_OverrideDamageType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOverrideDamageType(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_OverrideDamageType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_DamageType"/>
+    /// </summary>
+    public TBuilder SetDamageType(DamageTypeDescription damageType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(damageType);
+          bp.m_DamageType = damageType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_DamageType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDamageType(Action<DamageTypeDescription> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DamageType is null) { return; }
+          action.Invoke(bp.m_DamageType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.Double"/>
+    /// </summary>
+    public TBuilder SetDoubleValue(bool doubleValue = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Double = doubleValue;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.Double"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDoubleValue(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Double);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_SecondWeapon"/>
+    /// </summary>
+    ///
+    /// <param name="secondWeapon">
+    /// <para>
+    /// Blueprint of type BlueprintItemWeapon. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSecondWeapon(Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference> secondWeapon)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SecondWeapon = secondWeapon?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_SecondWeapon"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="secondWeapon">
+    /// <para>
+    /// Blueprint of type BlueprintItemWeapon. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifySecondWeapon(Action<BlueprintItemWeaponReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SecondWeapon is null) { return; }
+          action.Invoke(bp.m_SecondWeapon);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.KeepInPolymorph"/>
+    /// </summary>
+    public TBuilder SetKeepInPolymorph(bool keepInPolymorph = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.KeepInPolymorph = keepInPolymorph;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.KeepInPolymorph"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyKeepInPolymorph(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.KeepInPolymorph);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_OverrideShardItem"/>
+    /// </summary>
+    ///
+    /// <param name="overrideShardItem">
+    /// <para>
+    /// InfoBox: If true, ignores shard item from weapon type and uses shard from this blueprint.
+    /// </para>
+    /// </param>
+    public TBuilder SetOverrideShardItem(bool overrideShardItem = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_OverrideShardItem = overrideShardItem;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_OverrideShardItem"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="overrideShardItem">
+    /// <para>
+    /// InfoBox: If true, ignores shard item from weapon type and uses shard from this blueprint.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyOverrideShardItem(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_OverrideShardItem);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_OverrideDestructible"/>
+    /// </summary>
+    ///
+    /// <param name="overrideDestructible">
+    /// <para>
+    /// InfoBox: If true, ignores destructible property value from armor type and uses it from blueprint item.
+    /// </para>
+    /// </param>
+    public TBuilder SetOverrideDestructible(bool overrideDestructible = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_OverrideDestructible = overrideDestructible;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_OverrideDestructible"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="overrideDestructible">
+    /// <para>
+    /// InfoBox: If true, ignores destructible property value from armor type and uses it from blueprint item.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyOverrideDestructible(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_OverrideDestructible);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_AlwaysPrimary"/>
+    /// </summary>
+    public TBuilder SetAlwaysPrimary(bool alwaysPrimary = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AlwaysPrimary = alwaysPrimary;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemWeapon.m_AlwaysPrimary"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAlwaysPrimary(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_AlwaysPrimary);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="WeaponKineticBlade"/>

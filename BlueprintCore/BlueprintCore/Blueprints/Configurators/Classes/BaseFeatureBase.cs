@@ -23,6 +23,114 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     protected BaseFeatureBaseConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintFeatureBase.HideInUI"/>
+    /// </summary>
+    ///
+    /// <param name="hideInUI">
+    /// <para>
+    /// Tooltip: It will not be showed in any UI screens
+    /// </para>
+    /// </param>
+    public TBuilder SetHideInUI(bool hideInUI = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HideInUI = hideInUI;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeatureBase.HideInUI"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="hideInUI">
+    /// <para>
+    /// Tooltip: It will not be showed in any UI screens
+    /// </para>
+    /// </param>
+    public TBuilder ModifyHideInUI(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.HideInUI);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeatureBase.HideInCharacterSheetAndLevelUp"/>
+    /// </summary>
+    ///
+    /// <param name="hideInCharacterSheetAndLevelUp">
+    /// <para>
+    /// Tooltip: It will not be showed on page Total in LevelUp/Charscreen and Character Sheet > Abilities
+    /// </para>
+    /// </param>
+    public TBuilder SetHideInCharacterSheetAndLevelUp(bool hideInCharacterSheetAndLevelUp = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HideInCharacterSheetAndLevelUp = hideInCharacterSheetAndLevelUp;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeatureBase.HideInCharacterSheetAndLevelUp"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="hideInCharacterSheetAndLevelUp">
+    /// <para>
+    /// Tooltip: It will not be showed on page Total in LevelUp/Charscreen and Character Sheet > Abilities
+    /// </para>
+    /// </param>
+    public TBuilder ModifyHideInCharacterSheetAndLevelUp(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.HideInCharacterSheetAndLevelUp);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeatureBase.HideNotAvailibleInUI"/>
+    /// </summary>
+    ///
+    /// <param name="hideNotAvailibleInUI">
+    /// <para>
+    /// Tooltip: For BlueprintFeature: NotAvailible will not be showed in LevelUp/Charscreen selecors. For BlueprintFeatureSelection: all NotAvailible child features will not be showed.
+    /// </para>
+    /// </param>
+    public TBuilder SetHideNotAvailibleInUI(bool hideNotAvailibleInUI = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HideNotAvailibleInUI = hideNotAvailibleInUI;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeatureBase.HideNotAvailibleInUI"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="hideNotAvailibleInUI">
+    /// <para>
+    /// Tooltip: For BlueprintFeature: NotAvailible will not be showed in LevelUp/Charscreen selecors. For BlueprintFeatureSelection: all NotAvailible child features will not be showed.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyHideNotAvailibleInUI(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.HideNotAvailibleInUI);
+        });
+    }
+
+    /// <summary>
     /// Adds <see cref="FeatureTagsComponent"/>
     /// </summary>
     ///

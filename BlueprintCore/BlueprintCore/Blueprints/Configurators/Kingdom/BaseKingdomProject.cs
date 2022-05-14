@@ -4,7 +4,10 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Quests;
+using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +23,239 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where TBuilder : BaseKingdomProjectConfigurator<T, TBuilder>
   {
     protected BaseKingdomProjectConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.ProjectType"/>
+    /// </summary>
+    public TBuilder SetProjectType(KingdomProjectType projectType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ProjectType = projectType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.ProjectType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyProjectType(Action<KingdomProjectType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.ProjectType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.ProjectStartCost"/>
+    /// </summary>
+    public TBuilder SetProjectStartCost(KingdomResourcesAmount projectStartCost)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ProjectStartCost = projectStartCost;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.ProjectStartCost"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyProjectStartCost(Action<KingdomResourcesAmount> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.ProjectStartCost);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.m_MechanicalDescription"/>
+    /// </summary>
+    public TBuilder SetMechanicalDescription(LocalizedString mechanicalDescription)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_MechanicalDescription = mechanicalDescription;
+          if (bp.m_MechanicalDescription is null)
+          {
+            bp.m_MechanicalDescription = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.m_MechanicalDescription"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyMechanicalDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_MechanicalDescription is null) { return; }
+          action.Invoke(bp.m_MechanicalDescription);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/>
+    /// </summary>
+    public TBuilder SetSpendRulerTimeDays(int spendRulerTimeDays)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpendRulerTimeDays = spendRulerTimeDays;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpendRulerTimeDays(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpendRulerTimeDays);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.Repeatable"/>
+    /// </summary>
+    public TBuilder SetRepeatable(bool repeatable = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Repeatable = repeatable;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.Repeatable"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyRepeatable(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Repeatable);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.Cooldown"/>
+    /// </summary>
+    ///
+    /// <param name="cooldown">
+    /// <para>
+    /// InfoBox: For UI only!!!
+    /// </para>
+    /// </param>
+    public TBuilder SetCooldown(int cooldown)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Cooldown = cooldown;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.Cooldown"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="cooldown">
+    /// <para>
+    /// InfoBox: For UI only!!!
+    /// </para>
+    /// </param>
+    public TBuilder ModifyCooldown(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Cooldown);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.IsRankUpProject"/>
+    /// </summary>
+    public TBuilder SetIsRankUpProject(bool isRankUpProject = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsRankUpProject = isRankUpProject;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.IsRankUpProject"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsRankUpProject(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsRankUpProject);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.RankupProjectFor"/>
+    /// </summary>
+    public TBuilder SetRankupProjectFor(KingdomStats.Type rankupProjectFor)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RankupProjectFor = rankupProjectFor;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.RankupProjectFor"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyRankupProjectFor(Action<KingdomStats.Type> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.RankupProjectFor);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomProject.AIPriority"/>
+    /// </summary>
+    public TBuilder SetAIPriority(int aIPriority)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AIPriority = aIPriority;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomProject.AIPriority"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAIPriority(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.AIPriority);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="EventItemCost"/>

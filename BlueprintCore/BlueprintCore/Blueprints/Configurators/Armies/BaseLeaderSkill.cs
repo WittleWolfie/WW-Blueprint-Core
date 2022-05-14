@@ -11,10 +11,13 @@ using Kingmaker.Armies.TacticalCombat.LeaderSkills;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Kingdom;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
@@ -28,6 +31,342 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     where TBuilder : BaseLeaderSkillConfigurator<T, TBuilder>
   {
     protected BaseLeaderSkillConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLeaderSkill.Icon"/>
+    /// </summary>
+    public TBuilder SetIcon(Sprite icon)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(icon);
+          bp.Icon = icon;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.Icon"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIcon(Action<Sprite> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Icon is null) { return; }
+          action.Invoke(bp.Icon);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLeaderSkill.LocalizedName"/>
+    /// </summary>
+    public TBuilder SetLocalizedName(LocalizedString localizedName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LocalizedName = localizedName;
+          if (bp.LocalizedName is null)
+          {
+            bp.LocalizedName = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.LocalizedName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLocalizedName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LocalizedName is null) { return; }
+          action.Invoke(bp.LocalizedName);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLeaderSkill.LocalizedDescription"/>
+    /// </summary>
+    public TBuilder SetLocalizedDescription(LocalizedString localizedDescription)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LocalizedDescription = localizedDescription;
+          if (bp.LocalizedDescription is null)
+          {
+            bp.LocalizedDescription = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.LocalizedDescription"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLocalizedDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LocalizedDescription is null) { return; }
+          action.Invoke(bp.LocalizedDescription);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLeaderSkill.BonusAttributes"/>
+    /// </summary>
+    public TBuilder SetBonusAttributes(LeaderAttributes bonusAttributes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(bonusAttributes);
+          bp.BonusAttributes = bonusAttributes;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.BonusAttributes"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyBonusAttributes(Action<LeaderAttributes> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.BonusAttributes is null) { return; }
+          action.Invoke(bp.BonusAttributes);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLeaderSkill.Type"/>
+    /// </summary>
+    public TBuilder SetType(ArmyLeaderSkillType type)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Type = type;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.Type"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyType(Action<ArmyLeaderSkillType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Type);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLeaderSkill.StackTag"/>
+    /// </summary>
+    public TBuilder SetStackTag(StackTag stackTag)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.StackTag = stackTag;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.StackTag"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyStackTag(Action<StackTag> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.StackTag);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLeaderSkill.m_PrerequisiteLevel"/>
+    /// </summary>
+    public TBuilder SetPrerequisiteLevel(int prerequisiteLevel)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PrerequisiteLevel = prerequisiteLevel;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.m_PrerequisiteLevel"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPrerequisiteLevel(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_PrerequisiteLevel);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLeaderSkill.m_Prerequisites"/>
+    /// </summary>
+    ///
+    /// <param name="prerequisites">
+    /// <para>
+    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetPrerequisites(List<Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>> prerequisites)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Prerequisites = prerequisites?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintLeaderSkill.m_Prerequisites"/>
+    /// </summary>
+    ///
+    /// <param name="prerequisites">
+    /// <para>
+    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToPrerequisites(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] prerequisites)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Prerequisites = bp.m_Prerequisites ?? new BlueprintLeaderSkillReference[0];
+          bp.m_Prerequisites = CommonTool.Append(bp.m_Prerequisites, prerequisites.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintLeaderSkill.m_Prerequisites"/>
+    /// </summary>
+    ///
+    /// <param name="prerequisites">
+    /// <para>
+    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromPrerequisites(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] prerequisites)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Prerequisites is null) { return; }
+          bp.m_Prerequisites = bp.m_Prerequisites.Where(val => !prerequisites.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintLeaderSkill.m_Prerequisites"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="prerequisites">
+    /// <para>
+    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromPrerequisites(Func<BlueprintLeaderSkillReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Prerequisites is null) { return; }
+          bp.m_Prerequisites = bp.m_Prerequisites.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintLeaderSkill.m_Prerequisites"/>
+    /// </summary>
+    ///
+    /// <param name="prerequisites">
+    /// <para>
+    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearPrerequisites()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Prerequisites = new BlueprintLeaderSkillReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLeaderSkill.m_Prerequisites"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="prerequisites">
+    /// <para>
+    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyPrerequisites(Action<BlueprintLeaderSkillReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Prerequisites is null) { return; }
+          bp.m_Prerequisites.ForEach(action);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="AddFactOnLeaderUnit"/>

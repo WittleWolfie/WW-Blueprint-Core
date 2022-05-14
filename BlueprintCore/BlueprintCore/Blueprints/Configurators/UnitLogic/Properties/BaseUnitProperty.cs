@@ -28,6 +28,66 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     protected BaseUnitPropertyConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitProperty.BaseValue"/>
+    /// </summary>
+    public TBuilder SetBaseValue(int baseValue)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BaseValue = baseValue;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitProperty.BaseValue"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyBaseValue(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.BaseValue);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitProperty.OperationOnComponents"/>
+    /// </summary>
+    ///
+    /// <param name="operationOnComponents">
+    /// <para>
+    /// InfoBox: Unit Property value is result for aggregating all getter components with given operation. Make sure that BaseValue for Multiply operation is not equals to 0
+    /// </para>
+    /// </param>
+    public TBuilder SetOperationOnComponents(BlueprintUnitProperty.MathOperation operationOnComponents)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.OperationOnComponents = operationOnComponents;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitProperty.OperationOnComponents"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="operationOnComponents">
+    /// <para>
+    /// InfoBox: Unit Property value is result for aggregating all getter components with given operation. Make sure that BaseValue for Multiply operation is not equals to 0
+    /// </para>
+    /// </param>
+    public TBuilder ModifyOperationOnComponents(Action<BlueprintUnitProperty.MathOperation> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.OperationOnComponents);
+        });
+    }
+
+    /// <summary>
     /// Adds <see cref="CountCorpsesAroundPropertyGetter"/>
     /// </summary>
     ///

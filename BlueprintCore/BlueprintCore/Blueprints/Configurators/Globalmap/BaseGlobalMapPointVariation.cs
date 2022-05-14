@@ -3,8 +3,13 @@
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Kingdom;
 using Kingmaker.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +25,355 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     where TBuilder : BaseGlobalMapPointVariationConfigurator<T, TBuilder>
   {
     protected BaseGlobalMapPointVariationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.Conditions"/>
+    /// </summary>
+    public TBuilder SetConditions(ConditionsBuilder conditions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Conditions = conditions?.Build();
+          if (bp.Conditions is null)
+          {
+            bp.Conditions = Utils.Constants.Empty.Conditions;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.Conditions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyConditions(Action<ConditionsChecker> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Conditions is null) { return; }
+          action.Invoke(bp.Conditions);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.Name"/>
+    /// </summary>
+    public TBuilder SetName(LocalizedString name)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Name = name;
+          if (bp.Name is null)
+          {
+            bp.Name = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.Name"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Name is null) { return; }
+          action.Invoke(bp.Name);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.NameFromSettlement"/>
+    /// </summary>
+    ///
+    /// <param name="nameFromSettlement">
+    /// <para>
+    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetNameFromSettlement(Blueprint<BlueprintSettlement, BlueprintSettlement.Reference> nameFromSettlement)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NameFromSettlement = nameFromSettlement?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.NameFromSettlement"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="nameFromSettlement">
+    /// <para>
+    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyNameFromSettlement(Action<BlueprintSettlement.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.NameFromSettlement is null) { return; }
+          action.Invoke(bp.NameFromSettlement);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.Description"/>
+    /// </summary>
+    public TBuilder SetDescription(LocalizedString description)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Description = description;
+          if (bp.Description is null)
+          {
+            bp.Description = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.Description"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Description is null) { return; }
+          action.Invoke(bp.Description);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.FakeName"/>
+    /// </summary>
+    public TBuilder SetFakeName(LocalizedString fakeName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.FakeName = fakeName;
+          if (bp.FakeName is null)
+          {
+            bp.FakeName = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.FakeName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFakeName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.FakeName is null) { return; }
+          action.Invoke(bp.FakeName);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.FakeDescription"/>
+    /// </summary>
+    public TBuilder SetFakeDescription(LocalizedString fakeDescription)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.FakeDescription = fakeDescription;
+          if (bp.FakeDescription is null)
+          {
+            bp.FakeDescription = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.FakeDescription"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFakeDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.FakeDescription is null) { return; }
+          action.Invoke(bp.FakeDescription);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.m_AreaEntrance"/>
+    /// </summary>
+    ///
+    /// <param name="areaEntrance">
+    /// <para>
+    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetAreaEntrance(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> areaEntrance)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AreaEntrance = areaEntrance?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.m_AreaEntrance"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="areaEntrance">
+    /// <para>
+    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyAreaEntrance(Action<BlueprintAreaEnterPointReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_AreaEntrance is null) { return; }
+          action.Invoke(bp.m_AreaEntrance);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.m_Entrances"/>
+    /// </summary>
+    ///
+    /// <param name="entrances">
+    /// <para>
+    /// Blueprint of type BlueprintMultiEntrance. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetEntrances(Blueprint<BlueprintMultiEntrance, BlueprintMultiEntranceReference> entrances)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Entrances = entrances?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.m_Entrances"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="entrances">
+    /// <para>
+    /// Blueprint of type BlueprintMultiEntrance. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyEntrances(Action<BlueprintMultiEntranceReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Entrances is null) { return; }
+          action.Invoke(bp.m_Entrances);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.m_BookEvent"/>
+    /// </summary>
+    ///
+    /// <param name="bookEvent">
+    /// <para>
+    /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetBookEvent(Blueprint<BlueprintDialog, BlueprintDialogReference> bookEvent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_BookEvent = bookEvent?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMapPointVariation.m_BookEvent"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="bookEvent">
+    /// <para>
+    /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyBookEvent(Action<BlueprintDialogReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_BookEvent is null) { return; }
+          action.Invoke(bp.m_BookEvent);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="LocationRestriction"/>

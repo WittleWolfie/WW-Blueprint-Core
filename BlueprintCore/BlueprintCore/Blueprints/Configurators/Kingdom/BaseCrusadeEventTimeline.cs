@@ -3,6 +3,9 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.Utility;
+using System;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -16,5 +19,82 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where TBuilder : BaseCrusadeEventTimelineConfigurator<T, TBuilder>
   {
     protected BaseCrusadeEventTimelineConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCrusadeEventTimeline.Chapters"/>
+    /// </summary>
+    public TBuilder SetChapters(BlueprintCrusadeEventTimeline.ChapterInfo[] chapters)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in chapters) { Validate(item); }
+          bp.Chapters = chapters;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCrusadeEventTimeline.Chapters"/>
+    /// </summary>
+    public TBuilder AddToChapters(params BlueprintCrusadeEventTimeline.ChapterInfo[] chapters)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Chapters = bp.Chapters ?? new BlueprintCrusadeEventTimeline.ChapterInfo[0];
+          bp.Chapters = CommonTool.Append(bp.Chapters, chapters);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCrusadeEventTimeline.Chapters"/>
+    /// </summary>
+    public TBuilder RemoveFromChapters(params BlueprintCrusadeEventTimeline.ChapterInfo[] chapters)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Chapters is null) { return; }
+          bp.Chapters = bp.Chapters.Where(val => !chapters.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCrusadeEventTimeline.Chapters"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromChapters(Func<BlueprintCrusadeEventTimeline.ChapterInfo, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Chapters is null) { return; }
+          bp.Chapters = bp.Chapters.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCrusadeEventTimeline.Chapters"/>
+    /// </summary>
+    public TBuilder ClearChapters()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Chapters = new BlueprintCrusadeEventTimeline.ChapterInfo[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCrusadeEventTimeline.Chapters"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyChapters(Action<BlueprintCrusadeEventTimeline.ChapterInfo> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Chapters is null) { return; }
+          bp.Chapters.ForEach(action);
+        });
+    }
   }
 }

@@ -10,15 +10,18 @@ using Kingmaker.Armies.Blueprints;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.Kingdom.Settlements.BuildingComponents;
+using Kingmaker.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -32,6 +35,210 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where TBuilder : BaseKingdomBuffConfigurator<T, TBuilder>
   {
     protected BaseKingdomBuffConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomBuff.DisplayName"/>
+    /// </summary>
+    public TBuilder SetDisplayName(LocalizedString displayName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DisplayName = displayName;
+          if (bp.DisplayName is null)
+          {
+            bp.DisplayName = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomBuff.DisplayName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDisplayName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.DisplayName is null) { return; }
+          action.Invoke(bp.DisplayName);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomBuff.Description"/>
+    /// </summary>
+    public TBuilder SetDescription(LocalizedString description)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Description = description;
+          if (bp.Description is null)
+          {
+            bp.Description = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomBuff.Description"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Description is null) { return; }
+          action.Invoke(bp.Description);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomBuff.Icon"/>
+    /// </summary>
+    ///
+    /// <param name="icon">
+    /// <para>
+    /// InfoBox: Set to null to hide in UI
+    /// </para>
+    /// </param>
+    public TBuilder SetIcon(Sprite icon)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(icon);
+          bp.Icon = icon;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomBuff.Icon"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="icon">
+    /// <para>
+    /// InfoBox: Set to null to hide in UI
+    /// </para>
+    /// </param>
+    public TBuilder ModifyIcon(Action<Sprite> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Icon is null) { return; }
+          action.Invoke(bp.Icon);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomBuff.DurationDays"/>
+    /// </summary>
+    public TBuilder SetDurationDays(int durationDays)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DurationDays = durationDays;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomBuff.DurationDays"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDurationDays(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DurationDays);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomBuff.StatChanges"/>
+    /// </summary>
+    public TBuilder SetStatChanges(KingdomStats.Changes statChanges)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(statChanges);
+          bp.StatChanges = statChanges;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomBuff.StatChanges"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyStatChanges(Action<KingdomStats.Changes> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.StatChanges is null) { return; }
+          action.Invoke(bp.StatChanges);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomBuff.OnApply"/>
+    /// </summary>
+    public TBuilder SetOnApply(ActionsBuilder onApply)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.OnApply = onApply?.Build();
+          if (bp.OnApply is null)
+          {
+            bp.OnApply = Utils.Constants.Empty.Actions;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomBuff.OnApply"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOnApply(Action<ActionList> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.OnApply is null) { return; }
+          action.Invoke(bp.OnApply);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintKingdomBuff.OnRemove"/>
+    /// </summary>
+    public TBuilder SetOnRemove(ActionsBuilder onRemove)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.OnRemove = onRemove?.Build();
+          if (bp.OnRemove is null)
+          {
+            bp.OnRemove = Utils.Constants.Empty.Actions;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintKingdomBuff.OnRemove"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOnRemove(Action<ActionList> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.OnRemove is null) { return; }
+          action.Invoke(bp.OnRemove);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="KingdomUnitsGrowthIncrease"/>

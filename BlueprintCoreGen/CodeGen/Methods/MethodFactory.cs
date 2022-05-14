@@ -189,6 +189,10 @@ namespace BlueprintCoreGen.CodeGen.Methods
       {
         return $"Action<{TypeTool.GetName(enumerableType)}>";
       }
+      if (type.IsValueType && type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+      {
+        return $"Action<{TypeTool.GetName(type.GetGenericArguments()[0])}?>";
+      }
       return $"Action<{TypeTool.GetName(type)}>";
     }
 

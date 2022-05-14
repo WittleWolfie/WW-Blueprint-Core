@@ -21,6 +21,32 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     protected BaseUnitLootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitLoot.m_Dummy"/>
+    /// </summary>
+    public TBuilder SetDummy(BlueprintUnitLoot.Dummy dummy)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(dummy);
+          bp.m_Dummy = dummy;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitLoot.m_Dummy"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDummy(Action<BlueprintUnitLoot.Dummy> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Dummy is null) { return; }
+          action.Invoke(bp.m_Dummy);
+        });
+    }
+
+    /// <summary>
     /// Adds <see cref="DungeonVendorItemsComponent"/>
     /// </summary>
     ///

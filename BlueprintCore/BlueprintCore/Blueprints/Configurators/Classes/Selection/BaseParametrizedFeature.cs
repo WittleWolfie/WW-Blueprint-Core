@@ -8,6 +8,10 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
+using Kingmaker.Utility;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
@@ -21,6 +25,784 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     where TBuilder : BaseParametrizedFeatureConfigurator<T, TBuilder>
   {
     protected BaseParametrizedFeatureConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.ParameterType"/>
+    /// </summary>
+    public TBuilder SetParameterType(FeatureParameterType parameterType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ParameterType = parameterType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.ParameterType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyParameterType(Action<FeatureParameterType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.ParameterType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.WeaponSubCategory"/>
+    /// </summary>
+    public TBuilder SetWeaponSubCategory(WeaponSubCategory weaponSubCategory)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.WeaponSubCategory = weaponSubCategory;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.WeaponSubCategory"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyWeaponSubCategory(Action<WeaponSubCategory> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.WeaponSubCategory);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.SelectionFeatureGroup"/>
+    /// </summary>
+    public TBuilder SetSelectionFeatureGroup(FeatureGroup selectionFeatureGroup)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SelectionFeatureGroup = selectionFeatureGroup;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.SelectionFeatureGroup"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySelectionFeatureGroup(Action<FeatureGroup> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SelectionFeatureGroup);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.RequireProficiency"/>
+    /// </summary>
+    public TBuilder SetRequireProficiency(bool requireProficiency = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RequireProficiency = requireProficiency;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.RequireProficiency"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyRequireProficiency(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.RequireProficiency);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.m_SpellList"/>
+    /// </summary>
+    ///
+    /// <param name="spellList">
+    /// <para>
+    /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSpellList(Blueprint<BlueprintSpellList, BlueprintSpellListReference> spellList)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SpellList = spellList?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.m_SpellList"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="spellList">
+    /// <para>
+    /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifySpellList(Action<BlueprintSpellListReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SpellList is null) { return; }
+          action.Invoke(bp.m_SpellList);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.m_SpellcasterClass"/>
+    /// </summary>
+    ///
+    /// <param name="spellcasterClass">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSpellcasterClass(Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> spellcasterClass)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SpellcasterClass = spellcasterClass?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.m_SpellcasterClass"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="spellcasterClass">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifySpellcasterClass(Action<BlueprintCharacterClassReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SpellcasterClass is null) { return; }
+          action.Invoke(bp.m_SpellcasterClass);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.SpecificSpellLevel"/>
+    /// </summary>
+    public TBuilder SetSpecificSpellLevel(bool specificSpellLevel = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpecificSpellLevel = specificSpellLevel;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.SpecificSpellLevel"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpecificSpellLevel(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpecificSpellLevel);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.SpellLevelPenalty"/>
+    /// </summary>
+    public TBuilder SetSpellLevelPenalty(int spellLevelPenalty)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpellLevelPenalty = spellLevelPenalty;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.SpellLevelPenalty"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpellLevelPenalty(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpellLevelPenalty);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.SpellLevel"/>
+    /// </summary>
+    public TBuilder SetSpellLevel(int spellLevel)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpellLevel = spellLevel;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.SpellLevel"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpellLevel(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpellLevel);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.DisallowSpellsInSpellList"/>
+    /// </summary>
+    public TBuilder SetDisallowSpellsInSpellList(bool disallowSpellsInSpellList = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DisallowSpellsInSpellList = disallowSpellsInSpellList;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.DisallowSpellsInSpellList"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDisallowSpellsInSpellList(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DisallowSpellsInSpellList);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.m_Prerequisite"/>
+    /// </summary>
+    ///
+    /// <param name="prerequisite">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetPrerequisite(Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference> prerequisite)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Prerequisite = prerequisite?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.m_Prerequisite"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="prerequisite">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyPrerequisite(Action<BlueprintParametrizedFeatureReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Prerequisite is null) { return; }
+          action.Invoke(bp.m_Prerequisite);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/>
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetCustomParameterVariants(List<Blueprint<BlueprintScriptableObject, AnyBlueprintReference>> customParameterVariants)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CustomParameterVariants = customParameterVariants?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/>
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToCustomParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] customParameterVariants)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CustomParameterVariants = bp.CustomParameterVariants ?? new AnyBlueprintReference[0];
+          bp.CustomParameterVariants = CommonTool.Append(bp.CustomParameterVariants, customParameterVariants.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/>
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromCustomParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] customParameterVariants)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.CustomParameterVariants is null) { return; }
+          bp.CustomParameterVariants = bp.CustomParameterVariants.Where(val => !customParameterVariants.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromCustomParameterVariants(Func<AnyBlueprintReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.CustomParameterVariants is null) { return; }
+          bp.CustomParameterVariants = bp.CustomParameterVariants.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/>
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearCustomParameterVariants()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CustomParameterVariants = new AnyBlueprintReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="customParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyCustomParameterVariants(Action<AnyBlueprintReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.CustomParameterVariants is null) { return; }
+          bp.CustomParameterVariants.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.HasNoSuchFeature"/>
+    /// </summary>
+    public TBuilder SetHasNoSuchFeature(bool hasNoSuchFeature = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HasNoSuchFeature = hasNoSuchFeature;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.HasNoSuchFeature"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyHasNoSuchFeature(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.HasNoSuchFeature);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.IgnoreParameterFeaturePrerequisites"/>
+    /// </summary>
+    public TBuilder SetIgnoreParameterFeaturePrerequisites(bool ignoreParameterFeaturePrerequisites = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IgnoreParameterFeaturePrerequisites = ignoreParameterFeaturePrerequisites;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.IgnoreParameterFeaturePrerequisites"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIgnoreParameterFeaturePrerequisites(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IgnoreParameterFeaturePrerequisites);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/>
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetBlueprintParameterVariants(List<Blueprint<BlueprintScriptableObject, AnyBlueprintReference>> blueprintParameterVariants)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BlueprintParameterVariants = blueprintParameterVariants?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/>
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToBlueprintParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] blueprintParameterVariants)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BlueprintParameterVariants = bp.BlueprintParameterVariants ?? new AnyBlueprintReference[0];
+          bp.BlueprintParameterVariants = CommonTool.Append(bp.BlueprintParameterVariants, blueprintParameterVariants.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/>
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromBlueprintParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] blueprintParameterVariants)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.BlueprintParameterVariants is null) { return; }
+          bp.BlueprintParameterVariants = bp.BlueprintParameterVariants.Where(val => !blueprintParameterVariants.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromBlueprintParameterVariants(Func<AnyBlueprintReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.BlueprintParameterVariants is null) { return; }
+          bp.BlueprintParameterVariants = bp.BlueprintParameterVariants.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/>
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearBlueprintParameterVariants()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BlueprintParameterVariants = new AnyBlueprintReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="blueprintParameterVariants">
+    /// <para>
+    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyBlueprintParameterVariants(Action<AnyBlueprintReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.BlueprintParameterVariants is null) { return; }
+          bp.BlueprintParameterVariants.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
+    /// </summary>
+    public TBuilder SetCachedItems(FeatureUIData[] cachedItems)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in cachedItems) { Validate(item); }
+          bp.m_CachedItems = cachedItems;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
+    /// </summary>
+    public TBuilder AddToCachedItems(params FeatureUIData[] cachedItems)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedItems = bp.m_CachedItems ?? new FeatureUIData[0];
+          bp.m_CachedItems = CommonTool.Append(bp.m_CachedItems, cachedItems);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
+    /// </summary>
+    public TBuilder RemoveFromCachedItems(params FeatureUIData[] cachedItems)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedItems is null) { return; }
+          bp.m_CachedItems = bp.m_CachedItems.Where(val => !cachedItems.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintParametrizedFeature.m_CachedItems"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromCachedItems(Func<FeatureUIData, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedItems is null) { return; }
+          bp.m_CachedItems = bp.m_CachedItems.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
+    /// </summary>
+    public TBuilder ClearCachedItems()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedItems = new FeatureUIData[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintParametrizedFeature.m_CachedItems"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyCachedItems(Action<FeatureUIData> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedItems is null) { return; }
+          bp.m_CachedItems.ForEach(action);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="AbilityFocusParametrized"/>

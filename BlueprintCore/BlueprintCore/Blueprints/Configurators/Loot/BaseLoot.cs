@@ -2,7 +2,12 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Loot;
+using Kingmaker.Enums;
+using Kingmaker.Utility;
+using System;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
@@ -16,5 +21,254 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     where TBuilder : BaseLootConfigurator<T, TBuilder>
   {
     protected BaseLootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLoot.Type"/>
+    /// </summary>
+    public TBuilder SetType(LootType type)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Type = type;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLoot.Type"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyType(Action<LootType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Type);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLoot.IsSuperTrash"/>
+    /// </summary>
+    public TBuilder SetIsSuperTrash(bool isSuperTrash = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsSuperTrash = isSuperTrash;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLoot.IsSuperTrash"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsSuperTrash(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsSuperTrash);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLoot.Identify"/>
+    /// </summary>
+    public TBuilder SetIdentify(bool identify = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Identify = identify;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLoot.Identify"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIdentify(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Identify);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLoot.Setting"/>
+    /// </summary>
+    public TBuilder SetSetting(LootSetting setting)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Setting = setting;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLoot.Setting"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySetting(Action<LootSetting> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Setting);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLoot.m_Area"/>
+    /// </summary>
+    ///
+    /// <param name="area">
+    /// <para>
+    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetArea(Blueprint<BlueprintArea, BlueprintAreaReference> area)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Area = area?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLoot.m_Area"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="area">
+    /// <para>
+    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyArea(Action<BlueprintAreaReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Area is null) { return; }
+          action.Invoke(bp.m_Area);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLoot.ContainerName"/>
+    /// </summary>
+    public TBuilder SetContainerName(string containerName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ContainerName = containerName;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLoot.ContainerName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyContainerName(Action<string> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ContainerName is null) { return; }
+          action.Invoke(bp.ContainerName);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintLoot.Items"/>
+    /// </summary>
+    public TBuilder SetItems(LootEntry[] items)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in items) { Validate(item); }
+          bp.Items = items;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintLoot.Items"/>
+    /// </summary>
+    public TBuilder AddToItems(params LootEntry[] items)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Items = bp.Items ?? new LootEntry[0];
+          bp.Items = CommonTool.Append(bp.Items, items);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintLoot.Items"/>
+    /// </summary>
+    public TBuilder RemoveFromItems(params LootEntry[] items)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Items is null) { return; }
+          bp.Items = bp.Items.Where(val => !items.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintLoot.Items"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromItems(Func<LootEntry, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Items is null) { return; }
+          bp.Items = bp.Items.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintLoot.Items"/>
+    /// </summary>
+    public TBuilder ClearItems()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Items = new LootEntry[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintLoot.Items"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyItems(Action<LootEntry> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Items is null) { return; }
+          bp.Items.ForEach(action);
+        });
+    }
   }
 }

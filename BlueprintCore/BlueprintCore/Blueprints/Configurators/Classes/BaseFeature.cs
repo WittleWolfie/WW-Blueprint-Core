@@ -31,6 +31,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,462 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where TBuilder : BaseFeatureConfigurator<T, TBuilder>
   {
     protected BaseFeatureConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeature.m_NameModifiersCache"/>
+    /// </summary>
+    public TBuilder SetNameModifiersCache(NameModifier[] nameModifiersCache)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in nameModifiersCache) { Validate(item); }
+          bp.m_NameModifiersCache = nameModifiersCache;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintFeature.m_NameModifiersCache"/>
+    /// </summary>
+    public TBuilder AddToNameModifiersCache(params NameModifier[] nameModifiersCache)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_NameModifiersCache = bp.m_NameModifiersCache ?? new NameModifier[0];
+          bp.m_NameModifiersCache = CommonTool.Append(bp.m_NameModifiersCache, nameModifiersCache);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintFeature.m_NameModifiersCache"/>
+    /// </summary>
+    public TBuilder RemoveFromNameModifiersCache(params NameModifier[] nameModifiersCache)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_NameModifiersCache is null) { return; }
+          bp.m_NameModifiersCache = bp.m_NameModifiersCache.Where(val => !nameModifiersCache.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintFeature.m_NameModifiersCache"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromNameModifiersCache(Func<NameModifier, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_NameModifiersCache is null) { return; }
+          bp.m_NameModifiersCache = bp.m_NameModifiersCache.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintFeature.m_NameModifiersCache"/>
+    /// </summary>
+    public TBuilder ClearNameModifiersCache()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_NameModifiersCache = new NameModifier[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.m_NameModifiersCache"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyNameModifiersCache(Action<NameModifier> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_NameModifiersCache is null) { return; }
+          bp.m_NameModifiersCache.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
+    /// </summary>
+    public TBuilder SetDescriptionModifiersCache(DescriptionModifier[] descriptionModifiersCache)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in descriptionModifiersCache) { Validate(item); }
+          bp.m_DescriptionModifiersCache = descriptionModifiersCache;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
+    /// </summary>
+    public TBuilder AddToDescriptionModifiersCache(params DescriptionModifier[] descriptionModifiersCache)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DescriptionModifiersCache = bp.m_DescriptionModifiersCache ?? new DescriptionModifier[0];
+          bp.m_DescriptionModifiersCache = CommonTool.Append(bp.m_DescriptionModifiersCache, descriptionModifiersCache);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
+    /// </summary>
+    public TBuilder RemoveFromDescriptionModifiersCache(params DescriptionModifier[] descriptionModifiersCache)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DescriptionModifiersCache is null) { return; }
+          bp.m_DescriptionModifiersCache = bp.m_DescriptionModifiersCache.Where(val => !descriptionModifiersCache.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintFeature.m_DescriptionModifiersCache"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromDescriptionModifiersCache(Func<DescriptionModifier, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DescriptionModifiersCache is null) { return; }
+          bp.m_DescriptionModifiersCache = bp.m_DescriptionModifiersCache.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
+    /// </summary>
+    public TBuilder ClearDescriptionModifiersCache()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DescriptionModifiersCache = new DescriptionModifier[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.m_DescriptionModifiersCache"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyDescriptionModifiersCache(Action<DescriptionModifier> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DescriptionModifiersCache is null) { return; }
+          bp.m_DescriptionModifiersCache.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeature.Groups"/>
+    /// </summary>
+    public TBuilder SetGroups(FeatureGroup[] groups)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Groups = groups;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintFeature.Groups"/>
+    /// </summary>
+    public TBuilder AddToGroups(params FeatureGroup[] groups)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Groups = bp.Groups ?? new FeatureGroup[0];
+          bp.Groups = CommonTool.Append(bp.Groups, groups);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintFeature.Groups"/>
+    /// </summary>
+    public TBuilder RemoveFromGroups(params FeatureGroup[] groups)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Groups is null) { return; }
+          bp.Groups = bp.Groups.Where(val => !groups.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintFeature.Groups"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromGroups(Func<FeatureGroup, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Groups is null) { return; }
+          bp.Groups = bp.Groups.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintFeature.Groups"/>
+    /// </summary>
+    public TBuilder ClearGroups()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Groups = new FeatureGroup[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.Groups"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyGroups(Action<FeatureGroup> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Groups is null) { return; }
+          bp.Groups.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeature.Ranks"/>
+    /// </summary>
+    public TBuilder SetRanks(int ranks)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Ranks = ranks;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.Ranks"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyRanks(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Ranks);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeature.ReapplyOnLevelUp"/>
+    /// </summary>
+    public TBuilder SetReapplyOnLevelUp(bool reapplyOnLevelUp = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ReapplyOnLevelUp = reapplyOnLevelUp;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.ReapplyOnLevelUp"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyReapplyOnLevelUp(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.ReapplyOnLevelUp);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeature.IsClassFeature"/>
+    /// </summary>
+    public TBuilder SetIsClassFeature(bool isClassFeature = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsClassFeature = isClassFeature;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.IsClassFeature"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsClassFeature(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsClassFeature);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// </summary>
+    ///
+    /// <param name="isPrerequisiteFor">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetIsPrerequisiteFor(List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> isPrerequisiteFor)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsPrerequisiteFor = isPrerequisiteFor?.Select(bp => bp.Reference)?.ToList();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// </summary>
+    ///
+    /// <param name="isPrerequisiteFor">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToIsPrerequisiteFor(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] isPrerequisiteFor)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsPrerequisiteFor = bp.IsPrerequisiteFor ?? new();
+          bp.IsPrerequisiteFor.AddRange(isPrerequisiteFor.Select(bp => bp.Reference));
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// </summary>
+    ///
+    /// <param name="isPrerequisiteFor">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromIsPrerequisiteFor(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] isPrerequisiteFor)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.IsPrerequisiteFor is null) { return; }
+          bp.IsPrerequisiteFor = bp.IsPrerequisiteFor.Where(val => !isPrerequisiteFor.Contains(val)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintFeature.IsPrerequisiteFor"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="isPrerequisiteFor">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromIsPrerequisiteFor(Func<BlueprintFeatureReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.IsPrerequisiteFor is null) { return; }
+          bp.IsPrerequisiteFor = bp.IsPrerequisiteFor.Where(predicate).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintFeature.IsPrerequisiteFor"/>
+    /// </summary>
+    ///
+    /// <param name="isPrerequisiteFor">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearIsPrerequisiteFor()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsPrerequisiteFor = new();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.IsPrerequisiteFor"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="isPrerequisiteFor">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyIsPrerequisiteFor(Action<BlueprintFeatureReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.IsPrerequisiteFor is null) { return; }
+          bp.IsPrerequisiteFor.ForEach(action);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="AddContextStatBonus"/>

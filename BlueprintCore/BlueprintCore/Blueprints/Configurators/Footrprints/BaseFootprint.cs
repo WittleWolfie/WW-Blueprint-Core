@@ -3,6 +3,8 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Footrprints;
+using Kingmaker.ResourceLinks;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
@@ -16,5 +18,63 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     where TBuilder : BaseFootprintConfigurator<T, TBuilder>
   {
     protected BaseFootprintConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFootprint.LeftFootPrint"/>
+    /// </summary>
+    public TBuilder SetLeftFootPrint(PrefabLink leftFootPrint)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LeftFootPrint = leftFootPrint;
+          if (bp.LeftFootPrint is null)
+          {
+            bp.LeftFootPrint = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFootprint.LeftFootPrint"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLeftFootPrint(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LeftFootPrint is null) { return; }
+          action.Invoke(bp.LeftFootPrint);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFootprint.RightFootPrint"/>
+    /// </summary>
+    public TBuilder SetRightFootPrint(PrefabLink rightFootPrint)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RightFootPrint = rightFootPrint;
+          if (bp.RightFootPrint is null)
+          {
+            bp.RightFootPrint = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFootprint.RightFootPrint"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyRightFootPrint(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.RightFootPrint is null) { return; }
+          action.Invoke(bp.RightFootPrint);
+        });
+    }
   }
 }

@@ -3,6 +3,9 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Footrprints;
+using Kingmaker.Enums;
+using Kingmaker.Utility.EnumArrays;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
@@ -16,5 +19,55 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     where TBuilder : BaseFootprintTypeConfigurator<T, TBuilder>
   {
     protected BaseFootprintTypeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFootprintType.FootprintType"/>
+    /// </summary>
+    public TBuilder SetFootprintType(FootprintType footprintType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.FootprintType = footprintType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFootprintType.FootprintType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFootprintType(Action<FootprintType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.FootprintType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFootprintType.Footprints"/>
+    /// </summary>
+    public TBuilder SetFootprints(FootprintsEnumArray footprints)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(footprints);
+          bp.Footprints = footprints;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFootprintType.Footprints"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFootprints(Action<FootprintsEnumArray> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Footprints is null) { return; }
+          action.Invoke(bp.Footprints);
+        });
+    }
   }
 }

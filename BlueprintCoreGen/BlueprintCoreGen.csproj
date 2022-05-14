@@ -25,6 +25,9 @@
 		<Reference Include="Owlcat.Runtime.Validation">
 			<HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll</HintPath>
 		</Reference>
+		<Reference Include="Owlcat.Runtime.UI">
+			<HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
+		</Reference>
 		<Reference Include="UnityEngine">
 			<HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.dll</HintPath>
 		</Reference>

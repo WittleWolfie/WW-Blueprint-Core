@@ -8,7 +8,11 @@ using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.Utility;
+using Kingmaker.Visual.CharacterSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +29,529 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     where TBuilder : BaseItemEquipmentConfigurator<T, TBuilder>
   {
     protected BaseItemEquipmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.CR"/>
+    /// </summary>
+    public TBuilder SetCR(int cR)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CR = cR;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.CR"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCR(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CR);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.m_Ability"/>
+    /// </summary>
+    ///
+    /// <param name="ability">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetAbility(Blueprint<BlueprintAbility, BlueprintAbilityReference> ability)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Ability = ability?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.m_Ability"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="ability">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyAbility(Action<BlueprintAbilityReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Ability is null) { return; }
+          action.Invoke(bp.m_Ability);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.m_ActivatableAbility"/>
+    /// </summary>
+    ///
+    /// <param name="activatableAbility">
+    /// <para>
+    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetActivatableAbility(Blueprint<BlueprintActivatableAbility, BlueprintActivatableAbilityReference> activatableAbility)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ActivatableAbility = activatableAbility?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.m_ActivatableAbility"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="activatableAbility">
+    /// <para>
+    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyActivatableAbility(Action<BlueprintActivatableAbilityReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_ActivatableAbility is null) { return; }
+          action.Invoke(bp.m_ActivatableAbility);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.SpendCharges"/>
+    /// </summary>
+    public TBuilder SetSpendCharges(bool spendCharges = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpendCharges = spendCharges;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.SpendCharges"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpendCharges(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpendCharges);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.Charges"/>
+    /// </summary>
+    public TBuilder SetCharges(int charges)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Charges = charges;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.Charges"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCharges(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Charges);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.RestoreChargesOnRest"/>
+    /// </summary>
+    public TBuilder SetRestoreChargesOnRest(bool restoreChargesOnRest = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RestoreChargesOnRest = restoreChargesOnRest;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.RestoreChargesOnRest"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyRestoreChargesOnRest(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.RestoreChargesOnRest);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.CasterLevel"/>
+    /// </summary>
+    public TBuilder SetCasterLevel(int casterLevel)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CasterLevel = casterLevel;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.CasterLevel"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCasterLevel(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CasterLevel);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.SpellLevel"/>
+    /// </summary>
+    public TBuilder SetSpellLevel(int spellLevel)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpellLevel = spellLevel;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.SpellLevel"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpellLevel(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpellLevel);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.DC"/>
+    /// </summary>
+    public TBuilder SetDC(int dC)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DC = dC;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.DC"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDC(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DC);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.IsNonRemovable"/>
+    /// </summary>
+    public TBuilder SetIsNonRemovable(bool isNonRemovable = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsNonRemovable = isNonRemovable;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.IsNonRemovable"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsNonRemovable(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsNonRemovable);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.m_EquipmentEntity"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntity">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetEquipmentEntity(Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference> equipmentEntity)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EquipmentEntity = equipmentEntity?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.m_EquipmentEntity"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="equipmentEntity">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyEquipmentEntity(Action<KingmakerEquipmentEntityReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_EquipmentEntity is null) { return; }
+          action.Invoke(bp.m_EquipmentEntity);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetEquipmentEntityAlternatives(List<Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>> equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EquipmentEntityAlternatives = equipmentEntityAlternatives?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EquipmentEntityAlternatives = bp.m_EquipmentEntityAlternatives ?? new KingmakerEquipmentEntityReference[0];
+          bp.m_EquipmentEntityAlternatives = CommonTool.Append(bp.m_EquipmentEntityAlternatives, equipmentEntityAlternatives.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_EquipmentEntityAlternatives is null) { return; }
+          bp.m_EquipmentEntityAlternatives = bp.m_EquipmentEntityAlternatives.Where(val => !equipmentEntityAlternatives.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromEquipmentEntityAlternatives(Func<KingmakerEquipmentEntityReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_EquipmentEntityAlternatives is null) { return; }
+          bp.m_EquipmentEntityAlternatives = bp.m_EquipmentEntityAlternatives.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearEquipmentEntityAlternatives()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EquipmentEntityAlternatives = new KingmakerEquipmentEntityReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="equipmentEntityAlternatives">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyEquipmentEntityAlternatives(Action<KingmakerEquipmentEntityReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_EquipmentEntityAlternatives is null) { return; }
+          bp.m_EquipmentEntityAlternatives.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.m_ForcedRampColorPresetIndex"/>
+    /// </summary>
+    public TBuilder SetForcedRampColorPresetIndex(int forcedRampColorPresetIndex)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ForcedRampColorPresetIndex = forcedRampColorPresetIndex;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEquipment.m_ForcedRampColorPresetIndex"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyForcedRampColorPresetIndex(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_ForcedRampColorPresetIndex);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="AddFactToEquipmentWielder"/>

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
@@ -16,6 +17,83 @@ namespace BlueprintCore.Blueprints.Configurators
     where TBuilder : BasePortraitConfigurator<T, TBuilder>
   {
     protected BasePortraitConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintPortrait.Data"/>
+    /// </summary>
+    public TBuilder SetData(PortraitData data)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(data);
+          bp.Data = data;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintPortrait.Data"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyData(Action<PortraitData> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Data is null) { return; }
+          action.Invoke(bp.Data);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintPortrait.m_BackupPortrait"/>
+    /// </summary>
+    ///
+    /// <param name="backupPortrait">
+    /// <para>
+    /// Blueprint of type BlueprintPortrait. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetBackupPortrait(Blueprint<BlueprintPortrait, BlueprintPortraitReference> backupPortrait)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_BackupPortrait = backupPortrait?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintPortrait.m_BackupPortrait"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="backupPortrait">
+    /// <para>
+    /// Blueprint of type BlueprintPortrait. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyBackupPortrait(Action<BlueprintPortraitReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_BackupPortrait is null) { return; }
+          action.Invoke(bp.m_BackupPortrait);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="PortraitDollSettings"/>

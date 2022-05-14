@@ -3,6 +3,9 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Utility;
+using System;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -16,5 +19,82 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where TBuilder : BaseAreaTransitionConfigurator<T, TBuilder>
   {
     protected BaseAreaTransitionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaTransition.m_Actions"/>
+    /// </summary>
+    public TBuilder SetActions(ConditionAction[] actions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in actions) { Validate(item); }
+          bp.m_Actions = actions;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintAreaTransition.m_Actions"/>
+    /// </summary>
+    public TBuilder AddToActions(params ConditionAction[] actions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Actions = bp.m_Actions ?? new ConditionAction[0];
+          bp.m_Actions = CommonTool.Append(bp.m_Actions, actions);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAreaTransition.m_Actions"/>
+    /// </summary>
+    public TBuilder RemoveFromActions(params ConditionAction[] actions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Actions is null) { return; }
+          bp.m_Actions = bp.m_Actions.Where(val => !actions.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAreaTransition.m_Actions"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromActions(Func<ConditionAction, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Actions is null) { return; }
+          bp.m_Actions = bp.m_Actions.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintAreaTransition.m_Actions"/>
+    /// </summary>
+    public TBuilder ClearActions()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Actions = new ConditionAction[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaTransition.m_Actions"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyActions(Action<ConditionAction> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Actions is null) { return; }
+          bp.m_Actions.ForEach(action);
+        });
+    }
   }
 }

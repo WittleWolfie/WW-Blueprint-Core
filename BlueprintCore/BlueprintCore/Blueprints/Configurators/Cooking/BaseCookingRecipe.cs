@@ -3,6 +3,12 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Rest.Cooking;
+using Kingmaker.Localization;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.Utility;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Cooking
 {
@@ -16,5 +22,390 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     where TBuilder : BaseCookingRecipeConfigurator<T, TBuilder>
   {
     protected BaseCookingRecipeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCookingRecipe.Name"/>
+    /// </summary>
+    public TBuilder SetName(LocalizedString name)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Name = name;
+          if (bp.Name is null)
+          {
+            bp.Name = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCookingRecipe.Name"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Name is null) { return; }
+          action.Invoke(bp.Name);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCookingRecipe.Ingredients"/>
+    /// </summary>
+    public TBuilder SetIngredients(BlueprintCookingRecipe.ItemEntry[] ingredients)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in ingredients) { Validate(item); }
+          bp.Ingredients = ingredients;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCookingRecipe.Ingredients"/>
+    /// </summary>
+    public TBuilder AddToIngredients(params BlueprintCookingRecipe.ItemEntry[] ingredients)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Ingredients = bp.Ingredients ?? new BlueprintCookingRecipe.ItemEntry[0];
+          bp.Ingredients = CommonTool.Append(bp.Ingredients, ingredients);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCookingRecipe.Ingredients"/>
+    /// </summary>
+    public TBuilder RemoveFromIngredients(params BlueprintCookingRecipe.ItemEntry[] ingredients)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Ingredients is null) { return; }
+          bp.Ingredients = bp.Ingredients.Where(val => !ingredients.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCookingRecipe.Ingredients"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromIngredients(Func<BlueprintCookingRecipe.ItemEntry, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Ingredients is null) { return; }
+          bp.Ingredients = bp.Ingredients.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCookingRecipe.Ingredients"/>
+    /// </summary>
+    public TBuilder ClearIngredients()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Ingredients = new BlueprintCookingRecipe.ItemEntry[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCookingRecipe.Ingredients"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyIngredients(Action<BlueprintCookingRecipe.ItemEntry> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Ingredients is null) { return; }
+          bp.Ingredients.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCookingRecipe.CookingDC"/>
+    /// </summary>
+    public TBuilder SetCookingDC(int cookingDC)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CookingDC = cookingDC;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCookingRecipe.CookingDC"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCookingDC(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CookingDC);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCookingRecipe.BuffDurationHours"/>
+    /// </summary>
+    public TBuilder SetBuffDurationHours(int buffDurationHours)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BuffDurationHours = buffDurationHours;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCookingRecipe.BuffDurationHours"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyBuffDurationHours(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.BuffDurationHours);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCookingRecipe.m_PartyBuffs"/>
+    /// </summary>
+    ///
+    /// <param name="partyBuffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetPartyBuffs(List<Blueprint<BlueprintBuff, BlueprintBuffReference>> partyBuffs)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PartyBuffs = partyBuffs?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCookingRecipe.m_PartyBuffs"/>
+    /// </summary>
+    ///
+    /// <param name="partyBuffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToPartyBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] partyBuffs)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PartyBuffs = bp.m_PartyBuffs ?? new BlueprintBuffReference[0];
+          bp.m_PartyBuffs = CommonTool.Append(bp.m_PartyBuffs, partyBuffs.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCookingRecipe.m_PartyBuffs"/>
+    /// </summary>
+    ///
+    /// <param name="partyBuffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromPartyBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] partyBuffs)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_PartyBuffs is null) { return; }
+          bp.m_PartyBuffs = bp.m_PartyBuffs.Where(val => !partyBuffs.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="partyBuffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromPartyBuffs(Func<BlueprintBuffReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_PartyBuffs is null) { return; }
+          bp.m_PartyBuffs = bp.m_PartyBuffs.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCookingRecipe.m_PartyBuffs"/>
+    /// </summary>
+    ///
+    /// <param name="partyBuffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearPartyBuffs()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PartyBuffs = new BlueprintBuffReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="partyBuffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyPartyBuffs(Action<BlueprintBuffReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_PartyBuffs is null) { return; }
+          bp.m_PartyBuffs.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCookingRecipe.UnitBuffs"/>
+    /// </summary>
+    public TBuilder SetUnitBuffs(BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in unitBuffs) { Validate(item); }
+          bp.UnitBuffs = unitBuffs;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCookingRecipe.UnitBuffs"/>
+    /// </summary>
+    public TBuilder AddToUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.UnitBuffs = bp.UnitBuffs ?? new BlueprintCookingRecipe.UnitBuffEntry[0];
+          bp.UnitBuffs = CommonTool.Append(bp.UnitBuffs, unitBuffs);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCookingRecipe.UnitBuffs"/>
+    /// </summary>
+    public TBuilder RemoveFromUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.UnitBuffs is null) { return; }
+          bp.UnitBuffs = bp.UnitBuffs.Where(val => !unitBuffs.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCookingRecipe.UnitBuffs"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromUnitBuffs(Func<BlueprintCookingRecipe.UnitBuffEntry, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.UnitBuffs is null) { return; }
+          bp.UnitBuffs = bp.UnitBuffs.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCookingRecipe.UnitBuffs"/>
+    /// </summary>
+    public TBuilder ClearUnitBuffs()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.UnitBuffs = new BlueprintCookingRecipe.UnitBuffEntry[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCookingRecipe.UnitBuffs"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyUnitBuffs(Action<BlueprintCookingRecipe.UnitBuffEntry> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.UnitBuffs is null) { return; }
+          bp.UnitBuffs.ForEach(action);
+        });
+    }
   }
 }

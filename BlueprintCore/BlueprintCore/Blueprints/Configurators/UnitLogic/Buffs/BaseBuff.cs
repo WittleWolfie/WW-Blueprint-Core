@@ -37,6 +37,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.UnitLogic.Parts;
+using Kingmaker.Utility;
 using Kingmaker.Visual;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using System;
@@ -56,6 +57,308 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     where TBuilder : BaseBuffConfigurator<T, TBuilder>
   {
     protected BaseBuffConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.IsClassFeature"/>
+    /// </summary>
+    public TBuilder SetIsClassFeature(bool isClassFeature = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsClassFeature = isClassFeature;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.IsClassFeature"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsClassFeature(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsClassFeature);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.m_Flags"/>
+    /// </summary>
+    public TBuilder SetFlags(params BlueprintBuff.Flags[] flags)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Flags = flags.Aggregate((BlueprintBuff.Flags) 0, (f1, f2) => f1 | f2);;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintBuff.m_Flags"/>
+    /// </summary>
+    public TBuilder AddToFlags(params BlueprintBuff.Flags[] flags)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          flags.ForEach(f => bp.m_Flags |= f);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintBuff.m_Flags"/>
+    /// </summary>
+    public TBuilder RemoveFromFlags(params BlueprintBuff.Flags[] flags)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          flags.ForEach(f => bp.m_Flags &= ~f);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.Stacking"/>
+    /// </summary>
+    ///
+    /// <param name="stacking">
+    /// <para>
+    /// InfoBox: Replace - New buff removes existing buff and takes its place  Prolong - Existing buff duration get prolonged, new buff is otherwise ignored  Ignore - New buff is ignored  Stack - Both buffs are added and function independently  Poison - Special stacking type for poison  Summ - Duration is added to current duration  Rank - For buffs with limited stack
+    /// </para>
+    /// </param>
+    public TBuilder SetStacking(StackingType stacking)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Stacking = stacking;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.Stacking"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="stacking">
+    /// <para>
+    /// InfoBox: Replace - New buff removes existing buff and takes its place  Prolong - Existing buff duration get prolonged, new buff is otherwise ignored  Ignore - New buff is ignored  Stack - Both buffs are added and function independently  Poison - Special stacking type for poison  Summ - Duration is added to current duration  Rank - For buffs with limited stack
+    /// </para>
+    /// </param>
+    public TBuilder ModifyStacking(Action<StackingType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Stacking);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.Ranks"/>
+    /// </summary>
+    public TBuilder SetRanks(int ranks)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Ranks = ranks;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.Ranks"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyRanks(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Ranks);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.TickEachSecond"/>
+    /// </summary>
+    public TBuilder SetTickEachSecond(bool tickEachSecond = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.TickEachSecond = tickEachSecond;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.TickEachSecond"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTickEachSecond(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.TickEachSecond);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.Frequency"/>
+    /// </summary>
+    public TBuilder SetFrequency(DurationRate frequency)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Frequency = frequency;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.Frequency"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFrequency(Action<DurationRate> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Frequency);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.FxOnStart"/>
+    /// </summary>
+    public TBuilder SetFxOnStart(PrefabLink fxOnStart)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.FxOnStart = fxOnStart;
+          if (bp.FxOnStart is null)
+          {
+            bp.FxOnStart = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.FxOnStart"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFxOnStart(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.FxOnStart is null) { return; }
+          action.Invoke(bp.FxOnStart);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.FxOnRemove"/>
+    /// </summary>
+    public TBuilder SetFxOnRemove(PrefabLink fxOnRemove)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.FxOnRemove = fxOnRemove;
+          if (bp.FxOnRemove is null)
+          {
+            bp.FxOnRemove = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.FxOnRemove"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFxOnRemove(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.FxOnRemove is null) { return; }
+          action.Invoke(bp.FxOnRemove);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder SetResourceAssetIds(string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = resourceAssetIds;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintBuff.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder AddToResourceAssetIds(params string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = bp.ResourceAssetIds ?? new string[0];
+          bp.ResourceAssetIds = CommonTool.Append(bp.ResourceAssetIds, resourceAssetIds);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintBuff.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder RemoveFromResourceAssetIds(params string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds = bp.ResourceAssetIds.Where(val => !resourceAssetIds.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintBuff.ResourceAssetIds"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromResourceAssetIds(Func<string, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds = bp.ResourceAssetIds.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintBuff.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder ClearResourceAssetIds()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = new string[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.ResourceAssetIds"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyResourceAssetIds(Action<string> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds.ForEach(action);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="AddContextStatBonus"/>

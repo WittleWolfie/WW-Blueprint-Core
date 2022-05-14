@@ -15,6 +15,8 @@ using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.Kingdom.Settlements.BuildingComponents;
+using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
 using System.Collections.Generic;
@@ -32,6 +34,372 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     where TBuilder : BaseSettlementBuildingConfigurator<T, TBuilder>
   {
     protected BaseSettlementBuildingConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.Name"/>
+    /// </summary>
+    public TBuilder SetName(LocalizedString name)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Name = name;
+          if (bp.Name is null)
+          {
+            bp.Name = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.Name"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Name is null) { return; }
+          action.Invoke(bp.Name);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.Description"/>
+    /// </summary>
+    public TBuilder SetDescription(LocalizedString description)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Description = description;
+          if (bp.Description is null)
+          {
+            bp.Description = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.Description"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Description is null) { return; }
+          action.Invoke(bp.Description);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.MechanicalDescription"/>
+    /// </summary>
+    public TBuilder SetMechanicalDescription(LocalizedString mechanicalDescription)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.MechanicalDescription = mechanicalDescription;
+          if (bp.MechanicalDescription is null)
+          {
+            bp.MechanicalDescription = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.MechanicalDescription"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyMechanicalDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.MechanicalDescription is null) { return; }
+          action.Invoke(bp.MechanicalDescription);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.CompletedPrefab"/>
+    /// </summary>
+    public TBuilder SetCompletedPrefab(PrefabLink completedPrefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CompletedPrefab = completedPrefab;
+          if (bp.CompletedPrefab is null)
+          {
+            bp.CompletedPrefab = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.CompletedPrefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCompletedPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.CompletedPrefab is null) { return; }
+          action.Invoke(bp.CompletedPrefab);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.UnfinishedPrefab"/>
+    /// </summary>
+    public TBuilder SetUnfinishedPrefab(PrefabLink unfinishedPrefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.UnfinishedPrefab = unfinishedPrefab;
+          if (bp.UnfinishedPrefab is null)
+          {
+            bp.UnfinishedPrefab = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.UnfinishedPrefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyUnfinishedPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.UnfinishedPrefab is null) { return; }
+          action.Invoke(bp.UnfinishedPrefab);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.BuildCost"/>
+    /// </summary>
+    public TBuilder SetBuildCost(KingdomResourcesAmount buildCost)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BuildCost = buildCost;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.BuildCost"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyBuildCost(Action<KingdomResourcesAmount> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.BuildCost);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.StatChanges"/>
+    /// </summary>
+    public TBuilder SetStatChanges(KingdomStats.Changes statChanges)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(statChanges);
+          bp.StatChanges = statChanges;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.StatChanges"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyStatChanges(Action<KingdomStats.Changes> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.StatChanges is null) { return; }
+          action.Invoke(bp.StatChanges);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.MinLevel"/>
+    /// </summary>
+    public TBuilder SetMinLevel(SettlementState.LevelType minLevel)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.MinLevel = minLevel;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.MinLevel"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyMinLevel(Action<SettlementState.LevelType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.MinLevel);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.SlotSizeX"/>
+    /// </summary>
+    public TBuilder SetSlotSizeX(int slotSizeX)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SlotSizeX = slotSizeX;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.SlotSizeX"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySlotSizeX(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SlotSizeX);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.SlotSizeY"/>
+    /// </summary>
+    public TBuilder SetSlotSizeY(int slotSizeY)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SlotSizeY = slotSizeY;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.SlotSizeY"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySlotSizeY(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SlotSizeY);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.BuildTime"/>
+    /// </summary>
+    public TBuilder SetBuildTime(int buildTime)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BuildTime = buildTime;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.BuildTime"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyBuildTime(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.BuildTime);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.SpecialSlot"/>
+    /// </summary>
+    public TBuilder SetSpecialSlot(SettlementState.SpecialSlotType specialSlot)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpecialSlot = specialSlot;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.SpecialSlot"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpecialSlot(Action<SettlementState.SpecialSlotType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpecialSlot);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintSettlementBuilding.m_UpgradesTo"/>
+    /// </summary>
+    ///
+    /// <param name="upgradesTo">
+    /// <para>
+    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetUpgradesTo(Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference> upgradesTo)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_UpgradesTo = upgradesTo?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintSettlementBuilding.m_UpgradesTo"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="upgradesTo">
+    /// <para>
+    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyUpgradesTo(Action<BlueprintSettlementBuildingReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_UpgradesTo is null) { return; }
+          action.Invoke(bp.m_UpgradesTo);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="LocationRadiusBuff"/>

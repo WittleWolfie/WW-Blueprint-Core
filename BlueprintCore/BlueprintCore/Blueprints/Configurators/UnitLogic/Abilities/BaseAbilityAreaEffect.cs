@@ -42,6 +42,389 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     protected BaseAbilityAreaEffectConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_AllowNonContextActions"/>
+    /// </summary>
+    public TBuilder SetAllowNonContextActions(bool allowNonContextActions = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AllowNonContextActions = allowNonContextActions;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.m_AllowNonContextActions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAllowNonContextActions(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_AllowNonContextActions);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_TargetType"/>
+    /// </summary>
+    public TBuilder SetTargetType(BlueprintAbilityAreaEffect.TargetType targetType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TargetType = targetType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.m_TargetType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTargetType(Action<BlueprintAbilityAreaEffect.TargetType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_TargetType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_Tags"/>
+    /// </summary>
+    ///
+    /// <param name="tags">
+    /// <para>
+    /// Tooltip: Тэги имеют информационный характер для условной группировки эффектов.  DestroyableInCutscene - помечаются эффекты, которые необходимо удалять во время проигрывания катсцен и схожих событиях, так как они могут наносит урон игроку, вызывать визуальный шум и создавать прочие неудобства.
+    /// </para>
+    /// </param>
+    public TBuilder SetTags(params AreaEffectTags[] tags)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Tags = tags.Aggregate((AreaEffectTags) 0, (f1, f2) => f1 | f2);;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintAbilityAreaEffect.m_Tags"/>
+    /// </summary>
+    ///
+    /// <param name="tags">
+    /// <para>
+    /// Tooltip: Тэги имеют информационный характер для условной группировки эффектов.  DestroyableInCutscene - помечаются эффекты, которые необходимо удалять во время проигрывания катсцен и схожих событиях, так как они могут наносит урон игроку, вызывать визуальный шум и создавать прочие неудобства.
+    /// </para>
+    /// </param>
+    public TBuilder AddToTags(params AreaEffectTags[] tags)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          tags.ForEach(f => bp.m_Tags |= f);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbilityAreaEffect.m_Tags"/>
+    /// </summary>
+    ///
+    /// <param name="tags">
+    /// <para>
+    /// Tooltip: Тэги имеют информационный характер для условной группировки эффектов.  DestroyableInCutscene - помечаются эффекты, которые необходимо удалять во время проигрывания катсцен и схожих событиях, так как они могут наносит урон игроку, вызывать визуальный шум и создавать прочие неудобства.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromTags(params AreaEffectTags[] tags)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          tags.ForEach(f => bp.m_Tags &= ~f);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.SpellResistance"/>
+    /// </summary>
+    public TBuilder SetSpellResistance(bool spellResistance = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpellResistance = spellResistance;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.SpellResistance"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpellResistance(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpellResistance);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.AffectEnemies"/>
+    /// </summary>
+    public TBuilder SetAffectEnemies(bool affectEnemies = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AffectEnemies = affectEnemies;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.AffectEnemies"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAffectEnemies(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.AffectEnemies);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.AggroEnemies"/>
+    /// </summary>
+    public TBuilder SetAggroEnemies(bool aggroEnemies = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AggroEnemies = aggroEnemies;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.AggroEnemies"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAggroEnemies(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.AggroEnemies);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.AffectDead"/>
+    /// </summary>
+    public TBuilder SetAffectDead(bool affectDead = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AffectDead = affectDead;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.AffectDead"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAffectDead(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.AffectDead);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.IgnoreSleepingUnits"/>
+    /// </summary>
+    public TBuilder SetIgnoreSleepingUnits(bool ignoreSleepingUnits = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IgnoreSleepingUnits = ignoreSleepingUnits;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.IgnoreSleepingUnits"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIgnoreSleepingUnits(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IgnoreSleepingUnits);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.Shape"/>
+    /// </summary>
+    public TBuilder SetShape(AreaEffectShape shape)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Shape = shape;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.Shape"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyShape(Action<AreaEffectShape> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Shape);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.Size"/>
+    /// </summary>
+    public TBuilder SetSize(Feet size)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Size = size;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.Size"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySize(Action<Feet> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Size);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.Fx"/>
+    /// </summary>
+    public TBuilder SetFx(PrefabLink fx)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Fx = fx;
+          if (bp.Fx is null)
+          {
+            bp.Fx = Utils.Constants.Empty.PrefabLink;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.Fx"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFx(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Fx is null) { return; }
+          action.Invoke(bp.Fx);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.CanBeUsedInTacticalCombat"/>
+    /// </summary>
+    public TBuilder SetCanBeUsedInTacticalCombat(bool canBeUsedInTacticalCombat = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CanBeUsedInTacticalCombat = canBeUsedInTacticalCombat;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.CanBeUsedInTacticalCombat"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCanBeUsedInTacticalCombat(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CanBeUsedInTacticalCombat);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_SizeInCells"/>
+    /// </summary>
+    ///
+    /// <param name="sizeInCells">
+    /// <para>
+    /// InfoBox: For now, only Cylinder shapes and odd diameters can be used. 1 -> 1 cell, 3 -> 9 cells, ...
+    /// </para>
+    /// </param>
+    public TBuilder SetSizeInCells(int sizeInCells)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SizeInCells = sizeInCells;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.m_SizeInCells"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="sizeInCells">
+    /// <para>
+    /// InfoBox: For now, only Cylinder shapes and odd diameters can be used. 1 -> 1 cell, 3 -> 9 cells, ...
+    /// </para>
+    /// </param>
+    public TBuilder ModifySizeInCells(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_SizeInCells);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_TickRoundAfterSpawn"/>
+    /// </summary>
+    public TBuilder SetTickRoundAfterSpawn(bool tickRoundAfterSpawn = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TickRoundAfterSpawn = tickRoundAfterSpawn;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbilityAreaEffect.m_TickRoundAfterSpawn"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTickRoundAfterSpawn(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_TickRoundAfterSpawn);
+        });
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextRankConfig"/>
     /// </summary>
     ///

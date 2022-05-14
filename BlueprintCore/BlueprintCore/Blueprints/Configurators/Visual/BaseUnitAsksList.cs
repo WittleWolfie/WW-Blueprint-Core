@@ -3,7 +3,9 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Localization;
 using Kingmaker.Visual.Sound;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual
 {
@@ -17,6 +19,35 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     where TBuilder : BaseUnitAsksListConfigurator<T, TBuilder>
   {
     protected BaseUnitAsksListConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitAsksList.DisplayName"/>
+    /// </summary>
+    public TBuilder SetDisplayName(LocalizedString displayName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DisplayName = displayName;
+          if (bp.DisplayName is null)
+          {
+            bp.DisplayName = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitAsksList.DisplayName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDisplayName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.DisplayName is null) { return; }
+          action.Invoke(bp.DisplayName);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="UnitAsksComponent"/>

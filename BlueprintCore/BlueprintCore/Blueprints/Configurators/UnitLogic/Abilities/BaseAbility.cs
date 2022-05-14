@@ -6,6 +6,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using Kingmaker.AI.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -20,6 +21,7 @@ using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UI.UnitSettings.Blueprints;
 using Kingmaker.UnitLogic;
@@ -32,10 +34,12 @@ using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Class.Kineticist;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
+using Kingmaker.View.Animation;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using Kingmaker.Visual.HitSystem;
 using System;
@@ -55,6 +59,1339 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     where TBuilder : BaseAbilityConfigurator<T, TBuilder>
   {
     protected BaseAbilityConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_DefaultAiAction"/>
+    /// </summary>
+    ///
+    /// <param name="defaultAiAction">
+    /// <para>
+    /// Blueprint of type BlueprintAiCastSpell. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetDefaultAiAction(Blueprint<BlueprintAiCastSpell, BlueprintAiCastSpell.Reference> defaultAiAction)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DefaultAiAction = defaultAiAction?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_DefaultAiAction"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="defaultAiAction">
+    /// <para>
+    /// Blueprint of type BlueprintAiCastSpell. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyDefaultAiAction(Action<BlueprintAiCastSpell.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DefaultAiAction is null) { return; }
+          action.Invoke(bp.m_DefaultAiAction);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.Type"/>
+    /// </summary>
+    public TBuilder SetType(AbilityType type)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Type = type;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.Type"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyType(Action<AbilityType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Type);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.Range"/>
+    /// </summary>
+    public TBuilder SetRange(AbilityRange range)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Range = range;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.Range"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyRange(Action<AbilityRange> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Range);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.CustomRange"/>
+    /// </summary>
+    public TBuilder SetCustomRange(Feet customRange)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CustomRange = customRange;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.CustomRange"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCustomRange(Action<Feet> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CustomRange);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.ShowNameForVariant"/>
+    /// </summary>
+    ///
+    /// <param name="showNameForVariant">
+    /// <para>
+    /// Tooltip: Включать имя данного спела в имя его варианта
+    /// </para>
+    /// </param>
+    public TBuilder SetShowNameForVariant(bool showNameForVariant = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ShowNameForVariant = showNameForVariant;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.ShowNameForVariant"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="showNameForVariant">
+    /// <para>
+    /// Tooltip: Включать имя данного спела в имя его варианта
+    /// </para>
+    /// </param>
+    public TBuilder ModifyShowNameForVariant(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.ShowNameForVariant);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.OnlyForAllyCaster"/>
+    /// </summary>
+    ///
+    /// <param name="onlyForAllyCaster">
+    /// <para>
+    /// Tooltip: Применять опцию выше только, если кастер - IsPlayerFaction
+    /// </para>
+    /// </param>
+    public TBuilder SetOnlyForAllyCaster(bool onlyForAllyCaster = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.OnlyForAllyCaster = onlyForAllyCaster;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.OnlyForAllyCaster"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="onlyForAllyCaster">
+    /// <para>
+    /// Tooltip: Применять опцию выше только, если кастер - IsPlayerFaction
+    /// </para>
+    /// </param>
+    public TBuilder ModifyOnlyForAllyCaster(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.OnlyForAllyCaster);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.CanTargetPoint"/>
+    /// </summary>
+    public TBuilder SetCanTargetPoint(bool canTargetPoint = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CanTargetPoint = canTargetPoint;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.CanTargetPoint"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCanTargetPoint(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CanTargetPoint);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.CanTargetEnemies"/>
+    /// </summary>
+    public TBuilder SetCanTargetEnemies(bool canTargetEnemies = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CanTargetEnemies = canTargetEnemies;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.CanTargetEnemies"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCanTargetEnemies(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CanTargetEnemies);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.CanTargetFriends"/>
+    /// </summary>
+    ///
+    /// <param name="canTargetFriends">
+    /// <para>
+    /// InfoBox: Allows to cast on allies. But does not prevent from casting on enemies if only selected
+    /// </para>
+    /// </param>
+    public TBuilder SetCanTargetFriends(bool canTargetFriends = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CanTargetFriends = canTargetFriends;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.CanTargetFriends"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="canTargetFriends">
+    /// <para>
+    /// InfoBox: Allows to cast on allies. But does not prevent from casting on enemies if only selected
+    /// </para>
+    /// </param>
+    public TBuilder ModifyCanTargetFriends(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CanTargetFriends);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.CanTargetSelf"/>
+    /// </summary>
+    public TBuilder SetCanTargetSelf(bool canTargetSelf = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CanTargetSelf = canTargetSelf;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.CanTargetSelf"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCanTargetSelf(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.CanTargetSelf);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.SpellResistance"/>
+    /// </summary>
+    public TBuilder SetSpellResistance(bool spellResistance = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpellResistance = spellResistance;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.SpellResistance"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpellResistance(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SpellResistance);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.ActionBarAutoFillIgnored"/>
+    /// </summary>
+    public TBuilder SetActionBarAutoFillIgnored(bool actionBarAutoFillIgnored = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ActionBarAutoFillIgnored = actionBarAutoFillIgnored;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.ActionBarAutoFillIgnored"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyActionBarAutoFillIgnored(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.ActionBarAutoFillIgnored);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.Hidden"/>
+    /// </summary>
+    public TBuilder SetHidden(bool hidden = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Hidden = hidden;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.Hidden"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyHidden(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Hidden);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.NeedEquipWeapons"/>
+    /// </summary>
+    public TBuilder SetNeedEquipWeapons(bool needEquipWeapons = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NeedEquipWeapons = needEquipWeapons;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.NeedEquipWeapons"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyNeedEquipWeapons(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.NeedEquipWeapons);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.NotOffensive"/>
+    /// </summary>
+    public TBuilder SetNotOffensive(bool notOffensive = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NotOffensive = notOffensive;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.NotOffensive"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyNotOffensive(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.NotOffensive);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.EffectOnAlly"/>
+    /// </summary>
+    public TBuilder SetEffectOnAlly(AbilityEffectOnUnit effectOnAlly)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.EffectOnAlly = effectOnAlly;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.EffectOnAlly"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyEffectOnAlly(Action<AbilityEffectOnUnit> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.EffectOnAlly);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.EffectOnEnemy"/>
+    /// </summary>
+    public TBuilder SetEffectOnEnemy(AbilityEffectOnUnit effectOnEnemy)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.EffectOnEnemy = effectOnEnemy;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.EffectOnEnemy"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyEffectOnEnemy(Action<AbilityEffectOnUnit> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.EffectOnEnemy);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_Parent"/>
+    /// </summary>
+    ///
+    /// <param name="parent">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetParent(Blueprint<BlueprintAbility, BlueprintAbilityReference> parent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Parent = parent?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_Parent"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="parent">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyParent(Action<BlueprintAbilityReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Parent is null) { return; }
+          action.Invoke(bp.m_Parent);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.Animation"/>
+    /// </summary>
+    public TBuilder SetAnimation(UnitAnimationActionCastSpell.CastAnimationStyle animation)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Animation = animation;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.Animation"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAnimation(Action<UnitAnimationActionCastSpell.CastAnimationStyle> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Animation);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.HasFastAnimation"/>
+    /// </summary>
+    public TBuilder SetHasFastAnimation(bool hasFastAnimation = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HasFastAnimation = hasFastAnimation;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.HasFastAnimation"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyHasFastAnimation(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.HasFastAnimation);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.AnimationStyle"/>
+    /// </summary>
+    public TBuilder SetAnimationStyle(CastAnimationStyle animationStyle)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AnimationStyle = animationStyle;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.AnimationStyle"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAnimationStyle(Action<CastAnimationStyle> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.AnimationStyle);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_TargetMapObjects"/>
+    /// </summary>
+    public TBuilder SetTargetMapObjects(bool targetMapObjects = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TargetMapObjects = targetMapObjects;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_TargetMapObjects"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTargetMapObjects(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_TargetMapObjects);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.ActionType"/>
+    /// </summary>
+    public TBuilder SetActionType(UnitCommand.CommandType actionType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ActionType = actionType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.ActionType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyActionType(Action<UnitCommand.CommandType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.ActionType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.AvailableMetamagic"/>
+    /// </summary>
+    public TBuilder SetAvailableMetamagic(params Metamagic[] availableMetamagic)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AvailableMetamagic = availableMetamagic.Aggregate((Metamagic) 0, (f1, f2) => f1 | f2);;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintAbility.AvailableMetamagic"/>
+    /// </summary>
+    public TBuilder AddToAvailableMetamagic(params Metamagic[] availableMetamagic)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          availableMetamagic.ForEach(f => bp.AvailableMetamagic |= f);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.AvailableMetamagic"/>
+    /// </summary>
+    public TBuilder RemoveFromAvailableMetamagic(params Metamagic[] availableMetamagic)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          availableMetamagic.ForEach(f => bp.AvailableMetamagic &= ~f);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_IsFullRoundAction"/>
+    /// </summary>
+    public TBuilder SetIsFullRoundAction(bool isFullRoundAction = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IsFullRoundAction = isFullRoundAction;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_IsFullRoundAction"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsFullRoundAction(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_IsFullRoundAction);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.LocalizedDuration"/>
+    /// </summary>
+    public TBuilder SetLocalizedDuration(LocalizedString localizedDuration)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LocalizedDuration = localizedDuration;
+          if (bp.LocalizedDuration is null)
+          {
+            bp.LocalizedDuration = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.LocalizedDuration"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLocalizedDuration(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LocalizedDuration is null) { return; }
+          action.Invoke(bp.LocalizedDuration);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.LocalizedSavingThrow"/>
+    /// </summary>
+    public TBuilder SetLocalizedSavingThrow(LocalizedString localizedSavingThrow)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LocalizedSavingThrow = localizedSavingThrow;
+          if (bp.LocalizedSavingThrow is null)
+          {
+            bp.LocalizedSavingThrow = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.LocalizedSavingThrow"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLocalizedSavingThrow(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LocalizedSavingThrow is null) { return; }
+          action.Invoke(bp.LocalizedSavingThrow);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.MaterialComponent"/>
+    /// </summary>
+    public TBuilder SetMaterialComponent(BlueprintAbility.MaterialComponentData materialComponent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(materialComponent);
+          bp.MaterialComponent = materialComponent;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.MaterialComponent"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyMaterialComponent(Action<BlueprintAbility.MaterialComponentData> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.MaterialComponent is null) { return; }
+          action.Invoke(bp.MaterialComponent);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.DisableLog"/>
+    /// </summary>
+    public TBuilder SetDisableLog(bool disableLog = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DisableLog = disableLog;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.DisableLog"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDisableLog(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DisableLog);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder SetResourceAssetIds(string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = resourceAssetIds;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintAbility.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder AddToResourceAssetIds(params string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = bp.ResourceAssetIds ?? new string[0];
+          bp.ResourceAssetIds = CommonTool.Append(bp.ResourceAssetIds, resourceAssetIds);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder RemoveFromResourceAssetIds(params string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds = bp.ResourceAssetIds.Where(val => !resourceAssetIds.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.ResourceAssetIds"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromResourceAssetIds(Func<string, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds = bp.ResourceAssetIds.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintAbility.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder ClearResourceAssetIds()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = new string[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.ResourceAssetIds"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyResourceAssetIds(Action<string> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_CachedRestrictions"/>
+    /// </summary>
+    public TBuilder SetCachedRestrictions(IAbilityRestriction[] cachedRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in cachedRestrictions) { Validate(item); }
+          bp.m_CachedRestrictions = cachedRestrictions;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintAbility.m_CachedRestrictions"/>
+    /// </summary>
+    public TBuilder AddToCachedRestrictions(params IAbilityRestriction[] cachedRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedRestrictions = bp.m_CachedRestrictions ?? new IAbilityRestriction[0];
+          bp.m_CachedRestrictions = CommonTool.Append(bp.m_CachedRestrictions, cachedRestrictions);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.m_CachedRestrictions"/>
+    /// </summary>
+    public TBuilder RemoveFromCachedRestrictions(params IAbilityRestriction[] cachedRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedRestrictions is null) { return; }
+          bp.m_CachedRestrictions = bp.m_CachedRestrictions.Where(val => !cachedRestrictions.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.m_CachedRestrictions"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromCachedRestrictions(Func<IAbilityRestriction, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedRestrictions is null) { return; }
+          bp.m_CachedRestrictions = bp.m_CachedRestrictions.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintAbility.m_CachedRestrictions"/>
+    /// </summary>
+    public TBuilder ClearCachedRestrictions()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedRestrictions = new IAbilityRestriction[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_CachedRestrictions"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyCachedRestrictions(Action<IAbilityRestriction> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedRestrictions is null) { return; }
+          bp.m_CachedRestrictions.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_CachedTargetRestrictions"/>
+    /// </summary>
+    public TBuilder SetCachedTargetRestrictions(IAbilityTargetRestriction[] cachedTargetRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in cachedTargetRestrictions) { Validate(item); }
+          bp.m_CachedTargetRestrictions = cachedTargetRestrictions;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintAbility.m_CachedTargetRestrictions"/>
+    /// </summary>
+    public TBuilder AddToCachedTargetRestrictions(params IAbilityTargetRestriction[] cachedTargetRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedTargetRestrictions = bp.m_CachedTargetRestrictions ?? new IAbilityTargetRestriction[0];
+          bp.m_CachedTargetRestrictions = CommonTool.Append(bp.m_CachedTargetRestrictions, cachedTargetRestrictions);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.m_CachedTargetRestrictions"/>
+    /// </summary>
+    public TBuilder RemoveFromCachedTargetRestrictions(params IAbilityTargetRestriction[] cachedTargetRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedTargetRestrictions is null) { return; }
+          bp.m_CachedTargetRestrictions = bp.m_CachedTargetRestrictions.Where(val => !cachedTargetRestrictions.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.m_CachedTargetRestrictions"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromCachedTargetRestrictions(Func<IAbilityTargetRestriction, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedTargetRestrictions is null) { return; }
+          bp.m_CachedTargetRestrictions = bp.m_CachedTargetRestrictions.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintAbility.m_CachedTargetRestrictions"/>
+    /// </summary>
+    public TBuilder ClearCachedTargetRestrictions()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedTargetRestrictions = new IAbilityTargetRestriction[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_CachedTargetRestrictions"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyCachedTargetRestrictions(Action<IAbilityTargetRestriction> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedTargetRestrictions is null) { return; }
+          bp.m_CachedTargetRestrictions.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_CachedCasterRestrictions"/>
+    /// </summary>
+    public TBuilder SetCachedCasterRestrictions(IAbilityCasterRestriction[] cachedCasterRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in cachedCasterRestrictions) { Validate(item); }
+          bp.m_CachedCasterRestrictions = cachedCasterRestrictions;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintAbility.m_CachedCasterRestrictions"/>
+    /// </summary>
+    public TBuilder AddToCachedCasterRestrictions(params IAbilityCasterRestriction[] cachedCasterRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedCasterRestrictions = bp.m_CachedCasterRestrictions ?? new IAbilityCasterRestriction[0];
+          bp.m_CachedCasterRestrictions = CommonTool.Append(bp.m_CachedCasterRestrictions, cachedCasterRestrictions);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.m_CachedCasterRestrictions"/>
+    /// </summary>
+    public TBuilder RemoveFromCachedCasterRestrictions(params IAbilityCasterRestriction[] cachedCasterRestrictions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedCasterRestrictions is null) { return; }
+          bp.m_CachedCasterRestrictions = bp.m_CachedCasterRestrictions.Where(val => !cachedCasterRestrictions.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintAbility.m_CachedCasterRestrictions"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromCachedCasterRestrictions(Func<IAbilityCasterRestriction, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedCasterRestrictions is null) { return; }
+          bp.m_CachedCasterRestrictions = bp.m_CachedCasterRestrictions.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintAbility.m_CachedCasterRestrictions"/>
+    /// </summary>
+    public TBuilder ClearCachedCasterRestrictions()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedCasterRestrictions = new IAbilityCasterRestriction[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_CachedCasterRestrictions"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyCachedCasterRestrictions(Action<IAbilityCasterRestriction> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedCasterRestrictions is null) { return; }
+          bp.m_CachedCasterRestrictions.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_SpellComponent"/>
+    /// </summary>
+    public TBuilder SetSpellComponent(Cacheable<SpellComponent> spellComponent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SpellComponent = spellComponent;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_SpellComponent"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpellComponent(Action<Cacheable<SpellComponent>> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_SpellComponent);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_AbilityIsFullRoundInTurnBased"/>
+    /// </summary>
+    public TBuilder SetAbilityIsFullRoundInTurnBased(Cacheable<AbilityIsFullRoundInTurnBased> abilityIsFullRoundInTurnBased)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AbilityIsFullRoundInTurnBased = abilityIsFullRoundInTurnBased;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_AbilityIsFullRoundInTurnBased"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAbilityIsFullRoundInTurnBased(Action<Cacheable<AbilityIsFullRoundInTurnBased>> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_AbilityIsFullRoundInTurnBased);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_StickyTouch"/>
+    /// </summary>
+    public TBuilder SetStickyTouch(Cacheable<AbilityEffectStickyTouch> stickyTouch)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_StickyTouch = stickyTouch;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_StickyTouch"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyStickyTouch(Action<Cacheable<AbilityEffectStickyTouch>> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_StickyTouch);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_AbilityVariants"/>
+    /// </summary>
+    public TBuilder SetAbilityVariants(Cacheable<AbilityVariants> abilityVariants)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AbilityVariants = abilityVariants;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_AbilityVariants"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAbilityVariants(Action<Cacheable<AbilityVariants>> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_AbilityVariants);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_AbilityShadowSpell"/>
+    /// </summary>
+    public TBuilder SetAbilityShadowSpell(Cacheable<AbilityShadowSpell> abilityShadowSpell)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AbilityShadowSpell = abilityShadowSpell;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_AbilityShadowSpell"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAbilityShadowSpell(Action<Cacheable<AbilityShadowSpell>> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_AbilityShadowSpell);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_AbilityKineticist"/>
+    /// </summary>
+    public TBuilder SetAbilityKineticist(Cacheable<AbilityKineticist> abilityKineticist)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AbilityKineticist = abilityKineticist;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_AbilityKineticist"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAbilityKineticist(Action<Cacheable<AbilityKineticist>> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_AbilityKineticist);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_HasVariants"/>
+    /// </summary>
+    public TBuilder SetHasVariants(bool hasVariants)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_HasVariants = hasVariants;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_HasVariants"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyHasVariants(Action<bool?> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_HasVariants);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_IsCantrip"/>
+    /// </summary>
+    public TBuilder SetIsCantrip(bool isCantrip)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IsCantrip = isCantrip;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_IsCantrip"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsCantrip(Action<bool?> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_IsCantrip);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_SpellDescriptor"/>
+    /// </summary>
+    public TBuilder SetSpellDescriptor(Nullable<SpellDescriptor> spellDescriptor)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SpellDescriptor = spellDescriptor;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_SpellDescriptor"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpellDescriptor(Action<SpellDescriptor?> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_SpellDescriptor);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="AbilityCasterAlignment"/>

@@ -1,4 +1,5 @@
 ﻿using BlueprintCoreGen.CodeGen.Methods;
+using BlueprintCoreGen.CodeGen.Overrides;
 using BlueprintCoreGen.CodeGen.Overrides.Ignored;
 using Kingmaker.Blueprints;
 using Newtonsoft.Json.Linq;
@@ -116,8 +117,8 @@ namespace BlueprintCoreGen.CodeGen.Class
         var typeName = TypeTool.GetName(blueprintType);
 
         List<FieldMethod> fieldMethods = new();
-        // TODO: Add ignored field handling
-        blueprintType.GetFields(BindingFlags.DeclaredOnly).ToList()
+        blueprintType.GetFields(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
+          .ToList()
           .ForEach(field => fieldMethods.Add(new(field.Name)));
 
         if (blueprintType.IsAbstract)
@@ -151,18 +152,23 @@ namespace BlueprintCoreGen.CodeGen.Class
           /* isAbstract= */ true,
           componentMethodsByBlueprintType[blueprintType],
           fieldMethods));
-        configurators.Add(
-          new ConfiguratorImpl(
-            GetFilePath(nameSpace, className),
-            nameSpace,
-            className,
-            abstractClassName,
-            nameSpace, // Parent is the abstract class above
-            typeName,
-            blueprintType,
-            /* isAbstract= */ false,
-            new(), // All the methods are in the base class
-            new()));
+        
+        // Only add a concrete implementation if there is no custom implementation.
+        if (!GlobalOverrides.CustomBlueprintConfigurators.Contains(blueprintType))
+        {
+          configurators.Add(
+            new ConfiguratorImpl(
+              GetFilePath(nameSpace, className),
+              nameSpace,
+              className,
+              abstractClassName,
+              nameSpace, // Parent is the abstract class above
+              typeName,
+              blueprintType,
+              /* isAbstract= */ false,
+              new(), // All the methods are in the base class
+              new()));
+        }
       }
 
       return configurators;

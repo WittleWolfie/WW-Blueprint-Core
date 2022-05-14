@@ -1,8 +1,12 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Actions.Builder;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.ElementsSystem;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -16,5 +20,92 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where TBuilder : BaseScriptZoneConfigurator<T, TBuilder>
   {
     protected BaseScriptZoneConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintScriptZone.TriggerConditions"/>
+    /// </summary>
+    public TBuilder SetTriggerConditions(ConditionsBuilder triggerConditions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.TriggerConditions = triggerConditions?.Build();
+          if (bp.TriggerConditions is null)
+          {
+            bp.TriggerConditions = Utils.Constants.Empty.Conditions;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintScriptZone.TriggerConditions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTriggerConditions(Action<ConditionsChecker> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.TriggerConditions is null) { return; }
+          action.Invoke(bp.TriggerConditions);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintScriptZone.EnterActions"/>
+    /// </summary>
+    public TBuilder SetEnterActions(ActionsBuilder enterActions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.EnterActions = enterActions?.Build();
+          if (bp.EnterActions is null)
+          {
+            bp.EnterActions = Utils.Constants.Empty.Actions;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintScriptZone.EnterActions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyEnterActions(Action<ActionList> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.EnterActions is null) { return; }
+          action.Invoke(bp.EnterActions);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintScriptZone.ExitActions"/>
+    /// </summary>
+    public TBuilder SetExitActions(ActionsBuilder exitActions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ExitActions = exitActions?.Build();
+          if (bp.ExitActions is null)
+          {
+            bp.ExitActions = Utils.Constants.Empty.Actions;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintScriptZone.ExitActions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyExitActions(Action<ActionList> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ExitActions is null) { return; }
+          action.Invoke(bp.ExitActions);
+        });
+    }
   }
 }

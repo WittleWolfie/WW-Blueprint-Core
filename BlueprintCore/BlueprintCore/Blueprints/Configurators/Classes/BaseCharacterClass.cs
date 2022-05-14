@@ -8,6 +8,8 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers.Mechanics.Prerequisites;
 using Kingmaker.DialogSystem.Blueprints;
@@ -16,11 +18,15 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.Utility;
+using Kingmaker.Visual.CharacterSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -34,6 +40,1873 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where TBuilder : BaseCharacterClassConfigurator<T, TBuilder>
   {
     protected BaseCharacterClassConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.LocalizedName"/>
+    /// </summary>
+    public TBuilder SetLocalizedName(LocalizedString localizedName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LocalizedName = localizedName;
+          if (bp.LocalizedName is null)
+          {
+            bp.LocalizedName = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.LocalizedName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLocalizedName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LocalizedName is null) { return; }
+          action.Invoke(bp.LocalizedName);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.LocalizedDescription"/>
+    /// </summary>
+    public TBuilder SetLocalizedDescription(LocalizedString localizedDescription)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LocalizedDescription = localizedDescription;
+          if (bp.LocalizedDescription is null)
+          {
+            bp.LocalizedDescription = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.LocalizedDescription"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLocalizedDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LocalizedDescription is null) { return; }
+          action.Invoke(bp.LocalizedDescription);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.LocalizedDescriptionShort"/>
+    /// </summary>
+    public TBuilder SetLocalizedDescriptionShort(LocalizedString localizedDescriptionShort)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LocalizedDescriptionShort = localizedDescriptionShort;
+          if (bp.LocalizedDescriptionShort is null)
+          {
+            bp.LocalizedDescriptionShort = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.LocalizedDescriptionShort"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLocalizedDescriptionShort(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LocalizedDescriptionShort is null) { return; }
+          action.Invoke(bp.LocalizedDescriptionShort);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_Icon"/>
+    /// </summary>
+    public TBuilder SetIcon(Sprite icon)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(icon);
+          bp.m_Icon = icon;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_Icon"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIcon(Action<Sprite> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Icon is null) { return; }
+          action.Invoke(bp.m_Icon);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.SkillPoints"/>
+    /// </summary>
+    public TBuilder SetSkillPoints(int skillPoints)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SkillPoints = skillPoints;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.SkillPoints"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySkillPoints(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SkillPoints);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.HitDie"/>
+    /// </summary>
+    public TBuilder SetHitDie(DiceType hitDie)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HitDie = hitDie;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.HitDie"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyHitDie(Action<DiceType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.HitDie);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.HideIfRestricted"/>
+    /// </summary>
+    public TBuilder SetHideIfRestricted(bool hideIfRestricted = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HideIfRestricted = hideIfRestricted;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.HideIfRestricted"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyHideIfRestricted(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.HideIfRestricted);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.PrestigeClass"/>
+    /// </summary>
+    public TBuilder SetPrestigeClass(bool prestigeClass = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.PrestigeClass = prestigeClass;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.PrestigeClass"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPrestigeClass(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.PrestigeClass);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.IsMythic"/>
+    /// </summary>
+    public TBuilder SetIsMythic(bool isMythic = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsMythic = isMythic;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.IsMythic"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsMythic(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsMythic);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_IsHigherMythic"/>
+    /// </summary>
+    ///
+    /// <param name="isHigherMythic">
+    /// <para>
+    /// InfoBox: If true: replace previous mythic levels for Mythic Starting Class when receive first level of this
+    /// </para>
+    /// </param>
+    public TBuilder SetIsHigherMythic(bool isHigherMythic = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IsHigherMythic = isHigherMythic;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_IsHigherMythic"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="isHigherMythic">
+    /// <para>
+    /// InfoBox: If true: replace previous mythic levels for Mythic Starting Class when receive first level of this
+    /// </para>
+    /// </param>
+    public TBuilder ModifyIsHigherMythic(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_IsHigherMythic);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_BaseAttackBonus"/>
+    /// </summary>
+    ///
+    /// <param name="baseAttackBonus">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetBaseAttackBonus(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> baseAttackBonus)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_BaseAttackBonus = baseAttackBonus?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_BaseAttackBonus"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="baseAttackBonus">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyBaseAttackBonus(Action<BlueprintStatProgressionReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_BaseAttackBonus is null) { return; }
+          action.Invoke(bp.m_BaseAttackBonus);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_FortitudeSave"/>
+    /// </summary>
+    ///
+    /// <param name="fortitudeSave">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetFortitudeSave(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> fortitudeSave)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_FortitudeSave = fortitudeSave?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_FortitudeSave"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="fortitudeSave">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyFortitudeSave(Action<BlueprintStatProgressionReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_FortitudeSave is null) { return; }
+          action.Invoke(bp.m_FortitudeSave);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_ReflexSave"/>
+    /// </summary>
+    ///
+    /// <param name="reflexSave">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetReflexSave(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> reflexSave)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ReflexSave = reflexSave?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_ReflexSave"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="reflexSave">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyReflexSave(Action<BlueprintStatProgressionReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_ReflexSave is null) { return; }
+          action.Invoke(bp.m_ReflexSave);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_WillSave"/>
+    /// </summary>
+    ///
+    /// <param name="willSave">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetWillSave(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> willSave)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_WillSave = willSave?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_WillSave"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="willSave">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyWillSave(Action<BlueprintStatProgressionReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_WillSave is null) { return; }
+          action.Invoke(bp.m_WillSave);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_Progression"/>
+    /// </summary>
+    ///
+    /// <param name="progression">
+    /// <para>
+    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetProgression(Blueprint<BlueprintProgression, BlueprintProgressionReference> progression)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Progression = progression?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_Progression"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="progression">
+    /// <para>
+    /// Blueprint of type BlueprintProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyProgression(Action<BlueprintProgressionReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Progression is null) { return; }
+          action.Invoke(bp.m_Progression);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_Spellbook"/>
+    /// </summary>
+    ///
+    /// <param name="spellbook">
+    /// <para>
+    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSpellbook(Blueprint<BlueprintSpellbook, BlueprintSpellbookReference> spellbook)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Spellbook = spellbook?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_Spellbook"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="spellbook">
+    /// <para>
+    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifySpellbook(Action<BlueprintSpellbookReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Spellbook is null) { return; }
+          action.Invoke(bp.m_Spellbook);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.ClassSkills"/>
+    /// </summary>
+    public TBuilder SetClassSkills(StatType[] classSkills)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ClassSkills = classSkills;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.ClassSkills"/>
+    /// </summary>
+    public TBuilder AddToClassSkills(params StatType[] classSkills)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ClassSkills = bp.ClassSkills ?? new StatType[0];
+          bp.ClassSkills = CommonTool.Append(bp.ClassSkills, classSkills);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.ClassSkills"/>
+    /// </summary>
+    public TBuilder RemoveFromClassSkills(params StatType[] classSkills)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ClassSkills is null) { return; }
+          bp.ClassSkills = bp.ClassSkills.Where(val => !classSkills.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.ClassSkills"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromClassSkills(Func<StatType, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ClassSkills is null) { return; }
+          bp.ClassSkills = bp.ClassSkills.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.ClassSkills"/>
+    /// </summary>
+    public TBuilder ClearClassSkills()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ClassSkills = new StatType[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.ClassSkills"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyClassSkills(Action<StatType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ClassSkills is null) { return; }
+          bp.ClassSkills.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.IsDivineCaster"/>
+    /// </summary>
+    ///
+    /// <param name="isDivineCaster">
+    /// <para>
+    /// Tooltip: Used to determine whether spell-like abilities granted by this class are considered divine or arcane (default). Also for prerequisites.
+    /// </para>
+    /// </param>
+    public TBuilder SetIsDivineCaster(bool isDivineCaster = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsDivineCaster = isDivineCaster;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.IsDivineCaster"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="isDivineCaster">
+    /// <para>
+    /// Tooltip: Used to determine whether spell-like abilities granted by this class are considered divine or arcane (default). Also for prerequisites.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyIsDivineCaster(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsDivineCaster);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.IsArcaneCaster"/>
+    /// </summary>
+    ///
+    /// <param name="isArcaneCaster">
+    /// <para>
+    /// Tooltip: Used for prerequisites.
+    /// </para>
+    /// </param>
+    public TBuilder SetIsArcaneCaster(bool isArcaneCaster = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsArcaneCaster = isArcaneCaster;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.IsArcaneCaster"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="isArcaneCaster">
+    /// <para>
+    /// Tooltip: Used for prerequisites.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyIsArcaneCaster(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsArcaneCaster);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_Archetypes"/>
+    /// </summary>
+    ///
+    /// <param name="archetypes">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetArchetypes(List<Blueprint<BlueprintArchetype, BlueprintArchetypeReference>> archetypes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Archetypes = archetypes?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.m_Archetypes"/>
+    /// </summary>
+    ///
+    /// <param name="archetypes">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToArchetypes(params Blueprint<BlueprintArchetype, BlueprintArchetypeReference>[] archetypes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Archetypes = bp.m_Archetypes ?? new BlueprintArchetypeReference[0];
+          bp.m_Archetypes = CommonTool.Append(bp.m_Archetypes, archetypes.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.m_Archetypes"/>
+    /// </summary>
+    ///
+    /// <param name="archetypes">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromArchetypes(params Blueprint<BlueprintArchetype, BlueprintArchetypeReference>[] archetypes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Archetypes is null) { return; }
+          bp.m_Archetypes = bp.m_Archetypes.Where(val => !archetypes.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.m_Archetypes"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="archetypes">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromArchetypes(Func<BlueprintArchetypeReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Archetypes is null) { return; }
+          bp.m_Archetypes = bp.m_Archetypes.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.m_Archetypes"/>
+    /// </summary>
+    ///
+    /// <param name="archetypes">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearArchetypes()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Archetypes = new BlueprintArchetypeReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_Archetypes"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="archetypes">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyArchetypes(Action<BlueprintArchetypeReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Archetypes is null) { return; }
+          bp.m_Archetypes.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.StartingGold"/>
+    /// </summary>
+    public TBuilder SetStartingGold(int startingGold)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.StartingGold = startingGold;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.StartingGold"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyStartingGold(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.StartingGold);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_StartingItems"/>
+    /// </summary>
+    ///
+    /// <param name="startingItems">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetStartingItems(List<Blueprint<BlueprintItem, BlueprintItemReference>> startingItems)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_StartingItems = startingItems?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.m_StartingItems"/>
+    /// </summary>
+    ///
+    /// <param name="startingItems">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToStartingItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingItems)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_StartingItems = bp.m_StartingItems ?? new BlueprintItemReference[0];
+          bp.m_StartingItems = CommonTool.Append(bp.m_StartingItems, startingItems.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.m_StartingItems"/>
+    /// </summary>
+    ///
+    /// <param name="startingItems">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromStartingItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingItems)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_StartingItems is null) { return; }
+          bp.m_StartingItems = bp.m_StartingItems.Where(val => !startingItems.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.m_StartingItems"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="startingItems">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromStartingItems(Func<BlueprintItemReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_StartingItems is null) { return; }
+          bp.m_StartingItems = bp.m_StartingItems.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.m_StartingItems"/>
+    /// </summary>
+    ///
+    /// <param name="startingItems">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearStartingItems()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_StartingItems = new BlueprintItemReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_StartingItems"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="startingItems">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyStartingItems(Action<BlueprintItemReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_StartingItems is null) { return; }
+          bp.m_StartingItems.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.PrimaryColor"/>
+    /// </summary>
+    public TBuilder SetPrimaryColor(int primaryColor)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.PrimaryColor = primaryColor;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.PrimaryColor"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPrimaryColor(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.PrimaryColor);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.SecondaryColor"/>
+    /// </summary>
+    public TBuilder SetSecondaryColor(int secondaryColor)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SecondaryColor = secondaryColor;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.SecondaryColor"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySecondaryColor(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SecondaryColor);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_EquipmentEntities"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntities">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetEquipmentEntities(List<Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>> equipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EquipmentEntities = equipmentEntities?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.m_EquipmentEntities"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntities">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToEquipmentEntities(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EquipmentEntities = bp.m_EquipmentEntities ?? new KingmakerEquipmentEntityReference[0];
+          bp.m_EquipmentEntities = CommonTool.Append(bp.m_EquipmentEntities, equipmentEntities.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.m_EquipmentEntities"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntities">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromEquipmentEntities(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_EquipmentEntities is null) { return; }
+          bp.m_EquipmentEntities = bp.m_EquipmentEntities.Where(val => !equipmentEntities.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.m_EquipmentEntities"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="equipmentEntities">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromEquipmentEntities(Func<KingmakerEquipmentEntityReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_EquipmentEntities is null) { return; }
+          bp.m_EquipmentEntities = bp.m_EquipmentEntities.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.m_EquipmentEntities"/>
+    /// </summary>
+    ///
+    /// <param name="equipmentEntities">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearEquipmentEntities()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EquipmentEntities = new KingmakerEquipmentEntityReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_EquipmentEntities"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="equipmentEntities">
+    /// <para>
+    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyEquipmentEntities(Action<KingmakerEquipmentEntityReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_EquipmentEntities is null) { return; }
+          bp.m_EquipmentEntities.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
+    /// </summary>
+    public TBuilder SetMaleEquipmentEntities(EquipmentEntityLink[] maleEquipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in maleEquipmentEntities) { Validate(item); }
+          bp.MaleEquipmentEntities = maleEquipmentEntities;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
+    /// </summary>
+    public TBuilder AddToMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities ?? new EquipmentEntityLink[0];
+          bp.MaleEquipmentEntities = CommonTool.Append(bp.MaleEquipmentEntities, maleEquipmentEntities);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
+    /// </summary>
+    public TBuilder RemoveFromMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.MaleEquipmentEntities is null) { return; }
+          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(val => !maleEquipmentEntities.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromMaleEquipmentEntities(Func<EquipmentEntityLink, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.MaleEquipmentEntities is null) { return; }
+          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
+    /// </summary>
+    public TBuilder ClearMaleEquipmentEntities()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.MaleEquipmentEntities = new EquipmentEntityLink[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyMaleEquipmentEntities(Action<EquipmentEntityLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.MaleEquipmentEntities is null) { return; }
+          bp.MaleEquipmentEntities.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
+    /// </summary>
+    public TBuilder SetFemaleEquipmentEntities(EquipmentEntityLink[] femaleEquipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in femaleEquipmentEntities) { Validate(item); }
+          bp.FemaleEquipmentEntities = femaleEquipmentEntities;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
+    /// </summary>
+    public TBuilder AddToFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities ?? new EquipmentEntityLink[0];
+          bp.FemaleEquipmentEntities = CommonTool.Append(bp.FemaleEquipmentEntities, femaleEquipmentEntities);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
+    /// </summary>
+    public TBuilder RemoveFromFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.FemaleEquipmentEntities is null) { return; }
+          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(val => !femaleEquipmentEntities.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromFemaleEquipmentEntities(Func<EquipmentEntityLink, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.FemaleEquipmentEntities is null) { return; }
+          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
+    /// </summary>
+    public TBuilder ClearFemaleEquipmentEntities()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.FemaleEquipmentEntities = new EquipmentEntityLink[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyFemaleEquipmentEntities(Action<EquipmentEntityLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.FemaleEquipmentEntities is null) { return; }
+          bp.FemaleEquipmentEntities.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_Difficulty"/>
+    /// </summary>
+    public TBuilder SetDifficulty(int difficulty)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Difficulty = difficulty;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_Difficulty"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDifficulty(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_Difficulty);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.RecommendedAttributes"/>
+    /// </summary>
+    public TBuilder SetRecommendedAttributes(StatType[] recommendedAttributes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RecommendedAttributes = recommendedAttributes;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.RecommendedAttributes"/>
+    /// </summary>
+    public TBuilder AddToRecommendedAttributes(params StatType[] recommendedAttributes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RecommendedAttributes = bp.RecommendedAttributes ?? new StatType[0];
+          bp.RecommendedAttributes = CommonTool.Append(bp.RecommendedAttributes, recommendedAttributes);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.RecommendedAttributes"/>
+    /// </summary>
+    public TBuilder RemoveFromRecommendedAttributes(params StatType[] recommendedAttributes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.RecommendedAttributes is null) { return; }
+          bp.RecommendedAttributes = bp.RecommendedAttributes.Where(val => !recommendedAttributes.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.RecommendedAttributes"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromRecommendedAttributes(Func<StatType, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.RecommendedAttributes is null) { return; }
+          bp.RecommendedAttributes = bp.RecommendedAttributes.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.RecommendedAttributes"/>
+    /// </summary>
+    public TBuilder ClearRecommendedAttributes()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RecommendedAttributes = new StatType[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.RecommendedAttributes"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyRecommendedAttributes(Action<StatType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.RecommendedAttributes is null) { return; }
+          bp.RecommendedAttributes.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/>
+    /// </summary>
+    public TBuilder SetNotRecommendedAttributes(StatType[] notRecommendedAttributes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NotRecommendedAttributes = notRecommendedAttributes;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/>
+    /// </summary>
+    public TBuilder AddToNotRecommendedAttributes(params StatType[] notRecommendedAttributes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NotRecommendedAttributes = bp.NotRecommendedAttributes ?? new StatType[0];
+          bp.NotRecommendedAttributes = CommonTool.Append(bp.NotRecommendedAttributes, notRecommendedAttributes);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/>
+    /// </summary>
+    public TBuilder RemoveFromNotRecommendedAttributes(params StatType[] notRecommendedAttributes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.NotRecommendedAttributes is null) { return; }
+          bp.NotRecommendedAttributes = bp.NotRecommendedAttributes.Where(val => !notRecommendedAttributes.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromNotRecommendedAttributes(Func<StatType, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.NotRecommendedAttributes is null) { return; }
+          bp.NotRecommendedAttributes = bp.NotRecommendedAttributes.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/>
+    /// </summary>
+    public TBuilder ClearNotRecommendedAttributes()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NotRecommendedAttributes = new StatType[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyNotRecommendedAttributes(Action<StatType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.NotRecommendedAttributes is null) { return; }
+          bp.NotRecommendedAttributes.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_SignatureAbilities"/>
+    /// </summary>
+    ///
+    /// <param name="signatureAbilities">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSignatureAbilities(List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> signatureAbilities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SignatureAbilities = signatureAbilities?.Select(bp => bp.Reference)?.ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintCharacterClass.m_SignatureAbilities"/>
+    /// </summary>
+    ///
+    /// <param name="signatureAbilities">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToSignatureAbilities(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] signatureAbilities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SignatureAbilities = bp.m_SignatureAbilities ?? new BlueprintFeatureReference[0];
+          bp.m_SignatureAbilities = CommonTool.Append(bp.m_SignatureAbilities, signatureAbilities.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.m_SignatureAbilities"/>
+    /// </summary>
+    ///
+    /// <param name="signatureAbilities">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromSignatureAbilities(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] signatureAbilities)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SignatureAbilities is null) { return; }
+          bp.m_SignatureAbilities = bp.m_SignatureAbilities.Where(val => !signatureAbilities.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintCharacterClass.m_SignatureAbilities"/> that match the provided predicate.
+    /// </summary>
+    ///
+    /// <param name="signatureAbilities">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromSignatureAbilities(Func<BlueprintFeatureReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SignatureAbilities is null) { return; }
+          bp.m_SignatureAbilities = bp.m_SignatureAbilities.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintCharacterClass.m_SignatureAbilities"/>
+    /// </summary>
+    ///
+    /// <param name="signatureAbilities">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ClearSignatureAbilities()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SignatureAbilities = new BlueprintFeatureReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_SignatureAbilities"/> by invoking the provided action on each element.
+    /// </summary>
+    ///
+    /// <param name="signatureAbilities">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifySignatureAbilities(Action<BlueprintFeatureReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SignatureAbilities is null) { return; }
+          bp.m_SignatureAbilities.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_DefaultBuild"/>
+    /// </summary>
+    ///
+    /// <param name="defaultBuild">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetDefaultBuild(Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> defaultBuild)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DefaultBuild = defaultBuild?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_DefaultBuild"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="defaultBuild">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyDefaultBuild(Action<BlueprintUnitFactReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DefaultBuild is null) { return; }
+          action.Invoke(bp.m_DefaultBuild);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.m_AdditionalVisualSettings"/>
+    /// </summary>
+    ///
+    /// <param name="additionalVisualSettings">
+    /// <para>
+    /// Blueprint of type BlueprintClassAdditionalVisualSettingsProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetAdditionalVisualSettings(Blueprint<BlueprintClassAdditionalVisualSettingsProgression, BlueprintClassAdditionalVisualSettingsProgression.Reference> additionalVisualSettings)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AdditionalVisualSettings = additionalVisualSettings?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.m_AdditionalVisualSettings"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="additionalVisualSettings">
+    /// <para>
+    /// Blueprint of type BlueprintClassAdditionalVisualSettingsProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyAdditionalVisualSettings(Action<BlueprintClassAdditionalVisualSettingsProgression.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_AdditionalVisualSettings is null) { return; }
+          action.Invoke(bp.m_AdditionalVisualSettings);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCharacterClass.VisualSettingsPriority"/>
+    /// </summary>
+    public TBuilder SetVisualSettingsPriority(int visualSettingsPriority)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.VisualSettingsPriority = visualSettingsPriority;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCharacterClass.VisualSettingsPriority"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyVisualSettingsPriority(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.VisualSettingsPriority);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="PrerequisiteAlignment"/>

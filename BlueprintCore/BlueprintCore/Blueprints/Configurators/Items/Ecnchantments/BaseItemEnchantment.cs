@@ -13,6 +13,7 @@ using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -37,6 +38,218 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     where TBuilder : BaseItemEnchantmentConfigurator<T, TBuilder>
   {
     protected BaseItemEnchantmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEnchantment.m_AllowNonContextActions"/>
+    /// </summary>
+    public TBuilder SetAllowNonContextActions(bool allowNonContextActions = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AllowNonContextActions = allowNonContextActions;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEnchantment.m_AllowNonContextActions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAllowNonContextActions(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_AllowNonContextActions);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEnchantment.m_EnchantName"/>
+    /// </summary>
+    public TBuilder SetEnchantName(LocalizedString enchantName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EnchantName = enchantName;
+          if (bp.m_EnchantName is null)
+          {
+            bp.m_EnchantName = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEnchantment.m_EnchantName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyEnchantName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_EnchantName is null) { return; }
+          action.Invoke(bp.m_EnchantName);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEnchantment.m_Description"/>
+    /// </summary>
+    public TBuilder SetDescription(LocalizedString description)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Description = description;
+          if (bp.m_Description is null)
+          {
+            bp.m_Description = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEnchantment.m_Description"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Description is null) { return; }
+          action.Invoke(bp.m_Description);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEnchantment.m_Prefix"/>
+    /// </summary>
+    public TBuilder SetPrefix(LocalizedString prefix)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Prefix = prefix;
+          if (bp.m_Prefix is null)
+          {
+            bp.m_Prefix = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEnchantment.m_Prefix"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPrefix(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Prefix is null) { return; }
+          action.Invoke(bp.m_Prefix);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEnchantment.m_Suffix"/>
+    /// </summary>
+    public TBuilder SetSuffix(LocalizedString suffix)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Suffix = suffix;
+          if (bp.m_Suffix is null)
+          {
+            bp.m_Suffix = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEnchantment.m_Suffix"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySuffix(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Suffix is null) { return; }
+          action.Invoke(bp.m_Suffix);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEnchantment.m_EnchantmentCost"/>
+    /// </summary>
+    public TBuilder SetEnchantmentCost(int enchantmentCost)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EnchantmentCost = enchantmentCost;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEnchantment.m_EnchantmentCost"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyEnchantmentCost(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_EnchantmentCost);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEnchantment.m_IdentifyDC"/>
+    /// </summary>
+    public TBuilder SetIdentifyDC(int identifyDC)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IdentifyDC = identifyDC;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEnchantment.m_IdentifyDC"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIdentifyDC(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_IdentifyDC);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEnchantment.m_HiddenInUI"/>
+    /// </summary>
+    public TBuilder SetHiddenInUI(bool hiddenInUI = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_HiddenInUI = hiddenInUI;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItemEnchantment.m_HiddenInUI"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyHiddenInUI(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_HiddenInUI);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="ContextRankConfig"/>

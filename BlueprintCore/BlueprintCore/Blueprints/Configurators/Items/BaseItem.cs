@@ -8,6 +8,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Components;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Controllers.Rest.Cooking;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
@@ -17,9 +18,11 @@ using Kingmaker.DLC;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
@@ -33,6 +36,641 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     where TBuilder : BaseItemConfigurator<T, TBuilder>
   {
     protected BaseItemConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_DisplayNameText"/>
+    /// </summary>
+    public TBuilder SetDisplayNameText(LocalizedString displayNameText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DisplayNameText = displayNameText;
+          if (bp.m_DisplayNameText is null)
+          {
+            bp.m_DisplayNameText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_DisplayNameText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDisplayNameText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DisplayNameText is null) { return; }
+          action.Invoke(bp.m_DisplayNameText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_DescriptionText"/>
+    /// </summary>
+    public TBuilder SetDescriptionText(LocalizedString descriptionText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DescriptionText = descriptionText;
+          if (bp.m_DescriptionText is null)
+          {
+            bp.m_DescriptionText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_DescriptionText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDescriptionText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DescriptionText is null) { return; }
+          action.Invoke(bp.m_DescriptionText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_FlavorText"/>
+    /// </summary>
+    public TBuilder SetFlavorText(LocalizedString flavorText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_FlavorText = flavorText;
+          if (bp.m_FlavorText is null)
+          {
+            bp.m_FlavorText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_FlavorText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFlavorText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_FlavorText is null) { return; }
+          action.Invoke(bp.m_FlavorText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_NonIdentifiedNameText"/>
+    /// </summary>
+    public TBuilder SetNonIdentifiedNameText(LocalizedString nonIdentifiedNameText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_NonIdentifiedNameText = nonIdentifiedNameText;
+          if (bp.m_NonIdentifiedNameText is null)
+          {
+            bp.m_NonIdentifiedNameText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_NonIdentifiedNameText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyNonIdentifiedNameText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_NonIdentifiedNameText is null) { return; }
+          action.Invoke(bp.m_NonIdentifiedNameText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/>
+    /// </summary>
+    public TBuilder SetNonIdentifiedDescriptionText(LocalizedString nonIdentifiedDescriptionText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_NonIdentifiedDescriptionText = nonIdentifiedDescriptionText;
+          if (bp.m_NonIdentifiedDescriptionText is null)
+          {
+            bp.m_NonIdentifiedDescriptionText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyNonIdentifiedDescriptionText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_NonIdentifiedDescriptionText is null) { return; }
+          action.Invoke(bp.m_NonIdentifiedDescriptionText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_Icon"/>
+    /// </summary>
+    public TBuilder SetIcon(Sprite icon)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(icon);
+          bp.m_Icon = icon;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_Icon"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIcon(Action<Sprite> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Icon is null) { return; }
+          action.Invoke(bp.m_Icon);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_Cost"/>
+    /// </summary>
+    public TBuilder SetCost(int cost)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Cost = cost;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_Cost"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCost(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_Cost);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_Weight"/>
+    /// </summary>
+    public TBuilder SetWeight(float weight)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Weight = weight;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_Weight"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyWeight(Action<float> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_Weight);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_IsNotable"/>
+    /// </summary>
+    public TBuilder SetIsNotable(bool isNotable = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IsNotable = isNotable;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_IsNotable"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsNotable(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_IsNotable);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_IsJunk"/>
+    /// </summary>
+    ///
+    /// <param name="isJunk">
+    /// <para>
+    /// Tooltip: Include in the Mass Sell option at vendors
+    /// </para>
+    /// </param>
+    public TBuilder SetIsJunk(bool isJunk = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IsJunk = isJunk;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_IsJunk"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="isJunk">
+    /// <para>
+    /// Tooltip: Include in the Mass Sell option at vendors
+    /// </para>
+    /// </param>
+    public TBuilder ModifyIsJunk(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_IsJunk);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_ForceStackable"/>
+    /// </summary>
+    public TBuilder SetForceStackable(bool forceStackable = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ForceStackable = forceStackable;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_ForceStackable"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyForceStackable(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_ForceStackable);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_Destructible"/>
+    /// </summary>
+    public TBuilder SetDestructible(bool destructible = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Destructible = destructible;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_Destructible"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDestructible(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_Destructible);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_ShardItem"/>
+    /// </summary>
+    ///
+    /// <param name="shardItem">
+    /// <para>
+    /// InfoBox: Trash-item that remains after destruction. Gives a hint to user what source item was like.
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetShardItem(Blueprint<BlueprintItem, BlueprintItemReference> shardItem)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ShardItem = shardItem?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_ShardItem"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="shardItem">
+    /// <para>
+    /// InfoBox: Trash-item that remains after destruction. Gives a hint to user what source item was like.
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyShardItem(Action<BlueprintItemReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_ShardItem is null) { return; }
+          action.Invoke(bp.m_ShardItem);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_MiscellaneousType"/>
+    /// </summary>
+    public TBuilder SetMiscellaneousType(BlueprintItem.MiscellaneousItemType miscellaneousType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_MiscellaneousType = miscellaneousType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_MiscellaneousType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyMiscellaneousType(Action<BlueprintItem.MiscellaneousItemType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_MiscellaneousType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_InventoryPutSound"/>
+    /// </summary>
+    public TBuilder SetInventoryPutSound(string inventoryPutSound)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_InventoryPutSound = inventoryPutSound;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_InventoryPutSound"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyInventoryPutSound(Action<string> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_InventoryPutSound is null) { return; }
+          action.Invoke(bp.m_InventoryPutSound);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_InventoryTakeSound"/>
+    /// </summary>
+    public TBuilder SetInventoryTakeSound(string inventoryTakeSound)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_InventoryTakeSound = inventoryTakeSound;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_InventoryTakeSound"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyInventoryTakeSound(Action<string> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_InventoryTakeSound is null) { return; }
+          action.Invoke(bp.m_InventoryTakeSound);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.NeedSkinningForCollect"/>
+    /// </summary>
+    public TBuilder SetNeedSkinningForCollect(bool needSkinningForCollect = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NeedSkinningForCollect = needSkinningForCollect;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.NeedSkinningForCollect"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyNeedSkinningForCollect(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.NeedSkinningForCollect);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.TrashLootTypes"/>
+    /// </summary>
+    public TBuilder SetTrashLootTypes(TrashLootType[] trashLootTypes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.TrashLootTypes = trashLootTypes;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintItem.TrashLootTypes"/>
+    /// </summary>
+    public TBuilder AddToTrashLootTypes(params TrashLootType[] trashLootTypes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.TrashLootTypes = bp.TrashLootTypes ?? new TrashLootType[0];
+          bp.TrashLootTypes = CommonTool.Append(bp.TrashLootTypes, trashLootTypes);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintItem.TrashLootTypes"/>
+    /// </summary>
+    public TBuilder RemoveFromTrashLootTypes(params TrashLootType[] trashLootTypes)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.TrashLootTypes is null) { return; }
+          bp.TrashLootTypes = bp.TrashLootTypes.Where(val => !trashLootTypes.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintItem.TrashLootTypes"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromTrashLootTypes(Func<TrashLootType, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.TrashLootTypes is null) { return; }
+          bp.TrashLootTypes = bp.TrashLootTypes.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintItem.TrashLootTypes"/>
+    /// </summary>
+    public TBuilder ClearTrashLootTypes()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.TrashLootTypes = new TrashLootType[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.TrashLootTypes"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyTrashLootTypes(Action<TrashLootType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.TrashLootTypes is null) { return; }
+          bp.TrashLootTypes.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItem.m_CachedEnchantments"/>
+    /// </summary>
+    public TBuilder SetCachedEnchantments(List<BlueprintItemEnchantment> cachedEnchantments)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var item in cachedEnchantments) { Validate(item); }
+          bp.m_CachedEnchantments = cachedEnchantments;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintItem.m_CachedEnchantments"/>
+    /// </summary>
+    public TBuilder AddToCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedEnchantments = bp.m_CachedEnchantments ?? new();
+          bp.m_CachedEnchantments.AddRange(cachedEnchantments);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintItem.m_CachedEnchantments"/>
+    /// </summary>
+    public TBuilder RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedEnchantments is null) { return; }
+          bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(val => !cachedEnchantments.Contains(val)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintItem.m_CachedEnchantments"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromCachedEnchantments(Func<BlueprintItemEnchantment, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedEnchantments is null) { return; }
+          bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(predicate).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintItem.m_CachedEnchantments"/>
+    /// </summary>
+    public TBuilder ClearCachedEnchantments()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CachedEnchantments = new();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyCachedEnchantments(Action<BlueprintItemEnchantment> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CachedEnchantments is null) { return; }
+          bp.m_CachedEnchantments.ForEach(action);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="AddItemShowInfoCallback"/>

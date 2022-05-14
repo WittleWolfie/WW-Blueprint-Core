@@ -3,6 +3,8 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -16,5 +18,56 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where TBuilder : BaseFeatureReplaceSpellbookConfigurator<T, TBuilder>
   {
     protected BaseFeatureReplaceSpellbookConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeatureReplaceSpellbook.m_Spellbook"/>
+    /// </summary>
+    ///
+    /// <param name="spellbook">
+    /// <para>
+    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSpellbook(Blueprint<BlueprintSpellbook, BlueprintSpellbookReference> spellbook)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Spellbook = spellbook?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeatureReplaceSpellbook.m_Spellbook"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="spellbook">
+    /// <para>
+    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifySpellbook(Action<BlueprintSpellbookReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Spellbook is null) { return; }
+          action.Invoke(bp.m_Spellbook);
+        });
+    }
   }
 }

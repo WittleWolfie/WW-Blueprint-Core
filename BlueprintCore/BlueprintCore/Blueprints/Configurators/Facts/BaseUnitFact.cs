@@ -79,6 +79,143 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     protected BaseUnitFactConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitFact.m_AllowNonContextActions"/>
+    /// </summary>
+    public TBuilder SetAllowNonContextActions(bool allowNonContextActions = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AllowNonContextActions = allowNonContextActions;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitFact.m_AllowNonContextActions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAllowNonContextActions(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_AllowNonContextActions);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitFact.m_DisplayName"/>
+    /// </summary>
+    public TBuilder SetDisplayName(LocalizedString displayName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DisplayName = displayName;
+          if (bp.m_DisplayName is null)
+          {
+            bp.m_DisplayName = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitFact.m_DisplayName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDisplayName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DisplayName is null) { return; }
+          action.Invoke(bp.m_DisplayName);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitFact.m_Description"/>
+    /// </summary>
+    public TBuilder SetDescription(LocalizedString description)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Description = description;
+          if (bp.m_Description is null)
+          {
+            bp.m_Description = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitFact.m_Description"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Description is null) { return; }
+          action.Invoke(bp.m_Description);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitFact.m_DescriptionShort"/>
+    /// </summary>
+    public TBuilder SetDescriptionShort(LocalizedString descriptionShort)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DescriptionShort = descriptionShort;
+          if (bp.m_DescriptionShort is null)
+          {
+            bp.m_DescriptionShort = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitFact.m_DescriptionShort"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDescriptionShort(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DescriptionShort is null) { return; }
+          action.Invoke(bp.m_DescriptionShort);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitFact.m_Icon"/>
+    /// </summary>
+    public TBuilder SetIcon(Sprite icon)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(icon);
+          bp.m_Icon = icon;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUnitFact.m_Icon"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIcon(Action<Sprite> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Icon is null) { return; }
+          action.Invoke(bp.m_Icon);
+        });
+    }
+
+    /// <summary>
     /// Adds <see cref="AddFacts"/>
     /// </summary>
     ///

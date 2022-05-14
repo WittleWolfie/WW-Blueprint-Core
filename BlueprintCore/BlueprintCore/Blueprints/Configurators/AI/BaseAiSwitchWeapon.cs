@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,5 +17,29 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseAiSwitchWeaponConfigurator<T, TBuilder>
   {
     protected BaseAiSwitchWeaponConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAiSwitchWeapon.SwitchTo"/>
+    /// </summary>
+    public TBuilder SetSwitchTo(SwitchMode switchTo)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SwitchTo = switchTo;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAiSwitchWeapon.SwitchTo"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySwitchTo(Action<SwitchMode> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SwitchTo);
+        });
+    }
   }
 }

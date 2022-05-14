@@ -12,11 +12,15 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UI.UnitSettings.Blueprints;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.ActivatableAbilities.Restrictions;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Class.Kineticist.ActivatableAbility;
 using Kingmaker.UnitLogic.Commands.Base;
+using Kingmaker.Utility;
 using System;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
 {
@@ -30,6 +34,520 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     where TBuilder : BaseActivatableAbilityConfigurator<T, TBuilder>
   {
     protected BaseActivatableAbilityConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.m_Buff"/>
+    /// </summary>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetBuff(Blueprint<BlueprintBuff, BlueprintBuffReference> buff)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Buff = buff?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.m_Buff"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyBuff(Action<BlueprintBuffReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Buff is null) { return; }
+          action.Invoke(bp.m_Buff);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.Group"/>
+    /// </summary>
+    public TBuilder SetGroup(ActivatableAbilityGroup group)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Group = group;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.Group"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyGroup(Action<ActivatableAbilityGroup> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Group);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.WeightInGroup"/>
+    /// </summary>
+    public TBuilder SetWeightInGroup(int weightInGroup)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.WeightInGroup = weightInGroup;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.WeightInGroup"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyWeightInGroup(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.WeightInGroup);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.IsOnByDefault"/>
+    /// </summary>
+    public TBuilder SetIsOnByDefault(bool isOnByDefault = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsOnByDefault = isOnByDefault;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.IsOnByDefault"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsOnByDefault(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsOnByDefault);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.DeactivateIfCombatEnded"/>
+    /// </summary>
+    public TBuilder SetDeactivateIfCombatEnded(bool deactivateIfCombatEnded = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DeactivateIfCombatEnded = deactivateIfCombatEnded;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateIfCombatEnded"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDeactivateIfCombatEnded(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DeactivateIfCombatEnded);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.DeactivateAfterFirstRound"/>
+    /// </summary>
+    public TBuilder SetDeactivateAfterFirstRound(bool deactivateAfterFirstRound = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DeactivateAfterFirstRound = deactivateAfterFirstRound;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateAfterFirstRound"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDeactivateAfterFirstRound(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DeactivateAfterFirstRound);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.DeactivateImmediately"/>
+    /// </summary>
+    public TBuilder SetDeactivateImmediately(bool deactivateImmediately = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DeactivateImmediately = deactivateImmediately;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateImmediately"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDeactivateImmediately(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DeactivateImmediately);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.IsTargeted"/>
+    /// </summary>
+    public TBuilder SetIsTargeted(bool isTargeted = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsTargeted = isTargeted;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.IsTargeted"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIsTargeted(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsTargeted);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.DeactivateIfOwnerDisabled"/>
+    /// </summary>
+    public TBuilder SetDeactivateIfOwnerDisabled(bool deactivateIfOwnerDisabled = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DeactivateIfOwnerDisabled = deactivateIfOwnerDisabled;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateIfOwnerDisabled"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDeactivateIfOwnerDisabled(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DeactivateIfOwnerDisabled);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.DeactivateIfOwnerUnconscious"/>
+    /// </summary>
+    public TBuilder SetDeactivateIfOwnerUnconscious(bool deactivateIfOwnerUnconscious = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DeactivateIfOwnerUnconscious = deactivateIfOwnerUnconscious;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateIfOwnerUnconscious"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDeactivateIfOwnerUnconscious(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DeactivateIfOwnerUnconscious);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.OnlyInCombat"/>
+    /// </summary>
+    public TBuilder SetOnlyInCombat(bool onlyInCombat = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.OnlyInCombat = onlyInCombat;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.OnlyInCombat"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOnlyInCombat(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.OnlyInCombat);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.DoNotTurnOffOnRest"/>
+    /// </summary>
+    public TBuilder SetDoNotTurnOffOnRest(bool doNotTurnOffOnRest = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DoNotTurnOffOnRest = doNotTurnOffOnRest;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.DoNotTurnOffOnRest"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDoNotTurnOffOnRest(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DoNotTurnOffOnRest);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.ActivationType"/>
+    /// </summary>
+    public TBuilder SetActivationType(AbilityActivationType activationType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ActivationType = activationType;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.ActivationType"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyActivationType(Action<AbilityActivationType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.ActivationType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.m_ActivateWithUnitCommand"/>
+    /// </summary>
+    public TBuilder SetActivateWithUnitCommand(UnitCommand.CommandType activateWithUnitCommand)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ActivateWithUnitCommand = activateWithUnitCommand;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.m_ActivateWithUnitCommand"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyActivateWithUnitCommand(Action<UnitCommand.CommandType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_ActivateWithUnitCommand);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.m_ActivateOnUnitAction"/>
+    /// </summary>
+    public TBuilder SetActivateOnUnitAction(AbilityActivateOnUnitActionType activateOnUnitAction)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ActivateOnUnitAction = activateOnUnitAction;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.m_ActivateOnUnitAction"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyActivateOnUnitAction(Action<AbilityActivateOnUnitActionType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.m_ActivateOnUnitAction);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.m_SelectTargetAbility"/>
+    /// </summary>
+    ///
+    /// <param name="selectTargetAbility">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSelectTargetAbility(Blueprint<BlueprintAbility, BlueprintAbilityReference> selectTargetAbility)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SelectTargetAbility = selectTargetAbility?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.m_SelectTargetAbility"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="selectTargetAbility">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifySelectTargetAbility(Action<BlueprintAbilityReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SelectTargetAbility is null) { return; }
+          action.Invoke(bp.m_SelectTargetAbility);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder SetResourceAssetIds(string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = resourceAssetIds;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintActivatableAbility.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder AddToResourceAssetIds(params string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = bp.ResourceAssetIds ?? new string[0];
+          bp.ResourceAssetIds = CommonTool.Append(bp.ResourceAssetIds, resourceAssetIds);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintActivatableAbility.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder RemoveFromResourceAssetIds(params string[] resourceAssetIds)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds = bp.ResourceAssetIds.Where(val => !resourceAssetIds.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromResourceAssetIds(Func<string, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds = bp.ResourceAssetIds.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintActivatableAbility.ResourceAssetIds"/>
+    /// </summary>
+    public TBuilder ClearResourceAssetIds()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ResourceAssetIds = new string[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintActivatableAbility.ResourceAssetIds"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyResourceAssetIds(Action<string> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ResourceAssetIds is null) { return; }
+          bp.ResourceAssetIds.ForEach(action);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="ActionPanelLogic"/>

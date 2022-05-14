@@ -8,6 +8,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Encyclopedia;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Equipment;
@@ -44,6 +45,446 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     where TBuilder : BaseTutorialConfigurator<T, TBuilder>
   {
     protected BaseTutorialConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_Picture"/>
+    /// </summary>
+    public TBuilder SetPicture(SpriteLink picture)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(picture);
+          bp.m_Picture = picture;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_Picture"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPicture(Action<SpriteLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Picture is null) { return; }
+          action.Invoke(bp.m_Picture);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_Video"/>
+    /// </summary>
+    public TBuilder SetVideo(VideoLink video)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(video);
+          bp.m_Video = video;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_Video"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyVideo(Action<VideoLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Video is null) { return; }
+          action.Invoke(bp.m_Video);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_TitleText"/>
+    /// </summary>
+    public TBuilder SetTitleText(LocalizedString titleText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TitleText = titleText;
+          if (bp.m_TitleText is null)
+          {
+            bp.m_TitleText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_TitleText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTitleText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_TitleText is null) { return; }
+          action.Invoke(bp.m_TitleText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_TriggerText"/>
+    /// </summary>
+    public TBuilder SetTriggerText(LocalizedString triggerText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TriggerText = triggerText;
+          if (bp.m_TriggerText is null)
+          {
+            bp.m_TriggerText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_TriggerText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTriggerText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_TriggerText is null) { return; }
+          action.Invoke(bp.m_TriggerText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_DescriptionText"/>
+    /// </summary>
+    public TBuilder SetDescriptionText(LocalizedString descriptionText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DescriptionText = descriptionText;
+          if (bp.m_DescriptionText is null)
+          {
+            bp.m_DescriptionText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_DescriptionText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDescriptionText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_DescriptionText is null) { return; }
+          action.Invoke(bp.m_DescriptionText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_SolutionFoundText"/>
+    /// </summary>
+    public TBuilder SetSolutionFoundText(LocalizedString solutionFoundText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SolutionFoundText = solutionFoundText;
+          if (bp.m_SolutionFoundText is null)
+          {
+            bp.m_SolutionFoundText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_SolutionFoundText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySolutionFoundText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SolutionFoundText is null) { return; }
+          action.Invoke(bp.m_SolutionFoundText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_SolutionNotFoundText"/>
+    /// </summary>
+    public TBuilder SetSolutionNotFoundText(LocalizedString solutionNotFoundText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SolutionNotFoundText = solutionNotFoundText;
+          if (bp.m_SolutionNotFoundText is null)
+          {
+            bp.m_SolutionNotFoundText = Utils.Constants.Empty.String;
+          }
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_SolutionNotFoundText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySolutionNotFoundText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SolutionNotFoundText is null) { return; }
+          action.Invoke(bp.m_SolutionNotFoundText);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.Tag"/>
+    /// </summary>
+    public TBuilder SetTag(TutorialTag tag)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Tag = tag;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.Tag"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTag(Action<TutorialTag> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Tag);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.Priority"/>
+    /// </summary>
+    public TBuilder SetPriority(int priority)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Priority = priority;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.Priority"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPriority(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Priority);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.Limit"/>
+    /// </summary>
+    public TBuilder SetLimit(int limit)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Limit = limit;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.Limit"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLimit(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Limit);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.Frequency"/>
+    /// </summary>
+    public TBuilder SetFrequency(int frequency)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Frequency = frequency;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.Frequency"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyFrequency(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Frequency);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.SetCooldown"/>
+    /// </summary>
+    public TBuilder SetSetCooldown(bool setCooldown = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SetCooldown = setCooldown;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.SetCooldown"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySetCooldown(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.SetCooldown);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.IgnoreCooldown"/>
+    /// </summary>
+    public TBuilder SetIgnoreCooldown(bool ignoreCooldown = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IgnoreCooldown = ignoreCooldown;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.IgnoreCooldown"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyIgnoreCooldown(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IgnoreCooldown);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.Windowed"/>
+    /// </summary>
+    public TBuilder SetWindowed(bool windowed = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Windowed = windowed;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.Windowed"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyWindowed(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Windowed);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.DisableAnalyticsTracking"/>
+    /// </summary>
+    public TBuilder SetDisableAnalyticsTracking(bool disableAnalyticsTracking = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DisableAnalyticsTracking = disableAnalyticsTracking;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.DisableAnalyticsTracking"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDisableAnalyticsTracking(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.DisableAnalyticsTracking);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.EncyclopediaReference"/>
+    /// </summary>
+    ///
+    /// <param name="encyclopediaReference">
+    /// <para>
+    /// Blueprint of type BlueprintEncyclopediaPage. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetEncyclopediaReference(Blueprint<BlueprintEncyclopediaPage, BlueprintEncyclopediaPageReference> encyclopediaReference)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.EncyclopediaReference = encyclopediaReference?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.EncyclopediaReference"/> by invoking the provided action.
+    /// </summary>
+    ///
+    /// <param name="encyclopediaReference">
+    /// <para>
+    /// Blueprint of type BlueprintEncyclopediaPage. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyEncyclopediaReference(Action<BlueprintEncyclopediaPageReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.EncyclopediaReference is null) { return; }
+          action.Invoke(bp.EncyclopediaReference);
+        });
+    }
 
     /// <summary>
     /// Adds <see cref="TutorialPage"/>
