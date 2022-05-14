@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace BlueprintCoreGen.CodeGen.Class
 {
@@ -115,7 +116,8 @@ namespace BlueprintCoreGen.CodeGen.Class
 
         List<FieldMethod> fieldMethods = new();
         // TODO: Add ignored field handling
-        blueprintType.GetFields().ToList().ForEach(field => fieldMethods.Add(new(field.Name)));
+        blueprintType.GetFields(BindingFlags.DeclaredOnly).ToList()
+          .ForEach(field => fieldMethods.Add(new(field.Name)));
 
         if (blueprintType.IsAbstract)
         {
