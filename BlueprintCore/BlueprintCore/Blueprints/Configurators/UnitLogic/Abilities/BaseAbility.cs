@@ -56,6 +56,50 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     protected BaseAbilityConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Adds <see cref="AbilityCasterAlignment"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AuraOfJusticeAbility</term><description>7a4f0c48829952e47bb1fd1e4e9da83a</description></item>
+    /// <item><term>LayOnHandsOthers</term><description>caae1dc6fcf7b37408686971ee27db13</description></item>
+    /// <item><term>WeaponBondSwitchAbility</term><description>7ff088ab58c69854b82ea95c2b0e35b4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="ignoreFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    public TBuilder AddAbilityCasterAlignment(
+        AlignmentMaskType? alignment = null,
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreFact = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new AbilityCasterAlignment();
+      component.Alignment = alignment ?? component.Alignment;
+      component.m_IgnoreFact = ignoreFact?.Reference ?? component.m_IgnoreFact;
+      if (component.m_IgnoreFact is null)
+      {
+        component.m_IgnoreFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="InPowerDismemberComponent"/>
     /// </summary>
     ///
@@ -4334,50 +4378,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddLineOfSightIgnorance()
     {
       return AddComponent(new LineOfSightIgnorance());
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCasterAlignment"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AuraOfJusticeAbility</term><description>7a4f0c48829952e47bb1fd1e4e9da83a</description></item>
-    /// <item><term>LayOnHandsOthers</term><description>caae1dc6fcf7b37408686971ee27db13</description></item>
-    /// <item><term>WeaponBondSwitchAbility</term><description>7ff088ab58c69854b82ea95c2b0e35b4</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="ignoreFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    public TBuilder AddAbilityCasterAlignment(
-        AlignmentMaskType? alignment = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreFact = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
-    {
-      var component = new AbilityCasterAlignment();
-      component.Alignment = alignment ?? component.Alignment;
-      component.m_IgnoreFact = ignoreFact?.Reference ?? component.m_IgnoreFact;
-      if (component.m_IgnoreFact is null)
-      {
-        component.m_IgnoreFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>

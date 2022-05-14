@@ -170,11 +170,22 @@ namespace BlueprintCoreGen.CodeGen.Class
 
     private static Dictionary<Type, ConstructorMethod> GetComponentMethodsByType(Type[] gameTypes)
     {
-      // TODO: Overrides
       Dictionary<Type, ConstructorMethod> componentMethodsByType = new();
+
+      JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Components/Components.json"));
+      List<ConstructorMethod> methods = array.ToObject<List<ConstructorMethod>>();
+      methods.ForEach(method => componentMethodsByType.Add(TypeTool.TypeByName(method.TypeName), method));
+
       gameTypes.Where(t => t.IsSubclassOf(typeof(BlueprintComponent)) && !t.IsAbstract)
         .ToList()
-        .ForEach(t => componentMethodsByType.Add(t, new ConstructorMethod(t.FullName!)));
+        .ForEach(
+          t =>
+          {
+            if (!componentMethodsByType.ContainsKey(t))
+            {
+              componentMethodsByType.Add(t, new ConstructorMethod(t.FullName!));
+            }
+          });
       return componentMethodsByType;
     }
 
