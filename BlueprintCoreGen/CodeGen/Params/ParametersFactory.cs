@@ -118,13 +118,12 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (blueprintType is not null) { imports.Add(blueprintType); }
       if (enumerableType is not null) { imports.Add(enumerableType); }
 
-      var paramsTypeName = GetParamsTypeName(info.FieldType, blueprintType, enumerableType);
       BlueprintFieldParameter param =
         new(
           info.Name,
           GetParamName(info.Name),
           GetTypeName(info.FieldType, blueprintType, enumerableType),
-          paramsTypeName,
+          GetParamsTypeName(info.FieldType, blueprintType, enumerableType),
           GetImports(info.FieldType).Concat(imports).ToList(),
           GetCommentFmt(info, blueprintType),
           GetDefaultValueForBlueprintField(info.FieldType),
@@ -132,13 +131,13 @@ namespace BlueprintCoreGen.CodeGen.Params
           GetSetComment(info),
           GetAssignmentFmtForBlueprintField(info.FieldType, blueprintType, enumerableType),
           GetAddComment(info),
-          GetAddOperationFmt(info, paramsTypeName, enumerableType),
+          GetAddOperationFmt(info, blueprintType, enumerableType),
           GetRemoveComment(info),
           GetRemoveOperationFmt(info, enumerableType),
           GetRemovePredicateComment(info),
           GetRemovePredicateFmt(info, enumerableType),
           GetClearComment(info),
-          GetClearOperationFmt(info, paramsTypeName, enumerableType),
+          GetClearOperationFmt(info, enumerableType),
           GetModifyComment(info, enumerableType),
           GetModifyOperationFmt(info, enumerableType));
 
@@ -396,7 +395,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       return GetAssignmentFmt(type, blueprintType, enumerableType);
     }
 
-    private static List<string> GetAddOperationFmt(FieldInfo field, string paramsTypeName, Type? enumerableType)
+    private static List<string> GetAddOperationFmt(FieldInfo field, Type? blueprintType, Type? enumerableType)
     {
       List<string> addOperationFmt = new();
       if (TypeTool.IsBitFlag(field.FieldType))
@@ -405,13 +404,15 @@ namespace BlueprintCoreGen.CodeGen.Params
       }
       else if (field.FieldType.IsArray)
       {
-        addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new {paramsTypeName}[0];");
-        addOperationFmt.Add($"{{0}}.{field.Name} = CommonTool.Append({{0}}.{field.Name}, {{1}});");
+        var paramRef = blueprintType is null ? $"{{1}}" : $"{{1}}.Select(bp => bp.Reference).ToArray()";
+        addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new {TypeTool.GetName(field.FieldType)}[0];");
+        addOperationFmt.Add($"{{0}}.{field.Name} = CommonTool.Append({{0}}.{field.Name}, {paramRef});");
       }
       else if (enumerableType is not null)
       {
+        var paramRef = blueprintType is null ? $"{{1}}" : $"{{1}}.Select(bp => bp.Reference)";
         addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new();");
-        addOperationFmt.Add($"{{0}}.{field.Name}.AddRange({{1}});");
+        addOperationFmt.Add($"{{0}}.{field.Name}.AddRange({paramRef});");
       }
       return addOperationFmt;
     }
@@ -445,12 +446,12 @@ namespace BlueprintCoreGen.CodeGen.Params
       return removeOperationFmt;
     }
 
-    private static List<string> GetClearOperationFmt(FieldInfo field, string paramsTypeName, Type? enumerableType)
+    private static List<string> GetClearOperationFmt(FieldInfo field, Type? enumerableType)
     {
       List<string> clearOperationFmt = new();
       if (field.FieldType.IsArray)
       {
-        clearOperationFmt.Add($"{{0}}.{field.Name} = new {paramsTypeName}[0];");
+        clearOperationFmt.Add($"{{0}}.{field.Name} = new {TypeTool.GetName(field.FieldType)}[0];");
       }
       else if (enumerableType is not null)
       {
@@ -464,7 +465,10 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (TypeTool.IsBitFlag(field.FieldType)) { return new(); }
 
       List<string> modifyOperationFmt = new();
-      modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
+      if (!field.FieldType.IsPrimitive && !field.FieldType.IsEnum && !field.FieldType.IsValueType)
+      {
+        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
+      }
       if (enumerableType is not null)
       {
         modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach({{1}});");
