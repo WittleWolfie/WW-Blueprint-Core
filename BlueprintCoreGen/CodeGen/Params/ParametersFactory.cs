@@ -405,7 +405,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       else if (field.FieldType.IsArray)
       {
         var paramRef = blueprintType is null ? $"{{1}}" : $"{{1}}.Select(bp => bp.Reference).ToArray()";
-        addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new {TypeTool.GetName(field.FieldType)}[0];");
+        addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new {TypeTool.GetName(enumerableType!)}[0];");
         addOperationFmt.Add($"{{0}}.{field.Name} = CommonTool.Append({{0}}.{field.Name}, {paramRef});");
       }
       else if (enumerableType is not null)
@@ -451,7 +451,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       List<string> clearOperationFmt = new();
       if (field.FieldType.IsArray)
       {
-        clearOperationFmt.Add($"{{0}}.{field.Name} = new {TypeTool.GetName(field.FieldType)}[0];");
+        clearOperationFmt.Add($"{{0}}.{field.Name} = new {TypeTool.GetName(enumerableType!)}[0];");
       }
       else if (enumerableType is not null)
       {
