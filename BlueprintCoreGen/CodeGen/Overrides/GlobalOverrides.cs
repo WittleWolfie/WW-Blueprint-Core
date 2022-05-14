@@ -13,14 +13,15 @@ namespace BlueprintCoreGen.CodeGen.Overrides
     /// <summary>
     /// List blueprint types which should not have concrete implementations because they have custom implementations.
     /// </summary>
-    public static HashSet<Type> CustomBlueprintConfigurators =
+    public static readonly HashSet<Type> CustomBlueprintConfigurators =
       new()
       {
         typeof(BlueprintAbility),
+        typeof(BlueprintAbilityAreaEffect),
         typeof(BlueprintBuff)
       };
 
-    public static Dictionary<Type, string> TypeNameOverrides =
+    public static readonly Dictionary<Type, string> TypeNameOverrides =
         new()
         {
           // Name conflicts

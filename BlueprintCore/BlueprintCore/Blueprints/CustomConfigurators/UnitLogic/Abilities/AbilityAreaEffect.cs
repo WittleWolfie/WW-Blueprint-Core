@@ -1,10 +1,9 @@
-//***** AUTO-GENERATED - DO NOT EDIT *****//
-
+﻿using BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 
-namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
+namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintAbilityAreaEffect"/>.
@@ -30,6 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     {
       return new AbilityAreaEffectConfigurator(blueprint);
     }
+
     /// <summary>
     /// Creates a new blueprint and returns a new configurator to modify it.
     /// </summary>
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static AbilityAreaEffectConfigurator New(string name, string guid)
@@ -47,5 +47,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       return For(name);
     }
 
+    /// <inheritdoc cref="BaseAbilityAreaEffectConfigurator{T, TBuilder}.SetSizeInCells(int)"/>
+    /// 
+    /// <remarks>
+    /// Sets <see cref="BlueprintAbilityAreaEffect.CanBeUsedInTacticalCombat"/> to true.
+    /// </remarks>
+    public new AbilityAreaEffectConfigurator SetSizeInCells(int sizeInCells)
+    {
+      base.SetSizeInCells(sizeInCells);
+      return OnConfigureInternal(bp => bp.CanBeUsedInTacticalCombat = true);
+    }
   }
 }
