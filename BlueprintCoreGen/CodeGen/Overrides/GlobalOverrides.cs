@@ -52,34 +52,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides
           { typeof(AddEquipmentToPet), new() { typeof(BlueprintUnit) } }
         };
 
-    // TODO: Implement Blueprint Field support w/ config overrides
-    public static readonly List<(Type type, List<string> fieldNames)> IgnoredFieldNamesByType =
-        new()
-        {
-          (typeof(BlueprintQuestObjective), new() { "m_AreasProxy", "m_AddendumsProxy", "m_NextObjectivesProxy" }),
-        };
-
-    public static readonly List<(Type type, List<string> names)> IgnoredFields =
-      new()
-      {
-        (typeof(Element), new() { "name" }),
-        (typeof(BlueprintComponent), new() { "m_Flags", "m_PrototypeLink", "name" }),
-        (
-          typeof(BlueprintScriptableObject),
-          new()
-          {
-            "Components",
-            "m_AllElements",
-            "AssetGuid",
-            "m_PrototypeId",
-            "m_Overrides",
-            "Comment",
-            "name",
-            "m_ValidationStatus"
-          }
-        ),
-      };
-
     public static Dictionary<Type, string> TypeNameOverrides =
         new()
         {

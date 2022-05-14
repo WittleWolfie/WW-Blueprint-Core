@@ -1,5 +1,6 @@
 ﻿using BlueprintCoreGen.CodeGen.Methods;
 using static BlueprintCoreGen.CodeGen.Overrides.GlobalOverrides;
+using static BlueprintCoreGen.CodeGen.Overrides.Ignored.Ignored;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// </summary>
     public static IBlueprintParameter? CreateForBlueprintField(Type blueprintType, FieldInfo field)
     { 
-      if (ShouldIgnore(field, blueprintType))
+      if (ShouldIgnoreField(field, blueprintType))
       {
         return null;
       }
@@ -40,7 +41,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     {
       return
         objectType.GetFields()
-          .Where(fieldInfo => !ShouldIgnore(fieldInfo, objectType))
+          .Where(fieldInfo => !ShouldIgnoreField(fieldInfo, objectType))
           .Select(fieldInfo => CreateFieldParameter(fieldInfo, objectType, methodOverride))
           .Where(fieldParam => !fieldParam.Ignore)
           .Select(fieldParam => fieldParam as IParameterInternal)
@@ -51,29 +52,6 @@ namespace BlueprintCoreGen.CodeGen.Params
           .ThenBy(field => field.ParamName, StringComparer.CurrentCultureIgnoreCase)
           .Select(field => field as IParameter)
           .ToList();
-    }
-
-    /// <summary>
-    /// Returns if the field should be ignored.
-    /// </summary>
-    private static bool ShouldIgnore(FieldInfo info, Type sourceType)
-    {
-      var ignoredField = false;
-      IgnoredFields.ForEach(
-        ignoredFields =>
-        {
-          if ((sourceType == ignoredFields.type || sourceType.IsSubclassOf(ignoredFields.type)) && ignoredFields.names.Contains(info.Name))
-          {
-            ignoredField = true;
-          }
-        });
-
-      return ignoredField
-        || info.Name.Contains("__BackingField") // Compiler generated field
-                                                // Skip constant, static, and read-only
-        || info.IsLiteral
-        || info.IsStatic
-        || info.IsInitOnly;
     }
 
     private static FieldParameter CreateFieldParameter(
