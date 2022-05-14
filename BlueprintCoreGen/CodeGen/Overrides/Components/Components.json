@@ -233,6 +233,11 @@
   },
 
   {
+    "TypeName": "SpellDescriptorComponent",
+    "RequiredFields": [ "Descriptor" ]
+  },
+
+  {
     "TypeName": "TargetHasBuffsFromCaster",
     "RequiredFields": [ "Buffs" ]
   }

@@ -76,10 +76,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     public TBuilder AddSpellDescriptorComponent(
-        SpellDescriptorWrapper? descriptor = null)
+        SpellDescriptorWrapper descriptor)
     {
       var component = new SpellDescriptorComponent();
-      component.Descriptor = descriptor ?? component.Descriptor;
+      component.Descriptor = descriptor;
       return AddComponent(component);
     }
 

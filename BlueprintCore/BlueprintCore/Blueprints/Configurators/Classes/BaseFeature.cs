@@ -1129,6 +1129,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="SpellDescriptorComponent"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
+    /// <item><term>HagboundWitchVileCurseFeebleBodyCast</term><description>90df316c3dd66004f8f7944229369b54</description></item>
+    /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddSpellDescriptorComponent(
+        SpellDescriptorWrapper descriptor)
+    {
+      var component = new SpellDescriptorComponent();
+      component.Descriptor = descriptor;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddGlobalMapSpellFeature"/>
     /// </summary>
     ///
@@ -1180,27 +1201,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddFeatureSurvivesRespec()
     {
       return AddComponent(new FeatureSurvivesRespec());
-    }
-
-    /// <summary>
-    /// Adds <see cref="SpellDescriptorComponent"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HagboundWitchVileCurseFeebleBodyCast</term><description>90df316c3dd66004f8f7944229369b54</description></item>
-    /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddSpellDescriptorComponent(
-        SpellDescriptorWrapper? descriptor = null)
-    {
-      var component = new SpellDescriptorComponent();
-      component.Descriptor = descriptor ?? component.Descriptor;
-      return AddComponent(component);
     }
 
     /// <summary>
