@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Abilities.Restrictions.New;
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
@@ -97,6 +98,264 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         component.m_IgnoreFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasChosenWeapon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DazzlingDisplayAction</term><description>5f3126d4120b2b244a95cb2ec23d69fb</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="chosenWeaponFeature">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="ignoreWeaponFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    public TBuilder AddAbilityCasterHasChosenWeapon(
+        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference> chosenWeaponFeature,
+        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreWeaponFact = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new AbilityCasterHasChosenWeapon();
+      component.m_ChosenWeaponFeature = chosenWeaponFeature?.Reference;
+      component.m_IgnoreWeaponFact = ignoreWeaponFact?.Reference ?? component.m_IgnoreWeaponFact;
+      if (component.m_IgnoreWeaponFact is null)
+      {
+        component.m_IgnoreWeaponFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DivineHunterBondSwitchAbility</term><description>8b405b057dc5051448e20041bd366592</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    public TBuilder AddAbilityCasterHasWeaponWithRangeType(
+        WeaponRangeType rangeType,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new AbilityCasterHasWeaponWithRangeType();
+      component.RangeType = rangeType;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityEffectMiss"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
+    /// <item><term>ConcentratedAcidFlaskAbility</term><description>3b3cbf88432eef046afd627d2b67142b</description></item>
+    /// <item><term>TanglefootBomb</term><description>526aa6319e9174e4ab2026e0f299b011</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddAbilityEffectMiss(
+        ActionsBuilder missAction,
+        bool? useTargetSelector = null)
+    {
+      var component = new AbilityEffectMiss();
+      component.MissAction = missAction?.Build();
+      component.UseTargetSelector = useTargetSelector ?? component.UseTargetSelector;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityEffectRunAction"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
+    /// <item><term>IceBlastBladeDamage</term><description>8c8dd4e7c07e468498a6f5ed2c01063f</description></item>
+    /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddAbilityEffectRunAction(
+        ActionsBuilder actions,
+        SavingThrowType? savingThrowType = null)
+    {
+      var component = new AbilityEffectRunAction();
+      component.Actions = actions?.Build();
+      component.SavingThrowType = savingThrowType ?? component.SavingThrowType;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityExecuteActionOnCast"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Ability/ExecuteActions
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AcidBreathSpell_Cutscene</term><description>1153db4515d4f2b4188a13336930c7cb</description></item>
+    /// <item><term>FormOfTheDragonIIRed</term><description>b5f8f544b7802bd4197a34f162fee6f1</description></item>
+    /// <item><term>WitchOfTheVeilShroudedStepAbility8</term><description>5713b048d3a24959b7a27eac48e69943</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    public TBuilder AddAbilityExecuteActionOnCast(
+        ActionsBuilder actions,
+        ConditionsBuilder? conditions = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new AbilityExecuteActionOnCast();
+      component.Actions = actions?.Build();
+      component.Conditions = conditions?.Build() ?? component.Conditions;
+      if (component.Conditions is null)
+      {
+        component.Conditions = Utils.Constants.Empty.Conditions;
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityVariants"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <para>
+    /// This ability should be the parent as defined in <see cref="BlueprintAbility.m_Parent"/> for each variant.
+    /// </para>
+    /// <para>
+    /// If you remove a variant be sure to clear <see cref="BlueprintAbility.m_Parent"/> for that ability. You can set it to <c>BlueprintTool.GetRef<BlueprintAbilityReference>(null)</c>.
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AbsoluteOrder</term><description>b1723a0239d428243a1be2299696eb85</description></item>
+    /// <item><term>MagicalVestment</term><description>2d4263d80f5136b4296d6eb43a221d7d</description></item>
+    /// <item><term>WitchHexRegenerativeSinewAbility</term><description>40d201c6fbbb46e46a63dec8508de65a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="variants">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddAbilityVariants(
+        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>> variants)
+    {
+      var component = new AbilityVariants();
+      component.m_Variants = variants?.Select(bp => bp.Reference)?.ToArray();
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpellComponent"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Spell
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AasimarRedMask_Ability_CombatInstantBuff</term><description>4b8d9931bcfc4a6b8fbe50fd8097ff20</description></item>
+    /// <item><term>HagboundWitchVileCurseDeterioration</term><description>97a64518e7fd0aa4e86a51245e9de1a7</description></item>
+    /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddSpellComponent(
+        SpellSchool school)
+    {
+      var component = new SpellComponent();
+      component.School = school;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TargetHasBuffsFromCaster"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddTargetHasBuffsFromCaster(
+        List<Blueprint<BlueprintBuff, BlueprintBuffReference>> buffs,
+        bool? requireAllBuffs = null)
+    {
+      var component = new TargetHasBuffsFromCaster();
+      component.Buffs = buffs?.Select(bp => bp.Reference)?.ToArray();
+      component.RequireAllBuffs = requireAllBuffs ?? component.RequireAllBuffs;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -266,31 +525,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     {
       var component = new PretendSpellLevel();
       component.SpellLevel = spellLevel ?? component.SpellLevel;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SpellComponent"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Spell
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AasimarRedMask_Ability_CombatInstantBuff</term><description>4b8d9931bcfc4a6b8fbe50fd8097ff20</description></item>
-    /// <item><term>HagboundWitchVileCurseDeterioration</term><description>97a64518e7fd0aa4e86a51245e9de1a7</description></item>
-    /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddSpellComponent(
-        SpellSchool? school = null)
-    {
-      var component = new SpellComponent();
-      component.School = school ?? component.School;
       return AddComponent(component);
     }
 
@@ -2768,60 +3002,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Adds <see cref="AbilityEffectMiss"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
-    /// <item><term>ConcentratedAcidFlaskAbility</term><description>3b3cbf88432eef046afd627d2b67142b</description></item>
-    /// <item><term>TanglefootBomb</term><description>526aa6319e9174e4ab2026e0f299b011</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddAbilityEffectMiss(
-        ActionsBuilder? missAction = null,
-        bool? useTargetSelector = null)
-    {
-      var component = new AbilityEffectMiss();
-      component.MissAction = missAction?.Build() ?? component.MissAction;
-      if (component.MissAction is null)
-      {
-        component.MissAction = Utils.Constants.Empty.Actions;
-      }
-      component.UseTargetSelector = useTargetSelector ?? component.UseTargetSelector;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityEffectRunAction"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>IceBlastBladeDamage</term><description>8c8dd4e7c07e468498a6f5ed2c01063f</description></item>
-    /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddAbilityEffectRunAction(
-        ActionsBuilder? actions = null,
-        SavingThrowType? savingThrowType = null)
-    {
-      var component = new AbilityEffectRunAction();
-      component.Actions = actions?.Build() ?? component.Actions;
-      if (component.Actions is null)
-      {
-        component.Actions = Utils.Constants.Empty.Actions;
-      }
-      component.SavingThrowType = savingThrowType ?? component.SavingThrowType;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="AbilityEffectRunActionOnClickedTarget"/>
     /// </summary>
     ///
@@ -2882,46 +3062,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         component.m_TouchDeliveryAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
       }
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityExecuteActionOnCast"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Ability/ExecuteActions
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AcidBreathSpell_Cutscene</term><description>1153db4515d4f2b4188a13336930c7cb</description></item>
-    /// <item><term>FormOfTheDragonIIRed</term><description>b5f8f544b7802bd4197a34f162fee6f1</description></item>
-    /// <item><term>WitchOfTheVeilShroudedStepAbility8</term><description>5713b048d3a24959b7a27eac48e69943</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    public TBuilder AddAbilityExecuteActionOnCast(
-        ActionsBuilder? actions = null,
-        ConditionsBuilder? conditions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
-    {
-      var component = new AbilityExecuteActionOnCast();
-      component.Actions = actions?.Build() ?? component.Actions;
-      if (component.Actions is null)
-      {
-        component.Actions = Utils.Constants.Empty.Actions;
-      }
-      component.Conditions = conditions?.Build() ?? component.Conditions;
-      if (component.Conditions is null)
-      {
-        component.Conditions = Utils.Constants.Empty.Conditions;
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -3504,44 +3644,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       component.MaxCasterLevel = maxCasterLevel ?? component.MaxCasterLevel;
       component.MultiplyByCasterLevel = multiplyByCasterLevel ?? component.MultiplyByCasterLevel;
       component.Type = type ?? component.Type;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityVariants"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AbsoluteOrder</term><description>b1723a0239d428243a1be2299696eb85</description></item>
-    /// <item><term>MagicalVestment</term><description>2d4263d80f5136b4296d6eb43a221d7d</description></item>
-    /// <item><term>WitchHexRegenerativeSinewAbility</term><description>40d201c6fbbb46e46a63dec8508de65a</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="variants">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddAbilityVariants(
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? variants = null)
-    {
-      var component = new AbilityVariants();
-      component.m_Variants = variants?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Variants;
-      if (component.m_Variants is null)
-      {
-        component.m_Variants = new BlueprintAbilityReference[0];
-      }
       return AddComponent(component);
     }
 
@@ -4381,64 +4483,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Adds <see cref="AbilityCasterHasChosenWeapon"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DazzlingDisplayAction</term><description>5f3126d4120b2b244a95cb2ec23d69fb</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="chosenWeaponFeature">
-    /// <para>
-    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="ignoreWeaponFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    public TBuilder AddAbilityCasterHasChosenWeapon(
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? chosenWeaponFeature = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreWeaponFact = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
-    {
-      var component = new AbilityCasterHasChosenWeapon();
-      component.m_ChosenWeaponFeature = chosenWeaponFeature?.Reference ?? component.m_ChosenWeaponFeature;
-      if (component.m_ChosenWeaponFeature is null)
-      {
-        component.m_ChosenWeaponFeature = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
-      }
-      component.m_IgnoreWeaponFact = ignoreWeaponFact?.Reference ?? component.m_IgnoreWeaponFact;
-      if (component.m_IgnoreWeaponFact is null)
-      {
-        component.m_IgnoreWeaponFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="AbilityCasterHasFacts"/>
     /// </summary>
     ///
@@ -4535,30 +4579,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_FactsPresentedCache = new();
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCasterHasWeaponWithRangeType"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DivineHunterBondSwitchAbility</term><description>8b405b057dc5051448e20041bd366592</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    public TBuilder AddAbilityCasterHasWeaponWithRangeType(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        WeaponRangeType? rangeType = null)
-    {
-      var component = new AbilityCasterHasWeaponWithRangeType();
-      component.RangeType = rangeType ?? component.RangeType;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

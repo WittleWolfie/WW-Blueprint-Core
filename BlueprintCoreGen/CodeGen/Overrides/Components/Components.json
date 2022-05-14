@@ -2,5 +2,49 @@
   {
     "TypeName": "AbilityCasterAlignment",
     "RequiredFields": [ "alignment" ]
+  },
+
+  {
+    "TypeName": "AbilityCasterHasChosenWeapon",
+    "RequiredFields": [ "m_ChosenWeaponFeature" ]
+  },
+
+  {
+    "TypeName": "AbilityCasterHasWeaponWithRangeType",
+    "RequiredFields": [ "RangeType" ]
+  },
+
+  {
+    "TypeName": "AbilityEffectMiss",
+    "RequiredFields": [ "MissAction" ]
+  },
+
+  {
+    "TypeName": "AbilityEffectRunAction",
+    "RequiredFields": [ "Actions" ]
+  },
+
+  {
+    "TypeName": "AbilityExecuteActionOnCast",
+    "RequiredFields": [ "Actions" ]
+  },
+
+  {
+    "TypeName": "AbilityVariants",
+    "Remarks": [
+      "This ability should be the parent as defined in <see cref=\"BlueprintAbility.m_Parent\"/> for each variant.",
+      "If you remove a variant be sure to clear <see cref=\"BlueprintAbility.m_Parent\"/> for that ability. You can set it to <c>BlueprintTool.GetRef<BlueprintAbilityReference>(null)</c>."
+    ],
+    "RequiredFields": [ "m_Variants" ]
+  },
+
+  {
+    "TypeName": "SpellComponent",
+    "RequiredFields": [ "School" ]
+  },
+
+  {
+    "TypeName": "TargetHasBuffsFromCaster",
+    "RequiredFields": [ "Buffs" ]
   }
 ]
