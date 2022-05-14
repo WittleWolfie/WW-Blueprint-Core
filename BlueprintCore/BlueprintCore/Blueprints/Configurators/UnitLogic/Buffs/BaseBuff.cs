@@ -59,6 +59,52 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     protected BaseBuffConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintBuff.Stacking"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use <see cref="SetRanks(int)"/> for StackingType.Rank.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="stacking">
+    /// <para>
+    /// InfoBox: Replace - New buff removes existing buff and takes its place  Prolong - Existing buff duration get prolonged, new buff is otherwise ignored  Ignore - New buff is ignored  Stack - Both buffs are added and function independently  Poison - Special stacking type for poison  Summ - Duration is added to current duration  Rank - For buffs with limited stack
+    /// </para>
+    /// </param>
+    public TBuilder SetStacking(StackingType stacking)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Stacking = stacking;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintBuff.Stacking"/> by invoking the provided action.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use <see cref="SetRanks(int)"/> for StackingType.Rank.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="stacking">
+    /// <para>
+    /// InfoBox: Replace - New buff removes existing buff and takes its place  Prolong - Existing buff duration get prolonged, new buff is otherwise ignored  Ignore - New buff is ignored  Stack - Both buffs are added and function independently  Poison - Special stacking type for poison  Summ - Duration is added to current duration  Rank - For buffs with limited stack
+    /// </para>
+    /// </param>
+    public TBuilder ModifyStacking(Action<StackingType> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Stacking);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.IsClassFeature"/>
     /// </summary>
     public TBuilder SetIsClassFeature(bool isClassFeature = true)
@@ -115,42 +161,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         bp =>
         {
           flags.ForEach(f => bp.m_Flags &= ~f);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintBuff.Stacking"/>
-    /// </summary>
-    ///
-    /// <param name="stacking">
-    /// <para>
-    /// InfoBox: Replace - New buff removes existing buff and takes its place  Prolong - Existing buff duration get prolonged, new buff is otherwise ignored  Ignore - New buff is ignored  Stack - Both buffs are added and function independently  Poison - Special stacking type for poison  Summ - Duration is added to current duration  Rank - For buffs with limited stack
-    /// </para>
-    /// </param>
-    public TBuilder SetStacking(StackingType stacking)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.Stacking = stacking;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintBuff.Stacking"/> by invoking the provided action.
-    /// </summary>
-    ///
-    /// <param name="stacking">
-    /// <para>
-    /// InfoBox: Replace - New buff removes existing buff and takes its place  Prolong - Existing buff duration get prolonged, new buff is otherwise ignored  Ignore - New buff is ignored  Stack - Both buffs are added and function independently  Poison - Special stacking type for poison  Summ - Duration is added to current duration  Rank - For buffs with limited stack
-    /// </para>
-    /// </param>
-    public TBuilder ModifyStacking(Action<StackingType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Stacking);
         });
     }
 

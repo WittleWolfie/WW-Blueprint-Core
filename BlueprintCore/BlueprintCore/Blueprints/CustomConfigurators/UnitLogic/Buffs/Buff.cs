@@ -46,15 +46,6 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs
       return For(name);
     }
 
-    /// <inheritdoc cref="BaseBuffConfigurator{T, TBuilder}.SetStacking(StackingType)"/>
-    /// <remarks>
-    /// Use <see cref="BaseBuffConfigurator{T, TBuilder}.SetRanks(int)"/> for StackingType.Rank.
-    /// </remarks>
-    public new BuffConfigurator SetStacking(StackingType stacking)
-    {
-      return base.SetStacking(stacking);
-    }
-
     /// <inheritdoc cref="BaseBuffConfigurator{T, TBuilder}.SetRanks(int)"/>
     public new BuffConfigurator SetRanks(int ranks)
     {

@@ -23,5 +23,17 @@
         ]
       }
     ]
+  },
+
+  {
+    "TypeName": "BlueprintBuff",
+    "Fields": [
+      {
+        "FieldName": "Stacking",
+        "Remarks": [
+          "Use <see cref=\"SetRanks(int)\"/> for StackingType.Rank."
+        ]
+      }
+    ]
   }
 ]
