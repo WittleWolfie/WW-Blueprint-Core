@@ -173,7 +173,7 @@ namespace BlueprintCoreGen.CodeGen.Class
       Dictionary<Type, ConstructorMethod> componentMethodsByType = new();
       gameTypes.Where(t => t.IsSubclassOf(typeof(BlueprintComponent)) && !t.IsAbstract)
         .ToList()
-        .ForEach(t => componentMethodsByType.Add(t, new ConstructorMethod(t.Name)));
+        .ForEach(t => componentMethodsByType.Add(t, new ConstructorMethod(t.FullName)));
       return componentMethodsByType;
     }
 
