@@ -248,7 +248,9 @@ namespace BlueprintCoreGen.CodeGen.Params
     public List<string> Comment { get; } =
       new()
       {
-        "Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail."
+        "<param name=\"mergeBehavior\">",
+        "Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.",
+        "</param>"
       };
 
     public string Declaration { get; } = "ComponentMerge mergeBehavior = ComponentMerge.Merge";
@@ -273,7 +275,9 @@ namespace BlueprintCoreGen.CodeGen.Params
     public List<string> Comment { get; } =
     new ()
       {
-        "If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components."
+        "<param name=\"merge\">",
+        "If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.",
+        "</param>"
       };
 
     public string Declaration { get; } = "Action<BlueprintComponent, BlueprintComponent>? merge = null";

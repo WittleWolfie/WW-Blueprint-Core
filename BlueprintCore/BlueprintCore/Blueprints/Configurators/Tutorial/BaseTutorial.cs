@@ -59,8 +59,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialPage(
         LocalizedString? descriptionText = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -724,8 +728,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="spells">
     /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:

@@ -158,8 +158,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEveryDayTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
@@ -194,8 +198,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEveryWeekTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,

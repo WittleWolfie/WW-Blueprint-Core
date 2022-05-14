@@ -542,8 +542,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPregenUnitComponent(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
@@ -727,8 +731,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddAbilityToCharacterComponent(
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? abilities = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -798,8 +806,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLoot(
         Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -840,8 +852,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLootToVendorTable(
         Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -963,8 +979,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddVendorItems(
         Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -991,8 +1011,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddChangeVendorPrices(
         Dictionary<BlueprintItem,long>? itemsToBuyCosts = null,
         Dictionary<BlueprintItem,long>? itemsToSellCosts = null,
@@ -1066,8 +1090,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="newFact">
     /// <para>
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
@@ -1112,8 +1140,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="table">
     /// <para>
     /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
@@ -1214,8 +1246,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTacticalMoraleModifier(
         TacticalMoraleModifier.FactionTarget? factionTarget = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -1330,8 +1366,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddBuffOnEntityCreated(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -1364,8 +1404,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddMobCaster(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge)

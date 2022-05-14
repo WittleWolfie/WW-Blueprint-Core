@@ -52,8 +52,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddFactToEquipmentWielder(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -82,8 +86,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEquipmentRestrictionAlignment(
         AlignmentMaskType? alignment = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -106,8 +114,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEquipmentRestrictionCannotEquip(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge)
@@ -142,8 +154,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEquipmentRestrictionClass(
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -230,8 +246,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEquipmentRestrictionStat(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,

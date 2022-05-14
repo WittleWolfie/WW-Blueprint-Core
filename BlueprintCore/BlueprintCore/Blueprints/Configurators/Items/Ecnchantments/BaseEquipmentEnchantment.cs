@@ -40,8 +40,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddAllSavesBonusEquipment(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,

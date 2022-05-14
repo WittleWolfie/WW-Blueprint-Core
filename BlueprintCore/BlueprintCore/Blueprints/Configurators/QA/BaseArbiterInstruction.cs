@@ -49,8 +49,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="overrideAreaPreset">
     /// <para>
     /// Blueprint of type BlueprintAreaPreset. You can pass in the blueprint using:
@@ -107,8 +111,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="weapon">
     /// <para>
     /// Blueprint of type BlueprintItemWeapon. You can pass in the blueprint using:

@@ -33,8 +33,12 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddDungeonVendorItemsComponent(
         bool? bigTable = null,
         int? count = null,
@@ -63,8 +67,12 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLootItemsPackFixed(
         int? count = null,
         LootItem? item = null,
@@ -92,8 +100,12 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLootItemsPackFixedAndNotInPlayerInitialInventory(
         int? count = null,
         LootItem? item = null,
@@ -121,8 +133,12 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLootItemsPackVariable(
         int? countFrom = null,
         int? countTo = null,
@@ -152,8 +168,12 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLootRandomItem(
         LootItemAndWeight[]? items = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,

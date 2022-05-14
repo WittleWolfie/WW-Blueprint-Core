@@ -66,8 +66,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddAreaTest(
         Blueprint<BlueprintArea, BlueprintAreaReference>? area = null,
         Blueprint<BlueprintAreaPart, BlueprintAreaPartReference>? areaPart = null,
@@ -114,8 +118,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddConditionalCommandList(
         ClockworkCommandList? commandList = null,
         Condition? condition = null,
@@ -158,8 +166,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddExploreFlyingIsles(
         List<Blueprint<BlueprintArea, BlueprintAreaReference>>? areas = null,
         bool? justIgnoreWalls = null,

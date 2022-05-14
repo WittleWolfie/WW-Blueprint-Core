@@ -302,8 +302,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddRestrictionHasUnitCondition(
         UnitCondition? condition = null,
         bool? ignoreIfStarted = null,
@@ -432,8 +436,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddRestrictionUnitConditionUnlessFact(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
         UnitCondition? condition = null,
@@ -511,8 +519,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddHideFeatureInInspect(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge)
