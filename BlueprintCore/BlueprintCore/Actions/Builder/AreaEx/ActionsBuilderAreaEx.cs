@@ -39,6 +39,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="encounter">
+    /// <para>
     /// Blueprint of type BlueprintCampingEncounter. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -46,7 +47,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AddCampingEncounter(
         this ActionsBuilder builder,
@@ -108,6 +110,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -115,7 +118,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AskPlayerForLocationName(
         this ActionsBuilder builder,
@@ -165,6 +169,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="destination">
+    /// <para>
     /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -172,7 +177,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder CapitalExit(
         this ActionsBuilder builder,
@@ -222,6 +228,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="areaEffects">
+    /// <para>
     /// Blueprint of type BlueprintAbilityAreaEffect. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -229,7 +236,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder EndAreaEffects(
         this ActionsBuilder builder,
@@ -261,6 +269,15 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <item><term>ToLootBack_CheckPassedActions</term><description>1ba08cf9dd9e4f02837a335081f3b44d</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="isLock">
+    /// <para>
+    /// Tooltip: If true - isle will be lock, else will unlock
+    /// </para>
+    /// <para>
+    /// InfoBox: Note: Locking should be launched once, or it will lock isle forever! And lock-unlock should be launched on area with isle, or it wont work!
+    /// </para>
+    /// </param>
     public static ActionsBuilder GameActionSetIsleLock(
         this ActionsBuilder builder,
         IsleEvaluator? isle = null,
@@ -332,6 +349,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/HideMapObject
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
@@ -356,6 +377,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/LocalMapSetDirty
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -407,6 +432,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -414,7 +440,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder MarkLocationClosed(
         this ActionsBuilder builder,
@@ -445,6 +472,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -452,7 +480,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder MarkLocationExplored(
         this ActionsBuilder builder,
@@ -474,6 +503,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/MarkOnLocalMap
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -499,6 +532,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/OpenLootContainer
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -577,6 +614,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="area">
+    /// <para>
     /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -584,9 +622,11 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="specificMechanic">
+    /// <para>
     /// Blueprint of type BlueprintAreaMechanics. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -594,7 +634,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveAreaFromSave(
         this ActionsBuilder builder,
@@ -630,6 +671,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="encounter">
+    /// <para>
     /// Blueprint of type BlueprintCampingEncounter. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -637,7 +679,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveCampingEncounter(
         this ActionsBuilder builder,
@@ -667,6 +710,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="points">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -674,7 +718,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RevealGlobalMap(
         this ActionsBuilder builder,
@@ -696,6 +741,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/ScriptZoneActivate
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -720,6 +769,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/ScriptZoneDeactivate
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ3Scene_DayTime</term><description>ffb3b99adfa368444b4a46ea36e5aec9</description></item>
@@ -742,6 +795,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/ScripZoneUnits
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -772,6 +829,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/SetDeviceState
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlushinyrraHigherCity_DefaultEtude</term><description>41574c2d4b6d89e41b096094d0aed4f2</description></item>
@@ -798,6 +859,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/SetDeviceTrigger
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>a1359088a0c30cd408411b966916d5e6</description></item>
@@ -823,11 +888,21 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/SetDisableDevice
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>MidnightFane_BarricadeDoorTrigger</term><description>bd5fcb433dd348e40bfbbf876642a969</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="overrideDC">
+    /// <para>
+    /// Tooltip: If 0, uses default DC set on map object.
+    /// </para>
+    /// </param>
     public static ActionsBuilder SetDisableDevice(
         this ActionsBuilder builder,
         MapObjectEvaluator? mapObject = null,
@@ -855,6 +930,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="map">
+    /// <para>
     /// Blueprint of type BlueprintMultiEntrance. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -862,7 +938,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ShowMultiEntrance(
         this ActionsBuilder builder,
@@ -935,6 +1012,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/TeleportParty
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ALR_BlueprintAreaTransition</term><description>caa1a113bb2c18e4bb187348664d4c99</description></item>
@@ -944,6 +1025,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="exitPositon">
+    /// <para>
     /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -951,7 +1033,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder TeleportParty(
         this ActionsBuilder builder,
@@ -982,6 +1065,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/TranslocatePlayer
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaFinalFight</term><description>131316c1965bfb54e97f6134de6698e1</description></item>
@@ -989,6 +1076,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <item><term>WinThirdFight_dialogue</term><description>2038c62fd9e036c4285deb60e2012e19</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="transolcatePosition">
+    /// <para>
+    /// Tooltip: Locator View
+    /// </para>
+    /// </param>
     public static ActionsBuilder TranslocatePlayer(
         this ActionsBuilder builder,
         bool? byFormationAndWithPets = null,
@@ -1009,6 +1102,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/TranslocateUnit
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
@@ -1016,6 +1113,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="translocatePosition">
+    /// <para>
+    /// Tooltip: Locator View
+    /// </para>
+    /// </param>
     public static ActionsBuilder TranslocateUnit(
         this ActionsBuilder builder,
         bool? copyRotation = null,
@@ -1052,6 +1155,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="spell">
+    /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1059,7 +1163,18 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="targetPoint">
+    /// <para>
+    /// InfoBox: Required if Spell can target Point (like Fireball)
+    /// </para>
+    /// </param>
+    /// <param name="triggeringUnit">
+    /// <para>
+    /// InfoBox: Required if Spell can not target Point (like Scorching ray)
+    /// </para>
     /// </param>
     public static ActionsBuilder TrapCastSpell(
         this ActionsBuilder builder,
@@ -1102,6 +1217,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/UnlockLocation
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_GoToCamp</term><description>10d044829fd19a54eb85cae569fc009f</description></item>
@@ -1111,6 +1230,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1118,7 +1238,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder UnlockLocation(
         this ActionsBuilder builder,
@@ -1152,6 +1273,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="edge">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapEdge. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1159,7 +1281,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="openEdges">
+    /// <para>
+    /// Tooltip: Unlock points on edge for direct travel
+    /// </para>
     /// </param>
     public static ActionsBuilder UnlockMapEdge(
         this ActionsBuilder builder,

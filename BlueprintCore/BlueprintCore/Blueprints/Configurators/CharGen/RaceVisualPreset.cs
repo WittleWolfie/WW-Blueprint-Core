@@ -1,89 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
-using Kingmaker.Visual.CharacterSystem;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.CharGen
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintRaceVisualPreset"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class RaceVisualPresetConfigurator : BaseBlueprintConfigurator<BlueprintRaceVisualPreset, RaceVisualPresetConfigurator>
+  public class RaceVisualPresetConfigurator
+    : BaseRaceVisualPresetConfigurator<BlueprintRaceVisualPreset, RaceVisualPresetConfigurator>
   {
-    private RaceVisualPresetConfigurator(string name) : base(name) { }
+    private RaceVisualPresetConfigurator(Blueprint<BlueprintRaceVisualPreset, BlueprintReference<BlueprintRaceVisualPreset>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static RaceVisualPresetConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static RaceVisualPresetConfigurator For(Blueprint<BlueprintRaceVisualPreset, BlueprintReference<BlueprintRaceVisualPreset>> blueprint)
     {
-      return new RaceVisualPresetConfigurator(name);
+      return new RaceVisualPresetConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static RaceVisualPresetConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintRaceVisualPreset>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintRaceVisualPreset.RaceId"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceVisualPresetConfigurator SetRaceId(Race raceId)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.RaceId = raceId;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRaceVisualPreset.MaleSkeleton"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceVisualPresetConfigurator SetMaleSkeleton(Skeleton maleSkeleton)
-    {
-      ValidateParam(maleSkeleton);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MaleSkeleton = maleSkeleton;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRaceVisualPreset.FemaleSkeleton"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceVisualPresetConfigurator SetFemaleSkeleton(Skeleton femaleSkeleton)
-    {
-      ValidateParam(femaleSkeleton);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FemaleSkeleton = femaleSkeleton;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRaceVisualPreset.m_Skin"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="skin"><see cref="Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity"/></param>
-    
-    public RaceVisualPresetConfigurator SetSkin(string? skin)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Skin = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(skin);
-          });
-    }
   }
 }

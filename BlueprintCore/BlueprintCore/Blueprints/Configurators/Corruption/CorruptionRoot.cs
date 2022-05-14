@@ -1,138 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Corruption;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Corruption
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCorruptionRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CorruptionRootConfigurator : BaseBlueprintConfigurator<BlueprintCorruptionRoot, CorruptionRootConfigurator>
+  public class CorruptionRootConfigurator
+    : BaseCorruptionRootConfigurator<BlueprintCorruptionRoot, CorruptionRootConfigurator>
   {
-    private CorruptionRootConfigurator(string name) : base(name) { }
+    private CorruptionRootConfigurator(Blueprint<BlueprintCorruptionRoot, BlueprintReference<BlueprintCorruptionRoot>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CorruptionRootConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CorruptionRootConfigurator For(Blueprint<BlueprintCorruptionRoot, BlueprintReference<BlueprintCorruptionRoot>> blueprint)
     {
-      return new CorruptionRootConfigurator(name);
+      return new CorruptionRootConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CorruptionRootConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCorruptionRoot>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCorruptionRoot.m_Progression"/> (Auto Generated)
-    /// </summary>
-    
-    public CorruptionRootConfigurator SetProgression(CorruptionProgression progression)
-    {
-      ValidateParam(progression);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Progression = progression;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCorruptionRoot.m_DefaultCorruptionGrowth"/> (Auto Generated)
-    /// </summary>
-    
-    public CorruptionRootConfigurator SetDefaultCorruptionGrowth(int defaultCorruptionGrowth)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DefaultCorruptionGrowth = defaultCorruptionGrowth;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCorruptionRoot.m_DSSuccessCoefficient"/> (Auto Generated)
-    /// </summary>
-    
-    public CorruptionRootConfigurator SetDSSuccessCoefficient(float dSSuccessCoefficient)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DSSuccessCoefficient = dSSuccessCoefficient;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCorruptionRoot.m_DSCriticalFailCoefficient"/> (Auto Generated)
-    /// </summary>
-    
-    public CorruptionRootConfigurator SetDSCriticalFailCoefficient(float dSCriticalFailCoefficient)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DSCriticalFailCoefficient = dSCriticalFailCoefficient;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCorruptionRoot.m_GlobalMapBuff"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="globalMapBuff"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    
-    public CorruptionRootConfigurator SetGlobalMapBuff(string? globalMapBuff)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_GlobalMapBuff = BlueprintTool.GetRef<BlueprintBuffReference>(globalMapBuff);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCorruptionRoot.m_GlobalMapBuffDurationMinutes"/> (Auto Generated)
-    /// </summary>
-    
-    public CorruptionRootConfigurator SetGlobalMapBuffDurationMinutes(int globalMapBuffDurationMinutes)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_GlobalMapBuffDurationMinutes = globalMapBuffDurationMinutes;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCorruptionRoot.m_SpeedModifierDC"/> (Auto Generated)
-    /// </summary>
-    
-    public CorruptionRootConfigurator SetSpeedModifierDC(int speedModifierDC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SpeedModifierDC = speedModifierDC;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCorruptionRoot.m_SpeedModifierDCIncrement"/> (Auto Generated)
-    /// </summary>
-    
-    public CorruptionRootConfigurator SetSpeedModifierDCIncrement(int speedModifierDCIncrement)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SpeedModifierDCIncrement = speedModifierDCIncrement;
-          });
-    }
   }
 }

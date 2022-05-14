@@ -54,6 +54,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -61,7 +62,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder ArmyInLocationDefeated(
         this ConditionsBuilder builder,
@@ -115,6 +117,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="globalMapPoint">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -122,7 +125,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder GarrisonClear(
         this ConditionsBuilder builder,
@@ -174,6 +178,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="blueprint">
+    /// <para>
     /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -181,9 +186,11 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="region">
+    /// <para>
     /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -191,7 +198,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder KingdomBuffIsActive(
         this ConditionsBuilder builder,
@@ -225,6 +233,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// <item><term>PF-218150</term><description>d7696062df7c4b948e1ce3e1b769fc9a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="week">
+    /// <para>
+    /// InfoBox: Week number from chapter start. To check chapter use etude checker.
+    /// </para>
+    /// </param>
     public static ConditionsBuilder KingdomChapterWeek(
         this ConditionsBuilder builder,
         bool negate = false,
@@ -251,6 +265,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="eventValue">
+    /// <para>
     /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -258,7 +273,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder KingdomEventIsBeingResolved(
         this ConditionsBuilder builder,
@@ -311,6 +327,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="unit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -318,7 +335,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder KingdomLeaderIs(
         this ConditionsBuilder builder,
@@ -353,6 +371,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="flag">
+    /// <para>
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -360,7 +379,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder KingdomMoraleFlagCondition(
         this ConditionsBuilder builder,
@@ -394,6 +414,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="project">
+    /// <para>
     /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -401,7 +422,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder KingdomProjectIsAvailable(
         this ConditionsBuilder builder,
@@ -439,6 +461,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="project">
+    /// <para>
     /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -446,7 +469,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder KingdomProjectIsDone(
         this ConditionsBuilder builder,
@@ -504,6 +528,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="region">
+    /// <para>
     /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -511,7 +536,8 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder KingdomRegionIsConquered(
         this ConditionsBuilder builder,
@@ -595,6 +621,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// <item><term>ArmyRangedCounterAttackFeature</term><description>4d59f676f59579944948f8c461731ab8</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="checkInitiatorHP">
+    /// <para>
+    /// InfoBox: Compares with target's HP by default
+    /// </para>
+    /// </param>
     public static ConditionsBuilder TacticalCombatSquadHitPointsCondition(
         this ConditionsBuilder builder,
         bool? checkInitiatorHP = null,

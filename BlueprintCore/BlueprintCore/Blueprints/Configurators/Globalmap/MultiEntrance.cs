@@ -1,110 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Localization;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintMultiEntrance"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class MultiEntranceConfigurator : BaseBlueprintConfigurator<BlueprintMultiEntrance, MultiEntranceConfigurator>
+  public class MultiEntranceConfigurator
+    : BaseMultiEntranceConfigurator<BlueprintMultiEntrance, MultiEntranceConfigurator>
   {
-    private MultiEntranceConfigurator(string name) : base(name) { }
+    private MultiEntranceConfigurator(Blueprint<BlueprintMultiEntrance, BlueprintReference<BlueprintMultiEntrance>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static MultiEntranceConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static MultiEntranceConfigurator For(Blueprint<BlueprintMultiEntrance, BlueprintReference<BlueprintMultiEntrance>> blueprint)
     {
-      return new MultiEntranceConfigurator(name);
+      return new MultiEntranceConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static MultiEntranceConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintMultiEntrance>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintMultiEntrance.Map"/> (Auto Generated)
-    /// </summary>
-    
-    public MultiEntranceConfigurator SetMap(BlueprintMultiEntrance.BlueprintMultiEntranceMap map)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Map = map;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMultiEntrance.Name"/> (Auto Generated)
-    /// </summary>
-    
-    public MultiEntranceConfigurator SetName(LocalizedString? name)
-    {
-      ValidateParam(name);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Name = name ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMultiEntrance.m_Entries"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    
-    public MultiEntranceConfigurator SetEntries(string[]? entries)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Entries = entries.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntryReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintMultiEntrance.m_Entries"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    
-    public MultiEntranceConfigurator AddToEntries(params string[] entries)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Entries = CommonTool.Append(bp.m_Entries, entries.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntryReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintMultiEntrance.m_Entries"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="entries"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntranceEntry"/></param>
-    
-    public MultiEntranceConfigurator RemoveFromEntries(params string[] entries)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = entries.Select(name => BlueprintTool.GetRef<BlueprintMultiEntranceEntryReference>(name));
-            bp.m_Entries =
-                bp.m_Entries
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

@@ -1,122 +1,51 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Conditions.Builder;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.RandomEncounters.Settings;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCampingEncounter"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CampingEncounterConfigurator : BaseBlueprintConfigurator<BlueprintCampingEncounter, CampingEncounterConfigurator>
+  public class CampingEncounterConfigurator
+    : BaseCampingEncounterConfigurator<BlueprintCampingEncounter, CampingEncounterConfigurator>
   {
-    private CampingEncounterConfigurator(string name) : base(name) { }
+    private CampingEncounterConfigurator(Blueprint<BlueprintCampingEncounter, BlueprintReference<BlueprintCampingEncounter>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CampingEncounterConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CampingEncounterConfigurator For(Blueprint<BlueprintCampingEncounter, BlueprintReference<BlueprintCampingEncounter>> blueprint)
     {
-      return new CampingEncounterConfigurator(name);
+      return new CampingEncounterConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CampingEncounterConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCampingEncounter>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCampingEncounter.Chance"/> (Auto Generated)
-    /// </summary>
-    
-    public CampingEncounterConfigurator SetChance(int chance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Chance = chance;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCampingEncounter.Conditions"/> (Auto Generated)
-    /// </summary>
-    
-    public CampingEncounterConfigurator SetConditions(ConditionsBuilder? conditions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCampingEncounter.EncounterActions"/> (Auto Generated)
-    /// </summary>
-    
-    public CampingEncounterConfigurator SetEncounterActions(ActionsBuilder? encounterActions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EncounterActions = encounterActions?.Build() ?? Constants.Empty.Actions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCampingEncounter.InterruptsRest"/> (Auto Generated)
-    /// </summary>
-    
-    public CampingEncounterConfigurator SetInterruptsRest(bool interruptsRest)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.InterruptsRest = interruptsRest;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCampingEncounter.PartyTired"/> (Auto Generated)
-    /// </summary>
-    
-    public CampingEncounterConfigurator SetPartyTired(bool partyTired)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.PartyTired = partyTired;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCampingEncounter.MainCharacterTired"/> (Auto Generated)
-    /// </summary>
-    
-    public CampingEncounterConfigurator SetMainCharacterTired(bool mainCharacterTired)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MainCharacterTired = mainCharacterTired;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCampingEncounter.NotOnGlobalMap"/> (Auto Generated)
-    /// </summary>
-    
-    public CampingEncounterConfigurator SetNotOnGlobalMap(bool notOnGlobalMap)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.NotOnGlobalMap = notOnGlobalMap;
-          });
-    }
   }
 }

@@ -1,68 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintDialogExperienceModifierTable"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class DialogExperienceModifierTableConfigurator : BaseBlueprintConfigurator<BlueprintDialogExperienceModifierTable, DialogExperienceModifierTableConfigurator>
+  public class DialogExperienceModifierTableConfigurator
+    : BaseDialogExperienceModifierTableConfigurator<BlueprintDialogExperienceModifierTable, DialogExperienceModifierTableConfigurator>
   {
-    private DialogExperienceModifierTableConfigurator(string name) : base(name) { }
+    private DialogExperienceModifierTableConfigurator(Blueprint<BlueprintDialogExperienceModifierTable, BlueprintReference<BlueprintDialogExperienceModifierTable>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static DialogExperienceModifierTableConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static DialogExperienceModifierTableConfigurator For(Blueprint<BlueprintDialogExperienceModifierTable, BlueprintReference<BlueprintDialogExperienceModifierTable>> blueprint)
     {
-      return new DialogExperienceModifierTableConfigurator(name);
+      return new DialogExperienceModifierTableConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static DialogExperienceModifierTableConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintDialogExperienceModifierTable>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierLow"/> (Auto Generated)
-    /// </summary>
-    
-    public DialogExperienceModifierTableConfigurator SetMultiplierLow(float multiplierLow)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MultiplierLow = multiplierLow;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierNormal"/> (Auto Generated)
-    /// </summary>
-    
-    public DialogExperienceModifierTableConfigurator SetMultiplierNormal(float multiplierNormal)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MultiplierNormal = multiplierNormal;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDialogExperienceModifierTable.MultiplierHigh"/> (Auto Generated)
-    /// </summary>
-    
-    public DialogExperienceModifierTableConfigurator SetMultiplierHigh(float multiplierHigh)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MultiplierHigh = multiplierHigh;
-          });
-    }
   }
 }

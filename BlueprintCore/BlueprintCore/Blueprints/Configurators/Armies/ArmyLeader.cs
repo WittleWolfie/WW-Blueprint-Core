@@ -1,155 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Blueprints;
-using Kingmaker.Localization;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintArmyLeader"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ArmyLeaderConfigurator : BaseBlueprintConfigurator<BlueprintArmyLeader, ArmyLeaderConfigurator>
+  public class ArmyLeaderConfigurator
+    : BaseArmyLeaderConfigurator<BlueprintArmyLeader, ArmyLeaderConfigurator>
   {
-    private ArmyLeaderConfigurator(string name) : base(name) { }
+    private ArmyLeaderConfigurator(Blueprint<BlueprintArmyLeader, BlueprintReference<BlueprintArmyLeader>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ArmyLeaderConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ArmyLeaderConfigurator For(Blueprint<BlueprintArmyLeader, BlueprintReference<BlueprintArmyLeader>> blueprint)
     {
-      return new ArmyLeaderConfigurator(name);
+      return new ArmyLeaderConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ArmyLeaderConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintArmyLeader>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyLeader.m_LeaderName"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyLeaderConfigurator SetLeaderName(LocalizedString? leaderName)
-    {
-      ValidateParam(leaderName);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_LeaderName = leaderName ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyLeader.m_Portrait"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="portrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
-    
-    public ArmyLeaderConfigurator SetPortrait(string? portrait)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(portrait);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyLeader.m_StartingLevel"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyLeaderConfigurator SetStartingLevel(int startingLevel)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_StartingLevel = startingLevel;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyLeader.m_LeaderProgression"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="leaderProgression"><see cref="Kingmaker.Armies.BlueprintLeaderProgression"/></param>
-    
-    public ArmyLeaderConfigurator SetLeaderProgression(string? leaderProgression)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_LeaderProgression = BlueprintTool.GetRef<BlueprintLeaderProgression.Reference>(leaderProgression);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyLeader.m_Unit"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    
-    public ArmyLeaderConfigurator SetUnit(string? unit)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyLeader.m_baseSkills"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="baseSkills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    
-    public ArmyLeaderConfigurator SetBaseSkills(string[]? baseSkills)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_baseSkills = baseSkills.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintArmyLeader.m_baseSkills"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="baseSkills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    
-    public ArmyLeaderConfigurator AddToBaseSkills(params string[] baseSkills)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_baseSkills = CommonTool.Append(bp.m_baseSkills, baseSkills.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintArmyLeader.m_baseSkills"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="baseSkills"><see cref="Kingmaker.Armies.Blueprints.BlueprintLeaderSkill"/></param>
-    
-    public ArmyLeaderConfigurator RemoveFromBaseSkills(params string[] baseSkills)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = baseSkills.Select(name => BlueprintTool.GetRef<BlueprintLeaderSkillReference>(name));
-            bp.m_baseSkills =
-                bp.m_baseSkills
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

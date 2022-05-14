@@ -1,180 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
-using Kingmaker.Tutorial;
-using System.Collections.Generic;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintMythicsSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class MythicsSettingsConfigurator : BaseBlueprintConfigurator<BlueprintMythicsSettings, MythicsSettingsConfigurator>
+  public class MythicsSettingsConfigurator
+    : BaseMythicsSettingsConfigurator<BlueprintMythicsSettings, MythicsSettingsConfigurator>
   {
-    private MythicsSettingsConfigurator(string name) : base(name) { }
+    private MythicsSettingsConfigurator(Blueprint<BlueprintMythicsSettings, BlueprintReference<BlueprintMythicsSettings>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static MythicsSettingsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static MythicsSettingsConfigurator For(Blueprint<BlueprintMythicsSettings, BlueprintReference<BlueprintMythicsSettings>> blueprint)
     {
-      return new MythicsSettingsConfigurator(name);
+      return new MythicsSettingsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static MythicsSettingsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintMythicsSettings>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
-    
-    public MythicsSettingsConfigurator SetMythicsInfos(string[]? mythicsInfos)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MythicsInfos = mythicsInfos.Select(name => BlueprintTool.GetRef<BlueprintMythicInfoReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
-    
-    public MythicsSettingsConfigurator AddToMythicsInfos(params string[] mythicsInfos)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MythicsInfos = CommonTool.Append(bp.m_MythicsInfos, mythicsInfos.Select(name => BlueprintTool.GetRef<BlueprintMythicInfoReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintMythicsSettings.m_MythicsInfos"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="mythicsInfos"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo"/></param>
-    
-    public MythicsSettingsConfigurator RemoveFromMythicsInfos(params string[] mythicsInfos)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = mythicsInfos.Select(name => BlueprintTool.GetRef<BlueprintMythicInfoReference>(name));
-            bp.m_MythicsInfos =
-                bp.m_MythicsInfos
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
-    /// </summary>
-    
-    public MythicsSettingsConfigurator SetMythicAlignments(MythicAlignment[]? mythicAlignments)
-    {
-      ValidateParam(mythicAlignments);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MythicAlignments = mythicAlignments;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
-    /// </summary>
-    
-    public MythicsSettingsConfigurator AddToMythicAlignments(params MythicAlignment[] mythicAlignments)
-    {
-      ValidateParam(mythicAlignments);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MythicAlignments = CommonTool.Append(bp.m_MythicAlignments, mythicAlignments ?? new MythicAlignment[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintMythicsSettings.m_MythicAlignments"/> (Auto Generated)
-    /// </summary>
-    
-    public MythicsSettingsConfigurator RemoveFromMythicAlignments(params MythicAlignment[] mythicAlignments)
-    {
-      ValidateParam(mythicAlignments);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MythicAlignments = bp.m_MythicAlignments.Where(item => !mythicAlignments.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMythicsSettings.m_TutorialChooseMythic"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="tutorialChooseMythic"><see cref="Kingmaker.Tutorial.BlueprintTutorial"/></param>
-    
-    public MythicsSettingsConfigurator SetTutorialChooseMythic(string? tutorialChooseMythic)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TutorialChooseMythic = BlueprintTool.GetRef<BlueprintTutorial.Reference>(tutorialChooseMythic);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
-    /// </summary>
-    
-    public MythicsSettingsConfigurator SetCharcaterLevelRestrictions(List<int>? charcaterLevelRestrictions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CharcaterLevelRestrictions = charcaterLevelRestrictions;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
-    /// </summary>
-    
-    public MythicsSettingsConfigurator AddToCharcaterLevelRestrictions(params int[] charcaterLevelRestrictions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CharcaterLevelRestrictions.AddRange(charcaterLevelRestrictions.ToList() ?? new List<int>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/> (Auto Generated)
-    /// </summary>
-    
-    public MythicsSettingsConfigurator RemoveFromCharcaterLevelRestrictions(params int[] charcaterLevelRestrictions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CharcaterLevelRestrictions = bp.CharcaterLevelRestrictions.Where(item => !charcaterLevelRestrictions.Contains(item)).ToList();
-          });
-    }
   }
 }

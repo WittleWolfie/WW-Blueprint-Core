@@ -1,45 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintFeatureReplaceSpellbook"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class FeatureReplaceSpellbookConfigurator : BaseFeatureConfigurator<BlueprintFeatureReplaceSpellbook, FeatureReplaceSpellbookConfigurator>
+  public class FeatureReplaceSpellbookConfigurator
+    : BaseFeatureReplaceSpellbookConfigurator<BlueprintFeatureReplaceSpellbook, FeatureReplaceSpellbookConfigurator>
   {
-    private FeatureReplaceSpellbookConfigurator(string name) : base(name) { }
+    private FeatureReplaceSpellbookConfigurator(Blueprint<BlueprintFeatureReplaceSpellbook, BlueprintReference<BlueprintFeatureReplaceSpellbook>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static FeatureReplaceSpellbookConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static FeatureReplaceSpellbookConfigurator For(Blueprint<BlueprintFeatureReplaceSpellbook, BlueprintReference<BlueprintFeatureReplaceSpellbook>> blueprint)
     {
-      return new FeatureReplaceSpellbookConfigurator(name);
+      return new FeatureReplaceSpellbookConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static FeatureReplaceSpellbookConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintFeatureReplaceSpellbook>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureReplaceSpellbook.m_Spellbook"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="spellbook"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    
-    public FeatureReplaceSpellbookConfigurator SetSpellbook(string? spellbook)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(spellbook);
-          });
-    }
   }
 }

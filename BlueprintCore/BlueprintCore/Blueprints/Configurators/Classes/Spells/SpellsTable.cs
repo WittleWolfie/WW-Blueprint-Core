@@ -1,73 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Classes.Spells;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Spells;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintSpellsTable"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class SpellsTableConfigurator : BaseBlueprintConfigurator<BlueprintSpellsTable, SpellsTableConfigurator>
+  public class SpellsTableConfigurator
+    : BaseSpellsTableConfigurator<BlueprintSpellsTable, SpellsTableConfigurator>
   {
-    private SpellsTableConfigurator(string name) : base(name) { }
+    private SpellsTableConfigurator(Blueprint<BlueprintSpellsTable, BlueprintReference<BlueprintSpellsTable>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static SpellsTableConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static SpellsTableConfigurator For(Blueprint<BlueprintSpellsTable, BlueprintReference<BlueprintSpellsTable>> blueprint)
     {
-      return new SpellsTableConfigurator(name);
+      return new SpellsTableConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static SpellsTableConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintSpellsTable>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
-    /// </summary>
-    
-    public SpellsTableConfigurator SetLevels(SpellsLevelEntry[]? levels)
-    {
-      ValidateParam(levels);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Levels = levels;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
-    /// </summary>
-    
-    public SpellsTableConfigurator AddToLevels(params SpellsLevelEntry[] levels)
-    {
-      ValidateParam(levels);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Levels = CommonTool.Append(bp.Levels, levels ?? new SpellsLevelEntry[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintSpellsTable.Levels"/> (Auto Generated)
-    /// </summary>
-    
-    public SpellsTableConfigurator RemoveFromLevels(params SpellsLevelEntry[] levels)
-    {
-      ValidateParam(levels);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Levels = bp.Levels.Where(item => !levels.Contains(item)).ToArray();
-          });
-    }
   }
 }

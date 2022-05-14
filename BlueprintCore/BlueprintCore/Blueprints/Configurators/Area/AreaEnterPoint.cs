@@ -1,183 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
-using Kingmaker.Enums;
-using Kingmaker.Localization;
-using Kingmaker.RandomEncounters.Settings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintAreaEnterPoint"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class AreaEnterPointConfigurator : BaseBlueprintConfigurator<BlueprintAreaEnterPoint, AreaEnterPointConfigurator>
+  public class AreaEnterPointConfigurator
+    : BaseAreaEnterPointConfigurator<BlueprintAreaEnterPoint, AreaEnterPointConfigurator>
   {
-    private AreaEnterPointConfigurator(string name) : base(name) { }
+    private AreaEnterPointConfigurator(Blueprint<BlueprintAreaEnterPoint, BlueprintReference<BlueprintAreaEnterPoint>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static AreaEnterPointConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static AreaEnterPointConfigurator For(Blueprint<BlueprintAreaEnterPoint, BlueprintReference<BlueprintAreaEnterPoint>> blueprint)
     {
-      return new AreaEnterPointConfigurator(name);
+      return new AreaEnterPointConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static AreaEnterPointConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintAreaEnterPoint>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEnterPoint.m_Area"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    
-    public AreaEnterPointConfigurator SetArea(string? area)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEnterPoint.m_AreaPart"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="areaPart"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaPart"/></param>
-    
-    public AreaEnterPointConfigurator SetAreaPart(string? areaPart)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(areaPart);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEnterPointConfigurator SetTooltipList(List<LocalizedString>? tooltipList)
-    {
-      ValidateParam(tooltipList);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TooltipList = tooltipList;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEnterPointConfigurator AddToTooltipList(params LocalizedString[] tooltipList)
-    {
-      ValidateParam(tooltipList);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TooltipList.AddRange(tooltipList.ToList() ?? new List<LocalizedString>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintAreaEnterPoint.m_TooltipList"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEnterPointConfigurator RemoveFromTooltipList(params LocalizedString[] tooltipList)
-    {
-      ValidateParam(tooltipList);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TooltipList = bp.m_TooltipList.Where(item => !tooltipList.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEnterPoint.m_Tooltip"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEnterPointConfigurator SetTooltip(LocalizedString? tooltip)
-    {
-      ValidateParam(tooltip);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Tooltip = tooltip ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEnterPoint.m_CanBeOutsideNavmesh"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEnterPointConfigurator SetCanBeOutsideNavmesh(bool canBeOutsideNavmesh)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CanBeOutsideNavmesh = canBeOutsideNavmesh;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEnterPoint.Icon"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEnterPointConfigurator SetIcon(Sprite icon)
-    {
-      ValidateParam(icon);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Icon = icon;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEnterPoint.HoverIcon"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEnterPointConfigurator SetHoverIcon(Sprite hoverIcon)
-    {
-      ValidateParam(hoverIcon);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.HoverIcon = hoverIcon;
-          });
-    }
-
-    /// <summary>
-    /// Adds <see cref="AllowOnZoneSettings"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public AreaEnterPointConfigurator AddAllowOnZoneSettings(
-        GlobalMapZone[]? allowedNaturalSettings = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new AllowOnZoneSettings();
-      component.m_AllowedNaturalSettings = allowedNaturalSettings;
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
   }
 }

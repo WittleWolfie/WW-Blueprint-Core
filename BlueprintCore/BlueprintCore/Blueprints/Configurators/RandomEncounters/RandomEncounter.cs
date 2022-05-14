@@ -1,239 +1,51 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Conditions.Builder;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Globalmap.View;
-using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintRandomEncounter"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class RandomEncounterConfigurator : BaseBlueprintConfigurator<BlueprintRandomEncounter, RandomEncounterConfigurator>
+  public class RandomEncounterConfigurator
+    : BaseRandomEncounterConfigurator<BlueprintRandomEncounter, RandomEncounterConfigurator>
   {
-    private RandomEncounterConfigurator(string name) : base(name) { }
+    private RandomEncounterConfigurator(Blueprint<BlueprintRandomEncounter, BlueprintReference<BlueprintRandomEncounter>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static RandomEncounterConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static RandomEncounterConfigurator For(Blueprint<BlueprintRandomEncounter, BlueprintReference<BlueprintRandomEncounter>> blueprint)
     {
-      return new RandomEncounterConfigurator(name);
+      return new RandomEncounterConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static RandomEncounterConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintRandomEncounter>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.ExcludeFromREList"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetExcludeFromREList(bool excludeFromREList)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ExcludeFromREList = excludeFromREList;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.IsPeaceful"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetIsPeaceful(bool isPeaceful)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.IsPeaceful = isPeaceful;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.Name"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetName(LocalizedString? name)
-    {
-      ValidateParam(name);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Name = name ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.Description"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetDescription(LocalizedString? description)
-    {
-      ValidateParam(description);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Description = description ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.AvoidType"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetAvoidType(EncounterAvoidType avoidType)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.AvoidType = avoidType;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.AvoidDC"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetAvoidDC(int avoidDC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.AvoidDC = avoidDC;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.EncountersLimit"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetEncountersLimit(int encountersLimit)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EncountersLimit = encountersLimit;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.Conditions"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetConditions(ConditionsBuilder? conditions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.PawnPrefab"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetPawnPrefab(GlobalMapRandomEncounterPawn pawnPrefab)
-    {
-      ValidateParam(pawnPrefab);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.PawnPrefab = pawnPrefab;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.Type"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetType(EncounterType type)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Type = type;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.DisableAutoSave"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetDisableAutoSave(bool disableAutoSave)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DisableAutoSave = disableAutoSave;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.OnEnter"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetOnEnter(ActionsBuilder? onEnter)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.OnEnter = onEnter?.Build() ?? Constants.Empty.Actions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.CanBeCampingEncounter"/> (Auto Generated)
-    /// </summary>
-    
-    public RandomEncounterConfigurator SetCanBeCampingEncounter(bool canBeCampingEncounter)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CanBeCampingEncounter = canBeCampingEncounter;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.m_AreaEntrance"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="areaEntrance"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    
-    public RandomEncounterConfigurator SetAreaEntrance(string? areaEntrance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(areaEntrance);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintRandomEncounter.m_BookEvent"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="bookEvent"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintDialog"/></param>
-    
-    public RandomEncounterConfigurator SetBookEvent(string? bookEvent)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(bookEvent);
-          });
-    }
   }
 }

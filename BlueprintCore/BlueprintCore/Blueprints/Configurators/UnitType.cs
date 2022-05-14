@@ -1,141 +1,50 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Localization;
-using System.Linq;
-using UnityEngine;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintUnitType"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class UnitTypeConfigurator : BaseBlueprintConfigurator<BlueprintUnitType, UnitTypeConfigurator>
+  public class UnitTypeConfigurator
+    : BaseUnitTypeConfigurator<BlueprintUnitType, UnitTypeConfigurator>
   {
-    private UnitTypeConfigurator(string name) : base(name) { }
+    private UnitTypeConfigurator(Blueprint<BlueprintUnitType, BlueprintReference<BlueprintUnitType>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static UnitTypeConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static UnitTypeConfigurator For(Blueprint<BlueprintUnitType, BlueprintReference<BlueprintUnitType>> blueprint)
     {
-      return new UnitTypeConfigurator(name);
+      return new UnitTypeConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static UnitTypeConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintUnitType>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitType.KnowledgeStat"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitTypeConfigurator SetKnowledgeStat(StatType knowledgeStat)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KnowledgeStat = knowledgeStat;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitType.Image"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitTypeConfigurator SetImage(Sprite image)
-    {
-      ValidateParam(image);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Image = image;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitType.Name"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitTypeConfigurator SetName(LocalizedString? name)
-    {
-      ValidateParam(name);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Name = name ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitType.Description"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitTypeConfigurator SetDescription(LocalizedString? description)
-    {
-      ValidateParam(description);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Description = description ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitType.m_SignatureAbilities"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    
-    public UnitTypeConfigurator SetSignatureAbilities(string[]? signatureAbilities)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SignatureAbilities = signatureAbilities.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintUnitType.m_SignatureAbilities"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    
-    public UnitTypeConfigurator AddToSignatureAbilities(params string[] signatureAbilities)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SignatureAbilities = CommonTool.Append(bp.m_SignatureAbilities, signatureAbilities.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintUnitType.m_SignatureAbilities"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="signatureAbilities"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    
-    public UnitTypeConfigurator RemoveFromSignatureAbilities(params string[] signatureAbilities)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = signatureAbilities.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
-            bp.m_SignatureAbilities =
-                bp.m_SignatureAbilities
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

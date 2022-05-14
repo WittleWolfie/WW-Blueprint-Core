@@ -1,55 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintItemThiefTool"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ItemThiefToolConfigurator : BaseItemConfigurator<BlueprintItemThiefTool, ItemThiefToolConfigurator>
+  public class ItemThiefToolConfigurator
+    : BaseItemThiefToolConfigurator<BlueprintItemThiefTool, ItemThiefToolConfigurator>
   {
-    private ItemThiefToolConfigurator(string name) : base(name) { }
+    private ItemThiefToolConfigurator(Blueprint<BlueprintItemThiefTool, BlueprintReference<BlueprintItemThiefTool>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ItemThiefToolConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ItemThiefToolConfigurator For(Blueprint<BlueprintItemThiefTool, BlueprintReference<BlueprintItemThiefTool>> blueprint)
     {
-      return new ItemThiefToolConfigurator(name);
+      return new ItemThiefToolConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ItemThiefToolConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintItemThiefTool>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintItemThiefTool.m_Consumable"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemThiefToolConfigurator SetConsumable(bool consumable)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Consumable = consumable;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemThiefTool.m_SkillCheckBonus"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemThiefToolConfigurator SetSkillCheckBonus(int skillCheckBonus)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SkillCheckBonus = skillCheckBonus;
-          });
-    }
   }
 }

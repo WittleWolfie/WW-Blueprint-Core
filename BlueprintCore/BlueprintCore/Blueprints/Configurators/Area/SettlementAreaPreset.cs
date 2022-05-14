@@ -1,75 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
-using Kingmaker.Kingdom;
-using Kingmaker.Kingdom.Settlements;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintSettlementAreaPreset"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class SettlementAreaPresetConfigurator : BaseAreaPresetConfigurator<BlueprintSettlementAreaPreset, SettlementAreaPresetConfigurator>
+  public class SettlementAreaPresetConfigurator
+    : BaseSettlementAreaPresetConfigurator<BlueprintSettlementAreaPreset, SettlementAreaPresetConfigurator>
   {
-    private SettlementAreaPresetConfigurator(string name) : base(name) { }
+    private SettlementAreaPresetConfigurator(Blueprint<BlueprintSettlementAreaPreset, BlueprintReference<BlueprintSettlementAreaPreset>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static SettlementAreaPresetConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static SettlementAreaPresetConfigurator For(Blueprint<BlueprintSettlementAreaPreset, BlueprintReference<BlueprintSettlementAreaPreset>> blueprint)
     {
-      return new SettlementAreaPresetConfigurator(name);
+      return new SettlementAreaPresetConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static SettlementAreaPresetConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintSettlementAreaPreset>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlement"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="startSettlement"><see cref="Kingmaker.Kingdom.BlueprintSettlement"/></param>
-    
-    public SettlementAreaPresetConfigurator SetStartSettlement(string? startSettlement)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_StartSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(startSettlement);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlementPoint"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="startSettlementPoint"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    
-    public SettlementAreaPresetConfigurator SetStartSettlementPoint(string? startSettlementPoint)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_StartSettlementPoint = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(startSettlementPoint);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlementAreaPreset.m_StartSettlementLevel"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementAreaPresetConfigurator SetStartSettlementLevel(SettlementState.LevelType startSettlementLevel)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_StartSettlementLevel = startSettlementLevel;
-          });
-    }
   }
 }

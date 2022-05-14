@@ -1,73 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Kingdom.Blueprints;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Kingdom.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCrusadeEvent"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CrusadeEventConfigurator : BaseKingdomEventBaseConfigurator<BlueprintCrusadeEvent, CrusadeEventConfigurator>
+  public class CrusadeEventConfigurator
+    : BaseCrusadeEventConfigurator<BlueprintCrusadeEvent, CrusadeEventConfigurator>
   {
-    private CrusadeEventConfigurator(string name) : base(name) { }
+    private CrusadeEventConfigurator(Blueprint<BlueprintCrusadeEvent, BlueprintReference<BlueprintCrusadeEvent>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CrusadeEventConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CrusadeEventConfigurator For(Blueprint<BlueprintCrusadeEvent, BlueprintReference<BlueprintCrusadeEvent>> blueprint)
     {
-      return new CrusadeEventConfigurator(name);
+      return new CrusadeEventConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CrusadeEventConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCrusadeEvent>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
-    /// </summary>
-    
-    public CrusadeEventConfigurator SetEventSolutions(EventSolution[]? eventSolutions)
-    {
-      ValidateParam(eventSolutions);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_EventSolutions = eventSolutions;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
-    /// </summary>
-    
-    public CrusadeEventConfigurator AddToEventSolutions(params EventSolution[] eventSolutions)
-    {
-      ValidateParam(eventSolutions);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_EventSolutions = CommonTool.Append(bp.m_EventSolutions, eventSolutions ?? new EventSolution[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCrusadeEvent.m_EventSolutions"/> (Auto Generated)
-    /// </summary>
-    
-    public CrusadeEventConfigurator RemoveFromEventSolutions(params EventSolution[] eventSolutions)
-    {
-      ValidateParam(eventSolutions);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_EventSolutions = bp.m_EventSolutions.Where(item => !eventSolutions.Contains(item)).ToArray();
-          });
-    }
   }
 }

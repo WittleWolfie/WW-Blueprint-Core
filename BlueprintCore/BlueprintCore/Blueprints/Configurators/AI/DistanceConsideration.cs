@@ -1,81 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="DistanceConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class DistanceConsiderationConfigurator : BaseConsiderationConfigurator<DistanceConsideration, DistanceConsiderationConfigurator>
+  public class DistanceConsiderationConfigurator
+    : BaseDistanceConsiderationConfigurator<DistanceConsideration, DistanceConsiderationConfigurator>
   {
-    private DistanceConsiderationConfigurator(string name) : base(name) { }
+    private DistanceConsiderationConfigurator(Blueprint<DistanceConsideration, BlueprintReference<DistanceConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static DistanceConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static DistanceConsiderationConfigurator For(Blueprint<DistanceConsideration, BlueprintReference<DistanceConsideration>> blueprint)
     {
-      return new DistanceConsiderationConfigurator(name);
+      return new DistanceConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static DistanceConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<DistanceConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="DistanceConsideration.MinDistance"/> (Auto Generated)
-    /// </summary>
-    
-    public DistanceConsiderationConfigurator SetMinDistance(float minDistance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MinDistance = minDistance;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="DistanceConsideration.MaxDistance"/> (Auto Generated)
-    /// </summary>
-    
-    public DistanceConsiderationConfigurator SetMaxDistance(float maxDistance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MaxDistance = maxDistance;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="DistanceConsideration.MaxDistanceScore"/> (Auto Generated)
-    /// </summary>
-    
-    public DistanceConsiderationConfigurator SetMaxDistanceScore(float maxDistanceScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MaxDistanceScore = maxDistanceScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="DistanceConsideration.MinDistanceScore"/> (Auto Generated)
-    /// </summary>
-    
-    public DistanceConsiderationConfigurator SetMinDistanceScore(float minDistanceScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MinDistanceScore = minDistanceScore;
-          });
-    }
   }
 }

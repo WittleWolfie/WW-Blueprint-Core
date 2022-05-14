@@ -1,71 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintTacticalCombatAiCastSpell"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class TacticalCombatAiCastSpellConfigurator : BaseTacticalCombatAiActionConfigurator<BlueprintTacticalCombatAiCastSpell, TacticalCombatAiCastSpellConfigurator>
+  public class TacticalCombatAiCastSpellConfigurator
+    : BaseTacticalCombatAiCastSpellConfigurator<BlueprintTacticalCombatAiCastSpell, TacticalCombatAiCastSpellConfigurator>
   {
-    private TacticalCombatAiCastSpellConfigurator(string name) : base(name) { }
+    private TacticalCombatAiCastSpellConfigurator(Blueprint<BlueprintTacticalCombatAiCastSpell, BlueprintReference<BlueprintTacticalCombatAiCastSpell>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static TacticalCombatAiCastSpellConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static TacticalCombatAiCastSpellConfigurator For(Blueprint<BlueprintTacticalCombatAiCastSpell, BlueprintReference<BlueprintTacticalCombatAiCastSpell>> blueprint)
     {
-      return new TacticalCombatAiCastSpellConfigurator(name);
+      return new TacticalCombatAiCastSpellConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static TacticalCombatAiCastSpellConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintTacticalCombatAiCastSpell>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintTacticalCombatAiCastSpell.m_Ability"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="ability"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    
-    public TacticalCombatAiCastSpellConfigurator SetAbility(string? ability)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(ability);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTacticalCombatAiCastSpell.m_ForceTargetSelf"/> (Auto Generated)
-    /// </summary>
-    
-    public TacticalCombatAiCastSpellConfigurator SetForceTargetSelf(bool forceTargetSelf)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ForceTargetSelf = forceTargetSelf;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTacticalCombatAiCastSpell.m_ForceTargetEnemy"/> (Auto Generated)
-    /// </summary>
-    
-    public TacticalCombatAiCastSpellConfigurator SetForceTargetEnemy(bool forceTargetEnemy)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ForceTargetEnemy = forceTargetEnemy;
-          });
-    }
   }
 }

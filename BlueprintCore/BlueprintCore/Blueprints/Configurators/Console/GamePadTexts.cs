@@ -1,74 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Console;
-using System.Collections.Generic;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Console;
+
 namespace BlueprintCore.Blueprints.Configurators.Console
 {
   /// <summary>
   /// Configurator for <see cref="GamePadTexts"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class GamePadTextsConfigurator : BaseBlueprintConfigurator<GamePadTexts, GamePadTextsConfigurator>
+  public class GamePadTextsConfigurator
+    : BaseGamePadTextsConfigurator<GamePadTexts, GamePadTextsConfigurator>
   {
-    private GamePadTextsConfigurator(string name) : base(name) { }
+    private GamePadTextsConfigurator(Blueprint<GamePadTexts, BlueprintReference<GamePadTexts>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static GamePadTextsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static GamePadTextsConfigurator For(Blueprint<GamePadTexts, BlueprintReference<GamePadTexts>> blueprint)
     {
-      return new GamePadTextsConfigurator(name);
+      return new GamePadTextsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static GamePadTextsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<GamePadTexts>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
-    /// </summary>
-    
-    public GamePadTextsConfigurator SetLayers(List<GamePadTexts.GamePadTextsLayer>? layers)
-    {
-      ValidateParam(layers);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Layers = layers;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
-    /// </summary>
-    
-    public GamePadTextsConfigurator AddToLayers(params GamePadTexts.GamePadTextsLayer[] layers)
-    {
-      ValidateParam(layers);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Layers.AddRange(layers.ToList() ?? new List<GamePadTexts.GamePadTextsLayer>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="GamePadTexts.m_Layers"/> (Auto Generated)
-    /// </summary>
-    
-    public GamePadTextsConfigurator RemoveFromLayers(params GamePadTexts.GamePadTextsLayer[] layers)
-    {
-      ValidateParam(layers);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Layers = bp.m_Layers.Where(item => !layers.Contains(item)).ToList();
-          });
-    }
   }
 }

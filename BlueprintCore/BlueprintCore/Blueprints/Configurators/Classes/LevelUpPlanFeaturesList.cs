@@ -1,73 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Classes;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintLevelUpPlanFeaturesList"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class LevelUpPlanFeaturesListConfigurator : BaseFeatureConfigurator<BlueprintLevelUpPlanFeaturesList, LevelUpPlanFeaturesListConfigurator>
+  public class LevelUpPlanFeaturesListConfigurator
+    : BaseLevelUpPlanFeaturesListConfigurator<BlueprintLevelUpPlanFeaturesList, LevelUpPlanFeaturesListConfigurator>
   {
-    private LevelUpPlanFeaturesListConfigurator(string name) : base(name) { }
+    private LevelUpPlanFeaturesListConfigurator(Blueprint<BlueprintLevelUpPlanFeaturesList, BlueprintReference<BlueprintLevelUpPlanFeaturesList>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static LevelUpPlanFeaturesListConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static LevelUpPlanFeaturesListConfigurator For(Blueprint<BlueprintLevelUpPlanFeaturesList, BlueprintReference<BlueprintLevelUpPlanFeaturesList>> blueprint)
     {
-      return new LevelUpPlanFeaturesListConfigurator(name);
+      return new LevelUpPlanFeaturesListConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static LevelUpPlanFeaturesListConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintLevelUpPlanFeaturesList>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
-    /// </summary>
-    
-    public LevelUpPlanFeaturesListConfigurator SetFeatures(BlueprintLevelUpPlanFeaturesList.FeatureWrapper[]? features)
-    {
-      ValidateParam(features);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Features = features;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
-    /// </summary>
-    
-    public LevelUpPlanFeaturesListConfigurator AddToFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
-    {
-      ValidateParam(features);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Features = CommonTool.Append(bp.Features, features ?? new BlueprintLevelUpPlanFeaturesList.FeatureWrapper[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintLevelUpPlanFeaturesList.Features"/> (Auto Generated)
-    /// </summary>
-    
-    public LevelUpPlanFeaturesListConfigurator RemoveFromFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
-    {
-      ValidateParam(features);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Features = bp.Features.Where(item => !features.Contains(item)).ToArray();
-          });
-    }
   }
 }

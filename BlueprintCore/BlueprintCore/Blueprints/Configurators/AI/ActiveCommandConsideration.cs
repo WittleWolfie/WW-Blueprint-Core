@@ -1,69 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-using Kingmaker.UnitLogic.Commands.Base;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="ActiveCommandConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ActiveCommandConsiderationConfigurator : BaseConsiderationConfigurator<ActiveCommandConsideration, ActiveCommandConsiderationConfigurator>
+  public class ActiveCommandConsiderationConfigurator
+    : BaseActiveCommandConsiderationConfigurator<ActiveCommandConsideration, ActiveCommandConsiderationConfigurator>
   {
-    private ActiveCommandConsiderationConfigurator(string name) : base(name) { }
+    private ActiveCommandConsiderationConfigurator(Blueprint<ActiveCommandConsideration, BlueprintReference<ActiveCommandConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ActiveCommandConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ActiveCommandConsiderationConfigurator For(Blueprint<ActiveCommandConsideration, BlueprintReference<ActiveCommandConsideration>> blueprint)
     {
-      return new ActiveCommandConsiderationConfigurator(name);
+      return new ActiveCommandConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ActiveCommandConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<ActiveCommandConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="ActiveCommandConsideration.CommandType"/> (Auto Generated)
-    /// </summary>
-    
-    public ActiveCommandConsiderationConfigurator SetCommandType(UnitCommand.CommandType commandType)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CommandType = commandType;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="ActiveCommandConsideration.HasCommandScore"/> (Auto Generated)
-    /// </summary>
-    
-    public ActiveCommandConsiderationConfigurator SetHasCommandScore(float hasCommandScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.HasCommandScore = hasCommandScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="ActiveCommandConsideration.NoCommandScore"/> (Auto Generated)
-    /// </summary>
-    
-    public ActiveCommandConsiderationConfigurator SetNoCommandScore(float noCommandScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.NoCommandScore = noCommandScore;
-          });
-    }
   }
 }

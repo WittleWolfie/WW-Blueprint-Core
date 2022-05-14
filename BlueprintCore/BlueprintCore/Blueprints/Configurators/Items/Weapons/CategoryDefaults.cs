@@ -1,73 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Items.Weapons;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items.Weapons;
+
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCategoryDefaults"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CategoryDefaultsConfigurator : BaseBlueprintConfigurator<BlueprintCategoryDefaults, CategoryDefaultsConfigurator>
+  public class CategoryDefaultsConfigurator
+    : BaseCategoryDefaultsConfigurator<BlueprintCategoryDefaults, CategoryDefaultsConfigurator>
   {
-    private CategoryDefaultsConfigurator(string name) : base(name) { }
+    private CategoryDefaultsConfigurator(Blueprint<BlueprintCategoryDefaults, BlueprintReference<BlueprintCategoryDefaults>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CategoryDefaultsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CategoryDefaultsConfigurator For(Blueprint<BlueprintCategoryDefaults, BlueprintReference<BlueprintCategoryDefaults>> blueprint)
     {
-      return new CategoryDefaultsConfigurator(name);
+      return new CategoryDefaultsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CategoryDefaultsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCategoryDefaults>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
-    /// </summary>
-    
-    public CategoryDefaultsConfigurator SetEntries(BlueprintCategoryDefaults.CategoryDefaultEntry[]? entries)
-    {
-      ValidateParam(entries);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Entries = entries;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
-    /// </summary>
-    
-    public CategoryDefaultsConfigurator AddToEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
-    {
-      ValidateParam(entries);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Entries = CommonTool.Append(bp.Entries, entries ?? new BlueprintCategoryDefaults.CategoryDefaultEntry[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCategoryDefaults.Entries"/> (Auto Generated)
-    /// </summary>
-    
-    public CategoryDefaultsConfigurator RemoveFromEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
-    {
-      ValidateParam(entries);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Entries = bp.Entries.Where(item => !entries.Contains(item)).ToArray();
-          });
-    }
   }
 }

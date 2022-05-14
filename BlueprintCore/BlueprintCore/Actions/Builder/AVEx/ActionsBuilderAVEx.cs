@@ -58,6 +58,12 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>TickSwarmDamageBuff</term><description>97fd811a706e31c43887e163b51660b0</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="soundName">
+    /// <para>
+    /// Tooltip: Ak event name from Wwise library
+    /// </para>
+    /// </param>
     public static ActionsBuilder PlaySound(
         this ActionsBuilder builder,
         string soundName)
@@ -109,6 +115,12 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>ZachariusNecromancy</term><description>de12840a4662481f937ff9542a6beb6b</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="barkDurationByText">
+    /// <para>
+    /// Tooltip: Bark duration depends on text length
+    /// </para>
+    /// </param>
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
         LocalizedString whatToBark,
@@ -153,6 +165,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/CameraToPosition
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>6264845f5654cdd48809fe36f5dc4ffb</description></item>
@@ -176,6 +192,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/Play2DSound
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
@@ -183,6 +203,22 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>WillSaveGhoulCheckPassed_Actions</term><description>0a39e8f4368328949aca5616589abe5d</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="setRace">
+    /// <para>
+    /// Tooltip: Sets Ak switch on player's Race
+    /// </para>
+    /// </param>
+    /// <param name="setSex">
+    /// <para>
+    /// Tooltip: Sets Ak switch on player's Sex
+    /// </para>
+    /// </param>
+    /// <param name="soundName">
+    /// <para>
+    /// Tooltip: Ak event name from Wwise library
+    /// </para>
+    /// </param>
     public static ActionsBuilder Play2DSound(
         this ActionsBuilder builder,
         bool? setRace = null,
@@ -202,6 +238,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/Play3DSound
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>979c0288728143d4cadd65e43eb70f77</description></item>
@@ -209,6 +249,27 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>Thieflings_Early_Dialogue</term><description>ad1e4f7de5da23a4d8317d79677a5db9</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="setCurrentSpeaker">
+    /// <para>
+    /// Tooltip: Sets SoundSourceObject as current dialog speaker
+    /// </para>
+    /// </param>
+    /// <param name="setRace">
+    /// <para>
+    /// Tooltip: Sets Ak switch on player's Race
+    /// </para>
+    /// </param>
+    /// <param name="setSex">
+    /// <para>
+    /// Tooltip: Sets Ak switch on player's Sex
+    /// </para>
+    /// </param>
+    /// <param name="soundName">
+    /// <para>
+    /// Tooltip: Ak event name from Wwise library
+    /// </para>
+    /// </param>
     public static ActionsBuilder Play3DSound(
         this ActionsBuilder builder,
         bool? setCurrentSpeaker = null,
@@ -263,6 +324,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/PlayCustomMusic
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonDevilOnce_dialogue</term><description>eaf7614f4e1279d4bb6b7e5a1bfdbb57</description></item>
@@ -287,6 +352,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/Play cutscene
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
@@ -296,6 +365,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </remarks>
     ///
     /// <param name="cutscene">
+    /// <para>
     /// Blueprint of type Cutscene. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -303,7 +373,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder PlayCutscene(
         this ActionsBuilder builder,
@@ -355,6 +426,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/SetSoundState
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
@@ -378,6 +453,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/ShowBark
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
@@ -385,6 +464,12 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="barkDurationByText">
+    /// <para>
+    /// Tooltip: Bark duration depends on text length
+    /// </para>
+    /// </param>
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
         bool? barkDurationByText = null,
@@ -462,6 +547,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/Stop cutscene
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
@@ -470,7 +559,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="checkType">
+    /// <para>
+    /// InfoBox: If set to 'Controlled', stops all cutscenes that marked selected unit.  If set to 'Params' stops all cutscenes that have selected unit as a parameter.  'Controlled' is the old mode, you probably never need it.
+    /// </para>
+    /// </param>
     /// <param name="cutscene">
+    /// <para>
     /// Blueprint of type Cutscene. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -478,7 +573,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder StopCutscene(
         this ActionsBuilder builder,

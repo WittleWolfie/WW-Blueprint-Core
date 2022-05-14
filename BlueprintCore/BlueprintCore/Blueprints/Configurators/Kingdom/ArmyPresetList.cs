@@ -1,81 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintArmyPresetList"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ArmyPresetListConfigurator : BaseBlueprintConfigurator<BlueprintArmyPresetList, ArmyPresetListConfigurator>
+  public class ArmyPresetListConfigurator
+    : BaseArmyPresetListConfigurator<BlueprintArmyPresetList, ArmyPresetListConfigurator>
   {
-    private ArmyPresetListConfigurator(string name) : base(name) { }
+    private ArmyPresetListConfigurator(Blueprint<BlueprintArmyPresetList, BlueprintReference<BlueprintArmyPresetList>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ArmyPresetListConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ArmyPresetListConfigurator For(Blueprint<BlueprintArmyPresetList, BlueprintReference<BlueprintArmyPresetList>> blueprint)
     {
-      return new ArmyPresetListConfigurator(name);
+      return new ArmyPresetListConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ArmyPresetListConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintArmyPresetList>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyPresetList.m_Presets"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
-    
-    public ArmyPresetListConfigurator SetPresets(string[]? presets)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Presets = presets.Select(name => BlueprintTool.GetRef<BlueprintArmyPresetReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintArmyPresetList.m_Presets"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
-    
-    public ArmyPresetListConfigurator AddToPresets(params string[] presets)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Presets = CommonTool.Append(bp.m_Presets, presets.Select(name => BlueprintTool.GetRef<BlueprintArmyPresetReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintArmyPresetList.m_Presets"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="presets"><see cref="Kingmaker.Armies.Blueprints.BlueprintArmyPreset"/></param>
-    
-    public ArmyPresetListConfigurator RemoveFromPresets(params string[] presets)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = presets.Select(name => BlueprintTool.GetRef<BlueprintArmyPresetReference>(name));
-            bp.m_Presets =
-                bp.m_Presets
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

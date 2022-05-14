@@ -1,160 +1,50 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using System.Linq;
-using UnityEngine;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintProjectileTrajectory"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ProjectileTrajectoryConfigurator : BaseBlueprintConfigurator<BlueprintProjectileTrajectory, ProjectileTrajectoryConfigurator>
+  public class ProjectileTrajectoryConfigurator
+    : BaseProjectileTrajectoryConfigurator<BlueprintProjectileTrajectory, ProjectileTrajectoryConfigurator>
   {
-    private ProjectileTrajectoryConfigurator(string name) : base(name) { }
+    private ProjectileTrajectoryConfigurator(Blueprint<BlueprintProjectileTrajectory, BlueprintReference<BlueprintProjectileTrajectory>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ProjectileTrajectoryConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ProjectileTrajectoryConfigurator For(Blueprint<BlueprintProjectileTrajectory, BlueprintReference<BlueprintProjectileTrajectory>> blueprint)
     {
-      return new ProjectileTrajectoryConfigurator(name);
+      return new ProjectileTrajectoryConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ProjectileTrajectoryConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintProjectileTrajectory>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintProjectileTrajectory.UpDirection"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator SetUpDirection(Vector3 upDirection)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UpDirection = upDirection;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintProjectileTrajectory.PlaneOffset"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator SetPlaneOffset(TrajectoryOffset[]? planeOffset)
-    {
-      ValidateParam(planeOffset);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.PlaneOffset = planeOffset;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintProjectileTrajectory.PlaneOffset"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator AddToPlaneOffset(params TrajectoryOffset[] planeOffset)
-    {
-      ValidateParam(planeOffset);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.PlaneOffset = CommonTool.Append(bp.PlaneOffset, planeOffset ?? new TrajectoryOffset[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintProjectileTrajectory.PlaneOffset"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator RemoveFromPlaneOffset(params TrajectoryOffset[] planeOffset)
-    {
-      ValidateParam(planeOffset);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.PlaneOffset = bp.PlaneOffset.Where(item => !planeOffset.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintProjectileTrajectory.UpOffset"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator SetUpOffset(TrajectoryOffset[]? upOffset)
-    {
-      ValidateParam(upOffset);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UpOffset = upOffset;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintProjectileTrajectory.UpOffset"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator AddToUpOffset(params TrajectoryOffset[] upOffset)
-    {
-      ValidateParam(upOffset);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UpOffset = CommonTool.Append(bp.UpOffset, upOffset ?? new TrajectoryOffset[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintProjectileTrajectory.UpOffset"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator RemoveFromUpOffset(params TrajectoryOffset[] upOffset)
-    {
-      ValidateParam(upOffset);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UpOffset = bp.UpOffset.Where(item => !upOffset.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintProjectileTrajectory.AmplitudeScaleByLifetime"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator SetAmplitudeScaleByLifetime(AnimationCurve amplitudeScaleByLifetime)
-    {
-      ValidateParam(amplitudeScaleByLifetime);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.AmplitudeScaleByLifetime = amplitudeScaleByLifetime;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintProjectileTrajectory.AmplitudeScaleByFullDistance"/> (Auto Generated)
-    /// </summary>
-    
-    public ProjectileTrajectoryConfigurator SetAmplitudeScaleByFullDistance(AnimationCurve amplitudeScaleByFullDistance)
-    {
-      ValidateParam(amplitudeScaleByFullDistance);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.AmplitudeScaleByFullDistance = amplitudeScaleByFullDistance;
-          });
-    }
   }
 }

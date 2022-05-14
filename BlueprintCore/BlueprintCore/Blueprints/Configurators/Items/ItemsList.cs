@@ -1,81 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintItemsList"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ItemsListConfigurator : BaseBlueprintConfigurator<BlueprintItemsList, ItemsListConfigurator>
+  public class ItemsListConfigurator
+    : BaseItemsListConfigurator<BlueprintItemsList, ItemsListConfigurator>
   {
-    private ItemsListConfigurator(string name) : base(name) { }
+    private ItemsListConfigurator(Blueprint<BlueprintItemsList, BlueprintReference<BlueprintItemsList>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ItemsListConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ItemsListConfigurator For(Blueprint<BlueprintItemsList, BlueprintReference<BlueprintItemsList>> blueprint)
     {
-      return new ItemsListConfigurator(name);
+      return new ItemsListConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ItemsListConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintItemsList>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintItemsList.m_Items"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    
-    public ItemsListConfigurator SetItems(string[]? items)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Items = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintItemsList.m_Items"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    
-    public ItemsListConfigurator AddToItems(params string[] items)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Items = CommonTool.Append(bp.m_Items, items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintItemsList.m_Items"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="items"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    
-    public ItemsListConfigurator RemoveFromItems(params string[] items)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = items.Select(name => BlueprintTool.GetRef<BlueprintItemReference>(name));
-            bp.m_Items =
-                bp.m_Items
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

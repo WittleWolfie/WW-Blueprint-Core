@@ -1,243 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Loot;
-using Kingmaker.Dungeon.Blueprints;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Loot;
+
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintUnitLoot"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  
-  public abstract class BaseUnitLootConfigurator<T, TBuilder>
-      : BaseBlueprintConfigurator<T, TBuilder>
-      where T : BlueprintUnitLoot
-      where TBuilder : BaseUnitLootConfigurator<T, TBuilder>
-  {
-    protected BaseUnitLootConfigurator(string name) : base(name) { }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitLoot.m_Dummy"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetDummy(BlueprintUnitLoot.Dummy dummy)
-    {
-      ValidateParam(dummy);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Dummy = dummy;
-          });
-    }
-
-    /// <summary>
-    /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public TBuilder AddDungeonVendorItemsComponent(
-        bool bigTable = default,
-        int minCR = default,
-        int count = default)
-    {
-      var component = new DungeonVendorItemsComponent();
-      component.BigTable = bigTable;
-      component.MinCR = minCR;
-      component.Count = count;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LootItemsPackFixed"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public TBuilder AddLootItemsPackFixed(
-        LootItem item,
-        int count = default)
-    {
-      ValidateParam(item);
-
-      var component = new LootItemsPackFixed();
-      component.m_Item = item;
-      component.m_Count = count;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LootItemsPackFixedAndNotInPlayerInitialInventory"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public TBuilder AddLootItemsPackFixedAndNotInPlayerInitialInventory(
-        LootItem item,
-        int count = default)
-    {
-      ValidateParam(item);
-
-      var component = new LootItemsPackFixedAndNotInPlayerInitialInventory();
-      component.m_Item = item;
-      component.m_Count = count;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LootItemsPackVariable"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public TBuilder AddLootItemsPackVariable(
-        LootItem item,
-        int countFrom = default,
-        int countTo = default)
-    {
-      ValidateParam(item);
-
-      var component = new LootItemsPackVariable();
-      component.m_Item = item;
-      component.m_CountFrom = countFrom;
-      component.m_CountTo = countTo;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LootRandomItem"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public TBuilder AddLootRandomItem(
-        LootItemAndWeight[]? items = null)
-    {
-      ValidateParam(items);
-
-      var component = new LootRandomItem();
-      component.m_Items = items;
-      return AddComponent(component);
-    }
-  }
-
   /// <summary>
   /// Configurator for <see cref="BlueprintUnitLoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class UnitLootConfigurator : BaseBlueprintConfigurator<BlueprintUnitLoot, UnitLootConfigurator>
+  public class UnitLootConfigurator
+    : BaseUnitLootConfigurator<BlueprintUnitLoot, UnitLootConfigurator>
   {
-    private UnitLootConfigurator(string name) : base(name) { }
+    private UnitLootConfigurator(Blueprint<BlueprintUnitLoot, BlueprintReference<BlueprintUnitLoot>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static UnitLootConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static UnitLootConfigurator For(Blueprint<BlueprintUnitLoot, BlueprintReference<BlueprintUnitLoot>> blueprint)
     {
-      return new UnitLootConfigurator(name);
+      return new UnitLootConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static UnitLootConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintUnitLoot>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitLoot.m_Dummy"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitLootConfigurator SetDummy(BlueprintUnitLoot.Dummy dummy)
-    {
-      ValidateParam(dummy);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Dummy = dummy;
-          });
-    }
-
-    /// <summary>
-    /// Adds <see cref="DungeonVendorItemsComponent"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public UnitLootConfigurator AddDungeonVendorItemsComponent(
-        bool bigTable = default,
-        int minCR = default,
-        int count = default)
-    {
-      var component = new DungeonVendorItemsComponent();
-      component.BigTable = bigTable;
-      component.MinCR = minCR;
-      component.Count = count;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LootItemsPackFixed"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public UnitLootConfigurator AddLootItemsPackFixed(
-        LootItem item,
-        int count = default)
-    {
-      ValidateParam(item);
-
-      var component = new LootItemsPackFixed();
-      component.m_Item = item;
-      component.m_Count = count;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LootItemsPackFixedAndNotInPlayerInitialInventory"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public UnitLootConfigurator AddLootItemsPackFixedAndNotInPlayerInitialInventory(
-        LootItem item,
-        int count = default)
-    {
-      ValidateParam(item);
-
-      var component = new LootItemsPackFixedAndNotInPlayerInitialInventory();
-      component.m_Item = item;
-      component.m_Count = count;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LootItemsPackVariable"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public UnitLootConfigurator AddLootItemsPackVariable(
-        LootItem item,
-        int countFrom = default,
-        int countTo = default)
-    {
-      ValidateParam(item);
-
-      var component = new LootItemsPackVariable();
-      component.m_Item = item;
-      component.m_CountFrom = countFrom;
-      component.m_CountTo = countTo;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LootRandomItem"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public UnitLootConfigurator AddLootRandomItem(
-        LootItemAndWeight[]? items = null)
-    {
-      ValidateParam(items);
-
-      var component = new LootRandomItem();
-      component.m_Items = items;
-      return AddComponent(component);
-    }
   }
 }

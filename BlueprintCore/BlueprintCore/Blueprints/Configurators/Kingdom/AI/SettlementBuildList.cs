@@ -1,106 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.AI;
-using Kingmaker.UI.Settlement;
-using System.Collections.Generic;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
 {
   /// <summary>
   /// Configurator for <see cref="SettlementBuildList"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class SettlementBuildListConfigurator : BaseBlueprintConfigurator<SettlementBuildList, SettlementBuildListConfigurator>
+  public class SettlementBuildListConfigurator
+    : BaseSettlementBuildListConfigurator<SettlementBuildList, SettlementBuildListConfigurator>
   {
-    private SettlementBuildListConfigurator(string name) : base(name) { }
+    private SettlementBuildListConfigurator(Blueprint<SettlementBuildList, BlueprintReference<SettlementBuildList>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static SettlementBuildListConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static SettlementBuildListConfigurator For(Blueprint<SettlementBuildList, BlueprintReference<SettlementBuildList>> blueprint)
     {
-      return new SettlementBuildListConfigurator(name);
+      return new SettlementBuildListConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static SettlementBuildListConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<SettlementBuildList>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="SettlementBuildList.m_BuildArea"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="buildArea"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    
-    public SettlementBuildListConfigurator SetBuildArea(string? buildArea)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_BuildArea = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(buildArea);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="SettlementBuildList.SlotSetupPrefab"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementBuildListConfigurator SetSlotSetupPrefab(SettlementsBuildSlots slotSetupPrefab)
-    {
-      ValidateParam(slotSetupPrefab);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.SlotSetupPrefab = slotSetupPrefab;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="SettlementBuildList.List"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementBuildListConfigurator SetList(List<SettlementBuildList.Entry>? list)
-    {
-      ValidateParam(list);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.List = list;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="SettlementBuildList.List"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementBuildListConfigurator AddToList(params SettlementBuildList.Entry[] list)
-    {
-      ValidateParam(list);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.List.AddRange(list.ToList() ?? new List<SettlementBuildList.Entry>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="SettlementBuildList.List"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementBuildListConfigurator RemoveFromList(params SettlementBuildList.Entry[] list)
-    {
-      ValidateParam(list);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.List = bp.List.Where(item => !list.Contains(item)).ToList();
-          });
-    }
   }
 }

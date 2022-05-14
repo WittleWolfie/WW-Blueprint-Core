@@ -13,8 +13,6 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
-using Kingmaker.Blueprints.Quests;
-using Kingmaker.ElementsSystem;
 
 namespace BlueprintCoreGen.CodeGen.Overrides
 {

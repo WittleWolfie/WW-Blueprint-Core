@@ -1,128 +1,50 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.ResourceLinks;
-using UnityEngine;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintControllableProjectile"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ControllableProjectileConfigurator : BaseBlueprintConfigurator<BlueprintControllableProjectile, ControllableProjectileConfigurator>
+  public class ControllableProjectileConfigurator
+    : BaseControllableProjectileConfigurator<BlueprintControllableProjectile, ControllableProjectileConfigurator>
   {
-    private ControllableProjectileConfigurator(string name) : base(name) { }
+    private ControllableProjectileConfigurator(Blueprint<BlueprintControllableProjectile, BlueprintReference<BlueprintControllableProjectile>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ControllableProjectileConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ControllableProjectileConfigurator For(Blueprint<BlueprintControllableProjectile, BlueprintReference<BlueprintControllableProjectile>> blueprint)
     {
-      return new ControllableProjectileConfigurator(name);
+      return new ControllableProjectileConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ControllableProjectileConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintControllableProjectile>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintControllableProjectile.m_OnCreatureCastPrefab"/> (Auto Generated)
-    /// </summary>
-    
-    public ControllableProjectileConfigurator SetOnCreatureCastPrefab(PrefabLink? onCreatureCastPrefab)
-    {
-      ValidateParam(onCreatureCastPrefab);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_OnCreatureCastPrefab = onCreatureCastPrefab ?? Constants.Empty.PrefabLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintControllableProjectile.m_OnCreaturePrefab"/> (Auto Generated)
-    /// </summary>
-    
-    public ControllableProjectileConfigurator SetOnCreaturePrefab(PrefabLink? onCreaturePrefab)
-    {
-      ValidateParam(onCreaturePrefab);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_OnCreaturePrefab = onCreaturePrefab ?? Constants.Empty.PrefabLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintControllableProjectile.m_HeightOffset"/> (Auto Generated)
-    /// </summary>
-    
-    public ControllableProjectileConfigurator SetHeightOffset(float heightOffset)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_HeightOffset = heightOffset;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintControllableProjectile.m_RotationLifetime"/> (Auto Generated)
-    /// </summary>
-    
-    public ControllableProjectileConfigurator SetRotationLifetime(float rotationLifetime)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RotationLifetime = rotationLifetime;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintControllableProjectile.m_RotationCurve"/> (Auto Generated)
-    /// </summary>
-    
-    public ControllableProjectileConfigurator SetRotationCurve(AnimationCurve rotationCurve)
-    {
-      ValidateParam(rotationCurve);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RotationCurve = rotationCurve;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintControllableProjectile.m_PreparationStartSound"/> (Auto Generated)
-    /// </summary>
-    
-    public ControllableProjectileConfigurator SetPreparationStartSound(string preparationStartSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PreparationStartSound = preparationStartSound;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintControllableProjectile.m_PreparationEndSound"/> (Auto Generated)
-    /// </summary>
-    
-    public ControllableProjectileConfigurator SetPreparationEndSound(string preparationEndSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PreparationEndSound = preparationEndSound;
-          });
-    }
   }
 }

@@ -1,149 +1,51 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Utils;
-using Kingmaker.Crusade.GlobalMagic;
-using Kingmaker.Localization;
-using Kingmaker.ResourceLinks;
-using UnityEngine;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Crusade.GlobalMagic;
+
 namespace BlueprintCore.Blueprints.Configurators.Crusade
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintGlobalMagicSpell"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class GlobalMagicSpellConfigurator : BaseBlueprintConfigurator<BlueprintGlobalMagicSpell, GlobalMagicSpellConfigurator>
+  public class GlobalMagicSpellConfigurator
+    : BaseGlobalMagicSpellConfigurator<BlueprintGlobalMagicSpell, GlobalMagicSpellConfigurator>
   {
-    private GlobalMagicSpellConfigurator(string name) : base(name) { }
+    private GlobalMagicSpellConfigurator(Blueprint<BlueprintGlobalMagicSpell, BlueprintReference<BlueprintGlobalMagicSpell>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static GlobalMagicSpellConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static GlobalMagicSpellConfigurator For(Blueprint<BlueprintGlobalMagicSpell, BlueprintReference<BlueprintGlobalMagicSpell>> blueprint)
     {
-      return new GlobalMagicSpellConfigurator(name);
+      return new GlobalMagicSpellConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static GlobalMagicSpellConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintGlobalMagicSpell>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellName"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMagicSpellConfigurator SetSpellName(LocalizedString? spellName)
-    {
-      ValidateParam(spellName);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SpellName = spellName ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMagicSpell.m_Description"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMagicSpellConfigurator SetDescription(LocalizedString? description)
-    {
-      ValidateParam(description);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Description = description ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMagicSpell.m_Icon"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMagicSpellConfigurator SetIcon(Sprite icon)
-    {
-      ValidateParam(icon);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Icon = icon;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMagicSpell.m_VFX"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMagicSpellConfigurator SetVFX(PrefabLink? vFX)
-    {
-      ValidateParam(vFX);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_VFX = vFX ?? Constants.Empty.PrefabLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMagicSpell.m_HoursCooldown"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMagicSpellConfigurator SetHoursCooldown(GlobalMagicValue hoursCooldown)
-    {
-      ValidateParam(hoursCooldown);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_HoursCooldown = hoursCooldown;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMagicSpell.m_Executor"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMagicSpellConfigurator SetExecutor(BlueprintGlobalMagicSpell.ExecutorGlobalMagicSpell executor)
-    {
-      ValidateParam(executor);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Executor = executor;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMagicSpell.m_SpellActions"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMagicSpellConfigurator SetSpellActions(ActionsBuilder? spellActions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SpellActions = spellActions?.Build() ?? Constants.Empty.Actions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMagicSpell.m_SetCooldownManually"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMagicSpellConfigurator SetCooldownManually(bool setCooldownManually)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SetCooldownManually = setCooldownManually;
-          });
-    }
   }
 }

@@ -1,144 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintBrain"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  
-  public abstract class BaseBrainConfigurator<T, TBuilder>
-      : BaseBlueprintConfigurator<T, TBuilder>
-      where T : BlueprintBrain
-      where TBuilder : BaseBrainConfigurator<T, TBuilder>
-  {
-    protected BaseBrainConfigurator(string name) : base(name) { }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    
-    public TBuilder SetActions(string[]? actions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Actions = actions.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    
-    public TBuilder AddToActions(params string[] actions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Actions = CommonTool.Append(bp.m_Actions, actions.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    
-    public TBuilder RemoveFromActions(params string[] actions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = actions.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name));
-            bp.m_Actions =
-                bp.m_Actions
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-  }
-
   /// <summary>
   /// Configurator for <see cref="BlueprintBrain"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class BrainConfigurator : BaseBlueprintConfigurator<BlueprintBrain, BrainConfigurator>
+  public class BrainConfigurator
+    : BaseBrainConfigurator<BlueprintBrain, BrainConfigurator>
   {
-    private BrainConfigurator(string name) : base(name) { }
+    private BrainConfigurator(Blueprint<BlueprintBrain, BlueprintReference<BlueprintBrain>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static BrainConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static BrainConfigurator For(Blueprint<BlueprintBrain, BlueprintReference<BlueprintBrain>> blueprint)
     {
-      return new BrainConfigurator(name);
+      return new BrainConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static BrainConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintBrain>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    
-    public BrainConfigurator SetActions(string[]? actions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Actions = actions.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    
-    public BrainConfigurator AddToActions(params string[] actions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Actions = CommonTool.Append(bp.m_Actions, actions.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintBrain.m_Actions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actions"><see cref="Kingmaker.AI.Blueprints.BlueprintAiAction"/></param>
-    
-    public BrainConfigurator RemoveFromActions(params string[] actions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = actions.Select(name => BlueprintTool.GetRef<BlueprintAiActionReference>(name));
-            bp.m_Actions =
-                bp.m_Actions
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

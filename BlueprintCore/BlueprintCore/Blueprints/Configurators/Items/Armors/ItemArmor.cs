@@ -1,152 +1,51 @@
-using BlueprintCore.Blueprints.Configurators.Items.Equipment;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.Enums;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Armors
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintItemArmor"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ItemArmorConfigurator : BaseItemEquipmentConfigurator<BlueprintItemArmor, ItemArmorConfigurator>
+  public class ItemArmorConfigurator
+    : BaseItemArmorConfigurator<BlueprintItemArmor, ItemArmorConfigurator>
   {
-    private ItemArmorConfigurator(string name) : base(name) { }
+    private ItemArmorConfigurator(Blueprint<BlueprintItemArmor, BlueprintReference<BlueprintItemArmor>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ItemArmorConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ItemArmorConfigurator For(Blueprint<BlueprintItemArmor, BlueprintReference<BlueprintItemArmor>> blueprint)
     {
-      return new ItemArmorConfigurator(name);
+      return new ItemArmorConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ItemArmorConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintItemArmor>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintItemArmor.m_Type"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Armors.BlueprintArmorType"/></param>
-    
-    public ItemArmorConfigurator SetType(string? type)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Type = BlueprintTool.GetRef<BlueprintArmorTypeReference>(type);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemArmor.m_Size"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemArmorConfigurator SetSize(Size size)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Size = size;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemArmor.m_VisualParameters"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemArmorConfigurator SetVisualParameters(ArmorVisualParameters visualParameters)
-    {
-      ValidateParam(visualParameters);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_VisualParameters = visualParameters;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    
-    public ItemArmorConfigurator SetEnchantments(string[]? enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    
-    public ItemArmorConfigurator AddToEnchantments(params string[] enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintItemArmor.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    
-    public ItemArmorConfigurator RemoveFromEnchantments(params string[] enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name));
-            bp.m_Enchantments =
-                bp.m_Enchantments
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemArmor.m_OverrideShardItem"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemArmorConfigurator SetOverrideShardItem(bool overrideShardItem)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_OverrideShardItem = overrideShardItem;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemArmor.m_OverrideDestructible"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemArmorConfigurator SetOverrideDestructible(bool overrideDestructible)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_OverrideDestructible = overrideDestructible;
-          });
-    }
   }
 }

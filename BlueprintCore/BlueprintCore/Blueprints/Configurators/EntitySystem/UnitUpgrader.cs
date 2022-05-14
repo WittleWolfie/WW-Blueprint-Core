@@ -1,56 +1,51 @@
-using BlueprintCore.Actions.Builder;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Persistence.Versioning;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.EntitySystem
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintUnitUpgrader"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class UnitUpgraderConfigurator : BaseBlueprintConfigurator<BlueprintUnitUpgrader, UnitUpgraderConfigurator>
+  public class UnitUpgraderConfigurator
+    : BaseUnitUpgraderConfigurator<BlueprintUnitUpgrader, UnitUpgraderConfigurator>
   {
-    private UnitUpgraderConfigurator(string name) : base(name) { }
+    private UnitUpgraderConfigurator(Blueprint<BlueprintUnitUpgrader, BlueprintReference<BlueprintUnitUpgrader>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static UnitUpgraderConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static UnitUpgraderConfigurator For(Blueprint<BlueprintUnitUpgrader, BlueprintReference<BlueprintUnitUpgrader>> blueprint)
     {
-      return new UnitUpgraderConfigurator(name);
+      return new UnitUpgraderConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static UnitUpgraderConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintUnitUpgrader>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitUpgrader.ApplyFromPlaceholder"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitUpgraderConfigurator SetApplyFromPlaceholder(bool applyFromPlaceholder)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ApplyFromPlaceholder = applyFromPlaceholder;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitUpgrader.Actions"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitUpgraderConfigurator SetActions(ActionsBuilder? actions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Actions = actions?.Build() ?? Constants.Empty.Actions;
-          });
-    }
   }
 }

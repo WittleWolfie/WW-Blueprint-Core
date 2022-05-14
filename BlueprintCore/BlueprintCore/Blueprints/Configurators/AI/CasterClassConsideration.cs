@@ -1,68 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="CasterClassConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CasterClassConsiderationConfigurator : BaseConsiderationConfigurator<CasterClassConsideration, CasterClassConsiderationConfigurator>
+  public class CasterClassConsiderationConfigurator
+    : BaseCasterClassConsiderationConfigurator<CasterClassConsideration, CasterClassConsiderationConfigurator>
   {
-    private CasterClassConsiderationConfigurator(string name) : base(name) { }
+    private CasterClassConsiderationConfigurator(Blueprint<CasterClassConsideration, BlueprintReference<CasterClassConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CasterClassConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CasterClassConsiderationConfigurator For(Blueprint<CasterClassConsideration, BlueprintReference<CasterClassConsideration>> blueprint)
     {
-      return new CasterClassConsiderationConfigurator(name);
+      return new CasterClassConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CasterClassConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<CasterClassConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="CasterClassConsideration.NotCasterScore"/> (Auto Generated)
-    /// </summary>
-    
-    public CasterClassConsiderationConfigurator SetNotCasterScore(float notCasterScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.NotCasterScore = notCasterScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CasterClassConsideration.ArcaneCasterScore"/> (Auto Generated)
-    /// </summary>
-    
-    public CasterClassConsiderationConfigurator SetArcaneCasterScore(float arcaneCasterScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ArcaneCasterScore = arcaneCasterScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CasterClassConsideration.DivineCasterScore"/> (Auto Generated)
-    /// </summary>
-    
-    public CasterClassConsiderationConfigurator SetDivineCasterScore(float divineCasterScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DivineCasterScore = divineCasterScore;
-          });
-    }
   }
 }

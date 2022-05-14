@@ -58,6 +58,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="permanentFeature">
+    /// <para>
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -65,9 +66,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="setRankFrom">
+    /// <para>
+    /// InfoBox: Can be null. Force set PermanentFeature rank to be equal to SetRankFrom rank
+    /// </para>
+    /// <para>
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -75,7 +81,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AddFeature(
         this ActionsBuilder builder,
@@ -105,6 +112,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="cloneFeature">
+    /// <para>
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -112,7 +120,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AddLocustClone(
         this ActionsBuilder builder,
@@ -166,6 +175,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -173,7 +183,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ApplyBuffPermanent(
         this ActionsBuilder builder,
@@ -211,6 +222,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -218,7 +230,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ApplyBuffWithDurationSeconds(
         this ActionsBuilder builder,
@@ -258,6 +271,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -265,7 +279,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ApplyBuff(
         this ActionsBuilder builder,
@@ -296,7 +311,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -350,7 +367,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// The caster's shield is enchanted based on its available enhancement bonus. e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -413,16 +432,76 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// <para>
     /// Applied on success. Defaults to Shaken.
+    /// </para>
     /// </param>
     /// <param name="extraEffect">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// <para>
     /// Applied on success when the caster has the extraEffectFeature. Defaults to ShatterConfidence.
+    /// </para>
     /// </param>
     /// <param name="extraEffectFeature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// <para>
     /// Unit feature which determines whether to apply extraEffect on success. Defaults to ShatterConfidence.
+    /// </para>
     /// </param>
     /// <param name="greaterBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// <para>
     /// Applied on success when the caster has a feature that adds a greater effect. Defaults to Frightened.
+    /// </para>
+    /// </param>
+    /// <param name="swordlordProwessFeature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder Demoralize(
         this ActionsBuilder builder,
@@ -471,7 +550,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// The caster's weapon is enchanted based on its available enhancement bonus. e.g. If the weapon can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -526,7 +607,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// The caster's shield is enchanted based on its available enhancement bonus. e.g. If the shield can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -633,6 +716,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="spell">
+    /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -640,24 +724,31 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="overrideDC">
+    /// <para>
     /// Overrides the default spell DC
+    /// </para>
     /// </param>
     /// <param name="overrideSpellLevel">
+    /// <para>
     /// Overrides the default spell level
+    /// </para>
     /// </param>
     public static ActionsBuilder CastSpell(
         this ActionsBuilder builder,
         Blueprint<BlueprintAbility, BlueprintAbilityReference> spell,
         bool? castByTarget = null,
+        bool? logIfCanNotTarget = null,
         ContextValue? overrideDC = null,
         ContextValue? overrideSpellLevel = null)
     {
       var element = ElementTool.Create<ContextActionCastSpell>();
       element.m_Spell = spell?.Reference;
       element.CastByTarget = castByTarget ?? element.CastByTarget;
+      element.LogIfCanNotTarget = logIfCanNotTarget ?? element.LogIfCanNotTarget;
       element.DC = overrideDC ?? element.DC;
       element.OverrideDC = overrideDC is not null;
       if (element.DC is null)
@@ -832,6 +923,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="summonPool">
+    /// <para>
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -839,7 +931,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ClearSummonPool(
         this ActionsBuilder builder,
@@ -937,10 +1030,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="criticalSharedValue">
+    /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
+    /// </para>
     /// </param>
     /// <param name="resultSharedValue">
+    /// <para>
     /// If specified, the resulting damage is stored in this shared value
+    /// </para>
+    /// </param>
+    /// <param name="setFactAsReason">
+    /// <para>
+    /// InfoBox: Fact that holds action should be the reason rather than attack roll from context (to prevent infinite cycles
+    /// </para>
+    /// </param>
+    /// <param name="useWeaponDamageModifiers">
+    /// <para>
+    /// InfoBox: For kinetic blades mainly. Adds damage modifiers from weapon stats rule (like power attack)
+    /// </para>
     /// </param>
     public static ActionsBuilder DealDamage(
         this ActionsBuilder builder,
@@ -993,10 +1100,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="criticalSharedValue">
+    /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
+    /// </para>
     /// </param>
     /// <param name="resultSharedValue">
+    /// <para>
     /// If specified, the resulting damage is stored in this shared value
+    /// </para>
+    /// </param>
+    /// <param name="setFactAsReason">
+    /// <para>
+    /// InfoBox: Fact that holds action should be the reason rather than attack roll from context (to prevent infinite cycles
+    /// </para>
+    /// </param>
+    /// <param name="useWeaponDamageModifiers">
+    /// <para>
+    /// InfoBox: For kinetic blades mainly. Adds damage modifiers from weapon stats rule (like power attack)
+    /// </para>
     /// </param>
     public static ActionsBuilder DealDamagePreRolled(
         this ActionsBuilder builder,
@@ -1050,10 +1171,19 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="criticalSharedValue">
+    /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
+    /// </para>
     /// </param>
     /// <param name="resultSharedValue">
+    /// <para>
     /// If specified, the resulting damage is stored in this shared value
+    /// </para>
+    /// </param>
+    /// <param name="setFactAsReason">
+    /// <para>
+    /// InfoBox: Fact that holds action should be the reason rather than attack roll from context (to prevent infinite cycles
+    /// </para>
     /// </param>
     public static ActionsBuilder DealDamageToAbility(
         this ActionsBuilder builder,
@@ -1101,10 +1231,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="criticalSharedValue">
+    /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
+    /// </para>
     /// </param>
     /// <param name="resultSharedValue">
+    /// <para>
     /// If specified, the resulting damage is stored in this shared value
+    /// </para>
+    /// </param>
+    /// <param name="setFactAsReason">
+    /// <para>
+    /// InfoBox: Fact that holds action should be the reason rather than attack roll from context (to prevent infinite cycles
+    /// </para>
+    /// </param>
+    /// <param name="useWeaponDamageModifiers">
+    /// <para>
+    /// InfoBox: For kinetic blades mainly. Adds damage modifiers from weapon stats rule (like power attack)
+    /// </para>
     /// </param>
     public static ActionsBuilder DealDamagePermanentNegativeLevels(
         this ActionsBuilder builder,
@@ -1148,10 +1292,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="criticalSharedValue">
+    /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
+    /// </para>
     /// </param>
     /// <param name="resultSharedValue">
+    /// <para>
     /// If specified, the resulting damage is stored in this shared value
+    /// </para>
+    /// </param>
+    /// <param name="setFactAsReason">
+    /// <para>
+    /// InfoBox: Fact that holds action should be the reason rather than attack roll from context (to prevent infinite cycles
+    /// </para>
+    /// </param>
+    /// <param name="useWeaponDamageModifiers">
+    /// <para>
+    /// InfoBox: For kinetic blades mainly. Adds damage modifiers from weapon stats rule (like power attack)
+    /// </para>
     /// </param>
     public static ActionsBuilder DealDamageTemporaryNegativeLevels(
         this ActionsBuilder builder,
@@ -1199,7 +1357,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="checkSchoolOrDescriptor">
+    /// <para>
     /// If true, effects matching school or descriptor are targeted. If false, effects matching school and descriptor are targeted.
+    /// </para>
+    /// </param>
+    /// <param name="descriptor">
+    /// <para>
+    /// Tooltip: 'None' means 'All'
+    /// </para>
+    /// </param>
+    /// <param name="oneRollForAll">
+    /// <para>
+    /// InfoBox: If true only one roll for all checks will be made
+    /// </para>
+    /// </param>
+    /// <param name="schools">
+    /// <para>
+    /// Tooltip: Empty means 'All'
+    /// </para>
     /// </param>
     public static ActionsBuilder DispelMagic(
         this ActionsBuilder builder,
@@ -1281,6 +1456,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="enchantment">
+    /// <para>
     /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1288,7 +1464,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder EnhanceWeapon(
         this ActionsBuilder builder,
@@ -1311,7 +1488,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// The enchantment at index EnchantLevel - 1 is applied or the last enchantment if it is too large.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -1322,6 +1501,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="enchantment">
+    /// <para>
     /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1329,7 +1509,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder EnhanceWeaponGreater(
         this ActionsBuilder builder,
@@ -1364,6 +1545,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="enchantment">
+    /// <para>
     /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1371,7 +1553,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder EnhanceNaturalWeapon(
         this ActionsBuilder builder,
@@ -1392,7 +1575,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// The enchantment at index EnchantLevel - 1 is applied or the last enchantment if it is too large.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -1403,6 +1588,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="enchantment">
+    /// <para>
     /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1410,7 +1596,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder EnhanceNaturalWeaponGreater(
         this ActionsBuilder builder,
@@ -1443,6 +1630,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="enchantment">
+    /// <para>
     /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1450,7 +1638,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder EnchantWornItem(
         this ActionsBuilder builder,
@@ -1487,6 +1676,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="objective">
+    /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1494,7 +1684,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder FinishObjective(
         this ActionsBuilder builder,
@@ -1520,10 +1711,34 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="casterBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// <para>
     /// Buff applied to the caster for the duration of the grapple check
+    /// </para>
     /// </param>
     /// <param name="targetBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// <para>
     /// Buff applied to the target for the duration of the grapple check
+    /// </para>
     /// </param>
     public static ActionsBuilder Grapple(
         this ActionsBuilder builder,
@@ -1559,7 +1774,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="value">
+    /// <para>
     /// Required when the heal type is StatDamageHealType.Dice
+    /// </para>
     /// </param>
     public static ActionsBuilder HealStatDamage(
         this ActionsBuilder builder,
@@ -1654,7 +1871,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// Actions are run on all of the target unit's pets.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -1665,7 +1884,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="petType">
+    /// <para>
     /// If specified, actions only run on pets of that type.
+    /// </para>
     /// </param>
     public static ActionsBuilder OnPets(
         this ActionsBuilder builder,
@@ -1684,7 +1905,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
     /// Only works inside of AbilityAreaEffectRunAction and only effects enemies.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -1715,6 +1938,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="filterNoFact">
+    /// <para>
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1722,7 +1946,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder OnRandomTargetsAround(
         this ActionsBuilder builder,
@@ -1808,6 +2033,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="projectile">
+    /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1815,7 +2041,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ProjectileFx(
         this ActionsBuilder builder,
@@ -1841,7 +2068,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="weightedActions">
+    /// <para>
     /// List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.
+    /// </para>
     /// </param>
     public static ActionsBuilder Randomize(
         this ActionsBuilder builder,
@@ -1866,6 +2095,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="item">
+    /// <para>
     /// Blueprint of type BlueprintItemEquipment. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1873,7 +2103,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RecoverItemCharges(
         this ActionsBuilder builder,
@@ -1901,6 +2132,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="targetBuff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1908,7 +2140,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder IncreaseBuffDuration(
         this ActionsBuilder builder,
@@ -1940,6 +2173,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="targetBuff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1947,7 +2181,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ReduceBuffDuration(
         this ActionsBuilder builder,
@@ -1979,6 +2214,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1986,7 +2222,18 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="onlyFromCaster">
+    /// <para>
+    /// InfoBox: Remove buff from target that was attached by caster
+    /// </para>
+    /// </param>
+    /// <param name="toCaster">
+    /// <para>
+    /// InfoBox: Apply this action to caster = Remove buff From caster of context
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveBuff(
         this ActionsBuilder builder,
@@ -2042,6 +2289,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="targetBuff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2049,7 +2297,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveBuffSingleStack(
         this ActionsBuilder builder,
@@ -2097,6 +2346,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="resource">
+    /// <para>
     /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2104,10 +2354,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="value">
+    /// <para>
     /// Amount to restore. If not specified the resource is fully restored.
+    /// </para>
     /// </param>
     public static ActionsBuilder RestoreResource(
         this ActionsBuilder builder,
@@ -2158,6 +2411,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="spellbooks">
+    /// <para>
     /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2165,7 +2419,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RestoreSpells(
         this ActionsBuilder builder,
@@ -2191,10 +2446,24 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="customResurrectionBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// <para>
     /// Replaces the default resurrection buff. Must contain a ResurrectionLogic component.
+    /// </para>
     /// </param>
     /// <param name="resultHealth">
+    /// <para>
     /// Percentage of unit's health after resurrection as a float between 0.0 (0%) and 1.0 (100%).
+    /// </para>
     /// </param>
     public static ActionsBuilder Resurrect(
         this ActionsBuilder builder,
@@ -2227,7 +2496,19 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="customResurrectionBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// <para>
     /// Replaces the default resurrection buff. Must contain a ResurrectionLogic component.
+    /// </para>
     /// </param>
     public static ActionsBuilder ResurrectAndFullRestore(
         this ActionsBuilder builder,
@@ -2258,7 +2539,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="fromBuff">
+    /// <para>
     /// If true, onResult must have a ContextActionConditionalSaved w/ ContextActionApplyBuff in it's success actions. The buff associated with that component is attached to the RuleSavingThrow.
+    /// </para>
     /// </param>
     public static ActionsBuilder SavingThrow(
         this ActionsBuilder builder,
@@ -2305,7 +2588,9 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="actionVariants">
+    /// <para>
     /// The action associated with the highest value is selected to run.
+    /// </para>
     /// </param>
     public static ActionsBuilder SelectByValue(
         this ActionsBuilder builder,
@@ -2440,6 +2725,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="areaEffect">
+    /// <para>
     /// Blueprint of type BlueprintAbilityAreaEffect. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2447,7 +2733,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SpawnAreaEffect(
         this ActionsBuilder builder,
@@ -2477,6 +2764,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="associatedCasterBuff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2484,9 +2772,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="controllableProjectile">
+    /// <para>
     /// Blueprint of type BlueprintControllableProjectile. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2494,7 +2784,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SpawnControllableProjectile(
         this ActionsBuilder builder,
@@ -2522,6 +2813,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="monster">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2529,7 +2821,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SpawnMonster(
         this ActionsBuilder builder,
@@ -2576,6 +2869,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="monster">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2583,9 +2877,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="summonPool">
+    /// <para>
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2593,7 +2889,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SpawnMonsterUsingSummonPool(
         this ActionsBuilder builder,
@@ -2642,6 +2939,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="monster">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2649,7 +2947,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SpawnUnlinkedMonster(
         this ActionsBuilder builder,
@@ -2675,6 +2974,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="resource">
+    /// <para>
     /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2682,10 +2982,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="value">
+    /// <para>
     /// Amount to spend. If not specified the resource is fully spent.
+    /// </para>
     /// </param>
     public static ActionsBuilder ContextSpendResource(
         this ActionsBuilder builder,
@@ -2738,6 +3041,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="source">
+    /// <para>
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2745,7 +3049,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SwordlordAdaptiveTacticsAdd(
         this ActionsBuilder builder,
@@ -2912,6 +3217,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <item><term>WideSweepAbility</term><description>69811d984ba4ab8419873b09c1641e36</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="ignoreAttackRoll">
+    /// <para>
+    /// InfoBox: Check it if you want to avoid critical/sneak damage in this action
+    /// </para>
+    /// </param>
     public static ActionsBuilder DealWeaponDamage(
         this ActionsBuilder builder,
         bool? canBeRanged = null,
@@ -3207,6 +3518,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/Mark Force Dismember
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodBoilerEnchantment</term><description>7d26d85337ee5d145ad563b7b83ca54d</description></item>
@@ -3465,6 +3780,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <item><term>Atonement</term><description>febb7ccf00cf713428032b11a3b44158</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="resetAlignmentLock">
+    /// <para>
+    /// InfoBox: If true also removes lock from mythic restriction
+    /// </para>
+    /// </param>
     public static ActionsBuilder ResetAlignment(
         this ActionsBuilder builder,
         bool? resetAlignmentLock = null)
@@ -3488,6 +3809,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="excludeSpellbooks">
+    /// <para>
     /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -3495,7 +3817,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RestoreAllSpellSlots(
         this ActionsBuilder builder,
@@ -3530,6 +3853,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="targetBuff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -3537,7 +3861,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SwallowWhole(
         this ActionsBuilder builder,

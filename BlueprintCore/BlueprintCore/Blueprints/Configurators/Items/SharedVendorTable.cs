@@ -1,43 +1,51 @@
-using BlueprintCore.Blueprints.Configurators.Loot;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintSharedVendorTable"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class SharedVendorTableConfigurator : BaseUnitLootConfigurator<BlueprintSharedVendorTable, SharedVendorTableConfigurator>
+  public class SharedVendorTableConfigurator
+    : BaseSharedVendorTableConfigurator<BlueprintSharedVendorTable, SharedVendorTableConfigurator>
   {
-    private SharedVendorTableConfigurator(string name) : base(name) { }
+    private SharedVendorTableConfigurator(Blueprint<BlueprintSharedVendorTable, BlueprintReference<BlueprintSharedVendorTable>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static SharedVendorTableConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static SharedVendorTableConfigurator For(Blueprint<BlueprintSharedVendorTable, BlueprintReference<BlueprintSharedVendorTable>> blueprint)
     {
-      return new SharedVendorTableConfigurator(name);
+      return new SharedVendorTableConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static SharedVendorTableConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintSharedVendorTable>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintSharedVendorTable.AutoIdentifyAllItems"/> (Auto Generated)
-    /// </summary>
-    
-    public SharedVendorTableConfigurator SetAutoIdentifyAllItems(bool autoIdentifyAllItems)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.AutoIdentifyAllItems = autoIdentifyAllItems;
-          });
-    }
   }
 }

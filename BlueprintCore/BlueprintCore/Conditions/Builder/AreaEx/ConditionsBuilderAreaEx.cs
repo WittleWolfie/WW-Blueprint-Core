@@ -34,6 +34,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="area">
+    /// <para>
     /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -41,7 +42,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder AreaVisited(
         this ConditionsBuilder builder,
@@ -73,6 +75,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="area">
+    /// <para>
     /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -80,7 +83,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CurrentAreaIs(
         this ConditionsBuilder builder,
@@ -184,6 +188,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -191,7 +196,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder LocationRevealed(
         this ConditionsBuilder builder,
@@ -290,6 +296,10 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/UnitInScriptZone
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0002</term><description>d38052d00f394118945e8861f00574f5</description></item>
@@ -327,6 +337,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// </remarks>
     ///
     /// <param name="areaPart">
+    /// <para>
     /// Blueprint of type BlueprintAreaPart. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -334,7 +345,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder UnitIsInAreaPart(
         this ConditionsBuilder builder,
@@ -359,6 +371,10 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Condition/UnitIsInFogOfWar
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>

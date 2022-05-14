@@ -1,73 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Quests;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Quests;
+
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintQuestGroups"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class QuestGroupsConfigurator : BaseBlueprintConfigurator<BlueprintQuestGroups, QuestGroupsConfigurator>
+  public class QuestGroupsConfigurator
+    : BaseQuestGroupsConfigurator<BlueprintQuestGroups, QuestGroupsConfigurator>
   {
-    private QuestGroupsConfigurator(string name) : base(name) { }
+    private QuestGroupsConfigurator(Blueprint<BlueprintQuestGroups, BlueprintReference<BlueprintQuestGroups>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static QuestGroupsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static QuestGroupsConfigurator For(Blueprint<BlueprintQuestGroups, BlueprintReference<BlueprintQuestGroups>> blueprint)
     {
-      return new QuestGroupsConfigurator(name);
+      return new QuestGroupsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static QuestGroupsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintQuestGroups>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintQuestGroups.Groups"/> (Auto Generated)
-    /// </summary>
-    
-    public QuestGroupsConfigurator SetGroups(QuestGroup[]? groups)
-    {
-      ValidateParam(groups);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Groups = groups;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintQuestGroups.Groups"/> (Auto Generated)
-    /// </summary>
-    
-    public QuestGroupsConfigurator AddToGroups(params QuestGroup[] groups)
-    {
-      ValidateParam(groups);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Groups = CommonTool.Append(bp.Groups, groups ?? new QuestGroup[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintQuestGroups.Groups"/> (Auto Generated)
-    /// </summary>
-    
-    public QuestGroupsConfigurator RemoveFromGroups(params QuestGroup[] groups)
-    {
-      ValidateParam(groups);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Groups = bp.Groups.Where(item => !groups.Contains(item)).ToArray();
-          });
-    }
   }
 }

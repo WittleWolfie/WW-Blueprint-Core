@@ -1,96 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCueSequence"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CueSequenceConfigurator : BaseCueBaseConfigurator<BlueprintCueSequence, CueSequenceConfigurator>
+  public class CueSequenceConfigurator
+    : BaseCueSequenceConfigurator<BlueprintCueSequence, CueSequenceConfigurator>
   {
-    private CueSequenceConfigurator(string name) : base(name) { }
+    private CueSequenceConfigurator(Blueprint<BlueprintCueSequence, BlueprintReference<BlueprintCueSequence>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CueSequenceConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CueSequenceConfigurator For(Blueprint<BlueprintCueSequence, BlueprintReference<BlueprintCueSequence>> blueprint)
     {
-      return new CueSequenceConfigurator(name);
+      return new CueSequenceConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CueSequenceConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCueSequence>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    
-    public CueSequenceConfigurator SetCues(string[]? cues)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Cues = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    
-    public CueSequenceConfigurator AddToCues(params string[] cues)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Cues.AddRange(cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)));
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCueSequence.Cues"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    
-    public CueSequenceConfigurator RemoveFromCues(params string[] cues)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name));
-            bp.Cues =
-                bp.Cues
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCueSequence.m_Exit"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="exit"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintSequenceExit"/></param>
-    
-    public CueSequenceConfigurator SetExit(string? exit)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Exit = BlueprintTool.GetRef<BlueprintSequenceExitReference>(exit);
-          });
-    }
   }
 }

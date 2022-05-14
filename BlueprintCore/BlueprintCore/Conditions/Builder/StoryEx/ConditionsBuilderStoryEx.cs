@@ -65,6 +65,10 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="group">
+    /// <para>
+    /// InfoBox: Внутри этюда будет игнорировать сам этюд
+    /// </para>
+    /// <para>
     /// Blueprint of type BlueprintEtudeConflictingGroup. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -72,7 +76,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder AnotherEtudeOfGroupIsPlaying(
         this ConditionsBuilder builder,
@@ -104,6 +109,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="answersList">
+    /// <para>
     /// Blueprint of type BlueprintAnswersList. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -111,7 +117,13 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="currentDialog">
+    /// <para>
+    /// Tooltip: Only check shown answer lists in current dialog instance. By default whole game history matters.
+    /// </para>
     /// </param>
     public static ConditionsBuilder AnswerListShown(
         this ConditionsBuilder builder,
@@ -145,6 +157,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="answer">
+    /// <para>
     /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -152,7 +165,13 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="currentDialog">
+    /// <para>
+    /// Tooltip: Only check selected answers in current dialog instance. By default whole game history matters.
+    /// </para>
     /// </param>
     public static ConditionsBuilder AnswerSelected(
         this ConditionsBuilder builder,
@@ -186,6 +205,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="banter">
+    /// <para>
     /// Blueprint of type BlueprintBarkBanter. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -193,7 +213,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder BarkBanterPlayed(
         this ConditionsBuilder builder,
@@ -223,6 +244,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="campaign">
+    /// <para>
     /// Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -230,7 +252,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CampaignCompleted(
         this ConditionsBuilder builder,
@@ -262,6 +285,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="check">
+    /// <para>
     /// Blueprint of type BlueprintCheck. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -269,7 +293,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CheckFailed(
         this ConditionsBuilder builder,
@@ -301,6 +326,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="check">
+    /// <para>
     /// Blueprint of type BlueprintCheck. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -308,7 +334,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CheckPassed(
         this ConditionsBuilder builder,
@@ -340,6 +367,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="cue">
+    /// <para>
     /// Blueprint of type BlueprintCueBase. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -347,7 +375,13 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="currentDialog">
+    /// <para>
+    /// Tooltip: Only check shown cues in current dialog instance. By default whole game history matters.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CueSeen(
         this ConditionsBuilder builder,
@@ -473,6 +507,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="dialog">
+    /// <para>
     /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -480,7 +515,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder DialogSeen(
         this ConditionsBuilder builder,
@@ -512,6 +548,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="etude">
+    /// <para>
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -519,7 +556,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder EtudeStatus(
         this ConditionsBuilder builder,
@@ -552,6 +590,10 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/FlagInRange
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>10State_0</term><description>1f815765df0d4d7ba19f731dfa064081</description></item>
@@ -561,6 +603,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="flag">
+    /// <para>
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -568,7 +611,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder FlagInRange(
         this ConditionsBuilder builder,
@@ -595,6 +639,10 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/FlagUnlocked
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
@@ -604,6 +652,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="conditionFlag">
+    /// <para>
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -611,7 +660,13 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="exceptSpecifiedValues">
+    /// <para>
+    /// Tooltip: False - white list. True - black list
+    /// </para>
     /// </param>
     public static ConditionsBuilder FlagUnlocked(
         this ConditionsBuilder builder,
@@ -649,6 +704,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="blueprintCampaign">
+    /// <para>
     /// Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -656,7 +712,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder IsCampaignImported(
         this ConditionsBuilder builder,
@@ -725,6 +782,10 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/ObjectiveStatus
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
@@ -734,6 +795,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="questObjective">
+    /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -741,7 +803,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder ObjectiveStatus(
         this ConditionsBuilder builder,
@@ -841,6 +904,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="characterClass">
+    /// <para>
     /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -848,9 +912,11 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="characterClassGroup">
+    /// <para>
     /// Blueprint of type BlueprintCharacterClassGroup. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -858,7 +924,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder PlayerSignificantClassIs(
         this ConditionsBuilder builder,
@@ -898,6 +965,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="characterClass">
+    /// <para>
     /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -905,9 +973,11 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="characterClassGroup">
+    /// <para>
     /// Blueprint of type BlueprintCharacterClassGroup. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -915,7 +985,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder PlayerTopClassIs(
         this ConditionsBuilder builder,
@@ -946,6 +1017,10 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/QuestStatus
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>30_HeroicVictory</term><description>a43192eddffb455db6004059811ac92d</description></item>
@@ -955,6 +1030,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="quest">
+    /// <para>
     /// Blueprint of type BlueprintQuest. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -962,7 +1038,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder QuestStatus(
         this ConditionsBuilder builder,

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
-using Kingmaker.Kingdom.Settlements.BuildingComponents;
 
 namespace BlueprintCoreGen.CodeGen
 {

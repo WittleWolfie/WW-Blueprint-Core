@@ -1,90 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Visual.LightSelector;
-using UnityEngine;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Visual.LightSelector;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintTimeOfDaySettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class TimeOfDaySettingsConfigurator : BaseBlueprintConfigurator<BlueprintTimeOfDaySettings, TimeOfDaySettingsConfigurator>
+  public class TimeOfDaySettingsConfigurator
+    : BaseTimeOfDaySettingsConfigurator<BlueprintTimeOfDaySettings, TimeOfDaySettingsConfigurator>
   {
-    private TimeOfDaySettingsConfigurator(string name) : base(name) { }
+    private TimeOfDaySettingsConfigurator(Blueprint<BlueprintTimeOfDaySettings, BlueprintReference<BlueprintTimeOfDaySettings>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static TimeOfDaySettingsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static TimeOfDaySettingsConfigurator For(Blueprint<BlueprintTimeOfDaySettings, BlueprintReference<BlueprintTimeOfDaySettings>> blueprint)
     {
-      return new TimeOfDaySettingsConfigurator(name);
+      return new TimeOfDaySettingsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static TimeOfDaySettingsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintTimeOfDaySettings>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintTimeOfDaySettings.Morning"/> (Auto Generated)
-    /// </summary>
-    
-    public TimeOfDaySettingsConfigurator SetMorning(GameObject morning)
-    {
-      ValidateParam(morning);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Morning = morning;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTimeOfDaySettings.Day"/> (Auto Generated)
-    /// </summary>
-    
-    public TimeOfDaySettingsConfigurator SetDay(GameObject day)
-    {
-      ValidateParam(day);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Day = day;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTimeOfDaySettings.Evening"/> (Auto Generated)
-    /// </summary>
-    
-    public TimeOfDaySettingsConfigurator SetEvening(GameObject evening)
-    {
-      ValidateParam(evening);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Evening = evening;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTimeOfDaySettings.Night"/> (Auto Generated)
-    /// </summary>
-    
-    public TimeOfDaySettingsConfigurator SetNight(GameObject night)
-    {
-      ValidateParam(night);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Night = night;
-          });
-    }
   }
 }

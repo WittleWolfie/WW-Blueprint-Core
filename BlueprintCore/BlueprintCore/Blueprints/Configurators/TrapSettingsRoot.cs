@@ -1,132 +1,50 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintTrapSettingsRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class TrapSettingsRootConfigurator : BaseBlueprintConfigurator<BlueprintTrapSettingsRoot, TrapSettingsRootConfigurator>
+  public class TrapSettingsRootConfigurator
+    : BaseTrapSettingsRootConfigurator<BlueprintTrapSettingsRoot, TrapSettingsRootConfigurator>
   {
-    private TrapSettingsRootConfigurator(string name) : base(name) { }
+    private TrapSettingsRootConfigurator(Blueprint<BlueprintTrapSettingsRoot, BlueprintReference<BlueprintTrapSettingsRoot>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static TrapSettingsRootConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static TrapSettingsRootConfigurator For(Blueprint<BlueprintTrapSettingsRoot, BlueprintReference<BlueprintTrapSettingsRoot>> blueprint)
     {
-      return new TrapSettingsRootConfigurator(name);
+      return new TrapSettingsRootConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static TrapSettingsRootConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintTrapSettingsRoot>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettingsRoot.m_DefaultPerceptionRadius"/> (Auto Generated)
-    /// </summary>
-    
-    public TrapSettingsRootConfigurator SetDefaultPerceptionRadius(float defaultPerceptionRadius)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DefaultPerceptionRadius = defaultPerceptionRadius;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettingsRoot.m_DisableDCMargin"/> (Auto Generated)
-    /// </summary>
-    
-    public TrapSettingsRootConfigurator SetDisableDCMargin(int disableDCMargin)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DisableDCMargin = disableDCMargin;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
-    
-    public TrapSettingsRootConfigurator Settings(string[]? settings)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Settings = settings.Select(name => BlueprintTool.GetRef<BlueprintTrapSettingsReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
-    
-    public TrapSettingsRootConfigurator AddToSettings(params string[] settings)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Settings = CommonTool.Append(bp.m_Settings, settings.Select(name => BlueprintTool.GetRef<BlueprintTrapSettingsReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintTrapSettingsRoot.m_Settings"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="settings"><see cref="Kingmaker.Blueprints.BlueprintTrapSettings"/></param>
-    
-    public TrapSettingsRootConfigurator RemoveFromSettings(params string[] settings)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = settings.Select(name => BlueprintTool.GetRef<BlueprintTrapSettingsReference>(name));
-            bp.m_Settings =
-                bp.m_Settings
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettingsRoot.EasyDisableDCDelta"/> (Auto Generated)
-    /// </summary>
-    
-    public TrapSettingsRootConfigurator SetEasyDisableDCDelta(int easyDisableDCDelta)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EasyDisableDCDelta = easyDisableDCDelta;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettingsRoot.HardDisableDCDelta"/> (Auto Generated)
-    /// </summary>
-    
-    public TrapSettingsRootConfigurator SetHardDisableDCDelta(int hardDisableDCDelta)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.HardDisableDCDelta = hardDisableDCDelta;
-          });
-    }
   }
 }

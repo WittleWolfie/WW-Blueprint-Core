@@ -1,199 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
-using Kingmaker.Kingdom.Settlements;
-using Kingmaker.Localization;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintSettlement"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class SettlementConfigurator : BaseBlueprintConfigurator<BlueprintSettlement, SettlementConfigurator>
+  public class SettlementConfigurator
+    : BaseSettlementConfigurator<BlueprintSettlement, SettlementConfigurator>
   {
-    private SettlementConfigurator(string name) : base(name) { }
+    private SettlementConfigurator(Blueprint<BlueprintSettlement, BlueprintReference<BlueprintSettlement>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static SettlementConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static SettlementConfigurator For(Blueprint<BlueprintSettlement, BlueprintReference<BlueprintSettlement>> blueprint)
     {
-      return new SettlementConfigurator(name);
+      return new SettlementConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static SettlementConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintSettlement>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_StartLevel"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementConfigurator SetStartLevel(SettlementState.LevelType startLevel)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_StartLevel = startLevel;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_MaxSettlementLevel"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementConfigurator SetMaxSettlementLevel(SettlementState.LevelType maxSettlementLevel)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MaxSettlementLevel = maxSettlementLevel;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_HasWaterSlot"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementConfigurator SetHasWaterSlot(bool hasWaterSlot)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_HasWaterSlot = hasWaterSlot;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_DefaultSettlementName"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementConfigurator SetDefaultSettlementName(LocalizedString? defaultSettlementName)
-    {
-      ValidateParam(defaultSettlementName);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DefaultSettlementName = defaultSettlementName ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_SettlementBuildArea"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="settlementBuildArea"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    
-    public SettlementConfigurator SettlementBuildArea(string? settlementBuildArea)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SettlementBuildArea = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(settlementBuildArea);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_SettlementBuildAreaWithWater"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="settlementBuildAreaWithWater"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    
-    public SettlementConfigurator SettlementBuildAreaWithWater(string? settlementBuildAreaWithWater)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SettlementBuildAreaWithWater = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(settlementBuildAreaWithWater);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_CustomSettlementEntrance"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementConfigurator SetCustomSettlementEntrance(bool customSettlementEntrance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CustomSettlementEntrance = customSettlementEntrance;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_SettlementIsPrebuilt"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementConfigurator SettlementIsPrebuilt(bool settlementIsPrebuilt)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SettlementIsPrebuilt = settlementIsPrebuilt;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_SettlementEntrance"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="settlementEntrance"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    
-    public SettlementConfigurator SettlementEntrance(string? settlementEntrance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SettlementEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(settlementEntrance);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_SettlementEntrances"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="settlementEntrances"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintMultiEntrance"/></param>
-    
-    public SettlementConfigurator SettlementEntrances(string? settlementEntrances)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SettlementEntrances = BlueprintTool.GetRef<BlueprintMultiEntrance.Reference>(settlementEntrances);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_CustomSiegeDurationDays"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementConfigurator SetCustomSiegeDurationDays(int? customSiegeDurationDays)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CustomSiegeDurationDays = customSiegeDurationDays;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSettlement.m_NeedOwnMarker"/> (Auto Generated)
-    /// </summary>
-    
-    public SettlementConfigurator SetNeedOwnMarker(bool needOwnMarker)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_NeedOwnMarker = needOwnMarker;
-          });
-    }
   }
 }

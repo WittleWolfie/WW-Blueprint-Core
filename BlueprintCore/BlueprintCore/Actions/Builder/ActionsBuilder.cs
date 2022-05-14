@@ -4,7 +4,6 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 #nullable enable
 namespace BlueprintCore.Actions.Builder

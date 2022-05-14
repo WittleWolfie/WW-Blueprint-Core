@@ -1,120 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="BuffConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class BuffConsiderationConfigurator : BaseConsiderationConfigurator<BuffConsideration, BuffConsiderationConfigurator>
+  public class BuffConsiderationConfigurator
+    : BaseBuffConsiderationConfigurator<BuffConsideration, BuffConsiderationConfigurator>
   {
-    private BuffConsiderationConfigurator(string name) : base(name) { }
+    private BuffConsiderationConfigurator(Blueprint<BuffConsideration, BlueprintReference<BuffConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static BuffConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static BuffConsiderationConfigurator For(Blueprint<BuffConsideration, BlueprintReference<BuffConsideration>> blueprint)
     {
-      return new BuffConsiderationConfigurator(name);
+      return new BuffConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static BuffConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BuffConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BuffConsideration.m_Buffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    
-    public BuffConsiderationConfigurator SetBuffs(string[]? buffs)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Buffs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BuffConsideration.m_Buffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    
-    public BuffConsiderationConfigurator AddToBuffs(params string[] buffs)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Buffs = CommonTool.Append(bp.m_Buffs, buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BuffConsideration.m_Buffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="buffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    
-    public BuffConsiderationConfigurator RemoveFromBuffs(params string[] buffs)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = buffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
-            bp.m_Buffs =
-                bp.m_Buffs
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BuffConsideration.HasBuffScore"/> (Auto Generated)
-    /// </summary>
-    
-    public BuffConsiderationConfigurator SetHasBuffScore(float hasBuffScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.HasBuffScore = hasBuffScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BuffConsideration.NoBuffScore"/> (Auto Generated)
-    /// </summary>
-    
-    public BuffConsiderationConfigurator SetNoBuffScore(float noBuffScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.NoBuffScore = noBuffScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BuffConsideration.FromCaster"/> (Auto Generated)
-    /// </summary>
-    
-    public BuffConsiderationConfigurator SetFromCaster(bool fromCaster)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FromCaster = fromCaster;
-          });
-    }
   }
 }

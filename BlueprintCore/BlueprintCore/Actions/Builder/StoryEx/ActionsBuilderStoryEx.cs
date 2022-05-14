@@ -43,6 +43,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="etude">
+    /// <para>
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -50,7 +51,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder CompleteEtude(
         this ActionsBuilder builder,
@@ -138,6 +140,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/GiveObjective
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
@@ -147,6 +153,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="objective">
+    /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -154,7 +161,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder GiveObjective(
         this ActionsBuilder builder,
@@ -202,6 +210,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/HideWeapons
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterFinalDIalog_EpicRelief</term><description>2fa48a4ad45a0f64d8f2881ff9802dd8</description></item>
@@ -227,6 +239,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/IncrementFlagValue
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
@@ -236,6 +252,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="flag">
+    /// <para>
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -243,7 +260,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder IncrementFlagValue(
         this ActionsBuilder builder,
@@ -299,6 +317,17 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>PlayerIsTrickster</term><description>9f486a9c0c9abfc4a952bb22e88a7e96</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="alignmentMask">
+    /// <para>
+    /// InfoBox: Current unit alignment will be shifted to the nearest available sector. None selected => removes locking and current alignment remains.
+    /// </para>
+    /// </param>
+    /// <param name="targetAlignment">
+    /// <para>
+    /// InfoBox: Considered as initial alignment. This is usually sector's center (LG for Angel, NE for Lich) Will be ignored for `None` mask (all or none square selected)
+    /// </para>
+    /// </param>
     public static ActionsBuilder LockAlignment(
         this ActionsBuilder builder,
         AlignmentMaskType? alignmentMask = null,
@@ -319,6 +348,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/LockFlag
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ALR_TE_Lock_Actions</term><description>418531c6ee69d6c4ebb9f181f7d6e7a4</description></item>
@@ -328,6 +361,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="flag">
+    /// <para>
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -335,7 +369,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder LockFlag(
         this ActionsBuilder builder,
@@ -365,6 +400,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="answers">
+    /// <para>
     /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -372,7 +408,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder MarkAnswersSelected(
         this ActionsBuilder builder,
@@ -402,6 +439,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="cues">
+    /// <para>
     /// Blueprint of type BlueprintCueBase. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -409,7 +447,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder MarkCuesSeen(
         this ActionsBuilder builder,
@@ -437,6 +476,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="globalMap">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -444,9 +484,11 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -454,7 +496,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder MoveAzataIslandToLocation(
         this ActionsBuilder builder,
@@ -488,6 +531,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="globalMap">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -495,7 +539,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder MoveAzataIslandToNearestCrossroad(
         this ActionsBuilder builder,
@@ -572,6 +617,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="detachAllExcept">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -579,7 +625,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder PartyMembersDetach(
         this ActionsBuilder builder,
@@ -665,6 +712,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/Recruit
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aftermath_DaeranQ3_dialog</term><description>9a428e24ce273284989196e240051263</description></item>
@@ -717,6 +768,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="companionBlueprint">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -724,7 +776,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RecruitInactive(
         this ActionsBuilder builder,
@@ -787,6 +840,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="objectivesToReset">
+    /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -794,9 +848,11 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="objectiveToStart">
+    /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -804,9 +860,11 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="quest">
+    /// <para>
     /// Blueprint of type BlueprintQuest. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -814,7 +872,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ResetQuest(
         this ActionsBuilder builder,
@@ -854,6 +913,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="objective">
+    /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -861,7 +921,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ResetQuestObjective(
         this ActionsBuilder builder,
@@ -934,6 +995,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>Legend_Mythic_Revert</term><description>b3d8c1415ea630349adc4e83d6e9a4be</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="desireLevel">
+    /// <para>
+    /// InfoBox: Main character will get mythic level = DesireLevel. Note: Action won't reduce mythic level
+    /// </para>
+    /// </param>
     public static ActionsBuilder SetMythicLevelForMainCharacter(
         this ActionsBuilder builder,
         int? desireLevel = null)
@@ -949,6 +1016,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/SetObjectiveStatus
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
@@ -958,6 +1029,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="objective">
+    /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -965,7 +1037,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SetObjectiveStatus(
         this ActionsBuilder builder,
@@ -999,6 +1072,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="portrait">
+    /// <para>
     /// Blueprint of type BlueprintPortrait. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1006,7 +1080,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SetPortrait(
         this ActionsBuilder builder,
@@ -1191,6 +1266,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="unit1">
+    /// <para>
+    /// InfoBox: Unit1 will become enemy of Unit2's Faction
+    /// </para>
+    /// </param>
     public static ActionsBuilder StartCombat(
         this ActionsBuilder builder,
         UnitEvaluator? unit1 = null,
@@ -1210,6 +1291,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/StartDialog
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
@@ -1218,7 +1303,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="dialogEvaluator">
+    /// <para>
+    /// Tooltip: Evaluator. Works if Dialogue is null
+    /// </para>
+    /// </param>
     /// <param name="dialogue">
+    /// <para>
+    /// Tooltip: This dialog overrides dialog in 'Dialogue Owner' if it exists
+    /// </para>
+    /// <para>
     /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1226,7 +1320,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="dialogueOwner">
+    /// <para>
+    /// Tooltip: Unit with BlueprintDialog. If unit have no BlueprintDialog or Null - Dialog from field 'Dialog' will be used.
+    /// </para>
+    /// </param>
+    /// <param name="speakerName">
+    /// <para>
+    /// Tooltip: Interlocutor name. Uses only if 'Dialogue Owner' is Null
+    /// </para>
     /// </param>
     public static ActionsBuilder StartDialog(
         this ActionsBuilder builder,
@@ -1268,6 +1373,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="encounter">
+    /// <para>
     /// Blueprint of type BlueprintRandomEncounter. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1275,7 +1381,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder StartEncounter(
         this ActionsBuilder builder,
@@ -1305,6 +1412,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="etude">
+    /// <para>
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1312,7 +1420,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder StartEtude(
         this ActionsBuilder builder,
@@ -1345,6 +1454,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="globalMap">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1352,7 +1462,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SwitchAzataIsland(
         this ActionsBuilder builder,
@@ -1397,6 +1508,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/SwitchDoor
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
@@ -1435,6 +1550,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="faction">
+    /// <para>
     /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1442,7 +1558,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SwitchFaction(
         this ActionsBuilder builder,
@@ -1531,6 +1648,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="factionToAttack">
+    /// <para>
     /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1538,7 +1656,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SwitchToEnemy(
         this ActionsBuilder builder,
@@ -1562,6 +1681,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/SwitchToNeutral
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_MidnightFaneInThePast</term><description>fa385eeb6fe506549b9e72ae562a95f9</description></item>
@@ -1571,6 +1694,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="faction">
+    /// <para>
     /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1578,7 +1702,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="target">
+    /// <para>
+    /// InfoBox: Makes the Target unit stop attacking the Faction
+    /// </para>
     /// </param>
     public static ActionsBuilder SwitchToNeutral(
         this ActionsBuilder builder,
@@ -1603,6 +1733,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/TimeSkip(Filler)
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -1672,6 +1806,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="story">
+    /// <para>
     /// Blueprint of type BlueprintCompanionStory. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1679,7 +1814,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder UnlockCompanionStory(
         this ActionsBuilder builder,
@@ -1700,6 +1836,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/UnlockFlag
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>4BarrierDevice01</term><description>2099b5c949f74ad0a598fb66efbe186e</description></item>
@@ -1709,6 +1849,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="flag">
+    /// <para>
     /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1716,7 +1857,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder UnlockFlag(
         this ActionsBuilder builder,
@@ -1748,6 +1890,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="answers">
+    /// <para>
     /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1755,7 +1898,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder UnmarkAnswersSelected(
         this ActionsBuilder builder,
@@ -1776,6 +1920,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/Unrecruit
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0019</term><description>4e30b6b69abc1b24ba38f211f98b9da2</description></item>
@@ -1785,6 +1933,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="companionBlueprint">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1792,7 +1941,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder Unrecruit(
         this ActionsBuilder builder,
@@ -1826,6 +1976,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </remarks>
     ///
     /// <param name="etude">
+    /// <para>
     /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1833,7 +1984,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder UpdateEtudeProgressBar(
         this ActionsBuilder builder,

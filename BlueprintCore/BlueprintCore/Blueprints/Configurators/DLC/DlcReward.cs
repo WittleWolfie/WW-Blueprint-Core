@@ -1,187 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.DLC;
-using Kingmaker.Localization;
-using System.Collections.Generic;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.DLC;
+
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintDlcReward"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  
-  public abstract class BaseDlcRewardConfigurator<T, TBuilder>
-      : BaseBlueprintConfigurator<T, TBuilder>
-      where T : BlueprintDlcReward
-      where TBuilder : BaseDlcRewardConfigurator<T, TBuilder>
-  {
-    protected BaseDlcRewardConfigurator(string name) : base(name) { }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.Description"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetDescription(LocalizedString? description)
-    {
-      ValidateParam(description);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Description = description ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetDlcs(List<BlueprintDlc>? dlcs)
-    {
-      ValidateParam(dlcs);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Dlcs = dlcs;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder AddToDlcs(params BlueprintDlc[] dlcs)
-    {
-      ValidateParam(dlcs);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Dlcs.AddRange(dlcs.ToList() ?? new List<BlueprintDlc>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder RemoveFromDlcs(params BlueprintDlc[] dlcs)
-    {
-      ValidateParam(dlcs);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Dlcs = bp.m_Dlcs.Where(item => !dlcs.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IsAvailable"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetIsAvailable(bool? isAvailable)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IsAvailable = isAvailable;
-          });
-    }
-  }
-
   /// <summary>
   /// Configurator for <see cref="BlueprintDlcReward"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class DlcRewardConfigurator : BaseBlueprintConfigurator<BlueprintDlcReward, DlcRewardConfigurator>
+  public class DlcRewardConfigurator
+    : BaseDlcRewardConfigurator<BlueprintDlcReward, DlcRewardConfigurator>
   {
-    private DlcRewardConfigurator(string name) : base(name) { }
+    private DlcRewardConfigurator(Blueprint<BlueprintDlcReward, BlueprintReference<BlueprintDlcReward>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static DlcRewardConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static DlcRewardConfigurator For(Blueprint<BlueprintDlcReward, BlueprintReference<BlueprintDlcReward>> blueprint)
     {
-      return new DlcRewardConfigurator(name);
+      return new DlcRewardConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static DlcRewardConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintDlcReward>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.Description"/> (Auto Generated)
-    /// </summary>
-    
-    public DlcRewardConfigurator SetDescription(LocalizedString? description)
-    {
-      ValidateParam(description);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Description = description ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
-    /// </summary>
-    
-    public DlcRewardConfigurator SetDlcs(List<BlueprintDlc>? dlcs)
-    {
-      ValidateParam(dlcs);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Dlcs = dlcs;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
-    /// </summary>
-    
-    public DlcRewardConfigurator AddToDlcs(params BlueprintDlc[] dlcs)
-    {
-      ValidateParam(dlcs);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Dlcs.AddRange(dlcs.ToList() ?? new List<BlueprintDlc>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintDlcReward.m_Dlcs"/> (Auto Generated)
-    /// </summary>
-    
-    public DlcRewardConfigurator RemoveFromDlcs(params BlueprintDlc[] dlcs)
-    {
-      ValidateParam(dlcs);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Dlcs = bp.m_Dlcs.Where(item => !dlcs.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcReward.m_IsAvailable"/> (Auto Generated)
-    /// </summary>
-    
-    public DlcRewardConfigurator SetIsAvailable(bool? isAvailable)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IsAvailable = isAvailable;
-          });
-    }
   }
 }

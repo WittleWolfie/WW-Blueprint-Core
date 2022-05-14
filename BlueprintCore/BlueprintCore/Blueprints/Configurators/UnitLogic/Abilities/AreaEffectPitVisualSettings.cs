@@ -1,147 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.ResourceLinks;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using UnityEngine;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintAreaEffectPitVisualSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class AreaEffectPitVisualSettingsConfigurator : BaseBlueprintConfigurator<BlueprintAreaEffectPitVisualSettings, AreaEffectPitVisualSettingsConfigurator>
+  public class AreaEffectPitVisualSettingsConfigurator
+    : BaseAreaEffectPitVisualSettingsConfigurator<BlueprintAreaEffectPitVisualSettings, AreaEffectPitVisualSettingsConfigurator>
   {
-    private AreaEffectPitVisualSettingsConfigurator(string name) : base(name) { }
+    private AreaEffectPitVisualSettingsConfigurator(Blueprint<BlueprintAreaEffectPitVisualSettings, BlueprintReference<BlueprintAreaEffectPitVisualSettings>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static AreaEffectPitVisualSettingsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static AreaEffectPitVisualSettingsConfigurator For(Blueprint<BlueprintAreaEffectPitVisualSettings, BlueprintReference<BlueprintAreaEffectPitVisualSettings>> blueprint)
     {
-      return new AreaEffectPitVisualSettingsConfigurator(name);
+      return new AreaEffectPitVisualSettingsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static AreaEffectPitVisualSettingsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintAreaEffectPitVisualSettings>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.DepthMeters"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEffectPitVisualSettingsConfigurator SetDepthMeters(float depthMeters)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DepthMeters = depthMeters;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.HoleEdgeMeters"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEffectPitVisualSettingsConfigurator SetHoleEdgeMeters(float holeEdgeMeters)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.HoleEdgeMeters = holeEdgeMeters;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.UnitDisappearFx"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEffectPitVisualSettingsConfigurator SetUnitDisappearFx(PrefabLink? unitDisappearFx)
-    {
-      ValidateParam(unitDisappearFx);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UnitDisappearFx = unitDisappearFx ?? Constants.Empty.PrefabLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.UnitAppearFx"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEffectPitVisualSettingsConfigurator SetUnitAppearFx(PrefabLink? unitAppearFx)
-    {
-      ValidateParam(unitAppearFx);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UnitAppearFx = unitAppearFx ?? Constants.Empty.PrefabLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.FallXZCurve"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEffectPitVisualSettingsConfigurator SetFallXZCurve(AnimationCurve fallXZCurve)
-    {
-      ValidateParam(fallXZCurve);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FallXZCurve = fallXZCurve;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.FallYCurve"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEffectPitVisualSettingsConfigurator SetFallYCurve(AnimationCurve fallYCurve)
-    {
-      ValidateParam(fallYCurve);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FallYCurve = fallYCurve;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.ClimbXZCurve"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEffectPitVisualSettingsConfigurator SetClimbXZCurve(AnimationCurve climbXZCurve)
-    {
-      ValidateParam(climbXZCurve);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ClimbXZCurve = climbXZCurve;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAreaEffectPitVisualSettings.ClimbYCurve"/> (Auto Generated)
-    /// </summary>
-    
-    public AreaEffectPitVisualSettingsConfigurator SetClimbYCurve(AnimationCurve climbYCurve)
-    {
-      ValidateParam(climbYCurve);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ClimbYCurve = climbYCurve;
-          });
-    }
   }
 }

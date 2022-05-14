@@ -1,99 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Formations;
-using Kingmaker.Localization;
-using System.Linq;
-using UnityEngine;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Formations;
+
 namespace BlueprintCore.Blueprints.Configurators.Formations
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintPartyFormation"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class PartyFormationConfigurator : BaseBlueprintConfigurator<BlueprintPartyFormation, PartyFormationConfigurator>
+  public class PartyFormationConfigurator
+    : BasePartyFormationConfigurator<BlueprintPartyFormation, PartyFormationConfigurator>
   {
-    private PartyFormationConfigurator(string name) : base(name) { }
+    private PartyFormationConfigurator(Blueprint<BlueprintPartyFormation, BlueprintReference<BlueprintPartyFormation>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static PartyFormationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static PartyFormationConfigurator For(Blueprint<BlueprintPartyFormation, BlueprintReference<BlueprintPartyFormation>> blueprint)
     {
-      return new PartyFormationConfigurator(name);
+      return new PartyFormationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static PartyFormationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintPartyFormation>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
-    /// </summary>
-    
-    public PartyFormationConfigurator SetPositions(Vector2[]? positions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Positions = positions;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
-    /// </summary>
-    
-    public PartyFormationConfigurator AddToPositions(params Vector2[] positions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Positions = CommonTool.Append(bp.Positions, positions ?? new Vector2[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintPartyFormation.Positions"/> (Auto Generated)
-    /// </summary>
-    
-    public PartyFormationConfigurator RemoveFromPositions(params Vector2[] positions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Positions = bp.Positions.Where(item => !positions.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintPartyFormation.Type"/> (Auto Generated)
-    /// </summary>
-    
-    public PartyFormationConfigurator SetType(PartyFormationType type)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Type = type;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintPartyFormation.Name"/> (Auto Generated)
-    /// </summary>
-    
-    public PartyFormationConfigurator SetName(LocalizedString? name)
-    {
-      ValidateParam(name);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Name = name ?? Constants.Empty.String;
-          });
-    }
   }
 }

@@ -1,323 +1,51 @@
-using BlueprintCore.Actions.Builder;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Kingdom.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintGlobalMap"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class GlobalMapConfigurator : BaseBlueprintConfigurator<BlueprintGlobalMap, GlobalMapConfigurator>
+  public class GlobalMapConfigurator
+    : BaseGlobalMapConfigurator<BlueprintGlobalMap, GlobalMapConfigurator>
   {
-    private GlobalMapConfigurator(string name) : base(name) { }
+    private GlobalMapConfigurator(Blueprint<BlueprintGlobalMap, BlueprintReference<BlueprintGlobalMap>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static GlobalMapConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static GlobalMapConfigurator For(Blueprint<BlueprintGlobalMap, BlueprintReference<BlueprintGlobalMap>> blueprint)
     {
-      return new GlobalMapConfigurator(name);
+      return new GlobalMapConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static GlobalMapConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintGlobalMap>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.m_StartLocation"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="startLocation"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    
-    public GlobalMapConfigurator SetStartLocation(string? startLocation)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_StartLocation = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(startLocation);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.m_GlobalMapEnterPoint"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="globalMapEnterPoint"><see cref="Kingmaker.Blueprints.Area.BlueprintAreaEnterPoint"/></param>
-    
-    public GlobalMapConfigurator SetGlobalMapEnterPoint(string? globalMapEnterPoint)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_GlobalMapEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(globalMapEnterPoint);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.m_RegionsMask"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetRegionsMask(RegionsMask regionsMask)
-    {
-      ValidateParam(regionsMask);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RegionsMask = regionsMask;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.VisualSpeedBase"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetVisualSpeedBase(float visualSpeedBase)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.VisualSpeedBase = visualSpeedBase;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.MechanicsSpeedBase"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetMechanicsSpeedBase(float mechanicsSpeedBase)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MechanicsSpeedBase = mechanicsSpeedBase;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.ArmySpeedFactor"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetArmySpeedFactor(float armySpeedFactor)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ArmySpeedFactor = armySpeedFactor;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.ArmyGoToPointSpeedMultiplier"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetArmyGoToPointSpeedMultiplier(float armyGoToPointSpeedMultiplier)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ArmyGoToPointSpeedMultiplier = armyGoToPointSpeedMultiplier;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.RandomEncounterTimer"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetRandomEncounterTimer(float randomEncounterTimer)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.RandomEncounterTimer = randomEncounterTimer;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.ExploreDistance"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetExploreDistance(float exploreDistance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ExploreDistance = exploreDistance;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.RestrictTravelingToClosedLocations"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetRestrictTravelingToClosedLocations(bool restrictTravelingToClosedLocations)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.RestrictTravelingToClosedLocations = restrictTravelingToClosedLocations;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.Points"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="points"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    
-    public GlobalMapConfigurator SetPoints(string[]? points)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Points = points.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintGlobalMap.Points"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="points"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    
-    public GlobalMapConfigurator AddToPoints(params string[] points)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Points = CommonTool.Append(bp.Points, points.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintGlobalMap.Points"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="points"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    
-    public GlobalMapConfigurator RemoveFromPoints(params string[] points)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = points.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(name));
-            bp.Points =
-                bp.Points
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.Edges"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="edges"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge"/></param>
-    
-    public GlobalMapConfigurator SetEdges(string[]? edges)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Edges = edges.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapEdge.Reference>(name)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintGlobalMap.Edges"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="edges"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge"/></param>
-    
-    public GlobalMapConfigurator AddToEdges(params string[] edges)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Edges.AddRange(edges.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapEdge.Reference>(name)));
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintGlobalMap.Edges"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="edges"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge"/></param>
-    
-    public GlobalMapConfigurator RemoveFromEdges(params string[] edges)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = edges.Select(name => BlueprintTool.GetRef<BlueprintGlobalMapEdge.Reference>(name));
-            bp.Edges =
-                bp.Edges
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.EnterWarCampAction"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetEnterWarCampAction(ActionsBuilder? enterWarCampAction)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EnterWarCampAction = enterWarCampAction?.Build() ?? Constants.Empty.Actions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.EnterAzataIslandAction"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetEnterAzataIslandAction(ActionsBuilder? enterAzataIslandAction)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EnterAzataIslandAction = enterAzataIslandAction?.Build() ?? Constants.Empty.Actions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.IsKenabres"/> (Auto Generated)
-    /// </summary>
-    
-    public GlobalMapConfigurator SetIsKenabres(bool isKenabres)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.IsKenabres = isKenabres;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintGlobalMap.CampLocation"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="campLocation"><see cref="Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint"/></param>
-    
-    public GlobalMapConfigurator SetCampLocation(string? campLocation)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CampLocation = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(campLocation);
-          });
-    }
   }
 }

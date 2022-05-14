@@ -1,160 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.UI;
-using System.Collections.Generic;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.UI;
+
 namespace BlueprintCore.Blueprints.Configurators.UI
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintUISound"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class UISoundConfigurator : BaseBlueprintConfigurator<BlueprintUISound, UISoundConfigurator>
+  public class UISoundConfigurator
+    : BaseUISoundConfigurator<BlueprintUISound, UISoundConfigurator>
   {
-    private UISoundConfigurator(string name) : base(name) { }
+    private UISoundConfigurator(Blueprint<BlueprintUISound, BlueprintReference<BlueprintUISound>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static UISoundConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static UISoundConfigurator For(Blueprint<BlueprintUISound, BlueprintReference<BlueprintUISound>> blueprint)
     {
-      return new UISoundConfigurator(name);
+      return new UISoundConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static UISoundConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintUISound>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator SetSounds(List<BlueprintUISound.UISound>? sounds)
-    {
-      ValidateParam(sounds);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Sounds = sounds;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator AddToSounds(params BlueprintUISound.UISound[] sounds)
-    {
-      ValidateParam(sounds);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Sounds.AddRange(sounds.ToList() ?? new List<BlueprintUISound.UISound>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintUISound.Sounds"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator RemoveFromSounds(params BlueprintUISound.UISound[] sounds)
-    {
-      ValidateParam(sounds);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Sounds = bp.Sounds.Where(item => !sounds.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator SetArmyManagement(List<BlueprintUISound.UISound>? armyManagement)
-    {
-      ValidateParam(armyManagement);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ArmyManagement = armyManagement;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator AddToArmyManagement(params BlueprintUISound.UISound[] armyManagement)
-    {
-      ValidateParam(armyManagement);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ArmyManagement.AddRange(armyManagement.ToList() ?? new List<BlueprintUISound.UISound>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintUISound.ArmyManagement"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator RemoveFromArmyManagement(params BlueprintUISound.UISound[] armyManagement)
-    {
-      ValidateParam(armyManagement);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ArmyManagement = bp.ArmyManagement.Where(item => !armyManagement.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator SetTooltip(List<BlueprintUISound.UISound>? tooltip)
-    {
-      ValidateParam(tooltip);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Tooltip = tooltip;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator AddToTooltip(params BlueprintUISound.UISound[] tooltip)
-    {
-      ValidateParam(tooltip);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Tooltip.AddRange(tooltip.ToList() ?? new List<BlueprintUISound.UISound>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintUISound.Tooltip"/> (Auto Generated)
-    /// </summary>
-    
-    public UISoundConfigurator RemoveFromTooltip(params BlueprintUISound.UISound[] tooltip)
-    {
-      ValidateParam(tooltip);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Tooltip = bp.Tooltip.Where(item => !tooltip.Contains(item)).ToList();
-          });
-    }
   }
 }

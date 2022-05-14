@@ -1,269 +1,51 @@
-using BlueprintCore.Blueprints.Configurators.Items.Equipment;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
-using Kingmaker.Enums;
-using Kingmaker.RuleSystem;
-using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Class.Kineticist;
-using System;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintItemWeapon"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ItemWeaponConfigurator : BaseItemEquipmentHandConfigurator<BlueprintItemWeapon, ItemWeaponConfigurator>
+  public class ItemWeaponConfigurator
+    : BaseItemWeaponConfigurator<BlueprintItemWeapon, ItemWeaponConfigurator>
   {
-    private ItemWeaponConfigurator(string name) : base(name) { }
+    private ItemWeaponConfigurator(Blueprint<BlueprintItemWeapon, BlueprintReference<BlueprintItemWeapon>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ItemWeaponConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ItemWeaponConfigurator For(Blueprint<BlueprintItemWeapon, BlueprintReference<BlueprintItemWeapon>> blueprint)
     {
-      return new ItemWeaponConfigurator(name);
+      return new ItemWeaponConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ItemWeaponConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintItemWeapon>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_Type"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="type"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType"/></param>
-    
-    public ItemWeaponConfigurator SetType(string? type)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(type);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_Size"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetSize(Size size)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Size = size;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    
-    public ItemWeaponConfigurator SetEnchantments(string[]? enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    
-    public ItemWeaponConfigurator AddToEnchantments(params string[] enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintItemWeapon.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintWeaponEnchantment"/></param>
-    
-    public ItemWeaponConfigurator RemoveFromEnchantments(params string[] enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintWeaponEnchantmentReference>(name));
-            bp.m_Enchantments =
-                bp.m_Enchantments
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_OverrideDamageDice"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetOverrideDamageDice(bool overrideDamageDice)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_OverrideDamageDice = overrideDamageDice;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_DamageDice"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetDamageDice(DiceFormula damageDice)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DamageDice = damageDice;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_OverrideDamageType"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetOverrideDamageType(bool overrideDamageType)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_OverrideDamageType = overrideDamageType;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_DamageType"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetDamageType(DamageTypeDescription damageType)
-    {
-      ValidateParam(damageType);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DamageType = damageType;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.Double"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetDouble(bool doubleValue)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Double = doubleValue;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_SecondWeapon"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="secondWeapon"><see cref="Kingmaker.Blueprints.Items.Weapons.BlueprintItemWeapon"/></param>
-    
-    public ItemWeaponConfigurator SetSecondWeapon(string? secondWeapon)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SecondWeapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(secondWeapon);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.KeepInPolymorph"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetKeepInPolymorph(bool keepInPolymorph)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KeepInPolymorph = keepInPolymorph;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_OverrideShardItem"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetOverrideShardItem(bool overrideShardItem)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_OverrideShardItem = overrideShardItem;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_OverrideDestructible"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetOverrideDestructible(bool overrideDestructible)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_OverrideDestructible = overrideDestructible;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemWeapon.m_AlwaysPrimary"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemWeaponConfigurator SetAlwaysPrimary(bool alwaysPrimary)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AlwaysPrimary = alwaysPrimary;
-          });
-    }
-
-    /// <summary>
-    /// Adds <see cref="WeaponKineticBlade"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="activationAbility"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    /// <param name="blast"><see cref="Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility"/></param>
-    
-    
-    public ItemWeaponConfigurator AddWeaponKineticBlade(
-        string? activationAbility = null,
-        string? blast = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new WeaponKineticBlade();
-      component.m_ActivationAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(activationAbility);
-      component.m_Blast = BlueprintTool.GetRef<BlueprintAbilityReference>(blast);
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
   }
 }

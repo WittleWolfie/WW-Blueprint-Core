@@ -1,73 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
-using System.Linq;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintTacticalCombatObstaclesMap"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class TacticalCombatObstaclesMapConfigurator : BaseBlueprintConfigurator<BlueprintTacticalCombatObstaclesMap, TacticalCombatObstaclesMapConfigurator>
+  public class TacticalCombatObstaclesMapConfigurator
+    : BaseTacticalCombatObstaclesMapConfigurator<BlueprintTacticalCombatObstaclesMap, TacticalCombatObstaclesMapConfigurator>
   {
-    private TacticalCombatObstaclesMapConfigurator(string name) : base(name) { }
+    private TacticalCombatObstaclesMapConfigurator(Blueprint<BlueprintTacticalCombatObstaclesMap, BlueprintReference<BlueprintTacticalCombatObstaclesMap>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static TacticalCombatObstaclesMapConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static TacticalCombatObstaclesMapConfigurator For(Blueprint<BlueprintTacticalCombatObstaclesMap, BlueprintReference<BlueprintTacticalCombatObstaclesMap>> blueprint)
     {
-      return new TacticalCombatObstaclesMapConfigurator(name);
+      return new TacticalCombatObstaclesMapConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static TacticalCombatObstaclesMapConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintTacticalCombatObstaclesMap>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
-    /// </summary>
-    
-    public TacticalCombatObstaclesMapConfigurator SetObstacles(BlueprintTacticalCombatObstaclesMap.MapObstacle[]? obstacles)
-    {
-      ValidateParam(obstacles);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Obstacles = obstacles;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
-    /// </summary>
-    
-    public TacticalCombatObstaclesMapConfigurator AddToObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
-    {
-      ValidateParam(obstacles);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Obstacles = CommonTool.Append(bp.Obstacles, obstacles ?? new BlueprintTacticalCombatObstaclesMap.MapObstacle[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/> (Auto Generated)
-    /// </summary>
-    
-    public TacticalCombatObstaclesMapConfigurator RemoveFromObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
-    {
-      ValidateParam(obstacles);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Obstacles = bp.Obstacles.Where(item => !obstacles.Contains(item)).ToArray();
-          });
-    }
   }
 }

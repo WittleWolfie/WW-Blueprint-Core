@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

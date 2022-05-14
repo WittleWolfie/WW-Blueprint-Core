@@ -39,6 +39,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -46,7 +47,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder HasBuffFromCaster(
         this ConditionsBuilder builder,
@@ -74,6 +76,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="fact">
+    /// <para>
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -81,7 +84,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CasterHasFact(
         this ConditionsBuilder builder,
@@ -109,6 +113,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="fact">
+    /// <para>
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -116,7 +121,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder HasFact(
         this ConditionsBuilder builder,
@@ -239,6 +245,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -246,7 +253,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder BuffRank(
         this ConditionsBuilder builder,
@@ -328,6 +336,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="clazz">
+    /// <para>
     /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -335,7 +344,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CharacterClass(
         this ConditionsBuilder builder,
@@ -510,6 +520,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -517,7 +528,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder HasBuff(
         this ConditionsBuilder builder,
@@ -547,6 +559,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -554,7 +567,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder HasBuffFromThisAreaEffect(
         this ConditionsBuilder builder,
@@ -636,6 +650,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="itemToCheck">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -643,7 +658,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder HasItem(
         this ConditionsBuilder builder,
@@ -1338,6 +1354,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="unit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1345,7 +1362,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder TargetIsBlueprint(
         this ConditionsBuilder builder,

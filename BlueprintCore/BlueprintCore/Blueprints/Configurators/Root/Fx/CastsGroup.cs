@@ -1,59 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root.Fx;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Root.Fx
 {
   /// <summary>
   /// Configurator for <see cref="CastsGroup"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CastsGroupConfigurator : BaseBlueprintConfigurator<CastsGroup, CastsGroupConfigurator>
+  public class CastsGroupConfigurator
+    : BaseCastsGroupConfigurator<CastsGroup, CastsGroupConfigurator>
   {
-    private CastsGroupConfigurator(string name) : base(name) { }
+    private CastsGroupConfigurator(Blueprint<CastsGroup, BlueprintReference<CastsGroup>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CastsGroupConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CastsGroupConfigurator For(Blueprint<CastsGroup, BlueprintReference<CastsGroup>> blueprint)
     {
-      return new CastsGroupConfigurator(name);
+      return new CastsGroupConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CastsGroupConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<CastsGroup>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="CastsGroup.m_ArcaneCasts"/> (Auto Generated)
-    /// </summary>
-    
-    public CastsGroupConfigurator SetArcaneCasts(CastGroupForSpellSource arcaneCasts)
-    {
-      ValidateParam(arcaneCasts);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ArcaneCasts = arcaneCasts;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CastsGroup.m_DivineCasts"/> (Auto Generated)
-    /// </summary>
-    
-    public CastsGroupConfigurator SetDivineCasts(CastGroupForSpellSource divineCasts)
-    {
-      ValidateParam(divineCasts);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DivineCasts = divineCasts;
-          });
-    }
   }
 }

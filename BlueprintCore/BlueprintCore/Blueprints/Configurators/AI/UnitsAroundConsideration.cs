@@ -1,276 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="UnitsAroundConsideration"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  
-  public abstract class BaseUnitsAroundConsiderationConfigurator<T, TBuilder>
-      : BaseConsiderationConfigurator<T, TBuilder>
-      where T : UnitsAroundConsideration
-      where TBuilder : BaseUnitsAroundConsiderationConfigurator<T, TBuilder>
-  {
-    protected BaseUnitsAroundConsiderationConfigurator(string name) : base(name) { }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.Filter"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetFilter(Kingmaker.AI.Blueprints.TargetType filter)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Filter = filter;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.MinCount"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetMinCount(int minCount)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MinCount = minCount;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.MaxCount"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetMaxCount(int maxCount)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MaxCount = maxCount;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.IncludeUnconscious"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetIncludeUnconscious(bool includeUnconscious)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.IncludeUnconscious = includeUnconscious;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.BelowMinScore"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetBelowMinScore(float belowMinScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.BelowMinScore = belowMinScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.MinScore"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetMinScore(float minScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MinScore = minScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.MaxScore"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetMaxScore(float maxScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MaxScore = maxScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.ExtraTargetScore"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetExtraTargetScore(float extraTargetScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ExtraTargetScore = extraTargetScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.UseAbilityShape"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetUseAbilityShape(bool useAbilityShape)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UseAbilityShape = useAbilityShape;
-          });
-    }
-  }
-
   /// <summary>
   /// Configurator for <see cref="UnitsAroundConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class UnitsAroundConsiderationConfigurator : BaseConsiderationConfigurator<UnitsAroundConsideration, UnitsAroundConsiderationConfigurator>
+  public class UnitsAroundConsiderationConfigurator
+    : BaseUnitsAroundConsiderationConfigurator<UnitsAroundConsideration, UnitsAroundConsiderationConfigurator>
   {
-    private UnitsAroundConsiderationConfigurator(string name) : base(name) { }
+    private UnitsAroundConsiderationConfigurator(Blueprint<UnitsAroundConsideration, BlueprintReference<UnitsAroundConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static UnitsAroundConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static UnitsAroundConsiderationConfigurator For(Blueprint<UnitsAroundConsideration, BlueprintReference<UnitsAroundConsideration>> blueprint)
     {
-      return new UnitsAroundConsiderationConfigurator(name);
+      return new UnitsAroundConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static UnitsAroundConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<UnitsAroundConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.Filter"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetFilter(Kingmaker.AI.Blueprints.TargetType filter)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Filter = filter;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.MinCount"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetMinCount(int minCount)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MinCount = minCount;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.MaxCount"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetMaxCount(int maxCount)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MaxCount = maxCount;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.IncludeUnconscious"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetIncludeUnconscious(bool includeUnconscious)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.IncludeUnconscious = includeUnconscious;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.BelowMinScore"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetBelowMinScore(float belowMinScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.BelowMinScore = belowMinScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.MinScore"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetMinScore(float minScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MinScore = minScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.MaxScore"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetMaxScore(float maxScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MaxScore = maxScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.ExtraTargetScore"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetExtraTargetScore(float extraTargetScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ExtraTargetScore = extraTargetScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="UnitsAroundConsideration.UseAbilityShape"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitsAroundConsiderationConfigurator SetUseAbilityShape(bool useAbilityShape)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UseAbilityShape = useAbilityShape;
-          });
-    }
   }
 }

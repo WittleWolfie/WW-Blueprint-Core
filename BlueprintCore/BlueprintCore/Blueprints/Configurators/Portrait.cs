@@ -1,79 +1,50 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using System;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintPortrait"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class PortraitConfigurator : BaseBlueprintConfigurator<BlueprintPortrait, PortraitConfigurator>
+  public class PortraitConfigurator
+    : BasePortraitConfigurator<BlueprintPortrait, PortraitConfigurator>
   {
-    private PortraitConfigurator(string name) : base(name) { }
+    private PortraitConfigurator(Blueprint<BlueprintPortrait, BlueprintReference<BlueprintPortrait>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static PortraitConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static PortraitConfigurator For(Blueprint<BlueprintPortrait, BlueprintReference<BlueprintPortrait>> blueprint)
     {
-      return new PortraitConfigurator(name);
+      return new PortraitConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static PortraitConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintPortrait>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintPortrait.Data"/> (Auto Generated)
-    /// </summary>
-    
-    public PortraitConfigurator SetData(PortraitData data)
-    {
-      ValidateParam(data);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Data = data;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintPortrait.m_BackupPortrait"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="backupPortrait"><see cref="Kingmaker.Blueprints.BlueprintPortrait"/></param>
-    
-    public PortraitConfigurator SetBackupPortrait(string? backupPortrait)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_BackupPortrait = BlueprintTool.GetRef<BlueprintPortraitReference>(backupPortrait);
-          });
-    }
-
-    /// <summary>
-    /// Adds <see cref="PortraitDollSettings"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="race"><see cref="Kingmaker.Blueprints.Classes.BlueprintRace"/></param>
-    
-    
-    public PortraitConfigurator AddPortraitDollSettings(
-        Gender gender = default,
-        string? race = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new PortraitDollSettings();
-      component.Gender = gender;
-      component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(race);
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
   }
 }

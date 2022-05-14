@@ -62,6 +62,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -69,7 +70,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AddBuffToSquad(
         this ActionsBuilder builder,
@@ -241,6 +243,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="factsToRemove">
+    /// <para>
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -248,7 +251,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ArmyRemoveFacts(
         this ActionsBuilder builder,
@@ -276,6 +280,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>ArmyVorpalStrike</term><description>da6d24ec5a87417f93683ac4b41b3f25</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="floatCount">
+    /// <para>
+    /// InfoBox: For leader, it is just count (for formulas use Count and custom properties ) For squad, it is coefficient that will be multiplied by current squad size
+    /// </para>
+    /// </param>
     public static ActionsBuilder KillSquadUnits(
         this ActionsBuilder builder,
         float floatCount)
@@ -299,6 +309,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>ArmyVorpalStrike</term><description>da6d24ec5a87417f93683ac4b41b3f25</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="count">
+    /// <para>
+    /// InfoBox: For leader, it is just count (use custom properties for formulas) For squad, it is coefficient that will be multiplied by current squad size
+    /// </para>
+    /// </param>
     public static ActionsBuilder KillSquadLeaders(
         this ActionsBuilder builder,
         ContextDiceValue count)
@@ -323,7 +339,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="count">
+    /// <para>
+    /// InfoBox: For leader, it is just count to summon. For squad, it is coefficient that will be multiplied by current squad size
+    /// </para>
+    /// </param>
     /// <param name="blueprint">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -331,9 +353,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="summonPool">
+    /// <para>
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -341,7 +365,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SummonTacticalSquad(
         this ActionsBuilder builder,
@@ -383,6 +408,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>RitualStoneCallAbility</term><description>705b85d1ffc2a4347bdfcba7480b32dc</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="rollsCount">
+    /// <para>
+    /// InfoBox: Result = RollsCount * (5 + Power * Power)d(DiceType)
+    /// </para>
+    /// </param>
     public static ActionsBuilder TacticalCombatDealDamage(
         this ActionsBuilder builder,
         DamageTypeDescription damageType,
@@ -423,6 +454,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="army">
+    /// <para>
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -430,9 +462,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -440,9 +474,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="applyRecruitIncrease">
+    /// <para>
+    /// InfoBox: Increase squads size according to KingdomUnitsGrowthIncrease active components
+    /// </para>
     /// </param>
     /// <param name="armyLeader">
+    /// <para>
     /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -450,7 +491,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder CreateCrusaderArmy(
         this ActionsBuilder builder,
@@ -492,6 +534,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="army">
+    /// <para>
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -499,9 +542,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -509,9 +554,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="armyLeader">
+    /// <para>
     /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -519,9 +566,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="completeActions">
+    /// <para>
     /// Blueprint of type BlueprintActionList. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -529,7 +578,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder CreateDemonArmy(
         this ActionsBuilder builder,
@@ -575,6 +625,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -582,7 +633,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="applyRecruitIncrease">
+    /// <para>
+    /// InfoBox: Increase squads size according to KingdomUnitsGrowthIncrease active components
+    /// </para>
     /// </param>
     public static ActionsBuilder CreateArmyFromLosses(
         this ActionsBuilder builder,
@@ -613,6 +670,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="army">
+    /// <para>
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -620,9 +678,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -630,9 +690,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="armyLeader">
+    /// <para>
     /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -640,7 +702,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="hasNoReward">
+    /// <para>
+    /// InfoBox: No Exp will be received on defeating garrison and garrison will not hide armies on GM behind it.
+    /// </para>
     /// </param>
     public static ActionsBuilder CreateGarrison(
         this ActionsBuilder builder,
@@ -724,6 +792,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="spell">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -731,7 +800,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder GainGlobalMagicSpell(
         this ActionsBuilder builder,
@@ -755,6 +825,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="includeInEventStats">
+    /// <para>
+    /// Tooltip: When true, stat changes are stored in current event resolution history
+    /// </para>
+    /// </param>
     public static ActionsBuilder KingdomActionAddBPRandom(
         this ActionsBuilder builder,
         KingdomResource resourceType,
@@ -785,6 +861,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -792,9 +869,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="applyToRegion">
+    /// <para>
+    /// InfoBox: If true applies buff to region from Region field or (if it's null) to region for context (settlement, event or parent buff)
+    /// </para>
     /// </param>
     /// <param name="region">
+    /// <para>
     /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -802,7 +886,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionAddBuff(
         this ActionsBuilder builder,
@@ -840,6 +925,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="buffs">
+    /// <para>
     /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -847,7 +933,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionAddRandomBuff(
         this ActionsBuilder builder,
@@ -879,6 +966,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="region">
+    /// <para>
     /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -886,7 +974,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionConquerRegion(
         this ActionsBuilder builder,
@@ -910,6 +999,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="buildList">
+    /// <para>
     /// Blueprint of type SettlementBuildList. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -917,9 +1007,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="specificSettlement">
+    /// <para>
     /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -927,7 +1019,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionFillSettlement(
         this ActionsBuilder builder,
@@ -955,6 +1048,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -962,9 +1056,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="settlement">
+    /// <para>
     /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -972,7 +1068,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionFoundSettlement(
         this ActionsBuilder builder,
@@ -1024,6 +1121,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="spell">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1031,7 +1129,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ManuallySetGlobalSpellCooldown(
         this ActionsBuilder builder,
@@ -1077,6 +1176,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="spell">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1084,7 +1184,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveGlobalMagicSpell(
         this ActionsBuilder builder,
@@ -1221,6 +1322,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="unit">
+    /// <para>
+    /// InfoBox: Amount to hire is setup in BlueprintUnit -> ArmyUnitComponent -> MercenariesBaseGrowths
+    /// </para>
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1228,7 +1333,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AddMercenaryToPool(
         this ActionsBuilder builder,
@@ -1260,6 +1366,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="armyUnits">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1267,9 +1374,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="features">
+    /// <para>
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1277,7 +1386,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AddTacticalArmyFeature(
         this ActionsBuilder builder,
@@ -1321,6 +1431,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>TacticianRank3</term><description>5234a68ecf404794a3aee34c9416aecb</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="inCurrentTurn">
+    /// <para>
+    /// InfoBox: Can't be used on combat setup. Otherwise make sure that context target is not null
+    /// </para>
+    /// </param>
     public static ActionsBuilder ArmyAdditionalAction(
         this ActionsBuilder builder,
         bool? canAddInBonusMoraleTurn = null,
@@ -1366,6 +1482,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>FlagLegend1Morale</term><description>ebda3d4d2b39416dbec3dc4a7bbd4760</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="maxValueDelta">
+    /// <para>
+    /// InfoBox: Can be negative
+    /// </para>
+    /// </param>
     public static ActionsBuilder ChangeKingdomMoraleMaximum(
         this ActionsBuilder builder,
         int? maxValueDelta = null)
@@ -1449,6 +1571,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>RitualJudgementDayAbility</term><description>814a31b50da1434aa9f8622b87157fda</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="rollsCount">
+    /// <para>
+    /// InfoBox: Result = RollsCount * (5 + Power * Power)d(DiceType)
+    /// </para>
+    /// </param>
     public static ActionsBuilder TacticalCombatHealTarget(
         this ActionsBuilder builder,
         DiceType? diceType = null,
@@ -1477,6 +1605,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="unit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1484,7 +1613,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder DecreaseRecruitsGrowth(
         this ActionsBuilder builder,
@@ -1515,6 +1645,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="returnPoint">
+    /// <para>
     /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1522,7 +1653,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder EnterKingdomInterface(
         this ActionsBuilder builder,
@@ -1557,7 +1689,18 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="convertCoefficient">
+    /// <para>
+    /// InfoBox: Current amount in squads and recruit pools would be multiplied by this coefficient
+    /// </para>
+    /// </param>
+    /// <param name="newGrowth">
+    /// <para>
+    /// InfoBox: New-old growth serves as parameters to calculate growth change coefficient: GrowthCoefficient = NewGrowth / OldGrowth Weekly growth = `current weekly growth` * GrowthCoefficient Note that this only affect base growth (without morale and buidlings). Result and values can be zero (means zero base growth)
+    /// </para>
+    /// </param>
     /// <param name="newUnit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1565,9 +1708,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="oldUnit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1575,7 +1720,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ExchangeRecruits(
         this ActionsBuilder builder,
@@ -1615,6 +1761,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="unit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1622,7 +1769,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder IncreaseRecruitsGrowth(
         this ActionsBuilder builder,
@@ -1652,6 +1800,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="unit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1659,7 +1808,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder IncreaseRecruitsPool(
         this ActionsBuilder builder,
@@ -1806,6 +1956,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>FlagTrickster1Money</term><description>6c97784129e5492fa08496f2d4139f22</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="coefficient">
+    /// <para>
+    /// InfoBox: Formula: Gold to add = GoldPerUnit * (All units count) * Coefficient
+    /// </para>
+    /// </param>
     public static ActionsBuilder KingdomActionGetPartyGoldByUnitsCount(
         this ActionsBuilder builder,
         float? coefficient = null,
@@ -1828,6 +1984,17 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>Logistics6Accumulation</term><description>86e157a49e15496a9deac395011061be</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="maxResourceCountGained">
+    /// <para>
+    /// InfoBox: Non-positive value means no limits
+    /// </para>
+    /// </param>
+    /// <param name="resourceType">
+    /// <para>
+    /// InfoBox: None - to get all resources
+    /// </para>
+    /// </param>
     public static ActionsBuilder KingdomActionGetResourcesPercent(
         this ActionsBuilder builder,
         int? maxResourceCountGained = null,
@@ -1880,6 +2047,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="specificSettlement">
+    /// <para>
     /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1887,7 +2055,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionImproveSettlement(
         this ActionsBuilder builder,
@@ -1939,6 +2108,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>SarcorianElders_Ring</term><description>1375b1d6ec7842668d5c340c6fd77259</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="includeInEventStats">
+    /// <para>
+    /// Tooltip: When true, stat changes are stored in current event resolution history
+    /// </para>
+    /// </param>
     public static ActionsBuilder KingdomActionModifyStats(
         this ActionsBuilder builder,
         KingdomStats.Changes? changes = null,
@@ -2004,6 +2179,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="blueprint">
+    /// <para>
     /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2011,9 +2187,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="region">
+    /// <para>
     /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2021,7 +2199,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionRemoveBuff(
         this ActionsBuilder builder,
@@ -2061,6 +2240,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="eventBlueprint">
+    /// <para>
     /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2068,7 +2248,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionRemoveEvent(
         this ActionsBuilder builder,
@@ -2101,6 +2282,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="eventBlueprint">
+    /// <para>
     /// Blueprint of type BlueprintCrusadeEvent. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2108,7 +2290,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionResolveCrusadeEvent(
         this ActionsBuilder builder,
@@ -2140,6 +2323,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="eventBlueprint">
+    /// <para>
     /// Blueprint of type BlueprintKingdomEvent. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2147,7 +2331,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionResolveEvent(
         this ActionsBuilder builder,
@@ -2183,6 +2368,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="eventBlueprint">
+    /// <para>
     /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2190,7 +2376,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionResolveProject(
         this ActionsBuilder builder,
@@ -2250,6 +2437,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="armies">
+    /// <para>
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2257,9 +2445,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="locations">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2267,7 +2457,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionSpawnRandomArmy(
         this ActionsBuilder builder,
@@ -2305,6 +2496,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="eventValue">
+    /// <para>
     /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2312,9 +2504,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="region">
+    /// <para>
     /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2322,7 +2516,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionStartEvent(
         this ActionsBuilder builder,
@@ -2368,6 +2563,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="artisan">
+    /// <para>
     /// Blueprint of type BlueprintKingdomArtisan. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2375,7 +2571,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionUnlockArtisan(
         this ActionsBuilder builder,
@@ -2405,6 +2602,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="newFlags">
+    /// <para>
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2412,7 +2610,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomAddMoraleFlags(
         this ActionsBuilder builder,
@@ -2441,7 +2640,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="increment">
+    /// <para>
+    /// InfoBox: Can be negative
+    /// </para>
+    /// </param>
     /// <param name="targetFlag">
+    /// <para>
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2449,7 +2654,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomFlagIncrement(
         this ActionsBuilder builder,
@@ -2521,6 +2727,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="flagsToRemove">
+    /// <para>
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2528,7 +2735,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomRemoveMoraleFlags(
         this ActionsBuilder builder,
@@ -2558,6 +2766,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="targetFlag">
+    /// <para>
     /// Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2565,7 +2774,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder KingdomSetFlagState(
         this ActionsBuilder builder,
@@ -2599,6 +2809,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="armyLeader">
+    /// <para>
     /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2606,7 +2817,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RecruiteArmyLeader(
         this ActionsBuilder builder,
@@ -2677,6 +2889,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="armyPreset">
+    /// <para>
     /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2684,7 +2897,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveDemonArmies(
         this ActionsBuilder builder,
@@ -2716,6 +2930,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2723,7 +2938,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveGarrison(
         this ActionsBuilder builder,
@@ -2755,6 +2971,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="unit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2762,7 +2979,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveMercenaryFromPool(
         this ActionsBuilder builder,
@@ -2783,6 +3001,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/RemoveUnitFromArmy
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
@@ -2791,7 +3013,38 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="experience">
+    /// <para>
+    /// Tooltip: Total experience to remove from the armies. If it exceeds the total price of the army -- the whole army will be removed.
+    /// </para>
+    /// </param>
+    /// <param name="percentage">
+    /// <para>
+    /// Tooltip: Total experience percentage to remove from the armies. 100% will remove all units, 50% will halven them, 0% will do nothing.
+    /// </para>
+    /// </param>
+    /// <param name="unitExperienceMaximum">
+    /// <para>
+    /// Tooltip: Only units cheaper than this threshold will be considered for removal.
+    /// </para>
+    /// </param>
+    /// <param name="unitExperienceMinimum">
+    /// <para>
+    /// Tooltip: Only units pricier than this threshold will be considered for removal.
+    /// </para>
+    /// </param>
+    /// <param name="unitTagBlacklist">
+    /// <para>
+    /// Tooltip: If set then only units without these tags will be considered for removal.
+    /// </para>
+    /// </param>
+    /// <param name="unitTagWhitelist">
+    /// <para>
+    /// Tooltip: If set then only units with any of these tags will be considered for removal.
+    /// </para>
+    /// </param>
     /// <param name="unitToRemove">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2799,7 +3052,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveUnitFromArmy(
         this ActionsBuilder builder,
@@ -2861,6 +3115,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="newBuilding">
+    /// <para>
     /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2868,9 +3123,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="oldBuilding">
+    /// <para>
     /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2878,7 +3135,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ReplaceBuildings(
         this ActionsBuilder builder,
@@ -2914,6 +3172,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="point">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2921,7 +3180,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SetRecruitPoint(
         this ActionsBuilder builder,
@@ -2951,6 +3211,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="location">
+    /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -2958,7 +3219,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SetWarCampLocation(
         this ActionsBuilder builder,
@@ -3028,6 +3290,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </remarks>
     ///
     /// <param name="unit">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -3035,7 +3298,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder UnlockUnitsGrowth(
         this ActionsBuilder builder,

@@ -1,89 +1,50 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Localization;
-using UnityEngine;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCompanionStory"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CompanionStoryConfigurator : BaseBlueprintConfigurator<BlueprintCompanionStory, CompanionStoryConfigurator>
+  public class CompanionStoryConfigurator
+    : BaseCompanionStoryConfigurator<BlueprintCompanionStory, CompanionStoryConfigurator>
   {
-    private CompanionStoryConfigurator(string name) : base(name) { }
+    private CompanionStoryConfigurator(Blueprint<BlueprintCompanionStory, BlueprintReference<BlueprintCompanionStory>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CompanionStoryConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CompanionStoryConfigurator For(Blueprint<BlueprintCompanionStory, BlueprintReference<BlueprintCompanionStory>> blueprint)
     {
-      return new CompanionStoryConfigurator(name);
+      return new CompanionStoryConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CompanionStoryConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCompanionStory>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCompanionStory.m_Companion"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="companion"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    
-    public CompanionStoryConfigurator SetCompanion(string? companion)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(companion);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCompanionStory.Title"/> (Auto Generated)
-    /// </summary>
-    
-    public CompanionStoryConfigurator SetTitle(LocalizedString? title)
-    {
-      ValidateParam(title);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Title = title ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCompanionStory.Description"/> (Auto Generated)
-    /// </summary>
-    
-    public CompanionStoryConfigurator SetDescription(LocalizedString? description)
-    {
-      ValidateParam(description);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Description = description ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCompanionStory.Gender"/> (Auto Generated)
-    /// </summary>
-    
-    public CompanionStoryConfigurator SetGender(Gender gender)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Gender = gender;
-          });
-    }
   }
 }

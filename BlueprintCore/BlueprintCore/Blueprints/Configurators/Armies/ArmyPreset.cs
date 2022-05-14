@@ -1,115 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintArmyPreset"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ArmyPresetConfigurator : BaseBlueprintConfigurator<BlueprintArmyPreset, ArmyPresetConfigurator>
+  public class ArmyPresetConfigurator
+    : BaseArmyPresetConfigurator<BlueprintArmyPreset, ArmyPresetConfigurator>
   {
-    private ArmyPresetConfigurator(string name) : base(name) { }
+    private ArmyPresetConfigurator(Blueprint<BlueprintArmyPreset, BlueprintReference<BlueprintArmyPreset>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ArmyPresetConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ArmyPresetConfigurator For(Blueprint<BlueprintArmyPreset, BlueprintReference<BlueprintArmyPreset>> blueprint)
     {
-      return new ArmyPresetConfigurator(name);
+      return new ArmyPresetConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ArmyPresetConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintArmyPreset>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyPreset.Morale"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyPresetConfigurator SetMorale(int morale)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Morale = morale;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyPreset.Squads"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyPresetConfigurator SetSquads(BlueprintArmyPreset.UnitAndCount[]? squads)
-    {
-      ValidateParam(squads);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Squads = squads;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintArmyPreset.Squads"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyPresetConfigurator AddToSquads(params BlueprintArmyPreset.UnitAndCount[] squads)
-    {
-      ValidateParam(squads);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Squads = CommonTool.Append(bp.Squads, squads ?? new BlueprintArmyPreset.UnitAndCount[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintArmyPreset.Squads"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyPresetConfigurator RemoveFromSquads(params BlueprintArmyPreset.UnitAndCount[] squads)
-    {
-      ValidateParam(squads);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Squads = bp.Squads.Where(item => !squads.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyPreset.m_Leader"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="leader"><see cref="Kingmaker.Armies.BlueprintArmyLeader"/></param>
-    
-    public ArmyPresetConfigurator SetLeader(string? leader)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Leader = BlueprintTool.GetRef<BlueprintArmyLeaderReference>(leader);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintArmyPreset.m_ArmyType"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyPresetConfigurator SetArmyType(ArmyType armyType)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ArmyType = armyType;
-          });
-    }
   }
 }

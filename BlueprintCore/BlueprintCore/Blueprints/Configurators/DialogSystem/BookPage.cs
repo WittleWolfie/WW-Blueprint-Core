@@ -1,192 +1,51 @@
-using BlueprintCore.Actions.Builder;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
-using Kingmaker.Localization;
-using Kingmaker.ResourceLinks;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintBookPage"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class BookPageConfigurator : BaseCueBaseConfigurator<BlueprintBookPage, BookPageConfigurator>
+  public class BookPageConfigurator
+    : BaseBookPageConfigurator<BlueprintBookPage, BookPageConfigurator>
   {
-    private BookPageConfigurator(string name) : base(name) { }
+    private BookPageConfigurator(Blueprint<BlueprintBookPage, BlueprintReference<BlueprintBookPage>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static BookPageConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static BookPageConfigurator For(Blueprint<BlueprintBookPage, BlueprintReference<BlueprintBookPage>> blueprint)
     {
-      return new BookPageConfigurator(name);
+      return new BookPageConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static BookPageConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintBookPage>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    
-    public BookPageConfigurator SetCues(string[]? cues)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Cues = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    
-    public BookPageConfigurator AddToCues(params string[] cues)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Cues.AddRange(cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name)));
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintBookPage.Cues"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="cues"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    
-    public BookPageConfigurator RemoveFromCues(params string[] cues)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = cues.Select(name => BlueprintTool.GetRef<BlueprintCueBaseReference>(name));
-            bp.Cues =
-                bp.Cues
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    
-    public BookPageConfigurator SetAnswers(string[]? answers)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    
-    public BookPageConfigurator AddToAnswers(params string[] answers)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Answers.AddRange(answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name)));
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintBookPage.Answers"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    
-    public BookPageConfigurator RemoveFromAnswers(params string[] answers)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name));
-            bp.Answers =
-                bp.Answers
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBookPage.OnShow"/> (Auto Generated)
-    /// </summary>
-    
-    public BookPageConfigurator SetOnShow(ActionsBuilder? onShow)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.OnShow = onShow?.Build() ?? Constants.Empty.Actions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBookPage.ImageLink"/> (Auto Generated)
-    /// </summary>
-    
-    public BookPageConfigurator SetImageLink(SpriteLink imageLink)
-    {
-      ValidateParam(imageLink);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ImageLink = imageLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBookPage.ForeImageLink"/> (Auto Generated)
-    /// </summary>
-    
-    public BookPageConfigurator SetForeImageLink(SpriteLink foreImageLink)
-    {
-      ValidateParam(foreImageLink);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ForeImageLink = foreImageLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBookPage.Title"/> (Auto Generated)
-    /// </summary>
-    
-    public BookPageConfigurator SetTitle(LocalizedString? title)
-    {
-      ValidateParam(title);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Title = title ?? Constants.Empty.String;
-          });
-    }
   }
 }

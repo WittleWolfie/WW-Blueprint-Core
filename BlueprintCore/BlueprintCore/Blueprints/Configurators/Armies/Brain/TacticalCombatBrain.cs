@@ -1,81 +1,51 @@
-using BlueprintCore.Blueprints.Configurators.AI;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
-using System.Linq;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintTacticalCombatBrain"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class TacticalCombatBrainConfigurator : BaseBrainConfigurator<BlueprintTacticalCombatBrain, TacticalCombatBrainConfigurator>
+  public class TacticalCombatBrainConfigurator
+    : BaseTacticalCombatBrainConfigurator<BlueprintTacticalCombatBrain, TacticalCombatBrainConfigurator>
   {
-    private TacticalCombatBrainConfigurator(string name) : base(name) { }
+    private TacticalCombatBrainConfigurator(Blueprint<BlueprintTacticalCombatBrain, BlueprintReference<BlueprintTacticalCombatBrain>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static TacticalCombatBrainConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static TacticalCombatBrainConfigurator For(Blueprint<BlueprintTacticalCombatBrain, BlueprintReference<BlueprintTacticalCombatBrain>> blueprint)
     {
-      return new TacticalCombatBrainConfigurator(name);
+      return new TacticalCombatBrainConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static TacticalCombatBrainConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintTacticalCombatBrain>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintTacticalCombatBrain.m_TacticalActions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="tacticalActions"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiAction"/></param>
-    
-    public TacticalCombatBrainConfigurator SetTacticalActions(string[]? tacticalActions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TacticalActions = tacticalActions.Select(name => BlueprintTool.GetRef<BlueprintTacticalCombatAiActionReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintTacticalCombatBrain.m_TacticalActions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="tacticalActions"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiAction"/></param>
-    
-    public TacticalCombatBrainConfigurator AddToTacticalActions(params string[] tacticalActions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TacticalActions = CommonTool.Append(bp.m_TacticalActions, tacticalActions.Select(name => BlueprintTool.GetRef<BlueprintTacticalCombatAiActionReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintTacticalCombatBrain.m_TacticalActions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="tacticalActions"><see cref="Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiAction"/></param>
-    
-    public TacticalCombatBrainConfigurator RemoveFromTacticalActions(params string[] tacticalActions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = tacticalActions.Select(name => BlueprintTool.GetRef<BlueprintTacticalCombatAiActionReference>(name));
-            bp.m_TacticalActions =
-                bp.m_TacticalActions
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

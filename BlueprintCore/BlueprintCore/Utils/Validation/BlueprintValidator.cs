@@ -13,7 +13,6 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Designers.Mechanics.Facts;
 using System;
-using BlueprintCore.Utils;
 using Kingmaker.UnitLogic.Mechanics.Components;
 
 namespace BlueprintCore.BlueprintCore.Validation

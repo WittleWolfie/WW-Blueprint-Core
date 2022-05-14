@@ -1,74 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
-using Kingmaker.Localization;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintMythicInfo"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class MythicInfoConfigurator : BaseBlueprintConfigurator<BlueprintMythicInfo, MythicInfoConfigurator>
+  public class MythicInfoConfigurator
+    : BaseMythicInfoConfigurator<BlueprintMythicInfo, MythicInfoConfigurator>
   {
-    private MythicInfoConfigurator(string name) : base(name) { }
+    private MythicInfoConfigurator(Blueprint<BlueprintMythicInfo, BlueprintReference<BlueprintMythicInfo>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static MythicInfoConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static MythicInfoConfigurator For(Blueprint<BlueprintMythicInfo, BlueprintReference<BlueprintMythicInfo>> blueprint)
     {
-      return new MythicInfoConfigurator(name);
+      return new MythicInfoConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static MythicInfoConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintMythicInfo>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintMythicInfo._mythic"/> (Auto Generated)
-    /// </summary>
-    
-    public MythicInfoConfigurator Set_mythic(Mythic _mythic)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp._mythic = _mythic;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMythicInfo._etudeReference"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="_etudeReference"><see cref="Kingmaker.AreaLogic.Etudes.BlueprintEtude"/></param>
-    
-    public MythicInfoConfigurator Set_etudeReference(string? _etudeReference)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp._etudeReference = BlueprintTool.GetRef<BlueprintEtudeReference>(_etudeReference);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMythicInfo._mythicName"/> (Auto Generated)
-    /// </summary>
-    
-    public MythicInfoConfigurator Set_mythicName(LocalizedString? _mythicName)
-    {
-      ValidateParam(_mythicName);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp._mythicName = _mythicName ?? Constants.Empty.String;
-          });
-    }
   }
 }

@@ -1,156 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints.Classes.Spells;
-using System;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
-  /// <summary>Configurator for <see cref="BlueprintFeatureSelection"/>.</summary>
+  /// <summary>
+  /// Configurator for <see cref="BlueprintFeatureSelection"/>.
+  /// </summary>
   /// <inheritdoc/>
-  
   public class FeatureSelectionConfigurator
-      : BaseFeatureConfigurator<BlueprintFeatureSelection, FeatureSelectionConfigurator>
+    : BaseFeatureSelectionConfigurator<BlueprintFeatureSelection, FeatureSelectionConfigurator>
   {
-    private FeatureSelectionConfigurator(string name) : base(name) { }
+    private FeatureSelectionConfigurator(Blueprint<BlueprintFeatureSelection, BlueprintReference<BlueprintFeatureSelection>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static FeatureSelectionConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static FeatureSelectionConfigurator For(Blueprint<BlueprintFeatureSelection, BlueprintReference<BlueprintFeatureSelection>> blueprint)
     {
-      return new FeatureSelectionConfigurator(name);
+      return new FeatureSelectionConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static FeatureSelectionConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintFeatureSelection>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureSelection.IgnorePrerequisites"/>
-    /// </summary>
-    public FeatureSelectionConfigurator SetIgnorePrerequisites(bool ignore = true)
-    {
-      return OnConfigureInternal(blueprint => blueprint.IgnorePrerequisites = ignore);
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureSelection.Mode"/>
-    /// </summary>
-    public FeatureSelectionConfigurator SetMode(SelectionMode mode)
-    {
-      return OnConfigureInternal(blueprint => blueprint.Mode = mode);
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureSelection.Group"/>
-    /// </summary>
-    public FeatureSelectionConfigurator SetPrimaryGroup(FeatureGroup group)
-    {
-      return OnConfigureInternal(blueprint => blueprint.Group = group);
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureSelection.Group2"/>
-    /// </summary>
-    public FeatureSelectionConfigurator SetSecondaryGroup(FeatureGroup group)
-    {
-      return OnConfigureInternal(blueprint => blueprint.Group2 = group);
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureSelection.m_AllFeatures"/>
-    /// </summary>
-    /// 
-    /// <param name="features"><see cref="BlueprintFeature"/></param>
-    public FeatureSelectionConfigurator SetFeatures(params string[] features)
-    {
-      return OnConfigureInternal(
-          blueprint =>
-              blueprint.m_AllFeatures =
-                  features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray());
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintFeatureSelection.m_AllFeatures"/>
-    /// </summary>
-    /// 
-    /// <param name="features"><see cref="BlueprintFeature"/></param>
-    public FeatureSelectionConfigurator AddToFeatures(params string[] features)
-    {
-      return OnConfigureInternal(
-          blueprint =>
-          {
-            blueprint.m_AllFeatures =
-                CommonTool.Append(
-                    blueprint.m_AllFeatures,
-                    features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintFeatureSelection.m_AllFeatures"/>
-    /// </summary>
-    /// 
-    /// <param name="features"><see cref="BlueprintFeature"/></param>
-    public FeatureSelectionConfigurator RemoveFromFeatures(params string[] features)
-    {
-      return OnConfigureInternal(
-          blueprint =>
-          {
-            var featureRefs = features.Select(feature => BlueprintTool.GetRef<BlueprintFeatureReference>(feature));
-            blueprint.m_AllFeatures = blueprint.m_AllFeatures.Except(featureRefs).ToArray();
-          });
-    }
-
-
-    /// <summary>
-    /// Adds <see cref="Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteSelectionPossible">PrerequisiteSelectionPossible</see>
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
-    /// This is useful when a character has access to different feature selections based on some criteria.
-    /// </para>
-    /// 
-    /// <para>
-    /// See ExpandedDefense and WildTalentBonusFeatAir3 blueprints for example usages.
-    /// </para>
-    /// </remarks>
-    
-    public FeatureSelectionConfigurator PrerequisiteSelectionPossible(
-        Prerequisite.GroupType group = Prerequisite.GroupType.All,
-        bool checkInProgression = false,
-        bool hideInUI = false)
-    {
-      var selectionPossible = PrereqTool.Create<PrerequisiteSelectionPossible>(group, checkInProgression, hideInUI);
-      selectionPossible.m_ThisFeature = Blueprint.ToReference<BlueprintFeatureSelectionReference>();
-      return AddComponent(selectionPossible);
-    }
-
-    /// <summary>
-    /// Adds <see cref="NoSelectionIfAlreadyHasFeature"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="features"><see cref="Kingmaker.Blueprints.Classes.BlueprintFeature"/></param>
-    
-    
-    public FeatureSelectionConfigurator AddNoSelectionIfAlreadyHasFeature(
-        bool anyFeatureFromSelection = default,
-        string[]? features = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      var component = new NoSelectionIfAlreadyHasFeature();
-      component.AnyFeatureFromSelection = anyFeatureFromSelection;
-      component.m_Features = features.Select(name => BlueprintTool.GetRef<BlueprintFeatureReference>(name)).ToArray();
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
   }
 }

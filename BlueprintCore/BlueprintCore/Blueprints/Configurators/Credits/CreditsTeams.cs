@@ -1,74 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Credits;
-using System.Collections.Generic;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Credits;
+
 namespace BlueprintCore.Blueprints.Configurators.Credits
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCreditsTeams"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CreditsTeamsConfigurator : BaseBlueprintConfigurator<BlueprintCreditsTeams, CreditsTeamsConfigurator>
+  public class CreditsTeamsConfigurator
+    : BaseCreditsTeamsConfigurator<BlueprintCreditsTeams, CreditsTeamsConfigurator>
   {
-    private CreditsTeamsConfigurator(string name) : base(name) { }
+    private CreditsTeamsConfigurator(Blueprint<BlueprintCreditsTeams, BlueprintReference<BlueprintCreditsTeams>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CreditsTeamsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CreditsTeamsConfigurator For(Blueprint<BlueprintCreditsTeams, BlueprintReference<BlueprintCreditsTeams>> blueprint)
     {
-      return new CreditsTeamsConfigurator(name);
+      return new CreditsTeamsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CreditsTeamsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCreditsTeams>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsTeamsConfigurator SetTeams(List<CreditTeam>? teams)
-    {
-      ValidateParam(teams);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Teams = teams;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsTeamsConfigurator AddToTeams(params CreditTeam[] teams)
-    {
-      ValidateParam(teams);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Teams.AddRange(teams.ToList() ?? new List<CreditTeam>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCreditsTeams.Teams"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsTeamsConfigurator RemoveFromTeams(params CreditTeam[] teams)
-    {
-      ValidateParam(teams);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Teams = bp.Teams.Where(item => !teams.Contains(item)).ToList();
-          });
-    }
   }
 }

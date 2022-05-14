@@ -1,141 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
-using System.Collections.Generic;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintFeatureSelectMythicSpellbook"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class FeatureSelectMythicSpellbookConfigurator : BaseFeatureConfigurator<BlueprintFeatureSelectMythicSpellbook, FeatureSelectMythicSpellbookConfigurator>
+  public class FeatureSelectMythicSpellbookConfigurator
+    : BaseFeatureSelectMythicSpellbookConfigurator<BlueprintFeatureSelectMythicSpellbook, FeatureSelectMythicSpellbookConfigurator>
   {
-    private FeatureSelectMythicSpellbookConfigurator(string name) : base(name) { }
+    private FeatureSelectMythicSpellbookConfigurator(Blueprint<BlueprintFeatureSelectMythicSpellbook, BlueprintReference<BlueprintFeatureSelectMythicSpellbook>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static FeatureSelectMythicSpellbookConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static FeatureSelectMythicSpellbookConfigurator For(Blueprint<BlueprintFeatureSelectMythicSpellbook, BlueprintReference<BlueprintFeatureSelectMythicSpellbook>> blueprint)
     {
-      return new FeatureSelectMythicSpellbookConfigurator(name);
+      return new FeatureSelectMythicSpellbookConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static FeatureSelectMythicSpellbookConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintFeatureSelectMythicSpellbook>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
-    /// </summary>
-    
-    public FeatureSelectMythicSpellbookConfigurator SetCachedItems(List<IFeatureSelectionItem>? cachedItems)
-    {
-      ValidateParam(cachedItems);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CachedItems = cachedItems;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
-    /// </summary>
-    
-    public FeatureSelectMythicSpellbookConfigurator AddToCachedItems(params IFeatureSelectionItem[] cachedItems)
-    {
-      ValidateParam(cachedItems);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CachedItems.AddRange(cachedItems.ToList() ?? new List<IFeatureSelectionItem>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> (Auto Generated)
-    /// </summary>
-    
-    public FeatureSelectMythicSpellbookConfigurator RemoveFromCachedItems(params IFeatureSelectionItem[] cachedItems)
-    {
-      ValidateParam(cachedItems);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CachedItems = bp.m_CachedItems.Where(item => !cachedItems.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="allowedSpellbooks"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    
-    public FeatureSelectMythicSpellbookConfigurator SetAllowedSpellbooks(string[]? allowedSpellbooks)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AllowedSpellbooks = allowedSpellbooks.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="allowedSpellbooks"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    
-    public FeatureSelectMythicSpellbookConfigurator AddToAllowedSpellbooks(params string[] allowedSpellbooks)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AllowedSpellbooks = CommonTool.Append(bp.m_AllowedSpellbooks, allowedSpellbooks.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="allowedSpellbooks"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook"/></param>
-    
-    public FeatureSelectMythicSpellbookConfigurator RemoveFromAllowedSpellbooks(params string[] allowedSpellbooks)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = allowedSpellbooks.Select(name => BlueprintTool.GetRef<BlueprintSpellbookReference>(name));
-            bp.m_AllowedSpellbooks =
-                bp.m_AllowedSpellbooks
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFeatureSelectMythicSpellbook.m_MythicSpellList"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="mythicSpellList"><see cref="Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList"/></param>
-    
-    public FeatureSelectMythicSpellbookConfigurator SetMythicSpellList(string? mythicSpellList)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MythicSpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(mythicSpellList);
-          });
-    }
   }
 }

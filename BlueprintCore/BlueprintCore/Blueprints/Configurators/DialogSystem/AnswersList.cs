@@ -1,108 +1,51 @@
-using BlueprintCore.Conditions.Builder;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintAnswersList"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class AnswersListConfigurator : BaseAnswerBaseConfigurator<BlueprintAnswersList, AnswersListConfigurator>
+  public class AnswersListConfigurator
+    : BaseAnswersListConfigurator<BlueprintAnswersList, AnswersListConfigurator>
   {
-    private AnswersListConfigurator(string name) : base(name) { }
+    private AnswersListConfigurator(Blueprint<BlueprintAnswersList, BlueprintReference<BlueprintAnswersList>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static AnswersListConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static AnswersListConfigurator For(Blueprint<BlueprintAnswersList, BlueprintReference<BlueprintAnswersList>> blueprint)
     {
-      return new AnswersListConfigurator(name);
+      return new AnswersListConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static AnswersListConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintAnswersList>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintAnswersList.ShowOnce"/> (Auto Generated)
-    /// </summary>
-    
-    public AnswersListConfigurator SetShowOnce(bool showOnce)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ShowOnce = showOnce;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAnswersList.Conditions"/> (Auto Generated)
-    /// </summary>
-    
-    public AnswersListConfigurator SetConditions(ConditionsBuilder? conditions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Conditions = conditions?.Build() ?? Constants.Empty.Conditions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintAnswersList.Answers"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    
-    public AnswersListConfigurator SetAnswers(string[]? answers)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Answers = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintAnswersList.Answers"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    
-    public AnswersListConfigurator AddToAnswers(params string[] answers)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Answers.AddRange(answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name)));
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintAnswersList.Answers"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="answers"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase"/></param>
-    
-    public AnswersListConfigurator RemoveFromAnswers(params string[] answers)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = answers.Select(name => BlueprintTool.GetRef<BlueprintAnswerBaseReference>(name));
-            bp.Answers =
-                bp.Answers
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToList();
-          });
-    }
   }
 }

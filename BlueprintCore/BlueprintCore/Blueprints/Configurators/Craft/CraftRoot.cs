@@ -1,299 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Craft;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Craft
 {
   /// <summary>
   /// Configurator for <see cref="CraftRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CraftRootConfigurator : BaseBlueprintConfigurator<CraftRoot, CraftRootConfigurator>
+  public class CraftRootConfigurator
+    : BaseCraftRootConfigurator<CraftRoot, CraftRootConfigurator>
   {
-    private CraftRootConfigurator(string name) : base(name) { }
+    private CraftRootConfigurator(Blueprint<CraftRoot, BlueprintReference<CraftRoot>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CraftRootConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CraftRootConfigurator For(Blueprint<CraftRoot, BlueprintReference<CraftRoot>> blueprint)
     {
-      return new CraftRootConfigurator(name);
+      return new CraftRootConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CraftRootConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<CraftRoot>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_CraftCostMultiplyer"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator SetCraftCostMultiplyer(int craftCostMultiplyer)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CraftCostMultiplyer = craftCostMultiplyer;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_CostForCraftDay"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator SetCostForCraftDay(int costForCraftDay)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CostForCraftDay = costForCraftDay;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_BaseCraftedAbilityDC"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator SetBaseCraftedAbilityDC(int baseCraftedAbilityDC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_BaseCraftedAbilityDC = baseCraftedAbilityDC;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_BaseCraftDC"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator SetBaseCraftDC(int baseCraftDC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_BaseCraftDC = baseCraftDC;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_PotionRequirements"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator SetPotionRequirements(CraftRequirements[]? potionRequirements)
-    {
-      ValidateParam(potionRequirements);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PotionRequirements = potionRequirements;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="CraftRoot.m_PotionRequirements"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator AddToPotionRequirements(params CraftRequirements[] potionRequirements)
-    {
-      ValidateParam(potionRequirements);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PotionRequirements = CommonTool.Append(bp.m_PotionRequirements, potionRequirements ?? new CraftRequirements[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="CraftRoot.m_PotionRequirements"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator RemoveFromPotionRequirements(params CraftRequirements[] potionRequirements)
-    {
-      ValidateParam(potionRequirements);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PotionRequirements = bp.m_PotionRequirements.Where(item => !potionRequirements.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_ScrollsRequirements"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator SetScrollsRequirements(CraftRequirements[]? scrollsRequirements)
-    {
-      ValidateParam(scrollsRequirements);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ScrollsRequirements = scrollsRequirements;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="CraftRoot.m_ScrollsRequirements"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator AddToScrollsRequirements(params CraftRequirements[] scrollsRequirements)
-    {
-      ValidateParam(scrollsRequirements);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ScrollsRequirements = CommonTool.Append(bp.m_ScrollsRequirements, scrollsRequirements ?? new CraftRequirements[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="CraftRoot.m_ScrollsRequirements"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator RemoveFromScrollsRequirements(params CraftRequirements[] scrollsRequirements)
-    {
-      ValidateParam(scrollsRequirements);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ScrollsRequirements = bp.m_ScrollsRequirements.Where(item => !scrollsRequirements.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_PotionsItems"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="potionsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
-    
-    public CraftRootConfigurator SetPotionsItems(string[]? potionsItems)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PotionsItems = potionsItems.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(name)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="CraftRoot.m_PotionsItems"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="potionsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
-    
-    public CraftRootConfigurator AddToPotionsItems(params string[] potionsItems)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PotionsItems.AddRange(potionsItems.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(name)));
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="CraftRoot.m_PotionsItems"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="potionsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
-    
-    public CraftRootConfigurator RemoveFromPotionsItems(params string[] potionsItems)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = potionsItems.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(name));
-            bp.m_PotionsItems =
-                bp.m_PotionsItems
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_ScrollsItems"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="scrollsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
-    
-    public CraftRootConfigurator SetScrollsItems(string[]? scrollsItems)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ScrollsItems = scrollsItems.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(name)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="CraftRoot.m_ScrollsItems"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="scrollsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
-    
-    public CraftRootConfigurator AddToScrollsItems(params string[] scrollsItems)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ScrollsItems.AddRange(scrollsItems.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(name)));
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="CraftRoot.m_ScrollsItems"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="scrollsItems"><see cref="Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable"/></param>
-    
-    public CraftRootConfigurator RemoveFromScrollsItems(params string[] scrollsItems)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = scrollsItems.Select(name => BlueprintTool.GetRef<BlueprintItemEquipmentUsableReference>(name));
-            bp.m_ScrollsItems =
-                bp.m_ScrollsItems
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_IngredientTable"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator SetIngredientTable(IngredientTable ingredientTable)
-    {
-      ValidateParam(ingredientTable);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IngredientTable = ingredientTable;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CraftRoot.m_CollectingRoot"/> (Auto Generated)
-    /// </summary>
-    
-    public CraftRootConfigurator SetCollectingRoot(CollectIngredientRoot collectingRoot)
-    {
-      ValidateParam(collectingRoot);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CollectingRoot = collectingRoot;
-          });
-    }
   }
 }

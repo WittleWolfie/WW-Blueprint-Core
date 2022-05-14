@@ -1,7 +1,6 @@
 ﻿using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCoreGen.CodeGen.Methods;
 using BlueprintCoreGen.CodeGen.Overrides.Ignored;
-using HarmonyLib;
 using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;

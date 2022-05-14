@@ -1,238 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Loot;
-using System.Collections.Generic;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Loot;
+
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>
   /// Configurator for <see cref="TrashLootSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class TrashLootSettingsConfigurator : BaseBlueprintConfigurator<TrashLootSettings, TrashLootSettingsConfigurator>
+  public class TrashLootSettingsConfigurator
+    : BaseTrashLootSettingsConfigurator<TrashLootSettings, TrashLootSettingsConfigurator>
   {
-    private TrashLootSettingsConfigurator(string name) : base(name) { }
+    private TrashLootSettingsConfigurator(Blueprint<TrashLootSettings, BlueprintReference<TrashLootSettings>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static TrashLootSettingsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static TrashLootSettingsConfigurator For(Blueprint<TrashLootSettings, BlueprintReference<TrashLootSettings>> blueprint)
     {
-      return new TrashLootSettingsConfigurator(name);
+      return new TrashLootSettingsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static TrashLootSettingsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<TrashLootSettings>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="TrashLootSettings.CRToCost"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator SetCRToCost(int[]? cRToCost)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CRToCost = cRToCost;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="TrashLootSettings.CRToCost"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator AddToCRToCost(params int[] cRToCost)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CRToCost = CommonTool.Append(bp.CRToCost, cRToCost ?? new int[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="TrashLootSettings.CRToCost"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator RemoveFromCRToCost(params int[] cRToCost)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CRToCost = bp.CRToCost.Where(item => !cRToCost.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="TrashLootSettings.ChanceToIncreaseItemsCount"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator SetChanceToIncreaseItemsCount(int[]? chanceToIncreaseItemsCount)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ChanceToIncreaseItemsCount = chanceToIncreaseItemsCount;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="TrashLootSettings.ChanceToIncreaseItemsCount"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator AddToChanceToIncreaseItemsCount(params int[] chanceToIncreaseItemsCount)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ChanceToIncreaseItemsCount = CommonTool.Append(bp.ChanceToIncreaseItemsCount, chanceToIncreaseItemsCount ?? new int[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="TrashLootSettings.ChanceToIncreaseItemsCount"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator RemoveFromChanceToIncreaseItemsCount(params int[] chanceToIncreaseItemsCount)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ChanceToIncreaseItemsCount = bp.ChanceToIncreaseItemsCount.Where(item => !chanceToIncreaseItemsCount.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="TrashLootSettings.Types"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator SetTypes(List<TrashLootSettings.TypeSettings>? types)
-    {
-      ValidateParam(types);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Types = types;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="TrashLootSettings.Types"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator AddToTypes(params TrashLootSettings.TypeSettings[] types)
-    {
-      ValidateParam(types);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Types.AddRange(types.ToList() ?? new List<TrashLootSettings.TypeSettings>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="TrashLootSettings.Types"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator RemoveFromTypes(params TrashLootSettings.TypeSettings[] types)
-    {
-      ValidateParam(types);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Types = bp.Types.Where(item => !types.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="TrashLootSettings.Table"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator SetTable(TrashLootSettings.TypeChance[]? table)
-    {
-      ValidateParam(table);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Table = table;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="TrashLootSettings.Table"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator AddToTable(params TrashLootSettings.TypeChance[] table)
-    {
-      ValidateParam(table);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Table = CommonTool.Append(bp.Table, table ?? new TrashLootSettings.TypeChance[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="TrashLootSettings.Table"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator RemoveFromTable(params TrashLootSettings.TypeChance[] table)
-    {
-      ValidateParam(table);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Table = bp.Table.Where(item => !table.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="TrashLootSettings.SuperTrashLoot"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator SetSuperTrashLoot(TrashLootSettings.SettingAndItems[]? superTrashLoot)
-    {
-      ValidateParam(superTrashLoot);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.SuperTrashLoot = superTrashLoot;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="TrashLootSettings.SuperTrashLoot"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator AddToSuperTrashLoot(params TrashLootSettings.SettingAndItems[] superTrashLoot)
-    {
-      ValidateParam(superTrashLoot);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.SuperTrashLoot = CommonTool.Append(bp.SuperTrashLoot, superTrashLoot ?? new TrashLootSettings.SettingAndItems[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="TrashLootSettings.SuperTrashLoot"/> (Auto Generated)
-    /// </summary>
-    
-    public TrashLootSettingsConfigurator RemoveFromSuperTrashLoot(params TrashLootSettings.SettingAndItems[] superTrashLoot)
-    {
-      ValidateParam(superTrashLoot);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.SuperTrashLoot = bp.SuperTrashLoot.Where(item => !superTrashLoot.Contains(item)).ToArray();
-          });
-    }
   }
 }

@@ -1,82 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
-using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="StatConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class StatConsiderationConfigurator : BaseConsiderationConfigurator<StatConsideration, StatConsiderationConfigurator>
+  public class StatConsiderationConfigurator
+    : BaseStatConsiderationConfigurator<StatConsideration, StatConsiderationConfigurator>
   {
-    private StatConsiderationConfigurator(string name) : base(name) { }
+    private StatConsiderationConfigurator(Blueprint<StatConsideration, BlueprintReference<StatConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static StatConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static StatConsiderationConfigurator For(Blueprint<StatConsideration, BlueprintReference<StatConsideration>> blueprint)
     {
-      return new StatConsiderationConfigurator(name);
+      return new StatConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static StatConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<StatConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="StatConsideration.Stat"/> (Auto Generated)
-    /// </summary>
-    
-    public StatConsiderationConfigurator SetStat(StatType stat)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Stat = stat;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="StatConsideration.Value"/> (Auto Generated)
-    /// </summary>
-    
-    public StatConsiderationConfigurator SetValue(int value)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Value = value;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="StatConsideration.GreaterThanValue"/> (Auto Generated)
-    /// </summary>
-    
-    public StatConsiderationConfigurator SetGreaterThanValue(float greaterThanValue)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.GreaterThanValue = greaterThanValue;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="StatConsideration.LesserThanValue"/> (Auto Generated)
-    /// </summary>
-    
-    public StatConsiderationConfigurator SetLesserThanValue(float lesserThanValue)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.LesserThanValue = lesserThanValue;
-          });
-    }
   }
 }

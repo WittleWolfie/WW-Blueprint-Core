@@ -1,132 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.EntitySystem.Entities;
-using Kingmaker.Localization;
 using Kingmaker.Visual.Sound;
-using System;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Visual
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintUnitAsksList"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class UnitAsksListConfigurator : BaseBlueprintConfigurator<BlueprintUnitAsksList, UnitAsksListConfigurator>
+  public class UnitAsksListConfigurator
+    : BaseUnitAsksListConfigurator<BlueprintUnitAsksList, UnitAsksListConfigurator>
   {
-    private UnitAsksListConfigurator(string name) : base(name) { }
+    private UnitAsksListConfigurator(Blueprint<BlueprintUnitAsksList, BlueprintReference<BlueprintUnitAsksList>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static UnitAsksListConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static UnitAsksListConfigurator For(Blueprint<BlueprintUnitAsksList, BlueprintReference<BlueprintUnitAsksList>> blueprint)
     {
-      return new UnitAsksListConfigurator(name);
+      return new UnitAsksListConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static UnitAsksListConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintUnitAsksList>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintUnitAsksList.DisplayName"/> (Auto Generated)
-    /// </summary>
-    
-    public UnitAsksListConfigurator SetDisplayName(LocalizedString? displayName)
-    {
-      ValidateParam(displayName);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DisplayName = displayName ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Adds <see cref="UnitAsksComponent"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public UnitAsksListConfigurator AddUnitAsksComponent(
-        string previewSound,
-        UnitAsksComponent.Bark aggro,
-        UnitAsksComponent.Bark pain,
-        UnitAsksComponent.Bark fatigue,
-        UnitAsksComponent.Bark death,
-        UnitAsksComponent.Bark unconscious,
-        UnitAsksComponent.Bark lowHealth,
-        UnitAsksComponent.Bark criticalHit,
-        UnitAsksComponent.Bark order,
-        UnitAsksComponent.Bark orderMove,
-        UnitAsksComponent.Bark selected,
-        UnitAsksComponent.Bark refuseEquip,
-        UnitAsksComponent.Bark refuseCast,
-        UnitAsksComponent.Bark checkSuccess,
-        UnitAsksComponent.Bark checkFail,
-        UnitAsksComponent.Bark refuseUnequip,
-        UnitAsksComponent.Bark discovery,
-        UnitAsksComponent.Bark stealth,
-        UnitAsksComponent.Bark stormRain,
-        UnitAsksComponent.Bark stormSnow,
-        UnitEntityData unit,
-        UnitAsksComponent.Bark currentlyActiveBark,
-        string[]? soundBanks = null,
-        UnitAsksComponent.AnimationBark[]? animationBarks = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Replace,
-        Action<BlueprintComponent, BlueprintComponent>? mergeAction = null)
-    {
-      ValidateParam(aggro);
-      ValidateParam(pain);
-      ValidateParam(fatigue);
-      ValidateParam(death);
-      ValidateParam(unconscious);
-      ValidateParam(lowHealth);
-      ValidateParam(criticalHit);
-      ValidateParam(order);
-      ValidateParam(orderMove);
-      ValidateParam(selected);
-      ValidateParam(refuseEquip);
-      ValidateParam(refuseCast);
-      ValidateParam(checkSuccess);
-      ValidateParam(checkFail);
-      ValidateParam(refuseUnequip);
-      ValidateParam(discovery);
-      ValidateParam(stealth);
-      ValidateParam(stormRain);
-      ValidateParam(stormSnow);
-      ValidateParam(animationBarks);
-      ValidateParam(unit);
-      ValidateParam(currentlyActiveBark);
-
-      var component = new UnitAsksComponent();
-      component.SoundBanks = soundBanks;
-      component.PreviewSound = previewSound;
-      component.Aggro = aggro;
-      component.Pain = pain;
-      component.Fatigue = fatigue;
-      component.Death = death;
-      component.Unconscious = unconscious;
-      component.LowHealth = lowHealth;
-      component.CriticalHit = criticalHit;
-      component.Order = order;
-      component.OrderMove = orderMove;
-      component.Selected = selected;
-      component.RefuseEquip = refuseEquip;
-      component.RefuseCast = refuseCast;
-      component.CheckSuccess = checkSuccess;
-      component.CheckFail = checkFail;
-      component.RefuseUnequip = refuseUnequip;
-      component.Discovery = discovery;
-      component.Stealth = stealth;
-      component.StormRain = stormRain;
-      component.StormSnow = stormSnow;
-      component.AnimationBarks = animationBarks;
-      component.m_Unit = unit;
-      component.m_CurrentlyActiveBark = currentlyActiveBark;
-      return AddUniqueComponent(component, mergeBehavior, mergeAction);
-    }
   }
 }

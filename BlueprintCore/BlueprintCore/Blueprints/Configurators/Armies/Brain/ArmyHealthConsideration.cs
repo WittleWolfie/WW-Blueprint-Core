@@ -1,82 +1,51 @@
-using BlueprintCore.Blueprints.Configurators.AI;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
   /// <summary>
   /// Configurator for <see cref="ArmyHealthConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ArmyHealthConsiderationConfigurator : BaseConsiderationConfigurator<ArmyHealthConsideration, ArmyHealthConsiderationConfigurator>
+  public class ArmyHealthConsiderationConfigurator
+    : BaseArmyHealthConsiderationConfigurator<ArmyHealthConsideration, ArmyHealthConsiderationConfigurator>
   {
-    private ArmyHealthConsiderationConfigurator(string name) : base(name) { }
+    private ArmyHealthConsiderationConfigurator(Blueprint<ArmyHealthConsideration, BlueprintReference<ArmyHealthConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ArmyHealthConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ArmyHealthConsiderationConfigurator For(Blueprint<ArmyHealthConsideration, BlueprintReference<ArmyHealthConsideration>> blueprint)
     {
-      return new ArmyHealthConsiderationConfigurator(name);
+      return new ArmyHealthConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ArmyHealthConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<ArmyHealthConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="ArmyHealthConsideration.FullBorder"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyHealthConsiderationConfigurator SetFullBorder(float fullBorder)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FullBorder = fullBorder;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="ArmyHealthConsideration.DeadBorder"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyHealthConsiderationConfigurator SetDeadBorder(float deadBorder)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DeadBorder = deadBorder;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="ArmyHealthConsideration.FullScore"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyHealthConsiderationConfigurator SetFullScore(float fullScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FullScore = fullScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="ArmyHealthConsideration.DeadScore"/> (Auto Generated)
-    /// </summary>
-    
-    public ArmyHealthConsiderationConfigurator SetDeadScore(float deadScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DeadScore = deadScore;
-          });
-    }
   }
 }

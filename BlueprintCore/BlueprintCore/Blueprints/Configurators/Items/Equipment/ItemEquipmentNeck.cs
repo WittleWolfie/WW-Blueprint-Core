@@ -1,29 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintItemEquipmentNeck"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ItemEquipmentNeckConfigurator : BaseItemEquipmentSimpleConfigurator<BlueprintItemEquipmentNeck, ItemEquipmentNeckConfigurator>
+  public class ItemEquipmentNeckConfigurator
+    : BaseItemEquipmentNeckConfigurator<BlueprintItemEquipmentNeck, ItemEquipmentNeckConfigurator>
   {
-    private ItemEquipmentNeckConfigurator(string name) : base(name) { }
+    private ItemEquipmentNeckConfigurator(Blueprint<BlueprintItemEquipmentNeck, BlueprintReference<BlueprintItemEquipmentNeck>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ItemEquipmentNeckConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ItemEquipmentNeckConfigurator For(Blueprint<BlueprintItemEquipmentNeck, BlueprintReference<BlueprintItemEquipmentNeck>> blueprint)
     {
-      return new ItemEquipmentNeckConfigurator(name);
+      return new ItemEquipmentNeckConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ItemEquipmentNeckConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintItemEquipmentNeck>(name, guid);
       return For(name);
     }
+
   }
 }

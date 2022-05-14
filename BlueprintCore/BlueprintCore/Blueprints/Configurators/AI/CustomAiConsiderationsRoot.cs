@@ -1,131 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
-using Kingmaker.AI.Blueprints.Considerations;
-using System.Linq;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="CustomAiConsiderationsRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CustomAiConsiderationsRootConfigurator : BaseBlueprintConfigurator<CustomAiConsiderationsRoot, CustomAiConsiderationsRootConfigurator>
+  public class CustomAiConsiderationsRootConfigurator
+    : BaseCustomAiConsiderationsRootConfigurator<CustomAiConsiderationsRoot, CustomAiConsiderationsRootConfigurator>
   {
-    private CustomAiConsiderationsRootConfigurator(string name) : base(name) { }
+    private CustomAiConsiderationsRootConfigurator(Blueprint<CustomAiConsiderationsRoot, BlueprintReference<CustomAiConsiderationsRoot>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CustomAiConsiderationsRootConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CustomAiConsiderationsRootConfigurator For(Blueprint<CustomAiConsiderationsRoot, BlueprintReference<CustomAiConsiderationsRoot>> blueprint)
     {
-      return new CustomAiConsiderationsRootConfigurator(name);
+      return new CustomAiConsiderationsRootConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CustomAiConsiderationsRootConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<CustomAiConsiderationsRoot>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    
-    public CustomAiConsiderationsRootConfigurator SetTargetConsiderations(string[]? targetConsiderations)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TargetConsiderations = targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    
-    public CustomAiConsiderationsRootConfigurator AddToTargetConsiderations(params string[] targetConsiderations)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TargetConsiderations = CommonTool.Append(bp.m_TargetConsiderations, targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="targetConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    
-    public CustomAiConsiderationsRootConfigurator RemoveFromTargetConsiderations(params string[] targetConsiderations)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = targetConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name));
-            bp.m_TargetConsiderations =
-                bp.m_TargetConsiderations
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    
-    public CustomAiConsiderationsRootConfigurator SetActorConsiderations(string[]? actorConsiderations)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ActorConsiderations = actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    
-    public CustomAiConsiderationsRootConfigurator AddToActorConsiderations(params string[] actorConsiderations)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_ActorConsiderations = CommonTool.Append(bp.m_ActorConsiderations, actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="CustomAiConsiderationsRoot.m_ActorConsiderations"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="actorConsiderations"><see cref="Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom"/></param>
-    
-    public CustomAiConsiderationsRootConfigurator RemoveFromActorConsiderations(params string[] actorConsiderations)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = actorConsiderations.Select(name => BlueprintTool.GetRef<ConsiderationCustom.Reference>(name));
-            bp.m_ActorConsiderations =
-                bp.m_ActorConsiderations
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

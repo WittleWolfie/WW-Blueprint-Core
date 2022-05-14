@@ -1,45 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.DLC;
-using UnityEngine;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.DLC;
+
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintDlcRewardCampaign"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class DlcRewardCampaignConfigurator : BaseDlcRewardConfigurator<BlueprintDlcRewardCampaign, DlcRewardCampaignConfigurator>
+  public class DlcRewardCampaignConfigurator
+    : BaseDlcRewardCampaignConfigurator<BlueprintDlcRewardCampaign, DlcRewardCampaignConfigurator>
   {
-    private DlcRewardCampaignConfigurator(string name) : base(name) { }
+    private DlcRewardCampaignConfigurator(Blueprint<BlueprintDlcRewardCampaign, BlueprintReference<BlueprintDlcRewardCampaign>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static DlcRewardCampaignConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static DlcRewardCampaignConfigurator For(Blueprint<BlueprintDlcRewardCampaign, BlueprintReference<BlueprintDlcRewardCampaign>> blueprint)
     {
-      return new DlcRewardCampaignConfigurator(name);
+      return new DlcRewardCampaignConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static DlcRewardCampaignConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintDlcRewardCampaign>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintDlcRewardCampaign.ScreenshotForImportSave"/> (Auto Generated)
-    /// </summary>
-    
-    public DlcRewardCampaignConfigurator SetScreenshotForImportSave(Texture2D screenshotForImportSave)
-    {
-      ValidateParam(screenshotForImportSave);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ScreenshotForImportSave = screenshotForImportSave;
-          });
-    }
   }
 }

@@ -1,174 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
-using Kingmaker.Localization;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.BarkBanters
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintBarkBanter"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class BarkBanterConfigurator : BaseBlueprintConfigurator<BlueprintBarkBanter, BarkBanterConfigurator>
+  public class BarkBanterConfigurator
+    : BaseBarkBanterConfigurator<BlueprintBarkBanter, BarkBanterConfigurator>
   {
-    private BarkBanterConfigurator(string name) : base(name) { }
+    private BarkBanterConfigurator(Blueprint<BlueprintBarkBanter, BlueprintReference<BlueprintBarkBanter>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static BarkBanterConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static BarkBanterConfigurator For(Blueprint<BlueprintBarkBanter, BlueprintReference<BlueprintBarkBanter>> blueprint)
     {
-      return new BarkBanterConfigurator(name);
+      return new BarkBanterConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static BarkBanterConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintBarkBanter>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintBarkBanter.m_SpeakerType"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator SetSpeakerType(SpeakerType speakerType)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_SpeakerType = speakerType;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBarkBanter.m_Unit"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="unit"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    
-    public BarkBanterConfigurator SetUnit(string? unit)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(unit);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBarkBanter.Conditions"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator SetConditions(BanterConditions conditions)
-    {
-      ValidateParam(conditions);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Conditions = conditions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBarkBanter.m_Weight"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator SetWeight(float weight)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Weight = weight;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBarkBanter.FirstPhrase"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator SetFirstPhrase(LocalizedString[]? firstPhrase)
-    {
-      ValidateParam(firstPhrase);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FirstPhrase = firstPhrase;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintBarkBanter.FirstPhrase"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator AddToFirstPhrase(params LocalizedString[] firstPhrase)
-    {
-      ValidateParam(firstPhrase);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FirstPhrase = CommonTool.Append(bp.FirstPhrase, firstPhrase ?? new LocalizedString[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintBarkBanter.FirstPhrase"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator RemoveFromFirstPhrase(params LocalizedString[] firstPhrase)
-    {
-      ValidateParam(firstPhrase);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FirstPhrase = bp.FirstPhrase.Where(item => !firstPhrase.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintBarkBanter.Responses"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator SetResponses(BlueprintBarkBanter.BanterResponseEntry[]? responses)
-    {
-      ValidateParam(responses);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Responses = responses;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintBarkBanter.Responses"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator AddToResponses(params BlueprintBarkBanter.BanterResponseEntry[] responses)
-    {
-      ValidateParam(responses);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Responses = CommonTool.Append(bp.Responses, responses ?? new BlueprintBarkBanter.BanterResponseEntry[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintBarkBanter.Responses"/> (Auto Generated)
-    /// </summary>
-    
-    public BarkBanterConfigurator RemoveFromResponses(params BlueprintBarkBanter.BanterResponseEntry[] responses)
-    {
-      ValidateParam(responses);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Responses = bp.Responses.Where(item => !responses.Contains(item)).ToArray();
-          });
-    }
   }
 }

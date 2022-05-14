@@ -1,69 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Classes;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintStatProgression"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class StatProgressionConfigurator : BaseBlueprintConfigurator<BlueprintStatProgression, StatProgressionConfigurator>
+  public class StatProgressionConfigurator
+    : BaseStatProgressionConfigurator<BlueprintStatProgression, StatProgressionConfigurator>
   {
-    private StatProgressionConfigurator(string name) : base(name) { }
+    private StatProgressionConfigurator(Blueprint<BlueprintStatProgression, BlueprintReference<BlueprintStatProgression>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static StatProgressionConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static StatProgressionConfigurator For(Blueprint<BlueprintStatProgression, BlueprintReference<BlueprintStatProgression>> blueprint)
     {
-      return new StatProgressionConfigurator(name);
+      return new StatProgressionConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static StatProgressionConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintStatProgression>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
-    /// </summary>
-    
-    public StatProgressionConfigurator SetBonuses(int[]? bonuses)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Bonuses = bonuses;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
-    /// </summary>
-    
-    public StatProgressionConfigurator AddToBonuses(params int[] bonuses)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Bonuses = CommonTool.Append(bp.Bonuses, bonuses ?? new int[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintStatProgression.Bonuses"/> (Auto Generated)
-    /// </summary>
-    
-    public StatProgressionConfigurator RemoveFromBonuses(params int[] bonuses)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Bonuses = bp.Bonuses.Where(item => !bonuses.Contains(item)).ToArray();
-          });
-    }
   }
 }

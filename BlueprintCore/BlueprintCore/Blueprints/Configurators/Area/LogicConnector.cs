@@ -1,88 +1,51 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Configurators.Facts;
-using BlueprintCore.Utils;
-using Kingmaker.Blueprints.Area;
-using Kingmaker.Designers.EventConditionActionSystem.Events;
-using Kingmaker.Enums.Damage;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintLogicConnector"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  
-  public abstract class BaseLogicConnectorConfigurator<T, TBuilder>
-      : BaseFactConfigurator<T, TBuilder>
-      where T : BlueprintLogicConnector
-      where TBuilder : BaseLogicConnectorConfigurator<T, TBuilder>
-  {
-    protected BaseLogicConnectorConfigurator(string name) : base(name) { }
-
-    /// <summary>
-    /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public TBuilder AddDamageToMapObjectTrigger(
-        ActionsBuilder? actions = null,
-        bool checkEnergyType = default,
-        DamageEnergyType energyType = default,
-        bool checkPhysicalDamageForm = default,
-        PhysicalDamageForm physicalDamageForm = default)
-    {
-      var component = new DamageToMapObjectTrigger();
-      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
-      component.CheckEnergyType = checkEnergyType;
-      component.EnergyType = energyType;
-      component.CheckPhysicalDamageForm = checkPhysicalDamageForm;
-      component.PhysicalDamageForm = physicalDamageForm;
-      return AddComponent(component);
-    }
-  }
-
   /// <summary>
   /// Configurator for <see cref="BlueprintLogicConnector"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class LogicConnectorConfigurator : BaseFactConfigurator<BlueprintLogicConnector, LogicConnectorConfigurator>
+  public class LogicConnectorConfigurator
+    : BaseLogicConnectorConfigurator<BlueprintLogicConnector, LogicConnectorConfigurator>
   {
-    private LogicConnectorConfigurator(string name) : base(name) { }
+    private LogicConnectorConfigurator(Blueprint<BlueprintLogicConnector, BlueprintReference<BlueprintLogicConnector>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static LogicConnectorConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static LogicConnectorConfigurator For(Blueprint<BlueprintLogicConnector, BlueprintReference<BlueprintLogicConnector>> blueprint)
     {
-      return new LogicConnectorConfigurator(name);
+      return new LogicConnectorConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static LogicConnectorConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintLogicConnector>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Adds <see cref="DamageToMapObjectTrigger"/> (Auto Generated)
-    /// </summary>
-    
-    
-    public LogicConnectorConfigurator AddDamageToMapObjectTrigger(
-        ActionsBuilder? actions = null,
-        bool checkEnergyType = default,
-        DamageEnergyType energyType = default,
-        bool checkPhysicalDamageForm = default,
-        PhysicalDamageForm physicalDamageForm = default)
-    {
-      var component = new DamageToMapObjectTrigger();
-      component.Actions = actions?.Build() ?? Constants.Empty.Actions;
-      component.CheckEnergyType = checkEnergyType;
-      component.EnergyType = energyType;
-      component.CheckPhysicalDamageForm = checkPhysicalDamageForm;
-      component.PhysicalDamageForm = physicalDamageForm;
-      return AddComponent(component);
-    }
   }
 }

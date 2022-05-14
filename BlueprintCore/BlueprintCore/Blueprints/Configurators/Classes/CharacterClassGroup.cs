@@ -1,81 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCharacterClassGroup"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CharacterClassGroupConfigurator : BaseBlueprintConfigurator<BlueprintCharacterClassGroup, CharacterClassGroupConfigurator>
+  public class CharacterClassGroupConfigurator
+    : BaseCharacterClassGroupConfigurator<BlueprintCharacterClassGroup, CharacterClassGroupConfigurator>
   {
-    private CharacterClassGroupConfigurator(string name) : base(name) { }
+    private CharacterClassGroupConfigurator(Blueprint<BlueprintCharacterClassGroup, BlueprintReference<BlueprintCharacterClassGroup>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CharacterClassGroupConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CharacterClassGroupConfigurator For(Blueprint<BlueprintCharacterClassGroup, BlueprintReference<BlueprintCharacterClassGroup>> blueprint)
     {
-      return new CharacterClassGroupConfigurator(name);
+      return new CharacterClassGroupConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CharacterClassGroupConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCharacterClassGroup>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    
-    public CharacterClassGroupConfigurator SetCharacterClasses(string[]? characterClasses)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CharacterClasses = characterClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    
-    public CharacterClassGroupConfigurator AddToCharacterClasses(params string[] characterClasses)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CharacterClasses = CommonTool.Append(bp.m_CharacterClasses, characterClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="characterClasses"><see cref="Kingmaker.Blueprints.Classes.BlueprintCharacterClass"/></param>
-    
-    public CharacterClassGroupConfigurator RemoveFromCharacterClasses(params string[] characterClasses)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = characterClasses.Select(name => BlueprintTool.GetRef<BlueprintCharacterClassReference>(name));
-            bp.m_CharacterClasses =
-                bp.m_CharacterClasses
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

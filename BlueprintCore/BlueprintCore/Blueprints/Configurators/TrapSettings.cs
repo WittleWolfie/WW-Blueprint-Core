@@ -1,96 +1,50 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintTrapSettings"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class TrapSettingsConfigurator : BaseBlueprintConfigurator<BlueprintTrapSettings, TrapSettingsConfigurator>
+  public class TrapSettingsConfigurator
+    : BaseTrapSettingsConfigurator<BlueprintTrapSettings, TrapSettingsConfigurator>
   {
-    private TrapSettingsConfigurator(string name) : base(name) { }
+    private TrapSettingsConfigurator(Blueprint<BlueprintTrapSettings, BlueprintReference<BlueprintTrapSettings>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static TrapSettingsConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static TrapSettingsConfigurator For(Blueprint<BlueprintTrapSettings, BlueprintReference<BlueprintTrapSettings>> blueprint)
     {
-      return new TrapSettingsConfigurator(name);
+      return new TrapSettingsConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static TrapSettingsConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintTrapSettings>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettings.ActorLevel"/> (Auto Generated)
-    /// </summary>
-    
-    public TrapSettingsConfigurator SetActorLevel(int actorLevel)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ActorLevel = actorLevel;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettings.ActorStatMod"/> (Auto Generated)
-    /// </summary>
-    
-    public TrapSettingsConfigurator SetActorStatMod(BlueprintTrapSettings.IntRange actorStatMod)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ActorStatMod = actorStatMod;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettings.TrapActor"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="trapActor"><see cref="Kingmaker.Blueprints.BlueprintUnit"/></param>
-    
-    public TrapSettingsConfigurator SetTrapActor(string? trapActor)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.TrapActor = BlueprintTool.GetRef<BlueprintUnitReference>(trapActor);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettings.DisableDC"/> (Auto Generated)
-    /// </summary>
-    
-    public TrapSettingsConfigurator SetDisableDC(BlueprintTrapSettings.IntRange disableDC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DisableDC = disableDC;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintTrapSettings.PerceptionDC"/> (Auto Generated)
-    /// </summary>
-    
-    public TrapSettingsConfigurator SetPerceptionDC(BlueprintTrapSettings.IntRange perceptionDC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.PerceptionDC = perceptionDC;
-          });
-    }
   }
 }

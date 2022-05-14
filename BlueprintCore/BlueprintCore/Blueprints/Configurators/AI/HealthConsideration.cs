@@ -1,107 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="HealthConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class HealthConsiderationConfigurator : BaseConsiderationConfigurator<HealthConsideration, HealthConsiderationConfigurator>
+  public class HealthConsiderationConfigurator
+    : BaseHealthConsiderationConfigurator<HealthConsideration, HealthConsiderationConfigurator>
   {
-    private HealthConsiderationConfigurator(string name) : base(name) { }
+    private HealthConsiderationConfigurator(Blueprint<HealthConsideration, BlueprintReference<HealthConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static HealthConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static HealthConsiderationConfigurator For(Blueprint<HealthConsideration, BlueprintReference<HealthConsideration>> blueprint)
     {
-      return new HealthConsiderationConfigurator(name);
+      return new HealthConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static HealthConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<HealthConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="HealthConsideration.FullBorder"/> (Auto Generated)
-    /// </summary>
-    
-    public HealthConsiderationConfigurator SetFullBorder(int fullBorder)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FullBorder = fullBorder;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="HealthConsideration.DeadBorder"/> (Auto Generated)
-    /// </summary>
-    
-    public HealthConsiderationConfigurator SetDeadBorder(int deadBorder)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DeadBorder = deadBorder;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="HealthConsideration.AboveFullScore"/> (Auto Generated)
-    /// </summary>
-    
-    public HealthConsiderationConfigurator SetAboveFullScore(float aboveFullScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.AboveFullScore = aboveFullScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="HealthConsideration.BelowDeadScore"/> (Auto Generated)
-    /// </summary>
-    
-    public HealthConsiderationConfigurator SetBelowDeadScore(float belowDeadScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.BelowDeadScore = belowDeadScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="HealthConsideration.FullScore"/> (Auto Generated)
-    /// </summary>
-    
-    public HealthConsiderationConfigurator SetFullScore(float fullScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FullScore = fullScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="HealthConsideration.DeadScore"/> (Auto Generated)
-    /// </summary>
-    
-    public HealthConsiderationConfigurator SetDeadScore(float deadScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DeadScore = deadScore;
-          });
-    }
   }
 }

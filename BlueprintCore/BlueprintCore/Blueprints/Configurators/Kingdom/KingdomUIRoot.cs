@@ -1,423 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Kingdom;
-using Kingmaker.UI.Kingdom;
-using System.Collections.Generic;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Kingdom;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
   /// <summary>
   /// Configurator for <see cref="KingdomUIRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class KingdomUIRootConfigurator : BaseBlueprintConfigurator<KingdomUIRoot, KingdomUIRootConfigurator>
+  public class KingdomUIRootConfigurator
+    : BaseKingdomUIRootConfigurator<KingdomUIRoot, KingdomUIRootConfigurator>
   {
-    private KingdomUIRootConfigurator(string name) : base(name) { }
+    private KingdomUIRootConfigurator(Blueprint<KingdomUIRoot, BlueprintReference<KingdomUIRoot>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static KingdomUIRootConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static KingdomUIRootConfigurator For(Blueprint<KingdomUIRoot, BlueprintReference<KingdomUIRoot>> blueprint)
     {
-      return new KingdomUIRootConfigurator(name);
+      return new KingdomUIRootConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static KingdomUIRootConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<KingdomUIRoot>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.DefaultOpportunityMapMarker"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetDefaultOpportunityMapMarker(KingdomUIEventMapMarker defaultOpportunityMapMarker)
-    {
-      ValidateParam(defaultOpportunityMapMarker);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DefaultOpportunityMapMarker = defaultOpportunityMapMarker;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.DefaultProblemMapMarker"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetDefaultProblemMapMarker(KingdomUIEventMapMarker defaultProblemMapMarker)
-    {
-      ValidateParam(defaultProblemMapMarker);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DefaultProblemMapMarker = defaultProblemMapMarker;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.Stats"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetStats(List<KingdomUIRoot.KingdomStatElement>? stats)
-    {
-      ValidateParam(stats);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Stats = stats;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingdomUIRoot.Stats"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator AddToStats(params KingdomUIRoot.KingdomStatElement[] stats)
-    {
-      ValidateParam(stats);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Stats.AddRange(stats.ToList() ?? new List<KingdomUIRoot.KingdomStatElement>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingdomUIRoot.Stats"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator RemoveFromStats(params KingdomUIRoot.KingdomStatElement[] stats)
-    {
-      ValidateParam(stats);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Stats = bp.Stats.Where(item => !stats.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.Resources"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetResources(List<KingdomUIRoot.KingdomResourceElement>? resources)
-    {
-      ValidateParam(resources);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Resources = resources;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingdomUIRoot.Resources"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator AddToResources(params KingdomUIRoot.KingdomResourceElement[] resources)
-    {
-      ValidateParam(resources);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Resources.AddRange(resources.ToList() ?? new List<KingdomUIRoot.KingdomResourceElement>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingdomUIRoot.Resources"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator RemoveFromResources(params KingdomUIRoot.KingdomResourceElement[] resources)
-    {
-      ValidateParam(resources);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Resources = bp.Resources.Where(item => !resources.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.RavenTexts"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetRavenTexts(KingdomUIRoot.KingdomRavenText ravenTexts)
-    {
-      ValidateParam(ravenTexts);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.RavenTexts = ravenTexts;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.LeaderDescriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetLeaderDescriptions(List<KingdomUIRoot.KingdomLeaderDescription>? leaderDescriptions)
-    {
-      ValidateParam(leaderDescriptions);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.LeaderDescriptions = leaderDescriptions;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingdomUIRoot.LeaderDescriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator AddToLeaderDescriptions(params KingdomUIRoot.KingdomLeaderDescription[] leaderDescriptions)
-    {
-      ValidateParam(leaderDescriptions);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.LeaderDescriptions.AddRange(leaderDescriptions.ToList() ?? new List<KingdomUIRoot.KingdomLeaderDescription>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingdomUIRoot.LeaderDescriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator RemoveFromLeaderDescriptions(params KingdomUIRoot.KingdomLeaderDescription[] leaderDescriptions)
-    {
-      ValidateParam(leaderDescriptions);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.LeaderDescriptions = bp.LeaderDescriptions.Where(item => !leaderDescriptions.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.Texts"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetTexts(KingdomUIRoot.KingdomUITexts texts)
-    {
-      ValidateParam(texts);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Texts = texts;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.EventResultMarginDescriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetEventResultMarginDescriptions(List<KingdomUIRoot.EventResultMarginDescription>? eventResultMarginDescriptions)
-    {
-      ValidateParam(eventResultMarginDescriptions);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EventResultMarginDescriptions = eventResultMarginDescriptions;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingdomUIRoot.EventResultMarginDescriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator AddToEventResultMarginDescriptions(params KingdomUIRoot.EventResultMarginDescription[] eventResultMarginDescriptions)
-    {
-      ValidateParam(eventResultMarginDescriptions);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EventResultMarginDescriptions.AddRange(eventResultMarginDescriptions.ToList() ?? new List<KingdomUIRoot.EventResultMarginDescription>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingdomUIRoot.EventResultMarginDescriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator RemoveFromEventResultMarginDescriptions(params KingdomUIRoot.EventResultMarginDescription[] eventResultMarginDescriptions)
-    {
-      ValidateParam(eventResultMarginDescriptions);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EventResultMarginDescriptions = bp.EventResultMarginDescriptions.Where(item => !eventResultMarginDescriptions.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.Settlement"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator Settlement(KingdomUIRoot.SettlementRoot settlement)
-    {
-      ValidateParam(settlement);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Settlement = settlement;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.Tooltip"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetTooltip(KingdomUIRoot.KingdomUITooltip tooltip)
-    {
-      ValidateParam(tooltip);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Tooltip = tooltip;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.Motto"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetMotto(KingdomUIRoot.KingdomMotto motto)
-    {
-      ValidateParam(motto);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Motto = motto;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.KingdomStatusChangeReasons"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetKingdomStatusChangeReasons(List<KingdomUIRoot.KingdomStatusChangeReasonEntity>? kingdomStatusChangeReasons)
-    {
-      ValidateParam(kingdomStatusChangeReasons);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KingdomStatusChangeReasons = kingdomStatusChangeReasons;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingdomUIRoot.KingdomStatusChangeReasons"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator AddToKingdomStatusChangeReasons(params KingdomUIRoot.KingdomStatusChangeReasonEntity[] kingdomStatusChangeReasons)
-    {
-      ValidateParam(kingdomStatusChangeReasons);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KingdomStatusChangeReasons.AddRange(kingdomStatusChangeReasons.ToList() ?? new List<KingdomUIRoot.KingdomStatusChangeReasonEntity>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingdomUIRoot.KingdomStatusChangeReasons"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator RemoveFromKingdomStatusChangeReasons(params KingdomUIRoot.KingdomStatusChangeReasonEntity[] kingdomStatusChangeReasons)
-    {
-      ValidateParam(kingdomStatusChangeReasons);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KingdomStatusChangeReasons = bp.KingdomStatusChangeReasons.Where(item => !kingdomStatusChangeReasons.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.KingdomHistoryEntitisCount"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetKingdomHistoryEntitisCount(int kingdomHistoryEntitisCount)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KingdomHistoryEntitisCount = kingdomHistoryEntitisCount;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.ExResourceStateTypeStrings"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetExResourceStateTypeStrings(KingdomUIRoot.ResourceStateTypeStrings exResourceStateTypeStrings)
-    {
-      ValidateParam(exResourceStateTypeStrings);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ExResourceStateTypeStrings = exResourceStateTypeStrings;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingdomUIRoot.KingdomStautsDesriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator SetKingdomStautsDesriptions(List<KingdomUIRoot.KingdomStatusDescription>? kingdomStautsDesriptions)
-    {
-      ValidateParam(kingdomStautsDesriptions);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KingdomStautsDesriptions = kingdomStautsDesriptions;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingdomUIRoot.KingdomStautsDesriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator AddToKingdomStautsDesriptions(params KingdomUIRoot.KingdomStatusDescription[] kingdomStautsDesriptions)
-    {
-      ValidateParam(kingdomStautsDesriptions);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KingdomStautsDesriptions.AddRange(kingdomStautsDesriptions.ToList() ?? new List<KingdomUIRoot.KingdomStatusDescription>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingdomUIRoot.KingdomStautsDesriptions"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomUIRootConfigurator RemoveFromKingdomStautsDesriptions(params KingdomUIRoot.KingdomStatusDescription[] kingdomStautsDesriptions)
-    {
-      ValidateParam(kingdomStautsDesriptions);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.KingdomStautsDesriptions = bp.KingdomStautsDesriptions.Where(item => !kingdomStautsDesriptions.Contains(item)).ToList();
-          });
-    }
   }
 }

@@ -1,174 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
-using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCheck"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CheckConfigurator : BaseCueBaseConfigurator<BlueprintCheck, CheckConfigurator>
+  public class CheckConfigurator
+    : BaseCheckConfigurator<BlueprintCheck, CheckConfigurator>
   {
-    private CheckConfigurator(string name) : base(name) { }
+    private CheckConfigurator(Blueprint<BlueprintCheck, BlueprintReference<BlueprintCheck>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CheckConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CheckConfigurator For(Blueprint<BlueprintCheck, BlueprintReference<BlueprintCheck>> blueprint)
     {
-      return new CheckConfigurator(name);
+      return new CheckConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CheckConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCheck>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCheck.Type"/> (Auto Generated)
-    /// </summary>
-    
-    public CheckConfigurator SetType(StatType type)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Type = type;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCheck.DC"/> (Auto Generated)
-    /// </summary>
-    
-    public CheckConfigurator SetDC(int dC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DC = dC;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCheck.Hidden"/> (Auto Generated)
-    /// </summary>
-    
-    public CheckConfigurator SetHidden(bool hidden)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Hidden = hidden;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
-    /// </summary>
-    
-    public CheckConfigurator SetDCModifiers(DCModifier[]? dCModifiers)
-    {
-      ValidateParam(dCModifiers);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DCModifiers = dCModifiers;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
-    /// </summary>
-    
-    public CheckConfigurator AddToDCModifiers(params DCModifier[] dCModifiers)
-    {
-      ValidateParam(dCModifiers);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DCModifiers = CommonTool.Append(bp.DCModifiers, dCModifiers ?? new DCModifier[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCheck.DCModifiers"/> (Auto Generated)
-    /// </summary>
-    
-    public CheckConfigurator RemoveFromDCModifiers(params DCModifier[] dCModifiers)
-    {
-      ValidateParam(dCModifiers);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.DCModifiers = bp.DCModifiers.Where(item => !dCModifiers.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCheck.m_Success"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="success"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    
-    public CheckConfigurator SetSuccess(string? success)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Success = BlueprintTool.GetRef<BlueprintCueBaseReference>(success);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCheck.m_Fail"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="fail"><see cref="Kingmaker.DialogSystem.Blueprints.BlueprintCueBase"/></param>
-    
-    public CheckConfigurator SetFail(string? fail)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Fail = BlueprintTool.GetRef<BlueprintCueBaseReference>(fail);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCheck.m_UnitEvaluator"/> (Auto Generated)
-    /// </summary>
-    
-    public CheckConfigurator SetUnitEvaluator(UnitEvaluator unitEvaluator)
-    {
-      ValidateParam(unitEvaluator);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_UnitEvaluator = unitEvaluator;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCheck.Experience"/> (Auto Generated)
-    /// </summary>
-    
-    public CheckConfigurator SetExperience(DialogExperience experience)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Experience = experience;
-          });
-    }
   }
 }

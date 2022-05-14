@@ -42,6 +42,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     ///
     /// <param name="achievement">
+    /// <para>
     /// Blueprint of type AchievementData. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -49,7 +50,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AchievementUnlock(
         this ActionsBuilder builder,
@@ -73,6 +75,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     ///
     /// <param name="dlcReward">
+    /// <para>
     /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -80,9 +83,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="items">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -90,9 +95,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     /// <param name="playerFeatures">
+    /// <para>
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -100,7 +107,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AddPremiumReward(
         this ActionsBuilder builder,
@@ -148,6 +156,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     ///
     /// <param name="vendorTable">
+    /// <para>
     /// Blueprint of type BlueprintUnitLoot. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -155,7 +164,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder AddVendorItemsAction(
         this ActionsBuilder builder,
@@ -187,6 +197,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     ///
     /// <param name="table">
+    /// <para>
     /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -194,7 +205,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ClearVendorTable(
         this ActionsBuilder builder,
@@ -226,6 +238,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         bool? forFree = null,
         LocatorEvaluator? locator = null,
+        bool? lockInUi = null,
         bool? matchPlayerXpExactly = null,
         bool? noEquipment = null,
         ActionsBuilder? onCreate = null)
@@ -234,6 +247,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       element.ForFree = forFree ?? element.ForFree;
       builder.Validate(locator);
       element.Locator = locator ?? element.Locator;
+      element.LockInUi = lockInUi ?? element.LockInUi;
       element.MatchPlayerXpExactly = matchPlayerXpExactly ?? element.MatchPlayerXpExactly;
       element.NoEquipment = noEquipment ?? element.NoEquipment;
       element.OnCreate = onCreate?.Build() ?? element.OnCreate;
@@ -303,7 +317,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="autoImportIfOnlyOneSave">
+    /// <para>
+    /// Tooltip: Import automatically if only one appropriate save file is presented.
+    /// </para>
+    /// </param>
     /// <param name="campaign">
+    /// <para>
     /// Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -311,7 +331,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="letPlayerChooseSave">
+    /// <para>
+    /// Tooltip: Display a prompt asking to choose a save from a list, if any. Otherwise the save will be chosen automatically and silently imported.
+    /// </para>
     /// </param>
     public static ActionsBuilder ImportSave(
         this ActionsBuilder builder,
@@ -367,6 +393,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     ///
     /// <param name="item">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -374,7 +401,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder MakeItemNonRemovable(
         this ActionsBuilder builder,
@@ -404,6 +432,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <item><term>Prologue_Caves_1_Default_Preset</term><description>816615290645ad44f9b5e142490ebbd6</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="leaveEquipmentOf">
+    /// <para>
+    /// Tooltip: Do not remove items equipped on some companions
+    /// </para>
+    /// </param>
     public static ActionsBuilder MovePartyItemsAction(
         this ActionsBuilder builder,
         MovePartyItemsAction.LeaveSettings? leaveEquipmentOf = null,
@@ -432,6 +466,22 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <item><term>CommandAction4</term><description>0deaaa94f48e4efea9fc654d1c3d42f2</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="afterCommitActions">
+    /// <para>
+    /// Tooltip: If levelUp was complete
+    /// </para>
+    /// </param>
+    /// <param name="afterStopActions">
+    /// <para>
+    /// Tooltip: If levelUp was close
+    /// </para>
+    /// </param>
+    /// <param name="lockStopChargen">
+    /// <para>
+    /// Tooltip: If true, buttons Close, Back and Esc will be disable in chargen
+    /// </para>
+    /// </param>
     public static ActionsBuilder OpenSelectMythicUI(
         this ActionsBuilder builder,
         ActionsBuilder? afterCommitActions = null,
@@ -459,6 +509,10 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/RemoveItemFromPlayer
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
@@ -468,6 +522,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     ///
     /// <param name="itemToRemove">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -475,7 +530,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder RemoveItemFromPlayer(
         this ActionsBuilder builder,
@@ -536,6 +592,10 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Actions/SellCollectibleItems
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Cue_0032</term><description>48be2f65960f7074fbcfb369ea4e75b8</description></item>
@@ -545,6 +605,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     ///
     /// <param name="itemToSell">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -552,7 +613,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder SellCollectibleItems(
         this ActionsBuilder builder,
@@ -614,6 +676,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     ///
     /// <param name="tutorial">
+    /// <para>
     /// Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -621,7 +684,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder ShowNewTutorial(
         this ActionsBuilder builder,
@@ -656,6 +720,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="forceCapitalModeLogic">
+    /// <para>
+    /// InfoBox: Group selector logic will be similar to Hub exit (all remote companions will be accessible)
+    /// </para>
+    /// </param>
     public static ActionsBuilder ShowPartySelection(
         this ActionsBuilder builder,
         ActionsBuilder? actionsAfterPartySelection = null,
@@ -713,6 +783,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <item><term>LannWantsTraining_Sparring</term><description>35d585854f8cfa84491a58e49642d4c0</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="destinationContainer">
+    /// <para>
+    /// InfoBox: If not specified, items will be moved to unit's inventory
+    /// </para>
+    /// </param>
     public static ActionsBuilder UnequipAllItems(
         this ActionsBuilder builder,
         ItemsCollectionEvaluator? destinationContainer = null,
@@ -742,7 +818,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="destinationContainer">
+    /// <para>
+    /// InfoBox: If not specified, item will be moved to unit's inventory
+    /// </para>
+    /// </param>
     /// <param name="item">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -750,7 +832,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ActionsBuilder UnequipItem(
         this ActionsBuilder builder,

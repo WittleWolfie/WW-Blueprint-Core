@@ -1,73 +1,51 @@
-using BlueprintCore.Actions.Builder;
-using BlueprintCore.Conditions.Builder;
-using BlueprintCore.Utils;
-using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Localization;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Globalmap.Blueprints;
+
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintMultiEntranceEntry"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class MultiEntranceEntryConfigurator : BaseBlueprintConfigurator<BlueprintMultiEntranceEntry, MultiEntranceEntryConfigurator>
+  public class MultiEntranceEntryConfigurator
+    : BaseMultiEntranceEntryConfigurator<BlueprintMultiEntranceEntry, MultiEntranceEntryConfigurator>
   {
-    private MultiEntranceEntryConfigurator(string name) : base(name) { }
+    private MultiEntranceEntryConfigurator(Blueprint<BlueprintMultiEntranceEntry, BlueprintReference<BlueprintMultiEntranceEntry>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static MultiEntranceEntryConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static MultiEntranceEntryConfigurator For(Blueprint<BlueprintMultiEntranceEntry, BlueprintReference<BlueprintMultiEntranceEntry>> blueprint)
     {
-      return new MultiEntranceEntryConfigurator(name);
+      return new MultiEntranceEntryConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static MultiEntranceEntryConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintMultiEntranceEntry>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintMultiEntranceEntry.Name"/> (Auto Generated)
-    /// </summary>
-    
-    public MultiEntranceEntryConfigurator SetName(LocalizedString? name)
-    {
-      ValidateParam(name);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Name = name ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMultiEntranceEntry.m_Condition"/> (Auto Generated)
-    /// </summary>
-    
-    public MultiEntranceEntryConfigurator SetCondition(ConditionsBuilder? condition)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Condition = condition?.Build() ?? Constants.Empty.Conditions;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintMultiEntranceEntry.m_Actions"/> (Auto Generated)
-    /// </summary>
-    
-    public MultiEntranceEntryConfigurator SetActions(ActionsBuilder? actions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Actions = actions?.Build() ?? Constants.Empty.Actions;
-          });
-    }
   }
 }

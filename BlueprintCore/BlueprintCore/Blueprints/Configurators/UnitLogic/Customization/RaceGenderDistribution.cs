@@ -1,112 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.UnitLogic.Customization;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.UnitLogic.Customization;
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
   /// <summary>
   /// Configurator for <see cref="RaceGenderDistribution"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class RaceGenderDistributionConfigurator : BaseBlueprintConfigurator<RaceGenderDistribution, RaceGenderDistributionConfigurator>
+  public class RaceGenderDistributionConfigurator
+    : BaseRaceGenderDistributionConfigurator<RaceGenderDistribution, RaceGenderDistributionConfigurator>
   {
-    private RaceGenderDistributionConfigurator(string name) : base(name) { }
+    private RaceGenderDistributionConfigurator(Blueprint<RaceGenderDistribution, BlueprintReference<RaceGenderDistribution>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static RaceGenderDistributionConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static RaceGenderDistributionConfigurator For(Blueprint<RaceGenderDistribution, BlueprintReference<RaceGenderDistribution>> blueprint)
     {
-      return new RaceGenderDistributionConfigurator(name);
+      return new RaceGenderDistributionConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static RaceGenderDistributionConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<RaceGenderDistribution>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceGenderDistributionConfigurator SetRaces(RaceEntry[]? races)
-    {
-      ValidateParam(races);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Races = races;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceGenderDistributionConfigurator AddToRaces(params RaceEntry[] races)
-    {
-      ValidateParam(races);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Races = CommonTool.Append(bp.Races, races ?? new RaceEntry[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="RaceGenderDistribution.Races"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceGenderDistributionConfigurator RemoveFromRaces(params RaceEntry[] races)
-    {
-      ValidateParam(races);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Races = bp.Races.Where(item => !races.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="RaceGenderDistribution.LeftHandedChance"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceGenderDistributionConfigurator SetLeftHandedChance(float leftHandedChance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.LeftHandedChance = leftHandedChance;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="RaceGenderDistribution.MaleBaseWeight"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceGenderDistributionConfigurator SetMaleBaseWeight(float maleBaseWeight)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.MaleBaseWeight = maleBaseWeight;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="RaceGenderDistribution.FemaleBaseWeight"/> (Auto Generated)
-    /// </summary>
-    
-    public RaceGenderDistributionConfigurator SetFemaleBaseWeight(float femaleBaseWeight)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.FemaleBaseWeight = femaleBaseWeight;
-          });
-    }
   }
 }

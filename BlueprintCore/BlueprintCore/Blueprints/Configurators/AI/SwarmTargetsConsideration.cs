@@ -1,55 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
+using Kingmaker.Blueprints;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="SwarmTargetsConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class SwarmTargetsConsiderationConfigurator : BaseConsiderationConfigurator<SwarmTargetsConsideration, SwarmTargetsConsiderationConfigurator>
+  public class SwarmTargetsConsiderationConfigurator
+    : BaseSwarmTargetsConsiderationConfigurator<SwarmTargetsConsideration, SwarmTargetsConsiderationConfigurator>
   {
-    private SwarmTargetsConsiderationConfigurator(string name) : base(name) { }
+    private SwarmTargetsConsiderationConfigurator(Blueprint<SwarmTargetsConsideration, BlueprintReference<SwarmTargetsConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static SwarmTargetsConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static SwarmTargetsConsiderationConfigurator For(Blueprint<SwarmTargetsConsideration, BlueprintReference<SwarmTargetsConsideration>> blueprint)
     {
-      return new SwarmTargetsConsiderationConfigurator(name);
+      return new SwarmTargetsConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static SwarmTargetsConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<SwarmTargetsConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="SwarmTargetsConsideration.HasEnemiesScore"/> (Auto Generated)
-    /// </summary>
-    
-    public SwarmTargetsConsiderationConfigurator SetHasEnemiesScore(float hasEnemiesScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.HasEnemiesScore = hasEnemiesScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="SwarmTargetsConsideration.NoEnemiesScore"/> (Auto Generated)
-    /// </summary>
-    
-    public SwarmTargetsConsiderationConfigurator SetNoEnemiesScore(float noEnemiesScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.NoEnemiesScore = noEnemiesScore;
-          });
-    }
   }
 }

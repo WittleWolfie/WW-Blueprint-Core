@@ -1,221 +1,50 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintFaction"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class FactionConfigurator : BaseBlueprintConfigurator<BlueprintFaction, FactionConfigurator>
+  public class FactionConfigurator
+    : BaseFactionConfigurator<BlueprintFaction, FactionConfigurator>
   {
-    private FactionConfigurator(string name) : base(name) { }
+    private FactionConfigurator(Blueprint<BlueprintFaction, BlueprintReference<BlueprintFaction>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static FactionConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static FactionConfigurator For(Blueprint<BlueprintFaction, BlueprintReference<BlueprintFaction>> blueprint)
     {
-      return new FactionConfigurator(name);
+      return new FactionConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static FactionConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintFaction>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.m_AttackFactions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    
-    public FactionConfigurator SetAttackFactions(string[]? attackFactions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AttackFactions = attackFactions.Select(name => BlueprintTool.GetRef<BlueprintFactionReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintFaction.m_AttackFactions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    
-    public FactionConfigurator AddToAttackFactions(params string[] attackFactions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AttackFactions = CommonTool.Append(bp.m_AttackFactions, attackFactions.Select(name => BlueprintTool.GetRef<BlueprintFactionReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintFaction.m_AttackFactions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="attackFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    
-    public FactionConfigurator RemoveFromAttackFactions(params string[] attackFactions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = attackFactions.Select(name => BlueprintTool.GetRef<BlueprintFactionReference>(name));
-            bp.m_AttackFactions =
-                bp.m_AttackFactions
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.m_AllyFactions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    
-    public FactionConfigurator SetAllyFactions(string[]? allyFactions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AllyFactions = allyFactions.Select(name => BlueprintTool.GetRef<BlueprintFactionReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintFaction.m_AllyFactions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    
-    public FactionConfigurator AddToAllyFactions(params string[] allyFactions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AllyFactions = CommonTool.Append(bp.m_AllyFactions, allyFactions.Select(name => BlueprintTool.GetRef<BlueprintFactionReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintFaction.m_AllyFactions"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="allyFactions"><see cref="Kingmaker.Blueprints.BlueprintFaction"/></param>
-    
-    public FactionConfigurator RemoveFromAllyFactions(params string[] allyFactions)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = allyFactions.Select(name => BlueprintTool.GetRef<BlueprintFactionReference>(name));
-            bp.m_AllyFactions =
-                bp.m_AllyFactions
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.m_AllyFactionsBehaviour"/> (Auto Generated)
-    /// </summary>
-    
-    public FactionConfigurator SetAllyFactionsBehaviour(BlueprintFaction.EAllyFactions allyFactionsBehaviour)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_AllyFactionsBehaviour = allyFactionsBehaviour;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.Peaceful"/> (Auto Generated)
-    /// </summary>
-    
-    public FactionConfigurator SetPeaceful(bool peaceful)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Peaceful = peaceful;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.AlwaysEnemy"/> (Auto Generated)
-    /// </summary>
-    
-    public FactionConfigurator SetAlwaysEnemy(bool alwaysEnemy)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.AlwaysEnemy = alwaysEnemy;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.EnemyForEveryone"/> (Auto Generated)
-    /// </summary>
-    
-    public FactionConfigurator SetEnemyForEveryone(bool enemyForEveryone)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.EnemyForEveryone = enemyForEveryone;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.Neutral"/> (Auto Generated)
-    /// </summary>
-    
-    public FactionConfigurator SetNeutral(bool neutral)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Neutral = neutral;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.IsDirectlyControllable"/> (Auto Generated)
-    /// </summary>
-    
-    public FactionConfigurator SetIsDirectlyControllable(bool isDirectlyControllable)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.IsDirectlyControllable = isDirectlyControllable;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintFaction.NeverJoinCombat"/> (Auto Generated)
-    /// </summary>
-    
-    public FactionConfigurator SetNeverJoinCombat(bool neverJoinCombat)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.NeverJoinCombat = neverJoinCombat;
-          });
-    }
   }
 }

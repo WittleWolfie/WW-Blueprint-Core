@@ -1,155 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
-using Kingmaker.Enums;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintLoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class LootConfigurator : BaseBlueprintConfigurator<BlueprintLoot, LootConfigurator>
+  public class LootConfigurator
+    : BaseLootConfigurator<BlueprintLoot, LootConfigurator>
   {
-    private LootConfigurator(string name) : base(name) { }
+    private LootConfigurator(Blueprint<BlueprintLoot, BlueprintReference<BlueprintLoot>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static LootConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static LootConfigurator For(Blueprint<BlueprintLoot, BlueprintReference<BlueprintLoot>> blueprint)
     {
-      return new LootConfigurator(name);
+      return new LootConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static LootConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintLoot>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintLoot.Type"/> (Auto Generated)
-    /// </summary>
-    
-    public LootConfigurator SetType(LootType type)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Type = type;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintLoot.IsSuperTrash"/> (Auto Generated)
-    /// </summary>
-    
-    public LootConfigurator SetIsSuperTrash(bool isSuperTrash)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.IsSuperTrash = isSuperTrash;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintLoot.Identify"/> (Auto Generated)
-    /// </summary>
-    
-    public LootConfigurator SetIdentify(bool identify)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Identify = identify;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintLoot.Setting"/> (Auto Generated)
-    /// </summary>
-    
-    public LootConfigurator Setting(LootSetting setting)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Setting = setting;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintLoot.m_Area"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="area"><see cref="Kingmaker.Blueprints.Area.BlueprintArea"/></param>
-    
-    public LootConfigurator SetArea(string? area)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(area);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintLoot.ContainerName"/> (Auto Generated)
-    /// </summary>
-    
-    public LootConfigurator SetContainerName(string containerName)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.ContainerName = containerName;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintLoot.Items"/> (Auto Generated)
-    /// </summary>
-    
-    public LootConfigurator SetItems(LootEntry[]? items)
-    {
-      ValidateParam(items);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Items = items;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintLoot.Items"/> (Auto Generated)
-    /// </summary>
-    
-    public LootConfigurator AddToItems(params LootEntry[] items)
-    {
-      ValidateParam(items);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Items = CommonTool.Append(bp.Items, items ?? new LootEntry[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintLoot.Items"/> (Auto Generated)
-    /// </summary>
-    
-    public LootConfigurator RemoveFromItems(params LootEntry[] items)
-    {
-      ValidateParam(items);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Items = bp.Items.Where(item => !items.Contains(item)).ToArray();
-          });
-    }
   }
 }

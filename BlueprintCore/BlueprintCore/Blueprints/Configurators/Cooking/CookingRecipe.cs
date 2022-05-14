@@ -1,209 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Rest.Cooking;
-using Kingmaker.Localization;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Cooking
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCookingRecipe"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CookingRecipeConfigurator : BaseBlueprintConfigurator<BlueprintCookingRecipe, CookingRecipeConfigurator>
+  public class CookingRecipeConfigurator
+    : BaseCookingRecipeConfigurator<BlueprintCookingRecipe, CookingRecipeConfigurator>
   {
-    private CookingRecipeConfigurator(string name) : base(name) { }
+    private CookingRecipeConfigurator(Blueprint<BlueprintCookingRecipe, BlueprintReference<BlueprintCookingRecipe>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CookingRecipeConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CookingRecipeConfigurator For(Blueprint<BlueprintCookingRecipe, BlueprintReference<BlueprintCookingRecipe>> blueprint)
     {
-      return new CookingRecipeConfigurator(name);
+      return new CookingRecipeConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CookingRecipeConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCookingRecipe>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCookingRecipe.Name"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator SetName(LocalizedString? name)
-    {
-      ValidateParam(name);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Name = name ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator SetIngredients(BlueprintCookingRecipe.ItemEntry[]? ingredients)
-    {
-      ValidateParam(ingredients);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Ingredients = ingredients;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator AddToIngredients(params BlueprintCookingRecipe.ItemEntry[] ingredients)
-    {
-      ValidateParam(ingredients);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Ingredients = CommonTool.Append(bp.Ingredients, ingredients ?? new BlueprintCookingRecipe.ItemEntry[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCookingRecipe.Ingredients"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator RemoveFromIngredients(params BlueprintCookingRecipe.ItemEntry[] ingredients)
-    {
-      ValidateParam(ingredients);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Ingredients = bp.Ingredients.Where(item => !ingredients.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCookingRecipe.CookingDC"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator SetCookingDC(int cookingDC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.CookingDC = cookingDC;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCookingRecipe.BuffDurationHours"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator SetBuffDurationHours(int buffDurationHours)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.BuffDurationHours = buffDurationHours;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="partyBuffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    
-    public CookingRecipeConfigurator SetPartyBuffs(string[]? partyBuffs)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PartyBuffs = partyBuffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="partyBuffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    
-    public CookingRecipeConfigurator AddToPartyBuffs(params string[] partyBuffs)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PartyBuffs = CommonTool.Append(bp.m_PartyBuffs, partyBuffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="partyBuffs"><see cref="Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff"/></param>
-    
-    public CookingRecipeConfigurator RemoveFromPartyBuffs(params string[] partyBuffs)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = partyBuffs.Select(name => BlueprintTool.GetRef<BlueprintBuffReference>(name));
-            bp.m_PartyBuffs =
-                bp.m_PartyBuffs
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator SetUnitBuffs(BlueprintCookingRecipe.UnitBuffEntry[]? unitBuffs)
-    {
-      ValidateParam(unitBuffs);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UnitBuffs = unitBuffs;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator AddToUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
-    {
-      ValidateParam(unitBuffs);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UnitBuffs = CommonTool.Append(bp.UnitBuffs, unitBuffs ?? new BlueprintCookingRecipe.UnitBuffEntry[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCookingRecipe.UnitBuffs"/> (Auto Generated)
-    /// </summary>
-    
-    public CookingRecipeConfigurator RemoveFromUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
-    {
-      ValidateParam(unitBuffs);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.UnitBuffs = bp.UnitBuffs.Where(item => !unitBuffs.Contains(item)).ToArray();
-          });
-    }
   }
 }

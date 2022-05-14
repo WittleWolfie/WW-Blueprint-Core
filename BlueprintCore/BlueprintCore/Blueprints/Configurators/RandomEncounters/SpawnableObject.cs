@@ -1,73 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.RandomEncounters.Settings;
-using Kingmaker.ResourceLinks;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.RandomEncounters.Settings;
+
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintSpawnableObject"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  
-  public abstract class BaseSpawnableObjectConfigurator<T, TBuilder>
-      : BaseBlueprintConfigurator<T, TBuilder>
-      where T : BlueprintSpawnableObject
-      where TBuilder : BaseSpawnableObjectConfigurator<T, TBuilder>
-  {
-    protected BaseSpawnableObjectConfigurator(string name) : base(name) { }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
-    /// </summary>
-    
-    public TBuilder SetPrefab(PrefabLink? prefab)
-    {
-      ValidateParam(prefab);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Prefab = prefab ?? Constants.Empty.PrefabLink;
-          });
-    }
-  }
-
   /// <summary>
   /// Configurator for <see cref="BlueprintSpawnableObject"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class SpawnableObjectConfigurator : BaseBlueprintConfigurator<BlueprintSpawnableObject, SpawnableObjectConfigurator>
+  public class SpawnableObjectConfigurator
+    : BaseSpawnableObjectConfigurator<BlueprintSpawnableObject, SpawnableObjectConfigurator>
   {
-    private SpawnableObjectConfigurator(string name) : base(name) { }
+    private SpawnableObjectConfigurator(Blueprint<BlueprintSpawnableObject, BlueprintReference<BlueprintSpawnableObject>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static SpawnableObjectConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static SpawnableObjectConfigurator For(Blueprint<BlueprintSpawnableObject, BlueprintReference<BlueprintSpawnableObject>> blueprint)
     {
-      return new SpawnableObjectConfigurator(name);
+      return new SpawnableObjectConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static SpawnableObjectConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintSpawnableObject>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintSpawnableObject.Prefab"/> (Auto Generated)
-    /// </summary>
-    
-    public SpawnableObjectConfigurator SetPrefab(PrefabLink? prefab)
-    {
-      ValidateParam(prefab);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Prefab = prefab ?? Constants.Empty.PrefabLink;
-          });
-    }
   }
 }

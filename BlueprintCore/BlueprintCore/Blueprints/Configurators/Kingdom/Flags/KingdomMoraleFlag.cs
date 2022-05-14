@@ -1,139 +1,51 @@
-using BlueprintCore.Blueprints.Configurators.Facts;
-using BlueprintCore.Utils;
-using Kingmaker.Kingdom.Flags;
-using Kingmaker.Localization;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Kingdom.Flags;
+
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintKingdomMoraleFlag"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class KingdomMoraleFlagConfigurator : BaseFactConfigurator<BlueprintKingdomMoraleFlag, KingdomMoraleFlagConfigurator>
+  public class KingdomMoraleFlagConfigurator
+    : BaseKingdomMoraleFlagConfigurator<BlueprintKingdomMoraleFlag, KingdomMoraleFlagConfigurator>
   {
-    private KingdomMoraleFlagConfigurator(string name) : base(name) { }
+    private KingdomMoraleFlagConfigurator(Blueprint<BlueprintKingdomMoraleFlag, BlueprintReference<BlueprintKingdomMoraleFlag>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static KingdomMoraleFlagConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static KingdomMoraleFlagConfigurator For(Blueprint<BlueprintKingdomMoraleFlag, BlueprintReference<BlueprintKingdomMoraleFlag>> blueprint)
     {
-      return new KingdomMoraleFlagConfigurator(name);
+      return new KingdomMoraleFlagConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static KingdomMoraleFlagConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintKingdomMoraleFlag>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintKingdomMoraleFlag.m_DisplayName"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomMoraleFlagConfigurator SetDisplayName(LocalizedString? displayName)
-    {
-      ValidateParam(displayName);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DisplayName = displayName ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintKingdomMoraleFlag.m_Description"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomMoraleFlagConfigurator SetDescription(LocalizedString? description)
-    {
-      ValidateParam(description);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Description = description ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintKingdomMoraleFlag.m_NeutralDuration"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomMoraleFlagConfigurator SetNeutralDuration(int neutralDuration)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_NeutralDuration = neutralDuration;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintKingdomMoraleFlag.m_NegativeWarningDuration"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomMoraleFlagConfigurator SetNegativeWarningDuration(int negativeWarningDuration)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_NegativeWarningDuration = negativeWarningDuration;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintKingdomMoraleFlag.m_PerDayBonus"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomMoraleFlagConfigurator SetPerDayBonus(int perDayBonus)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PerDayBonus = perDayBonus;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintKingdomMoraleFlag.m_PerDayPenalty"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomMoraleFlagConfigurator SetPerDayPenalty(int perDayPenalty)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PerDayPenalty = perDayPenalty;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintKingdomMoraleFlag.m_FlagType"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomMoraleFlagConfigurator SetFlagType(BlueprintKingdomMoraleFlag.FlagType flagType)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_FlagType = flagType;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintKingdomMoraleFlag.m_CounterDecrementPerDay"/> (Auto Generated)
-    /// </summary>
-    
-    public KingdomMoraleFlagConfigurator SetCounterDecrementPerDay(int counterDecrementPerDay)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_CounterDecrementPerDay = counterDecrementPerDay;
-          });
-    }
   }
 }

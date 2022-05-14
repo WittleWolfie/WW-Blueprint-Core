@@ -58,6 +58,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="conditionsHolder">
+    /// <para>
     /// Blueprint of type ConditionsHolder. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -65,7 +66,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CheckConditionsHolder(
         this ConditionsBuilder builder,
@@ -100,6 +102,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="targetItem">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -107,7 +110,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="unitEvaluator">
+    /// <para>
+    /// InfoBox: If empty - check all units in party
+    /// </para>
     /// </param>
     public static ConditionsBuilder CheckItemCondition(
         this ConditionsBuilder builder,
@@ -135,6 +144,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/CompanionInParty
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_HigherCity_VellodusMansion</term><description>d062cf7333b145b8bb85d4400dbea44d</description></item>
@@ -144,6 +157,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="companion">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -151,7 +165,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CompanionInParty(
         this ConditionsBuilder builder,
@@ -184,6 +199,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/CompanionIsDead
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0015</term><description>72050eac97c4b944f9a99ce16a680f16</description></item>
@@ -193,6 +212,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="companion">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -200,7 +220,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CompanionIsDead(
         this ConditionsBuilder builder,
@@ -225,6 +246,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/CompanionIsLost
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Sosiel_Q2_KTC</term><description>4ff659434ee301e4d99cad924df322fe</description></item>
@@ -232,6 +257,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="companion">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -239,7 +265,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder CompanionIsLost(
         this ConditionsBuilder builder,
@@ -262,6 +289,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/HasBuff
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlushinyrraBeggar_Actions</term><description>a5a61ef3563441544bc2763003c9e653</description></item>
@@ -271,6 +302,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="buff">
+    /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -278,7 +310,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder HasBuff(
         this ConditionsBuilder builder,
@@ -313,6 +346,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="fact">
+    /// <para>
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -320,7 +354,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder HasFact(
         this ConditionsBuilder builder,
@@ -373,6 +408,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Condition/IsEqual
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -602,6 +641,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="blueprint">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -609,7 +649,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder ItemBlueprint(
         this ConditionsBuilder builder,
@@ -635,6 +676,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/ItemsEnough
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
@@ -643,7 +688,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="ignoreRemoteCompanions">
+    /// <para>
+    /// InfoBox: Check item `equipped` state and don't count items equipped on remote companions
+    /// </para>
+    /// </param>
     /// <param name="itemToCheck">
+    /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -651,16 +702,21 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder ItemsEnough(
         this ConditionsBuilder builder,
+        bool? checkInPlayerHubChest = null,
+        bool? ignoreRemoteCompanions = null,
         Blueprint<BlueprintItem, BlueprintItemReference>? itemToCheck = null,
         bool? money = null,
         bool negate = false,
         int? quantity = null)
     {
       var element = ElementTool.Create<ItemsEnough>();
+      element.CheckInPlayerHubChest = checkInPlayerHubChest ?? element.CheckInPlayerHubChest;
+      element.IgnoreRemoteCompanions = ignoreRemoteCompanions ?? element.IgnoreRemoteCompanions;
       element.m_ItemToCheck = itemToCheck?.Reference ?? element.m_ItemToCheck;
       if (element.m_ItemToCheck is null)
       {
@@ -704,6 +760,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Condition/PartyUnits
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -812,6 +872,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="summonPool">
+    /// <para>
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -819,7 +880,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder SummonPoolExistsAndEmpty(
         this ConditionsBuilder builder,
@@ -842,6 +904,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/UnitIsDead
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave_Actions</term><description>4c1760ddc1a183b4f94ee50cc47f4c37</description></item>
@@ -849,6 +915,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <item><term>WenduTraitor_DrezensStreet</term><description>aaa0452f52514e46bbc9a52fa95f467b</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="target">
+    /// <para>
+    /// InfoBox: This condition may fail if the unit has died and was later destroyed. Consider using SpawnerUnitIsDead or a Summon Pool.
+    /// </para>
+    /// </param>
     public static ConditionsBuilder UnitIsDead(
         this ConditionsBuilder builder,
         bool negate = false,
@@ -892,6 +964,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/UnitBlueprint
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0023</term><description>7b20b077ed8be9842a561843f40fa0c9</description></item>
@@ -901,6 +977,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="blueprint">
+    /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -908,7 +985,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder UnitBlueprint(
         this ConditionsBuilder builder,
@@ -943,6 +1021,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="clazz">
+    /// <para>
     /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -950,7 +1029,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder UnitClass(
         this ConditionsBuilder builder,
@@ -986,6 +1066,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Condition/UnitEqual
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlarmZone</term><description>a7081ca4e21e8594f93bc84a4eb2a7a8</description></item>
@@ -1013,6 +1097,10 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </summary>
     ///
     /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Condition/UnitFromSpawnerIsDead
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -1048,6 +1136,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </remarks>
     ///
     /// <param name="summonPool">
+    /// <para>
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
@@ -1055,7 +1144,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
     /// </param>
     public static ConditionsBuilder UnitFromSummonPool(
         this ConditionsBuilder builder,

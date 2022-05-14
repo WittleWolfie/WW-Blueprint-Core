@@ -1,173 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.ResourceLinks;
-using Kingmaker.Visual.CharacterSystem;
-using System.Linq;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Visual.CharacterSystem;
+
 namespace BlueprintCore.Blueprints.Configurators.Visual
 {
   /// <summary>
   /// Configurator for <see cref="KingmakerEquipmentEntity"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class KingmakerEquipmentEntityConfigurator : BaseBlueprintConfigurator<KingmakerEquipmentEntity, KingmakerEquipmentEntityConfigurator>
+  public class KingmakerEquipmentEntityConfigurator
+    : BaseKingmakerEquipmentEntityConfigurator<KingmakerEquipmentEntity, KingmakerEquipmentEntityConfigurator>
   {
-    private KingmakerEquipmentEntityConfigurator(string name) : base(name) { }
+    private KingmakerEquipmentEntityConfigurator(Blueprint<KingmakerEquipmentEntity, BlueprintReference<KingmakerEquipmentEntity>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static KingmakerEquipmentEntityConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static KingmakerEquipmentEntityConfigurator For(Blueprint<KingmakerEquipmentEntity, BlueprintReference<KingmakerEquipmentEntity>> blueprint)
     {
-      return new KingmakerEquipmentEntityConfigurator(name);
+      return new KingmakerEquipmentEntityConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static KingmakerEquipmentEntityConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<KingmakerEquipmentEntity>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator SetMaleArray(EquipmentEntityLink[]? maleArray)
-    {
-      ValidateParam(maleArray);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MaleArray = maleArray;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator AddToMaleArray(params EquipmentEntityLink[] maleArray)
-    {
-      ValidateParam(maleArray);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MaleArray = CommonTool.Append(bp.m_MaleArray, maleArray ?? new EquipmentEntityLink[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingmakerEquipmentEntity.m_MaleArray"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator RemoveFromMaleArray(params EquipmentEntityLink[] maleArray)
-    {
-      ValidateParam(maleArray);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MaleArray = bp.m_MaleArray.Where(item => !maleArray.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator SetFemaleArray(EquipmentEntityLink[]? femaleArray)
-    {
-      ValidateParam(femaleArray);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_FemaleArray = femaleArray;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator AddToFemaleArray(params EquipmentEntityLink[] femaleArray)
-    {
-      ValidateParam(femaleArray);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_FemaleArray = CommonTool.Append(bp.m_FemaleArray, femaleArray ?? new EquipmentEntityLink[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingmakerEquipmentEntity.m_FemaleArray"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator RemoveFromFemaleArray(params EquipmentEntityLink[] femaleArray)
-    {
-      ValidateParam(femaleArray);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_FemaleArray = bp.m_FemaleArray.Where(item => !femaleArray.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingmakerEquipmentEntity.m_RaceDependent"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator SetRaceDependent(bool raceDependent)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RaceDependent = raceDependent;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator SetRaceDependentArrays(KingmakerEquipmentEntity.TwoLists[]? raceDependentArrays)
-    {
-      ValidateParam(raceDependentArrays);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RaceDependentArrays = raceDependentArrays;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator AddToRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
-    {
-      ValidateParam(raceDependentArrays);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RaceDependentArrays = CommonTool.Append(bp.m_RaceDependentArrays, raceDependentArrays ?? new KingmakerEquipmentEntity.TwoLists[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/> (Auto Generated)
-    /// </summary>
-    
-    public KingmakerEquipmentEntityConfigurator RemoveFromRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
-    {
-      ValidateParam(raceDependentArrays);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RaceDependentArrays = bp.m_RaceDependentArrays.Where(item => !raceDependentArrays.Contains(item)).ToArray();
-          });
-    }
   }
 }

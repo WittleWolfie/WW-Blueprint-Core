@@ -1,136 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
-using Kingmaker.ResourceLinks;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintItemEquipmentUsable"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class ItemEquipmentUsableConfigurator : BaseItemEquipmentConfigurator<BlueprintItemEquipmentUsable, ItemEquipmentUsableConfigurator>
+  public class ItemEquipmentUsableConfigurator
+    : BaseItemEquipmentUsableConfigurator<BlueprintItemEquipmentUsable, ItemEquipmentUsableConfigurator>
   {
-    private ItemEquipmentUsableConfigurator(string name) : base(name) { }
+    private ItemEquipmentUsableConfigurator(Blueprint<BlueprintItemEquipmentUsable, BlueprintReference<BlueprintItemEquipmentUsable>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static ItemEquipmentUsableConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static ItemEquipmentUsableConfigurator For(Blueprint<BlueprintItemEquipmentUsable, BlueprintReference<BlueprintItemEquipmentUsable>> blueprint)
     {
-      return new ItemEquipmentUsableConfigurator(name);
+      return new ItemEquipmentUsableConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static ItemEquipmentUsableConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintItemEquipmentUsable>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintItemEquipmentUsable.Type"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemEquipmentUsableConfigurator SetType(UsableItemType type)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Type = type;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemEquipmentUsable.m_IdentifyDC"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemEquipmentUsableConfigurator SetIdentifyDC(int identifyDC)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_IdentifyDC = identifyDC;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemEquipmentUsable.m_InventoryEquipSound"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemEquipmentUsableConfigurator SetInventoryEquipSound(string inventoryEquipSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_InventoryEquipSound = inventoryEquipSound;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemEquipmentUsable.m_BeltItemPrefab"/> (Auto Generated)
-    /// </summary>
-    
-    public ItemEquipmentUsableConfigurator SetBeltItemPrefab(PrefabLink? beltItemPrefab)
-    {
-      ValidateParam(beltItemPrefab);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_BeltItemPrefab = beltItemPrefab ?? Constants.Empty.PrefabLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    
-    public ItemEquipmentUsableConfigurator SetEnchantments(string[]? enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Enchantments = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    
-    public ItemEquipmentUsableConfigurator AddToEnchantments(params string[] enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Enchantments = CommonTool.Append(bp.m_Enchantments, enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintItemEquipmentUsable.m_Enchantments"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="enchantments"><see cref="Kingmaker.Blueprints.Items.Ecnchantments.BlueprintEquipmentEnchantment"/></param>
-    
-    public ItemEquipmentUsableConfigurator RemoveFromEnchantments(params string[] enchantments)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = enchantments.Select(name => BlueprintTool.GetRef<BlueprintEquipmentEnchantmentReference>(name));
-            bp.m_Enchantments =
-                bp.m_Enchantments
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
   }
 }

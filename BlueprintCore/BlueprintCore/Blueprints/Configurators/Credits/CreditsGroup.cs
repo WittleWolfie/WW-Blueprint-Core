@@ -1,206 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Credits;
-using Kingmaker.Localization;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Credits
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintCreditsGroup"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class CreditsGroupConfigurator : BaseBlueprintConfigurator<BlueprintCreditsGroup, CreditsGroupConfigurator>
+  public class CreditsGroupConfigurator
+    : BaseCreditsGroupConfigurator<BlueprintCreditsGroup, CreditsGroupConfigurator>
   {
-    private CreditsGroupConfigurator(string name) : base(name) { }
+    private CreditsGroupConfigurator(Blueprint<BlueprintCreditsGroup, BlueprintReference<BlueprintCreditsGroup>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static CreditsGroupConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static CreditsGroupConfigurator For(Blueprint<BlueprintCreditsGroup, BlueprintReference<BlueprintCreditsGroup>> blueprint)
     {
-      return new CreditsGroupConfigurator(name);
+      return new CreditsGroupConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static CreditsGroupConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintCreditsGroup>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsGroup.TabIcon"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator SetTabIcon(Sprite tabIcon)
-    {
-      ValidateParam(tabIcon);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.TabIcon = tabIcon;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsGroup.HeaderText"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator SetHeaderText(LocalizedString? headerText)
-    {
-      ValidateParam(headerText);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.HeaderText = headerText ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsGroup.LeftPageImage"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator SetLeftPageImage(Sprite leftPageImage)
-    {
-      ValidateParam(leftPageImage);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.LeftPageImage = leftPageImage;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsGroup.LeftPageText"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator SetLeftPageText(LocalizedString? leftPageText)
-    {
-      ValidateParam(leftPageText);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.LeftPageText = leftPageText ?? Constants.Empty.String;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsGroup.m_RolesData"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="rolesData"><see cref="Kingmaker.Blueprints.Credits.BlueprintCreditsRoles"/></param>
-    
-    public CreditsGroupConfigurator SetRolesData(string? rolesData)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RolesData = BlueprintTool.GetRef<BlueprintCreditsRolesReference>(rolesData);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsGroup.m_TeamsData"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="teamsData"><see cref="Kingmaker.Blueprints.Credits.BlueprintCreditsTeams"/></param>
-    
-    public CreditsGroupConfigurator SetTeamsData(string? teamsData)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_TeamsData = BlueprintTool.GetRef<BlueprintCreditsTeamsReference>(teamsData);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator SetOrderTeams(List<string>? orderTeams)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.OrderTeams = orderTeams;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator AddToOrderTeams(params string[] orderTeams)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.OrderTeams.AddRange(orderTeams.ToList() ?? new List<string>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCreditsGroup.OrderTeams"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator RemoveFromOrderTeams(params string[] orderTeams)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.OrderTeams = bp.OrderTeams.Where(item => !orderTeams.Contains(item)).ToList();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator SetPersones(List<CreditPerson>? persones)
-    {
-      ValidateParam(persones);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Persones = persones;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator AddToPersones(params CreditPerson[] persones)
-    {
-      ValidateParam(persones);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Persones.AddRange(persones.ToList() ?? new List<CreditPerson>());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="BlueprintCreditsGroup.Persones"/> (Auto Generated)
-    /// </summary>
-    
-    public CreditsGroupConfigurator RemoveFromPersones(params CreditPerson[] persones)
-    {
-      ValidateParam(persones);
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.Persones = bp.Persones.Where(item => !persones.Contains(item)).ToList();
-          });
-    }
   }
 }

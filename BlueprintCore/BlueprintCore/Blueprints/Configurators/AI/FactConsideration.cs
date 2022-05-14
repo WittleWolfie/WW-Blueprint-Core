@@ -1,107 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System.Linq;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
   /// <summary>
   /// Configurator for <see cref="FactConsideration"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class FactConsiderationConfigurator : BaseConsiderationConfigurator<FactConsideration, FactConsiderationConfigurator>
+  public class FactConsiderationConfigurator
+    : BaseFactConsiderationConfigurator<FactConsideration, FactConsiderationConfigurator>
   {
-    private FactConsiderationConfigurator(string name) : base(name) { }
+    private FactConsiderationConfigurator(Blueprint<FactConsideration, BlueprintReference<FactConsideration>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static FactConsiderationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static FactConsiderationConfigurator For(Blueprint<FactConsideration, BlueprintReference<FactConsideration>> blueprint)
     {
-      return new FactConsiderationConfigurator(name);
+      return new FactConsiderationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static FactConsiderationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<FactConsideration>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="FactConsideration.m_Fact"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    
-    public FactConsiderationConfigurator SetFact(string[]? fact)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Fact = fact.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="FactConsideration.m_Fact"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    
-    public FactConsiderationConfigurator AddToFact(params string[] fact)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Fact = CommonTool.Append(bp.m_Fact, fact.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name)).ToArray());
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="FactConsideration.m_Fact"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="fact"><see cref="Kingmaker.Blueprints.Facts.BlueprintUnitFact"/></param>
-    
-    public FactConsiderationConfigurator RemoveFromFact(params string[] fact)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            var excludeRefs = fact.Select(name => BlueprintTool.GetRef<BlueprintUnitFactReference>(name));
-            bp.m_Fact =
-                bp.m_Fact
-                    .Where(
-                        bpRef => !excludeRefs.ToList().Exists(exclude => bpRef.deserializedGuid == exclude.deserializedGuid))
-                    .ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="FactConsideration.HasFactScore"/> (Auto Generated)
-    /// </summary>
-    
-    public FactConsiderationConfigurator SetHasFactScore(float hasFactScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.HasFactScore = hasFactScore;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="FactConsideration.NoFactScore"/> (Auto Generated)
-    /// </summary>
-    
-    public FactConsiderationConfigurator SetNoFactScore(float noFactScore)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.NoFactScore = noFactScore;
-          });
-    }
   }
 }

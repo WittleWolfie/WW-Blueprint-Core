@@ -1,178 +1,51 @@
+//***** AUTO-GENERATED - DO NOT EDIT *****//
+
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Interaction;
-using Kingmaker.ResourceLinks;
 
-#nullable enable
 namespace BlueprintCore.Blueprints.Configurators.Interaction
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintInteractionRoot"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class InteractionRootConfigurator : BaseBlueprintConfigurator<BlueprintInteractionRoot, InteractionRootConfigurator>
+  public class InteractionRootConfigurator
+    : BaseInteractionRootConfigurator<BlueprintInteractionRoot, InteractionRootConfigurator>
   {
-    private InteractionRootConfigurator(string name) : base(name) { }
+    private InteractionRootConfigurator(Blueprint<BlueprintInteractionRoot, BlueprintReference<BlueprintInteractionRoot>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static InteractionRootConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static InteractionRootConfigurator For(Blueprint<BlueprintInteractionRoot, BlueprintReference<BlueprintInteractionRoot>> blueprint)
     {
-      return new InteractionRootConfigurator(name);
+      return new InteractionRootConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static InteractionRootConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<BlueprintInteractionRoot>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_InteractionDCVariation"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetInteractionDCVariation(int interactionDCVariation)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_InteractionDCVariation = interactionDCVariation;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_MagicPowerCost"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetMagicPowerCost(int magicPowerCost)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MagicPowerCost = magicPowerCost;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_MagicPowerItem"/> (Auto Generated)
-    /// </summary>
-    ///
-    /// <param name="magicPowerItem"><see cref="Kingmaker.Blueprints.Items.BlueprintItem"/></param>
-    
-    public InteractionRootConfigurator SetMagicPowerItem(string? magicPowerItem)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_MagicPowerItem = BlueprintTool.GetRef<BlueprintItemReference>(magicPowerItem);
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_DestructionFx"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetDestructionFx(PrefabLink? destructionFx)
-    {
-      ValidateParam(destructionFx);
-
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DestructionFx = destructionFx ?? Constants.Empty.PrefabLink;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_FxDenominator"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetFxDenominator(float fxDenominator)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_FxDenominator = fxDenominator;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_DefaultDestructionSuccessSound"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetDefaultDestructionSuccessSound(string defaultDestructionSuccessSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_DefaultDestructionSuccessSound = defaultDestructionSuccessSound;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_LockpickStartSound"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetLockpickStartSound(string lockpickStartSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_LockpickStartSound = lockpickStartSound;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_LockpickEndSound"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetLockpickEndSound(string lockpickEndSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_LockpickEndSound = lockpickEndSound;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_LockpickSuccessSound"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetLockpickSuccessSound(string lockpickSuccessSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_LockpickSuccessSound = lockpickSuccessSound;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_LockpickFailSound"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetLockpickFailSound(string lockpickFailSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_LockpickFailSound = lockpickFailSound;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="BlueprintInteractionRoot.m_LockpickCriticalFailSound"/> (Auto Generated)
-    /// </summary>
-    
-    public InteractionRootConfigurator SetLockpickCriticalFailSound(string lockpickCriticalFailSound)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_LockpickCriticalFailSound = lockpickCriticalFailSound;
-          });
-    }
   }
 }

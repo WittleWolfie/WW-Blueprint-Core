@@ -1,122 +1,51 @@
-using BlueprintCore.Utils;
-using Kingmaker.Formations;
-using System.Linq;
-using UnityEngine;
+//***** AUTO-GENERATED - DO NOT EDIT *****//
 
-#nullable enable
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Formations;
+
 namespace BlueprintCore.Blueprints.Configurators.Formations
 {
   /// <summary>
   /// Configurator for <see cref="FollowersFormation"/>.
   /// </summary>
   /// <inheritdoc/>
-  
-  public class FollowersFormationConfigurator : BaseBlueprintConfigurator<FollowersFormation, FollowersFormationConfigurator>
+  public class FollowersFormationConfigurator
+    : BaseFollowersFormationConfigurator<FollowersFormation, FollowersFormationConfigurator>
   {
-    private FollowersFormationConfigurator(string name) : base(name) { }
+    private FollowersFormationConfigurator(Blueprint<FollowersFormation, BlueprintReference<FollowersFormation>> blueprint) : base(blueprint) { }
 
-    /// <inheritdoc cref="Buffs.BuffConfigurator.For(string)"/>
-    public static FollowersFormationConfigurator For(string name)
+    /// <summary>
+    /// Returns a configurator to modify the specified blueprint.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use this to modify existing blueprints, such as blueprints from the base game.
+    /// </para>
+    /// <para>
+    /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
+    /// </para>
+    /// </remarks>
+    public static FollowersFormationConfigurator For(Blueprint<FollowersFormation, BlueprintReference<FollowersFormation>> blueprint)
     {
-      return new FollowersFormationConfigurator(name);
+      return new FollowersFormationConfigurator(blueprint);
     }
-
-    /// <inheritdoc cref="Buffs.BuffConfigurator.New(string, string)"/>
+    /// <summary>
+    /// Creates a new blueprint and returns a new configurator to modify it.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+    /// </para>
+    /// <para>
+    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// </para>
+    /// </remarks>
     public static FollowersFormationConfigurator New(string name, string guid)
     {
       BlueprintTool.Create<FollowersFormation>(name, guid);
       return For(name);
     }
 
-    /// <summary>
-    /// Sets <see cref="FollowersFormation.m_PlayerOffset"/> (Auto Generated)
-    /// </summary>
-    
-    public FollowersFormationConfigurator SetPlayerOffset(Vector2 playerOffset)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_PlayerOffset = playerOffset;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
-    /// </summary>
-    
-    public FollowersFormationConfigurator SetFormation(Vector2[]? formation)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Formation = formation;
-          });
-    }
-
-    /// <summary>
-    /// Adds to <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
-    /// </summary>
-    
-    public FollowersFormationConfigurator AddToFormation(params Vector2[] formation)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Formation = CommonTool.Append(bp.m_Formation, formation ?? new Vector2[0]);
-          });
-    }
-
-    /// <summary>
-    /// Removes from <see cref="FollowersFormation.m_Formation"/> (Auto Generated)
-    /// </summary>
-    
-    public FollowersFormationConfigurator RemoveFromFormation(params Vector2[] formation)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_Formation = bp.m_Formation.Where(item => !formation.Contains(item)).ToArray();
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="FollowersFormation.m_RepathDistance"/> (Auto Generated)
-    /// </summary>
-    
-    public FollowersFormationConfigurator SetRepathDistance(float repathDistance)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RepathDistance = repathDistance;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="FollowersFormation.m_RepathCooldownSec"/> (Auto Generated)
-    /// </summary>
-    
-    public FollowersFormationConfigurator SetRepathCooldownSec(float repathCooldownSec)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_RepathCooldownSec = repathCooldownSec;
-          });
-    }
-
-    /// <summary>
-    /// Sets <see cref="FollowersFormation.m_LookAngleRandomSpread"/> (Auto Generated)
-    /// </summary>
-    
-    public FollowersFormationConfigurator SetLookAngleRandomSpread(float lookAngleRandomSpread)
-    {
-      return OnConfigureInternal(
-          bp =>
-          {
-            bp.m_LookAngleRandomSpread = lookAngleRandomSpread;
-          });
-    }
   }
 }
