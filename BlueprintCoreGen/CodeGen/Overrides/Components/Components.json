@@ -74,6 +74,160 @@
   },
 
   {
+    "TypeName": "FeatureTagsComponent",
+    "RequiredFields": [ "FeatureTags" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteAlignment",
+    "RequiredFields": [ "Alignment" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteArchetypeLevel",
+    "RequiredFields": [ "m_CharacterClass", "m_Archetype" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteCasterType",
+    "RequiredFields": [ "IsArcane" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteCasterTypeSpellLevel",
+    "RequiredFields": [ "IsArcane", "OnlySpontaneous", "RequiredSpellLevel" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteCharacterLevel",
+    "RequiredFields": [ "Level" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteClassLevel",
+    "RequiredFields": [ "m_CharacterClass", "Level" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteClassSpellLevel",
+    "RequiredFields": [ "m_CharacterClass", "AddUniqueComponent" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteEtude",
+    "RequiredFields": [ "Etude" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteFeature",
+    "RequiredFields": [ "m_Feature" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteFeaturesFromList",
+    "RequiredFields": [ "m_Features" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteMythicLevel",
+    "RequiredFields": [ "Level" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteNoArchetype",
+    "RequiredFields": [ "m_CharacterClass", "m_Archetype" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteNoClassLevel",
+    "RequiredFields": [ "m_CharacterClass" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteNoFeature",
+    "RequiredFields": [ "m_Feature" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteNotProficient",
+    "RequiredFields": [ "WeaponProficiencies", "ArmorProficiencies" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteParametrizedFeature",
+    "RequiredFields": [ "m_Feature" ],
+    "Methods": [
+      {
+        "MethodName": "AddPrerequisiteParametrizedSpellFeature",
+        "RequiredFields": [ "m_Spell" ],
+        "IgnoredFields": [ "WeaponCategory", "SpellSchool" ],
+        "ConstantFields": [
+          {
+            "FieldName": "ParameterType",
+            "Value": "FeatureParameterType.LearnSpell"
+          }
+        ]
+      },
+      {
+        "MethodName": "AddPrerequisiteParametrizedWeaponFeature",
+        "RequiredFields": [ "WeaponCategory" ],
+        "IgnoredFields": [ "m_Spell", "SpellSchool" ],
+        "ConstantFields": [
+          {
+            "FieldName": "ParameterType",
+            "Value": "FeatureParameterType.WeaponCategory"
+          }
+        ]
+      },
+      {
+        "MethodName": "AddPrerequisiteParametrizedSpellSchoolFeature",
+        "RequiredFields": [ "SpellSchool" ],
+        "IgnoredFields": [ "m_Spell", "WeaponCategory" ],
+        "ConstantFields": [
+          {
+            "FieldName": "ParameterType",
+            "Value": "FeatureParameterType.SpellSchool"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "PrerequisiteParametrizedWeaponSubcategory",
+    "RequiredFields": [ "m_Feature", "SubCategory" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteIsPet",
+    "RequiredFields": [ "Type" ]
+  },
+
+  {
+    "TypeName": "PrerequisitePlayerHasFeature",
+    "RequiredFields": [ "m_Feature" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteProficiency",
+    "RequiredFields": [ "WeaponProficiencies", "ArmorProficiencies" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteSelectionPossible",
+    "Remarks": [
+      "A feature selection with this component only shows up if the character is eligible for at least one feature.",
+      "This is useful when a character has access to different feature selections based on some criteria."
+    ],
+    "RequiredFields": [ "m_Variants" ]
+  },
+
+  {
+    "TypeName": "PrerequisiteStatValue",
+    "RequiredFields": [ "Stat", "Value" ]
+  },
+
+  {
     "TypeName": "SpellComponent",
     "RequiredFields": [ "School" ]
   },

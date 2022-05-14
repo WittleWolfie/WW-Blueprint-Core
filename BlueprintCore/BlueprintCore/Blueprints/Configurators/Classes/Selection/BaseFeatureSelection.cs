@@ -25,50 +25,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     protected BaseFeatureSelectionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
-    /// Adds <see cref="NoSelectionIfAlreadyHasFeature"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BloodOfDragonsSelection</term><description>da48f9d7f697ae44ca891bfc50727988</description></item>
-    /// <item><term>DomainsSelection</term><description>48525e5da45c9c243a343fc6545dbdb9</description></item>
-    /// <item><term>SorcererBloodlineSelection</term><description>24bef8d1bee12274686f6da6ccbc8914</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="features">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddNoSelectionIfAlreadyHasFeature(
-        bool? anyFeatureFromSelection = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null)
-    {
-      var component = new NoSelectionIfAlreadyHasFeature();
-      component.AnyFeatureFromSelection = anyFeatureFromSelection ?? component.AnyFeatureFromSelection;
-      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
-      if (component.m_Features is null)
-      {
-        component.m_Features = new BlueprintFeatureReference[0];
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="PrerequisiteSelectionPossible"/>
     /// </summary>
     ///
     /// <remarks>
+    /// <para>
+    /// A feature selection with this component only shows up if the character is eligible for at least one feature.
+    /// </para>
+    /// <para>
+    /// This is useful when a character has access to different feature selections based on some criteria.
+    /// </para>
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
@@ -114,6 +80,46 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="NoSelectionIfAlreadyHasFeature"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BloodOfDragonsSelection</term><description>da48f9d7f697ae44ca891bfc50727988</description></item>
+    /// <item><term>DomainsSelection</term><description>48525e5da45c9c243a343fc6545dbdb9</description></item>
+    /// <item><term>SorcererBloodlineSelection</term><description>24bef8d1bee12274686f6da6ccbc8914</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="features">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddNoSelectionIfAlreadyHasFeature(
+        bool? anyFeatureFromSelection = null,
+        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null)
+    {
+      var component = new NoSelectionIfAlreadyHasFeature();
+      component.AnyFeatureFromSelection = anyFeatureFromSelection ?? component.AnyFeatureFromSelection;
+      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
+      if (component.m_Features is null)
+      {
+        component.m_Features = new BlueprintFeatureReference[0];
+      }
+      return AddComponent(component);
     }
   }
 }

@@ -36,10 +36,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     public TBuilder AddFeatureTagsComponent(
-        FeatureTag? featureTags = null)
+        FeatureTag featureTags)
     {
       var component = new FeatureTagsComponent();
-      component.FeatureTags = featureTags ?? component.FeatureTags;
+      component.FeatureTags = featureTags;
       return AddComponent(component);
     }
 

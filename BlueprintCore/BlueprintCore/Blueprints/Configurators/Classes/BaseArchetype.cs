@@ -34,27 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     protected BaseArchetypeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
-    /// Adds <see cref="DeityDependencyClass"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ClericClass</term><description>67819271767a9dd4fbfd4ae700befea0</description></item>
-    /// <item><term>InquisitorClass</term><description>f1a70d9e1b0b41e49874e1fa9052a1ce</description></item>
-    /// <item><term>WarpriestClass</term><description>30b5e47d47a0e37438cc5a80c96cfb99</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddDeityDependencyClass(
-        bool? isDeityDependencyClass = null)
-    {
-      var component = new DeityDependencyClass();
-      component.IsDeityDependencyClass = isDeityDependencyClass ?? component.IsDeityDependencyClass;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="PrerequisiteAlignment"/>
     /// </summary>
     ///
@@ -68,13 +47,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     public TBuilder AddPrerequisiteAlignment(
-        AlignmentMaskType? alignment = null,
+        AlignmentMaskType alignment,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null)
     {
       var component = new PrerequisiteAlignment();
-      component.Alignment = alignment ?? component.Alignment;
+      component.Alignment = alignment;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
@@ -126,8 +105,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteArchetypeLevel(
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintArchetype, BlueprintArchetypeReference> archetype,
+        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -136,16 +115,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ComponentMerge mergeBehavior = ComponentMerge.Merge)
     {
       var component = new PrerequisiteArchetypeLevel();
-      component.m_Archetype = archetype?.Reference ?? component.m_Archetype;
-      if (component.m_Archetype is null)
-      {
-        component.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null);
-      }
-      component.m_CharacterClass = characterClass?.Reference ?? component.m_CharacterClass;
-      if (component.m_CharacterClass is null)
-      {
-        component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
+      component.m_Archetype = archetype?.Reference;
+      component.m_CharacterClass = characterClass?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
@@ -165,16 +136,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     public TBuilder AddPrerequisiteCasterType(
+        bool isArcane,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        bool? isArcane = null)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteCasterType();
+      component.IsArcane = isArcane;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.IsArcane = isArcane ?? component.IsArcane;
       return AddComponent(component);
     }
 
@@ -204,22 +175,22 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteCasterTypeSpellLevel(
+        bool isArcane,
+        bool onlySpontaneous,
+        int requiredSpellLevel,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        bool? isArcane = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        bool? onlySpontaneous = null,
-        int? requiredSpellLevel = null)
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
     {
       var component = new PrerequisiteCasterTypeSpellLevel();
+      component.IsArcane = isArcane;
+      component.OnlySpontaneous = onlySpontaneous;
+      component.RequiredSpellLevel = requiredSpellLevel;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.IsArcane = isArcane ?? component.IsArcane;
-      component.OnlySpontaneous = onlySpontaneous ?? component.OnlySpontaneous;
-      component.RequiredSpellLevel = requiredSpellLevel ?? component.RequiredSpellLevel;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -237,16 +208,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     public TBuilder AddPrerequisiteCharacterLevel(
+        int level,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        int? level = null)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteCharacterLevel();
+      component.Level = level;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.Level = level ?? component.Level;
       return AddComponent(component);
     }
 
@@ -283,25 +254,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteClassLevel(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
+        int level,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        int? level = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
         bool? not = null)
     {
       var component = new PrerequisiteClassLevel();
-      component.m_CharacterClass = characterClass?.Reference ?? component.m_CharacterClass;
-      if (component.m_CharacterClass is null)
-      {
-        component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
+      component.m_CharacterClass = characterClass?.Reference;
+      component.Level = level;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.Level = level ?? component.Level;
       component.Not = not ?? component.Not;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
@@ -333,66 +300,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </para>
     /// </param>
     public TBuilder AddPrerequisiteClassSpellLevel(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         int? requiredSpellLevel = null)
     {
       var component = new PrerequisiteClassSpellLevel();
-      component.m_CharacterClass = characterClass?.Reference ?? component.m_CharacterClass;
-      if (component.m_CharacterClass is null)
-      {
-        component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
+      component.m_CharacterClass = characterClass?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.RequiredSpellLevel = requiredSpellLevel ?? component.RequiredSpellLevel;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PrerequisiteCondition"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>GoldenDragonClass</term><description>daf1235b6217787499c14e4e32142523</description></item>
-    /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddPrerequisiteCondition(
-        bool? checkInProgression = null,
-        Condition? condition = null,
-        Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        LocalizedString? uIText = null)
-    {
-      var component = new PrerequisiteCondition();
-      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      Validate(condition);
-      component.Condition = condition ?? component.Condition;
-      component.Group = group ?? component.Group;
-      component.HideInUI = hideInUI ?? component.HideInUI;
-      component.UIText = uIText ?? component.UIText;
-      if (component.UIText is null)
-      {
-        component.UIText = Utils.Constants.Empty.String;
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -428,8 +348,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteEtude(
+        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude,
         bool? checkInProgression = null,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -438,12 +358,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         LocalizedString? uIText = null)
     {
       var component = new PrerequisiteEtude();
+      component.Etude = etude?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.Etude = etude?.Reference ?? component.Etude;
-      if (component.Etude is null)
-      {
-        component.Etude = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
-      }
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.NotPlaying = notPlaying ?? component.NotPlaying;
@@ -488,20 +404,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteFeature(
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge)
     {
       var component = new PrerequisiteFeature();
+      component.m_Feature = feature?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.m_Feature = feature?.Reference ?? component.m_Feature;
-      if (component.m_Feature is null)
-      {
-        component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -540,88 +452,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteFeaturesFromList(
+        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> features,
         int? amount = null,
         bool? checkInProgression = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge)
     {
       var component = new PrerequisiteFeaturesFromList();
+      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
       component.Amount = amount ?? component.Amount;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
-      if (component.m_Features is null)
-      {
-        component.m_Features = new BlueprintFeatureReference[0];
-      }
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PrerequisiteIsPet"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AlchemistClass</term><description>0937bec61c0dabc468428f496580c721</description></item>
-    /// <item><term>InquisitorClass</term><description>f1a70d9e1b0b41e49874e1fa9052a1ce</description></item>
-    /// <item><term>WizardClass</term><description>ba34257984f4c41408ce1dc2004e342e</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddPrerequisiteIsPet(
-        bool? checkInProgression = null,
-        Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        bool? not = null)
-    {
-      var component = new PrerequisiteIsPet();
-      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.Group = group ?? component.Group;
-      component.HideInUI = hideInUI ?? component.HideInUI;
-      component.Not = not ?? component.Not;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PrerequisiteMainCharacter"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>GoldenDragonClass</term><description>daf1235b6217787499c14e4e32142523</description></item>
-    /// <item><term>TricksterMythicClass</term><description>8df873a8c6e48294abdb78c45834aa0a</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddPrerequisiteMainCharacter(
-        bool? checkInProgression = null,
-        bool? companion = null,
-        Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
-    {
-      var component = new PrerequisiteMainCharacter();
-      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.Companion = companion ?? component.Companion;
-      component.Group = group ?? component.Group;
-      component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -638,16 +483,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     public TBuilder AddPrerequisiteMythicLevel(
+        int level,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        int? level = null)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteMythicLevel();
+      component.Level = level;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.Level = level ?? component.Level;
       return AddComponent(component);
     }
 
@@ -696,8 +541,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteNoArchetype(
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintArchetype, BlueprintArchetypeReference> archetype,
+        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -705,16 +550,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ComponentMerge mergeBehavior = ComponentMerge.Merge)
     {
       var component = new PrerequisiteNoArchetype();
-      component.m_Archetype = archetype?.Reference ?? component.m_Archetype;
-      if (component.m_Archetype is null)
-      {
-        component.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null);
-      }
-      component.m_CharacterClass = characterClass?.Reference ?? component.m_CharacterClass;
-      if (component.m_CharacterClass is null)
-      {
-        component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
+      component.m_Archetype = archetype?.Reference;
+      component.m_CharacterClass = characterClass?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
@@ -754,7 +591,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteNoClassLevel(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -762,11 +599,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ComponentMerge mergeBehavior = ComponentMerge.Merge)
     {
       var component = new PrerequisiteNoClassLevel();
-      component.m_CharacterClass = characterClass?.Reference ?? component.m_CharacterClass;
-      if (component.m_CharacterClass is null)
-      {
-        component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
+      component.m_CharacterClass = characterClass?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
@@ -806,20 +639,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteNoFeature(
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge)
     {
       var component = new PrerequisiteNoFeature();
+      component.m_Feature = feature?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.m_Feature = feature?.Reference ?? component.m_Feature;
-      if (component.m_Feature is null)
-      {
-        component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -839,27 +668,82 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     public TBuilder AddPrerequisiteNotProficient(
-        ArmorProficiencyGroup[]? armorProficiencies = null,
+        ArmorProficiencyGroup[] armorProficiencies,
+        WeaponCategory[] weaponProficiencies,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        WeaponCategory[]? weaponProficiencies = null)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteNotProficient();
-      component.ArmorProficiencies = armorProficiencies ?? component.ArmorProficiencies;
-      if (component.ArmorProficiencies is null)
-      {
-        component.ArmorProficiencies = new ArmorProficiencyGroup[0];
-      }
+      component.ArmorProficiencies = armorProficiencies;
+      component.WeaponProficiencies = weaponProficiencies;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.WeaponProficiencies = weaponProficiencies ?? component.WeaponProficiencies;
-      if (component.WeaponProficiencies is null)
-      {
-        component.WeaponProficiencies = new WeaponCategory[0];
-      }
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AugmentSummoning</term><description>38155ca9e4055bb48a89240a2055dcc3</description></item>
+    /// <item><term>DuelingMastery</term><description>c3a66c1bbd2fb65498b130802d5f183a</description></item>
+    /// <item><term>SwordlordClass</term><description>90e4d7da3ccd1a8478411e07e91d5750</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="feature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="spell">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddPrerequisiteParametrizedSpellFeature(
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintAbility, BlueprintAbilityReference> spell,
+        bool? checkInProgression = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new PrerequisiteParametrizedFeature();
+      component.m_Feature = feature?.Reference;
+      component.m_Spell = spell?.Reference;
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      component.ParameterType = FeatureParameterType.LearnSpell;
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -894,9 +778,42 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
-    /// <param name="spell">
+    public TBuilder AddPrerequisiteParametrizedWeaponFeature(
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        WeaponCategory weaponCategory,
+        bool? checkInProgression = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new PrerequisiteParametrizedFeature();
+      component.m_Feature = feature?.Reference;
+      component.WeaponCategory = weaponCategory;
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      component.ParameterType = FeatureParameterType.WeaponCategory;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteParametrizedFeature"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AugmentSummoning</term><description>38155ca9e4055bb48a89240a2055dcc3</description></item>
+    /// <item><term>DuelingMastery</term><description>c3a66c1bbd2fb65498b130802d5f183a</description></item>
+    /// <item><term>SwordlordClass</term><description>90e4d7da3ccd1a8478411e07e91d5750</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="feature">
     /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
     /// <list type ="bullet">
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
@@ -906,35 +823,28 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddPrerequisiteParametrizedFeature(
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddPrerequisiteParametrizedSpellSchoolFeature(
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        SpellSchool spellSchool,
         bool? checkInProgression = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        FeatureParameterType? parameterType = null,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null,
-        SpellSchool? spellSchool = null,
-        WeaponCategory? weaponCategory = null)
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
     {
       var component = new PrerequisiteParametrizedFeature();
+      component.m_Feature = feature?.Reference;
+      component.SpellSchool = spellSchool;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.m_Feature = feature?.Reference ?? component.m_Feature;
-      if (component.m_Feature is null)
-      {
-        component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.ParameterType = parameterType ?? component.ParameterType;
-      component.m_Spell = spell?.Reference ?? component.m_Spell;
-      if (component.m_Spell is null)
-      {
-        component.m_Spell = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
-      }
-      component.SpellSchool = spellSchool ?? component.SpellSchool;
-      component.WeaponCategory = weaponCategory ?? component.WeaponCategory;
+      component.ParameterType = FeatureParameterType.SpellSchool;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -971,25 +881,263 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteParametrizedWeaponSubcategory(
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        WeaponSubCategory subCategory,
         bool? checkInProgression = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new PrerequisiteParametrizedWeaponSubcategory();
+      component.m_Feature = feature?.Reference;
+      component.SubCategory = subCategory;
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteIsPet"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AlchemistClass</term><description>0937bec61c0dabc468428f496580c721</description></item>
+    /// <item><term>InquisitorClass</term><description>f1a70d9e1b0b41e49874e1fa9052a1ce</description></item>
+    /// <item><term>WizardClass</term><description>ba34257984f4c41408ce1dc2004e342e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddPrerequisiteIsPet(
+        bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        WeaponSubCategory? subCategory = null)
+        bool? not = null)
     {
-      var component = new PrerequisiteParametrizedWeaponSubcategory();
+      var component = new PrerequisiteIsPet();
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.m_Feature = feature?.Reference ?? component.m_Feature;
-      if (component.m_Feature is null)
-      {
-        component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.SubCategory = subCategory ?? component.SubCategory;
+      component.Not = not ?? component.Not;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisitePlayerHasFeature"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CompletelyNormalSpellFeat</term><description>094b6278f7b570f42aeaa98379f07cf2</description></item>
+    /// <item><term>TricksterImprovedImprovedImprovedCritical</term><description>006a966007802a0478c9e21007207aac</description></item>
+    /// <item><term>TricksterStatFocusFeatSelection</term><description>0d1d80bd3820a78488412581da3ad9c7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="feature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddPrerequisitePlayerHasFeature(
+        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        bool? checkInProgression = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new PrerequisitePlayerHasFeature();
+      component.m_Feature = feature?.Reference;
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteProficiency"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmorFocusHeavy</term><description>c27e6d2b0d33d42439f512c6d9a6a601</description></item>
+    /// <item><term>HellknightClass</term><description>ed246f1680e667b47b7427d51e651059</description></item>
+    /// <item><term>SwordlordClass</term><description>90e4d7da3ccd1a8478411e07e91d5750</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddPrerequisiteProficiency(
+        ArmorProficiencyGroup[] armorProficiencies,
+        WeaponCategory[] weaponProficiencies,
+        bool? checkInProgression = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null)
+    {
+      var component = new PrerequisiteProficiency();
+      component.ArmorProficiencies = armorProficiencies;
+      component.WeaponProficiencies = weaponProficiencies;
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteStatValue"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AlliedSpellcaster</term><description>9093ceeefe9b84746a5993d619d7c86f</description></item>
+    /// <item><term>ImprovedCriticalKukri</term><description>45482376f0d543a4d9ba1aa6b78c9c0a</description></item>
+    /// <item><term>WinterWitchClass</term><description>eb24ca44debf6714aabe1af1fd905a07</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddPrerequisiteStatValue(
+        StatType stat,
+        int value,
+        bool? checkInProgression = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+    {
+      var component = new PrerequisiteStatValue();
+      component.Stat = stat;
+      component.Value = value;
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DeityDependencyClass"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ClericClass</term><description>67819271767a9dd4fbfd4ae700befea0</description></item>
+    /// <item><term>InquisitorClass</term><description>f1a70d9e1b0b41e49874e1fa9052a1ce</description></item>
+    /// <item><term>WarpriestClass</term><description>30b5e47d47a0e37438cc5a80c96cfb99</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddDeityDependencyClass(
+        bool? isDeityDependencyClass = null)
+    {
+      var component = new DeityDependencyClass();
+      component.IsDeityDependencyClass = isDeityDependencyClass ?? component.IsDeityDependencyClass;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteCondition"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
+    /// <item><term>GoldenDragonClass</term><description>daf1235b6217787499c14e4e32142523</description></item>
+    /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddPrerequisiteCondition(
+        bool? checkInProgression = null,
+        Condition? condition = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        LocalizedString? uIText = null)
+    {
+      var component = new PrerequisiteCondition();
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      Validate(condition);
+      component.Condition = condition ?? component.Condition;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      component.UIText = uIText ?? component.UIText;
+      if (component.UIText is null)
+      {
+        component.UIText = Utils.Constants.Empty.String;
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteMainCharacter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
+    /// <item><term>GoldenDragonClass</term><description>daf1235b6217787499c14e4e32142523</description></item>
+    /// <item><term>TricksterMythicClass</term><description>8df873a8c6e48294abdb78c45834aa0a</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddPrerequisiteMainCharacter(
+        bool? checkInProgression = null,
+        bool? companion = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null)
+    {
+      var component = new PrerequisiteMainCharacter();
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Companion = companion ?? component.Companion;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1027,133 +1175,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.NoCompanion = noCompanion ?? component.NoCompanion;
       component.Type = type ?? component.Type;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PrerequisitePlayerHasFeature"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CompletelyNormalSpellFeat</term><description>094b6278f7b570f42aeaa98379f07cf2</description></item>
-    /// <item><term>TricksterImprovedImprovedImprovedCritical</term><description>006a966007802a0478c9e21007207aac</description></item>
-    /// <item><term>TricksterStatFocusFeatSelection</term><description>0d1d80bd3820a78488412581da3ad9c7</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="feature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddPrerequisitePlayerHasFeature(
-        bool? checkInProgression = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
-        Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
-    {
-      var component = new PrerequisitePlayerHasFeature();
-      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.m_Feature = feature?.Reference ?? component.m_Feature;
-      if (component.m_Feature is null)
-      {
-        component.m_Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      component.Group = group ?? component.Group;
-      component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PrerequisiteProficiency"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ArmorFocusHeavy</term><description>c27e6d2b0d33d42439f512c6d9a6a601</description></item>
-    /// <item><term>HellknightClass</term><description>ed246f1680e667b47b7427d51e651059</description></item>
-    /// <item><term>SwordlordClass</term><description>90e4d7da3ccd1a8478411e07e91d5750</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddPrerequisiteProficiency(
-        ArmorProficiencyGroup[]? armorProficiencies = null,
-        bool? checkInProgression = null,
-        Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        WeaponCategory[]? weaponProficiencies = null)
-    {
-      var component = new PrerequisiteProficiency();
-      component.ArmorProficiencies = armorProficiencies ?? component.ArmorProficiencies;
-      if (component.ArmorProficiencies is null)
-      {
-        component.ArmorProficiencies = new ArmorProficiencyGroup[0];
-      }
-      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.Group = group ?? component.Group;
-      component.HideInUI = hideInUI ?? component.HideInUI;
-      component.WeaponProficiencies = weaponProficiencies ?? component.WeaponProficiencies;
-      if (component.WeaponProficiencies is null)
-      {
-        component.WeaponProficiencies = new WeaponCategory[0];
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PrerequisiteStatValue"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AlliedSpellcaster</term><description>9093ceeefe9b84746a5993d619d7c86f</description></item>
-    /// <item><term>ImprovedCriticalKukri</term><description>45482376f0d543a4d9ba1aa6b78c9c0a</description></item>
-    /// <item><term>WinterWitchClass</term><description>eb24ca44debf6714aabe1af1fd905a07</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddPrerequisiteStatValue(
-        bool? checkInProgression = null,
-        Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        StatType? stat = null,
-        int? value = null)
-    {
-      var component = new PrerequisiteStatValue();
-      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
-      component.Group = group ?? component.Group;
-      component.HideInUI = hideInUI ?? component.HideInUI;
-      component.Stat = stat ?? component.Stat;
-      component.Value = value ?? component.Value;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
