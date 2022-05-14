@@ -1,0 +1,27 @@
+﻿[
+  {
+    "TypeName": "BlueprintAbility",
+    "Fields": [
+      {
+        "FieldName": "m_DefaultAiAction",
+        "Remarks": [
+          "The provided AI Cast Spell blueprint should set <see cref=\"BlueprintAiCastSpell.m_Ability\"/> to reference this ability."
+        ]
+      },
+
+      {
+        "FieldName": "Range",
+        "Remarks": [
+          "Use <see cref=\"SetCustomRange(int)\"/> for AbilityRange.Custom."
+        ]
+      },
+
+      {
+        "FieldName": "m_Parent",
+        "Remarks": [
+          "Set this to the base ability for all ability variants. See <cref=\"AbilityVariants\"/>."
+        ]
+      }
+    ]
+  }
+]

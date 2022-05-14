@@ -55,10 +55,13 @@
     <None Update="CodeGen\Overrides\Actions\ContextActions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\Components\AllowedBlueprints.json">
+    <None Update="CodeGen\Overrides\Blueprints\ComponentsAllowedOn.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CodeGen\Overrides\Components\Components.json">
+    <None Update="CodeGen\Overrides\Blueprints\Blueprints.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CodeGen\Overrides\Blueprints\Components.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="CodeGen\Overrides\Conditions\StoryConditions.json">

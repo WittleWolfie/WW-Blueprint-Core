@@ -63,6 +63,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.m_DefaultAiAction"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The provided AI Cast Spell blueprint should set <see cref="BlueprintAiCastSpell.m_Ability"/> to reference this ability.
+    /// </para>
+    /// </remarks>
     ///
     /// <param name="defaultAiAction">
     /// <para>
@@ -88,6 +93,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Modifies <see cref="BlueprintAbility.m_DefaultAiAction"/> by invoking the provided action.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// The provided AI Cast Spell blueprint should set <see cref="BlueprintAiCastSpell.m_Ability"/> to reference this ability.
+    /// </para>
+    /// </remarks>
     ///
     /// <param name="defaultAiAction">
     /// <para>
@@ -112,6 +122,101 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.Range"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use <see cref="SetCustomRange(int)"/> for AbilityRange.Custom.
+    /// </para>
+    /// </remarks>
+    public TBuilder SetRange(AbilityRange range)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Range = range;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.Range"/> by invoking the provided action.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Use <see cref="SetCustomRange(int)"/> for AbilityRange.Custom.
+    /// </para>
+    /// </remarks>
+    public TBuilder ModifyRange(Action<AbilityRange> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.Range);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.m_Parent"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Set this to the base ability for all ability variants. See <cref="AbilityVariants"/>.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="parent">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetParent(Blueprint<BlueprintAbility, BlueprintAbilityReference> parent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Parent = parent?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAbility.m_Parent"/> by invoking the provided action.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Set this to the base ability for all ability variants. See <cref="AbilityVariants"/>.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="parent">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder ModifyParent(Action<BlueprintAbilityReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Parent is null) { return; }
+          action.Invoke(bp.m_Parent);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.Type"/>
     /// </summary>
     public TBuilder SetType(AbilityType type)
@@ -132,30 +237,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintAbility.Range"/>
-    /// </summary>
-    public TBuilder SetRange(AbilityRange range)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.Range = range;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.Range"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRange(Action<AbilityRange> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Range);
         });
     }
 
@@ -528,57 +609,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           action.Invoke(bp.EffectOnEnemy);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintAbility.m_Parent"/>
-    /// </summary>
-    ///
-    /// <param name="parent">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder SetParent(Blueprint<BlueprintAbility, BlueprintAbilityReference> parent)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_Parent = parent?.Reference;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.m_Parent"/> by invoking the provided action.
-    /// </summary>
-    ///
-    /// <param name="parent">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder ModifyParent(Action<BlueprintAbilityReference> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_Parent is null) { return; }
-          action.Invoke(bp.m_Parent);
         });
     }
 

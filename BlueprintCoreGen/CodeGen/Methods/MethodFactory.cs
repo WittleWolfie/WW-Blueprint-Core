@@ -92,7 +92,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
           parameter.GetOperation(OnConfigureObjName, BlueprintValidateFunction),
           isBitFlag ? parameter.ParamsDeclaration : parameter.Declaration,
           parameter.SetComment,
-          "Set"));
+          "Set",
+            fieldMethod.Remarks));
 
       var addOperation = parameter.GetAddOperation(OnConfigureObjName, BlueprintValidateFunction);
       if (addOperation.Any())
@@ -106,7 +107,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             addOperation,
             parameter.ParamsDeclaration,
             parameter.AddComment,
-            "AddTo"));
+            "AddTo",
+            fieldMethod.Remarks));
       }
 
       var removeOperation = parameter.GetRemoveOperation(OnConfigureObjName);
@@ -121,7 +123,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             removeOperation,
             parameter.ParamsDeclaration,
             parameter.RemoveComment,
-            "RemoveFrom"));
+            "RemoveFrom",
+            fieldMethod.Remarks));
       }
 
       var removePredicateOperation = parameter.GetRemovePredicateOperation(OnConfigureObjName, "predicate");
@@ -136,7 +139,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             removePredicateOperation,
             $"{GetPredicateTypeName(field.FieldType)} predicate",
             parameter.RemovePredicateComment,
-            "RemoveFrom"));
+            "RemoveFrom",
+            fieldMethod.Remarks));
       }
 
       var clearOperation = parameter.GetClearOperation(OnConfigureObjName);
@@ -151,7 +155,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             clearOperation,
             "",
             parameter.ClearComment,
-            "Clear"));
+            "Clear",
+            fieldMethod.Remarks));
       }
 
       var modifyOperation = parameter.GetModifyOperation(OnConfigureObjName, "action");
@@ -166,7 +171,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             modifyOperation,
             $"{GetActionTypeName(field.FieldType)} action",
             parameter.ModifyComment,
-            "Modify"));
+            "Modify",
+            fieldMethod.Remarks));
       }
 
       return methods;
@@ -204,7 +210,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
       List<string> operation,
       string parameterDeclaration,
       string commentSummary,
-      string methodPrefix)
+      string methodPrefix,
+      List<string> remarks)
     {
       var method = new MethodImpl();
 
@@ -218,6 +225,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddCommentSummary(commentSummary);
 
       // Remarks
+      method.AddRemarks(remarks);
       method.AddRemarks(methodOverride.Remarks);
 
       // Parameter comments

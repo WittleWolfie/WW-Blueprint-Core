@@ -104,6 +104,13 @@ namespace BlueprintCoreGen.CodeGen.Class
           });
       }
 
+      // Load Blueprint overrides
+      Dictionary<string, BlueprintOverride> blueprintOverrides = new();
+
+      JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Blueprints/Blueprints.json"));
+      List<BlueprintOverride> overrides = array.ToObject<List<BlueprintOverride>>();
+      overrides.ForEach(blueprintOverride => blueprintOverrides.Add(blueprintOverride.TypeName, blueprintOverride));
+
       List<IConfigurator> configurators = new();
       foreach (var blueprintType in blueprintTypes)
       {
@@ -117,9 +124,28 @@ namespace BlueprintCoreGen.CodeGen.Class
         var typeName = TypeTool.GetName(blueprintType);
 
         List<FieldMethod> fieldMethods = new();
+        Dictionary<string, FieldMethod> fieldMethodsByName = new();
+
+        if (blueprintOverrides.ContainsKey(typeName))
+        {
+          blueprintOverrides[typeName].Fields.ForEach(
+            method =>
+            {
+              fieldMethods.Add(method);
+              fieldMethodsByName.Add(method.FieldName, method);
+            });
+        }
+
         blueprintType.GetFields(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
           .ToList()
-          .ForEach(field => fieldMethods.Add(new(field.Name)));
+          .ForEach(
+            field =>
+            {
+              if (!fieldMethodsByName.ContainsKey(field.Name))
+              {
+                fieldMethods.Add(new(field.Name));
+              }
+            });
 
         if (blueprintType.IsAbstract)
         {
@@ -178,7 +204,7 @@ namespace BlueprintCoreGen.CodeGen.Class
     {
       Dictionary<Type, ConstructorMethod> componentMethodsByType = new();
 
-      JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Components/Components.json"));
+      JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Blueprints/Components.json"));
       List<ConstructorMethod> methods = array.ToObject<List<ConstructorMethod>>();
       methods.ForEach(method => componentMethodsByType.Add(TypeTool.TypeByName(method.TypeName), method));
 
@@ -195,24 +221,24 @@ namespace BlueprintCoreGen.CodeGen.Class
       return componentMethodsByType;
     }
 
-    private static Dictionary<Type, List<Type>>? AllowedBlueprintTypes;
+    private static Dictionary<Type, List<Type>>? ComponentsAllowedOn;
     private static List<Type> GetAllowedBlueprintTypes(Type componentType)
     {
-      if (AllowedBlueprintTypes is null)
+      if (ComponentsAllowedOn is null)
       {
-        AllowedBlueprintTypes = new();
-        JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Components/AllowedBlueprints.json"));
-        List<AllowedBlueprintsOverride> overrides = array.ToObject<List<AllowedBlueprintsOverride>>();
+        ComponentsAllowedOn = new();
+        JArray array = JArray.Parse(File.ReadAllText("CodeGen/Overrides/Blueprints/ComponentsAllowedOn.json"));
+        List<ComponentsAllowedOnOverride> overrides = array.ToObject<List<ComponentsAllowedOnOverride>>();
         overrides.ForEach(
           componentOverride =>
-            AllowedBlueprintTypes.Add(
+            ComponentsAllowedOn.Add(
               TypeTool.TypeByName(componentOverride.TypeName),
               componentOverride.AllowedOn.Select(typeName => TypeTool.TypeByName(typeName)).ToList()));
       }
 
-      if (AllowedBlueprintTypes.ContainsKey(componentType))
+      if (ComponentsAllowedOn.ContainsKey(componentType))
       {
-        return AllowedBlueprintTypes[componentType];
+        return ComponentsAllowedOn[componentType];
       }
 
       List<Type> allowedOn = new();
@@ -296,11 +322,18 @@ namespace BlueprintCoreGen.CodeGen.Class
         $"Configurators/{relativeNamespace.Replace('.', '/')}/{className.Replace("Configurator", "")}.cs";
     }
 
-    private class AllowedBlueprintsOverride
+    private class BlueprintOverride
     {
       public string TypeName;
 
-      public List<string> AllowedOn;
+      public List<FieldMethod> Fields = new();
+    }
+
+    private class ComponentsAllowedOnOverride
+    {
+      public string TypeName;
+
+      public List<string> AllowedOn = new();
     }
 
     private class ConfiguratorImpl : IConfigurator

@@ -1,4 +1,5 @@
-﻿using Kingmaker.UnitLogic.Buffs.Blueprints;
+﻿using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +13,12 @@ namespace BlueprintCoreGen.CodeGen.Overrides
     /// <summary>
     /// List blueprint types which should not have concrete implementations because they have custom implementations.
     /// </summary>
-    public static HashSet<Type> CustomBlueprintConfigurators = new() { typeof(BlueprintBuff) };
+    public static HashSet<Type> CustomBlueprintConfigurators =
+      new()
+      {
+        typeof(BlueprintAbility),
+        typeof(BlueprintBuff)
+      };
 
     public static Dictionary<Type, string> TypeNameOverrides =
         new()
