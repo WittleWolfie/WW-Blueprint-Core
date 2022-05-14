@@ -87,6 +87,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides
           { typeof(Kingmaker.AI.Blueprints.TargetType), "Kingmaker.AI.Blueprints.TargetType" },
           { typeof(Kingmaker.UnitLogic.Abilities.Components.TargetType), "Kingmaker.UnitLogic.Abilities.Components.TargetType" },
           { typeof(Kingmaker.UnitLogic.Mechanics.ValueType), "Kingmaker.UnitLogic.Mechanics.ValueType" },
+          { typeof(UnityEngine.Object), "UnityEngine.Object" },
 
           { typeof(bool), "bool" },
           { typeof(bool?), "bool" },

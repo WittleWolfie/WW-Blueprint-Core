@@ -114,15 +114,17 @@ namespace BlueprintCoreGen.CodeGen.Params
 
       // These are annoying to pull out of the recursive GetImports function, so handle them separately.
       List<Type> imports = new();
+      imports.Add(typeof(LinqExtensions));
       if (blueprintType is not null) { imports.Add(blueprintType); }
       if (enumerableType is not null) { imports.Add(enumerableType); }
 
+      var paramsTypeName = GetParamsTypeName(info.FieldType, blueprintType, enumerableType);
       BlueprintFieldParameter param =
         new(
           info.Name,
           GetParamName(info.Name),
           GetTypeName(info.FieldType, blueprintType, enumerableType),
-          GetParamsTypeName(info.FieldType, blueprintType, enumerableType),
+          paramsTypeName,
           GetImports(info.FieldType).Concat(imports).ToList(),
           GetCommentFmt(info, blueprintType),
           GetDefaultValueForBlueprintField(info.FieldType),
@@ -130,13 +132,13 @@ namespace BlueprintCoreGen.CodeGen.Params
           GetSetComment(info),
           GetAssignmentFmtForBlueprintField(info.FieldType, blueprintType, enumerableType),
           GetAddComment(info),
-          GetAddOperationFmt(info, enumerableType),
+          GetAddOperationFmt(info, paramsTypeName, enumerableType),
           GetRemoveComment(info),
           GetRemoveOperationFmt(info, enumerableType),
           GetRemovePredicateComment(info),
           GetRemovePredicateFmt(info, enumerableType),
           GetClearComment(info),
-          GetClearOperationFmt(info, enumerableType),
+          GetClearOperationFmt(info, paramsTypeName, enumerableType),
           GetModifyComment(info, enumerableType),
           GetModifyOperationFmt(info, enumerableType));
 
@@ -394,7 +396,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       return GetAssignmentFmt(type, blueprintType, enumerableType);
     }
 
-    private static List<string> GetAddOperationFmt(FieldInfo field, Type? enumerableType)
+    private static List<string> GetAddOperationFmt(FieldInfo field, string paramsTypeName, Type? enumerableType)
     {
       List<string> addOperationFmt = new();
       if (TypeTool.IsBitFlag(field.FieldType))
@@ -403,11 +405,12 @@ namespace BlueprintCoreGen.CodeGen.Params
       }
       else if (field.FieldType.IsArray)
       {
-        addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new();");
+        addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new {paramsTypeName}[0];");
         addOperationFmt.Add($"{{0}}.{field.Name} = CommonTool.Append({{0}}.{field.Name}, {{1}});");
       }
       else if (enumerableType is not null)
       {
+        addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new();");
         addOperationFmt.Add($"{{0}}.{field.Name}.AddRange({{1}});");
       }
       return addOperationFmt;
@@ -442,10 +445,14 @@ namespace BlueprintCoreGen.CodeGen.Params
       return removeOperationFmt;
     }
 
-    private static List<string> GetClearOperationFmt(FieldInfo field, Type? enumerableType)
+    private static List<string> GetClearOperationFmt(FieldInfo field, string paramsTypeName, Type? enumerableType)
     {
       List<string> clearOperationFmt = new();
-      if (enumerableType is not null)
+      if (field.FieldType.IsArray)
+      {
+        clearOperationFmt.Add($"{{0}}.{field.Name} = new {paramsTypeName}[0];");
+      }
+      else if (enumerableType is not null)
       {
         clearOperationFmt.Add($"{{0}}.{field.Name} = new();");
       }
@@ -460,7 +467,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
       if (enumerableType is not null)
       {
-        modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach(val => {{1}}.Invoke(val));");
+        modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach({{1}});");
       }
       else if (!TypeTool.IsBitFlag(field.FieldType))
       {
