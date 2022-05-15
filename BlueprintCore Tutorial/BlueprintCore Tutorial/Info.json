@@ -6,5 +6,5 @@
   "ManagerVersion": "0.21.3",
   "Requirements": [],
   "AssemblyName": "BlueprintCoreTutorial.dll",
-  "EntryMethod": "Tutorials.Main.Load"
+  "EntryMethod": "BlueprintCoreTutorial.Main.Load"
 }

@@ -52,6 +52,7 @@ namespace BlueprintCoreTutorial
           }
           Initialized = true;
 
+          Logger.Info("Patching blueprints.");
           MagicalAptitude.Configure();
         }
         catch (Exception e)

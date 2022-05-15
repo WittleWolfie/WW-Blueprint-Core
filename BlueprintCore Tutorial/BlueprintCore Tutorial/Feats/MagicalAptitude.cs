@@ -34,7 +34,7 @@ namespace BlueprintCoreTutorial.Feats
           .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2)
           .Configure();
 
-      FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToFeatures(FeatName).Configure();
+      FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToAllFeatures(FeatName).Configure();
     }
   }
 }
