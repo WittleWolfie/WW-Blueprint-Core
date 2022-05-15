@@ -608,7 +608,10 @@ namespace BlueprintCoreGen.CodeGen.Methods
       public void AddParameterComments(List<IParameter> parameters)
       {
         var paramComments =
-          parameters.Select(field => field.Comment).Where(comment => comment is not null && comment.Any()).ToList();
+          parameters.Where(field => !string.IsNullOrEmpty(field.Declaration))
+            .Select(field => field.Comment)
+            .Where(comment => comment is not null && comment.Any())
+            .ToList();
         if (paramComments.Any())
         {
           AddLine(@"///");
