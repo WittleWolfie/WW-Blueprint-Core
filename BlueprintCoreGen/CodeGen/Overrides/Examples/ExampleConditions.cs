@@ -73,7 +73,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidBomb", "fd101fbc4aacf5d48b76a65e3aa5db6d"),
-            new Blueprint("GreaterCognatogenIntelligenceWisdomBuff", "34fde71198d30094aa133546e8cf8733"),
+            new Blueprint("GreaterCognatogenIntelligenceCharismaBuff", "1c2fdba3b33dacd41afd5b74d84c7332"),
             new Blueprint("WrathOfAncestorEnchantment", "4dbc03bd6223b484d8cd9afc3e0369b0"),
           }
         },
@@ -251,7 +251,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonEyeEnemyVisualBuff", "9815f77129674e8e886de2d458ecdf49"),
-            new Blueprint("Cue_81", "bf3b714dcb66455f9c9129acca57a4d4"),
+            new Blueprint("Cue_64", "0e8be804be2a4a97b102a3f36d21f240"),
             new Blueprint("WoljifQ", "d79f05dbd35b468fa16312f30d61a5e1"),
           }
         },
@@ -271,7 +271,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("30_HeroicVictory", "a43192eddffb455db6004059811ac92d"),
-            new Blueprint("Cue_0007", "1a0423c9ceaed15428f9f4c8e2c317ba"),
+            new Blueprint("Cue_0007", "0479d1ab08a5c2a44837227804085e15"),
             new Blueprint("ZigguratNoMoreLich", "ca82ea555e8408c4e8839cdd5079e099"),
           }
         },
@@ -371,7 +371,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AnomalyTemplateDefensiveRandomizerBuff", "1a72d85f20f14f1b84d20b8b6e44734e"),
-            new Blueprint("ResoundingBlowBuff", "06173a778d7067a439acffe9004916e9"),
+            new Blueprint("GogglesOfMalocchioFeature", "782027e68010df048af8289ceb6f3c31"),
             new Blueprint("SwordlordSteelNetBuff", "dc9738ee4e71f5c4287e37f3b74c6fe6"),
           }
         },
@@ -588,7 +588,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Cue_0006", "1668766a4ac4c3d468a16a024627a121"),
+            new Blueprint("Cue_0006", "78f52b70b8e80b94e83b923def53360c"),
             new Blueprint("Ziggurat_ZachariusBeginRitual", "8a020a9f01405ae4fa417500e1efd2e6"),
           }
         },
@@ -820,7 +820,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AfterNotDate_dialog", "cbe4991d3d5bad14dac33ca4e67ae2ce"),
-            new Blueprint("Answer_0042", "e5603282835aed948946ffedefe05ce5"),
+            new Blueprint("Answer_0042", "9384003f84564b94c9b01e7e16a1db5d"),
             new Blueprint("YozzTeleportsToShamirasPalase", "03e68d18fd2a47fc95917ba3f45d720d"),
           }
         },
