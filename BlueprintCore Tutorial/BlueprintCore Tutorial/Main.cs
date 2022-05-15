@@ -1,16 +1,16 @@
 ﻿using BlueprintCore.Utils;
+using BlueprintCoreTutorial.Feats;
 using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;
 using System;
-using Tutorials.Feats;
 using UnityModManagerNet;
 
-namespace Tutorials
+namespace BlueprintCoreTutorial
 {
   public static class Main
   {
     public static bool Enabled;
-    private static LogWrapper Logger = LogWrapper.Get("MagicalAptitude");
+    private static readonly LogWrapper Logger = LogWrapper.Get("MagicalAptitude");
 
     public static bool Load(UnityModManager.ModEntry modEntry)
     {

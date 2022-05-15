@@ -5,7 +5,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.EntitySystem.Stats;
 
-namespace Tutorials.Feats
+namespace BlueprintCoreTutorial.Feats
 {
   public class MagicalAptitude
   {
@@ -28,8 +28,8 @@ namespace Tutorials.Feats
       FeatureConfigurator.New(FeatName, FeatGuid)
           .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
           .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
-          .SetFeatureTags(FeatureTag.Skills)
-          .SetFeatureGroups(FeatureGroup.Feat)
+          .AddFeatureTagsComponent(FeatureTag.Skills)
+          .AddToGroups(FeatureGroup.Feat)
           .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2)
           .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2)
           .Configure();

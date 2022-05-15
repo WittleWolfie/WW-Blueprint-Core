@@ -7,7 +7,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 
-namespace Tutorials.Feats
+namespace BlueprintCoreTutorial.Feats
 {
   public class MagicalAptitudeSolution
   {
@@ -39,8 +39,8 @@ namespace Tutorials.Feats
           .SetReapplyOnLevelUp()
           .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
           .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
-          .SetFeatureTags(FeatureTag.Skills)
-          .SetFeatureGroups(FeatureGroup.Feat)
+          .AddFeatureTagsComponent(FeatureTag.Skills)
+          .AddToGroups(FeatureGroup.Feat)
           // Custom progression returns +2 when Knowledge: Arcana is 9 or less, and +4 when it is 10 or more.
           .AddContextRankConfig(
               ContextRankConfigs.BaseStat(StatType.SkillKnowledgeArcana)
