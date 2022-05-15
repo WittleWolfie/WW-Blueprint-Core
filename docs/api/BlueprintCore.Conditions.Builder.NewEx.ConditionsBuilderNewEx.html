@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ConditionsBuilderNewEx
    ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,8 +73,7 @@
   
   <h1 id="BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx" data-uid="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx" class="text-break">Class ConditionsBuilderNewEx
   </h1>
-  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> for conditions defined in BlueprintCore and not available in
-the base game.</p>
+  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> for conditions defined in BlueprintCore and not available in the base game.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -93,11 +92,11 @@ the base game.</p>
 Conditions are supported using extension methods. Include the extension namespaces as needed.
 </p>
 <p>
-When <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_Build">Build()</a> is called the <span class="xref">Kingmaker.ElementsSystem.ConditionsChecker</span> is constructed, validated, and
+When <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_Build_BlueprintCore_Utils_Validator_">Build(Validator)</a> is called the <span class="xref">Kingmaker.ElementsSystem.ConditionsChecker</span> is constructed, validated, and
 returned. If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
 </p>
 <p>
-Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_Build">Build()</a> twice on the same builder.
+Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_Build_BlueprintCore_Utils_Validator_">Build(Validator)</a> twice on the same builder.
 </p>
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
@@ -145,17 +144,16 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_TargetInMeleeRange_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.TargetInMeleeRange(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/NewEx/ConditionsBuilderNewEx.cs/#L17">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/NewEx/ConditionsBuilderNewEx.cs/#L25">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_TargetInMeleeRange_" data-uid="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.TargetInMeleeRange*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_TargetInMeleeRange_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.TargetInMeleeRange(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">TargetInMeleeRange(ConditionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.New.TargetInMeleeRange.html">TargetInMeleeRange</a></p>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html#BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_TargetInMeleeRange_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">TargetInMeleeRange(ConditionsBuilder, Boolean)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(TargetInMeleeRange))]
-public static ConditionsBuilder TargetInMeleeRange(this ConditionsBuilder builder, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder TargetInMeleeRange(this ConditionsBuilder builder, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -194,6 +192,9 @@ public static ConditionsBuilder TargetInMeleeRange(this ConditionsBuilder builde
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_NewEx_ConditionsBuilderNewEx_TargetInMeleeRange_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul></ul>
+</div>
 </article>
           </div>
           

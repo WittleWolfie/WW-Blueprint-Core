@@ -1,0 +1,2291 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BaseLeaderSkillConfigurator&lt;T, TBuilder&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BaseLeaderSkillConfigurator&lt;T, TBuilder&gt;
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2" class="text-break">Class BaseLeaderSkillConfigurator&lt;T, TBuilder&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Implements common fields and components for blueprints inheriting from <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill</span>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html">RootConfigurator</a>&lt;T, TBuilder&gt;</div>
+    <div class="level2"><a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html">BaseBlueprintConfigurator</a>&lt;T, TBuilder&gt;</div>
+    <div class="level3"><span class="xref">BaseLeaderSkillConfigurator&lt;T, TBuilder&gt;</span></div>
+      <div class="level4"><a class="xref" href="BlueprintCore.Blueprints.Configurators.Armies.LeaderSkillConfigurator.html">LeaderSkillConfigurator</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_BlueprintCore_Utils_Blueprint_Kingmaker_DLC_BlueprintDlcReward_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDlcCondition(Blueprint&lt;BlueprintDlcReward, BlueprintDlcRewardReference&gt;, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddBuffOnCorruptionClear_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Nullable_System_Int32__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddBuffOnCorruptionClear(Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt;, Nullable&lt;Int32&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPlayerLeaveCombatTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddPlayerLeaveCombatTrigger(ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddInitiatorAttackRollTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Enums_WeaponCategory__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddInitiatorAttackRollTrigger(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponCategory&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddInitiatorAttackWithWeaponTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Enums_WeaponCategory__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Utility_Feet__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Blueprints_Items_Weapons_WeaponFighterGroup__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Enums_WeaponRangeType__System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_Weapons_BlueprintWeaponType_Kingmaker_Blueprints_BlueprintWeaponTypeReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddInitiatorAttackWithWeaponTrigger(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponCategory&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Feet&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponFighterGroup&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponRangeType&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintWeaponType, BlueprintWeaponTypeReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTargetAttackRollTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_Enums_WeaponCategory___System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddTargetAttackRollTrigger(ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;, WeaponCategory[], Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTargetBeforeAttackRollTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Blueprints_Classes_Spells_SpellDescriptorWrapper__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddTargetBeforeAttackRollTrigger(ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;SpellDescriptorWrapper&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AdditionalDiceOnAttack_System_Nullable_System_Boolean__System_Nullable_Kingmaker_UnitLogic_Mechanics_Components_AdditionalDiceOnAttack_WeaponOptions__System_Nullable_Kingmaker_Enums_WeaponCategory__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_List_Kingmaker_UnitLogic_Mechanics_Components_AdditionalDiceOnAttack_DamageEntry__Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_System_Nullable_Kingmaker_Utility_Feet__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Blueprints_Items_Weapons_WeaponFighterGroup__BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Enums_WeaponRangeType__System_Nullable_System_Boolean__BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_Weapons_BlueprintWeaponType_Kingmaker_Blueprints_BlueprintWeaponTypeReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AdditionalDiceOnAttack(Nullable&lt;Boolean&gt;, Nullable&lt;AdditionalDiceOnAttack.WeaponOptions&gt;, Nullable&lt;WeaponCategory&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, List&lt;AdditionalDiceOnAttack.DamageEntry&gt;, DamageTypeDescription, Nullable&lt;Feet&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponFighterGroup&gt;, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponRangeType&gt;, Nullable&lt;Boolean&gt;, ConditionsBuilder, ContextDiceValue, Blueprint&lt;BlueprintWeaponType, BlueprintWeaponTypeReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AdditionalStatBonusOnAttackDamage_System_Nullable_System_Single__System_Nullable_Kingmaker_Enums_WeaponCategory__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Designers_Mechanics_Enums_ConditionEnum__System_Nullable_Kingmaker_Designers_Mechanics_Enums_ConditionEnum__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AdditionalStatBonusOnAttackDamage(Nullable&lt;Single&gt;, Nullable&lt;WeaponCategory&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;ConditionEnum&gt;, Nullable&lt;ConditionEnum&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddAllAttacksEnhancement_System_Nullable_System_Int32__System_Nullable_Kingmaker_Enums_ModifierDescriptor__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddAllAttacksEnhancement(Nullable&lt;Int32&gt;, Nullable&lt;ModifierDescriptor&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddBashingFinish_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddBashingFinish(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDestructiveShockwave_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDestructiveShockwave(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddShieldMaster_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddShieldMaster(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddArmyBattleResultsTrigger_System_Nullable_Kingmaker_Kingdom_Blueprints_RegionId__BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintArmyPreset_Kingmaker_Blueprints_BlueprintArmyPresetReference___System_Nullable_Kingmaker_Armies_Blueprints_ArmyType__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddArmyBattleResultsTrigger(Nullable&lt;RegionId&gt;, Blueprint&lt;BlueprintArmyLeader, BlueprintArmyLeaderReference&gt;, List&lt;Blueprint&lt;BlueprintArmyPreset, BlueprintArmyPresetReference&gt;&gt;, Nullable&lt;ArmyType&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddKingdomRegionClaimedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintRegion_Kingmaker_Blueprints_BlueprintRegionReference___">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddKingdomRegionClaimedTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, List&lt;Blueprint&lt;BlueprintRegion, BlueprintRegionReference&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSettlementSiegeTrigger_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Blueprints_BlueprintGlobalMapPointReference__System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSettlementSiegeTrigger(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder, ActionsBuilder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference&gt;, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddArmyUnitRecruitedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_Armies_Components_ArmyProperties__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference___System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Kingdom_Armies_MercenariesIncludeOption__System_Nullable_System_Int32__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddArmyUnitRecruitedTrigger(ActionsBuilder, Nullable&lt;ArmyProperties&gt;, List&lt;Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;MercenariesIncludeOption&gt;, Nullable&lt;Int32&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddLeaderRecruitedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddLeaderRecruitedTrigger(ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSummonUnitsAfterArmyBattle_Kingmaker_Kingdom_Buffs_SummonUnitsAfterArmyBattle_SummonGroup___">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSummonUnitsAfterArmyBattle(SummonUnitsAfterArmyBattle.SummonGroup[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddGarrisonDefeatedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddGarrisonDefeatedTrigger(ActionsBuilder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPlayerVisitGlobalMapLocationTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddPlayerVisitGlobalMapLocationTrigger(ActionsBuilder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddOnIsleStateEnterTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddOnIsleStateEnterTrigger(ActionsBuilder, IsleEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddOnIsleStateExitTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddOnIsleStateExitTrigger(ActionsBuilder, IsleEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddActivateTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddActivateTrigger(ActionsBuilder, Nullable&lt;Boolean&gt;, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddAreaDidLoadTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddAreaDidLoadTrigger(ActionsBuilder, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDeactivateTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDeactivateTrigger(ActionsBuilder, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDeviceInteractionTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDeviceInteractionTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitCombatTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddEvaluatedUnitCombatTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitDeathTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddEvaluatedUnitDeathTrigger(ActionsBuilder, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitHealthTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__System_Nullable_System_Int32__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddEvaluatedUnitHealthTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddGenericInteractionTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddGenericInteractionTrigger(ActionsBuilder, EntityReference, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddItemInContainerTrigger_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__Kingmaker_ElementsSystem_MapObjectEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddItemInContainerTrigger(Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, MapObjectEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddLevelUpTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddLevelUpTrigger(ActionsBuilder, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPartyInventoryTrigger_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddPartyInventoryTrigger(Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPerceptionTrigger_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddPerceptionTrigger(MapObjectEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddRestTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_Kingmaker_Controllers_Rest_RestResult__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddRestTrigger(ActionsBuilder, ConditionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;RestResult&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddScriptZoneTrigger_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_System_String_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddScriptZoneTrigger(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ConditionsBuilder, ActionsBuilder, ConditionsBuilder, EntityReference, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSpawnUnitTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSpawnUnitTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSpellCastTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Blueprints_EntityReference_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference___">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSpellCastTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, EntityReference, List&lt;Blueprint&lt;BlueprintAbility, BlueprintAbilityReference&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSummonPoolTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Events_SummonPoolTrigger_ChangeTypes__BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPool_Kingmaker_Blueprints_BlueprintSummonPoolReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSummonPoolTrigger(ActionsBuilder, Nullable&lt;SummonPoolTrigger.ChangeTypes&gt;, ConditionsBuilder, Nullable&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintSummonPool, BlueprintSummonPoolReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTimeOfDayChangedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddTimeOfDayChangedTrigger(ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUIEventTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_PubSubSystem_UIEventType__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddUIEventTrigger(ActionsBuilder, ConditionsBuilder, Nullable&lt;UIEventType&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUnitHealthTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddUnitHealthTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Int32&gt;, Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTrapTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddTrapTrigger(ActionsBuilder, ActionsBuilder, MapObjectEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Logger">RootConfigurator&lt;T, TBuilder&gt;.Logger</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Self">RootConfigurator&lt;T, TBuilder&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Blueprint">RootConfigurator&lt;T, TBuilder&gt;.Blueprint</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">RootConfigurator&lt;T, TBuilder&gt;.Configure()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">RootConfigurator&lt;T, TBuilder&gt;.AddComponent(BlueprintComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddComponent__1_System_Action___0__">RootConfigurator&lt;T, TBuilder&gt;.AddComponent&lt;C&gt;(Action&lt;C&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">RootConfigurator&lt;T, TBuilder&gt;.AddUniqueComponent(BlueprintComponent, ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_EditComponent__1_System_Action___0__">RootConfigurator&lt;T, TBuilder&gt;.EditComponent&lt;C&gt;(Action&lt;C&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">RootConfigurator&lt;T, TBuilder&gt;.RemoveComponents(Func&lt;BlueprintComponent, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigure_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigure(Action&lt;T&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Configurators.Armies.html">BlueprintCore.Blueprints.Configurators.Armies</a></h6>
+  <h6><strong>Assembly</strong>: BlueprintCore.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BaseLeaderSkillConfigurator&lt;T, TBuilder&gt; : BaseBlueprintConfigurator&lt;T, TBuilder&gt; where T : BlueprintLeaderSkill where TBuilder : BaseLeaderSkillConfigurator&lt;T, TBuilder&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Implementation is based on the
+<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
+    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
+    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
+</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p>
+Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
+exposes methods for component types supported by that blueprint. This relies on manual tuning and type
+attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
+component types.
+</p>
+<p>
+See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
+for more information on component and blueprint type safety.
+</p>
+</td></tr><tr><td>Validation</td><td>
+<p>
+When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
+which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
+complicated configuration problems such as
+<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
+usage.
+</p>
+<p>
+Validation uses a combination of code from the game library and manually tuned logic. See
+<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
+</p>
+</td></tr><tr><td>Builder Style API</td><td>
+<p>
+The API is designed to minimize boilerplate required to modify blueprints and create components.
+Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
+</p>
+<p>
+Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
+configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
+</p>
+</td></tr></tbody></table>
+TODO: Update the example
+<example>
+Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
+<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
+var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
+var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
+var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
+var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
+var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
+<p>// Register the names
+BlueprintTool.AddGuidsByName(
+(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
+(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
+(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
+// New blueprints and guids
+(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
+(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
+(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
+<p>// Load the icons and strings (not provided by library)
+var skaldsVigorIcon = LoadSkaldsVigorIcon();
+var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
+var skaldsVigorName = LoadSkaldsVigorName();
+var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
+var skaldsVigorDescription = LoadSkaldsVigorDescription();
+var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
+<p>// Create the buff
+BuffConfigurator.New(skaldsVigorBuff)
+.ContextRankConfig(
+// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
+ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
+// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
+// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
+.FastHealing(1, bonusValue: ContextValues.Rank())
+.Configure();</p>
+<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
+// Rage is active.
+var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+BuffConfigurator.For(inspiredRageBuff)
+.FactContextActions(
+onActivated:
+ActionsBuilder.New()
+// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
+// the feat.
+.Conditional(
+ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+ifTrue: applyBuff)
+// For characters other than the caster, Skald's Vigor is only applied if the caster has the
+// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
+// buffs do not stack so it has no effect.
+.Conditional(
+ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+onDeactivated:
+// Removes Skald's Vigor when Inspired Rage ends.
+// There is actually a bug with this implementation; Lingering Song will extend the duration of
+// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
+ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
+.Configure();</code></pre>
+</example><p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L33">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.#ctor*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseLeaderSkillConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BaseLeaderSkillConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt; blueprint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;T, <span class="xref">Kingmaker.Blueprints.BlueprintReference</span>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">blueprint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddArmyGlobalMapMovementBonus_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddArmyGlobalMapMovementBonus(System.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L891">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddArmyGlobalMapMovementBonus_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddArmyGlobalMapMovementBonus*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddArmyGlobalMapMovementBonus_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddArmyGlobalMapMovementBonus(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddArmyGlobalMapMovementBonus(Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.Components.ArmyGlobalMapMovementBonus</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddArmyGlobalMapMovementBonus(int? dailyMovementPoints = null, int? maxMovementPoints = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">dailyMovementPoints</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">maxMovementPoints</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td><p>If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a></td>
+        <td><span class="parametername">mergeBehavior</span></td>
+        <td><p>Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddArmyGlobalMapMovementBonus_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Aeon1SpeedStats62fcd9d0cdb54b59930c9b9bbb30a870</li><li>Logistics4MovementPoints177c84d3733a4ef2865694736714f2d7</li><li>QuartermasterMaps8830aeff4cc742f4a9f43fb152d8bfdb</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddArmyLeaderAddResourcesOnBattleEnd_System_Nullable_System_Boolean__System_Nullable_Kingmaker_Kingdom_KingdomResourcesAmount__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddArmyLeaderAddResourcesOnBattleEnd(System.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BKingmaker.Kingdom.KingdomResourcesAmount%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L826">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddArmyLeaderAddResourcesOnBattleEnd_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddArmyLeaderAddResourcesOnBattleEnd*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddArmyLeaderAddResourcesOnBattleEnd_System_Nullable_System_Boolean__System_Nullable_Kingmaker_Kingdom_KingdomResourcesAmount__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddArmyLeaderAddResourcesOnBattleEnd(System.Nullable{System.Boolean},System.Nullable{Kingmaker.Kingdom.KingdomResourcesAmount})">AddArmyLeaderAddResourcesOnBattleEnd(Nullable&lt;Boolean&gt;, Nullable&lt;KingdomResourcesAmount&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.Components.ArmyLeaderAddResourcesOnBattleEnd</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddArmyLeaderAddResourcesOnBattleEnd(bool? onlyOnVictory = null, KingdomResourcesAmount? resourcesAmount = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">onlyOnVictory</span></td>
+        <td><p>
+InfoBox: Triggers on lose too if false
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.Kingdom.KingdomResourcesAmount</span>&gt;</td>
+        <td><span class="parametername">resourcesAmount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddArmyLeaderAddResourcesOnBattleEnd_System_Nullable_System_Boolean__System_Nullable_Kingmaker_Kingdom_KingdomResourcesAmount___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Pillaged4e55c26520a4aa399b63e9e78481cc3</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddCastOnTacticalCombatStart_System_Collections_Generic_List_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddCastOnTacticalCombatStart(System.Collections.Generic.List%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility%2CKingmaker.Blueprints.BlueprintAbilityReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L493">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddCastOnTacticalCombatStart_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddCastOnTacticalCombatStart*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddCastOnTacticalCombatStart_System_Collections_Generic_List_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddCastOnTacticalCombatStart(System.Collections.Generic.List{System.Int32},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility,Kingmaker.Blueprints.BlueprintAbilityReference},System.Nullable{System.Boolean})">AddCastOnTacticalCombatStart(List&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintAbility, BlueprintAbilityReference&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.CastOnTacticalCombatStart</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddCastOnTacticalCombatStart(List&lt;int&gt; allowedColumns = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, Blueprint&lt;BlueprintAbility, BlueprintAbilityReference&gt; spellToCast = null, bool? targetCell = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">allowedColumns</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td><p>If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a></td>
+        <td><span class="parametername">mergeBehavior</span></td>
+        <td><p>Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility</span>, <span class="xref">Kingmaker.Blueprints.BlueprintAbilityReference</span>&gt;</td>
+        <td><span class="parametername">spellToCast</span></td>
+        <td><p>
+InfoBox: Can be any skill not only from leader abilities
+</p>
+<p>
+Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">targetCell</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddCastOnTacticalCombatStart_System_Collections_Generic_List_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Aeon5BaneOfDemons6f939176228c4866bc86d55eba6484db</li><li>Trickster3KillOrder917aed4bb2c947a080b3076832454788</li><li>Trickster3PlaceOfPower9d6543ea99704324920f49cbf56d12cc</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnLeaderUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddFactOnLeaderUnit(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L397">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnLeaderUnit_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddFactOnLeaderUnit*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnLeaderUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddFactOnLeaderUnit(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference}})">AddFactOnLeaderUnit(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnLeaderUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___">AddFactOnLeaderUnit(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt;)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddFactOnLeaderUnit(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt; facts = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;&gt;</td>
+        <td><span class="parametername">facts</span></td>
+        <td><p>
+Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnLeaderUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Angel4BladeOfTheSun03709f1c0bf543c2b20cbe7b6b6f35b8</li><li>RangerFlarec9cc76add2274ce897f1f0e03f5a7767</li><li>Twincastc89ae5f2f37f4a37ae76938010bab8f3</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnTacticalUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddFactOnTacticalUnit(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L441">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnTacticalUnit_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddFactOnTacticalUnit*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnTacticalUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddFactOnTacticalUnit(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference}},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter)">AddFactOnTacticalUnit(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, TargetFilter)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnTacticalUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_">AddFactOnTacticalUnit(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, TargetFilter)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddFactOnTacticalUnit(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt; facts = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, TargetFilter targetController = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;&gt;</td>
+        <td><span class="parametername">facts</span></td>
+        <td><p>
+Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td><p>If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a></td>
+        <td><span class="parametername">mergeBehavior</span></td>
+        <td><p>Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter</span></td>
+        <td><span class="parametername">targetController</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddFactOnTacticalUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Aeon3Spikesc8f8bc842512415a85d233417e03f698</li><li>LineOfSteel7ffb41491cf57ab4db98b5f403921af8</li><li>WoundedLeaderSkill3091a59090c84b0bb61aba642d6b5309</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddLeaderExpBonus_System_Nullable_System_Int32__BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintLeaderSkillsList_Kingmaker_Armies_BlueprintLeaderSkillsList_Reference__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddLeaderExpBonus(System.Nullable%7BSystem.Int32%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Armies.BlueprintLeaderSkillsList%2CKingmaker.Armies.BlueprintLeaderSkillsList.Reference%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L541">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddLeaderExpBonus_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddLeaderExpBonus*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddLeaderExpBonus_System_Nullable_System_Int32__BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintLeaderSkillsList_Kingmaker_Armies_BlueprintLeaderSkillsList_Reference__System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddLeaderExpBonus(System.Nullable{System.Int32},BlueprintCore.Utils.Blueprint{Kingmaker.Armies.BlueprintLeaderSkillsList,Kingmaker.Armies.BlueprintLeaderSkillsList.Reference},System.Nullable{System.Int32})">AddLeaderExpBonus(Nullable&lt;Int32&gt;, Blueprint&lt;BlueprintLeaderSkillsList, BlueprintLeaderSkillsList.Reference&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.LeaderExpBonus</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddLeaderExpBonus(int? bonusPercent = null, Blueprint&lt;BlueprintLeaderSkillsList, BlueprintLeaderSkillsList.Reference&gt; bonusSkills = null, int? levelForBonusSkills = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">bonusPercent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Armies.BlueprintLeaderSkillsList</span>, <span class="xref">Kingmaker.Armies.BlueprintLeaderSkillsList.Reference</span>&gt;</td>
+        <td><span class="parametername">bonusSkills</span></td>
+        <td><p>
+Blueprint of type BlueprintLeaderSkillsList. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">levelForBonusSkills</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddLeaderExpBonus_System_Nullable_System_Int32__BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintLeaderSkillsList_Kingmaker_Armies_BlueprintLeaderSkillsList_Reference__System_Nullable_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>ExampleForSoldiersLeaderSkillc5c8fbdc2c634838a63cba35ef419c97</li><li>StrivingForDistinctionLevel27cb21436cf904d57a399cf5d12e918e7</li><li>ZealousLearnerRank2665cb61bfcba4a2697f95b21f4249220</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddLeaderPercentAttributeBonus_Kingmaker_Armies_LeaderAttributes_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddLeaderPercentAttributeBonus(Kingmaker.Armies.LeaderAttributes)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L576">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddLeaderPercentAttributeBonus_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddLeaderPercentAttributeBonus*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddLeaderPercentAttributeBonus_Kingmaker_Armies_LeaderAttributes_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddLeaderPercentAttributeBonus(Kingmaker.Armies.LeaderAttributes)">AddLeaderPercentAttributeBonus(LeaderAttributes)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.LeaderPercentAttributeBonus</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddLeaderPercentAttributeBonus(LeaderAttributes percentBonuses = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Armies.LeaderAttributes</span></td>
+        <td><span class="parametername">percentBonuses</span></td>
+        <td><p>
+InfoBox: Add bonus as percent of base stat value (that is setup in level progression)
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddLeaderPercentAttributeBonus_Kingmaker_Armies_LeaderAttributes__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Angel4Infirmarybae2503e267c4ed0aaef4b3daa9a6df1</li><li>BuildingHospitalSkill823b8f6b44add4c4c9ebc2c3d342caecb</li><li>ReductionOfLosses9d331fe09237c4c8682740cac957b02aa</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddMaxArmySquadsBonusLeaderComponent_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddMaxArmySquadsBonusLeaderComponent(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L604">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddMaxArmySquadsBonusLeaderComponent_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddMaxArmySquadsBonusLeaderComponent*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddMaxArmySquadsBonusLeaderComponent_System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddMaxArmySquadsBonusLeaderComponent(System.Nullable{System.Int32})">AddMaxArmySquadsBonusLeaderComponent(Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.MaxArmySquadsBonusLeaderComponent</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddMaxArmySquadsBonusLeaderComponent(int? armySizeBonus = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">armySizeBonus</span></td>
+        <td><p>
+InfoBox: Extend current army size by this value (stackable bonus)
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddMaxArmySquadsBonusLeaderComponent_System_Nullable_System_Int32___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>ArmySupervisionRank1a3d140d99d62480e92db5fe20bf2e8dd</li><li>ArmySupervisionRank30adc1e6332624c3b89bea894467858fc</li><li>ArmySupervisionRank4f07aad87a5b0435ea1a343f6f5bfb5a4</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddPlaceLeaderTrapOnCombatStart_System_Collections_Generic_List_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddPlaceLeaderTrapOnCombatStart(System.Collections.Generic.List%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Armies.Blueprints.BlueprintLeaderSkill%2CKingmaker.Blueprints.BlueprintLeaderSkillReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L642">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddPlaceLeaderTrapOnCombatStart_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddPlaceLeaderTrapOnCombatStart*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddPlaceLeaderTrapOnCombatStart_System_Collections_Generic_List_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference___" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddPlaceLeaderTrapOnCombatStart(System.Collections.Generic.List{System.Int32},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Armies.Blueprints.BlueprintLeaderSkill,Kingmaker.Blueprints.BlueprintLeaderSkillReference}})">AddPlaceLeaderTrapOnCombatStart(List&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, List&lt;Blueprint&lt;BlueprintLeaderSkill, BlueprintLeaderSkillReference&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.PlaceLeaderTrapOnCombatStart</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddPlaceLeaderTrapOnCombatStart(List&lt;int&gt; allowedColumns = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, List&lt;Blueprint&lt;BlueprintLeaderSkill, BlueprintLeaderSkillReference&gt;&gt; possibleTrapSkills = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">allowedColumns</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td><p>If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a></td>
+        <td><span class="parametername">mergeBehavior</span></td>
+        <td><p>Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill</span>, <span class="xref">Kingmaker.Blueprints.BlueprintLeaderSkillReference</span>&gt;&gt;</td>
+        <td><span class="parametername">possibleTrapSkills</span></td>
+        <td><p>
+Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddPlaceLeaderTrapOnCombatStart_System_Collections_Generic_List_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Preparation3b3451bc430049328dbeba0c61d93252</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddRemoveFactFromTacticalUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddRemoveFactFromTacticalUnit(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L692">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddRemoveFactFromTacticalUnit_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddRemoveFactFromTacticalUnit*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddRemoveFactFromTacticalUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddRemoveFactFromTacticalUnit(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference}},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter)">AddRemoveFactFromTacticalUnit(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, TargetFilter)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.RemoveFactFromTacticalUnit</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddRemoveFactFromTacticalUnit(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt; facts = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, TargetFilter targetController = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;&gt;</td>
+        <td><span class="parametername">facts</span></td>
+        <td><p>
+Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td><p>If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a></td>
+        <td><span class="parametername">mergeBehavior</span></td>
+        <td><p>Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter</span></td>
+        <td><span class="parametername">targetController</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddRemoveFactFromTacticalUnit_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DeepDefences8af2d1255a824b9ea1ad08e236f84dd7</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddSquadsActionOnTacticalCombatStart_BlueprintCore_Actions_Builder_ActionsBuilder_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddSquadsActionOnTacticalCombatStart(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%7D%2CKingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L746">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddSquadsActionOnTacticalCombatStart_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddSquadsActionOnTacticalCombatStart*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddSquadsActionOnTacticalCombatStart_BlueprintCore_Actions_Builder_ActionsBuilder_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddSquadsActionOnTacticalCombatStart(BlueprintCore.Actions.Builder.ActionsBuilder,System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference}},Kingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter,System.Nullable{System.Int32},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddSquadsActionOnTacticalCombatStart(ActionsBuilder, List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt;, TargetFilter, Nullable&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.SquadsActionOnTacticalCombatStart</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddSquadsActionOnTacticalCombatStart(ActionsBuilder actions = null, List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt; bannedFacts = null, TargetFilter filter = null, int? maxSquadsCount = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">actions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;&gt;</td>
+        <td><span class="parametername">bannedFacts</span></td>
+        <td><p>
+Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter</span></td>
+        <td><span class="parametername">filter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">maxSquadsCount</span></td>
+        <td><p>
+InfoBox: Action will be applied on random MaxSquadsCount filtered squads without banned facts.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td><p>If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a></td>
+        <td><span class="parametername">mergeBehavior</span></td>
+        <td><p>Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddSquadsActionOnTacticalCombatStart_BlueprintCore_Actions_Builder_ActionsBuilder_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>BuildingDragon0Skill3cd1a7d459324680ba82d6ea6cf4ed9c</li><li>TacticianRank20ff5d350a002455b92628fa52569ef77</li><li>TacticianRank35234a68ecf404794a3aee34c9416aecb</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddTacticalLeaderRitualComponent_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddTacticalLeaderRitualComponent(BlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility%2CKingmaker.Blueprints.BlueprintAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L797">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddTacticalLeaderRitualComponent_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddTacticalLeaderRitualComponent*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddTacticalLeaderRitualComponent_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddTacticalLeaderRitualComponent(BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility,Kingmaker.Blueprints.BlueprintAbilityReference})">AddTacticalLeaderRitualComponent(Blueprint&lt;BlueprintAbility, BlueprintAbilityReference&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.TacticalLeaderRitualComponent</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddTacticalLeaderRitualComponent(Blueprint&lt;BlueprintAbility, BlueprintAbilityReference&gt; ability = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility</span>, <span class="xref">Kingmaker.Blueprints.BlueprintAbilityReference</span>&gt;</td>
+        <td><span class="parametername">ability</span></td>
+        <td><p>
+Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddTacticalLeaderRitualComponent_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Angel3BoltOfJustice685a47c6bd594a62968b4ab3a4baa5a4</li><li>RangerFrostBlastTrapf9a9eac13a0ef774eb33d7cadeb00a8d</li><li>RitualTrueStrikefdc4b6a9aeb44c3f9b0b4a224c7a69fb</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddTacticalMoraleModifier_System_Nullable_Kingmaker_Armies_TacticalCombat_Components_TacticalMoraleModifier_FactionTarget__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddTacticalMoraleModifier(System.Nullable%7BKingmaker.Armies.TacticalCombat.Components.TacticalMoraleModifier.FactionTarget%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Int32%7D%2CKingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L856">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddTacticalMoraleModifier_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddTacticalMoraleModifier*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddTacticalMoraleModifier_System_Nullable_Kingmaker_Armies_TacticalCombat_Components_TacticalMoraleModifier_FactionTarget__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddTacticalMoraleModifier(System.Nullable{Kingmaker.Armies.TacticalCombat.Components.TacticalMoraleModifier.FactionTarget},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.Int32},Kingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter)">AddTacticalMoraleModifier(Nullable&lt;TacticalMoraleModifier.FactionTarget&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Int32&gt;, TargetFilter)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Armies.TacticalCombat.Components.TacticalMoraleModifier</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddTacticalMoraleModifier(TacticalMoraleModifier.FactionTarget? factionTarget = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, int? modValue = null, TargetFilter targetFilter = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.Armies.TacticalCombat.Components.TacticalMoraleModifier.FactionTarget</span>&gt;</td>
+        <td><span class="parametername">factionTarget</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td><p>If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a></td>
+        <td><span class="parametername">mergeBehavior</span></td>
+        <td><p>Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">modValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Armies.TacticalCombat.LeaderSkills.TargetFilter</span></td>
+        <td><span class="parametername">targetFilter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddTacticalMoraleModifier_System_Nullable_Kingmaker_Armies_TacticalCombat_Components_TacticalMoraleModifier_FactionTarget__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__Kingmaker_Armies_TacticalCombat_LeaderSkills_TargetFilter__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>BuildingSpiritualGardenSkill923f02023f5f49f6842aabf3d3cf0e44</li><li>IntimidationRank1c465debec287c4f448050cda26a27b77</li><li>Leadership6IncreaseMorale796c4868365243cface2d36f997135a9</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddToPrerequisites_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.AddToPrerequisites(BlueprintCore.Utils.Blueprint%7BKingmaker.Armies.Blueprints.BlueprintLeaderSkill%2CKingmaker.Blueprints.BlueprintLeaderSkillReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L258">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddToPrerequisites_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddToPrerequisites*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_AddToPrerequisites_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference____" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.AddToPrerequisites(BlueprintCore.Utils.Blueprint{Kingmaker.Armies.Blueprints.BlueprintLeaderSkill,Kingmaker.Blueprints.BlueprintLeaderSkillReference}[])">AddToPrerequisites(Blueprint&lt;BlueprintLeaderSkill, BlueprintLeaderSkillReference&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Adds to the contents of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.m_Prerequisites</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddToPrerequisites(params Blueprint&lt;BlueprintLeaderSkill, BlueprintLeaderSkillReference&gt;[] prerequisites)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill</span>, <span class="xref">Kingmaker.Blueprints.BlueprintLeaderSkillReference</span>&gt;[]</td>
+        <td><span class="parametername">prerequisites</span></td>
+        <td><p>
+Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ClearPrerequisites.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ClearPrerequisites%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L336">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ClearPrerequisites_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ClearPrerequisites*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ClearPrerequisites" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ClearPrerequisites">ClearPrerequisites()</h4>
+  <div class="markdown level1 summary"><p>Removes all elements from <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.m_Prerequisites</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ClearPrerequisites()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyBonusAttributes_System_Action_Kingmaker_Armies_LeaderAttributes__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ModifyBonusAttributes(System.Action%7BKingmaker.Armies.LeaderAttributes%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L135">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyBonusAttributes_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyBonusAttributes*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyBonusAttributes_System_Action_Kingmaker_Armies_LeaderAttributes__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyBonusAttributes(System.Action{Kingmaker.Armies.LeaderAttributes})">ModifyBonusAttributes(Action&lt;LeaderAttributes&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.BonusAttributes</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyBonusAttributes(Action&lt;LeaderAttributes&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Armies.LeaderAttributes</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyIcon_System_Action_UnityEngine_Sprite__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ModifyIcon(System.Action%7BUnityEngine.Sprite%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L51">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyIcon_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyIcon*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyIcon_System_Action_UnityEngine_Sprite__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyIcon(System.Action{UnityEngine.Sprite})">ModifyIcon(Action&lt;Sprite&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.Icon</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyIcon(Action&lt;Sprite&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">UnityEngine.Sprite</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyLocalizedDescription_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ModifyLocalizedDescription(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L109">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyLocalizedDescription_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyLocalizedDescription*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyLocalizedDescription_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyLocalizedDescription(System.Action{Kingmaker.Localization.LocalizedString})">ModifyLocalizedDescription(Action&lt;LocalizedString&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.LocalizedDescription</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyLocalizedDescription(Action&lt;LocalizedString&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Localization.LocalizedString</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyLocalizedName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ModifyLocalizedName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L80">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyLocalizedName_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyLocalizedName*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyLocalizedName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyLocalizedName(System.Action{Kingmaker.Localization.LocalizedString})">ModifyLocalizedName(Action&lt;LocalizedString&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.LocalizedName</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyLocalizedName(Action&lt;LocalizedString&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Localization.LocalizedString</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyPrerequisiteLevel_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ModifyPrerequisiteLevel(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L208">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyPrerequisiteLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyPrerequisiteLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyPrerequisiteLevel_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyPrerequisiteLevel(System.Action{System.Int32})">ModifyPrerequisiteLevel(Action&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.m_PrerequisiteLevel</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyPrerequisiteLevel(Action&lt;int&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyPrerequisites_System_Action_Kingmaker_Blueprints_BlueprintLeaderSkillReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ModifyPrerequisites(System.Action%7BKingmaker.Blueprints.BlueprintLeaderSkillReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L361">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyPrerequisites_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyPrerequisites*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyPrerequisites_System_Action_Kingmaker_Blueprints_BlueprintLeaderSkillReference__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyPrerequisites(System.Action{Kingmaker.Blueprints.BlueprintLeaderSkillReference})">ModifyPrerequisites(Action&lt;BlueprintLeaderSkillReference&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.m_Prerequisites</span> by invoking the provided action on each element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyPrerequisites(Action&lt;BlueprintLeaderSkillReference&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintLeaderSkillReference</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyStackTag_System_Action_Kingmaker_Armies_Blueprints_StackTag__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ModifyStackTag(System.Action%7BKingmaker.Armies.Blueprints.StackTag%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L184">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyStackTag_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyStackTag*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyStackTag_System_Action_Kingmaker_Armies_Blueprints_StackTag__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyStackTag(System.Action{Kingmaker.Armies.Blueprints.StackTag})">ModifyStackTag(Action&lt;StackTag&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.StackTag</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyStackTag(Action&lt;StackTag&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Armies.Blueprints.StackTag</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyType_System_Action_Kingmaker_Armies_Blueprints_ArmyLeaderSkillType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.ModifyType(System.Action%7BKingmaker.Armies.Blueprints.ArmyLeaderSkillType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L160">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyType_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyType*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_ModifyType_System_Action_Kingmaker_Armies_Blueprints_ArmyLeaderSkillType__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.ModifyType(System.Action{Kingmaker.Armies.Blueprints.ArmyLeaderSkillType})">ModifyType(Action&lt;ArmyLeaderSkillType&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.Type</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyType(Action&lt;ArmyLeaderSkillType&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Armies.Blueprints.ArmyLeaderSkillType</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_RemoveFromPrerequisites_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.RemoveFromPrerequisites(BlueprintCore.Utils.Blueprint%7BKingmaker.Armies.Blueprints.BlueprintLeaderSkill%2CKingmaker.Blueprints.BlueprintLeaderSkillReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L284">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_RemoveFromPrerequisites_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.RemoveFromPrerequisites*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_RemoveFromPrerequisites_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference____" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.RemoveFromPrerequisites(BlueprintCore.Utils.Blueprint{Kingmaker.Armies.Blueprints.BlueprintLeaderSkill,Kingmaker.Blueprints.BlueprintLeaderSkillReference}[])">RemoveFromPrerequisites(Blueprint&lt;BlueprintLeaderSkill, BlueprintLeaderSkillReference&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Removes elements from <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.m_Prerequisites</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder RemoveFromPrerequisites(params Blueprint&lt;BlueprintLeaderSkill, BlueprintLeaderSkillReference&gt;[] prerequisites)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill</span>, <span class="xref">Kingmaker.Blueprints.BlueprintLeaderSkillReference</span>&gt;[]</td>
+        <td><span class="parametername">prerequisites</span></td>
+        <td><p>
+Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_RemoveFromPrerequisites_System_Func_Kingmaker_Blueprints_BlueprintLeaderSkillReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.RemoveFromPrerequisites(System.Func%7BKingmaker.Blueprints.BlueprintLeaderSkillReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L310">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_RemoveFromPrerequisites_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.RemoveFromPrerequisites*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_RemoveFromPrerequisites_System_Func_Kingmaker_Blueprints_BlueprintLeaderSkillReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.RemoveFromPrerequisites(System.Func{Kingmaker.Blueprints.BlueprintLeaderSkillReference,System.Boolean})">RemoveFromPrerequisites(Func&lt;BlueprintLeaderSkillReference, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes elements from <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.m_Prerequisites</span> that match the provided predicate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder RemoveFromPrerequisites(Func&lt;BlueprintLeaderSkillReference, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintLeaderSkillReference</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetBonusAttributes_Kingmaker_Armies_LeaderAttributes_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.SetBonusAttributes(Kingmaker.Armies.LeaderAttributes)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L122">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetBonusAttributes_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetBonusAttributes*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetBonusAttributes_Kingmaker_Armies_LeaderAttributes_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetBonusAttributes(Kingmaker.Armies.LeaderAttributes)">SetBonusAttributes(LeaderAttributes)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.BonusAttributes</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetBonusAttributes(LeaderAttributes bonusAttributes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Armies.LeaderAttributes</span></td>
+        <td><span class="parametername">bonusAttributes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetIcon_UnityEngine_Sprite_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.SetIcon(UnityEngine.Sprite)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L38">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetIcon_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetIcon*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetIcon_UnityEngine_Sprite_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetIcon(UnityEngine.Sprite)">SetIcon(Sprite)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.Icon</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetIcon(Sprite icon)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.Sprite</span></td>
+        <td><span class="parametername">icon</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetLocalizedDescription_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.SetLocalizedDescription(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L93">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetLocalizedDescription_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetLocalizedDescription*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetLocalizedDescription_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetLocalizedDescription(Kingmaker.Localization.LocalizedString)">SetLocalizedDescription(LocalizedString)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.LocalizedDescription</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetLocalizedDescription(LocalizedString localizedDescription)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">localizedDescription</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetLocalizedName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.SetLocalizedName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L64">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetLocalizedName_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetLocalizedName*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetLocalizedName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetLocalizedName(Kingmaker.Localization.LocalizedString)">SetLocalizedName(LocalizedString)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.LocalizedName</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetLocalizedName(LocalizedString localizedName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">localizedName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetPrerequisiteLevel_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.SetPrerequisiteLevel(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L196">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetPrerequisiteLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetPrerequisiteLevel*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetPrerequisiteLevel_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetPrerequisiteLevel(System.Int32)">SetPrerequisiteLevel(Int32)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.m_PrerequisiteLevel</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetPrerequisiteLevel(int prerequisiteLevel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">prerequisiteLevel</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetPrerequisites_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.SetPrerequisites(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Armies.Blueprints.BlueprintLeaderSkill%2CKingmaker.Blueprints.BlueprintLeaderSkillReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L233">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetPrerequisites_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetPrerequisites*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetPrerequisites_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintLeaderSkill_Kingmaker_Blueprints_BlueprintLeaderSkillReference___" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetPrerequisites(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Armies.Blueprints.BlueprintLeaderSkill,Kingmaker.Blueprints.BlueprintLeaderSkillReference}})">SetPrerequisites(List&lt;Blueprint&lt;BlueprintLeaderSkill, BlueprintLeaderSkillReference&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.m_Prerequisites</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetPrerequisites(List&lt;Blueprint&lt;BlueprintLeaderSkill, BlueprintLeaderSkillReference&gt;&gt; prerequisites)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill</span>, <span class="xref">Kingmaker.Blueprints.BlueprintLeaderSkillReference</span>&gt;&gt;</td>
+        <td><span class="parametername">prerequisites</span></td>
+        <td><p>
+Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetStackTag_Kingmaker_Armies_Blueprints_StackTag_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.SetStackTag(Kingmaker.Armies.Blueprints.StackTag)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L172">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetStackTag_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetStackTag*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetStackTag_Kingmaker_Armies_Blueprints_StackTag_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetStackTag(Kingmaker.Armies.Blueprints.StackTag)">SetStackTag(StackTag)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.StackTag</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetStackTag(StackTag stackTag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Armies.Blueprints.StackTag</span></td>
+        <td><span class="parametername">stackTag</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetType_Kingmaker_Armies_Blueprints_ArmyLeaderSkillType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602.SetType(Kingmaker.Armies.Blueprints.ArmyLeaderSkillType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L148">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetType_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetType*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2_SetType_Kingmaker_Armies_Blueprints_ArmyLeaderSkillType_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator`2.SetType(Kingmaker.Armies.Blueprints.ArmyLeaderSkillType)">SetType(ArmyLeaderSkillType)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.BlueprintLeaderSkill.Type</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetType(ArmyLeaderSkillType type)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Armies.Blueprints.ArmyLeaderSkillType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseLeaderSkillConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseLeaderSkillConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseLeaderSkill.cs/#L28" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

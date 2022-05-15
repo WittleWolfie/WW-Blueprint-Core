@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Validator
    ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -85,12 +85,52 @@
   <h6><strong>Assembly</strong>: BlueprintCore.dll</h6>
   <h5 id="BlueprintCore_Utils_Validator_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Validator</code></pre>
+    <pre><code class="lang-csharp hljs">public class Validator</code></pre>
   </div>
   <h5 id="BlueprintCore_Utils_Validator_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Any API implemented in BlueprintCore calls this for all relevant object types. If you instantiate objects outside
 of BlueprintCore you can call <a class="xref" href="BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Check(Object)</a> to get validation warnings.</p>
 </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Validator__ctor_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Validator.%23ctor(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Validator.cs/#L30">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_Validator__ctor_" data-uid="BlueprintCore.Utils.Validator.#ctor*"></a>
+  <h4 id="BlueprintCore_Utils_Validator__ctor_System_String_System_String_" data-uid="BlueprintCore.Utils.Validator.#ctor(System.String,System.String)">Validator(String, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a Validator for an object. The name and type name are used to generate the error string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Validator(string name, string typeName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">typeName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
@@ -98,16 +138,16 @@ of BlueprintCore you can call <a class="xref" href="BlueprintCore.Utils.Validato
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Validator_Check_System_Object_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Validator.Check(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Validator.cs/#L41">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Validator.cs/#L67">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_Validator_Check_" data-uid="BlueprintCore.Utils.Validator.Check*"></a>
   <h4 id="BlueprintCore_Utils_Validator_Check_System_Object_" data-uid="BlueprintCore.Utils.Validator.Check(System.Object)">Check(Object)</h4>
-  <div class="markdown level1 summary"><p>Checks the object and returns a list of validation warnings</p>
+  <div class="markdown level1 summary"><p>Validates the given object</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static List&lt;string&gt; Check(object obj)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Check(object obj)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -126,6 +166,36 @@ of BlueprintCore you can call <a class="xref" href="BlueprintCore.Utils.Validato
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Utils_Validator_Check_System_Object__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Uses a combination of Wrath validation logic and custom logic validating that implicit object constraints are
+met. The exact validation run varies by type.
+<ul><li><span class="xref">Kingmaker.ElementsSystem.Element</span> typesVerifies that <span class="xref">Kingmaker.ElementsSystem.Element.name</span> is set.</li><li><span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types<see cref="!:BlueprintComponent.ApplyValidation(ValidationContext)"></see></li><li><span class="xref">Owlcat.QA.Validation.IValidated</span> types<span class="xref">Owlcat.QA.Validation.IValidated.Validate(Owlcat.QA.Validation.ValidationContext,System.Int32)</span></li></ul>
+There are some special cases as well, such as <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.DealStatDamage</span>.
+</p>
+<p>
+Note that you can call this method multiple time for a given Validator instance. All of the errors will be
+bundled into a single error string. This is useful when constructing a several related objects. For example,
+a single BlueprintConfigurator instance stores a single Validator which is used to validate all of its fields,
+components, actions, and conditions.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Validator_GetErrorString.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Validator.GetErrorString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Validator.cs/#L100">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_Validator_GetErrorString_" data-uid="BlueprintCore.Utils.Validator.GetErrorString*"></a>
+  <h4 id="BlueprintCore_Utils_Validator_GetErrorString" data-uid="BlueprintCore.Utils.Validator.GetErrorString">GetErrorString()</h4>
+  <div class="markdown level1 summary"><p>Returns a string listing each validation error on a separate line, or an empty string if there are no errors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetErrorString()</code></pre>
+  </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -136,17 +206,41 @@ of BlueprintCore you can call <a class="xref" href="BlueprintCore.Utils.Validato
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.String</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Utils_Validator_Check_System_Object__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Uses a combination of Wrath validation logic and custom logic validating that implicit object constraints are
-met. The exact validation run varies by type.</p>
-<ul><li><span class="xref">Kingmaker.ElementsSystem.Element</span> typesVerifies that <span class="xref">Kingmaker.ElementsSystem.Element.name</span> is set.</li><li><span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types<see cref="!:BlueprintComponent.ApplyValidation(ValidationContext)"></see></li><li><span class="xref">Owlcat.QA.Validation.IValidated</span> types<span class="xref">Owlcat.QA.Validation.IValidated.Validate(Owlcat.QA.Validation.ValidationContext,System.Int32)</span></li></ul>
-There are some special cases as well, such as <span class="xref">Kingmaker.Designers.EventConditionActionSystem.Actions.DealStatDamage</span>.
-</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Validator_HasErrors.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Validator.HasErrors%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Validator.cs/#L92">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_Validator_HasErrors_" data-uid="BlueprintCore.Utils.Validator.HasErrors*"></a>
+  <h4 id="BlueprintCore_Utils_Validator_HasErrors" data-uid="BlueprintCore.Utils.Validator.HasErrors">HasErrors()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasErrors()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -158,7 +252,7 @@ There are some special cases as well, such as <span class="xref">Kingmaker.Desig
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Validator.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Validator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Validator.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Validator.cs/#L21" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

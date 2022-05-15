@@ -8,7 +8,7 @@
     <title>Adding a Feat </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Adding a Feat ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -114,7 +114,7 @@ public static void Configure()
 </code></pre>
 <p>To add the feat look at the contents of <em>BasicFeatSelection</em>:</p>
 <p><img src="../../images/magical_aptitude/basic_feat_selection.png" alt="Basic feat selection contents"></p>
-<p>Feats are stored in a field called <code>m_AllFeatures</code>. Since the field is an array the configurator should have a method called <code>AddToAllFeatures</code>, but it doesn't exist. As it turns out, <code>BlueprintFeatureSelection</code> has an unused field called <code>m_Features</code>. To resolve the ambiguity between these fields the configurator defines a function <a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.html#BlueprintCore_Blueprints_Configurators_Classes_Selection_FeatureSelectionConfigurator_AddToFeatures_System_String___">AddToFeatures</a> and ignores the <code>m_Features</code> field.</p>
+<p>Feats are stored in a field called <code>m_AllFeatures</code>. Since the field is an array the configurator should have a method called <code>AddToAllFeatures</code>, but it doesn't exist. As it turns out, <code>BlueprintFeatureSelection</code> has an unused field called <code>m_Features</code>. To resolve the ambiguity between these fields the configurator defines a function <a href="xref:BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.AddToFeatures(System.String%5B%5D)">AddToFeatures</a> and ignores the <code>m_Features</code> field.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>You will need to read the game code to figure things out. Pick your choice of <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources#decompilers">decompiler</a> and open up <code>%WrathPath%/Wrath_Data/Managed/Assembly-CSharp.dll</code>.</p>
@@ -212,7 +212,7 @@ public static void Configure()
 </code></pre>
 <p>Everything looks good but there is no mechanical effect. There are several ways a feature can provide a bonus to skill checks. First try using auto-complete to search for a &quot;Skill&quot; component:</p>
 <p><img src="../../images/magical_aptitude/skill_feature_autocomplete.png" alt="Feature autocomplete for Skill"></p>
-<p><a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Facts.BaseUnitFactConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Facts_BaseUnitFactConfigurator_2_AddBuffSkillBonus_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_ModifierDescriptor_System_Int32_">AddBuffSkillBonus</a> looks like a good fit so try it out:</p>
+<p><a href="xref:BlueprintCore.Blueprints.Configurators.Facts.BaseUnitFactConfigurator%602.AddBuffSkillBonus(Kingmaker.EntitySystem.Stats.StatType,Kingmaker.Enums.ModifierDescriptor,System.Int32)">AddBuffSkillBonus</a> looks like a good fit so try it out:</p>
 <pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
     .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
     .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))

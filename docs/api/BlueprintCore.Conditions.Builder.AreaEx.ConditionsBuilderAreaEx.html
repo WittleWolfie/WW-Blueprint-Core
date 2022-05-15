@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ConditionsBuilderAreaEx
    ">
-    <meta name="generator" content="docfx 2.58.9.0">
+    <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,8 +73,7 @@
   
   <h1 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx" class="text-break">Class ConditionsBuilderAreaEx
   </h1>
-  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> for conditions involving the game map, dungeons, or locations. See also
-<a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a>.</p>
+  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> for conditions involving the game map, dungeons, or locations. See also <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -93,11 +92,11 @@
 Conditions are supported using extension methods. Include the extension namespaces as needed.
 </p>
 <p>
-When <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_Build">Build()</a> is called the <span class="xref">Kingmaker.ElementsSystem.ConditionsChecker</span> is constructed, validated, and
+When <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_Build_BlueprintCore_Utils_Validator_">Build(Validator)</a> is called the <span class="xref">Kingmaker.ElementsSystem.ConditionsChecker</span> is constructed, validated, and
 returned. If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
 </p>
 <p>
-Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_Build">Build()</a> twice on the same builder.
+Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_Build_BlueprintCore_Utils_Validator_">Build(Validator)</a> twice on the same builder.
 </p>
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
@@ -142,20 +141,19 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.AreaVisited(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintArea_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.AreaVisited(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Area.BlueprintArea%2CKingmaker.Blueprints.BlueprintAreaReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L58">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L48">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.AreaVisited*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.AreaVisited(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.String,System.Boolean)">AreaVisited(ConditionsBuilder, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">AreaVisited(ConditionsBuilder, String, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintArea_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.AreaVisited(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Area.BlueprintArea,Kingmaker.Blueprints.BlueprintAreaReference},System.Boolean)">AreaVisited(ConditionsBuilder, Blueprint&lt;BlueprintArea, BlueprintAreaReference&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintArea_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean_">AreaVisited(ConditionsBuilder, Blueprint&lt;BlueprintArea, BlueprintAreaReference&gt;, Boolean)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(AreaVisited))]
-public static ConditionsBuilder AreaVisited(this ConditionsBuilder builder, string area = null, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder AreaVisited(this ConditionsBuilder builder, Blueprint&lt;BlueprintArea, BlueprintAreaReference&gt; area = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -173,9 +171,13 @@ public static ConditionsBuilder AreaVisited(this ConditionsBuilder builder, stri
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Area.BlueprintArea</span>, <span class="xref">Kingmaker.Blueprints.BlueprintAreaReference</span>&gt;</td>
         <td><span class="parametername">area</span></td>
-        <td><p><span class="xref">Kingmaker.Blueprints.Area.BlueprintArea</span></p>
+        <td><p>
+Blueprint of type BlueprintArea. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
 </td>
       </tr>
       <tr>
@@ -200,86 +202,24 @@ public static ConditionsBuilder AreaVisited(this ConditionsBuilder builder, stri
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_ContextConditionDungeonStage_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.ContextConditionDungeonStage(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Int32%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L24">View Source</a>
-  </span>
-  <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_ContextConditionDungeonStage_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.ContextConditionDungeonStage*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_ContextConditionDungeonStage_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Int32_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.ContextConditionDungeonStage(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Int32,System.Int32,System.Boolean)">ContextConditionDungeonStage(ConditionsBuilder, Int32, Int32, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_ContextConditionDungeonStage_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Int32_System_Int32_System_Boolean_">ContextConditionDungeonStage(ConditionsBuilder, Int32, Int32, Boolean)</a> (Auto Generated)</p>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintArea_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Answer_00074df71c9b1ab9d174eaf66587e483dc61</li><li>PF-2834490711264d1b034070b86b9b524eb93b19</li><li>YellowPuzzleMechanic7e0ebe7249b75724a836537405e988bb</li></ul>
 </div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(ContextConditionDungeonStage))]
-public static ConditionsBuilder ContextConditionDungeonStage(this ConditionsBuilder builder, int minLevel = 0, int maxLevel = 0, bool negate = false)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">minLevel</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">maxLevel</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">negate</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.CurrentAreaIs(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintArea_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.CurrentAreaIs(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Area.BlueprintArea%2CKingmaker.Blueprints.BlueprintAreaReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L76">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L89">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.CurrentAreaIs*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.CurrentAreaIs(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.String,System.Boolean)">CurrentAreaIs(ConditionsBuilder, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">CurrentAreaIs(ConditionsBuilder, String, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintArea_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.CurrentAreaIs(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Area.BlueprintArea,Kingmaker.Blueprints.BlueprintAreaReference},System.Boolean)">CurrentAreaIs(ConditionsBuilder, Blueprint&lt;BlueprintArea, BlueprintAreaReference&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintArea_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean_">CurrentAreaIs(ConditionsBuilder, Blueprint&lt;BlueprintArea, BlueprintAreaReference&gt;, Boolean)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(CurrentAreaIs))]
-public static ConditionsBuilder CurrentAreaIs(this ConditionsBuilder builder, string area = null, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder CurrentAreaIs(this ConditionsBuilder builder, Blueprint&lt;BlueprintArea, BlueprintAreaReference&gt; area = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -297,9 +237,13 @@ public static ConditionsBuilder CurrentAreaIs(this ConditionsBuilder builder, st
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Area.BlueprintArea</span>, <span class="xref">Kingmaker.Blueprints.BlueprintAreaReference</span>&gt;</td>
         <td><span class="parametername">area</span></td>
-        <td><p><span class="xref">Kingmaker.Blueprints.Area.BlueprintArea</span></p>
+        <td><p>
+Blueprint of type BlueprintArea. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
 </td>
       </tr>
       <tr>
@@ -324,22 +268,24 @@ public static ConditionsBuilder CurrentAreaIs(this ConditionsBuilder builder, st
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintArea_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AeonEyeEnemyVisualBuff9815f77129674e8e886de2d458ecdf49</li><li>Cue_640e8be804be2a4a97b102a3f36d21f240</li><li>WoljifQd79f05dbd35b468fa16312f30d61a5e1</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_InCapital_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.InCapital(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L42">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L115">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_InCapital_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.InCapital*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_InCapital_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.InCapital(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">InCapital(ConditionsBuilder, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_InCapital_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">InCapital(ConditionsBuilder, Boolean)</a> (Auto Generated)</p>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_InCapital_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_">InCapital(ConditionsBuilder, Boolean)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(InCapital))]
-public static ConditionsBuilder InCapital(this ConditionsBuilder builder, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder InCapital(this ConditionsBuilder builder, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -378,22 +324,24 @@ public static ConditionsBuilder InCapital(this ConditionsBuilder builder, bool n
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_InCapital_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Test_Bebilith Blueprint Camping Encounterf2f8355d4bc8aa34195eeb2f5cf66645</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsLootEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsLootEmpty(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.Blueprints.EntityReference%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsLootEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsLootEmpty(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.Blueprints.EntityReference%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L92">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L137">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsLootEmpty_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsLootEmpty*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsLootEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsLootEmpty(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.Blueprints.EntityReference,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean,System.Boolean)">IsLootEmpty(ConditionsBuilder, EntityReference, MapObjectEvaluator, Boolean, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsLootEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_System_Boolean_">IsLootEmpty(ConditionsBuilder, EntityReference, MapObjectEvaluator, Boolean, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsLootEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsLootEmpty(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},Kingmaker.Blueprints.EntityReference,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)">IsLootEmpty(ConditionsBuilder, Nullable&lt;Boolean&gt;, EntityReference, MapObjectEvaluator, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsLootEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">IsLootEmpty(ConditionsBuilder, Nullable&lt;Boolean&gt;, EntityReference, MapObjectEvaluator, Boolean)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(IsLootEmpty))]
-public static ConditionsBuilder IsLootEmpty(this ConditionsBuilder builder, EntityReference lootObject, MapObjectEvaluator mapObject, bool evaluateMapObject = false, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder IsLootEmpty(this ConditionsBuilder builder, bool? evaluateMapObject = null, EntityReference lootObject = null, MapObjectEvaluator mapObject = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -408,6 +356,11 @@ public static ConditionsBuilder IsLootEmpty(this ConditionsBuilder builder, Enti
       <tr>
         <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
         <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">evaluateMapObject</span></td>
         <td></td>
       </tr>
       <tr>
@@ -422,11 +375,6 @@ public static ConditionsBuilder IsLootEmpty(this ConditionsBuilder builder, Enti
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">evaluateMapObject</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">negate</span></td>
         <td></td>
       </tr>
@@ -447,22 +395,24 @@ public static ConditionsBuilder IsLootEmpty(this ConditionsBuilder builder, Enti
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsLootEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CavesShortcutUnlockedd1f433e953409144d914f15597db6e34</li><li>Green_Slot_2_1_IsNotEmptyc7fbd363a489d674cb4a29150b2526e2</li><li>Slot_3_3_IsNotEmpty85c097fd43ebd3940b6ea98b57e6f35e</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsPartyInNaturalSetting_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Enums_GlobalMapZone_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsPartyInNaturalSetting(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.Enums.GlobalMapZone%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsPartyInNaturalSetting_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Nullable_Kingmaker_Enums_GlobalMapZone__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsPartyInNaturalSetting(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CSystem.Nullable%7BKingmaker.Enums.GlobalMapZone%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L115">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L166">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsPartyInNaturalSetting_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsPartyInNaturalSetting*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsPartyInNaturalSetting_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Enums_GlobalMapZone_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsPartyInNaturalSetting(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.Enums.GlobalMapZone,System.Boolean)">IsPartyInNaturalSetting(ConditionsBuilder, GlobalMapZone, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsPartyInNaturalSetting_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Enums_GlobalMapZone_System_Boolean_">IsPartyInNaturalSetting(ConditionsBuilder, GlobalMapZone, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsPartyInNaturalSetting_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Nullable_Kingmaker_Enums_GlobalMapZone__" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.IsPartyInNaturalSetting(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,System.Nullable{Kingmaker.Enums.GlobalMapZone})">IsPartyInNaturalSetting(ConditionsBuilder, Boolean, Nullable&lt;GlobalMapZone&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsPartyInNaturalSetting_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Nullable_Kingmaker_Enums_GlobalMapZone__">IsPartyInNaturalSetting(ConditionsBuilder, Boolean, Nullable&lt;GlobalMapZone&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(IsPartyInNaturalSetting))]
-public static ConditionsBuilder IsPartyInNaturalSetting(this ConditionsBuilder builder, GlobalMapZone setting = GlobalMapZone.None, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder IsPartyInNaturalSetting(this ConditionsBuilder builder, bool negate = false, GlobalMapZone? setting = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -480,15 +430,15 @@ public static ConditionsBuilder IsPartyInNaturalSetting(this ConditionsBuilder b
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Kingmaker.Enums.GlobalMapZone</span></td>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.Enums.GlobalMapZone</span>&gt;</td>
         <td><span class="parametername">setting</span></td>
         <td></td>
       </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">negate</span></td>
-        <td></td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -506,22 +456,24 @@ public static ConditionsBuilder IsPartyInNaturalSetting(this ConditionsBuilder b
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_IsPartyInNaturalSetting_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Nullable_Kingmaker_Enums_GlobalMapZone___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>SE_IngerMaggor40ad6b04835d4c26b4fe62bb267a6143</li><li>SE_RenownExplorerb7204ae38aa346f3a584982fd8486ac2</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_LocationRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.LocationRevealed(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_LocationRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.LocationRevealed(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint%2CKingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L133">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L202">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_LocationRevealed_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.LocationRevealed*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_LocationRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.LocationRevealed(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.String,System.Boolean)">LocationRevealed(ConditionsBuilder, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_LocationRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_String_System_Boolean_">LocationRevealed(ConditionsBuilder, String, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_LocationRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.LocationRevealed(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint,Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference},System.Boolean)">LocationRevealed(ConditionsBuilder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_LocationRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__System_Boolean_">LocationRevealed(ConditionsBuilder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference&gt;, Boolean)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(LocationRevealed))]
-public static ConditionsBuilder LocationRevealed(this ConditionsBuilder builder, string location = null, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder LocationRevealed(this ConditionsBuilder builder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference&gt; location = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -539,9 +491,13 @@ public static ConditionsBuilder LocationRevealed(this ConditionsBuilder builder,
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint</span>, <span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference</span>&gt;</td>
         <td><span class="parametername">location</span></td>
-        <td><p><span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint</span></p>
+        <td><p>
+Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
 </td>
       </tr>
       <tr>
@@ -566,22 +522,24 @@ public static ConditionsBuilder LocationRevealed(this ConditionsBuilder builder,
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_LocationRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-25781449a5027d61ec4ab7886acfb6e1daddea</li><li>RegillNotInParty_KickedOut2b2cfaa1727070c43b10729920112730</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectDestroyed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.MapObjectDestroyed(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L149">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L229">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectDestroyed_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.MapObjectDestroyed*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectDestroyed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.MapObjectDestroyed(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)">MapObjectDestroyed(ConditionsBuilder, MapObjectEvaluator, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectDestroyed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">MapObjectDestroyed(ConditionsBuilder, MapObjectEvaluator, Boolean)</a> (Auto Generated)</p>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectDestroyed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">MapObjectDestroyed(ConditionsBuilder, MapObjectEvaluator, Boolean)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(MapObjectDestroyed))]
-public static ConditionsBuilder MapObjectDestroyed(this ConditionsBuilder builder, MapObjectEvaluator mapObject, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder MapObjectDestroyed(this ConditionsBuilder builder, MapObjectEvaluator mapObject = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -625,22 +583,24 @@ public static ConditionsBuilder MapObjectDestroyed(this ConditionsBuilder builde
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectDestroyed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Graveyard_BushesInCheck7d19a4d9deda414194a450b343eac99f</li><li>Graveyard_BushesOutCheck2f61e729c22a4a59a810466e9db43a6e</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.MapObjectRevealed(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L167">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L254">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectRevealed_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.MapObjectRevealed*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.MapObjectRevealed(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)">MapObjectRevealed(ConditionsBuilder, MapObjectEvaluator, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">MapObjectRevealed(ConditionsBuilder, MapObjectEvaluator, Boolean)</a> (Auto Generated)</p>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">MapObjectRevealed(ConditionsBuilder, MapObjectEvaluator, Boolean)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(MapObjectRevealed))]
-public static ConditionsBuilder MapObjectRevealed(this ConditionsBuilder builder, MapObjectEvaluator mapObject, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder MapObjectRevealed(this ConditionsBuilder builder, MapObjectEvaluator mapObject = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -684,22 +644,24 @@ public static ConditionsBuilder MapObjectRevealed(this ConditionsBuilder builder
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_MapObjectRevealed_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>chap095c4212a36594186b509e87d00d2d480</li><li>TheiflingRevealDoor39a143d61a83c0fd4ea52262ed924ff72</li><li>Thieflings01_TrapReveal5799191689150bff488597bddf7f86c35</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_PartyInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_Designers_EventConditionActionSystem_Conditions_PartyInScriptZone_CheckType_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.PartyInScriptZone(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.Blueprints.EntityReference%2CKingmaker.Designers.EventConditionActionSystem.Conditions.PartyInScriptZone.CheckType%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_PartyInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Conditions_PartyInScriptZone_CheckType__System_Boolean_Kingmaker_Blueprints_EntityReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.PartyInScriptZone(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BKingmaker.Designers.EventConditionActionSystem.Conditions.PartyInScriptZone.CheckType%7D%2CSystem.Boolean%2CKingmaker.Blueprints.EntityReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L185">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L279">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_PartyInScriptZone_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.PartyInScriptZone*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_PartyInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_Designers_EventConditionActionSystem_Conditions_PartyInScriptZone_CheckType_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.PartyInScriptZone(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.Blueprints.EntityReference,Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyInScriptZone.CheckType,System.Boolean)">PartyInScriptZone(ConditionsBuilder, EntityReference, PartyInScriptZone.CheckType, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_PartyInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_Designers_EventConditionActionSystem_Conditions_PartyInScriptZone_CheckType_System_Boolean_">PartyInScriptZone(ConditionsBuilder, EntityReference, PartyInScriptZone.CheckType, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_PartyInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Conditions_PartyInScriptZone_CheckType__System_Boolean_Kingmaker_Blueprints_EntityReference_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.PartyInScriptZone(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyInScriptZone.CheckType},System.Boolean,Kingmaker.Blueprints.EntityReference)">PartyInScriptZone(ConditionsBuilder, Nullable&lt;PartyInScriptZone.CheckType&gt;, Boolean, EntityReference)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_PartyInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Conditions_PartyInScriptZone_CheckType__System_Boolean_Kingmaker_Blueprints_EntityReference_">PartyInScriptZone(ConditionsBuilder, Nullable&lt;PartyInScriptZone.CheckType&gt;, Boolean, EntityReference)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(PartyInScriptZone))]
-public static ConditionsBuilder PartyInScriptZone(this ConditionsBuilder builder, EntityReference scriptZone, PartyInScriptZone.CheckType check = PartyInScriptZone.CheckType.SomeoneInParty, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder PartyInScriptZone(this ConditionsBuilder builder, PartyInScriptZone.CheckType? check = null, bool negate = false, EntityReference scriptZone = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -717,12 +679,7 @@ public static ConditionsBuilder PartyInScriptZone(this ConditionsBuilder builder
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Kingmaker.Blueprints.EntityReference</span></td>
-        <td><span class="parametername">scriptZone</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyInScriptZone.CheckType</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyInScriptZone.CheckType</span>&gt;</td>
         <td><span class="parametername">check</span></td>
         <td></td>
       </tr>
@@ -731,6 +688,11 @@ public static ConditionsBuilder PartyInScriptZone(this ConditionsBuilder builder
         <td><span class="parametername">negate</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.EntityReference</span></td>
+        <td><span class="parametername">scriptZone</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -748,22 +710,24 @@ public static ConditionsBuilder PartyInScriptZone(this ConditionsBuilder builder
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_PartyInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Conditions_PartyInScriptZone_CheckType__System_Boolean_Kingmaker_Blueprints_EntityReference__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DLC1_AxisDungeon_mechanics3507de61854540f9920e6482d7cbb32f</li><li>MediumCity_FlyingIslesControls_Etudefa16edfae00b94048a71bab6ef5463d4</li><li>WatchPoint_SZWall_FoW0f1fdc5a42ea41a4b87da4021e89dabd</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitInScriptZone(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitInScriptZone(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L205">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L310">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitInScriptZone_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitInScriptZone*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitInScriptZone(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Boolean)">UnitInScriptZone(ConditionsBuilder, UnitEvaluator, MapObjectEvaluator, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Boolean_">UnitInScriptZone(ConditionsBuilder, UnitEvaluator, MapObjectEvaluator, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitInScriptZone(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,Kingmaker.ElementsSystem.MapObjectEvaluator,Kingmaker.ElementsSystem.UnitEvaluator)">UnitInScriptZone(ConditionsBuilder, Boolean, MapObjectEvaluator, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_">UnitInScriptZone(ConditionsBuilder, Boolean, MapObjectEvaluator, UnitEvaluator)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(UnitInScriptZone))]
-public static ConditionsBuilder UnitInScriptZone(this ConditionsBuilder builder, UnitEvaluator unit, MapObjectEvaluator scriptZone, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder UnitInScriptZone(this ConditionsBuilder builder, bool negate = false, MapObjectEvaluator scriptZone = null, UnitEvaluator unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -781,8 +745,8 @@ public static ConditionsBuilder UnitInScriptZone(this ConditionsBuilder builder,
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">unit</span></td>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
         <td></td>
       </tr>
       <tr>
@@ -791,8 +755,8 @@ public static ConditionsBuilder UnitInScriptZone(this ConditionsBuilder builder,
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">negate</span></td>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -812,22 +776,27 @@ public static ConditionsBuilder UnitInScriptZone(this ConditionsBuilder builder,
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitInScriptZone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_ElementsSystem_UnitEvaluator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+ComponentName: Condition/UnitInScriptZone
+</p>
+<p><strong></strong></p><ul><li>Answer_0002d38052d00f394118945e8861f00574f5</li><li>Graveyard_BossFight_Drop73c79925eb004918ba9e09e4146f2c71</li><li>TrueLootHideZone9168ca19a2ced8d448a9944c2f0f01d72</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInAreaPart_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInAreaPart(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInAreaPart_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintAreaPart_Kingmaker_Blueprints_BlueprintAreaPartReference__System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInAreaPart(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Area.BlueprintAreaPart%2CKingmaker.Blueprints.BlueprintAreaPartReference%7D%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L228">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L351">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInAreaPart_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInAreaPart*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInAreaPart_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInAreaPart(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.String,System.Boolean)">UnitIsInAreaPart(ConditionsBuilder, UnitEvaluator, String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInAreaPart_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_String_System_Boolean_">UnitIsInAreaPart(ConditionsBuilder, UnitEvaluator, String, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInAreaPart_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintAreaPart_Kingmaker_Blueprints_BlueprintAreaPartReference__System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInAreaPart(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Area.BlueprintAreaPart,Kingmaker.Blueprints.BlueprintAreaPartReference},System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitIsInAreaPart(ConditionsBuilder, Blueprint&lt;BlueprintAreaPart, BlueprintAreaPartReference&gt;, Boolean, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInAreaPart_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintAreaPart_Kingmaker_Blueprints_BlueprintAreaPartReference__System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_">UnitIsInAreaPart(ConditionsBuilder, Blueprint&lt;BlueprintAreaPart, BlueprintAreaPartReference&gt;, Boolean, UnitEvaluator)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(UnitIsInAreaPart))]
-public static ConditionsBuilder UnitIsInAreaPart(this ConditionsBuilder builder, UnitEvaluator unit, string areaPart = null, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder UnitIsInAreaPart(this ConditionsBuilder builder, Blueprint&lt;BlueprintAreaPart, BlueprintAreaPartReference&gt; areaPart = null, bool negate = false, UnitEvaluator unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -845,14 +814,13 @@ public static ConditionsBuilder UnitIsInAreaPart(this ConditionsBuilder builder,
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">unit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Area.BlueprintAreaPart</span>, <span class="xref">Kingmaker.Blueprints.BlueprintAreaPartReference</span>&gt;</td>
         <td><span class="parametername">areaPart</span></td>
-        <td><p><span class="xref">Kingmaker.Blueprints.Area.BlueprintAreaPart</span></p>
+        <td><p>
+Blueprint of type BlueprintAreaPart. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+</p>
 </td>
       </tr>
       <tr>
@@ -860,6 +828,11 @@ public static ConditionsBuilder UnitIsInAreaPart(this ConditionsBuilder builder,
         <td><span class="parametername">negate</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">unit</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -877,22 +850,24 @@ public static ConditionsBuilder UnitIsInAreaPart(this ConditionsBuilder builder,
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInAreaPart_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Area_BlueprintAreaPart_Kingmaker_Blueprints_BlueprintAreaPartReference__System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AeonEyeEnemyVisualBuff9815f77129674e8e886de2d458ecdf49</li><li>CommandMoveUnit3dfa1abb2ed114f65bc42a31d2b6a71f5</li><li>Venduag_Q2_interlude_spawnConditions7d2e7755a041e0241ad6babe959f8454</li></ul>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInFogOfWar_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInFogOfWar(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInFogOfWar_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInFogOfWar(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L248">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L384">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInFogOfWar_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInFogOfWar*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInFogOfWar_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInFogOfWar(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean)">UnitIsInFogOfWar(ConditionsBuilder, UnitEvaluator, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInFogOfWar_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_">UnitIsInFogOfWar(ConditionsBuilder, UnitEvaluator, Boolean)</a> (Auto Generated)</p>
+  <h4 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInFogOfWar_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.UnitIsInFogOfWar(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitIsInFogOfWar(ConditionsBuilder, Boolean, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInFogOfWar_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_">UnitIsInFogOfWar(ConditionsBuilder, Boolean, UnitEvaluator)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Implements(typeof(UnitIsInFogOfWar))]
-public static ConditionsBuilder UnitIsInFogOfWar(this ConditionsBuilder builder, UnitEvaluator target, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder UnitIsInFogOfWar(this ConditionsBuilder builder, bool negate = false, UnitEvaluator target = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -910,13 +885,13 @@ public static ConditionsBuilder UnitIsInFogOfWar(this ConditionsBuilder builder,
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
-        <td><span class="parametername">target</span></td>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">negate</span></td>
+        <td><span class="xref">Kingmaker.ElementsSystem.UnitEvaluator</span></td>
+        <td><span class="parametername">target</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -936,6 +911,12 @@ public static ConditionsBuilder UnitIsInFogOfWar(this ConditionsBuilder builder,
       </tr>
     </tbody>
   </table>
+  <h5 id="BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_UnitIsInFogOfWar_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+ComponentName: Condition/UnitIsInFogOfWar
+</p>
+<p><strong></strong></p><ul><li>PeacefullUnitsInCombatStatedff0fbdbd83672e429df0dc14b0db79e</li></ul>
+</div>
 </article>
           </div>
           
@@ -947,7 +928,7 @@ public static ConditionsBuilder UnitIsInFogOfWar(this ConditionsBuilder builder,
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L17" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/AreaEx/ConditionsBuilderAreaEx.cs/#L19" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

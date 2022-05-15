@@ -1,0 +1,2101 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BaseAnswerConfigurator&lt;T, TBuilder&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BaseAnswerConfigurator&lt;T, TBuilder&gt;
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2" class="text-break">Class BaseAnswerConfigurator&lt;T, TBuilder&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Implements common fields and components for blueprints inheriting from <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer</span>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html">RootConfigurator</a>&lt;T, TBuilder&gt;</div>
+    <div class="level2"><a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html">BaseBlueprintConfigurator</a>&lt;T, TBuilder&gt;</div>
+    <div class="level3"><a class="xref" href="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerBaseConfigurator-2.html">BaseAnswerBaseConfigurator</a>&lt;T, TBuilder&gt;</div>
+    <div class="level4"><span class="xref">BaseAnswerConfigurator&lt;T, TBuilder&gt;</span></div>
+      <div class="level5"><a class="xref" href="BlueprintCore.Blueprints.Configurators.DialogSystem.AnswerConfigurator.html">AnswerConfigurator</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerBaseConfigurator-2.html#BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerBaseConfigurator_2_SetMythicRequirement_Kingmaker_DialogSystem_Blueprints_Mythic_">BaseAnswerBaseConfigurator&lt;T, TBuilder&gt;.SetMythicRequirement(Mythic)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerBaseConfigurator-2.html#BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerBaseConfigurator_2_ModifyMythicRequirement_System_Action_Kingmaker_DialogSystem_Blueprints_Mythic__">BaseAnswerBaseConfigurator&lt;T, TBuilder&gt;.ModifyMythicRequirement(Action&lt;Mythic&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerBaseConfigurator-2.html#BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerBaseConfigurator_2_SetAlignmentRequirement_Kingmaker_Enums_AlignmentComponent_">BaseAnswerBaseConfigurator&lt;T, TBuilder&gt;.SetAlignmentRequirement(AlignmentComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerBaseConfigurator-2.html#BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerBaseConfigurator_2_ModifyAlignmentRequirement_System_Action_Kingmaker_Enums_AlignmentComponent__">BaseAnswerBaseConfigurator&lt;T, TBuilder&gt;.ModifyAlignmentRequirement(Action&lt;AlignmentComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_BlueprintCore_Utils_Blueprint_Kingmaker_DLC_BlueprintDlcReward_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDlcCondition(Blueprint&lt;BlueprintDlcReward, BlueprintDlcRewardReference&gt;, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddBuffOnCorruptionClear_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Nullable_System_Int32__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddBuffOnCorruptionClear(Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt;, Nullable&lt;Int32&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPlayerLeaveCombatTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddPlayerLeaveCombatTrigger(ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddInitiatorAttackRollTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Enums_WeaponCategory__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddInitiatorAttackRollTrigger(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponCategory&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddInitiatorAttackWithWeaponTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Enums_WeaponCategory__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Utility_Feet__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Blueprints_Items_Weapons_WeaponFighterGroup__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Enums_WeaponRangeType__System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_Weapons_BlueprintWeaponType_Kingmaker_Blueprints_BlueprintWeaponTypeReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddInitiatorAttackWithWeaponTrigger(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponCategory&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Feet&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponFighterGroup&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponRangeType&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintWeaponType, BlueprintWeaponTypeReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTargetAttackRollTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_Enums_WeaponCategory___System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddTargetAttackRollTrigger(ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;, WeaponCategory[], Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTargetBeforeAttackRollTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Blueprints_Classes_Spells_SpellDescriptorWrapper__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddTargetBeforeAttackRollTrigger(ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;SpellDescriptorWrapper&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AdditionalDiceOnAttack_System_Nullable_System_Boolean__System_Nullable_Kingmaker_UnitLogic_Mechanics_Components_AdditionalDiceOnAttack_WeaponOptions__System_Nullable_Kingmaker_Enums_WeaponCategory__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_List_Kingmaker_UnitLogic_Mechanics_Components_AdditionalDiceOnAttack_DamageEntry__Kingmaker_RuleSystem_Rules_Damage_DamageTypeDescription_System_Nullable_Kingmaker_Utility_Feet__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Blueprints_Items_Weapons_WeaponFighterGroup__BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Enums_WeaponRangeType__System_Nullable_System_Boolean__BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextDiceValue_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_Weapons_BlueprintWeaponType_Kingmaker_Blueprints_BlueprintWeaponTypeReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AdditionalDiceOnAttack(Nullable&lt;Boolean&gt;, Nullable&lt;AdditionalDiceOnAttack.WeaponOptions&gt;, Nullable&lt;WeaponCategory&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, List&lt;AdditionalDiceOnAttack.DamageEntry&gt;, DamageTypeDescription, Nullable&lt;Feet&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponFighterGroup&gt;, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;WeaponRangeType&gt;, Nullable&lt;Boolean&gt;, ConditionsBuilder, ContextDiceValue, Blueprint&lt;BlueprintWeaponType, BlueprintWeaponTypeReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AdditionalStatBonusOnAttackDamage_System_Nullable_System_Single__System_Nullable_Kingmaker_Enums_WeaponCategory__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Designers_Mechanics_Enums_ConditionEnum__System_Nullable_Kingmaker_Designers_Mechanics_Enums_ConditionEnum__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AdditionalStatBonusOnAttackDamage(Nullable&lt;Single&gt;, Nullable&lt;WeaponCategory&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;ConditionEnum&gt;, Nullable&lt;ConditionEnum&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddAllAttacksEnhancement_System_Nullable_System_Int32__System_Nullable_Kingmaker_Enums_ModifierDescriptor__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddAllAttacksEnhancement(Nullable&lt;Int32&gt;, Nullable&lt;ModifierDescriptor&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddBashingFinish_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddBashingFinish(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDestructiveShockwave_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDestructiveShockwave(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddShieldMaster_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddShieldMaster(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddArmyBattleResultsTrigger_System_Nullable_Kingmaker_Kingdom_Blueprints_RegionId__BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_Blueprints_BlueprintArmyPreset_Kingmaker_Blueprints_BlueprintArmyPresetReference___System_Nullable_Kingmaker_Armies_Blueprints_ArmyType__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddArmyBattleResultsTrigger(Nullable&lt;RegionId&gt;, Blueprint&lt;BlueprintArmyLeader, BlueprintArmyLeaderReference&gt;, List&lt;Blueprint&lt;BlueprintArmyPreset, BlueprintArmyPresetReference&gt;&gt;, Nullable&lt;ArmyType&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddKingdomRegionClaimedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintRegion_Kingmaker_Blueprints_BlueprintRegionReference___">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddKingdomRegionClaimedTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, List&lt;Blueprint&lt;BlueprintRegion, BlueprintRegionReference&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSettlementSiegeTrigger_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Blueprints_BlueprintGlobalMapPointReference__System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSettlementSiegeTrigger(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder, ActionsBuilder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference&gt;, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddArmyUnitRecruitedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_Armies_Components_ArmyProperties__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference___System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_Kingmaker_Kingdom_Armies_MercenariesIncludeOption__System_Nullable_System_Int32__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddArmyUnitRecruitedTrigger(ActionsBuilder, Nullable&lt;ArmyProperties&gt;, List&lt;Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;MercenariesIncludeOption&gt;, Nullable&lt;Int32&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddLeaderRecruitedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddLeaderRecruitedTrigger(ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSummonUnitsAfterArmyBattle_Kingmaker_Kingdom_Buffs_SummonUnitsAfterArmyBattle_SummonGroup___">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSummonUnitsAfterArmyBattle(SummonUnitsAfterArmyBattle.SummonGroup[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddGarrisonDefeatedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddGarrisonDefeatedTrigger(ActionsBuilder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPlayerVisitGlobalMapLocationTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddPlayerVisitGlobalMapLocationTrigger(ActionsBuilder, Blueprint&lt;BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddOnIsleStateEnterTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddOnIsleStateEnterTrigger(ActionsBuilder, IsleEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddOnIsleStateExitTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IsleEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddOnIsleStateExitTrigger(ActionsBuilder, IsleEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddActivateTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddActivateTrigger(ActionsBuilder, Nullable&lt;Boolean&gt;, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddAreaDidLoadTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddAreaDidLoadTrigger(ActionsBuilder, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDeactivateTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDeactivateTrigger(ActionsBuilder, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDeviceInteractionTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDeviceInteractionTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitCombatTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddEvaluatedUnitCombatTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitDeathTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddEvaluatedUnitDeathTrigger(ActionsBuilder, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddEvaluatedUnitHealthTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__System_Nullable_System_Int32__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddEvaluatedUnitHealthTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddGenericInteractionTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddGenericInteractionTrigger(ActionsBuilder, EntityReference, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddItemInContainerTrigger_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__Kingmaker_ElementsSystem_MapObjectEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddItemInContainerTrigger(Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, MapObjectEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddLevelUpTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddLevelUpTrigger(ActionsBuilder, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPartyInventoryTrigger_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddPartyInventoryTrigger(Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddPerceptionTrigger_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddPerceptionTrigger(MapObjectEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, UnitEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddRestTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_Kingmaker_Controllers_Rest_RestResult__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddRestTrigger(ActionsBuilder, ConditionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;RestResult&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddScriptZoneTrigger_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_EntityReference_System_String_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddScriptZoneTrigger(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ConditionsBuilder, ActionsBuilder, ConditionsBuilder, EntityReference, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSpawnUnitTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSpawnUnitTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSpellCastTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Blueprints_EntityReference_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference___">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSpellCastTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, EntityReference, List&lt;Blueprint&lt;BlueprintAbility, BlueprintAbilityReference&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddSummonPoolTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Events_SummonPoolTrigger_ChangeTypes__BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPool_Kingmaker_Blueprints_BlueprintSummonPoolReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddSummonPoolTrigger(ActionsBuilder, Nullable&lt;SummonPoolTrigger.ChangeTypes&gt;, ConditionsBuilder, Nullable&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintSummonPool, BlueprintSummonPoolReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTimeOfDayChangedTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddTimeOfDayChangedTrigger(ActionsBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUIEventTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_PubSubSystem_UIEventType__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddUIEventTrigger(ActionsBuilder, ConditionsBuilder, Nullable&lt;UIEventType&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddUnitHealthTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddUnitHealthTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Int32&gt;, Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddTrapTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddTrapTrigger(ActionsBuilder, ActionsBuilder, MapObjectEvaluator)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Logger">RootConfigurator&lt;T, TBuilder&gt;.Logger</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Self">RootConfigurator&lt;T, TBuilder&gt;.Self</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Blueprint">RootConfigurator&lt;T, TBuilder&gt;.Blueprint</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">RootConfigurator&lt;T, TBuilder&gt;.Configure()</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">RootConfigurator&lt;T, TBuilder&gt;.AddComponent(BlueprintComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddComponent__1_System_Action___0__">RootConfigurator&lt;T, TBuilder&gt;.AddComponent&lt;C&gt;(Action&lt;C&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">RootConfigurator&lt;T, TBuilder&gt;.AddUniqueComponent(BlueprintComponent, ComponentMerge, Action&lt;BlueprintComponent, BlueprintComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_EditComponent__1_System_Action___0__">RootConfigurator&lt;T, TBuilder&gt;.EditComponent&lt;C&gt;(Action&lt;C&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">RootConfigurator&lt;T, TBuilder&gt;.RemoveComponents(Func&lt;BlueprintComponent, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigure_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigure(Action&lt;T&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Configurators.DialogSystem.html">BlueprintCore.Blueprints.Configurators.DialogSystem</a></h6>
+  <h6><strong>Assembly</strong>: BlueprintCore.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BaseAnswerConfigurator&lt;T, TBuilder&gt; : BaseAnswerBaseConfigurator&lt;T, TBuilder&gt; where T : BlueprintAnswer where TBuilder : BaseAnswerConfigurator&lt;T, TBuilder&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Implementation is based on the
+<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+</p>
+<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
+    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
+    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
+</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p>
+Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
+exposes methods for component types supported by that blueprint. This relies on manual tuning and type
+attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
+component types.
+</p>
+<p>
+See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
+for more information on component and blueprint type safety.
+</p>
+</td></tr><tr><td>Validation</td><td>
+<p>
+When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
+which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
+complicated configuration problems such as
+<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
+usage.
+</p>
+<p>
+Validation uses a combination of code from the game library and manually tuned logic. See
+<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
+</p>
+</td></tr><tr><td>Builder Style API</td><td>
+<p>
+The API is designed to minimize boilerplate required to modify blueprints and create components.
+Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
+</p>
+<p>
+Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
+configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
+</p>
+</td></tr></tbody></table>
+TODO: Update the example
+<example>
+Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
+<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
+var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
+var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
+var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
+var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
+var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
+<p>// Register the names
+BlueprintTool.AddGuidsByName(
+(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
+(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
+(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
+// New blueprints and guids
+(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
+(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
+(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
+<p>// Load the icons and strings (not provided by library)
+var skaldsVigorIcon = LoadSkaldsVigorIcon();
+var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
+var skaldsVigorName = LoadSkaldsVigorName();
+var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
+var skaldsVigorDescription = LoadSkaldsVigorDescription();
+var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
+<p>// Create the buff
+BuffConfigurator.New(skaldsVigorBuff)
+.ContextRankConfig(
+// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
+ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
+// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
+// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
+.FastHealing(1, bonusValue: ContextValues.Rank())
+.Configure();</p>
+<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
+// Rage is active.
+var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
+BuffConfigurator.For(inspiredRageBuff)
+.FactContextActions(
+onActivated:
+ActionsBuilder.New()
+// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
+// the feat.
+.Conditional(
+ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
+ifTrue: applyBuff)
+// For characters other than the caster, Skald's Vigor is only applied if the caster has the
+// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
+// buffs do not stack so it has no effect.
+.Conditional(
+ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
+onDeactivated:
+// Removes Skald's Vigor when Inspired Rage ends.
+// There is actually a bug with this implementation; Lingering Song will extend the duration of
+// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
+ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
+.Configure();</code></pre>
+</example><p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L27">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.#ctor*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseAnswerConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BaseAnswerConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt; blueprint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;T, <span class="xref">Kingmaker.Blueprints.BlueprintReference</span>&lt;T&gt;&gt;</td>
+        <td><span class="parametername">blueprint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_AddToFakeChecks_Kingmaker_DialogSystem_CheckData___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.AddToFakeChecks(Kingmaker.DialogSystem.CheckData%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L407">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_AddToFakeChecks_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.AddToFakeChecks*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_AddToFakeChecks_Kingmaker_DialogSystem_CheckData___" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.AddToFakeChecks(Kingmaker.DialogSystem.CheckData[])">AddToFakeChecks(CheckData[])</h4>
+  <div class="markdown level1 summary"><p>Adds to the contents of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.FakeChecks</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddToFakeChecks(params CheckData[] fakeChecks)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.DialogSystem.CheckData</span>[]</td>
+        <td><span class="parametername">fakeChecks</span></td>
+        <td><p>
+Tooltip: Show this check on answer in dialog interface. Instead of check calculated from BlueprintCheck node.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ClearFakeChecks.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ClearFakeChecks%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L464">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ClearFakeChecks_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ClearFakeChecks*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ClearFakeChecks" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ClearFakeChecks">ClearFakeChecks()</h4>
+  <div class="markdown level1 summary"><p>Removes all elements from <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.FakeChecks</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ClearFakeChecks()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyAddToHistory_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyAddToHistory(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L341">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyAddToHistory_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyAddToHistory*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyAddToHistory_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyAddToHistory(System.Action{System.Boolean})">ModifyAddToHistory(Action&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.AddToHistory</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyAddToHistory(Action&lt;bool&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyAlignmentShift_System_Action_Kingmaker_UnitLogic_Alignments_AlignmentShift__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyAlignmentShift(System.Action%7BKingmaker.UnitLogic.Alignments.AlignmentShift%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L508">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyAlignmentShift_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyAlignmentShift*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyAlignmentShift_System_Action_Kingmaker_UnitLogic_Alignments_AlignmentShift__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyAlignmentShift(System.Action{Kingmaker.UnitLogic.Alignments.AlignmentShift})">ModifyAlignmentShift(Action&lt;AlignmentShift&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.AlignmentShift</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyAlignmentShift(Action&lt;AlignmentShift&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.UnitLogic.Alignments.AlignmentShift</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyCharacterSelection_System_Action_Kingmaker_DialogSystem_CharacterSelection__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyCharacterSelection(System.Action%7BKingmaker.DialogSystem.CharacterSelection%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L222">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyCharacterSelection_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyCharacterSelection*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyCharacterSelection_System_Action_Kingmaker_DialogSystem_CharacterSelection__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyCharacterSelection(System.Action{Kingmaker.DialogSystem.CharacterSelection})">ModifyCharacterSelection(Action&lt;CharacterSelection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.CharacterSelection</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyCharacterSelection(Action&lt;CharacterSelection&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.DialogSystem.CharacterSelection</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyDebugMode_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyDebugMode(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L197">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyDebugMode_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyDebugMode*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyDebugMode_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyDebugMode(System.Action{System.Boolean})">ModifyDebugMode(Action&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.DebugMode</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyDebugMode(Action&lt;bool&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyExperience_System_Action_Kingmaker_DialogSystem_DialogExperience__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyExperience(System.Action%7BKingmaker.DialogSystem.DialogExperience%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L173">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyExperience_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyExperience*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyExperience_System_Action_Kingmaker_DialogSystem_DialogExperience__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyExperience(System.Action{Kingmaker.DialogSystem.DialogExperience})">ModifyExperience(Action&lt;DialogExperience&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.Experience</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyExperience(Action&lt;DialogExperience&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.DialogSystem.DialogExperience</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyFakeChecks_System_Action_Kingmaker_DialogSystem_CheckData__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyFakeChecks(System.Action%7BKingmaker.DialogSystem.CheckData%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L482">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyFakeChecks_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyFakeChecks*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyFakeChecks_System_Action_Kingmaker_DialogSystem_CheckData__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyFakeChecks(System.Action{Kingmaker.DialogSystem.CheckData})">ModifyFakeChecks(Action&lt;CheckData&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.FakeChecks</span> by invoking the provided action on each element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyFakeChecks(Action&lt;CheckData&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.DialogSystem.CheckData</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyNextCue_System_Action_Kingmaker_DialogSystem_CueSelection__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyNextCue(System.Action%7BKingmaker.DialogSystem.CueSelection%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L74">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyNextCue_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyNextCue*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyNextCue_System_Action_Kingmaker_DialogSystem_CueSelection__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyNextCue(System.Action{Kingmaker.DialogSystem.CueSelection})">ModifyNextCue(Action&lt;CueSelection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.NextCue</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyNextCue(Action&lt;CueSelection&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.DialogSystem.CueSelection</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyOnSelect_System_Action_Kingmaker_ElementsSystem_ActionList__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyOnSelect(System.Action%7BKingmaker.ElementsSystem.ActionList%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L369">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyOnSelect_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyOnSelect*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyOnSelect_System_Action_Kingmaker_ElementsSystem_ActionList__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyOnSelect(System.Action{Kingmaker.ElementsSystem.ActionList})">ModifyOnSelect(Action&lt;ActionList&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.OnSelect</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyOnSelect(Action&lt;ActionList&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.ElementsSystem.ActionList</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyRequireValidCue_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyRequireValidCue(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L317">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyRequireValidCue_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyRequireValidCue*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyRequireValidCue_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyRequireValidCue(System.Action{System.Boolean})">ModifyRequireValidCue(Action&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.RequireValidCue</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyRequireValidCue(Action&lt;bool&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifySelectConditions_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifySelectConditions(System.Action%7BKingmaker.ElementsSystem.ConditionsChecker%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L280">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifySelectConditions_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifySelectConditions*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifySelectConditions_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifySelectConditions(System.Action{Kingmaker.ElementsSystem.ConditionsChecker})">ModifySelectConditions(Action&lt;ConditionsChecker&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.SelectConditions</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifySelectConditions(Action&lt;ConditionsChecker&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.ElementsSystem.ConditionsChecker</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowCheck_System_Action_Kingmaker_DialogSystem_Blueprints_ShowCheck__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyShowCheck(System.Action%7BKingmaker.DialogSystem.Blueprints.ShowCheck%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L148">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowCheck_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyShowCheck*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowCheck_System_Action_Kingmaker_DialogSystem_Blueprints_ShowCheck__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyShowCheck(System.Action{Kingmaker.DialogSystem.Blueprints.ShowCheck})">ModifyShowCheck(Action&lt;ShowCheck&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.ShowCheck</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyShowCheck(Action&lt;ShowCheck&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.DialogSystem.Blueprints.ShowCheck</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowConditions_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyShowConditions(System.Action%7BKingmaker.ElementsSystem.ConditionsChecker%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L251">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowConditions_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyShowConditions*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowConditions_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyShowConditions(System.Action{Kingmaker.ElementsSystem.ConditionsChecker})">ModifyShowConditions(Action&lt;ConditionsChecker&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.ShowConditions</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyShowConditions(Action&lt;ConditionsChecker&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.ElementsSystem.ConditionsChecker</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowOnce_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyShowOnce(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L99">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowOnce_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyShowOnce*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowOnce_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyShowOnce(System.Action{System.Boolean})">ModifyShowOnce(Action&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.ShowOnce</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyShowOnce(Action&lt;bool&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowOnceCurrentDialog_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyShowOnceCurrentDialog(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L123">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowOnceCurrentDialog_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyShowOnceCurrentDialog*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyShowOnceCurrentDialog_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyShowOnceCurrentDialog(System.Action{System.Boolean})">ModifyShowOnceCurrentDialog(Action&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.ShowOnceCurrentDialog</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyShowOnceCurrentDialog(Action&lt;bool&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyText_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.ModifyText(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L48">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyText_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyText*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_ModifyText_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.ModifyText(System.Action{Kingmaker.Localization.LocalizedString})">ModifyText(Action&lt;LocalizedString&gt;)</h4>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.Text</span> by invoking the provided action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder ModifyText(Action&lt;LocalizedString&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Localization.LocalizedString</span>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_RemoveFromFakeChecks_Kingmaker_DialogSystem_CheckData___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.RemoveFromFakeChecks(Kingmaker.DialogSystem.CheckData%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L426">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_RemoveFromFakeChecks_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.RemoveFromFakeChecks*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_RemoveFromFakeChecks_Kingmaker_DialogSystem_CheckData___" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.RemoveFromFakeChecks(Kingmaker.DialogSystem.CheckData[])">RemoveFromFakeChecks(CheckData[])</h4>
+  <div class="markdown level1 summary"><p>Removes elements from <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.FakeChecks</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder RemoveFromFakeChecks(params CheckData[] fakeChecks)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.DialogSystem.CheckData</span>[]</td>
+        <td><span class="parametername">fakeChecks</span></td>
+        <td><p>
+Tooltip: Show this check on answer in dialog interface. Instead of check calculated from BlueprintCheck node.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_RemoveFromFakeChecks_System_Func_Kingmaker_DialogSystem_CheckData_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.RemoveFromFakeChecks(System.Func%7BKingmaker.DialogSystem.CheckData%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L445">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_RemoveFromFakeChecks_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.RemoveFromFakeChecks*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_RemoveFromFakeChecks_System_Func_Kingmaker_DialogSystem_CheckData_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.RemoveFromFakeChecks(System.Func{Kingmaker.DialogSystem.CheckData,System.Boolean})">RemoveFromFakeChecks(Func&lt;CheckData, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Removes elements from <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.FakeChecks</span> that match the provided predicate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder RemoveFromFakeChecks(Func&lt;CheckData, bool&gt; predicate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">Kingmaker.DialogSystem.CheckData</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetAddToHistory_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetAddToHistory(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L329">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetAddToHistory_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetAddToHistory*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetAddToHistory_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetAddToHistory(System.Boolean)">SetAddToHistory(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.AddToHistory</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetAddToHistory(bool addToHistory = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">addToHistory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetAlignmentShift_Kingmaker_UnitLogic_Alignments_AlignmentShift_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetAlignmentShift(Kingmaker.UnitLogic.Alignments.AlignmentShift)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L495">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetAlignmentShift_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetAlignmentShift*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetAlignmentShift_Kingmaker_UnitLogic_Alignments_AlignmentShift_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetAlignmentShift(Kingmaker.UnitLogic.Alignments.AlignmentShift)">SetAlignmentShift(AlignmentShift)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.AlignmentShift</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetAlignmentShift(AlignmentShift alignmentShift)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Alignments.AlignmentShift</span></td>
+        <td><span class="parametername">alignmentShift</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetCharacterSelection_Kingmaker_DialogSystem_CharacterSelection_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetCharacterSelection(Kingmaker.DialogSystem.CharacterSelection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L209">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetCharacterSelection_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetCharacterSelection*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetCharacterSelection_Kingmaker_DialogSystem_CharacterSelection_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetCharacterSelection(Kingmaker.DialogSystem.CharacterSelection)">SetCharacterSelection(CharacterSelection)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.CharacterSelection</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetCharacterSelection(CharacterSelection characterSelection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.DialogSystem.CharacterSelection</span></td>
+        <td><span class="parametername">characterSelection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetDebugMode_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetDebugMode(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L185">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetDebugMode_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetDebugMode*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetDebugMode_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetDebugMode(System.Boolean)">SetDebugMode(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.DebugMode</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetDebugMode(bool debugMode = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">debugMode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetExperience_Kingmaker_DialogSystem_DialogExperience_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetExperience(Kingmaker.DialogSystem.DialogExperience)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L161">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetExperience_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetExperience*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetExperience_Kingmaker_DialogSystem_DialogExperience_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetExperience(Kingmaker.DialogSystem.DialogExperience)">SetExperience(DialogExperience)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.Experience</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetExperience(DialogExperience experience)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.DialogSystem.DialogExperience</span></td>
+        <td><span class="parametername">experience</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetFakeChecks_Kingmaker_DialogSystem_CheckData___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetFakeChecks(Kingmaker.DialogSystem.CheckData%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L388">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetFakeChecks_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetFakeChecks*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetFakeChecks_Kingmaker_DialogSystem_CheckData___" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetFakeChecks(Kingmaker.DialogSystem.CheckData[])">SetFakeChecks(CheckData[])</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.FakeChecks</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetFakeChecks(CheckData[] fakeChecks)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.DialogSystem.CheckData</span>[]</td>
+        <td><span class="parametername">fakeChecks</span></td>
+        <td><p>
+Tooltip: Show this check on answer in dialog interface. Instead of check calculated from BlueprintCheck node.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetNextCue_Kingmaker_DialogSystem_CueSelection_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetNextCue(Kingmaker.DialogSystem.CueSelection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L61">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetNextCue_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetNextCue*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetNextCue_Kingmaker_DialogSystem_CueSelection_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetNextCue(Kingmaker.DialogSystem.CueSelection)">SetNextCue(CueSelection)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.NextCue</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetNextCue(CueSelection nextCue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.DialogSystem.CueSelection</span></td>
+        <td><span class="parametername">nextCue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetOnSelect_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetOnSelect(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L353">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetOnSelect_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetOnSelect*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetOnSelect_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetOnSelect(BlueprintCore.Actions.Builder.ActionsBuilder)">SetOnSelect(ActionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.OnSelect</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetOnSelect(ActionsBuilder onSelect)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">onSelect</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetRequireValidCue_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetRequireValidCue(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L299">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetRequireValidCue_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetRequireValidCue*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetRequireValidCue_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetRequireValidCue(System.Boolean)">SetRequireValidCue(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.RequireValidCue</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetRequireValidCue(bool requireValidCue = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">requireValidCue</span></td>
+        <td><p>
+Tooltip: Show this answer only if it is followed by a valid cue.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetSelectConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetSelectConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L264">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetSelectConditions_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetSelectConditions*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetSelectConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetSelectConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder)">SetSelectConditions(ConditionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.SelectConditions</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetSelectConditions(ConditionsBuilder selectConditions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td><span class="parametername">selectConditions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowCheck_Kingmaker_DialogSystem_Blueprints_ShowCheck_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetShowCheck(Kingmaker.DialogSystem.Blueprints.ShowCheck)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L135">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowCheck_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetShowCheck*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowCheck_Kingmaker_DialogSystem_Blueprints_ShowCheck_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetShowCheck(Kingmaker.DialogSystem.Blueprints.ShowCheck)">SetShowCheck(ShowCheck)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.ShowCheck</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetShowCheck(ShowCheck showCheck)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.DialogSystem.Blueprints.ShowCheck</span></td>
+        <td><span class="parametername">showCheck</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetShowConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L235">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowConditions_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetShowConditions*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetShowConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder)">SetShowConditions(ConditionsBuilder)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.ShowConditions</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetShowConditions(ConditionsBuilder showConditions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td><span class="parametername">showConditions</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowOnce_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetShowOnce(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L87">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowOnce_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetShowOnce*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowOnce_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetShowOnce(System.Boolean)">SetShowOnce(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.ShowOnce</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetShowOnce(bool showOnce = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">showOnce</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowOnceCurrentDialog_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetShowOnceCurrentDialog(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L111">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowOnceCurrentDialog_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetShowOnceCurrentDialog*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetShowOnceCurrentDialog_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetShowOnceCurrentDialog(System.Boolean)">SetShowOnceCurrentDialog(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.ShowOnceCurrentDialog</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetShowOnceCurrentDialog(bool showOnceCurrentDialog = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">showOnceCurrentDialog</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetText_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602.SetText(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L32">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetText_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetText*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2_SetText_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator`2.SetText(Kingmaker.Localization.LocalizedString)">SetText(LocalizedString)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintAnswer.Text</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder SetText(LocalizedString text)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><span class="parametername">text</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseAnswerConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseAnswerConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseAnswer.cs/#L22" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
