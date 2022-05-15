@@ -69,7 +69,7 @@
     "TypeName": "ContextRankConfig",
     "Replace": "true",
     "Remarks": [
-      "Use <see cref=\"ContextRankConfigs\"/> to create the ContextRankConfig component."
+      "Use <see cref=\"Components.ContextRankConfigs\"/> to create the ContextRankConfig component."
     ]
   },
 
