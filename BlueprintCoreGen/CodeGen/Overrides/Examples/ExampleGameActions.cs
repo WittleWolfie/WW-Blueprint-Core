@@ -1702,7 +1702,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
-          typeof(RemoveFact),
+          typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveFact),
           new()
           {
             new Blueprint("AutoAggroBuff_SpawnActions", "68073f3e7d394c56961c6143b20ff8d8"),
@@ -1946,7 +1946,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
-          typeof(RemoveFact),
+          typeof(Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions.RemoveFact),
           new()
           {
             new Blueprint("PF-220021_NegativeEnergyAffinityDhampir", "8d6a65a9774e4cbbbbd71f6547139b1b"),
