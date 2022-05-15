@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
@@ -14,7 +15,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
   /// </summary>
   public static class Ignored
   {
-
     private static readonly List<(Type type, List<string> names)> IgnoredFields =
       new()
       {
@@ -34,6 +34,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
             "m_ValidationStatus"
           }
         ),
+        (typeof(BlueprintFeatureSelection), new() { "m_Features" }),
       };
     public static bool ShouldIgnoreField(FieldInfo info, Type sourceType)
     {

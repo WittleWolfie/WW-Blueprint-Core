@@ -491,18 +491,6 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// Applied on success when the caster has a feature that adds a greater effect. Defaults to Frightened.
     /// </para>
     /// </param>
-    /// <param name="swordlordProwessFeature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public static ActionsBuilder Demoralize(
         this ActionsBuilder builder,
         int? bonus = null,
