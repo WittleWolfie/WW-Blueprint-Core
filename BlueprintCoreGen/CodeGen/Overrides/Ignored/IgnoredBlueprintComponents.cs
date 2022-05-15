@@ -5,6 +5,7 @@ using Kingmaker.Visual.LightSelector;
 using Kingmaker.Visual.HitSystem;
 using Kingmaker.Tutorial.Triggers;
 using Kingmaker.Tutorial.Solvers;
+using Kingmaker.QA.Arbiter;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Dungeon.Blueprints.Boons;
 using Kingmaker.DialogSystem;
@@ -61,6 +62,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(TutorialTriggerLowGroupHealth),
         typeof(TutorialSolverAllFromTrigger),
         typeof(TutorialSolverItemFromTrigger),
+        typeof(WeaponCheckerComponent),
         typeof(LocationRevealedTrigger),
         typeof(BoonLogicExperience),
         typeof(BoonLogicExperienceRate),
@@ -94,7 +96,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(EquipmentRestrictionSpecialUnit),
         typeof(IdentifySkillReplacement),
         typeof(AddClassLevelsToPets),
-        typeof(LevelUpRecommendation),
         typeof(PrerequisiteLoreMaster),
         typeof(AreaSettlementLink),
         typeof(BarkOnClick),
@@ -118,7 +119,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(SpellLinkEvocation),
         typeof(LevelBasedPropertyWithFeatureList),
         typeof(RemoveBuffOnLoad),
-        typeof(AddBuffActions),
         typeof(AddEffectProtectionFromElement),
         typeof(AddSpellSchool),
         typeof(SetBuffOnsetDelay),
@@ -181,7 +181,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(ArmyAbilityTags),
         typeof(ModifyArmyUnitSpellPower),
         typeof(CustomProgressionPropertyGetter),
-        typeof(MaxAttributeBonusGetter),
         typeof(ChangeObjectiveOnUnlockTrigger),
         typeof(GiveUnlockOnObjectiveTrigger),
         typeof(SummonPoolCountTrigger),

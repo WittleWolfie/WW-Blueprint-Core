@@ -16,7 +16,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
       {
         typeof(ContextConditionCasterIsPartyEnemy),
         typeof(ContextConditionDungeonStage),
-        typeof(ContextConditionHasUniqueBuff),
         typeof(ContextConditionStealth),
         typeof(ContextConditionTargetIsEngaged),
         typeof(BuildingHasNeighbours),

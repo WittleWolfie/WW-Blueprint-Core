@@ -41,6 +41,8 @@
 
   { "TypeName": "FlagUnlocked" },
 
+  { "TypeName": "IsCampaign" },
+
   { "TypeName": "IsCampaignImported" },
 
   { "TypeName": "IsLegendPathSelected" },

@@ -223,6 +223,8 @@
     "RequiredFields": [ "m_UnitsList", "Actions" ]
   },
 
+  { "TypeName": "ClearCorruptionLevelAction" },
+
   { "TypeName": "Conditional" },
 
   { "TypeName": "DetachBuff" },
