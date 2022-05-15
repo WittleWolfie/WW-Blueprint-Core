@@ -192,7 +192,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// </remarks>
     ///
     /// <returns>The configured blueprint.</returns>
-    public Blueprint<T, BlueprintReference<T>> Configure()
+    public T Configure()
     {
       if (Configured)
       {

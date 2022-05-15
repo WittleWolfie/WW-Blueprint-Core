@@ -1,8 +1,12 @@
 ﻿# Changelog
 
+#v2.0.1 Release
+
+* Reverts `Configurator.Build()` to return the blueprint directly
+
 #v2.0.0 Release
 
-*This is a significant release which is all but guaranteed to require changes to your code when updating.*
+* This is a significant release which is all but guaranteed to require changes to your code when updating.*
 
 ### Features
 
