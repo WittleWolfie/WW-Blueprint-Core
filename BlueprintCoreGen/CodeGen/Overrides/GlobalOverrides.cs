@@ -1,4 +1,5 @@
-﻿using Kingmaker.UnitLogic.Abilities.Blueprints;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides
       {
         typeof(BlueprintAbility),
         typeof(BlueprintAbilityAreaEffect),
+        typeof(BlueprintAbilityResource),
         typeof(BlueprintBuff)
       };
 
