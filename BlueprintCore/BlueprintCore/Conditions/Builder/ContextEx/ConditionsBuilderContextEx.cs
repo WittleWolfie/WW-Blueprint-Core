@@ -45,9 +45,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasBuffFromCaster(
@@ -70,7 +70,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GreaterCognatogenIntelligenceWisdomBuff</term><description>34fde71198d30094aa133546e8cf8733</description></item>
+    /// <item><term>GreaterCognatogenIntelligenceCharismaBuff</term><description>1c2fdba3b33dacd41afd5b74d84c7332</description></item>
     /// <item><term>WrathOfAncestorEnchantment</term><description>4dbc03bd6223b484d8cd9afc3e0369b0</description></item>
     /// </list>
     /// </remarks>
@@ -82,9 +82,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CasterHasFact(
@@ -119,9 +119,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasFact(
@@ -251,9 +251,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder BuffRank(
@@ -342,9 +342,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CharacterClass(
@@ -526,9 +526,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasBuff(
@@ -565,9 +565,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasBuffFromThisAreaEffect(
@@ -656,9 +656,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasItem(
@@ -719,9 +719,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasUniqueBuff(
@@ -1167,7 +1167,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyTemplateDefensiveRandomizerBuff</term><description>1a72d85f20f14f1b84d20b8b6e44734e</description></item>
-    /// <item><term>ResoundingBlowBuff</term><description>06173a778d7067a439acffe9004916e9</description></item>
+    /// <item><term>GogglesOfMalocchioFeature</term><description>782027e68010df048af8289ceb6f3c31</description></item>
     /// <item><term>SwordlordSteelNetBuff</term><description>dc9738ee4e71f5c4287e37f3b74c6fe6</description></item>
     /// </list>
     /// </remarks>
@@ -1399,9 +1399,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder TargetIsBlueprint(

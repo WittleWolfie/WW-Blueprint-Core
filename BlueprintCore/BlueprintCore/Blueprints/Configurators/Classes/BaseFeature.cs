@@ -362,9 +362,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetIsPrerequisiteFor(List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> isPrerequisiteFor)
@@ -387,9 +387,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddToIsPrerequisiteFor(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] isPrerequisiteFor)
@@ -413,9 +413,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder RemoveFromIsPrerequisiteFor(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] isPrerequisiteFor)
@@ -439,9 +439,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder RemoveFromIsPrerequisiteFor(Func<BlueprintFeatureReference, bool> predicate)
@@ -465,9 +465,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ClearIsPrerequisiteFor()
@@ -490,9 +490,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifyIsPrerequisiteFor(Action<BlueprintFeatureReference> action)
@@ -560,7 +560,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealFeature</term><description>b6798b29d36982b4786a32dfd81a914f</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -617,9 +617,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="characterClass">
@@ -629,9 +629,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -778,9 +778,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -830,9 +830,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddPrerequisiteClassSpellLevel(
@@ -872,9 +872,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -928,9 +928,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -976,9 +976,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1053,9 +1053,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="characterClass">
@@ -1065,9 +1065,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1115,9 +1115,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1163,9 +1163,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1240,9 +1240,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="spell">
@@ -1252,9 +1252,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1303,9 +1303,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1354,9 +1354,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1405,9 +1405,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1491,9 +1491,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1594,7 +1594,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HagboundWitchVileCurseDeterioration</term><description>97a64518e7fd0aa4e86a51245e9de1a7</description></item>
+    /// <item><term>HagboundWitchVileCurseDeteriorationCast</term><description>e1ededaf191910b4c9ad73d7dd150a21</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -1627,9 +1627,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddGlobalMapSpellFeature(
@@ -1813,9 +1813,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1995,9 +1995,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="spells">
@@ -2007,9 +2007,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpellsToDescription(
@@ -2159,9 +2159,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddShroudOfWater(
@@ -2229,7 +2229,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DeathAttackAbility</term><description>14f11007d016ec94682af6de83959a83</description></item>
+    /// <item><term>DeathsnatcherPoisonBuff</term><description>0ede2d3e74f803747a09958655b0b14a</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2241,9 +2241,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParams(
@@ -2289,7 +2289,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>PlasmaBlastBladeDamage</term><description>fc22c06d63a95154291272577daa0b4d</description></item>
+    /// <item><term>PlasmaBlastAbility</term><description>a5631955254ae5c4d9cc2d16870448a2</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2301,9 +2301,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
@@ -2579,9 +2579,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2625,9 +2625,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2673,9 +2673,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2954,9 +2954,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpellbookFeature(
@@ -3002,9 +3002,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpellbookLevel(
@@ -3110,9 +3110,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="exceptionFact">
@@ -3122,9 +3122,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="extraEffectBuff">
@@ -3134,9 +3134,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">

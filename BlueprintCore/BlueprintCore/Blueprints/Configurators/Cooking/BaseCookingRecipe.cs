@@ -188,9 +188,9 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetPartyBuffs(List<Blueprint<BlueprintBuff, BlueprintBuffReference>> partyBuffs)
@@ -213,9 +213,9 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddToPartyBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] partyBuffs)
@@ -239,9 +239,9 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder RemoveFromPartyBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] partyBuffs)
@@ -265,9 +265,9 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder RemoveFromPartyBuffs(Func<BlueprintBuffReference, bool> predicate)
@@ -291,9 +291,9 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ClearPartyBuffs()
@@ -316,9 +316,9 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifyPartyBuffs(Action<BlueprintBuffReference> action)

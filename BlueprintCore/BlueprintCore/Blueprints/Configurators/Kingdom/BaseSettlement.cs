@@ -137,9 +137,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetSettlementBuildArea(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> settlementBuildArea)
@@ -165,9 +165,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifySettlementBuildArea(Action<BlueprintAreaEnterPointReference> action)
@@ -191,9 +191,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetSettlementBuildAreaWithWater(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> settlementBuildAreaWithWater)
@@ -216,9 +216,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifySettlementBuildAreaWithWater(Action<BlueprintAreaEnterPointReference> action)
@@ -290,9 +290,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetSettlementEntrance(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> settlementEntrance)
@@ -315,9 +315,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifySettlementEntrance(Action<BlueprintAreaEnterPointReference> action)
@@ -341,9 +341,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetSettlementEntrances(Blueprint<BlueprintMultiEntrance, BlueprintMultiEntrance.Reference> settlementEntrances)
@@ -366,9 +366,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifySettlementEntrances(Action<BlueprintMultiEntrance.Reference> action)

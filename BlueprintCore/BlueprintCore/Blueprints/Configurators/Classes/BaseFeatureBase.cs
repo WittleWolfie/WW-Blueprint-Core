@@ -139,7 +139,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>IronWillImproved</term><description>3ea2215150a1c8a4a9bfed9d9023903e</description></item>
+    /// <item><term>ImprovedDirtyTrick</term><description>ed699d64870044b43bb5a7fbe3f29494</description></item>
     /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
     /// </list>
     /// </remarks>

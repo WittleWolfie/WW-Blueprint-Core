@@ -129,9 +129,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetAbility(Blueprint<BlueprintAbility, BlueprintAbilityReference> ability)
@@ -154,9 +154,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifyAbility(Action<BlueprintAbilityReference> action)
@@ -252,9 +252,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetVariant(Blueprint<BlueprintAbility, BlueprintAbilityReference> variant)
@@ -277,9 +277,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifyVariant(Action<BlueprintAbilityReference> action)
@@ -306,9 +306,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder SetVariantsSet(List<Blueprint<BlueprintAbility, BlueprintAbilityReference>> variantsSet)
@@ -334,9 +334,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddToVariantsSet(params Blueprint<BlueprintAbility, BlueprintAbilityReference>[] variantsSet)
@@ -363,9 +363,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder RemoveFromVariantsSet(params Blueprint<BlueprintAbility, BlueprintAbilityReference>[] variantsSet)
@@ -392,9 +392,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder RemoveFromVariantsSet(Func<BlueprintAbilityReference, bool> predicate)
@@ -421,9 +421,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ClearVariantsSet()
@@ -449,9 +449,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder ModifyVariantsSet(Action<BlueprintAbilityReference> action)

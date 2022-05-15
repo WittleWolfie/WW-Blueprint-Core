@@ -57,9 +57,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddFact(
@@ -161,9 +161,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddItemsFromBlueprint(
@@ -206,7 +206,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0104</term><description>b4a4f17d6e2cba744983422a462c12a3</description></item>
+    /// <item><term>Cue_0105</term><description>ed79e368ff3f039499dff475d9804edf</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -218,9 +218,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder GiveItemToPlayer(
@@ -269,7 +269,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0104</term><description>b4a4f17d6e2cba744983422a462c12a3</description></item>
+    /// <item><term>Cue_0105</term><description>ed79e368ff3f039499dff475d9804edf</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -281,9 +281,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder GiveEquipmentToPlayer(
@@ -339,7 +339,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0104</term><description>b4a4f17d6e2cba744983422a462c12a3</description></item>
+    /// <item><term>Cue_0105</term><description>ed79e368ff3f039499dff475d9804edf</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -351,9 +351,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="preferredWeaponSet">
@@ -422,9 +422,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddUnitToSummonPool(
@@ -452,7 +452,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>CR17_Minagho_FinalCombat_SpawnActions</term><description>4b7165f090dcf804482176f5a16fd2d2</description></item>
+    /// <item><term>CorruptedHeraldPhase_SpawnActions</term><description>7779daca8cb7c8e42b6be3097ccfd8f7</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -464,9 +464,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AttachBuff(
@@ -579,7 +579,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0038</term><description>8bfe04d1e0bccbd4fac00a23aa7f206c</description></item>
-    /// <item><term>CommandAction3</term><description>8cbc702e8b5a4028839bd1366ef22139</description></item>
+    /// <item><term>CommandAction1</term><description>564ad4c002ab445db93f4a35b4b06e0b</description></item>
     /// <item><term>WenduagTraitor_CombatStart</term><description>12d9b3713fd74349ac6cba4e34590d6a</description></item>
     /// </list>
     /// </remarks>
@@ -767,9 +767,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder DeleteUnitFromSummonPool(
@@ -864,7 +864,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>CommandAction4</term><description>d62167dd71af451eb204c34d124fb8b7</description></item>
+    /// <item><term>CommandAction35</term><description>0841b1aa2e7249089f36c3512cd114c0</description></item>
     /// <item><term>ZachariusEnemyInZiggurat</term><description>63cc30e6086ce1842997d0924677019c</description></item>
     /// </list>
     /// </remarks>
@@ -876,9 +876,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder DetachBuff(
@@ -1288,9 +1288,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RaiseDead(
@@ -1378,9 +1378,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveFact(
@@ -1521,9 +1521,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RunActionHolder(
@@ -1602,9 +1602,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SpawnBySummonPool(
@@ -1678,9 +1678,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="unit">
@@ -1690,9 +1690,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder Summon(
@@ -1740,7 +1740,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>CommandAction2</term><description>7346973646ef4fd8b867f31676fe7f44</description></item>
+    /// <item><term>CommandAction2</term><description>f441ab250ed94cac80523e8b82d47852</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1752,9 +1752,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SummonPoolUnits(
@@ -1803,9 +1803,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="summonPool">
@@ -1815,9 +1815,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SummonUnitCopy(
@@ -1874,9 +1874,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SwitchActivatableAbility(

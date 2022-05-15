@@ -359,7 +359,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0049</term><description>5a2c83b1758ca624bbd3d87d7a3e15c2</description></item>
+    /// <item><term>Cue_0049</term><description>4a1d11f041aae8a4bb752848b2f3df08</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -371,9 +371,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder PlayCutscene(
@@ -503,7 +503,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdditionalAtmosphericScenes</term><description>e04f6b926f3350d41ab2d07c55d9814d</description></item>
-    /// <item><term>CommandAction1</term><description>897ec7e470144cfc9e5c6f8e6462d344</description></item>
+    /// <item><term>CommandAction1</term><description>8db12bd249514acaa8233858c4669d60</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>
@@ -571,9 +571,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder StopCutscene(
