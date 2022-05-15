@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Blueprint<,>"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static InteractionRootConfigurator New(string name, string guid)

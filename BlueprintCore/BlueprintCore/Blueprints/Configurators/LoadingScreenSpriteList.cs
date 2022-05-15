@@ -2,18 +2,17 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 
-namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
+namespace BlueprintCore.Blueprints.Configurators
 {
   /// <summary>
-  /// Configurator for <see cref="BlueprintArmorEnchantment"/>.
+  /// Configurator for <see cref="BlueprintLoadingScreenSpriteList"/>.
   /// </summary>
   /// <inheritdoc/>
-  public class ArmorEnchantmentConfigurator
-    : BaseArmorEnchantmentConfigurator<BlueprintArmorEnchantment, ArmorEnchantmentConfigurator>
+  public class LoadingScreenSpriteListConfigurator
+    : BaseLoadingScreenSpriteListConfigurator<BlueprintLoadingScreenSpriteList, LoadingScreenSpriteListConfigurator>
   {
-    private ArmorEnchantmentConfigurator(Blueprint<BlueprintArmorEnchantment, BlueprintReference<BlueprintArmorEnchantment>> blueprint) : base(blueprint) { }
+    private LoadingScreenSpriteListConfigurator(Blueprint<BlueprintLoadingScreenSpriteList, BlueprintReference<BlueprintLoadingScreenSpriteList>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,9 +25,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static ArmorEnchantmentConfigurator For(Blueprint<BlueprintArmorEnchantment, BlueprintReference<BlueprintArmorEnchantment>> blueprint)
+    public static LoadingScreenSpriteListConfigurator For(Blueprint<BlueprintLoadingScreenSpriteList, BlueprintReference<BlueprintLoadingScreenSpriteList>> blueprint)
     {
-      return new ArmorEnchantmentConfigurator(blueprint);
+      return new LoadingScreenSpriteListConfigurator(blueprint);
     }
     /// <summary>
     /// Creates a new blueprint and returns a new configurator to modify it.
@@ -41,9 +40,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
-    public static ArmorEnchantmentConfigurator New(string name, string guid)
+    public static LoadingScreenSpriteListConfigurator New(string name, string guid)
     {
-      BlueprintTool.Create<BlueprintArmorEnchantment>(name, guid);
+      BlueprintTool.Create<BlueprintLoadingScreenSpriteList>(name, guid);
       return For(name);
     }
 

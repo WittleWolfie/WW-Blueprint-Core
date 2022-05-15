@@ -146,7 +146,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_TrueForm_Cutscene</term><description>18d9251a3c5682a429e1c3769431f4ee</description></item>
-    /// <item><term>InflictModerateWoundsMass</term><description>03944622fbe04824684ec29ff2cec6a7</description></item>
+    /// <item><term>InflictSeriousWoundsMass</term><description>820170444d4d2a14abc480fcbdb49535</description></item>
     /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
     /// </list>
     /// </remarks>
@@ -199,7 +199,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
-    /// <item><term>CommandAction1</term><description>720a4c33b1bf4a6eb1e679f8f8cf66b0</description></item>
+    /// <item><term>CommandAction1</term><description>ffd7ece2931543b08711654f927b28c8</description></item>
     /// <item><term>WillSaveGhoulCheckPassed_Actions</term><description>0a39e8f4368328949aca5616589abe5d</description></item>
     /// </list>
     /// </remarks>
@@ -246,7 +246,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>979c0288728143d4cadd65e43eb70f77</description></item>
     /// <item><term>CommandAction2</term><description>bf0933f5898f4fd280fbb4638979be84</description></item>
-    /// <item><term>Thieflings_Early_Dialogue</term><description>ad1e4f7de5da23a4d8317d79677a5db9</description></item>
+    /// <item><term>Tools_CheckPassedActions2</term><description>db695eb808004014b25ad3475123d544</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -297,7 +297,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>058d6563b283ae04294ba2c729383663</description></item>
-    /// <item><term>Cue_0017</term><description>b3ad063c530d5494b973436831322b12</description></item>
+    /// <item><term>Cue_0016</term><description>bb7b3fbefbb88e34a97bc895f76c368e</description></item>
     /// <item><term>Vrok_Chained</term><description>b04649a8dd8abf741a51728a4ba9c746</description></item>
     /// </list>
     /// </remarks>
@@ -330,8 +330,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AeonDevilOnce_dialogue</term><description>eaf7614f4e1279d4bb6b7e5a1bfdbb57</description></item>
-    /// <item><term>GalfreyAfter_Iz_c5_dialog</term><description>5116ab16bd1542d46ae92a34a93ee0dd</description></item>
+    /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
+    /// <item><term>FirstCultistAttack_dialogue</term><description>5d0e5f6591424935983d03c587618ba9</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -359,7 +359,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0048</term><description>01541ab2bc31bad4bae411bd2383f48a</description></item>
+    /// <item><term>Cue_0049</term><description>5a2c83b1758ca624bbd3d87d7a3e15c2</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -371,9 +371,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder PlayCutscene(
@@ -460,7 +460,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>GreyborQuestMansion_CheckPassedActions</term><description>3659189235938ef4faf1cc99063c3a62</description></item>
+    /// <item><term>GreyborEnterZone</term><description>547cc0d248f5f6b459d09a4820f83831</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -503,7 +503,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdditionalAtmosphericScenes</term><description>e04f6b926f3350d41ab2d07c55d9814d</description></item>
-    /// <item><term>CommandAction1</term><description>372d46d1d716497793860c45f9ff74c5</description></item>
+    /// <item><term>CommandAction1</term><description>897ec7e470144cfc9e5c6f8e6462d344</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>
@@ -531,8 +531,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AeonDevilOnce_dialogue</term><description>eaf7614f4e1279d4bb6b7e5a1bfdbb57</description></item>
-    /// <item><term>Horzalah_Ambush_dialogue</term><description>2c225a0a5f2bf574ab78b1a3d4011acf</description></item>
+    /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
+    /// <item><term>Hepzamirah_MainDialogue</term><description>5662c8bcb913b3842a10f67034c096f3</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -554,7 +554,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>Cue_0026</term><description>7ef0e281b989d7245a98f48367a9b4b8</description></item>
+    /// <item><term>Cue_0026</term><description>7a0d1af8491b4c84d9355fa555c942e9</description></item>
     /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
     /// </list>
     /// </remarks>
@@ -571,9 +571,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder StopCutscene(
@@ -603,7 +603,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ArenaCombat</term><description>bdd2b9ebe0ec2f240b9ac1d6b4c430ab</description></item>
-    /// <item><term>CommandAction3</term><description>f58b5efefcdf4c3da9f5c371b2a719a0</description></item>
+    /// <item><term>CommandAction3</term><description>36a68c2f8f96483ea8d42bf9a25089df</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>

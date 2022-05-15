@@ -189,7 +189,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CultistsLootClericScrolls1</term><description>668d29eefe4b614459ef48abad5efeb0</description></item>
-    /// <item><term>JewelryCR6</term><description>c8d223433f2dbfc4080569ea7f4792db</description></item>
+    /// <item><term>JewelryCR7</term><description>1261afb3a6229b848ac3a52b67a6d587</description></item>
     /// <item><term>TrashLootStandardWeaponsAndArmor</term><description>6414d0eccbb66364bb1ef9f57599fc5c</description></item>
     /// </list>
     /// </remarks>

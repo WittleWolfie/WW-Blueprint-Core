@@ -183,9 +183,9 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder IsDlcActive(
@@ -224,9 +224,9 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder IsDLCEnabled(
@@ -279,8 +279,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>areeluPuzzle_ItemRestriction</term><description>abd21b102fd546a0bd53dff0b566076f</description></item>
-    /// <item><term>MaskPuzzle_itemRestriction</term><description>3757193f991b2da469f6c19b1ae70661</description></item>
-    /// <item><term>Slot_1_1_ItemRestriction</term><description>f3e95f22191ee594db88e767e9a5da20</description></item>
+    /// <item><term>MaskPuzzleLootCont_3_CloseAction</term><description>2573e02967e95014c93266c845bc9f2e</description></item>
+    /// <item><term>Slot_2_1_ItemRestriction</term><description>14081f100ba2a284b9f1d99cfd0c1363</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -291,9 +291,9 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///   <item><term>A blueprint instance</term></item>
     ///   <item><term>A blueprint reference</term></item>
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintCore.Utils.BlueprintTool">BlueprintTool</see></term></item>
+    ///   <item><term>A blueprint name registered with <see cref="Utils.BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="BlueprintCore.Utils.Blueprint{{T, TRef}}">Blueprint</see> for more details.
+    /// See <see cref="Utils.Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder IsListContainsItem(

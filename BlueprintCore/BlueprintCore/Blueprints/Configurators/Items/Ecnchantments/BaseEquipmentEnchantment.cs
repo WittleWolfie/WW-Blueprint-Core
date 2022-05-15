@@ -124,8 +124,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>GlovesOfPreciseShotEnchant</term><description>a56baa402b5b3e14bb4da75c533f223a</description></item>
-    /// <item><term>RingOfEternalSkyEnchant</term><description>73a1f8d196f761047be5fb69d318001d</description></item>
+    /// <item><term>DeadlyRaysEnchantment</term><description>dcfc21064c91497aa58801d5b3f45733</description></item>
+    /// <item><term>LethalConductorEnchantment</term><description>77b4aea38f4bb874396d6c6c2cc9c4cf</description></item>
     /// <item><term>RingOfFirmTouchEnchantment</term><description>78e1932653b0d5e4db01cbe87a55eb91</description></item>
     /// </list>
     /// </remarks>
