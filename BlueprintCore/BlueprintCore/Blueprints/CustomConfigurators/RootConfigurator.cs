@@ -1,5 +1,6 @@
 ﻿using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Components;
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -33,128 +34,37 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
   /// 
   /// <remarks>
   /// <para>
-  /// Implementation is based on the
-  /// <see href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</see>.
+  /// Each supported blueprint type has a corresponding <c>Configurator</c> class to create and modify blueprints of
+  /// that type, e.g. <see cref="FeatureConfigurator"/> supports <c>BlueprintFeature</c>. Configurators exist for all
+  /// blueprint types inheriting from <see cref="BlueprintScriptableObject"/>, excluding any that are not used in the
+  /// base game.
   /// </para>
   /// 
-  /// <list type="table">
-  /// <listheader>Key Features</listheader>
-  /// <item>
-  ///   <term>Blueprint Creation</term>
-  ///   <description>
-  ///     Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-  ///     configurator API includes methods to set or modify fields and create or remove <see cref="BlueprintComponent"/>s.
-  ///   </description>
-  /// </item>
-  /// <item>
-  ///   <term>Blueprint Component Safety</term>
-  ///   <description>
-  ///     <para>
-  ///     Most <see cref="BlueprintComponent"/> types only function in specific blueprints. The configurator API only
-  ///     exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-  ///     attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-  ///     component types.
-  ///     </para>
-  ///     <para>
-  ///     See <see href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</see>
-  ///     for more information on component and blueprint type safety.
-  ///     </para>
-  ///   </description>
-  /// </item>
-  /// <item>
-  ///   <term>Validation</term>
-  ///   <description>
-  ///     <para>
-  ///     When <see cref="Configure"/> is called the blueprint is run through validation to detect configuration issues
-  ///     which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-  ///     complicated configuration problems such as
-  ///     <see href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</see>
-  ///     usage.
-  ///     </para>
-  ///     <para>
-  ///     Validation uses a combination of code from the game library and manually tuned logic. See
-  ///     <see cref="Validator"/> for more details on how validation works.
-  ///     </para>
-  ///   </description>
-  /// </item>
-  /// <item>
-  ///   <term>Builder Style API</term>
-  ///   <description>
-  ///     <para>
-  ///     The API is designed to minimize boilerplate required to modify blueprints and create components.
-  ///     Configurators work seamlessly with the <see cref="ActionsBuilder"/> and <see cref="ConditionsBuilder"/> APIs.
-  ///     </para>
-  ///     <para>
-  ///     Some complicated components, notably <see cref="ContextRankConfig"/>, cannot be well implemented within the
-  ///     configurator API and have their own helper classes: <see cref="ContextRankConfigs">ContextRankConfigs</see>.
-  ///     </para>
-  ///   </description>
-  /// </item>
-  /// </list>
-  /// TODO: Update the example
-  /// <example>
-  /// Add the Skald's Vigor and Greater Skald's Vigor feats (minus UI icons):
-  /// <code>
-  /// var skaldClass = "WW-SkaldClass";
-  /// var inspiredRageFeature = "WW-InspiredRageFeature";
-  /// var inspiredRageBuff = "WW-InspiredRageBuff";
-  /// var skaldsVigorBuff = "WW-SkaldsVigorBuff";
-  /// var skaldsVigorFeat = "WW-SkaldsVigorFeat";
-  /// var greaterSkaldsVigorFeat = "WW-GreaterSkaldsVigorFeat";
-  ///   
-  /// // Register the names
-  /// BlueprintTool.AddGuidsByName(
-  ///     (skaldClass, "6afa347d804838b48bda16acb0573dc0"),
-  ///     (inspiredRageFeature, "1a639eadc2c3ed546bc4bb236864cd0c"),
-  ///     (inspiredRageBuff, "75b3978757908d24aaaecaf2dc209b89"),
-  ///     // New blueprints and guids
-  ///     (skaldsVigorBuff, "35fa838eb545491fbe73d593a3c456ed"),
-  ///     (skaldsVigorFeat, "59f825ec85744ac29e7d49201561638d"),
-  ///     (greaterSkaldsVigorFeat, "b97fa348973a4c5a916d78e9ed029e1f"));
-  ///  
-  /// // Load the icons and strings (not provided by library)
-  /// var skaldsVigorIcon = LoadSkaldsVigorIcon();
-  /// var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-  /// var skaldsVigorName = LoadSkaldsVigorName();
-  /// var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-  /// var skaldsVigorDescription = LoadSkaldsVigorDescription();
-  /// var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();
+  /// <b>Creating a Blueprint</b>
+  /// <para>Use <c>New(string, string)</c> to create a blueprint:</para>
+  /// <c>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</c>
+  /// <para>Once <c>New()</c> is called the blueprint is added to the game library and can be referenced.</para>
   /// 
-  /// // Create the buff
-  /// BuffConfigurator.New(skaldsVigorBuff)
-  ///     .ContextRankConfig(
-  ///         // Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-  ///         ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-  ///     // Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-  ///     // it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-  ///     .FastHealing(1, bonusValue: ContextValues.Rank())
-  ///     .Configure();
-  ///   
-  /// // Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-  /// // Rage is active.
-  /// var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-  /// BuffConfigurator.For(inspiredRageBuff)
-  ///     .FactContextActions(
-  ///         onActivated:
-  ///             ActionsBuilder.New()
-  ///                 // When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-  ///                 // the feat.
-  ///                 .Conditional(
-  ///                     ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-  ///                     ifTrue: applyBuff)
-  ///                 // For characters other than the caster, Skald's Vigor is only applied if the caster has the
-  ///                 // greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-  ///                 // buffs do not stack so it has no effect.
-  ///                 .Conditional(
-  ///                     ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-  ///         onDeactivated:
-  ///             // Removes Skald's Vigor when Inspired Rage ends.
-  ///             // There is actually a bug with this implementation; Lingering Song will extend the duration of
-  ///             // Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-  ///             ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-  ///     .Configure();
-  /// </code>
-  /// </example>
+  /// <b>Using the Configurator</b>
+  /// <para>
+  /// <c>New()</c> returns a configurator with methods to set or modify blueprint fields and add or modify
+  /// <see cref="BlueprintComponent">BlueprintComponents</see>:
+  /// </para>
+  /// <c>
+  /// FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();
+  /// </c>
+  /// <para>
+  /// Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+  /// <c>Configure()</c> is called, at which point the changes are applied and validated. Potential problems with the
+  /// blueprint are logged as warnings.
+  /// </para>
+  /// 
+  /// <b>Modifying an Existing Blueprint</b>
+  /// <para>Use <c>For(Blueprint)</c> to modify existing blueprints:</para>
+  /// <c>CharacterClassConfigurator.For(WizardClassGuid)</c>
+  /// <para>Usage is otherwise identical to creating a new blueprint.</para>
+  /// 
+  /// TODO: Link to guide on github for more advanced usage.
   /// </remarks>
   public abstract class RootConfigurator<T, TBuilder>
     where T: BlueprintScriptableObject
@@ -191,7 +101,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// Throws <see cref="InvalidOperationException"/> if called twice on the same configurator.
     /// </remarks>
     ///
-    /// <returns>The configured blueprint.</returns>
+    /// <returns>The resulting blueprint.</returns>
     public T Configure()
     {
       if (Configured)
