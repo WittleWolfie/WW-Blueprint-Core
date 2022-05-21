@@ -116,6 +116,7 @@ namespace BlueprintCoreGen.Analysis
       fileText.AppendLine(@"      };");
       fileText.AppendLine(@"  }");
       fileText.AppendLine(@"}");
+      Directory.CreateDirectory(Program.AnalysisDir);
       File.WriteAllText($"{Program.AnalysisDir}/Ignored{baseType.Name}s.cs", fileText.ToString());
     }
 
