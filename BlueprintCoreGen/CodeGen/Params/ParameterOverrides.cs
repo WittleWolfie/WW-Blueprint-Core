@@ -253,7 +253,7 @@ namespace BlueprintCoreGen.CodeGen.Params
         "</param>"
       };
 
-    public string Declaration { get; } = "ComponentMerge mergeBehavior = ComponentMerge.Merge";
+    public string Declaration { get; } = "ComponentMerge mergeBehavior = ComponentMerge.Fail";
 
     public List<string> GetOperation(string objectName, string validateFunction)
     {
