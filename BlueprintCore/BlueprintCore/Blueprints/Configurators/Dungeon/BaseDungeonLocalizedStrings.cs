@@ -65,7 +65,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLocalizedStrings.LeaderboardRecordValues"/>
     /// </summary>
-    public TBuilder SetLeaderboardRecordValues(BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[] leaderboardRecordValues)
+    public TBuilder SetLeaderboardRecordValues(params BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[] leaderboardRecordValues)
     {
       return OnConfigureInternal(
         bp =>
@@ -142,7 +142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLocalizedStrings.LeaderboardCharacterValues"/>
     /// </summary>
-    public TBuilder SetLeaderboardCharacterValues(BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[] leaderboardCharacterValues)
+    public TBuilder SetLeaderboardCharacterValues(params BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[] leaderboardCharacterValues)
     {
       return OnConfigureInternal(
         bp =>

@@ -385,7 +385,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// Tooltip: Show this check on answer in dialog interface. Instead of check calculated from BlueprintCheck node.
     /// </para>
     /// </param>
-    public TBuilder SetFakeChecks(CheckData[] fakeChecks)
+    public TBuilder SetFakeChecks(params CheckData[] fakeChecks)
     {
       return OnConfigureInternal(
         bp =>

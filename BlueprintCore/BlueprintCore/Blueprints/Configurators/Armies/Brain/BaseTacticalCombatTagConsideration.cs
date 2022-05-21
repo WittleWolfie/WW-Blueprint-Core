@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
       return OnConfigureInternal(
         bp =>
         {
-          bp.Tag = tag.Aggregate((ArmyProperties) 0, (f1, f2) => f1 | f2);;
+          bp.Tag = tag.Aggregate((ArmyProperties) 0, (f1, f2) => f1 | f2);
         });
     }
 

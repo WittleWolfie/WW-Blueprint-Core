@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaTransition.m_Actions"/>
     /// </summary>
-    public TBuilder SetActions(ConditionAction[] actions)
+    public TBuilder SetActions(params ConditionAction[] actions)
     {
       return OnConfigureInternal(
         bp =>

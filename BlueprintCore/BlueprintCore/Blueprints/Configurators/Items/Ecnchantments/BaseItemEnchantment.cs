@@ -3,6 +3,7 @@
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -257,7 +258,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///
     /// <remarks>
     /// <para>
-    /// Use <see cref="Components.ContextRankConfigs"/> to create the ContextRankConfig component.
+    /// Use <see cref="Utils.Types.ContextRankConfigs"/> to create the ContextRankConfig component.
     /// </para>
     ///
     /// <list type="bullet">

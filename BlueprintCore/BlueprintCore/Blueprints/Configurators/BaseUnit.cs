@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Armies.Components;
@@ -553,12 +554,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartingInventory(List<Blueprint<BlueprintItem, BlueprintItemReference>> startingInventory)
+    public TBuilder SetStartingInventory(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingInventory)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_StartingInventory = startingInventory?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_StartingInventory = startingInventory.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -758,12 +759,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAlternativeBrains(List<Blueprint<BlueprintBrain, BlueprintBrainReference>> alternativeBrains)
+    public TBuilder SetAlternativeBrains(params Blueprint<BlueprintBrain, BlueprintBrainReference>[] alternativeBrains)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.AlternativeBrains = alternativeBrains?.Select(bp => bp.Reference)?.ToArray();
+          bp.AlternativeBrains = alternativeBrains.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -1180,12 +1181,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAdditionalTemplates(List<Blueprint<BlueprintUnitTemplate, BlueprintUnitTemplateReference>> additionalTemplates)
+    public TBuilder SetAdditionalTemplates(params Blueprint<BlueprintUnitTemplate, BlueprintUnitTemplateReference>[] additionalTemplates)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_AdditionalTemplates = additionalTemplates?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_AdditionalTemplates = additionalTemplates.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -1334,12 +1335,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAddFacts(List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> addFacts)
+    public TBuilder SetAddFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] addFacts)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_AddFacts = addFacts?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_AddFacts = addFacts.Select(bp => bp.Reference).ToArray();
         });
     }
 

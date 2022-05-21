@@ -3,6 +3,7 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
@@ -52,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.m_NameModifiersCache"/>
     /// </summary>
-    public TBuilder SetNameModifiersCache(NameModifier[] nameModifiersCache)
+    public TBuilder SetNameModifiersCache(params NameModifier[] nameModifiersCache)
     {
       return OnConfigureInternal(
         bp =>
@@ -129,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
     /// </summary>
-    public TBuilder SetDescriptionModifiersCache(DescriptionModifier[] descriptionModifiersCache)
+    public TBuilder SetDescriptionModifiersCache(params DescriptionModifier[] descriptionModifiersCache)
     {
       return OnConfigureInternal(
         bp =>
@@ -206,7 +207,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.Groups"/>
     /// </summary>
-    public TBuilder SetGroups(FeatureGroup[] groups)
+    public TBuilder SetGroups(params FeatureGroup[] groups)
     {
       return OnConfigureInternal(
         bp =>
@@ -367,12 +368,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetIsPrerequisiteFor(List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> isPrerequisiteFor)
+    public TBuilder SetIsPrerequisiteFor(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] isPrerequisiteFor)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.IsPrerequisiteFor = isPrerequisiteFor?.Select(bp => bp.Reference)?.ToList();
+          bp.IsPrerequisiteFor = isPrerequisiteFor.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -554,7 +555,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <remarks>
     /// <para>
-    /// Use <see cref="Components.ContextRankConfigs"/> to create the ContextRankConfig component.
+    /// Use <see cref="Utils.Types.ContextRankConfigs"/> to create the ContextRankConfig component.
     /// </para>
     ///
     /// <list type="bullet">

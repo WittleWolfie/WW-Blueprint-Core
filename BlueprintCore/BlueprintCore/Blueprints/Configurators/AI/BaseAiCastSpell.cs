@@ -6,7 +6,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
@@ -311,12 +310,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetVariantsSet(List<Blueprint<BlueprintAbility, BlueprintAbilityReference>> variantsSet)
+    public TBuilder SetVariantsSet(params Blueprint<BlueprintAbility, BlueprintAbilityReference>[] variantsSet)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_VariantsSet = variantsSet?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_VariantsSet = variantsSet.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -473,7 +472,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// InfoBox: To use locators make sure you selected CheckCasterDistance or CheckPartyDistance.
     /// </para>
     /// </param>
-    public TBuilder SetLocators(EntityReference[] locators)
+    public TBuilder SetLocators(params EntityReference[] locators)
     {
       return OnConfigureInternal(
         bp =>

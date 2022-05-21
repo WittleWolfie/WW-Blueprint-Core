@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/>
     /// </summary>
-    public TBuilder SetEntries(BlueprintClassAdditionalVisualSettingsProgression.Entry[] entries)
+    public TBuilder SetEntries(params BlueprintClassAdditionalVisualSettingsProgression.Entry[] entries)
     {
       return OnConfigureInternal(
         bp =>

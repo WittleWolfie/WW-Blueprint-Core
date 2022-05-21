@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_MaleArray"/>
     /// </summary>
-    public TBuilder SetMaleArray(EquipmentEntityLink[] maleArray)
+    public TBuilder SetMaleArray(params EquipmentEntityLink[] maleArray)
     {
       return OnConfigureInternal(
         bp =>
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_FemaleArray"/>
     /// </summary>
-    public TBuilder SetFemaleArray(EquipmentEntityLink[] femaleArray)
+    public TBuilder SetFemaleArray(params EquipmentEntityLink[] femaleArray)
     {
       return OnConfigureInternal(
         bp =>
@@ -202,7 +202,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/>
     /// </summary>
-    public TBuilder SetRaceDependentArrays(KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
+    public TBuilder SetRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)
     {
       return OnConfigureInternal(
         bp =>

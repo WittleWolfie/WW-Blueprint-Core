@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators
@@ -24,13 +23,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>
-    public TBuilder SetGenericSpritesLink(List<SpriteLink> genericSpritesLink)
+    public TBuilder SetGenericSpritesLink(params SpriteLink[] genericSpritesLink)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in genericSpritesLink) { Validate(item); }
-          bp.m_GenericSpritesLink = genericSpritesLink;
+          bp.m_GenericSpritesLink = genericSpritesLink.ToList();
         });
     }
 
@@ -101,13 +100,13 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoadingScreenSpriteList.m_SettingTypeScreensList"/>
     /// </summary>
-    public TBuilder SetSettingTypeScreensList(List<BlueprintLoadingScreenSpriteList.SettingTypeScreens> settingTypeScreensList)
+    public TBuilder SetSettingTypeScreensList(params BlueprintLoadingScreenSpriteList.SettingTypeScreens[] settingTypeScreensList)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in settingTypeScreensList) { Validate(item); }
-          bp.m_SettingTypeScreensList = settingTypeScreensList;
+          bp.m_SettingTypeScreensList = settingTypeScreensList.ToList();
         });
     }
 

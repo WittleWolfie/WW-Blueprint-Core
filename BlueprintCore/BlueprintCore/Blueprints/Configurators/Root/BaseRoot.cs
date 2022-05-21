@@ -29,7 +29,6 @@ using Kingmaker.Visual.Animation;
 using Kingmaker.Visual.HitSystem;
 using Kingmaker.Visual.Sound;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -113,12 +112,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSelectablePlayerCharacters(List<Blueprint<BlueprintUnit, BlueprintUnitReference>> selectablePlayerCharacters)
+    public TBuilder SetSelectablePlayerCharacters(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] selectablePlayerCharacters)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_SelectablePlayerCharacters = selectablePlayerCharacters?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_SelectablePlayerCharacters = selectablePlayerCharacters.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -2346,12 +2345,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUnitTypes(List<Blueprint<BlueprintUnitType, BlueprintUnitTypeReference>> unitTypes)
+    public TBuilder SetUnitTypes(params Blueprint<BlueprintUnitType, BlueprintUnitTypeReference>[] unitTypes)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_UnitTypes = unitTypes?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_UnitTypes = unitTypes.Select(bp => bp.Reference).ToArray();
         });
     }
 

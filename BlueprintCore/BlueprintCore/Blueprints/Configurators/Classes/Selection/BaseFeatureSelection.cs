@@ -161,12 +161,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAllFeatures(List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> allFeatures)
+    public TBuilder SetAllFeatures(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] allFeatures)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_AllFeatures = allFeatures?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_AllFeatures = allFeatures.Select(bp => bp.Reference).ToArray();
         });
     }
 

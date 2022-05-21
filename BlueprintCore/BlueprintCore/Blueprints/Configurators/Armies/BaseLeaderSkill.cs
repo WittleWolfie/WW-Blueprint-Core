@@ -230,12 +230,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPrerequisites(List<Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>> prerequisites)
+    public TBuilder SetPrerequisites(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] prerequisites)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Prerequisites = prerequisites?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Prerequisites = prerequisites.Select(bp => bp.Reference).ToArray();
         });
     }
 

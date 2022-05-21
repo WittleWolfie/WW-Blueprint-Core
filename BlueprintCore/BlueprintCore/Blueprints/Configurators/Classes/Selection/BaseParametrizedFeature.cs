@@ -10,7 +10,6 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
@@ -387,12 +386,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCustomParameterVariants(List<Blueprint<BlueprintScriptableObject, AnyBlueprintReference>> customParameterVariants)
+    public TBuilder SetCustomParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] customParameterVariants)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CustomParameterVariants = customParameterVariants?.Select(bp => bp.Reference)?.ToArray();
+          bp.CustomParameterVariants = customParameterVariants.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -589,12 +588,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBlueprintParameterVariants(List<Blueprint<BlueprintScriptableObject, AnyBlueprintReference>> blueprintParameterVariants)
+    public TBuilder SetBlueprintParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] blueprintParameterVariants)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.BlueprintParameterVariants = blueprintParameterVariants?.Select(bp => bp.Reference)?.ToArray();
+          bp.BlueprintParameterVariants = blueprintParameterVariants.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -730,7 +729,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Sets the value of <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
     /// </summary>
-    public TBuilder SetCachedItems(FeatureUIData[] cachedItems)
+    public TBuilder SetCachedItems(params FeatureUIData[] cachedItems)
     {
       return OnConfigureInternal(
         bp =>

@@ -7,7 +7,6 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -148,12 +147,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSignatureAbilities(List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> signatureAbilities)
+    public TBuilder SetSignatureAbilities(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] signatureAbilities)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_SignatureAbilities = signatureAbilities?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_SignatureAbilities = signatureAbilities.Select(bp => bp.Reference).ToArray();
         });
     }
 

@@ -12,7 +12,6 @@ using Kingmaker.Localization;
 using Kingmaker.UI.Kingdom;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -223,12 +222,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartingEventDecks(List<Blueprint<BlueprintKingdomDeck, BlueprintKingdomDeckReference>> startingEventDecks)
+    public TBuilder SetStartingEventDecks(params Blueprint<BlueprintKingdomDeck, BlueprintKingdomDeckReference>[] startingEventDecks)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_StartingEventDecks = startingEventDecks?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_StartingEventDecks = startingEventDecks.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -377,12 +376,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetKingdomProjectEvents(List<Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>> kingdomProjectEvents)
+    public TBuilder SetKingdomProjectEvents(params Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>[] kingdomProjectEvents)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_KingdomProjectEvents = kingdomProjectEvents?.Select(bp => bp.Reference)?.ToList();
+          bp.m_KingdomProjectEvents = kingdomProjectEvents.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -531,12 +530,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBuildings(List<Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>> buildings)
+    public TBuilder SetBuildings(params Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>[] buildings)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Buildings = buildings?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Buildings = buildings.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -760,12 +759,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUnrestMitigationEvents(List<Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>> unrestMitigationEvents)
+    public TBuilder SetUnrestMitigationEvents(params Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>[] unrestMitigationEvents)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_UnrestMitigationEvents = unrestMitigationEvents?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_UnrestMitigationEvents = unrestMitigationEvents.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -952,7 +951,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomRoot.LeaderSlots"/>
     /// </summary>
-    public TBuilder SetLeaderSlots(LeaderSlot[] leaderSlots)
+    public TBuilder SetLeaderSlots(params LeaderSlot[] leaderSlots)
     {
       return OnConfigureInternal(
         bp =>
@@ -1042,12 +1041,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartingNPCLeaders(List<Blueprint<BlueprintUnit, BlueprintUnitReference>> startingNPCLeaders)
+    public TBuilder SetStartingNPCLeaders(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] startingNPCLeaders)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_StartingNPCLeaders = startingNPCLeaders?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_StartingNPCLeaders = startingNPCLeaders.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -2187,7 +2186,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomRoot.Stats"/>
     /// </summary>
-    public TBuilder SetStats(KingdomRoot.StatData[] stats)
+    public TBuilder SetStats(params KingdomRoot.StatData[] stats)
     {
       return OnConfigureInternal(
         bp =>
@@ -2328,12 +2327,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRegions(List<Blueprint<BlueprintRegion, BlueprintRegionReference>> regions)
+    public TBuilder SetRegions(params Blueprint<BlueprintRegion, BlueprintRegionReference>[] regions)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Regions = regions?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Regions = regions.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -2482,12 +2481,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLocations(List<Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>> locations)
+    public TBuilder SetLocations(params Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>[] locations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Locations = locations?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Locations = locations.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -2623,7 +2622,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomRoot.ArtisanTierChances"/>
     /// </summary>
-    public TBuilder SetArtisanTierChances(int[] artisanTierChances)
+    public TBuilder SetArtisanTierChances(params int[] artisanTierChances)
     {
       return OnConfigureInternal(
         bp =>
@@ -2699,7 +2698,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomRoot.ArtisanTierChancesRequest"/>
     /// </summary>
-    public TBuilder SetArtisanTierChancesRequest(int[] artisanTierChancesRequest)
+    public TBuilder SetArtisanTierChancesRequest(params int[] artisanTierChancesRequest)
     {
       return OnConfigureInternal(
         bp =>
@@ -2799,7 +2798,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomRoot.DifficultyDCMod"/>
     /// </summary>
-    public TBuilder SetDifficultyDCMod(int[] difficultyDCMod)
+    public TBuilder SetDifficultyDCMod(params int[] difficultyDCMod)
     {
       return OnConfigureInternal(
         bp =>

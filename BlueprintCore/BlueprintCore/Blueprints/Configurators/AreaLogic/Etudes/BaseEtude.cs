@@ -170,12 +170,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSynchronized(List<Blueprint<BlueprintEtude, BlueprintEtudeReference>> synchronized)
+    public TBuilder SetSynchronized(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] synchronized)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Synchronized = synchronized?.Select(bp => bp.Reference)?.ToList();
+          bp.m_Synchronized = synchronized.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -414,12 +414,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLinkedCampaigns(List<Blueprint<BlueprintCampaign, BlueprintCampaignReference>> linkedCampaigns)
+    public TBuilder SetLinkedCampaigns(params Blueprint<BlueprintCampaign, BlueprintCampaignReference>[] linkedCampaigns)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_LinkedCampaigns = linkedCampaigns?.Select(bp => bp.Reference)?.ToList();
+          bp.m_LinkedCampaigns = linkedCampaigns.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -592,12 +592,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAddedAreaMechanics(List<Blueprint<BlueprintAreaMechanics, BlueprintAreaMechanicsReference>> addedAreaMechanics)
+    public TBuilder SetAddedAreaMechanics(params Blueprint<BlueprintAreaMechanics, BlueprintAreaMechanicsReference>[] addedAreaMechanics)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_AddedAreaMechanics = addedAreaMechanics?.Select(bp => bp.Reference)?.ToList();
+          bp.m_AddedAreaMechanics = addedAreaMechanics.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -746,12 +746,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartsWith(List<Blueprint<BlueprintEtude, BlueprintEtudeReference>> startsWith)
+    public TBuilder SetStartsWith(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startsWith)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_StartsWith = startsWith?.Select(bp => bp.Reference)?.ToList();
+          bp.m_StartsWith = startsWith.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -900,12 +900,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartsOnComplete(List<Blueprint<BlueprintEtude, BlueprintEtudeReference>> startsOnComplete)
+    public TBuilder SetStartsOnComplete(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startsOnComplete)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_StartsOnComplete = startsOnComplete?.Select(bp => bp.Reference)?.ToList();
+          bp.m_StartsOnComplete = startsOnComplete.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -1114,12 +1114,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetConflictingGroups(List<Blueprint<BlueprintEtudeConflictingGroup, BlueprintEtudeConflictingGroupReference>> conflictingGroups)
+    public TBuilder SetConflictingGroups(params Blueprint<BlueprintEtudeConflictingGroup, BlueprintEtudeConflictingGroupReference>[] conflictingGroups)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_ConflictingGroups = conflictingGroups?.Select(bp => bp.Reference)?.ToList();
+          bp.m_ConflictingGroups = conflictingGroups.Select(bp => bp.Reference).ToList();
         });
     }
 

@@ -278,7 +278,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets the value of <see cref="Cutscene.Anchors"/>
     /// </summary>
-    public TBuilder SetAnchors(EntityReference[] anchors)
+    public TBuilder SetAnchors(params EntityReference[] anchors)
     {
       return OnConfigureInternal(
         bp =>

@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Sets the value of <see cref="BlueprintPartyFormation.Positions"/>
     /// </summary>
-    public TBuilder SetPositions(Vector2[] positions)
+    public TBuilder SetPositions(params Vector2[] positions)
     {
       return OnConfigureInternal(
         bp =>

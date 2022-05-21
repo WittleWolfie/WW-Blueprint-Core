@@ -6,7 +6,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -50,13 +49,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets the value of <see cref="Gate.m_Tracks"/>
     /// </summary>
-    public TBuilder SetTracks(List<Track> tracks)
+    public TBuilder SetTracks(params Track[] tracks)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in tracks) { Validate(item); }
-          bp.m_Tracks = tracks;
+          bp.m_Tracks = tracks.ToList();
         });
     }
 

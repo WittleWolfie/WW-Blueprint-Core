@@ -7,7 +7,6 @@ using Kingmaker.Blueprints.Root;
 using Kingmaker.Blueprints.Root.Fx;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -231,7 +230,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets the value of <see cref="FxRoot.FallEventStrings"/>
     /// </summary>
-    public TBuilder SetFallEventStrings(string[] fallEventStrings)
+    public TBuilder SetFallEventStrings(params string[] fallEventStrings)
     {
       return OnConfigureInternal(
         bp =>
@@ -333,7 +332,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets the value of <see cref="FxRoot.PoolEntries"/>
     /// </summary>
-    public TBuilder SetPoolEntries(PoolEntry[] poolEntries)
+    public TBuilder SetPoolEntries(params PoolEntry[] poolEntries)
     {
       return OnConfigureInternal(
         bp =>
@@ -410,7 +409,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets the value of <see cref="FxRoot.OverrideDeathPrefabsFromEnergy"/>
     /// </summary>
-    public TBuilder SetOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[] overrideDeathPrefabsFromEnergy)
+    public TBuilder SetOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] overrideDeathPrefabsFromEnergy)
     {
       return OnConfigureInternal(
         bp =>
@@ -866,12 +865,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFootprintsReferences(List<Blueprint<BlueprintFootprintType, BlueprintFootprintTypeReference>> footprintsReferences)
+    public TBuilder SetFootprintsReferences(params Blueprint<BlueprintFootprintType, BlueprintFootprintTypeReference>[] footprintsReferences)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.FootprintsReferences = footprintsReferences?.Select(bp => bp.Reference)?.ToArray();
+          bp.FootprintsReferences = footprintsReferences.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -1007,7 +1006,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets the value of <see cref="FxRoot.FootprintsLocators"/>
     /// </summary>
-    public TBuilder SetFootprintsLocators(FxRoot.FootprintLocators[] footprintsLocators)
+    public TBuilder SetFootprintsLocators(params FxRoot.FootprintLocators[] footprintsLocators)
     {
       return OnConfigureInternal(
         bp =>
@@ -1108,7 +1107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets the value of <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/>
     /// </summary>
-    public TBuilder SetCachedOverrideDeathPrefabsFromEnergy(DeathFxFromEnergyEntry[] cachedOverrideDeathPrefabsFromEnergy)
+    public TBuilder SetCachedOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] cachedOverrideDeathPrefabsFromEnergy)
     {
       return OnConfigureInternal(
         bp =>

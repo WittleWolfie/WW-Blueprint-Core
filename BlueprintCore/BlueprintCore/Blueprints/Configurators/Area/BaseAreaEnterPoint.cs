@@ -8,7 +8,6 @@ using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -130,13 +129,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.m_TooltipList"/>
     /// </summary>
-    public TBuilder SetTooltipList(List<LocalizedString> tooltipList)
+    public TBuilder SetTooltipList(params LocalizedString[] tooltipList)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in tooltipList) { Validate(item); }
-          bp.m_TooltipList = tooltipList;
+          bp.m_TooltipList = tooltipList.ToList();
         });
     }
 

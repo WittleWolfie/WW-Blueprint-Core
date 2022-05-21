@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Credits;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -238,12 +237,12 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets the value of <see cref="BlueprintCreditsGroup.OrderTeams"/>
     /// </summary>
-    public TBuilder SetOrderTeams(List<string> orderTeams)
+    public TBuilder SetOrderTeams(params string[] orderTeams)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.OrderTeams = orderTeams;
+          bp.OrderTeams = orderTeams.ToList();
         });
     }
 
@@ -314,13 +313,13 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets the value of <see cref="BlueprintCreditsGroup.Persones"/>
     /// </summary>
-    public TBuilder SetPersones(List<CreditPerson> persones)
+    public TBuilder SetPersones(params CreditPerson[] persones)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in persones) { Validate(item); }
-          bp.Persones = persones;
+          bp.Persones = persones.ToList();
         });
     }
 

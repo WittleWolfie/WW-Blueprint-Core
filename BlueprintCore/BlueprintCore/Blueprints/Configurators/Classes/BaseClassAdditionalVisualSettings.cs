@@ -76,7 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettings.ColorRamps"/>
     /// </summary>
-    public TBuilder SetColorRamps(BlueprintClassAdditionalVisualSettings.ColorRamp[] colorRamps)
+    public TBuilder SetColorRamps(params BlueprintClassAdditionalVisualSettings.ColorRamp[] colorRamps)
     {
       return OnConfigureInternal(
         bp =>

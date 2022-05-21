@@ -10,7 +10,6 @@ using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
@@ -225,12 +224,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetObjectives(List<Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>> objectives)
+    public TBuilder SetObjectives(params Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>[] objectives)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Objectives = objectives?.Select(bp => bp.Reference)?.ToList();
+          bp.m_Objectives = objectives.Select(bp => bp.Reference).ToList();
         });
     }
 

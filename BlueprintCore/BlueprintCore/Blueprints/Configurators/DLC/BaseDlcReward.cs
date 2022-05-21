@@ -6,7 +6,6 @@ using Kingmaker.DLC;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DLC
@@ -54,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcReward.m_IncludeAssetPaths"/>
     /// </summary>
-    public TBuilder SetIncludeAssetPaths(BlueprintDlcReward.AssetPath[] includeAssetPaths)
+    public TBuilder SetIncludeAssetPaths(params BlueprintDlcReward.AssetPath[] includeAssetPaths)
     {
       return OnConfigureInternal(
         bp =>
@@ -130,7 +129,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcReward.m_IncludeObjects"/>
     /// </summary>
-    public TBuilder SetIncludeObjects(UnityEngine.Object[] includeObjects)
+    public TBuilder SetIncludeObjects(params UnityEngine.Object[] includeObjects)
     {
       return OnConfigureInternal(
         bp =>
@@ -207,13 +206,13 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcReward.m_Dlcs"/>
     /// </summary>
-    public TBuilder SetDlcs(List<BlueprintDlc> dlcs)
+    public TBuilder SetDlcs(params BlueprintDlc[] dlcs)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in dlcs) { Validate(item); }
-          bp.m_Dlcs = dlcs;
+          bp.m_Dlcs = dlcs.ToList();
         });
     }
 

@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Sets the value of <see cref="BlueprintArbiterRoot.IgnoreScenesInReport"/>
     /// </summary>
-    public TBuilder SetIgnoreScenesInReport(SceneReference[] ignoreScenesInReport)
+    public TBuilder SetIgnoreScenesInReport(params SceneReference[] ignoreScenesInReport)
     {
       return OnConfigureInternal(
         bp =>
@@ -151,7 +151,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Sets the value of <see cref="BlueprintArbiterRoot.IgnoreScenesInReportByFilter"/>
     /// </summary>
-    public TBuilder SetIgnoreScenesInReportByFilter(string[] ignoreScenesInReportByFilter)
+    public TBuilder SetIgnoreScenesInReportByFilter(params string[] ignoreScenesInReportByFilter)
     {
       return OnConfigureInternal(
         bp =>

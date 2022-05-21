@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// InfoBox: Usually it's caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
     /// </para>
     /// </param>
-    public TBuilder SetLevels(SpellsLevelEntry[] levels)
+    public TBuilder SetLevels(params SpellsLevelEntry[] levels)
     {
       return OnConfigureInternal(
         bp =>

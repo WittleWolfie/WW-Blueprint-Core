@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;

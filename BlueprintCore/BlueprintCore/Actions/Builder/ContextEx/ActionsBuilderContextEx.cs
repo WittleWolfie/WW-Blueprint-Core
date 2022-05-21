@@ -3,6 +3,7 @@
 using BlueprintCore.Blueprints;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;

@@ -7,7 +7,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies
@@ -257,12 +256,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBaseSkills(List<Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>> baseSkills)
+    public TBuilder SetBaseSkills(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] baseSkills)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_baseSkills = baseSkills?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_baseSkills = baseSkills.Select(bp => bp.Reference).ToArray();
         });
     }
 

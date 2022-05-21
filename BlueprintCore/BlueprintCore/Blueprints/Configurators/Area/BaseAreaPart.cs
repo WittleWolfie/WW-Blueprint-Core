@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.m_AudioTimeOfDayVariants"/>
     /// </summary>
-    public TBuilder SetAudioTimeOfDayVariants(SceneReference[] audioTimeOfDayVariants)
+    public TBuilder SetAudioTimeOfDayVariants(params SceneReference[] audioTimeOfDayVariants)
     {
       return OnConfigureInternal(
         bp =>
@@ -208,7 +208,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.m_SoundBankNames"/>
     /// </summary>
-    public TBuilder SetSoundBankNames(string[] soundBankNames)
+    public TBuilder SetSoundBankNames(params string[] soundBankNames)
     {
       return OnConfigureInternal(
         bp =>

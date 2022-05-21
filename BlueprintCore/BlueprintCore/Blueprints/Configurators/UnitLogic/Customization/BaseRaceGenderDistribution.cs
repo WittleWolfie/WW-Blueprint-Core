@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Sets the value of <see cref="RaceGenderDistribution.Races"/>
     /// </summary>
-    public TBuilder SetRaces(RaceEntry[] races)
+    public TBuilder SetRaces(params RaceEntry[] races)
     {
       return OnConfigureInternal(
         bp =>

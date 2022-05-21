@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintStatProgression.Bonuses"/>
     /// </summary>
-    public TBuilder SetBonuses(int[] bonuses)
+    public TBuilder SetBonuses(params int[] bonuses)
     {
       return OnConfigureInternal(
         bp =>

@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
@@ -37,12 +36,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCharacterClasses(List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>> characterClasses)
+    public TBuilder SetCharacterClasses(params Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>[] characterClasses)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_CharacterClasses = characterClasses?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_CharacterClasses = characterClasses.Select(bp => bp.Reference).ToArray();
         });
     }
 

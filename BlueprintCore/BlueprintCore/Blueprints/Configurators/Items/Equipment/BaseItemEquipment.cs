@@ -391,12 +391,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEquipmentEntityAlternatives(List<Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>> equipmentEntityAlternatives)
+    public TBuilder SetEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_EquipmentEntityAlternatives = equipmentEntityAlternatives?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_EquipmentEntityAlternatives = equipmentEntityAlternatives.Select(bp => bp.Reference).ToArray();
         });
     }
 

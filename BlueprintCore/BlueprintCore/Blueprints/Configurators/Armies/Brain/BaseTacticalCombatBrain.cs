@@ -6,7 +6,6 @@ using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
@@ -38,12 +37,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetTacticalActions(List<Blueprint<BlueprintTacticalCombatAiAction, BlueprintTacticalCombatAiActionReference>> tacticalActions)
+    public TBuilder SetTacticalActions(params Blueprint<BlueprintTacticalCombatAiAction, BlueprintTacticalCombatAiActionReference>[] tacticalActions)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_TacticalActions = tacticalActions?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_TacticalActions = tacticalActions.Select(bp => bp.Reference).ToArray();
         });
     }
 

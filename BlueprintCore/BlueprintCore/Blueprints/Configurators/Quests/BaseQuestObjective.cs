@@ -16,7 +16,6 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
@@ -48,12 +47,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAddendums(List<Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>> addendums)
+    public TBuilder SetAddendums(params Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>[] addendums)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Addendums = addendums?.Select(bp => bp.Reference)?.ToList();
+          bp.m_Addendums = addendums.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -202,12 +201,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAreas(List<Blueprint<BlueprintArea, BlueprintAreaReference>> areas)
+    public TBuilder SetAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] areas)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Areas = areas?.Select(bp => bp.Reference)?.ToList();
+          bp.m_Areas = areas.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -385,12 +384,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLocations(List<Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>> locations)
+    public TBuilder SetLocations(params Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>[] locations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Locations = locations?.Select(bp => bp.Reference)?.ToList();
+          bp.Locations = locations.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -539,12 +538,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMultiEntranceEntries(List<Blueprint<BlueprintMultiEntranceEntry, BlueprintMultiEntranceEntry.Reference>> multiEntranceEntries)
+    public TBuilder SetMultiEntranceEntries(params Blueprint<BlueprintMultiEntranceEntry, BlueprintMultiEntranceEntry.Reference>[] multiEntranceEntries)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.MultiEntranceEntries = multiEntranceEntries?.Select(bp => bp.Reference)?.ToList();
+          bp.MultiEntranceEntries = multiEntranceEntries.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -842,12 +841,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNextObjectives(List<Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>> nextObjectives)
+    public TBuilder SetNextObjectives(params Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>[] nextObjectives)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_NextObjectives = nextObjectives?.Select(bp => bp.Reference)?.ToList();
+          bp.m_NextObjectives = nextObjectives.Select(bp => bp.Reference).ToList();
         });
     }
 

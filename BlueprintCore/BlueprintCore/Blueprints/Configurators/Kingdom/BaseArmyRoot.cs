@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_TravelingArmiesByChapter"/>
     /// </summary>
-    public TBuilder SetTravelingArmiesByChapter(ArmyRoot.ChapterSpawnInfo[] travelingArmiesByChapter)
+    public TBuilder SetTravelingArmiesByChapter(params ArmyRoot.ChapterSpawnInfo[] travelingArmiesByChapter)
     {
       return OnConfigureInternal(
         bp =>

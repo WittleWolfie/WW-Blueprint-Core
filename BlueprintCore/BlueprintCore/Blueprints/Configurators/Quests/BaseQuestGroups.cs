@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuestGroups.Groups"/>
     /// </summary>
-    public TBuilder SetGroups(QuestGroup[] groups)
+    public TBuilder SetGroups(params QuestGroup[] groups)
     {
       return OnConfigureInternal(
         bp =>

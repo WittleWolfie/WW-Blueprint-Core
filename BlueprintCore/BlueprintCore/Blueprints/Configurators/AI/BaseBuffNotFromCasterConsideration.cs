@@ -6,7 +6,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
@@ -41,12 +40,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBuffs(List<Blueprint<BlueprintBuff, BlueprintBuffReference>> buffs)
+    public TBuilder SetBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] buffs)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Buffs = buffs?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Buffs = buffs.Select(bp => bp.Reference).ToArray();
         });
     }
 

@@ -4,6 +4,7 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Components;
@@ -321,6 +322,32 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.Action = Utils.Constants.Empty.Actions;
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Blindsense"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Blindsight</term><description>236ec7f226d3d784884f066aa4be1570</description></item>
+    /// <item><term>FormOfTheDragonIIIGreenBuff</term><description>2d294863adf81f944a7558f7ae248448</description></item>
+    /// <item><term>WatchmanFeature</term><description>a0bf73f355bbeaa4dba2cd39132753cd</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddBlindsense(
+        Feet range,
+        bool? blindsight = null,
+        UnitConditionExceptions? exceptions = null)
+    {
+      var component = new Blindsense();
+      component.Range = range;
+      component.Blindsight = blindsight ?? component.Blindsight;
+      Validate(exceptions);
+      component.Exceptions = exceptions ?? component.Exceptions;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -12648,32 +12675,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBlindnessACCompensation()
     {
       return AddComponent(new BlindnessACCompensation());
-    }
-
-    /// <summary>
-    /// Adds <see cref="Blindsense"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Blindsight</term><description>236ec7f226d3d784884f066aa4be1570</description></item>
-    /// <item><term>FormOfTheDragonIIIGreenBuff</term><description>2d294863adf81f944a7558f7ae248448</description></item>
-    /// <item><term>WatchmanFeature</term><description>a0bf73f355bbeaa4dba2cd39132753cd</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddBlindsense(
-        bool? blindsight = null,
-        UnitConditionExceptions? exceptions = null,
-        Feet? range = null)
-    {
-      var component = new Blindsense();
-      component.Blindsight = blindsight ?? component.Blindsight;
-      Validate(exceptions);
-      component.Exceptions = exceptions ?? component.Exceptions;
-      component.Range = range ?? component.Range;
-      return AddComponent(component);
     }
 
     /// <summary>

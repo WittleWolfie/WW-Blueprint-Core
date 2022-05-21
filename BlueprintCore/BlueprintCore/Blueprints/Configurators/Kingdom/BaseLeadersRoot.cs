@@ -8,7 +8,6 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -91,12 +90,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLeaders(List<Blueprint<BlueprintArmyLeader, BlueprintArmyLeaderReference>> leaders)
+    public TBuilder SetLeaders(params Blueprint<BlueprintArmyLeader, BlueprintArmyLeaderReference>[] leaders)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Leaders = leaders?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Leaders = leaders.Select(bp => bp.Reference).ToArray();
         });
     }
 

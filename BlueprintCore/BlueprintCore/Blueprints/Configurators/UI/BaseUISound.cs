@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.UI;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.UI
@@ -24,13 +23,13 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Sets the value of <see cref="BlueprintUISound.Sounds"/>
     /// </summary>
-    public TBuilder SetSounds(List<BlueprintUISound.UISound> sounds)
+    public TBuilder SetSounds(params BlueprintUISound.UISound[] sounds)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in sounds) { Validate(item); }
-          bp.Sounds = sounds;
+          bp.Sounds = sounds.ToList();
         });
     }
 
@@ -101,13 +100,13 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Sets the value of <see cref="BlueprintUISound.ArmyManagement"/>
     /// </summary>
-    public TBuilder SetArmyManagement(List<BlueprintUISound.UISound> armyManagement)
+    public TBuilder SetArmyManagement(params BlueprintUISound.UISound[] armyManagement)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in armyManagement) { Validate(item); }
-          bp.ArmyManagement = armyManagement;
+          bp.ArmyManagement = armyManagement.ToList();
         });
     }
 
@@ -178,13 +177,13 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     /// <summary>
     /// Sets the value of <see cref="BlueprintUISound.Tooltip"/>
     /// </summary>
-    public TBuilder SetTooltip(List<BlueprintUISound.UISound> tooltip)
+    public TBuilder SetTooltip(params BlueprintUISound.UISound[] tooltip)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in tooltip) { Validate(item); }
-          bp.Tooltip = tooltip;
+          bp.Tooltip = tooltip.ToList();
         });
     }
 

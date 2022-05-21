@@ -7,7 +7,6 @@ using Kingmaker.Kingdom.AI;
 using Kingmaker.UI.Settlement;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
@@ -103,13 +102,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
     /// <summary>
     /// Sets the value of <see cref="SettlementBuildList.List"/>
     /// </summary>
-    public TBuilder SetList(List<SettlementBuildList.Entry> list)
+    public TBuilder SetList(params SettlementBuildList.Entry[] list)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in list) { Validate(item); }
-          bp.List = list;
+          bp.List = list.ToList();
         });
     }
 

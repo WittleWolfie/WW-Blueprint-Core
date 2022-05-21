@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
@@ -38,12 +37,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEnchantments(List<Blueprint<BlueprintEquipmentEnchantment, BlueprintEquipmentEnchantmentReference>> enchantments)
+    public TBuilder SetEnchantments(params Blueprint<BlueprintEquipmentEnchantment, BlueprintEquipmentEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Enchantments = enchantments?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Enchantments = enchantments.Select(bp => bp.Reference).ToArray();
         });
     }
 

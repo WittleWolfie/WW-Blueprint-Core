@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Encyclopedia;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
@@ -91,12 +90,12 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetChildPages(List<Blueprint<BlueprintEncyclopediaPage, BlueprintEncyclopediaPageReference>> childPages)
+    public TBuilder SetChildPages(params Blueprint<BlueprintEncyclopediaPage, BlueprintEncyclopediaPageReference>[] childPages)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ChildPages = childPages?.Select(bp => bp.Reference)?.ToList();
+          bp.ChildPages = childPages.Select(bp => bp.Reference).ToList();
         });
     }
 

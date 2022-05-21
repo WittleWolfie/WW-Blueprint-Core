@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
@@ -24,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_Classes"/>
     /// </summary>
-    public TBuilder SetClasses(BlueprintProgression.ClassWithLevel[] classes)
+    public TBuilder SetClasses(params BlueprintProgression.ClassWithLevel[] classes)
     {
       return OnConfigureInternal(
         bp =>
@@ -101,7 +100,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_Archetypes"/>
     /// </summary>
-    public TBuilder SetArchetypes(BlueprintProgression.ArchetypeWithLevel[] archetypes)
+    public TBuilder SetArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -202,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_AlternateProgressionClasses"/>
     /// </summary>
-    public TBuilder SetAlternateProgressionClasses(BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
+    public TBuilder SetAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
     {
       return OnConfigureInternal(
         bp =>
@@ -303,7 +302,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.LevelEntries"/>
     /// </summary>
-    public TBuilder SetLevelEntries(LevelEntry[] levelEntries)
+    public TBuilder SetLevelEntries(params LevelEntry[] levelEntries)
     {
       return OnConfigureInternal(
         bp =>
@@ -386,7 +385,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Tooltip: Icons will be connected with line inside one group
     /// </para>
     /// </param>
-    public TBuilder SetUIGroups(UIGroup[] uIGroups)
+    public TBuilder SetUIGroups(params UIGroup[] uIGroups)
     {
       return OnConfigureInternal(
         bp =>
@@ -509,12 +508,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUIDeterminatorsGroup(List<Blueprint<BlueprintFeatureBase, BlueprintFeatureBaseReference>> uIDeterminatorsGroup)
+    public TBuilder SetUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBase, BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_UIDeterminatorsGroup = uIDeterminatorsGroup?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_UIDeterminatorsGroup = uIDeterminatorsGroup.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -756,12 +755,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFeaturesRankIncrease(List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> featuresRankIncrease)
+    public TBuilder SetFeaturesRankIncrease(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] featuresRankIncrease)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_FeaturesRankIncrease = featuresRankIncrease?.Select(bp => bp.Reference)?.ToList();
+          bp.m_FeaturesRankIncrease = featuresRankIncrease.Select(bp => bp.Reference).ToList();
         });
     }
 

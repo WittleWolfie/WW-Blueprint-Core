@@ -476,7 +476,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.ResourceAssetIds"/>
     /// </summary>
-    public TBuilder SetResourceAssetIds(string[] resourceAssetIds)
+    public TBuilder SetResourceAssetIds(params string[] resourceAssetIds)
     {
       return OnConfigureInternal(
         bp =>

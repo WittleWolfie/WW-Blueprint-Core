@@ -77,7 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderProgression.m_Levels"/>
     /// </summary>
-    public TBuilder SetLevels(LeaderLevel[] levels)
+    public TBuilder SetLevels(params LeaderLevel[] levels)
     {
       return OnConfigureInternal(
         bp =>

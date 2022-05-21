@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintLevelUpPlanFeaturesList.Features"/>
     /// </summary>
-    public TBuilder SetFeatures(BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
+    public TBuilder SetFeatures(params BlueprintLevelUpPlanFeaturesList.FeatureWrapper[] features)
     {
       return OnConfigureInternal(
         bp =>

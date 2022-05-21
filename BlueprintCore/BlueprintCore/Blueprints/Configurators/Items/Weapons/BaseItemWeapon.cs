@@ -12,7 +12,6 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Class.Kineticist;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
@@ -119,12 +118,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEnchantments(List<Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>> enchantments)
+    public TBuilder SetEnchantments(params Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Enchantments = enchantments?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Enchantments = enchantments.Select(bp => bp.Reference).ToArray();
         });
     }
 

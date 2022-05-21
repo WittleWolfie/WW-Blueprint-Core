@@ -1,4 +1,3 @@
-using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;

@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Console;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Console
@@ -24,13 +23,13 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     /// <summary>
     /// Sets the value of <see cref="GamePadTexts.m_Layers"/>
     /// </summary>
-    public TBuilder SetLayers(List<GamePadTexts.GamePadTextsLayer> layers)
+    public TBuilder SetLayers(params GamePadTexts.GamePadTextsLayer[] layers)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in layers) { Validate(item); }
-          bp.m_Layers = layers;
+          bp.m_Layers = layers.ToList();
         });
     }
 

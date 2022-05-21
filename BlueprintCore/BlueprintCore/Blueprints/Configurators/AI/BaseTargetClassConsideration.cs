@@ -6,7 +6,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
@@ -38,12 +37,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFirstPriorityClasses(List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>> firstPriorityClasses)
+    public TBuilder SetFirstPriorityClasses(params Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>[] firstPriorityClasses)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_FirstPriorityClasses = firstPriorityClasses?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_FirstPriorityClasses = firstPriorityClasses.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -216,12 +215,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSecondPriorityClasses(List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>> secondPriorityClasses)
+    public TBuilder SetSecondPriorityClasses(params Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>[] secondPriorityClasses)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_SecondPriorityClasses = secondPriorityClasses?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_SecondPriorityClasses = secondPriorityClasses.Select(bp => bp.Reference).ToArray();
         });
     }
 

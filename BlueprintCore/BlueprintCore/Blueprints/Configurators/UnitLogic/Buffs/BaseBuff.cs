@@ -4,6 +4,7 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills;
@@ -136,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Flags = flags.Aggregate((BlueprintBuff.Flags) 0, (f1, f2) => f1 | f2);;
+          bp.m_Flags = flags.Aggregate((BlueprintBuff.Flags) 0, (f1, f2) => f1 | f2);
         });
     }
 
@@ -297,7 +298,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.ResourceAssetIds"/>
     /// </summary>
-    public TBuilder SetResourceAssetIds(string[] resourceAssetIds)
+    public TBuilder SetResourceAssetIds(params string[] resourceAssetIds)
     {
       return OnConfigureInternal(
         bp =>
@@ -450,7 +451,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <remarks>
     /// <para>
-    /// Use <see cref="Components.ContextRankConfigs"/> to create the ContextRankConfig component.
+    /// Use <see cref="Utils.Types.ContextRankConfigs"/> to create the ContextRankConfig component.
     /// </para>
     ///
     /// <list type="bullet">

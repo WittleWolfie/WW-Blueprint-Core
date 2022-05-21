@@ -11,7 +11,6 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.QA.Clockwork;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.QA
@@ -30,13 +29,13 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Sets the value of <see cref="BlueprintClockworkScenarioPart.RetrySkillChecks"/>
     /// </summary>
-    public TBuilder SetRetrySkillChecks(List<EntityReference> retrySkillChecks)
+    public TBuilder SetRetrySkillChecks(params EntityReference[] retrySkillChecks)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in retrySkillChecks) { Validate(item); }
-          bp.RetrySkillChecks = retrySkillChecks;
+          bp.RetrySkillChecks = retrySkillChecks.ToList();
         });
     }
 
@@ -120,12 +119,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetHighPriorityAnswers(List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>> highPriorityAnswers)
+    public TBuilder SetHighPriorityAnswers(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] highPriorityAnswers)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.HighPriorityAnswers = highPriorityAnswers?.Select(bp => bp.Reference)?.ToList();
+          bp.HighPriorityAnswers = highPriorityAnswers.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -274,12 +273,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoNotSellItems(List<Blueprint<BlueprintItem, BlueprintItemReference>> doNotSellItems)
+    public TBuilder SetDoNotSellItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] doNotSellItems)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DoNotSellItems = doNotSellItems?.Select(bp => bp.Reference)?.ToList();
+          bp.DoNotSellItems = doNotSellItems.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -415,13 +414,13 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Sets the value of <see cref="BlueprintClockworkScenarioPart.DoNotInterract"/>
     /// </summary>
-    public TBuilder SetDoNotInterract(List<ClockworkEntityReference> doNotInterract)
+    public TBuilder SetDoNotInterract(params ClockworkEntityReference[] doNotInterract)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in doNotInterract) { Validate(item); }
-          bp.DoNotInterract = doNotInterract;
+          bp.DoNotInterract = doNotInterract.ToList();
         });
     }
 
@@ -505,12 +504,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoNotInterractUnits(List<Blueprint<BlueprintUnit, BlueprintUnitReference>> doNotInterractUnits)
+    public TBuilder SetDoNotInterractUnits(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] doNotInterractUnits)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DoNotInterractUnits = doNotInterractUnits?.Select(bp => bp.Reference)?.ToList();
+          bp.DoNotInterractUnits = doNotInterractUnits.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -659,12 +658,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoNotUseAnswer(List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>> doNotUseAnswer)
+    public TBuilder SetDoNotUseAnswer(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] doNotUseAnswer)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DoNotUseAnswer = doNotUseAnswer?.Select(bp => bp.Reference)?.ToList();
+          bp.DoNotUseAnswer = doNotUseAnswer.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -813,12 +812,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoNotEnterAreas(List<Blueprint<BlueprintArea, BlueprintAreaReference>> doNotEnterAreas)
+    public TBuilder SetDoNotEnterAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] doNotEnterAreas)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DoNotEnterAreas = doNotEnterAreas?.Select(bp => bp.Reference)?.ToList();
+          bp.DoNotEnterAreas = doNotEnterAreas.Select(bp => bp.Reference).ToList();
         });
     }
 

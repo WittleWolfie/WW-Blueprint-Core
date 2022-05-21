@@ -251,7 +251,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.AddFeatures"/>
     /// </summary>
-    public TBuilder SetAddFeatures(LevelEntry[] addFeatures)
+    public TBuilder SetAddFeatures(params LevelEntry[] addFeatures)
     {
       return OnConfigureInternal(
         bp =>
@@ -328,7 +328,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.RemoveFeatures"/>
     /// </summary>
-    public TBuilder SetRemoveFeatures(LevelEntry[] removeFeatures)
+    public TBuilder SetRemoveFeatures(params LevelEntry[] removeFeatures)
     {
       return OnConfigureInternal(
         bp =>
@@ -466,12 +466,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartingItems(List<Blueprint<BlueprintItem, BlueprintItemReference>> startingItems)
+    public TBuilder SetStartingItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingItems)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_StartingItems = startingItems?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_StartingItems = startingItems.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -631,7 +631,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.ClassSkills"/>
     /// </summary>
-    public TBuilder SetClassSkills(StatType[] classSkills)
+    public TBuilder SetClassSkills(params StatType[] classSkills)
     {
       return OnConfigureInternal(
         bp =>
@@ -851,7 +851,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.RecommendedAttributes"/>
     /// </summary>
-    public TBuilder SetRecommendedAttributes(StatType[] recommendedAttributes)
+    public TBuilder SetRecommendedAttributes(params StatType[] recommendedAttributes)
     {
       return OnConfigureInternal(
         bp =>
@@ -927,7 +927,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.NotRecommendedAttributes"/>
     /// </summary>
-    public TBuilder SetNotRecommendedAttributes(StatType[] notRecommendedAttributes)
+    public TBuilder SetNotRecommendedAttributes(params StatType[] notRecommendedAttributes)
     {
       return OnConfigureInternal(
         bp =>
@@ -1016,12 +1016,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSignatureAbilities(List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> signatureAbilities)
+    public TBuilder SetSignatureAbilities(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] signatureAbilities)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_SignatureAbilities = signatureAbilities?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_SignatureAbilities = signatureAbilities.Select(bp => bp.Reference).ToArray();
         });
     }
 

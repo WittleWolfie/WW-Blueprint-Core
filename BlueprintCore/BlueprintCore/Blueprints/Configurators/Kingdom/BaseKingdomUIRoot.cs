@@ -6,7 +6,6 @@ using Kingmaker.Kingdom;
 using Kingmaker.UI.Kingdom;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -77,13 +76,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.Stats"/>
     /// </summary>
-    public TBuilder SetStats(List<KingdomUIRoot.KingdomStatElement> stats)
+    public TBuilder SetStats(params KingdomUIRoot.KingdomStatElement[] stats)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in stats) { Validate(item); }
-          bp.Stats = stats;
+          bp.Stats = stats.ToList();
         });
     }
 
@@ -154,13 +153,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.Resources"/>
     /// </summary>
-    public TBuilder SetResources(List<KingdomUIRoot.KingdomResourceElement> resources)
+    public TBuilder SetResources(params KingdomUIRoot.KingdomResourceElement[] resources)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in resources) { Validate(item); }
-          bp.Resources = resources;
+          bp.Resources = resources.ToList();
         });
     }
 
@@ -257,13 +256,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.LeaderDescriptions"/>
     /// </summary>
-    public TBuilder SetLeaderDescriptions(List<KingdomUIRoot.KingdomLeaderDescription> leaderDescriptions)
+    public TBuilder SetLeaderDescriptions(params KingdomUIRoot.KingdomLeaderDescription[] leaderDescriptions)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in leaderDescriptions) { Validate(item); }
-          bp.LeaderDescriptions = leaderDescriptions;
+          bp.LeaderDescriptions = leaderDescriptions.ToList();
         });
     }
 
@@ -360,13 +359,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.EventResultMarginDescriptions"/>
     /// </summary>
-    public TBuilder SetEventResultMarginDescriptions(List<KingdomUIRoot.EventResultMarginDescription> eventResultMarginDescriptions)
+    public TBuilder SetEventResultMarginDescriptions(params KingdomUIRoot.EventResultMarginDescription[] eventResultMarginDescriptions)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in eventResultMarginDescriptions) { Validate(item); }
-          bp.EventResultMarginDescriptions = eventResultMarginDescriptions;
+          bp.EventResultMarginDescriptions = eventResultMarginDescriptions.ToList();
         });
     }
 
@@ -515,13 +514,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.KingdomStatusChangeReasons"/>
     /// </summary>
-    public TBuilder SetKingdomStatusChangeReasons(List<KingdomUIRoot.KingdomStatusChangeReasonEntity> kingdomStatusChangeReasons)
+    public TBuilder SetKingdomStatusChangeReasons(params KingdomUIRoot.KingdomStatusChangeReasonEntity[] kingdomStatusChangeReasons)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in kingdomStatusChangeReasons) { Validate(item); }
-          bp.KingdomStatusChangeReasons = kingdomStatusChangeReasons;
+          bp.KingdomStatusChangeReasons = kingdomStatusChangeReasons.ToList();
         });
     }
 
@@ -642,13 +641,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.KingdomStautsDesriptions"/>
     /// </summary>
-    public TBuilder SetKingdomStautsDesriptions(List<KingdomUIRoot.KingdomStatusDescription> kingdomStautsDesriptions)
+    public TBuilder SetKingdomStautsDesriptions(params KingdomUIRoot.KingdomStatusDescription[] kingdomStautsDesriptions)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in kingdomStautsDesriptions) { Validate(item); }
-          bp.KingdomStautsDesriptions = kingdomStautsDesriptions;
+          bp.KingdomStautsDesriptions = kingdomStautsDesriptions.ToList();
         });
     }
 

@@ -6,7 +6,6 @@ using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
@@ -38,12 +37,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetTargetConsiderations(List<Blueprint<ConsiderationCustom, ConsiderationCustom.Reference>> targetConsiderations)
+    public TBuilder SetTargetConsiderations(params Blueprint<ConsiderationCustom, ConsiderationCustom.Reference>[] targetConsiderations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_TargetConsiderations = targetConsiderations?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_TargetConsiderations = targetConsiderations.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -192,12 +191,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetActorConsiderations(List<Blueprint<ConsiderationCustom, ConsiderationCustom.Reference>> actorConsiderations)
+    public TBuilder SetActorConsiderations(params Blueprint<ConsiderationCustom, ConsiderationCustom.Reference>[] actorConsiderations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_ActorConsiderations = actorConsiderations?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_ActorConsiderations = actorConsiderations.Select(bp => bp.Reference).ToArray();
         });
     }
 

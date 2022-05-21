@@ -349,7 +349,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.DCModifiers"/>
     /// </summary>
-    public TBuilder SetDCModifiers(DCModifier[] dCModifiers)
+    public TBuilder SetDCModifiers(params DCModifier[] dCModifiers)
     {
       return OnConfigureInternal(
         bp =>
@@ -669,12 +669,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLocationVariations(List<Blueprint<BlueprintGlobalMapPointVariation, BlueprintGlobalMapPointVariation.Reference>> locationVariations)
+    public TBuilder SetLocationVariations(params Blueprint<BlueprintGlobalMapPointVariation, BlueprintGlobalMapPointVariation.Reference>[] locationVariations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocationVariations = locationVariations?.Select(bp => bp.Reference)?.ToArray();
+          bp.LocationVariations = locationVariations.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -913,7 +913,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.Ingredients"/>
     /// </summary>
-    public TBuilder SetIngredients(IngredientPair[] ingredients)
+    public TBuilder SetIngredients(params IngredientPair[] ingredients)
     {
       return OnConfigureInternal(
         bp =>
@@ -1014,7 +1014,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.Loot"/>
     /// </summary>
-    public TBuilder SetLoot(LootEntry[] loot)
+    public TBuilder SetLoot(params LootEntry[] loot)
     {
       return OnConfigureInternal(
         bp =>

@@ -6,6 +6,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
@@ -740,7 +741,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       return OnConfigureInternal(
         bp =>
         {
-          bp.AvailableMetamagic = availableMetamagic.Aggregate((Metamagic) 0, (f1, f2) => f1 | f2);;
+          bp.AvailableMetamagic = availableMetamagic.Aggregate((Metamagic) 0, (f1, f2) => f1 | f2);
         });
     }
 
@@ -903,7 +904,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.ResourceAssetIds"/>
     /// </summary>
-    public TBuilder SetResourceAssetIds(string[] resourceAssetIds)
+    public TBuilder SetResourceAssetIds(params string[] resourceAssetIds)
     {
       return OnConfigureInternal(
         bp =>
@@ -979,7 +980,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.m_CachedRestrictions"/>
     /// </summary>
-    public TBuilder SetCachedRestrictions(IAbilityRestriction[] cachedRestrictions)
+    public TBuilder SetCachedRestrictions(params IAbilityRestriction[] cachedRestrictions)
     {
       return OnConfigureInternal(
         bp =>
@@ -1056,7 +1057,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.m_CachedTargetRestrictions"/>
     /// </summary>
-    public TBuilder SetCachedTargetRestrictions(IAbilityTargetRestriction[] cachedTargetRestrictions)
+    public TBuilder SetCachedTargetRestrictions(params IAbilityTargetRestriction[] cachedTargetRestrictions)
     {
       return OnConfigureInternal(
         bp =>
@@ -1133,7 +1134,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.m_CachedCasterRestrictions"/>
     /// </summary>
-    public TBuilder SetCachedCasterRestrictions(IAbilityCasterRestriction[] cachedCasterRestrictions)
+    public TBuilder SetCachedCasterRestrictions(params IAbilityCasterRestriction[] cachedCasterRestrictions)
     {
       return OnConfigureInternal(
         bp =>
@@ -1689,7 +1690,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <remarks>
     /// <para>
-    /// Use <see cref="Components.ContextRankConfigs"/> to create the ContextRankConfig component.
+    /// Use <see cref="Utils.Types.ContextRankConfigs"/> to create the ContextRankConfig component.
     /// </para>
     ///
     /// <list type="bullet">

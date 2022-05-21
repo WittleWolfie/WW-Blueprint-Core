@@ -197,7 +197,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoot.Items"/>
     /// </summary>
-    public TBuilder SetItems(LootEntry[] items)
+    public TBuilder SetItems(params LootEntry[] items)
     {
       return OnConfigureInternal(
         bp =>

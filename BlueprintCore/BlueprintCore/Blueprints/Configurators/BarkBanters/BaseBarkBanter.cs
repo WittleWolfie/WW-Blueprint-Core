@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Sets the value of <see cref="BlueprintBarkBanter.FirstPhrase"/>
     /// </summary>
-    public TBuilder SetFirstPhrase(LocalizedString[] firstPhrase)
+    public TBuilder SetFirstPhrase(params LocalizedString[] firstPhrase)
     {
       return OnConfigureInternal(
         bp =>
@@ -226,7 +226,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Sets the value of <see cref="BlueprintBarkBanter.Responses"/>
     /// </summary>
-    public TBuilder SetResponses(BlueprintBarkBanter.BanterResponseEntry[] responses)
+    public TBuilder SetResponses(params BlueprintBarkBanter.BanterResponseEntry[] responses)
     {
       return OnConfigureInternal(
         bp =>

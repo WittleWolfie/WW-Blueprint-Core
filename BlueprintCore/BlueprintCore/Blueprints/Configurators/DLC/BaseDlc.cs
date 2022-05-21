@@ -6,7 +6,6 @@ using Kingmaker.DLC;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DLC
@@ -67,12 +66,12 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRewardReferences(List<Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>> rewardReferences)
+    public TBuilder SetRewardReferences(params Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>[] rewardReferences)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.RewardReferences = rewardReferences?.Select(bp => bp.Reference)?.ToArray();
+          bp.RewardReferences = rewardReferences.Select(bp => bp.Reference).ToArray();
         });
     }
 

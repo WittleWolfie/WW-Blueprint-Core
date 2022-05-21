@@ -11,7 +11,6 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using Owlcat.Runtime.Core.Math;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -737,12 +736,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBannedUnitFacts(List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> bannedUnitFacts)
+    public TBuilder SetBannedUnitFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] bannedUnitFacts)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_BannedUnitFacts = bannedUnitFacts?.Select(bp => bp.Reference)?.ToList();
+          bp.m_BannedUnitFacts = bannedUnitFacts.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -902,13 +901,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_ZoneSettings"/>
     /// </summary>
-    public TBuilder SetZoneSettings(List<BlueprintTacticalCombatRoot.TacticalZoneSettings> zoneSettings)
+    public TBuilder SetZoneSettings(params BlueprintTacticalCombatRoot.TacticalZoneSettings[] zoneSettings)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in zoneSettings) { Validate(item); }
-          bp.m_ZoneSettings = zoneSettings;
+          bp.m_ZoneSettings = zoneSettings.ToList();
         });
     }
 

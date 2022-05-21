@@ -1,10 +1,6 @@
-﻿using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.Components;
-using BlueprintCore.Blueprints.Configurators.Classes;
-using BlueprintCore.Conditions.Builder;
+﻿using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;

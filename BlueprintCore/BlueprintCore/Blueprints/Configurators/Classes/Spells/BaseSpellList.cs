@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellList.SpellsByLevel"/>
     /// </summary>
-    public TBuilder SetSpellsByLevel(SpellLevelList[] spellsByLevel)
+    public TBuilder SetSpellsByLevel(params SpellLevelList[] spellsByLevel)
     {
       return OnConfigureInternal(
         bp =>

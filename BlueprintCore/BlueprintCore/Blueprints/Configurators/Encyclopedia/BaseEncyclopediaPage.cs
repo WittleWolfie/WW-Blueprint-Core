@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Encyclopedia;
 using Kingmaker.Blueprints.Encyclopedia.Blocks;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
@@ -76,13 +75,13 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     /// <summary>
     /// Sets the value of <see cref="BlueprintEncyclopediaPage.Blocks"/>
     /// </summary>
-    public TBuilder SetBlocks(List<BlueprintEncyclopediaBlock> blocks)
+    public TBuilder SetBlocks(params BlueprintEncyclopediaBlock[] blocks)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in blocks) { Validate(item); }
-          bp.Blocks = blocks;
+          bp.Blocks = blocks.ToList();
         });
     }
 

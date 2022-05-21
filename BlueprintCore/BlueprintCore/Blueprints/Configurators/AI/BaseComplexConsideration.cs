@@ -5,7 +5,6 @@ using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
@@ -37,12 +36,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetConsiderations(List<Blueprint<Consideration, ConsiderationReference>> considerations)
+    public TBuilder SetConsiderations(params Blueprint<Consideration, ConsiderationReference>[] considerations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Considerations = considerations?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Considerations = considerations.Select(bp => bp.Reference).ToArray();
         });
     }
 

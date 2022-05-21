@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
@@ -37,12 +36,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetItems(List<Blueprint<BlueprintItem, BlueprintItemReference>> items)
+    public TBuilder SetItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] items)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Items = items?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Items = items.Select(bp => bp.Reference).ToArray();
         });
     }
 

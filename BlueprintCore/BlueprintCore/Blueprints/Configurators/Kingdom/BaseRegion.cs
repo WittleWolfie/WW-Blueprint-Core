@@ -9,7 +9,6 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -123,12 +122,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAdjacent(List<Blueprint<BlueprintRegion, BlueprintRegionReference>> adjacent)
+    public TBuilder SetAdjacent(params Blueprint<BlueprintRegion, BlueprintRegionReference>[] adjacent)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Adjacent = adjacent?.Select(bp => bp.Reference)?.ToList();
+          bp.m_Adjacent = adjacent.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -341,13 +340,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintRegion.UpgradeEvents"/>
     /// </summary>
-    public TBuilder SetUpgradeEvents(List<BlueprintRegion.UpgradeVariant> upgradeEvents)
+    public TBuilder SetUpgradeEvents(params BlueprintRegion.UpgradeVariant[] upgradeEvents)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in upgradeEvents) { Validate(item); }
-          bp.UpgradeEvents = upgradeEvents;
+          bp.UpgradeEvents = upgradeEvents.ToList();
         });
     }
 
@@ -431,12 +430,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetArtisans(List<Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>> artisans)
+    public TBuilder SetArtisans(params Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>[] artisans)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Artisans = artisans?.Select(bp => bp.Reference)?.ToList();
+          bp.Artisans = artisans.Select(bp => bp.Reference).ToList();
         });
     }
 

@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintCrusadeEventTimeline.Chapters"/>
     /// </summary>
-    public TBuilder SetChapters(BlueprintCrusadeEventTimeline.ChapterInfo[] chapters)
+    public TBuilder SetChapters(params BlueprintCrusadeEventTimeline.ChapterInfo[] chapters)
     {
       return OnConfigureInternal(
         bp =>

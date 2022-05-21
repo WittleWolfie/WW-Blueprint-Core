@@ -6,7 +6,6 @@ using Kingmaker.UnitLogic.Customization;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Sound;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
@@ -25,13 +24,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Sets the value of <see cref="UnitCustomizationPreset.PresetObjects"/>
     /// </summary>
-    public TBuilder SetPresetObjects(List<PresetObject> presetObjects)
+    public TBuilder SetPresetObjects(params PresetObject[] presetObjects)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in presetObjects) { Validate(item); }
-          bp.PresetObjects = presetObjects;
+          bp.PresetObjects = presetObjects.ToList();
         });
     }
 
@@ -190,12 +189,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUnits(List<Blueprint<BlueprintUnit, BlueprintUnitReference>> units)
+    public TBuilder SetUnits(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] units)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Units = units?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Units = units.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -331,7 +330,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Sets the value of <see cref="UnitCustomizationPreset.ClothesSelections"/>
     /// </summary>
-    public TBuilder SetClothesSelections(ClothesSelection[] clothesSelections)
+    public TBuilder SetClothesSelections(params ClothesSelection[] clothesSelections)
     {
       return OnConfigureInternal(
         bp =>
@@ -408,13 +407,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Sets the value of <see cref="UnitCustomizationPreset.UnitVariations"/>
     /// </summary>
-    public TBuilder SetUnitVariations(List<UnitVariations> unitVariations)
+    public TBuilder SetUnitVariations(params UnitVariations[] unitVariations)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in unitVariations) { Validate(item); }
-          bp.UnitVariations = unitVariations;
+          bp.UnitVariations = unitVariations.ToList();
         });
     }
 
@@ -498,12 +497,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMaleVoices(List<Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>> maleVoices)
+    public TBuilder SetMaleVoices(params Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>[] maleVoices)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.MaleVoices = maleVoices?.Select(bp => bp.Reference)?.ToList();
+          bp.MaleVoices = maleVoices.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -652,12 +651,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFemaleVoices(List<Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>> femaleVoices)
+    public TBuilder SetFemaleVoices(params Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>[] femaleVoices)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.FemaleVoices = femaleVoices?.Select(bp => bp.Reference)?.ToList();
+          bp.FemaleVoices = femaleVoices.Select(bp => bp.Reference).ToList();
         });
     }
 

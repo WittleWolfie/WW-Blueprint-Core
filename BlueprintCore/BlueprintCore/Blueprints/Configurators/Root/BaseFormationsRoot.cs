@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Root;
 using Kingmaker.Formations;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Root
@@ -38,12 +37,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPredefinedFormations(List<Blueprint<BlueprintPartyFormation, BlueprintPartyFormationReference>> predefinedFormations)
+    public TBuilder SetPredefinedFormations(params Blueprint<BlueprintPartyFormation, BlueprintPartyFormationReference>[] predefinedFormations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_PredefinedFormations = predefinedFormations?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_PredefinedFormations = predefinedFormations.Select(bp => bp.Reference).ToArray();
         });
     }
 

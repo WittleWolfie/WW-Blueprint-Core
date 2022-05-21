@@ -6,7 +6,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -38,12 +37,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPresets(List<Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference>> presets)
+    public TBuilder SetPresets(params Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference>[] presets)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Presets = presets?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Presets = presets.Select(bp => bp.Reference).ToArray();
         });
     }
 

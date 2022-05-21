@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
@@ -37,12 +36,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEvents(List<Blueprint<BlueprintKingdomEvent, BlueprintKingdomEventReference>> events)
+    public TBuilder SetEvents(params Blueprint<BlueprintKingdomEvent, BlueprintKingdomEventReference>[] events)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Events = events?.Select(bp => bp.Reference)?.ToList();
+          bp.Events = events.Select(bp => bp.Reference).ToList();
         });
     }
 

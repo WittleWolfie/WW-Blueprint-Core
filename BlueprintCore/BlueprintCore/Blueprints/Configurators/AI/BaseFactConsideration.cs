@@ -6,7 +6,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
@@ -38,12 +37,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFact(List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> fact)
+    public TBuilder SetFact(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] fact)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Fact = fact?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Fact = fact.Select(bp => bp.Reference).ToArray();
         });
     }
 

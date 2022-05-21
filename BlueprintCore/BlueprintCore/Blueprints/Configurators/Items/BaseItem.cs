@@ -522,7 +522,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.TrashLootTypes"/>
     /// </summary>
-    public TBuilder SetTrashLootTypes(TrashLootType[] trashLootTypes)
+    public TBuilder SetTrashLootTypes(params TrashLootType[] trashLootTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -598,13 +598,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_CachedEnchantments"/>
     /// </summary>
-    public TBuilder SetCachedEnchantments(List<BlueprintItemEnchantment> cachedEnchantments)
+    public TBuilder SetCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in cachedEnchantments) { Validate(item); }
-          bp.m_CachedEnchantments = cachedEnchantments;
+          bp.m_CachedEnchantments = cachedEnchantments.ToList();
         });
     }
 

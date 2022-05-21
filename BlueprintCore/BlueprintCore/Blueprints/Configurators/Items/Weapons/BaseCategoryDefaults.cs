@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets the value of <see cref="BlueprintCategoryDefaults.Entries"/>
     /// </summary>
-    public TBuilder SetEntries(BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
+    public TBuilder SetEntries(params BlueprintCategoryDefaults.CategoryDefaultEntry[] entries)
     {
       return OnConfigureInternal(
         bp =>

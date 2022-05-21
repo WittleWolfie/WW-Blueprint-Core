@@ -16,7 +16,6 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
@@ -201,12 +200,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAlsoLoadMechanics(List<Blueprint<BlueprintAreaMechanics, BlueprintAreaMechanicsReference>> alsoLoadMechanics)
+    public TBuilder SetAlsoLoadMechanics(params Blueprint<BlueprintAreaMechanics, BlueprintAreaMechanicsReference>[] alsoLoadMechanics)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.AlsoLoadMechanics = alsoLoadMechanics?.Select(bp => bp.Reference)?.ToList();
+          bp.AlsoLoadMechanics = alsoLoadMechanics.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -528,12 +527,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCompanions(List<Blueprint<BlueprintUnit, BlueprintUnitReference>> companions)
+    public TBuilder SetCompanions(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] companions)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Companions = companions?.Select(bp => bp.Reference)?.ToList();
+          bp.Companions = companions.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -682,12 +681,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCompanionsRemote(List<Blueprint<BlueprintUnit, BlueprintUnitReference>> companionsRemote)
+    public TBuilder SetCompanionsRemote(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] companionsRemote)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CompanionsRemote = companionsRemote?.Select(bp => bp.Reference)?.ToList();
+          bp.CompanionsRemote = companionsRemote.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -836,12 +835,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetExCompanions(List<Blueprint<BlueprintUnit, BlueprintUnitReference>> exCompanions)
+    public TBuilder SetExCompanions(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] exCompanions)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ExCompanions = exCompanions?.Select(bp => bp.Reference)?.ToList();
+          bp.ExCompanions = exCompanions.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -1057,13 +1056,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.UnlockedFlags"/>
     /// </summary>
-    public TBuilder SetUnlockedFlags(List<UnlockValuePair> unlockedFlags)
+    public TBuilder SetUnlockedFlags(params UnlockValuePair[] unlockedFlags)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in unlockedFlags) { Validate(item); }
-          bp.UnlockedFlags = unlockedFlags;
+          bp.UnlockedFlags = unlockedFlags.ToList();
         });
     }
 
@@ -1147,12 +1146,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartedQuests(List<Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>> startedQuests)
+    public TBuilder SetStartedQuests(params Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>[] startedQuests)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.StartedQuests = startedQuests?.Select(bp => bp.Reference)?.ToList();
+          bp.StartedQuests = startedQuests.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -1301,12 +1300,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFinishedQuests(List<Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>> finishedQuests)
+    public TBuilder SetFinishedQuests(params Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>[] finishedQuests)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.FinishedQuests = finishedQuests?.Select(bp => bp.Reference)?.ToList();
+          bp.FinishedQuests = finishedQuests.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -1455,12 +1454,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFailedQuests(List<Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>> failedQuests)
+    public TBuilder SetFailedQuests(params Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>[] failedQuests)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.FailedQuests = failedQuests?.Select(bp => bp.Reference)?.ToList();
+          bp.FailedQuests = failedQuests.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -1609,12 +1608,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartEtudesNonRecursively(List<Blueprint<BlueprintEtude, BlueprintEtudeReference>> startEtudesNonRecursively)
+    public TBuilder SetStartEtudesNonRecursively(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startEtudesNonRecursively)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.StartEtudesNonRecursively = startEtudesNonRecursively?.Select(bp => bp.Reference)?.ToList();
+          bp.StartEtudesNonRecursively = startEtudesNonRecursively.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -1763,12 +1762,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartEtudes(List<Blueprint<BlueprintEtude, BlueprintEtudeReference>> startEtudes)
+    public TBuilder SetStartEtudes(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startEtudes)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.StartEtudes = startEtudes?.Select(bp => bp.Reference)?.ToList();
+          bp.StartEtudes = startEtudes.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -1917,12 +1916,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetForceCompleteEtudes(List<Blueprint<BlueprintEtude, BlueprintEtudeReference>> forceCompleteEtudes)
+    public TBuilder SetForceCompleteEtudes(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] forceCompleteEtudes)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ForceCompleteEtudes = forceCompleteEtudes?.Select(bp => bp.Reference)?.ToList();
+          bp.ForceCompleteEtudes = forceCompleteEtudes.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -2071,12 +2070,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCuesSeen(List<Blueprint<BlueprintCueBase, BlueprintCueBaseReference>> cuesSeen)
+    public TBuilder SetCuesSeen(params Blueprint<BlueprintCueBase, BlueprintCueBaseReference>[] cuesSeen)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CuesSeen = cuesSeen?.Select(bp => bp.Reference)?.ToList();
+          bp.CuesSeen = cuesSeen.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -2225,12 +2224,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAnswersSelected(List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>> answersSelected)
+    public TBuilder SetAnswersSelected(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] answersSelected)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.AnswersSelected = answersSelected?.Select(bp => bp.Reference)?.ToList();
+          bp.AnswersSelected = answersSelected.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -2427,12 +2426,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetActiveEvents(List<Blueprint<BlueprintKingdomEventBase, BlueprintKingdomEventBaseReference>> activeEvents)
+    public TBuilder SetActiveEvents(params Blueprint<BlueprintKingdomEventBase, BlueprintKingdomEventBaseReference>[] activeEvents)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ActiveEvents = activeEvents?.Select(bp => bp.Reference)?.ToList();
+          bp.ActiveEvents = activeEvents.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -2714,7 +2713,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.m_Regions"/>
     /// </summary>
-    public TBuilder SetRegions(BlueprintAreaPreset.KingdomsRegionPreset[] regions)
+    public TBuilder SetRegions(params BlueprintAreaPreset.KingdomsRegionPreset[] regions)
     {
       return OnConfigureInternal(
         bp =>
@@ -2791,7 +2790,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.m_History"/>
     /// </summary>
-    public TBuilder SetHistory(BlueprintAreaPreset.KingdomsEventHistoryPreset[] history)
+    public TBuilder SetHistory(params BlueprintAreaPreset.KingdomsEventHistoryPreset[] history)
     {
       return OnConfigureInternal(
         bp =>

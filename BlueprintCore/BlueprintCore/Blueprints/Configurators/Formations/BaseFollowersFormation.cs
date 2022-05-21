@@ -66,7 +66,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// Tooltip: Followers formation.
     /// </para>
     /// </param>
-    public TBuilder SetFormation(Vector2[] formation)
+    public TBuilder SetFormation(params Vector2[] formation)
     {
       return OnConfigureInternal(
         bp =>

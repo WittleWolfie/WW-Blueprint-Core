@@ -9,7 +9,6 @@ using Kingmaker.Enums;
 using Kingmaker.Utility;
 using Kingmaker.View.Animation;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
@@ -138,12 +137,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFeatures(List<Blueprint<BlueprintFeatureBase, BlueprintFeatureBaseReference>> features)
+    public TBuilder SetFeatures(params Blueprint<BlueprintFeatureBase, BlueprintFeatureBaseReference>[] features)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Features = features.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -292,12 +291,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPresets(List<Blueprint<BlueprintRaceVisualPreset, BlueprintRaceVisualPresetReference>> presets)
+    public TBuilder SetPresets(params Blueprint<BlueprintRaceVisualPreset, BlueprintRaceVisualPresetReference>[] presets)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Presets = presets?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Presets = presets.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -563,7 +562,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintRace.SpecialDollTypes"/>
     /// </summary>
-    public TBuilder SetSpecialDollTypes(BlueprintRace.SpecialDollTypeEntry[] specialDollTypes)
+    public TBuilder SetSpecialDollTypes(params BlueprintRace.SpecialDollTypeEntry[] specialDollTypes)
     {
       return OnConfigureInternal(
         bp =>

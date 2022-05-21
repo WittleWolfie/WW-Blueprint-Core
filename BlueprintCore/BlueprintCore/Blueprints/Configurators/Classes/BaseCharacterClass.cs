@@ -619,7 +619,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.ClassSkills"/>
     /// </summary>
-    public TBuilder SetClassSkills(StatType[] classSkills)
+    public TBuilder SetClassSkills(params StatType[] classSkills)
     {
       return OnConfigureInternal(
         bp =>
@@ -780,12 +780,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetArchetypes(List<Blueprint<BlueprintArchetype, BlueprintArchetypeReference>> archetypes)
+    public TBuilder SetArchetypes(params Blueprint<BlueprintArchetype, BlueprintArchetypeReference>[] archetypes)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Archetypes = archetypes?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Archetypes = archetypes.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -958,12 +958,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartingItems(List<Blueprint<BlueprintItem, BlueprintItemReference>> startingItems)
+    public TBuilder SetStartingItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingItems)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_StartingItems = startingItems?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_StartingItems = startingItems.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -1160,12 +1160,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEquipmentEntities(List<Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>> equipmentEntities)
+    public TBuilder SetEquipmentEntities(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_EquipmentEntities = equipmentEntities?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_EquipmentEntities = equipmentEntities.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -1301,7 +1301,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder SetMaleEquipmentEntities(EquipmentEntityLink[] maleEquipmentEntities)
+    public TBuilder SetMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
@@ -1378,7 +1378,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder SetFemaleEquipmentEntities(EquipmentEntityLink[] femaleEquipmentEntities)
+    public TBuilder SetFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
@@ -1479,7 +1479,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.RecommendedAttributes"/>
     /// </summary>
-    public TBuilder SetRecommendedAttributes(StatType[] recommendedAttributes)
+    public TBuilder SetRecommendedAttributes(params StatType[] recommendedAttributes)
     {
       return OnConfigureInternal(
         bp =>
@@ -1555,7 +1555,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.NotRecommendedAttributes"/>
     /// </summary>
-    public TBuilder SetNotRecommendedAttributes(StatType[] notRecommendedAttributes)
+    public TBuilder SetNotRecommendedAttributes(params StatType[] notRecommendedAttributes)
     {
       return OnConfigureInternal(
         bp =>
@@ -1644,12 +1644,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSignatureAbilities(List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> signatureAbilities)
+    public TBuilder SetSignatureAbilities(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] signatureAbilities)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_SignatureAbilities = signatureAbilities?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_SignatureAbilities = signatureAbilities.Select(bp => bp.Reference).ToArray();
         });
     }
 

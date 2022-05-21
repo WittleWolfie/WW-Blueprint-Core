@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Craft;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Craft
@@ -121,7 +120,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// <summary>
     /// Sets the value of <see cref="CraftRoot.m_PotionRequirements"/>
     /// </summary>
-    public TBuilder SetPotionRequirements(CraftRequirements[] potionRequirements)
+    public TBuilder SetPotionRequirements(params CraftRequirements[] potionRequirements)
     {
       return OnConfigureInternal(
         bp =>
@@ -198,7 +197,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// <summary>
     /// Sets the value of <see cref="CraftRoot.m_ScrollsRequirements"/>
     /// </summary>
-    public TBuilder SetScrollsRequirements(CraftRequirements[] scrollsRequirements)
+    public TBuilder SetScrollsRequirements(params CraftRequirements[] scrollsRequirements)
     {
       return OnConfigureInternal(
         bp =>
@@ -288,12 +287,12 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPotionsItems(List<Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>> potionsItems)
+    public TBuilder SetPotionsItems(params Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>[] potionsItems)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_PotionsItems = potionsItems?.Select(bp => bp.Reference)?.ToList();
+          bp.m_PotionsItems = potionsItems.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -442,12 +441,12 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetScrollsItems(List<Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>> scrollsItems)
+    public TBuilder SetScrollsItems(params Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>[] scrollsItems)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_ScrollsItems = scrollsItems?.Select(bp => bp.Reference)?.ToList();
+          bp.m_ScrollsItems = scrollsItems.Select(bp => bp.Reference).ToList();
         });
     }
 

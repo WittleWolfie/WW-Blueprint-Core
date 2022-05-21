@@ -6,7 +6,6 @@ using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Tutorial;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
@@ -38,12 +37,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMythicsInfos(List<Blueprint<BlueprintMythicInfo, BlueprintMythicInfoReference>> mythicsInfos)
+    public TBuilder SetMythicsInfos(params Blueprint<BlueprintMythicInfo, BlueprintMythicInfoReference>[] mythicsInfos)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_MythicsInfos = mythicsInfos?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_MythicsInfos = mythicsInfos.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -179,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintMythicsSettings.m_MythicAlignments"/>
     /// </summary>
-    public TBuilder SetMythicAlignments(MythicAlignment[] mythicAlignments)
+    public TBuilder SetMythicAlignments(params MythicAlignment[] mythicAlignments)
     {
       return OnConfigureInternal(
         bp =>
@@ -307,12 +306,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/>
     /// </summary>
-    public TBuilder SetCharcaterLevelRestrictions(List<int> charcaterLevelRestrictions)
+    public TBuilder SetCharcaterLevelRestrictions(params int[] charcaterLevelRestrictions)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CharcaterLevelRestrictions = charcaterLevelRestrictions;
+          bp.CharcaterLevelRestrictions = charcaterLevelRestrictions.ToList();
         });
     }
 

@@ -503,7 +503,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets the value of <see cref="AchievementData.Flags"/>
     /// </summary>
-    public TBuilder SetFlags(AchievementData.UnlockableFlagsPack[] flags)
+    public TBuilder SetFlags(params AchievementData.UnlockableFlagsPack[] flags)
     {
       return OnConfigureInternal(
         bp =>
@@ -580,7 +580,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets the value of <see cref="AchievementData.Etudes"/>
     /// </summary>
-    public TBuilder SetEtudes(AchievementData.EtudesPack[] etudes)
+    public TBuilder SetEtudes(params AchievementData.EtudesPack[] etudes)
     {
       return OnConfigureInternal(
         bp =>

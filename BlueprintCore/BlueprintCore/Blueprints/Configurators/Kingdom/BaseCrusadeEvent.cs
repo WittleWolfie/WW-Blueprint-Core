@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintCrusadeEvent.m_EventSolutions"/>
     /// </summary>
-    public TBuilder SetEventSolutions(EventSolution[] eventSolutions)
+    public TBuilder SetEventSolutions(params EventSolution[] eventSolutions)
     {
       return OnConfigureInternal(
         bp =>

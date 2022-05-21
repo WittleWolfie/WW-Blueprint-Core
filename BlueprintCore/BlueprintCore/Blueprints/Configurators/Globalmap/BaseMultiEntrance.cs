@@ -6,7 +6,6 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
@@ -91,12 +90,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEntries(List<Blueprint<BlueprintMultiEntranceEntry, BlueprintMultiEntranceEntryReference>> entries)
+    public TBuilder SetEntries(params Blueprint<BlueprintMultiEntranceEntry, BlueprintMultiEntranceEntryReference>[] entries)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Entries = entries?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Entries = entries.Select(bp => bp.Reference).ToArray();
         });
     }
 

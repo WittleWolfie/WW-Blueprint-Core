@@ -9,7 +9,6 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
@@ -385,12 +384,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPoints(List<Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>> points)
+    public TBuilder SetPoints(params Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>[] points)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Points = points?.Select(bp => bp.Reference)?.ToArray();
+          bp.Points = points.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -539,12 +538,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEdges(List<Blueprint<BlueprintGlobalMapEdge, BlueprintGlobalMapEdge.Reference>> edges)
+    public TBuilder SetEdges(params Blueprint<BlueprintGlobalMapEdge, BlueprintGlobalMapEdge.Reference>[] edges)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Edges = edges?.Select(bp => bp.Reference)?.ToList();
+          bp.Edges = edges.Select(bp => bp.Reference).ToList();
         });
     }
 

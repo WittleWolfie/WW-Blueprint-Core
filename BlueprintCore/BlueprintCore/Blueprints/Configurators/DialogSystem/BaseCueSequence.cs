@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
@@ -37,12 +36,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCues(List<Blueprint<BlueprintCueBase, BlueprintCueBaseReference>> cues)
+    public TBuilder SetCues(params Blueprint<BlueprintCueBase, BlueprintCueBaseReference>[] cues)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Cues = cues?.Select(bp => bp.Reference)?.ToList();
+          bp.Cues = cues.Select(bp => bp.Reference).ToList();
         });
     }
 

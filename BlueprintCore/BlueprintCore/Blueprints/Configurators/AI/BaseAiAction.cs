@@ -8,7 +8,6 @@ using Kingmaker.RuleSystem;
 using Kingmaker.Settings;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
@@ -319,12 +318,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetActorConsiderations(List<Blueprint<Consideration, ConsiderationReference>> actorConsiderations)
+    public TBuilder SetActorConsiderations(params Blueprint<Consideration, ConsiderationReference>[] actorConsiderations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_ActorConsiderations = actorConsiderations?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_ActorConsiderations = actorConsiderations.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -491,12 +490,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetTargetConsiderations(List<Blueprint<Consideration, ConsiderationReference>> targetConsiderations)
+    public TBuilder SetTargetConsiderations(params Blueprint<Consideration, ConsiderationReference>[] targetConsiderations)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_TargetConsiderations = targetConsiderations?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_TargetConsiderations = targetConsiderations.Select(bp => bp.Reference).ToArray();
         });
     }
 

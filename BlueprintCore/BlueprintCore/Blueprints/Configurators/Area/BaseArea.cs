@@ -15,7 +15,6 @@ using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
@@ -47,12 +46,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetParts(List<Blueprint<BlueprintAreaPart, BlueprintAreaPartReference>> parts)
+    public TBuilder SetParts(params Blueprint<BlueprintAreaPart, BlueprintAreaPartReference>[] parts)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Parts = parts?.Select(bp => bp.Reference)?.ToList();
+          bp.m_Parts = parts.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -473,13 +472,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintArea.LoadingScreenSprites"/>
     /// </summary>
-    public TBuilder SetLoadingScreenSprites(List<SpriteLink> loadingScreenSprites)
+    public TBuilder SetLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in loadingScreenSprites) { Validate(item); }
-          bp.LoadingScreenSprites = loadingScreenSprites;
+          bp.LoadingScreenSprites = loadingScreenSprites.ToList();
         });
     }
 
@@ -713,12 +712,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetHotAreas(List<Blueprint<BlueprintArea, BlueprintAreaReference>> hotAreas)
+    public TBuilder SetHotAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] hotAreas)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_HotAreas = hotAreas?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_HotAreas = hotAreas.Select(bp => bp.Reference).ToArray();
         });
     }
 

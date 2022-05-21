@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/>
     /// </summary>
-    public TBuilder SetObstacles(BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
+    public TBuilder SetObstacles(params BlueprintTacticalCombatObstaclesMap.MapObstacle[] obstacles)
     {
       return OnConfigureInternal(
         bp =>

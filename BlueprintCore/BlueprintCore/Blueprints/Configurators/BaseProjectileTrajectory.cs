@@ -47,7 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectileTrajectory.PlaneOffset"/>
     /// </summary>
-    public TBuilder SetPlaneOffset(TrajectoryOffset[] planeOffset)
+    public TBuilder SetPlaneOffset(params TrajectoryOffset[] planeOffset)
     {
       return OnConfigureInternal(
         bp =>
@@ -124,7 +124,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectileTrajectory.UpOffset"/>
     /// </summary>
-    public TBuilder SetUpOffset(TrajectoryOffset[] upOffset)
+    public TBuilder SetUpOffset(params TrajectoryOffset[] upOffset)
     {
       return OnConfigureInternal(
         bp =>

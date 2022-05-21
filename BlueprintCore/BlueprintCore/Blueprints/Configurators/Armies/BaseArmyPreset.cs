@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyPreset.Squads"/>
     /// </summary>
-    public TBuilder SetSquads(BlueprintArmyPreset.UnitAndCount[] squads)
+    public TBuilder SetSquads(params BlueprintArmyPreset.UnitAndCount[] squads)
     {
       return OnConfigureInternal(
         bp =>

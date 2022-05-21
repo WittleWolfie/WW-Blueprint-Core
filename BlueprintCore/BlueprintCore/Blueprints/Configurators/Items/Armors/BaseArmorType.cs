@@ -9,7 +9,6 @@ using Kingmaker.Localization;
 using Kingmaker.Utility;
 using Kingmaker.Visual.CharacterSystem;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -477,12 +476,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEquipmentEntityAlternatives(List<Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>> equipmentEntityAlternatives)
+    public TBuilder SetEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_EquipmentEntityAlternatives = equipmentEntityAlternatives?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_EquipmentEntityAlternatives = equipmentEntityAlternatives.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -631,12 +630,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEnchantments(List<Blueprint<BlueprintArmorEnchantment, BlueprintArmorEnchantmentReference>> enchantments)
+    public TBuilder SetEnchantments(params Blueprint<BlueprintArmorEnchantment, BlueprintArmorEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Enchantments = enchantments?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Enchantments = enchantments.Select(bp => bp.Reference).ToArray();
         });
     }
 

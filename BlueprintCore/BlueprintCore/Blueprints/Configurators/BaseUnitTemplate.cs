@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators
@@ -37,12 +36,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRemoveFacts(List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> removeFacts)
+    public TBuilder SetRemoveFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] removeFacts)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_RemoveFacts = removeFacts?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_RemoveFacts = removeFacts.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -191,12 +190,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAddFacts(List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> addFacts)
+    public TBuilder SetAddFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] addFacts)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_AddFacts = addFacts?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_AddFacts = addFacts.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -332,7 +331,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitTemplate.StatAdjustments"/>
     /// </summary>
-    public TBuilder SetStatAdjustments(BlueprintUnitTemplate.StatAdjustment[] statAdjustments)
+    public TBuilder SetStatAdjustments(params BlueprintUnitTemplate.StatAdjustment[] statAdjustments)
     {
       return OnConfigureInternal(
         bp =>

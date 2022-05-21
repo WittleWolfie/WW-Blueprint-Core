@@ -98,7 +98,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintCheck.DCModifiers"/>
     /// </summary>
-    public TBuilder SetDCModifiers(DCModifier[] dCModifiers)
+    public TBuilder SetDCModifiers(params DCModifier[] dCModifiers)
     {
       return OnConfigureInternal(
         bp =>

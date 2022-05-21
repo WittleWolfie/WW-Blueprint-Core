@@ -7,7 +7,6 @@ using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Cooking
@@ -55,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     /// <summary>
     /// Sets the value of <see cref="BlueprintCookingRecipe.Ingredients"/>
     /// </summary>
-    public TBuilder SetIngredients(BlueprintCookingRecipe.ItemEntry[] ingredients)
+    public TBuilder SetIngredients(params BlueprintCookingRecipe.ItemEntry[] ingredients)
     {
       return OnConfigureInternal(
         bp =>
@@ -193,12 +192,12 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPartyBuffs(List<Blueprint<BlueprintBuff, BlueprintBuffReference>> partyBuffs)
+    public TBuilder SetPartyBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] partyBuffs)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_PartyBuffs = partyBuffs?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_PartyBuffs = partyBuffs.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -334,7 +333,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     /// <summary>
     /// Sets the value of <see cref="BlueprintCookingRecipe.UnitBuffs"/>
     /// </summary>
-    public TBuilder SetUnitBuffs(BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
+    public TBuilder SetUnitBuffs(params BlueprintCookingRecipe.UnitBuffEntry[] unitBuffs)
     {
       return OnConfigureInternal(
         bp =>

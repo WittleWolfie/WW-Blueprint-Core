@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators
@@ -36,12 +35,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAttackFactions(List<Blueprint<BlueprintFaction, BlueprintFactionReference>> attackFactions)
+    public TBuilder SetAttackFactions(params Blueprint<BlueprintFaction, BlueprintFactionReference>[] attackFactions)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_AttackFactions = attackFactions?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_AttackFactions = attackFactions.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -190,12 +189,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAllyFactions(List<Blueprint<BlueprintFaction, BlueprintFactionReference>> allyFactions)
+    public TBuilder SetAllyFactions(params Blueprint<BlueprintFaction, BlueprintFactionReference>[] allyFactions)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_AllyFactions = allyFactions?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_AllyFactions = allyFactions.Select(bp => bp.Reference).ToArray();
         });
     }
 

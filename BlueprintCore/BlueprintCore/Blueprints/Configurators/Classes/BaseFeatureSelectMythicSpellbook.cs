@@ -7,7 +7,6 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
@@ -26,13 +25,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/>
     /// </summary>
-    public TBuilder SetCachedItems(List<IFeatureSelectionItem> cachedItems)
+    public TBuilder SetCachedItems(params IFeatureSelectionItem[] cachedItems)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in cachedItems) { Validate(item); }
-          bp.m_CachedItems = cachedItems;
+          bp.m_CachedItems = cachedItems.ToList();
         });
     }
 
@@ -116,12 +115,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAllowedSpellbooks(List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>> allowedSpellbooks)
+    public TBuilder SetAllowedSpellbooks(params Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>[] allowedSpellbooks)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_AllowedSpellbooks = allowedSpellbooks?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_AllowedSpellbooks = allowedSpellbooks.Select(bp => bp.Reference).ToArray();
         });
     }
 

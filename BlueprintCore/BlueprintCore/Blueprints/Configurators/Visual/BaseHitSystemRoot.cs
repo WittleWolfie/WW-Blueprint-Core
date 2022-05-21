@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.DamageTypes"/>
     /// </summary>
-    public TBuilder SetDamageTypes(DamageEntry[] damageTypes)
+    public TBuilder SetDamageTypes(params DamageEntry[] damageTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.EnergyTypes"/>
     /// </summary>
-    public TBuilder SetEnergyTypes(EnergyEntry[] energyTypes)
+    public TBuilder SetEnergyTypes(params EnergyEntry[] energyTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.BloodTypes"/>
     /// </summary>
-    public TBuilder SetBloodTypes(BloodEntry[] bloodTypes)
+    public TBuilder SetBloodTypes(params BloodEntry[] bloodTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -307,7 +307,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.OverrideHitDirectionPrefabFromAnimationStyle"/>
     /// </summary>
-    public TBuilder SetOverrideHitDirectionPrefabFromAnimationStyle(BloodPrefabsFromWeaponAnimationStyleEntry[] overrideHitDirectionPrefabFromAnimationStyle)
+    public TBuilder SetOverrideHitDirectionPrefabFromAnimationStyle(params BloodPrefabsFromWeaponAnimationStyleEntry[] overrideHitDirectionPrefabFromAnimationStyle)
     {
       return OnConfigureInternal(
         bp =>
@@ -530,7 +530,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.m_CachedDamageTypes"/>
     /// </summary>
-    public TBuilder SetCachedDamageTypes(HitCollection[] cachedDamageTypes)
+    public TBuilder SetCachedDamageTypes(params HitCollection[] cachedDamageTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -607,7 +607,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.m_CachedEnergyTypes"/>
     /// </summary>
-    public TBuilder SetCachedEnergyTypes(HitCollection[] cachedEnergyTypes)
+    public TBuilder SetCachedEnergyTypes(params HitCollection[] cachedEnergyTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -684,7 +684,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.m_CachedBillboardBloodTypes"/>
     /// </summary>
-    public TBuilder SetCachedBillboardBloodTypes(HitCollection[] cachedBillboardBloodTypes)
+    public TBuilder SetCachedBillboardBloodTypes(params HitCollection[] cachedBillboardBloodTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -761,7 +761,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.m_CachedDirectionalBloodTypes"/>
     /// </summary>
-    public TBuilder SetCachedDirectionalBloodTypes(HitCollection[] cachedDirectionalBloodTypes)
+    public TBuilder SetCachedDirectionalBloodTypes(params HitCollection[] cachedDirectionalBloodTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -838,7 +838,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.m_CachedBillboardAdditiveBloodTypes"/>
     /// </summary>
-    public TBuilder SetCachedBillboardAdditiveBloodTypes(HitCollection[] cachedBillboardAdditiveBloodTypes)
+    public TBuilder SetCachedBillboardAdditiveBloodTypes(params HitCollection[] cachedBillboardAdditiveBloodTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -915,7 +915,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.m_CachedDirectionalAdditiveBloodTypes"/>
     /// </summary>
-    public TBuilder SetCachedDirectionalAdditiveBloodTypes(HitCollection[] cachedDirectionalAdditiveBloodTypes)
+    public TBuilder SetCachedDirectionalAdditiveBloodTypes(params HitCollection[] cachedDirectionalAdditiveBloodTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -992,7 +992,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.m_CachedBloodPrefabsFromWeaponAnimationStyleEntries"/>
     /// </summary>
-    public TBuilder SetCachedBloodPrefabsFromWeaponAnimationStyleEntries(BloodPrefabsFromWeaponAnimationStyleEntry[] cachedBloodPrefabsFromWeaponAnimationStyleEntries)
+    public TBuilder SetCachedBloodPrefabsFromWeaponAnimationStyleEntries(params BloodPrefabsFromWeaponAnimationStyleEntry[] cachedBloodPrefabsFromWeaponAnimationStyleEntries)
     {
       return OnConfigureInternal(
         bp =>

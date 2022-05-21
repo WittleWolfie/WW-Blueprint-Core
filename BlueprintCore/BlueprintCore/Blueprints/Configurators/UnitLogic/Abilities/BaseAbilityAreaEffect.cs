@@ -4,6 +4,7 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -103,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Tags = tags.Aggregate((AreaEffectTags) 0, (f1, f2) => f1 | f2);;
+          bp.m_Tags = tags.Aggregate((AreaEffectTags) 0, (f1, f2) => f1 | f2);
         });
     }
 
@@ -430,7 +431,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <remarks>
     /// <para>
-    /// Use <see cref="Components.ContextRankConfigs"/> to create the ContextRankConfig component.
+    /// Use <see cref="Utils.Types.ContextRankConfigs"/> to create the ContextRankConfig component.
     /// </para>
     ///
     /// <list type="bullet">

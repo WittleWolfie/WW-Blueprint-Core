@@ -10,7 +10,6 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Settings;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Root
@@ -249,12 +248,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPregens(List<Blueprint<BlueprintUnit, BlueprintUnitReference>> pregens)
+    public TBuilder SetPregens(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] pregens)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Pregens = pregens?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Pregens = pregens.Select(bp => bp.Reference).ToArray();
         });
     }
 
@@ -464,7 +463,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.ImportSettings"/>
     /// </summary>
-    public TBuilder SetImportSettings(SaveImportSettings[] importSettings)
+    public TBuilder SetImportSettings(params SaveImportSettings[] importSettings)
     {
       return OnConfigureInternal(
         bp =>

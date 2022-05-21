@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Sets the value of <see cref="ConditionConsideration.Conditions"/>
     /// </summary>
-    public TBuilder SetConditions(UnitCondition[] conditions)
+    public TBuilder SetConditions(params UnitCondition[] conditions)
     {
       return OnConfigureInternal(
         bp =>

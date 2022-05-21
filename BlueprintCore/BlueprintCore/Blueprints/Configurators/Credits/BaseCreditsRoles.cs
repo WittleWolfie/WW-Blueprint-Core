@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Credits;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Credits
@@ -24,13 +23,13 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets the value of <see cref="BlueprintCreditsRoles.Roles"/>
     /// </summary>
-    public TBuilder SetRoles(List<CreditRole> roles)
+    public TBuilder SetRoles(params CreditRole[] roles)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in roles) { Validate(item); }
-          bp.Roles = roles;
+          bp.Roles = roles.ToList();
         });
     }
 

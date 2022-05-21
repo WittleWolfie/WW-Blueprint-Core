@@ -8,7 +8,6 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -137,12 +136,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNegativeFacts(List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>> negativeFacts)
+    public TBuilder SetNegativeFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] negativeFacts)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_NegativeFacts = negativeFacts?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_NegativeFacts = negativeFacts.Select(bp => bp.Reference).ToArray();
         });
     }
 

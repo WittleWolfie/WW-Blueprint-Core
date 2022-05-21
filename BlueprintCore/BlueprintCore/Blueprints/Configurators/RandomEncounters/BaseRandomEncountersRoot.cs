@@ -7,7 +7,6 @@ using Kingmaker.Globalmap.View;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
@@ -50,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets the value of <see cref="RandomEncountersRoot.m_Chapters"/>
     /// </summary>
-    public TBuilder SetChapters(RandomEncounterChapterSettings[] chapters)
+    public TBuilder SetChapters(params RandomEncounterChapterSettings[] chapters)
     {
       return OnConfigureInternal(
         bp =>
@@ -252,7 +251,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets the value of <see cref="RandomEncountersRoot.ZoneSettings"/>
     /// </summary>
-    public TBuilder SetZoneSettings(ZoneCombatRandomEncounterSettings[] zoneSettings)
+    public TBuilder SetZoneSettings(params ZoneCombatRandomEncounterSettings[] zoneSettings)
     {
       return OnConfigureInternal(
         bp =>
@@ -342,12 +341,12 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEncounters(List<Blueprint<BlueprintRandomEncounter, BlueprintRandomEncounterReference>> encounters)
+    public TBuilder SetEncounters(params Blueprint<BlueprintRandomEncounter, BlueprintRandomEncounterReference>[] encounters)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Encounters = encounters?.Select(bp => bp.Reference)?.ToList();
+          bp.m_Encounters = encounters.Select(bp => bp.Reference).ToList();
         });
     }
 
@@ -483,7 +482,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets the value of <see cref="RandomEncountersRoot.Armies"/>
     /// </summary>
-    public TBuilder SetArmies(ArmySettings[] armies)
+    public TBuilder SetArmies(params ArmySettings[] armies)
     {
       return OnConfigureInternal(
         bp =>

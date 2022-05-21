@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators
@@ -84,12 +83,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSettings(List<Blueprint<BlueprintTrapSettings, BlueprintTrapSettingsReference>> settings)
+    public TBuilder SetSettings(params Blueprint<BlueprintTrapSettings, BlueprintTrapSettingsReference>[] settings)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Settings = settings?.Select(bp => bp.Reference)?.ToArray();
+          bp.m_Settings = settings.Select(bp => bp.Reference).ToArray();
         });
     }
 

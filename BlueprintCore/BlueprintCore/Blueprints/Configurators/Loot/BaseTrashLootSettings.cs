@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Loot
@@ -24,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets the value of <see cref="TrashLootSettings.CRToCost"/>
     /// </summary>
-    public TBuilder SetCRToCost(int[] cRToCost)
+    public TBuilder SetCRToCost(params int[] cRToCost)
     {
       return OnConfigureInternal(
         bp =>
@@ -100,7 +99,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets the value of <see cref="TrashLootSettings.ChanceToIncreaseItemsCount"/>
     /// </summary>
-    public TBuilder SetChanceToIncreaseItemsCount(int[] chanceToIncreaseItemsCount)
+    public TBuilder SetChanceToIncreaseItemsCount(params int[] chanceToIncreaseItemsCount)
     {
       return OnConfigureInternal(
         bp =>
@@ -176,13 +175,13 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets the value of <see cref="TrashLootSettings.Types"/>
     /// </summary>
-    public TBuilder SetTypes(List<TrashLootSettings.TypeSettings> types)
+    public TBuilder SetTypes(params TrashLootSettings.TypeSettings[] types)
     {
       return OnConfigureInternal(
         bp =>
         {
           foreach (var item in types) { Validate(item); }
-          bp.Types = types;
+          bp.Types = types.ToList();
         });
     }
 
@@ -253,7 +252,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets the value of <see cref="TrashLootSettings.Table"/>
     /// </summary>
-    public TBuilder SetTable(TrashLootSettings.TypeChance[] table)
+    public TBuilder SetTable(params TrashLootSettings.TypeChance[] table)
     {
       return OnConfigureInternal(
         bp =>
@@ -330,7 +329,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <summary>
     /// Sets the value of <see cref="TrashLootSettings.SuperTrashLoot"/>
     /// </summary>
-    public TBuilder SetSuperTrashLoot(TrashLootSettings.SettingAndItems[] superTrashLoot)
+    public TBuilder SetSuperTrashLoot(params TrashLootSettings.SettingAndItems[] superTrashLoot)
     {
       return OnConfigureInternal(
         bp =>
