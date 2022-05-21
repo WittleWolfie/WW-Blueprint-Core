@@ -12,7 +12,7 @@ To make sure dependent assemblies are copied to `OutputPath` in Visual Studio op
 
 If you do not want to copy assemblies to output you'll need to change the ILRepack configuration to use a working directory with all required assemblies.
 
-#### Fails to resolve assembly: Assembly-CSharp
+### Fails to resolve assembly: Assembly-CSharp
 
 This specific failure is usually caused by the assembly publicizer. When the publicize task runs it creates `Assembly-CSharp_public.dll`, but ILRepack is looking for `Assembly-CSharp.dll`. You can fix this by updating your assembly reference and renaming the file after publicizing:
 

@@ -293,7 +293,7 @@ In the last example, the use of `new` ensures that the inherited method is hidde
 
 #### New Blueprint Types
 
-In the event that you need a configurator for a blueprint no in the base game you can use [BlueprintConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.BlueprintConfigurator`1).
+In the event that you need a configurator for a blueprint not in the base game you can use [BlueprintConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.BlueprintConfigurator`1).
 
 This will not expose all component types or fields, but it provides the method chain API, advanced component methods, and runs validation when configured.
 
