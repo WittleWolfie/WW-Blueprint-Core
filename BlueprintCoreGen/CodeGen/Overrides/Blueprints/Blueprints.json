@@ -19,7 +19,7 @@
       {
         "FieldName": "m_Parent",
         "Remarks": [
-          "Set this to the base ability for all ability variants. See <cref=\"AbilityVariants\"/>."
+          "Set this to the base ability for all ability variants. See <see cref=\"AbilityVariants\"/>."
         ]
       }
     ]
