@@ -27,7 +27,6 @@ namespace BlueprintCoreGen.CodeGen.Methods
     List<string> GetLines();
   }
 
-  // TODO: Add config overrides for configurator methods
   public static class MethodFactory
   {
     public static List<IMethod> CreateForNewConfigurator(Type blueprintType, string returnType)
