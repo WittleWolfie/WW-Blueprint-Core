@@ -24,7 +24,7 @@ namespace BlueprintCore.Utils
       try
       {
         var assembly = typeof(EncyclopediaTool).Assembly;
-        var resourceName = "BlueprintCore.resources.encyclopedia.json";
+        var resourceName = "resources.encyclopedia.json";
 
         using (Stream stream = assembly.GetManifestResourceStream(resourceName))
         using (StreamReader reader = new StreamReader(stream))
