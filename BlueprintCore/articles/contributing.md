@@ -1,5 +1,7 @@
 ﻿# How to Contribute
 
+**Disclaimer**: These docs haven't been updated since 2.0 release. For now, disregard them. I will update them soon.
+
 Contributions are welcome!
 
 1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the [Project Repo](https://github.com/WittleWolfie/WW-Blueprint-Core)

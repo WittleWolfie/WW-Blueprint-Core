@@ -1,5 +1,7 @@
 ﻿# Adding a Feat
 
+**Disclaimer**: These docs haven't been updated since 2.0 release and have errors as a result. The tutorial project still works, but expect a revamp of the tutorial docs soon.
+
 The first feat is [Magical Aptitude](https://aonprd.com/FeatDisplay.aspx?ItemName=Magical%20Aptitude). Due to changes from the tabletop rpg it will grant bonuses to Knowledge Arcana in place of Spellcraft.
 
 To keep the code organized, create a new folder called `Feats`. Inside the folder create a new class called `MagicalAptitude`. This class will create the feat.

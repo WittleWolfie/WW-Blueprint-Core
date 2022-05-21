@@ -1,5 +1,7 @@
 ﻿# BlueprintCore Tutorials
 
+**Disclaimer**: These docs haven't been updated since 2.0 release and have errors as a result. The tutorial project still works, but expect a revamp of the tutorial docs soon.
+
 Tutorials explain how to modify the game using this library. They are a work in progress and more will be added.
 
 Tutorial names indicate what type of modification to the game they explain. For example, [Adding a Feat](feat.md) explains how to use the library to create a new feat.
