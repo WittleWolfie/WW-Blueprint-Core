@@ -7,6 +7,8 @@
 * Type specific handling updates
 * New util for creating `UnitConditionExceptions`
 * Blueprint field setters use `params` for enumerable types
+* Fixed bug with Encyclopedia tagging causing exceptions
+* Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail
 
 ### Breaking Changes
 
