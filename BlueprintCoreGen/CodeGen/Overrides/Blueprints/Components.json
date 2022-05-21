@@ -66,11 +66,6 @@
   },
 
   {
-    "TypeName": "AreaEntranceChange",
-    "RequiredFields": [ "m_Location", "m_NewEntrance" ]
-  },
-
-  {
     "TypeName": "Blindsense",
     "RequiredFields": [ "Range" ]
   },
