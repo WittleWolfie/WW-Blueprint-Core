@@ -66,6 +66,11 @@
   },
 
   {
+    "TypeName": "AreaEntranceChange",
+    "RequiredFields": [ "m_Location", "m_NewEntrance" ]
+  },
+
+  {
     "TypeName": "ContextRankConfig",
     "Replace": "true",
     "Remarks": [
