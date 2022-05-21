@@ -93,7 +93,7 @@ namespace BlueprintCore.Utils
                 }
 
                 Logger.Verbose($"Adding GuidByName: {entry.name} - {entry.guid}");
-                guid = Guid.Parse(entry.guid);
+                guid = Guid.Parse(entry.guid.ToLower());
                 GuidsByName.Add(entry.name, guid);
               });
     }
@@ -119,7 +119,7 @@ namespace BlueprintCore.Utils
     public static T Create<T>(string name, string guid) where T : SimpleBlueprint, new()
     {
       AddGuidsByName((name, guid.ToString()));
-      return Create<T>(name, Guid.Parse(guid));
+      return Create<T>(name, Guid.Parse(guid.ToLower()));
     }
 
     private static T Create<T>(string name, Guid assetId) where T : SimpleBlueprint, new()
@@ -146,7 +146,7 @@ namespace BlueprintCore.Utils
     /// <param name="nameOrGuid">Use Name if you have registered it using <see cref="AddGuidsByName"/> or Guid otherwise.</param>
     public static T Get<T>(string nameOrGuid) where T : SimpleBlueprint
     {
-      if (!GuidsByName.TryGetValue(nameOrGuid, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid); }
+      if (!GuidsByName.TryGetValue(nameOrGuid, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid.ToLower()); }
 
       SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(new BlueprintGuid(assetId));
       if (asset is T result) { return result; }
@@ -172,7 +172,7 @@ namespace BlueprintCore.Utils
     {
       if (string.IsNullOrEmpty(nameOrGuid)) { return BlueprintReferenceBase.CreateTyped<TRef>(null); }
 
-      if (!GuidsByName.TryGetValue(nameOrGuid!, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid); }
+      if (!GuidsByName.TryGetValue(nameOrGuid!, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid!.ToLower()); }
 
       // Copied from BlueprintReferenceBase to allow creating a reference w/o fetching a blueprint.This allows
       // referencing a blueprint before it is added to the cache.
