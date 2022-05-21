@@ -6,7 +6,7 @@
     <TargetFramework>net472</TargetFramework>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <RootNamespace>BlueprintCore</RootNamespace>
+    <RootNamespace></RootNamespace>
 
     <!-- Doc Config -->
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
