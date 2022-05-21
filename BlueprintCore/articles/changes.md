@@ -6,6 +6,7 @@
 * Handles GUIDs with uppercase letters
 * Type specific handling updates
 * New util for creating `UnitConditionExceptions`
+* Blueprint field setters use `params` for enumerable types
 
 ### Breaking Changes
 
@@ -13,6 +14,8 @@
     * `ContextRankConfigs`
     * `ContextDuration`
     * `ContextValues`
+* Blueprint field setters use `params` for enumerable types
+    * This breaks for `List<>` fields
 
 #v2.0.1 Release
 
