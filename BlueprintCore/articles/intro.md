@@ -94,7 +94,7 @@ For every blueprint type inheriting from `BlueprintScriptableObject` there is a 
 
 Blueprint types not used in the base game do not have configurators and should not be used.
 
-#### Basic Operations
+#### Basic Usage
 
 1. Creating a new Blueprint
 ```C#
@@ -184,67 +184,6 @@ FeatureConfigurator.New(FeatName, FeatGuid)
 ```C#
 FeatureConfigurator.For(FeatName)
   .ClearGroups()
-  .Configure();
-```
-
-#### Referencing Blueprints
-
-Many API calls require references to a blueprint. To simplify blueprint references BlueprintCore defines [Blueprint<T, TRef>](xref:BlueprintCore.Utils.Blueprint`2). This provides implicit constructors which allow referencing blueprints by:
-
-* GUID / Asset ID string
-```C#
-var basicFeatSelectionGuid = "247a4068-296e-8be4-2890-143f451b4b45";
-FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
-```
-* Name string - only applies to blueprint created using BlueprintCore
-```C#
-FeatureConfigurator.New(FeatName, FeatGuid);
-FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
-  .AddToAllFeatures(FeatName)
-  .Configure();
-```
-* Blueprint instance
-```C#
-var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
-FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
-  .AddToAllFeatures(feat)
-  .Configure();
-```
-* Blueprint reference
-```C#
-FeatureConfigurator.New(FeatName, FeatGuid);
-var featReference = BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(FeatGuid);
-FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
-  .AddToAllFeatures(featReference)
-  .Configure();
-```
-* Guid
-```C#
-var basicFeatSelectionGuid = Guid.Parse("247a4068-296e-8be4-2890-143f451b4b45");
-FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
-```
-* BlueprintGuid
-```C#
-var basicFeatSelectionGuid = BlueprintGuid.Parse("247a4068-296e-8be4-2890-143f451b4b45");
-FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
-```
-
-When passing in a list or array you can mix and match:
-```C#
-var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
-var myOtherFeatGuid = "247a4068-296e-8be4-2890-143f451b4b46";
-FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
-  .AddToAllFeatures(feat, myOtherFeatGuid)
-  .Configure();
-```
-
-If you're declaring or storing a list or array you need to declare the correct type for the collection:
-```C#
-var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
-var myOtherFeatGuid = "247a4068-296e-8be4-2890-143f451b4b46";
-var newFeats = new Blueprint<BlueprintFeature, BlueprintFeatureReference>[] { feat, myOtherFeatGuid };
-FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
-  .AddToAllFeatures(newFeats)
   .Configure();
 ```
 
@@ -369,11 +308,79 @@ Notice the usage of `OnConfigure()` to set fields not exposed by the API.
 
 If the blueprint is more complex it may be better to create your own configurator as described above in Customizing Configurators.
 
-## ActionsBuilder and ConditionsBuilder
+### ActionsBuilder and ConditionsBuilder
 
-Actions and conditions in the game are always used in the form of `ActionList` and `ConditionsChecker`. [ActionsBuilder](xref:BlueprintCore.Actions.Builder.ActionsBuilder) and [ConditionsBuilder](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder) provide builder APIs for constructing them.
+Actions and conditions in the game are (almost) always used in the form of `ActionList` and `ConditionsChecker`. [ActionsBuilder](xref:BlueprintCore.Actions.Builder.ActionsBuilder) and [ConditionsBuilder](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder) provide builder APIs for constructing them. Both APIs behave the same.
 
-Basic usage both builders is the same:
+#### Basic Usage
+
+```C#
+using BlueprintCore.Actions.Builder.ContextEx;
+
+// Creates an ActionsBuilder which grants a buff and triggers a melee attack
+var meleeAttack =
+  ActionsBuilder.New()
+    .ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+    .MeleeAttack();
+```
+
+You can call `Build()` directly but usually this is not necessary. Actions and conditions are used in the context of blueprints, blueprint components, or other actions and conditions. BlueprintCore APIs all accept builders in place of `ActionList` and `ConditionsChecker`:
+```C#
+using BlueprintCore.Actions.Builder.ContextEx;
+
+AbilityConfigurator.New(AbilityName, AbilityGuid)
+  // Adds an AbilityEffectRunAction component which grants a buff and triggers a melee attack when the ability is used.
+  // Build() is called internally by the library.
+  .AddAbilityEffectRunAction(
+    ActionsBuilder.New()
+      .ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+      .MeleeAttack())
+  .Configure();
+```
+
+Notice that both examples included the namespace `BlueprintCore.Actions.Builder.ContextEx`. This is because actions and conditions are implemented using extension classes. Each extension namespace includes a different set of actions and conditions, grouped loosely by usage.
+
+The full breakdown of extension classes is provided in [ActionsBuilder](xref:BlueprintCore.Actions.Builder.ActionsBuilder) and [ConditionsBuilder](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder). At a glance:
+
+* AreaEx - Involves the game map, dungeons, or locations
+* AVEx - Involves audiovisual effects such as dialogs, camera, cutscenes, and sounds 
+* BasicEx - Most non-context actions and conditions related to game mechanics
+* ContextEx - Most context actions and conditions related to game mechanics
+* KingdomEx - Involves the Kingdom and Crusade system
+* MiscEx - Catch-all for uncategorized
+* NewEx - New actions and conditions implemented in BlueprintCore
+* UpgraderEx - UpgraderOnlyActions (does not exist for conditions)
+
+Only actions or conditions in the extension classes imported will be available in auto-complete or compilation. Usually you only need a single extension class for a given blueprint.
+
+#### Customizing Builders
+
+Builders are implemented almost entirely through extension classes and methods. To add your own methods just create a class and use the extension method syntax:
+
+```C#
+public static ActionsBuilder AddMyCustomAction(this ActionsBuilder builder, int someValue)
+{
+  return builder.Add(ElementTool.Create<MyCustomAction>() { Value = someValue });
+}
+```
+
+Note the usage of [ElementTool.Create](xref:BlueprintCore.Utils.ElementTool.Create`1). Use this when instantiating types inheriting from `Element` to ensure they are configured properly or it can cause your mod to fail.
+
+#### Advanced Usage
+
+Builders have an `Add()` method which can be used to add any relevant type:
+
+```C#
+var actions = ActionsBuilder.New().Add(ElementTool.Create<MyCustomAction>());
+```
+
+There is also a version of `Add()` which takes a type argument and init action:
+
+```C#
+var actions = ActionsBuilder.New().Add<MyCustomAction>(a => a.Value = someValue);
+```
+
+ConditionsBuilder has a special method, [UseOr()](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder.UseOr), which results in the conditions being evaluated using or instead of and logic. i.e. By default all conditions in the builder must pass but calling `UseOr()` means only a single condition needs to pass.
 
 1. Instantiate a builder using `New()`
 2. Add actions/conditions using builder methods
@@ -382,70 +389,125 @@ Basic usage both builders is the same:
     * When an `ActionList` or `ConditionsChecker` is needed in a library method you do not need to call `Build()`. Instead the builder is passed into the method directly and `Build()` is called by the library.
     * Calling build logs validation errors as a warning.
 
-Builder methods declare the game type they implement in their comment summary.
-
-### Extensions
-
-To limit the number of actions and conditions available when using [ActionsBuilder](xref:BlueprintCore.Actions.Builder.ActionsBuilder) and [ConditionsBuilder](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder), specific types are implemented in extension methods.
-
-Extension methods are logically grouped so most of the time you can include a single extension namespace. The extension groups are the same for both builders:
-
-* AreaEx
-    * Extensions involving the game map, dungeons, or locations
-    * Types specifically related to the Kingdom and Crusade system are in KingdomEx
-* AVEx
-    * Extensions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds
-    * `ActionsBuilder` only
-* BasicEx
-    * Extensions for most game mechanics not included in ContextEx
-* ContextEx
-    * Extensions for `ContextAction` and `ContextCondition` types
-    * Some types are implemented in more specific extensions such as KingdomEx
-* KingdomEx
-    * Extensions for the Kingom and Crusade systems
-* MiscEx
-    * Extensions that are not game mechanics related and don't fit into other categories
-    * Examples include things like achievement related actions
-* NewEx
-    * Extensions for types provided by BlueprintCore
-* StoryEx
-    * Extensions related to the story such as companion stories, quests, and etudes
-* UpgraderEx
-    * Extensions for all `UpgraderOnlyActions` types
-    * `ActionsBuilder` only
-
-### Quick Example: Melee Attack
-
-The following snippet creates a new `ActionList` that initiates a melee attack if the target is in melee range.
-
-```
-// Extension for MeleeAttack() which is a ContextAction
-using BlueprintCore.Actions.Builder.ContextEx;
-// Extension for TargetInMeleeRange() which is a new condition in the library
-using BlueprintCore.Conditions.Builder.NewEx;
-
-ActionsBuilder.New()
-    .Conditional(
-        ConditionsBuilder.New().TargetInMeleeRange(),
-        ifTrue: ActionsBuilder.New().MeleeAttack())
-    .Build();
-```
-
 ## Referencing Blueprints
 
-When a blueprint reference is required the API accepts a `string` argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using [BlueprintTool#AddGuidsByName()](xref:BlueprintCore.Utils.BlueprintTool.AddGuidsByName(System.Collections.Generic.Dictionary{System.String,System.String})). Blueprints created using [BlueprintTool#Create(string, string)](xref:BlueprintCore.Utils.BlueprintTool.Create``1(System.String,System.String)) automatically register the name to guid mapping.
+Many API calls require references to a blueprint. To simplify blueprint references BlueprintCore defines [Blueprint<T, TRef>](xref:BlueprintCore.Utils.Blueprint`2). This provides implicit constructors which allow referencing blueprints by:
 
-The parameter comment declares the type of blueprint reference expected.
+* GUID / Asset ID string
+```C#
+var basicFeatSelectionGuid = "247a4068-296e-8be4-2890-143f451b4b45";
+FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
+```
+* Name string - only applies to blueprint created using BlueprintCore
+```C#
+FeatureConfigurator.New(FeatName, FeatGuid);
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(FeatName)
+  .Configure();
+```
+* Blueprint instance
+```C#
+var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(feat)
+  .Configure();
+```
+* Blueprint reference
+```C#
+FeatureConfigurator.New(FeatName, FeatGuid);
+var featReference = BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(FeatGuid);
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(featReference)
+  .Configure();
+```
+* Guid
+```C#
+var basicFeatSelectionGuid = Guid.Parse("247a4068-296e-8be4-2890-143f451b4b45");
+FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
+```
+* BlueprintGuid
+```C#
+var basicFeatSelectionGuid = BlueprintGuid.Parse("247a4068-296e-8be4-2890-143f451b4b45");
+FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
+```
 
-## Generated Methods
+When passing in a list or array you can mix and match:
+```C#
+var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
+var myOtherFeatGuid = "247a4068-296e-8be4-2890-143f451b4b46";
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(feat, myOtherFeatGuid)
+  .Configure();
+```
 
-The majority of the API is implemented using generated code. These methods are identified by the [GeneratedAttribute](xref:BlueprintCore.Utils.GeneratedAttribute).
+If you're declaring or storing a list or array you need to declare the correct type for the collection:
+```C#
+var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
+var myOtherFeatGuid = "247a4068-296e-8be4-2890-143f451b4b46";
+var newFeats = new Blueprint<BlueprintFeature, BlueprintFeatureReference>[] { feat, myOtherFeatGuid };
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(newFeats)
+  .Configure();
+```
 
-Generated methods have a parameter for every field in the object, essentially acting as a constructor. To minimize boilerplate generated methods declare most parameters as optional.
+These examples use configurators but the same approach works for all BlueprintCore APIs.
 
-This is not an indication of how the object should be used. Optional parameters in a generated method may be required for the object to function. In contrast, non-generated methods expose strict APIs that only declare parameters optional when they are not needed.
+## Understanding the API
 
-If you identify methods in need of manual implementations please report them. This should be reserved for complex objects with a large number of fields or complex requirements for its fields.
+The configurator and builder APIs, with the exception of the builder base classes and configurators in the `BlueprintCore.Blueprints.CustomConfigurators` namespace, are generated code.
+
+Here are some examples to help understand the resulting API:
+
+![Prerequisite Character Class Method](~\images\prerequisite_character_class_method.PNG)
+
+1. This method adds a `PrerequisiteClassLevel` component to the blueprint
+2. Adding this component requires `characterClass` and `level`
+  * By default APIs have no required parameters. This is because it is difficult if not impossible to judge whether a type needs a value for a field specified using static analysis.
+  * Since these are required, it indicates this method has been overriden by a manual config indicating that you should always specify these values for a `PrerequisiteClassLevel` component.
+3. Every other parameter is null, excluding `mergeBehavior`
+  * By default all parameters have a default value of null (primitives are handled using nullable types)
+  * If you do not provide these parameters the default value of the corresponding field in `PrerequisiteClassLevel` is used
+    * Essentially, the API will not set the value of fields that are not specified, barring some exceptions covered in the next example
+4. BlueprintCore specific parameters are present: `mergeBehavior` and `merge`
+  * This indicates the component is unique: there should only be a single copy in any given blueprint
+  * These parameters grant control over interactions if there are multiple copies present
+  
+![Rest Trigger Method](~\images\add_rest_trigger_method.PNG)
+
+1. This method adds an `AddRestTrigger` component to the blueprint
+  * The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.
+2. Adding this component doesn't require anything
+  * After using this example, it now requires an `ActionsBuilder`; I updated the config because this component obviously doesn't make sense without one
+3. Something special happens in the library if no argument is passed in
+  * `ActionsBuilder` is used to set an `ActionList` field value, but the game will throw an exception if an `ActionList` field is null
+  * To ensure that the `ActionList` is not null, BlueprintCore checks the field value and if it detects a null field it sets it to [Constants.Empty.Actions](xref:BlueprintCore.Utils.Constants.Empty.Actions)
+
+The null handling case is an important one: there are several types in the game library that generally cause problems when null. As a result BlueprintCore APIs will automatically set fields with these types to "empty" defaults. As of writing these types include:
+
+* ActionList
+* ConditionsChecker
+* ContextDiceValue
+* ContextValue
+* LocalizedString
+* PrefabLink
+
+If you find other types that should never be null please file a [GitHub Issue](https://github.com/WittleWolfie/WW-Blueprint-Core/issues).
+
+Similarly you can file an issue if you think a given method should be implemented differently, usually requiring certain inputs. More details on providing this feedback are in [How to Contribute](contributing.md).
+
+### Limitations
+
+BlueprintCoreGen analyzes the game library and combines that data with community provided configuration overrides to generate methods and classes which wrap common game types. The goal is to provide an API with minimal boilerplate which enforces proper usage of game types as much as possible, but there are some limitations to this approach:
+
+* Hand tuning code can be more complicated than simply writing a function
+  * Specific configuration paths are required for any code output and it's not always easy to logically define this
+* When the game API changes, so does the BlueprintCore API
+  * This leads to breaking changes at times, though generally this means the code you wrote would break anyways
+  * So far only Patch 1.2 has truly introduced breaking changes
+* When the community adds configuration overrides, the BlueprintCore API changes
+  * This leads to break changes for anyone using those functions
+
+Generally API breaking changes are limited to basic things like renaming methods or method parameters. These should be trivial to update between versions, but it is something to keep in mind when using BlueprintCore.
 
 ## Logging and Utils
 
@@ -464,19 +526,64 @@ Tool classes provide simple utility functions, usually related to a specific typ
 
 Utility classes are provided to simplify creating game objects.
 
-* [ContextDuration](xref:BlueprintCore.Utils.ContextDuration)
-    * Creates `ContextDurationValue`
-* [ContextValues](xref:BlueprintCore.Utils.ContextValues)
-    * Creates `ContextValue`
-* [ContextRankConfigs](xref:BlueprintCore.Blueprints.Components.ContextRankConfigs)
-    * Creates `ContextRankConfig`
-* [ResourceAmountBuilder](xref:BlueprintCore.Blueprints.Configurators.Abilities.ResourceAmountBuilder)
-    * Creates `BlueprintAbilityResource.Amount`
+* [ContextDuration](xref:BlueprintCore.Utils.Types.ContextDuration)
+```C#
+var contextDuration = ContextDuration.Fixed(2);
+```
+* [ContextValues](xref:BlueprintCore.Utils.Types.ContextValues)
+```C#
+var contextValue = ContextValues.Rank();
+```
+* [ContextRankConfigs](xref:BlueprintCore.Utils.Types.ContextRankConfigs)
+```C#
+var contextRankConfig = ContextRankConfigs.BaseAttack().WithDivStepProgression(2);
+```
+* [UnitConditionException](xref:BlueprintCore.Utils.Types.UnitConditionException)
+```C#
+var unitConditionException = UnitConditionException.TargetHasFeatures(FeatureGuid1, FeatureGuid2);
+```
     
 ### Logging
 
-[LogWrapper](xref:BlueprintCore.Utils.LogWrapper) wraps the game's `LogChannel` class to provide control over verbose log output. It is used internally for logging within BlueprintCore and is available for use within your modification, but not required.
+[LogWrapper](xref:BlueprintCore.Utils.LogWrapper) wraps the game's `LogChannel` class to provide control over verbose log output.
+
+It is used internally for logging within BlueprintCore and is available for use within your modification, but not required.
+
+```C#
+private static readonly LogWrapper ModLogger = LogWrapper.Get("MyMod");
+private static readonly LogWrapper FeatLogger = LogWrapper.Get("Feats");
+
+ModLogger.Info("Mod initialized.");
+FeatLogger.Info.("Feat initialized.");
+```
+
+The output to the log from the above example is:
+
+```
+BlueprintCore.MyMod: Mod initialized.
+BlueprintCore.Feats: Mod initialized.
+```
+
+Log output is available locally in `%APPDATA%\..\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLogFull.txt` or in [Remote Console](https://github.com/OwlcatOpenSource/RemoteConsole/releases).
+
+Log output uses the `Mods` channel currently.
 
 ### Validator
 
-[Validator](xref:BlueprintCore.Utils.Validator) is used by the library to validate method inputs, actions, conditions, blueprint components, and blueprints. Any game objects you create outside of the library can be validated using [Validator#Check()](xref:BlueprintCore.Utils.Validator.Check(System.Object)).
+[Validator](xref:BlueprintCore.Utils.Validator) is used by the library to validate method inputs, actions, conditions, blueprint components, and blueprints.
+
+You can also use it separately for any game objects created outside of the library:
+
+```C#
+private static readonly LogWrapper ModLogger = LogWrapper.Get("MyMod");
+
+var validator = new Validator("MyValidator", "BlueprintBuff");
+validator.Check(myBuff);
+validator.Check(myBuffActions);
+if (validator.HasErrors())
+{
+  ModLogger.Warning(validator.GetErrorString());
+}
+```
+
+Once you create a `Validator`, you can call `Check()` for any objects related to it and they will all be bundled into the same error validation string.
