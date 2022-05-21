@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
   /// <c>CharacterClassConfigurator.For(WizardClassGuid)</c>
   /// <para>Usage is otherwise identical to creating a new blueprint.</para>
   /// 
-  /// TODO: Link to guide on github for more advanced usage.
+  /// For more information see <see href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</see>.
   /// </remarks>
   public abstract class RootConfigurator<T, TBuilder>
     where T: BlueprintScriptableObject
