@@ -16,6 +16,8 @@
     * `ContextValues`
 * Blueprint field setters use `params` for enumerable types
     * This breaks for `List<>` fields
+* Removed support for `AddStatBonusScaled`
+    * This is a legacy type and can be replaced with `AddContextStatBonus`
 
 #v2.0.1 Release
 

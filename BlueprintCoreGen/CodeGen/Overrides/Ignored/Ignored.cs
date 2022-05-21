@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
 using System;
 using System.Collections.Generic;
@@ -74,6 +75,9 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(GreaterThan),
         typeof(LessThan),
         typeof(OrAndLogic),
+
+        // Legacy types
+        typeof(AddStatBonusScaled),
       };
     public static bool ShouldIgnore(Type type)
     {
