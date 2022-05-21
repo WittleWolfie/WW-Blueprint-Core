@@ -8,11 +8,13 @@
 
 * A method chaining API for creating and modifying Blueprints, Actions, and Conditions
 ```C#
-BuffConfigurator.New(MyBuffName, MyBuffGuid).AddContextStatBonus(StatType.Strength, ContextValues.Constant(2)).Configure();
+BuffConfigurator.New(MyBuffName, MyBuffGuid)
+  .AddContextStatBonus(StatType.Strength, ContextValues.Constant(2))
+  .Configure();
 ```
 * Methods for constructing  Blueprint, Action, Condition, and BlueprintComponent types
-    * Each method has comments listing up to three example blueprints
-    * Method comments include usage details sourced from the modding community and game assembly
+    * Comments provide example blueprints
+    * Comments provide usage details sourced from the modding community and game assembly
     * Constructors provide default, non-null values for types which should not be null
     * Manual tuning of methods enforces required fields and other implicit requirements
         * Implemented with help from modders like you, see [How to Contribute](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/contributing.html).
