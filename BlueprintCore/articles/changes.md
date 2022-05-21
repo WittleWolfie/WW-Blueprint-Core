@@ -1,5 +1,19 @@
 ﻿# Changelog
 
+#v2.0.2 Release
+
+* Update to 1.3.4e game patch
+* Handles GUIDs with uppercase letters
+* Type specific handling updates
+* New util for creating `UnitConditionExceptions`
+
+### Breaking Changes
+
+* Namespaces are changes to organize type specific util classes
+    * `ContextRankConfigs`
+    * `ContextDuration`
+    * `ContextValues`
+
 #v2.0.1 Release
 
 * Reverts `Configurator.Build()` to return the blueprint directly
