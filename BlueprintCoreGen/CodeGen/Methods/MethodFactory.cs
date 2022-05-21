@@ -142,7 +142,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             $"{GetPredicateTypeName(field.FieldType)} predicate",
             parameter.RemovePredicateComment,
             "RemoveFrom",
-            fieldMethod.Remarks));
+            fieldMethod.Remarks,
+            useParamComment: false));
       }
 
       var clearOperation = parameter.GetClearOperation(OnConfigureObjName);
@@ -158,7 +159,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             "",
             parameter.ClearComment,
             "Clear",
-            fieldMethod.Remarks));
+            fieldMethod.Remarks,
+            useParamComment: false));
       }
 
       var modifyOperation = parameter.GetModifyOperation(OnConfigureObjName, "action");
@@ -174,7 +176,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
             $"{GetActionTypeName(field.FieldType)} action",
             parameter.ModifyComment,
             "Modify",
-            fieldMethod.Remarks));
+            fieldMethod.Remarks,
+            useParamComment: false));
       }
 
       return methods;
@@ -213,7 +216,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
       string parameterDeclaration,
       string commentSummary,
       string methodPrefix,
-      List<string> remarks)
+      List<string> remarks,
+      bool useParamComment = false)
     {
       var method = new MethodImpl();
 
@@ -231,7 +235,10 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddRemarks(methodOverride.Remarks);
 
       // Parameter comments
-      method.AddParameterComments(new() { parameter });
+      if (useParamComment)
+      {
+        method.AddParameterComments(new() { parameter });
+      }
 
       var methodName =
         string.IsNullOrEmpty(methodOverride.MethodName)
