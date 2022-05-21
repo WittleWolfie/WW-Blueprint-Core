@@ -5,7 +5,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 
 #nullable enable
-namespace BlueprintCore.Utils
+namespace BlueprintCore.Utils.Types
 {
   /// <summary>
   /// Helper class for creating <see cref="ContextValue"/> objects.

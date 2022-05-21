@@ -2,7 +2,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Mechanics;
 
 #nullable enable
-namespace BlueprintCore.Utils
+namespace BlueprintCore.Utils.Types
 {
   /// <summary>
   /// Helper class for creating <see cref="ContextDurationValue"/> objects.

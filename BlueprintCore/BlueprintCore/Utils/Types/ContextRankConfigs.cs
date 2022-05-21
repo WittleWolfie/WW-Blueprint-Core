@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 #nullable enable
-namespace BlueprintCore.Blueprints.Components
+namespace BlueprintCore.Utils.Types
 {
   /// <summary>Helper class for creating <see cref="ContextRankConfig"/> objects.</summary>
   /// 
