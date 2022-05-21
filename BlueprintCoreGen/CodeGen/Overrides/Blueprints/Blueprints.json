@@ -12,7 +12,7 @@
       {
         "FieldName": "Range",
         "Remarks": [
-          "Use <see cref=\"SetCustomRange(int)\"/> for AbilityRange.Custom."
+          "Use <see cref=\"SetCustomRange(Feet)\"/> for AbilityRange.Custom."
         ]
       },
 
