@@ -1,7 +1,7 @@
-﻿using BlueprintCore.Blueprints.Components;
-using BlueprintCore.Blueprints.Configurators.Classes;
+﻿using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Configurators.Classes.Selection;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.EntitySystem.Stats;
@@ -62,7 +62,7 @@ namespace BlueprintCoreTutorial.Feats
               descriptor: ModifierDescriptor.Feat)
           .Configure();
 
-      FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToFeatures(FeatName).Configure();
+      FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToAllFeatures(FeatName).Configure();
     }
   }
 }
