@@ -40,6 +40,7 @@ namespace BlueprintCore.BlueprintCore.Validation
       }
     }
 
+    private static HashSet<Type> AllowMultipleComponents = new() { typeof(RecalculateOnStatChange) };
     private static void CheckComponents(BlueprintScriptableObject blueprint, ValidationContext context)
     {
       HashSet<Type> componentTypes = new();
@@ -49,7 +50,8 @@ namespace BlueprintCore.BlueprintCore.Validation
         var attrs = componentType.GetCustomAttributes(/* inherit= */ true);
 
         if (componentTypes.Contains(componentType)
-          && !attrs.Where(attr => attr is AllowMultipleComponentsAttribute).Any())
+          && !attrs.Where(attr => attr is AllowMultipleComponentsAttribute).Any()
+          && !AllowMultipleComponents.Contains(componentType))
         {
           context.AddError("Multiple {0} present but only one is allowed.", component);
         }
