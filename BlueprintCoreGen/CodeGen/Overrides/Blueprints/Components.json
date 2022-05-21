@@ -71,6 +71,11 @@
   },
 
   {
+    "TypeName": "Blindsense",
+    "RequiredFields": [ "Range" ]
+  },
+
+  {
     "TypeName": "ContextRankConfig",
     "Replace": "true",
     "Remarks": [
