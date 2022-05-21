@@ -74,7 +74,9 @@ namespace BlueprintCoreGen.CodeGen.Methods
     {
       List<IMethod> methods = new();
       FieldInfo field = blueprintType.GetField(fieldMethod.FieldName)!;
-      var isBitFlag = TypeTool.IsBitFlag(field.FieldType);
+      var useParamsForSet =
+        TypeTool.IsBitFlag(field.FieldType) || TypeTool.GetEnumerableType(field.FieldType) is not null;
+
 
       IBlueprintParameter? parameter = ParametersFactory.CreateForBlueprintField(blueprintType, field);
       if (parameter is null)
@@ -90,7 +92,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           fieldMethod.Set,
           parameter,
           parameter.GetOperation(OnConfigureObjName, BlueprintValidateFunction),
-          isBitFlag ? parameter.ParamsDeclaration : parameter.Declaration,
+          useParamsForSet ? parameter.ParamsDeclaration : parameter.Declaration,
           parameter.SetComment,
           "Set",
             fieldMethod.Remarks));

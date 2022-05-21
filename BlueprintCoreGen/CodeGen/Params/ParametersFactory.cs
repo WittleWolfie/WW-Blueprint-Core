@@ -363,12 +363,21 @@ namespace BlueprintCoreGen.CodeGen.Params
       return "";
     }
 
-
     private static string GetAssignmentFmtForBlueprintField(Type type, Type? blueprintType, Type? enumerableType)
     {
+      // BitFlags, Lists, and Arrays use params setters
       if (TypeTool.IsBitFlag(type))
       {
-        return $"{{0}}.Aggregate(({TypeTool.GetName(type)}) 0, (f1, f2) => f1 | f2);";
+        return $"{{0}}.Aggregate(({TypeTool.GetName(type)}) 0, (f1, f2) => f1 | f2)";
+      }
+      else if (enumerableType is not null)
+      {
+        if (blueprintType is not null)
+        {
+          var toEnumerable = type.IsArray ? ".ToArray()" : ".ToList()";
+          return $"{{0}}.Select(bp => bp.Reference){toEnumerable}";
+        }
+        return type.IsArray ? $"{{0}}" : $"{{0}}.ToList()";
       }
       return GetAssignmentFmt(type, blueprintType, enumerableType);
     }
