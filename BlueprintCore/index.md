@@ -2,28 +2,28 @@
 
 [![NuGet](https://img.shields.io/nuget/v/WW-Blueprint-Core?style=flat-square)](https://www.nuget.org/packages/WW-Blueprint-Core)
 
-*Disclaimer*: While the documentation is still mostly correct, function and parameter names may have changed in the 2.0 release. Documentation updates are in progress.
+**What is BlueprintCore**: A library to simplify modifying Pathfinder: Wrath of the Righteous.
 
-*What is BlueprintCore*: A library to simplify modifying Pathfinder: Wrath of the Righteous. At a glance it provides:
+At a glance:
 
-* A method chaining API for creating and modifying Blueprints, Actions, and Conditions
+* Builder-style API for creating and modifying Blueprints, Actions, and Conditions
 ```C#
 BuffConfigurator.New(MyBuffName, MyBuffGuid)
   .AddContextStatBonus(StatType.Strength, ContextValues.Constant(2))
   .Configure();
 ```
-* Methods for constructing  Blueprint, Action, Condition, and BlueprintComponent types
-    * Comments provide example blueprints
-    * Comments provide usage details sourced from the modding community and game assembly
-    * Constructors provide default, non-null values for types which should not be null
-    * Manual tuning of methods enforces required fields and other implicit requirements
+* Constructor methods for  Blueprint, Action, Condition, and BlueprintComponent types
+    * Lists example blueprints
+    * Usage comments from modders and game assembly
+    * Guards against null fields
+    * API enforces required fields and implicit requirements when possible
         * Implemented with help from modders like you, see [How to Contribute](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/contributing.html).
-* Blueprint modification API limiting BlueprintComponents to usable types
-* Runtime validation of blueprint configurations
-    * Uses the game's own validation code in combination with custom logic to validate implicit constraints
+* Blueprint API limiting BlueprintComponents to usable types
+* Runtime validation of blueprints
+    * Using game validation and custom logic to validate implicit constraints
 * Utility classes
-    * Tools for creating common types
-    * Tools for localization, blueprint management, logging, and more
+    * Create common types
+    * Localization, blueprint management, logging, and more
 
 If you're interested in contributing, see [How to Contribute](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/contributing.html).
 
@@ -33,9 +33,11 @@ For usage see [Getting Started](https://wittlewolfie.github.io/WW-Blueprint-Core
 
 ### Blueprint Configurators
 
-Each Blueprint class has a corresponding configurator, e.g. `BuffConfigurator`, which exposes an API for modifying its fields and components. Once you call `Configure()` all of the changes are committed and validation errors are logged as a warning.
+Each Blueprint type has a corresponding configurator, e.g. `BuffConfigurator`, with methods for modifying its fields and components.
 
-The API uses method chaining, meaning each method call returns the configurator resulting in reduced boilerplate:
+When you're done configuring, call `Configure()` to commit your changes and run validation. Validation errors are logged as a warning.
+
+Configurators use method chaining to reduce boilerplate:
 
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid)
@@ -44,22 +46,26 @@ FeatureConfigurator.New(FeatName, FeatGuid)
   .Configure();
 ```
 
-The API includes methods to set or modify Blueprint fields and add all supported BlueprintComponent types. With auto-complete this provides a quick and easy way to search for BlueprintComponent types.
+Configurator methods can set or modify fields and add all supported BlueprintComponent types. Using auto-complete you can quickly search available component types.
 
-Supported BlueprintComponent types means types that *should* work with a given blueprint. This is determined using the game's type attributes which declare supported Blueprint types for each component: `AllowedOn`. The attribute is not always correct, so please report any problems with the API: [GitHub Issues](https://github.com/WittleWolfie/WW-Blueprint-Core/issues).
+The Configure *should* guarantee components work with a given blueprint. This is determined using the game's `AllowedOn` attribute which declares supported blueprint types for each component. This is not always correct so please report any problems with the API: [GitHub Issues](https://github.com/WittleWolfie/WW-Blueprint-Core/issues).
 
-Every effort is made to minimize boilerplate in the API and enforce proper usage of Blueprint field and components. Blueprint fields that should not be modified are hidden when reported by a contributor or on [GitHub Issues](https://github.com/WittleWolfie/WW-Blueprint-Core/issues). Component methods are regularly updated to ignore unused fields and require fields necessary for the component to function. Field types that should not be null are automatically populated with a default to prevent exceptions.
+Every effort is made to minimize boilerplate and enforce proper usage of fields and components. Blueprint fields that should not be modified are hidden when reported by a contributor or on [GitHub Issues](https://github.com/WittleWolfie/WW-Blueprint-Core/issues).
+
+Component methods are regularly updated to ignore unused fields and require fields necessary for the component to function. Field types that should not be null are automatically populated with a default to prevent exceptions.
 
 For example, the `FeatureConfigurator` exposes a method `AddPrerequisiteCharacterLevel`:
 ![AddPreRequisiteCharacterLevel VS Documentation](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/docs/images/configurator_method_example.png)
 
 ### ActionList and ConditionsChecker Builders
 
-`ActionsBuilder` is a builder API for `ActionList` and `ConditionsBuilder` is a builder API for `ConditionsChecker`. When `Build()` is called the corresponding game type is returned and validation errors are logged as a warning.
+`ActionsBuilder` is a builder API for `ActionList` and `ConditionsBuilder` is a builder API for `ConditionsChecker`.
 
-They provide methods for creating Action and Condition types, split across extension classes to limit the scope of auto-complete. The extensions are logically grouped so most uses require only one set.
+BlueprintCore APIs accept builders directly or you can call `Build()` to construct them and run validation. Validation errors are logged as a warning.
 
-For example, `ActionsBuilderKingdomEx` contains builder methods for actions related to the Kingdom and Crusade system and can be referenced by including the namespace `BlueprintCore.Actions.Builder.KingdomEx`:
+Builder methods create Action and Condition types and are defined across extension classes to improve auto-complete searching. Extension classes are logically grouped so most blueprints require only one extension.
+
+For example, `ActionsBuilderKingdomEx` contains builder methods related to the Kingdom and Crusade system and can be referenced by including the namespace `BlueprintCore.Actions.Builder.KingdomEx`:
 
 ```C#
 using BlueprintCore.Actions.Builder.KingdomEx;
@@ -69,7 +75,7 @@ ActionsBuilder.New()
   .Build();
 ```
 
-Library methods, such as configurator methods, accept builders directly and call `Build()` internally to minimize boilerplate:
+Library methods, such as configurators, accept builders directly and call `Build()` internally to minimize boilerplate:
 
 ```C#
 BuffConfigurator.New(BuffName, BuffGuid)
@@ -87,23 +93,23 @@ Tool classes include methods for common operations. These vary from operations l
 
 #### Logging
 
-`LogWrapper` exposes the game's logger for mod usage. This results in logging output to the game logs which can be viewed using [Remote Console](https://github.com/OwlcatOpenSource/RemoteConsole/releases).
+`LogWrapper` exposes the game's logger for mod usage. This logs output to the game logs which can be viewed using [Remote Console](https://github.com/OwlcatOpenSource/RemoteConsole/releases).
 
-It exposes verbose logging with more control for debugging and prefixes logs to quickly identify logs output by your mod or BlueprintCore.
+It enables verbose logging for debugging and prefixes logs to filter log output to your mod or BlueprintCore logs.
 
 For example, this code
 ```C#
 LogWrapper logger = LogWrapper.Get("MyMod");
 logger.Info("Logger initialized.");
 ```
-would log:
+logs:
 ```
 BlueprintCore.MyMod: Logger initialized.
 ```
 
 #### Type Builders
 
-Classes for constructing simple types like `ContexValues` for creating `ContextValue` types or `ContextRankConfigs` for creating `ContextRankConfig` components.
+Classes for constructing simple types like `ContextValues` for creating `ContextValue` types or `ContextRankConfigs` for creating `ContextRankConfig` components.
 
 ```C#
 FeatureConfigurator.New(FeatureName, FeatureGuid)
@@ -111,11 +117,11 @@ FeatureConfigurator.New(FeatureName, FeatureGuid)
   .Build();
 ```
 
-Utility classes provide additional functionality to simplify modifying the game as well as helping ensure correct use of game types.
+Utility classes provide functionality to simplify modifying the game and ensure correct use of game types.
 
 ## Usage
 
-BlueprintCore is available as a [NuGet package](https://www.nuget.org/packages/WW-Blueprint-Core/). For more details see the [Getting Started](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html).
+BlueprintCore is available as a [NuGet package](https://www.nuget.org/packages/WW-Blueprint-Core/). For more details see [Getting Started](https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html).
 
 # Acknowledgements
 
