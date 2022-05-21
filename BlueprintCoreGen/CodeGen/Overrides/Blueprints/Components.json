@@ -71,6 +71,11 @@
   },
 
   {
+    "TypeName": "BuffSkillBonus",
+    "RequiredFields": [ "Stat", "Value" ]
+  },
+
+  {
     "TypeName": "ContextRankConfig",
     "Replace": "true",
     "Remarks": [
