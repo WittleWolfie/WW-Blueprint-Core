@@ -94,7 +94,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           useParamsForSet ? parameter.ParamsDeclaration : parameter.Declaration,
           parameter.SetComment,
           "Set",
-            fieldMethod.Remarks));
+          fieldMethod.Remarks));
 
       var addOperation = parameter.GetAddOperation(OnConfigureObjName, BlueprintValidateFunction);
       if (addOperation.Any())
@@ -216,7 +216,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       string commentSummary,
       string methodPrefix,
       List<string> remarks,
-      bool useParamComment = false)
+      bool useParamComment = true)
     {
       var method = new MethodImpl();
 
