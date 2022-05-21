@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///
     /// <param name="devineForNegative">
     /// <para>
-    /// Tooltip: Если мораль < 0. Шанс негативного = UnitMorale/DevineForNegative
+    /// Tooltip: Если мораль &amp;lt; 0. Шанс негативного = UnitMorale/DevineForNegative
     /// </para>
     /// </param>
     public TBuilder SetDevineForNegative(float devineForNegative)
@@ -69,12 +69,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="MoraleRoot.m_DevineForNegative"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="devineForNegative">
-    /// <para>
-    /// Tooltip: Если мораль < 0. Шанс негативного = UnitMorale/DevineForNegative
-    /// </para>
-    /// </param>
     public TBuilder ModifyDevineForNegative(Action<float> action)
     {
       return OnConfigureInternal(
@@ -90,7 +84,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///
     /// <param name="devineForPositive">
     /// <para>
-    /// Tooltip: Если мораль > 0. Шанс позитивного = UnitMorale/DevineForPositive
+    /// Tooltip: Если мораль &amp;gt; 0. Шанс позитивного = UnitMorale/DevineForPositive
     /// </para>
     /// </param>
     public TBuilder SetDevineForPositive(float devineForPositive)
@@ -105,12 +99,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="MoraleRoot.m_DevineForPositive"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="devineForPositive">
-    /// <para>
-    /// Tooltip: Если мораль > 0. Шанс позитивного = UnitMorale/DevineForPositive
-    /// </para>
-    /// </param>
     public TBuilder ModifyDevineForPositive(Action<float> action)
     {
       return OnConfigureInternal(
@@ -200,19 +188,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes elements from <see cref="MoraleRoot.m_NegativeFacts"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="negativeFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromNegativeFacts(Func<BlueprintUnitFactReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -226,19 +201,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes all elements from <see cref="MoraleRoot.m_NegativeFacts"/>
     /// </summary>
-    ///
-    /// <param name="negativeFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearNegativeFacts()
     {
       return OnConfigureInternal(
@@ -251,19 +213,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="MoraleRoot.m_NegativeFacts"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="negativeFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyNegativeFacts(Action<BlueprintUnitFactReference> action)
     {
       return OnConfigureInternal(
@@ -302,19 +251,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="MoraleRoot.m_GlobalArmiesMoraleBuff"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="globalArmiesMoraleBuff">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyGlobalArmiesMoraleBuff(Action<BlueprintKingdomBuffReference> action)
     {
       return OnConfigureInternal(

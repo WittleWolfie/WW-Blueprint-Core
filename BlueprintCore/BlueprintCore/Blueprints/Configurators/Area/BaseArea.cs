@@ -110,19 +110,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintArea.m_Parts"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="parts">
-    /// <para>
-    /// Blueprint of type BlueprintAreaPart. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromParts(Func<BlueprintAreaPartReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -136,19 +123,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintArea.m_Parts"/>
     /// </summary>
-    ///
-    /// <param name="parts">
-    /// <para>
-    /// Blueprint of type BlueprintAreaPart. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearParts()
     {
       return OnConfigureInternal(
@@ -161,19 +135,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintArea.m_Parts"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="parts">
-    /// <para>
-    /// Blueprint of type BlueprintAreaPart. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyParts(Action<BlueprintAreaPartReference> action)
     {
       return OnConfigureInternal(
@@ -454,12 +415,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintArea.PS4ChunkId"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="pS4ChunkId">
-    /// <para>
-    /// Tooltip: Используется на PS4 чтобы разрезать игру на части. Пролог и зоны, нужные всю игру (типа глобалмапы) нужно класть в StartUp, остальное в нужную главу
-    /// </para>
-    /// </param>
     public TBuilder ModifyPS4ChunkId(Action<PS4ChunkId> action)
     {
       return OnConfigureInternal(
@@ -574,19 +529,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintArea.m_DefaultPreset"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="defaultPreset">
-    /// <para>
-    /// Blueprint of type BlueprintAreaPreset. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDefaultPreset(Action<BlueprintAreaPresetReference> action)
     {
       return OnConfigureInternal(
@@ -782,22 +724,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintArea.m_HotAreas"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="hotAreas">
-    /// <para>
-    /// Tooltip: Areas, which scenes should be kept loaded when switching to this area
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromHotAreas(Func<BlueprintAreaReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -811,22 +737,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintArea.m_HotAreas"/>
     /// </summary>
-    ///
-    /// <param name="hotAreas">
-    /// <para>
-    /// Tooltip: Areas, which scenes should be kept loaded when switching to this area
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearHotAreas()
     {
       return OnConfigureInternal(
@@ -839,22 +749,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintArea.m_HotAreas"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="hotAreas">
-    /// <para>
-    /// Tooltip: Areas, which scenes should be kept loaded when switching to this area
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyHotAreas(Action<BlueprintAreaReference> action)
     {
       return OnConfigureInternal(
@@ -1007,7 +901,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipDays = null)
     {
       var component = new EveryDayTrigger();
@@ -1047,7 +941,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipWeeks = null)
     {
       var component = new EveryWeekTrigger();

@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///
     /// <param name="levels">
     /// <para>
-    /// InfoBox: Usually it's caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
+    /// InfoBox: Usually it&amp;apos;s caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
     /// </para>
     /// </param>
     public TBuilder SetLevels(params SpellsLevelEntry[] levels)
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///
     /// <param name="levels">
     /// <para>
-    /// InfoBox: Usually it's caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
+    /// InfoBox: Usually it&amp;apos;s caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
     /// </para>
     /// </param>
     public TBuilder AddToLevels(params SpellsLevelEntry[] levels)
@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///
     /// <param name="levels">
     /// <para>
-    /// InfoBox: Usually it's caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
+    /// InfoBox: Usually it&amp;apos;s caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
     /// </para>
     /// </param>
     public TBuilder RemoveFromLevels(params SpellsLevelEntry[] levels)
@@ -80,12 +80,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Removes elements from <see cref="BlueprintSpellsTable.Levels"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="levels">
-    /// <para>
-    /// InfoBox: Usually it's caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromLevels(Func<SpellsLevelEntry, bool> predicate)
     {
       return OnConfigureInternal(
@@ -99,12 +93,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Removes all elements from <see cref="BlueprintSpellsTable.Levels"/>
     /// </summary>
-    ///
-    /// <param name="levels">
-    /// <para>
-    /// InfoBox: Usually it's caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
-    /// </para>
-    /// </param>
     public TBuilder ClearLevels()
     {
       return OnConfigureInternal(
@@ -117,12 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellsTable.Levels"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="levels">
-    /// <para>
-    /// InfoBox: Usually it's caster level, for mythic merged with spontaneous book it will be mythic level. Note: leave zero level empty
-    /// </para>
-    /// </param>
     public TBuilder ModifyLevels(Action<SpellsLevelEntry> action)
     {
       return OnConfigureInternal(

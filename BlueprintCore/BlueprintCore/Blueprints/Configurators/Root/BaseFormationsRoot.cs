@@ -101,19 +101,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Removes elements from <see cref="FormationsRoot.m_PredefinedFormations"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="predefinedFormations">
-    /// <para>
-    /// Blueprint of type BlueprintPartyFormation. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromPredefinedFormations(Func<BlueprintPartyFormationReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -127,19 +114,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Removes all elements from <see cref="FormationsRoot.m_PredefinedFormations"/>
     /// </summary>
-    ///
-    /// <param name="predefinedFormations">
-    /// <para>
-    /// Blueprint of type BlueprintPartyFormation. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearPredefinedFormations()
     {
       return OnConfigureInternal(
@@ -152,19 +126,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="FormationsRoot.m_PredefinedFormations"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="predefinedFormations">
-    /// <para>
-    /// Blueprint of type BlueprintPartyFormation. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPredefinedFormations(Action<BlueprintPartyFormationReference> action)
     {
       return OnConfigureInternal(
@@ -203,19 +164,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="FormationsRoot.m_FollowersFormation"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="followersFormation">
-    /// <para>
-    /// Blueprint of type FollowersFormation. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFollowersFormation(Action<BlueprintFollowersFormationReference> action)
     {
       return OnConfigureInternal(

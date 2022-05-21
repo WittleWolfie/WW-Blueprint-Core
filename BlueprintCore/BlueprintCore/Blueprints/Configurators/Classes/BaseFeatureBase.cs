@@ -43,12 +43,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintFeatureBase.HideInUI"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="hideInUI">
-    /// <para>
-    /// Tooltip: It will not be showed in any UI screens
-    /// </para>
-    /// </param>
     public TBuilder ModifyHideInUI(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -64,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <param name="hideInCharacterSheetAndLevelUp">
     /// <para>
-    /// Tooltip: It will not be showed on page Total in LevelUp/Charscreen and Character Sheet > Abilities
+    /// Tooltip: It will not be showed on page Total in LevelUp/Charscreen and Character Sheet &amp;gt; Abilities
     /// </para>
     /// </param>
     public TBuilder SetHideInCharacterSheetAndLevelUp(bool hideInCharacterSheetAndLevelUp = true)
@@ -79,12 +73,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintFeatureBase.HideInCharacterSheetAndLevelUp"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="hideInCharacterSheetAndLevelUp">
-    /// <para>
-    /// Tooltip: It will not be showed on page Total in LevelUp/Charscreen and Character Sheet > Abilities
-    /// </para>
-    /// </param>
     public TBuilder ModifyHideInCharacterSheetAndLevelUp(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -115,12 +103,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintFeatureBase.HideNotAvailibleInUI"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="hideNotAvailibleInUI">
-    /// <para>
-    /// Tooltip: For BlueprintFeature: NotAvailible will not be showed in LevelUp/Charscreen selecors. For BlueprintFeatureSelection: all NotAvailible child features will not be showed.
-    /// </para>
-    /// </param>
     public TBuilder ModifyHideNotAvailibleInUI(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -139,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>ImprovedDirtyTrick</term><description>ed699d64870044b43bb5a7fbe3f29494</description></item>
+    /// <item><term>IronWillImproved</term><description>3ea2215150a1c8a4a9bfed9d9023903e</description></item>
     /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
     /// </list>
     /// </remarks>
@@ -173,7 +155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddHideFeatureInInspect(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new HideFeatureInInspect();
       return AddUniqueComponent(component, mergeBehavior, merge);

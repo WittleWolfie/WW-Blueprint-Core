@@ -66,12 +66,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Modifies <see cref="BlueprintCorruptionRoot.m_DefaultCorruptionGrowth"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="defaultCorruptionGrowth">
-    /// <para>
-    /// InfoBox: Amount of corruption player gets after Rest
-    /// </para>
-    /// </param>
     public TBuilder ModifyDefaultCorruptionGrowth(Action<int> action)
     {
       return OnConfigureInternal(
@@ -102,12 +96,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Modifies <see cref="BlueprintCorruptionRoot.m_DSSuccessCoefficient"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="dSSuccessCoefficient">
-    /// <para>
-    /// InfoBox: Reduce corruption added on rest with success divine service check
-    /// </para>
-    /// </param>
     public TBuilder ModifyDSSuccessCoefficient(Action<float> action)
     {
       return OnConfigureInternal(
@@ -138,12 +126,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Modifies <see cref="BlueprintCorruptionRoot.m_DSCriticalFailCoefficient"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="dSCriticalFailCoefficient">
-    /// <para>
-    /// InfoBox: Enlarge corruption added on rest with critical fail divine service check
-    /// </para>
-    /// </param>
     public TBuilder ModifyDSCriticalFailCoefficient(Action<float> action)
     {
       return OnConfigureInternal(
@@ -181,19 +163,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Modifies <see cref="BlueprintCorruptionRoot.m_GlobalMapBuff"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="globalMapBuff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyGlobalMapBuff(Action<BlueprintBuffReference> action)
     {
       return OnConfigureInternal(
@@ -249,12 +218,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     /// <summary>
     /// Modifies <see cref="BlueprintCorruptionRoot.m_SpeedModifierDC"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="speedModifierDC">
-    /// <para>
-    /// InfoBox: Divine Servant should roll (Zone.NormalMinCR + SpeedModifierDC + Increment * `checks count`) or more to prolong buff
-    /// </para>
-    /// </param>
     public TBuilder ModifySpeedModifierDC(Action<int> action)
     {
       return OnConfigureInternal(

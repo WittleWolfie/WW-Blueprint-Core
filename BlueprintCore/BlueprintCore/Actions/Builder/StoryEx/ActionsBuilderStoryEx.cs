@@ -37,7 +37,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0037</term><description>1132b009fe2a5d841954b9c31d559941</description></item>
+    /// <item><term>Cue_0037</term><description>b3c8473879169ba479a3d5a4f4ac508f</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -320,12 +320,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <param name="alignmentMask">
     /// <para>
-    /// InfoBox: Current unit alignment will be shifted to the nearest available sector. None selected => removes locking and current alignment remains.
+    /// InfoBox: Current unit alignment will be shifted to the nearest available sector. None selected =&amp;gt; removes locking and current alignment remains.
     /// </para>
     /// </param>
     /// <param name="targetAlignment">
     /// <para>
-    /// InfoBox: Considered as initial alignment. This is usually sector's center (LG for Angel, NE for Lich) Will be ignored for `None` mask (all or none square selected)
+    /// InfoBox: Considered as initial alignment. This is usually sector&amp;apos;s center (LG for Angel, NE for Lich) Will be ignored for `None` mask (all or none square selected)
     /// </para>
     /// </param>
     public static ActionsBuilder LockAlignment(
@@ -998,7 +998,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <param name="desireLevel">
     /// <para>
-    /// InfoBox: Main character will get mythic level = DesireLevel. Note: Action won't reduce mythic level
+    /// InfoBox: Main character will get mythic level = DesireLevel. Note: Action won&amp;apos;t reduce mythic level
     /// </para>
     /// </param>
     public static ActionsBuilder SetMythicLevelForMainCharacter(
@@ -1269,7 +1269,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <param name="unit1">
     /// <para>
-    /// InfoBox: Unit1 will become enemy of Unit2's Faction
+    /// InfoBox: Unit1 will become enemy of Unit2&amp;apos;s Faction
     /// </para>
     /// </param>
     public static ActionsBuilder StartCombat(
@@ -1310,7 +1310,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </param>
     /// <param name="dialogue">
     /// <para>
-    /// Tooltip: This dialog overrides dialog in 'Dialogue Owner' if it exists
+    /// Tooltip: This dialog overrides dialog in &amp;apos;Dialogue Owner&amp;apos; if it exists
     /// </para>
     /// <para>
     /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
@@ -1325,12 +1325,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </param>
     /// <param name="dialogueOwner">
     /// <para>
-    /// Tooltip: Unit with BlueprintDialog. If unit have no BlueprintDialog or Null - Dialog from field 'Dialog' will be used.
+    /// Tooltip: Unit with BlueprintDialog. If unit have no BlueprintDialog or Null - Dialog from field &amp;apos;Dialog&amp;apos; will be used.
     /// </para>
     /// </param>
     /// <param name="speakerName">
     /// <para>
-    /// Tooltip: Interlocutor name. Uses only if 'Dialogue Owner' is Null
+    /// Tooltip: Interlocutor name. Uses only if &amp;apos;Dialogue Owner&amp;apos; is Null
     /// </para>
     /// </param>
     public static ActionsBuilder StartDialog(
@@ -1406,7 +1406,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
-    /// <item><term>Cue_0028</term><description>4773b880723186744a6529da012af2b4</description></item>
+    /// <item><term>Cue_0028</term><description>89749874f3563034ab430fddec9e9fac</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1544,7 +1544,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Hepzamirah]_SpawnActions</term><description>df28026f8a4845a3978f48834852e6b0</description></item>
-    /// <item><term>CrazyMythicDemonAggro</term><description>8fa22e1e65aaf674a98d16026383f16c</description></item>
+    /// <item><term>Cue_0001</term><description>95f0f9086de30c44495240d955dc909a</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1590,7 +1590,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>DoorToSecret_CheckPassedActions</term><description>9fbd1302f9b54df4f87deb14b8de55a5</description></item>
+    /// <item><term>DoorToKB_CheckPassedActions</term><description>e16485ef06cc2dd4a94db114939109fa</description></item>
     /// <item><term>YeribethHall_FinishCipher1</term><description>d5c8170f5bf5725459b6f7f895ecd458</description></item>
     /// </list>
     /// </remarks>
@@ -1843,7 +1843,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>4BarrierDevice01</term><description>2099b5c949f74ad0a598fb66efbe186e</description></item>
-    /// <item><term>Cue_0029</term><description>bc2c3c2a3cec484bbcee21b3349856ea</description></item>
+    /// <item><term>Cue_0029</term><description>120366a2301b4ec993267871245b2e4c</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

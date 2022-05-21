@@ -216,12 +216,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Modifies <see cref="Gate.PauseForOneFrame"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="pauseForOneFrame">
-    /// <para>
-    /// Tooltip: Стартовать трэки гейта с задержкой в 1 кадр, как раньше (см. https://confluence.owlcat.local/pages/viewpage.action?pageId=24971382)
-    /// </para>
-    /// </param>
     public TBuilder ModifyPauseForOneFrame(Action<bool> action)
     {
       return OnConfigureInternal(

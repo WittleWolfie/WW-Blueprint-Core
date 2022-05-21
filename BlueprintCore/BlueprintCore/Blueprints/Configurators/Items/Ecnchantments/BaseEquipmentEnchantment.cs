@@ -49,7 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddAllSavesBonusEquipment(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? value = null)
     {
       var component = new AllSavesBonusEquipment();

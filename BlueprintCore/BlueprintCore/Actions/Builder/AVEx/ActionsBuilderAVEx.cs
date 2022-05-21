@@ -206,12 +206,12 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <param name="setRace">
     /// <para>
-    /// Tooltip: Sets Ak switch on player's Race
+    /// Tooltip: Sets Ak switch on player&amp;apos;s Race
     /// </para>
     /// </param>
     /// <param name="setSex">
     /// <para>
-    /// Tooltip: Sets Ak switch on player's Sex
+    /// Tooltip: Sets Ak switch on player&amp;apos;s Sex
     /// </para>
     /// </param>
     /// <param name="soundName">
@@ -257,12 +257,12 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </param>
     /// <param name="setRace">
     /// <para>
-    /// Tooltip: Sets Ak switch on player's Race
+    /// Tooltip: Sets Ak switch on player&amp;apos;s Race
     /// </para>
     /// </param>
     /// <param name="setSex">
     /// <para>
-    /// Tooltip: Sets Ak switch on player's Sex
+    /// Tooltip: Sets Ak switch on player&amp;apos;s Sex
     /// </para>
     /// </param>
     /// <param name="soundName">
@@ -359,7 +359,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0049</term><description>4a1d11f041aae8a4bb752848b2f3df08</description></item>
+    /// <item><term>Cue_0049</term><description>5a2c83b1758ca624bbd3d87d7a3e15c2</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -561,7 +561,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     ///
     /// <param name="checkType">
     /// <para>
-    /// InfoBox: If set to 'Controlled', stops all cutscenes that marked selected unit.  If set to 'Params' stops all cutscenes that have selected unit as a parameter.  'Controlled' is the old mode, you probably never need it.
+    /// InfoBox: If set to &amp;apos;Controlled&amp;apos;, stops all cutscenes that marked selected unit.  If set to &amp;apos;Params&amp;apos; stops all cutscenes that have selected unit as a parameter.  &amp;apos;Controlled&amp;apos; is the old mode, you probably never need it.
     /// </para>
     /// </param>
     /// <param name="cutscene">

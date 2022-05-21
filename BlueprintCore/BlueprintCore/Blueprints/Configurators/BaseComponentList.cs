@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketEnableTutorialSingle(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>? tutorial = null)
     {
       var component = new EtudeBracketEnableTutorialSingle();
@@ -115,7 +115,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketEnableTutorials(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>>? tutorials = null)
     {
       var component = new EtudeBracketEnableTutorials();
@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DHOutdoorDefault</term><description>0ad51df6001a4f8479cd1efa2506ea54</description></item>
-    /// <item><term>PuluraFall</term><description>0439718217ff3b549b88530b2bbecaf8</description></item>
+    /// <item><term>Nexus03Final</term><description>a7065c0d6f6b83d4e9eb259279b7d66c</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -150,7 +150,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEtudeCorruptionFreeZone(
         bool? clearAllCorruption = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeCorruptionFreeZone();
       component.m_ClearAllCorruption = clearAllCorruption ?? component.m_ClearAllCorruption;
@@ -179,9 +179,37 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeDisableCraft(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeDisableCraft();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EtudeOverrideCorruptionGrowth"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Kenabres_CorruptionFree</term><description>24671efbec02423b923a32d471c3e0d1</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddEtudeOverrideCorruptionGrowth(
+        int? corruptionGrowth = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new EtudeOverrideCorruptionGrowth();
+      component.m_CorruptionGrowth = corruptionGrowth ?? component.m_CorruptionGrowth;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -212,7 +240,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEtudeCompleteTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeCompleteTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -251,7 +279,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? once = null)
     {
       var component = new EtudePlayTrigger();
@@ -304,7 +332,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDisableCompanionPartyChecks(
         List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? companions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         DisableCompanionPartyChecks.ModeType? mode = null)
     {
       var component = new DisableCompanionPartyChecks();
@@ -338,7 +366,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketAllowMythicPortrait(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketAllowMythicPortrait();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -366,7 +394,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketAudioEvents(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AkEventReference[]? onEtudeStart = null,
         AkEventReference[]? onEtudeStop = null)
     {
@@ -409,7 +437,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEtudeBracketAudioObjects(
         string? connectedObjectName = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketAudioObjects();
       component.ConnectedObjectName = connectedObjectName ?? component.ConnectedObjectName;
@@ -439,7 +467,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEtudeBracketCampingAction(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? skipRest = null)
     {
       var component = new EtudeBracketCampingAction();
@@ -475,7 +503,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEtudeBracketDetachPet(
         UnitEvaluator? master = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PetType? petType = null)
     {
       var component = new EtudeBracketDetachPet();
@@ -506,7 +534,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketDisableCampingEncounters(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketDisableCampingEncounters();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -532,7 +560,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketDisablePlayerRespec(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketDisablePlayerRespec();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -559,7 +587,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketDisableRandomEncounters(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketDisableRandomEncounters();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -611,7 +639,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
         Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? globalMapSpell = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketEnableAzataIsland();
       component.m_GlobalMap = globalMap?.Reference ?? component.m_GlobalMap;
@@ -660,7 +688,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEtudeBracketEnableWarcamp(
         Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketEnableWarcamp();
       component.m_GlobalMap = globalMap?.Reference ?? component.m_GlobalMap;
@@ -713,7 +741,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? canBeSlowerThanLeader = null,
         UnitEvaluator? leader = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
         UnitEvaluator? unit = null,
         bool? useSummonPool = null)
@@ -754,7 +782,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketForceCombatMode(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketForceCombatMode();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -783,7 +811,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actionList = null,
         EtudeBracketGameModeWaiter? gameModeWaiter = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketIgnoreGameover();
       component.ActionList = actionList?.Build() ?? component.ActionList;
@@ -818,7 +846,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketMakePassive(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketMakePassive();
@@ -849,7 +877,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketMarkUnitEssential(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? target = null)
     {
       var component = new EtudeBracketMarkUnitEssential();
@@ -880,7 +908,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketMusic(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AkEventReference? startTheme = null,
         AkEventReference? stopTheme = null)
     {
@@ -916,7 +944,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         float? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketOverrideActionsOnClick();
@@ -960,7 +988,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? barkDurationByText = null,
         float? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null,
         SharedStringAsset? whatToBarkShared = null)
     {
@@ -1010,7 +1038,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Blueprint<BlueprintDialog, BlueprintDialogReference>? dialog = null,
         float? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketOverrideDialog();
@@ -1050,7 +1078,7 @@ namespace BlueprintCore.Blueprints.Configurators
         InclemencyType? inclemency = null,
         bool? instantly = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeBracketOverrideWeatherInclemency();
       Validate(gameModeWaiter);
@@ -1083,7 +1111,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEtudeBracketOverrideWeatherProfile(
         EtudeBracketGameModeWaiter? gameModeWaiter = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeatherProfileExtended? weatherProfile = null)
     {
       var component = new EtudeBracketOverrideWeatherProfile();
@@ -1115,7 +1143,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketPinCompanionInParty(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketPinCompanionInParty();
@@ -1146,7 +1174,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketPreventDirectControl(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketPreventDirectControl();
@@ -1176,7 +1204,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEtudeBracketProgressBar(
         int? maxProgress = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         LocalizedString? title = null)
     {
       var component = new EtudeBracketProgressBar();
@@ -1217,7 +1245,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     /// <param name="ignoreWhenEx">
     /// <para>
-    /// InfoBox: Don't do anything if companion is Ex
+    /// InfoBox: Don&amp;apos;t do anything if companion is Ex
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1231,7 +1259,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? ignoreWhenEx = null,
         EntityReference? locator = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? shouldRelease = null)
     {
       var component = new EtudeBracketSetCompanionPosition();
@@ -1295,7 +1323,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Blueprint<BlueprintDialog, BlueprintDialogReference>? dialog = null,
         float? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var component = new EtudeBracketSummonpoolOverrideDialog();
@@ -1335,7 +1363,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeBracketTriggerAction(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onActivated = null,
         ActionsBuilder? onDeactivated = null)
     {
@@ -1375,7 +1403,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeIgnorePartyEncumbrance(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeIgnorePartyEncumbrance();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -1403,7 +1431,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudeIgnorePersonalEncumbrance(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudeIgnorePersonalEncumbrance();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -1431,7 +1459,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddEtudePeacefulZone(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EtudePeacefulZone();
       return AddUniqueComponent(component, mergeBehavior, merge);

@@ -301,12 +301,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Modifies <see cref="BlueprintItem.m_IsJunk"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="isJunk">
-    /// <para>
-    /// Tooltip: Include in the Mass Sell option at vendors
-    /// </para>
-    /// </param>
     public TBuilder ModifyIsJunk(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -395,22 +389,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Modifies <see cref="BlueprintItem.m_ShardItem"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="shardItem">
-    /// <para>
-    /// InfoBox: Trash-item that remains after destruction. Gives a hint to user what source item was like.
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyShardItem(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(
@@ -967,7 +945,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddItemPolymorph(
         Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flagToCheck = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintItem, BlueprintItemReference>>? polymorphItems = null)
     {
       var component = new ItemPolymorph();
@@ -1064,7 +1042,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         int? bonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? type = null)
     {
       var component = new WeaponTypeAttackEnchant();

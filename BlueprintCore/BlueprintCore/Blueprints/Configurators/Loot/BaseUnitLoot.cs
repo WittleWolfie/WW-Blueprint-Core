@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bool? bigTable = null,
         int? count = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minCR = null)
     {
       var component = new DungeonVendorItemsComponent();
@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int? count = null,
         LootItem? item = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new LootItemsPackFixed();
       component.m_Count = count ?? component.m_Count;
@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int? count = null,
         LootItem? item = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new LootItemsPackFixedAndNotInPlayerInitialInventory();
       component.m_Count = count ?? component.m_Count;
@@ -170,7 +170,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         int? countTo = null,
         LootItem? item = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new LootItemsPackVariable();
       component.m_CountFrom = countFrom ?? component.m_CountFrom;
@@ -203,7 +203,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     public TBuilder AddLootRandomItem(
         LootItemAndWeight[]? items = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new LootRandomItem();
       foreach (var item in items) { Validate(item); }

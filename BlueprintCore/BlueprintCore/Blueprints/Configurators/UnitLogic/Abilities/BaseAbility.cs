@@ -99,19 +99,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// The provided AI Cast Spell blueprint should set <see cref="BlueprintAiCastSpell.m_Ability"/> to reference this ability.
     /// </para>
     /// </remarks>
-    ///
-    /// <param name="defaultAiAction">
-    /// <para>
-    /// Blueprint of type BlueprintAiCastSpell. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDefaultAiAction(Action<BlueprintAiCastSpell.Reference> action)
     {
       return OnConfigureInternal(
@@ -127,7 +114,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Use <see cref="SetCustomRange(int)"/> for AbilityRange.Custom.
+    /// Use <see cref="SetCustomRange(Feet)"/> for AbilityRange.Custom.
     /// </para>
     /// </remarks>
     public TBuilder SetRange(AbilityRange range)
@@ -144,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Use <see cref="SetCustomRange(int)"/> for AbilityRange.Custom.
+    /// Use <see cref="SetCustomRange(Feet)"/> for AbilityRange.Custom.
     /// </para>
     /// </remarks>
     public TBuilder ModifyRange(Action<AbilityRange> action)
@@ -161,7 +148,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Set this to the base ability for all ability variants. See <cref="AbilityVariants"/>.
+    /// Set this to the base ability for all ability variants. See <see cref="AbilityVariants"/>.
     /// </para>
     /// </remarks>
     ///
@@ -191,22 +178,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Set this to the base ability for all ability variants. See <cref="AbilityVariants"/>.
+    /// Set this to the base ability for all ability variants. See <see cref="AbilityVariants"/>.
     /// </para>
     /// </remarks>
-    ///
-    /// <param name="parent">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyParent(Action<BlueprintAbilityReference> action)
     {
       return OnConfigureInternal(
@@ -286,12 +260,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Modifies <see cref="BlueprintAbility.ShowNameForVariant"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="showNameForVariant">
-    /// <para>
-    /// Tooltip: Включать имя данного спела в имя его варианта
-    /// </para>
-    /// </param>
     public TBuilder ModifyShowNameForVariant(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -322,12 +290,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Modifies <see cref="BlueprintAbility.OnlyForAllyCaster"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="onlyForAllyCaster">
-    /// <para>
-    /// Tooltip: Применять опцию выше только, если кастер - IsPlayerFaction
-    /// </para>
-    /// </param>
     public TBuilder ModifyOnlyForAllyCaster(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -406,12 +368,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Modifies <see cref="BlueprintAbility.CanTargetFriends"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="canTargetFriends">
-    /// <para>
-    /// InfoBox: Allows to cast on allies. But does not prevent from casting on enemies if only selected
-    /// </para>
-    /// </param>
     public TBuilder ModifyCanTargetFriends(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -1460,7 +1416,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         AlignmentMaskType? alignment = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityCasterAlignment();
       component.Alignment = alignment ?? component.Alignment;
@@ -1518,7 +1474,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference> chosenWeaponFeature,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreWeaponFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityCasterHasChosenWeapon();
       component.m_ChosenWeaponFeature = chosenWeaponFeature?.Reference;
@@ -1551,7 +1507,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityCasterHasWeaponWithRangeType(
         WeaponRangeType rangeType,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityCasterHasWeaponWithRangeType();
       component.RangeType = rangeType;
@@ -1632,7 +1588,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         ActionsBuilder actions,
         ConditionsBuilder? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityExecuteActionOnCast();
       component.Actions = actions?.Build();
@@ -1653,7 +1609,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// This ability should be the parent as defined in <see cref="BlueprintAbility.m_Parent"/> for each variant.
     /// </para>
     /// <para>
-    /// If you remove a variant be sure to clear <see cref="BlueprintAbility.m_Parent"/> for that ability. You can set it to <c>BlueprintTool.GetRef<BlueprintAbilityReference>(null)</c>.
+    /// If you remove a variant be sure to clear <see cref="BlueprintAbility.m_Parent"/> for that ability. You can set it to <c>BlueprintTool.GetRef&lt;BlueprintAbilityReference&gt;(null)</c>.
     /// </para>
     ///
     /// <list type="bullet">
@@ -1696,7 +1652,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
+    /// <item><term>HellsSealFeature</term><description>b6798b29d36982b4786a32dfd81a914f</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -1931,7 +1887,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddCantripComponent(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new CantripComponent();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -1959,7 +1915,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddChirurgeonSpell(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ChirurgeonSpell();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -2024,7 +1980,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddSpellListComponent(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? spellLevel = null,
         Blueprint<BlueprintSpellList, BlueprintSpellListReference>? spellList = null)
     {
@@ -2089,7 +2045,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddUniqueSpellComponent(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new UniqueSpellComponent();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -2337,7 +2293,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>JaethalCampBuff</term><description>e9cc770ccca8b73488196e1f508e2675</description></item>
+    /// <item><term>JagannathKhandaPoisonBuff</term><description>7cadc7cfdfb491143a62eabfdcd2d948</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -2350,7 +2306,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddContextCalculateSharedValue(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         double? modifier = null,
         ContextDiceValue? value = null,
         AbilitySharedValue? valueType = null)
@@ -2620,7 +2576,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <param name="diameterInCells">
     /// <para>
-    /// InfoBox: For now only odd diameters can be used. 1 -> 1 cell, 3 -> 9 cells, ...
+    /// InfoBox: For now only odd diameters can be used. 1 -&amp;gt; 1 cell, 3 -&amp;gt; 9 cells, ...
     /// </para>
     /// </param>
     public TBuilder AddAbilityAoERadius(
@@ -4807,7 +4763,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <param name="diameterInCells">
     /// <para>
-    /// InfoBox: For now only odd diameters can be used. 1 -> 1 cell, 3 -> 9 cells, ...
+    /// InfoBox: For now only odd diameters can be used. 1 -&amp;gt; 1 cell, 3 -&amp;gt; 9 cells, ...
     /// </para>
     /// </param>
     /// <param name="spreadSpeed">
@@ -4995,7 +4951,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityTargetCanSeeCaster(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new AbilityTargetCanSeeCaster();
@@ -5082,7 +5038,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityTargetDivineTroth(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? checkBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityTargetDivineTroth();
       component.m_CheckBuff = checkBuff?.Reference ?? component.m_CheckBuff;
@@ -5140,7 +5096,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? factToCheck = null,
         bool? inverted = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? overrideCurrentHPLessThan = null)
     {
       var component = new AbilityTargetHPCondition();
@@ -5177,7 +5133,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityTargetHasCondition(
         UnitCondition? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new AbilityTargetHasCondition();
@@ -5268,7 +5224,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? checkedFacts = null,
         bool? inverted = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityTargetHasFact();
       component.m_CheckedFacts = checkedFacts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_CheckedFacts;
@@ -5349,7 +5305,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityTargetHasNoFactUnless(
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? checkedFacts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? unlessFact = null)
     {
       var component = new AbilityTargetHasNoFactUnless();
@@ -5408,7 +5364,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSecondLevelAbility</term><description>d87bd4bfc3e50af4ea1d9be5b4735ea1</description></item>
-    /// <item><term>RemoveCurse 4</term><description>55b85c03103de184091a96eeaed4de25</description></item>
+    /// <item><term>RemoveCurse 3</term><description>668f4d1ff4dbfc442bd75f9b6f69e05e</description></item>
     /// <item><term>WitchHexVulnerabilityCurseAbility</term><description>8f0eb58c2d6aeab4e8523ec85b4b2bc7</description></item>
     /// </list>
     /// </remarks>
@@ -5421,7 +5377,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityTargetIsAlly(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new AbilityTargetIsAlly();
@@ -5541,7 +5497,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityTargetIsPartyMember(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new AbilityTargetIsPartyMember();
@@ -5607,7 +5563,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityTargetMaximumHitDice(
         int? hitDice = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityTargetMaximumHitDice();
       component.HitDice = hitDice ?? component.HitDice;
@@ -5679,7 +5635,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         int? greaterThan = null,
         bool? inverted = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null)
     {
       var component = new AbilityTargetStatCondition();
@@ -5781,7 +5737,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
         List<BlueprintUnitFact>? factsMissingCache = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? needsAll = null)
     {
       var component = new AbilityCasterHasFacts();
@@ -5836,7 +5792,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
         List<BlueprintUnitFact>? factsPresentedCache = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityCasterHasNoFacts();
       component.m_Facts = facts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Facts;
@@ -5875,7 +5831,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCasterInCombat(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new AbilityCasterInCombat();
@@ -5918,7 +5874,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityCasterIsOnFavoredTerrain(
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? ignoreFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityCasterIsOnFavoredTerrain();
       component.m_IgnoreFeature = ignoreFeature?.Reference ?? component.m_IgnoreFeature;
@@ -5952,7 +5908,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityCasterMainWeaponCheck(
         WeaponCategory[]? category = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityCasterMainWeaponCheck();
       component.Category = category ?? component.Category;
@@ -5985,7 +5941,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCasterMainWeaponIsMelee(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityCasterMainWeaponIsMelee();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -6012,7 +5968,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCasterMainWeaponIsTwoHanded(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AbilityCasterMainWeaponIsTwoHanded();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -6079,7 +6035,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         float? delay = null,
         bool? destroyOnCast = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AbilitySpawnFxAnchor? orientationAnchor = null,
         AbilitySpawnFxOrientation? orientationMode = null,
         AbilitySpawnFxAnchor? positionAnchor = null,
@@ -6262,7 +6218,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddRecommendationAccomplishedSneakAttacker(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationAccomplishedSneakAttacker();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -6324,7 +6280,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddRecommendationCompanionBoon(
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? companionRank = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationCompanionBoon();
       component.m_CompanionRank = companionRank?.Reference ?? component.m_CompanionRank;
@@ -6371,7 +6327,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? feature = null,
         bool? mandatory = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationHasFeature();
       component.m_Feature = feature?.Reference ?? component.m_Feature;
@@ -6419,7 +6375,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? features = null,
         bool? goodIfNoFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationNoFeatFromGroup();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
@@ -6521,7 +6477,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddRecommendationStatMiminum(
         bool? goodIfHigher = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimalValue = null,
         StatType? stat = null)
     {
@@ -6556,7 +6512,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bool? badIfNoFocus = null,
         bool? hasFocus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeaponSubCategory? subcategory = null)
     {
       var component = new RecommendationWeaponSubcategoryFocus();
@@ -6610,7 +6566,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddStatRecommendationChange(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? recommended = null,
         StatType? stat = null)
     {
@@ -6642,7 +6598,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddHideFeatureInInspect(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new HideFeatureInInspect();
       return AddUniqueComponent(component, mergeBehavior, merge);

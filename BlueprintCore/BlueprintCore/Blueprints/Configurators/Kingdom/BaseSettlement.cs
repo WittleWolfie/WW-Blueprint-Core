@@ -154,22 +154,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintSettlement.m_SettlementBuildArea"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="settlementBuildArea">
-    /// <para>
-    /// InfoBox: This Area will be used for settlement management
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySettlementBuildArea(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -208,19 +192,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintSettlement.m_SettlementBuildAreaWithWater"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="settlementBuildAreaWithWater">
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySettlementBuildAreaWithWater(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -307,19 +278,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintSettlement.m_SettlementEntrance"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="settlementEntrance">
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySettlementEntrance(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -358,19 +316,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintSettlement.m_SettlementEntrances"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="settlementEntrances">
-    /// <para>
-    /// Blueprint of type BlueprintMultiEntrance. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySettlementEntrances(Action<BlueprintMultiEntrance.Reference> action)
     {
       return OnConfigureInternal(
@@ -402,12 +347,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintSettlement.m_CustomSiegeDurationDays"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="customSiegeDurationDays">
-    /// <para>
-    /// InfoBox: If set, settings from KingdomRoot about siege duration will be ignored
-    /// </para>
-    /// </param>
     public TBuilder ModifyCustomSiegeDurationDays(Action<int?> action)
     {
       return OnConfigureInternal(
@@ -423,7 +362,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///
     /// <param name="needOwnMarker">
     /// <para>
-    /// InfoBox: If false, settlement marker won't be spawn, location marker will be used instead
+    /// InfoBox: If false, settlement marker won&amp;apos;t be spawn, location marker will be used instead
     /// </para>
     /// </param>
     public TBuilder SetNeedOwnMarker(bool needOwnMarker = true)
@@ -438,12 +377,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintSettlement.m_NeedOwnMarker"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="needOwnMarker">
-    /// <para>
-    /// InfoBox: If false, settlement marker won't be spawn, location marker will be used instead
-    /// </para>
-    /// </param>
     public TBuilder ModifyNeedOwnMarker(Action<bool> action)
     {
       return OnConfigureInternal(

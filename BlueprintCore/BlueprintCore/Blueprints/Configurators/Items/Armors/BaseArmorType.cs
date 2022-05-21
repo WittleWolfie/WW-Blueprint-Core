@@ -437,19 +437,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Modifies <see cref="BlueprintArmorType.m_EquipmentEntity"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="equipmentEntity">
-    /// <para>
-    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEquipmentEntity(Action<KingmakerEquipmentEntityReference> action)
     {
       return OnConfigureInternal(
@@ -540,19 +527,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Removes elements from <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="equipmentEntityAlternatives">
-    /// <para>
-    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromEquipmentEntityAlternatives(Func<KingmakerEquipmentEntityReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -566,19 +540,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Removes all elements from <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/>
     /// </summary>
-    ///
-    /// <param name="equipmentEntityAlternatives">
-    /// <para>
-    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearEquipmentEntityAlternatives()
     {
       return OnConfigureInternal(
@@ -591,19 +552,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Modifies <see cref="BlueprintArmorType.m_EquipmentEntityAlternatives"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="equipmentEntityAlternatives">
-    /// <para>
-    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEquipmentEntityAlternatives(Action<KingmakerEquipmentEntityReference> action)
     {
       return OnConfigureInternal(
@@ -694,19 +642,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Removes elements from <see cref="BlueprintArmorType.m_Enchantments"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="enchantments">
-    /// <para>
-    /// Blueprint of type BlueprintArmorEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromEnchantments(Func<BlueprintArmorEnchantmentReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -720,19 +655,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Removes all elements from <see cref="BlueprintArmorType.m_Enchantments"/>
     /// </summary>
-    ///
-    /// <param name="enchantments">
-    /// <para>
-    /// Blueprint of type BlueprintArmorEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearEnchantments()
     {
       return OnConfigureInternal(
@@ -745,19 +667,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Modifies <see cref="BlueprintArmorType.m_Enchantments"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="enchantments">
-    /// <para>
-    /// Blueprint of type BlueprintArmorEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEnchantments(Action<BlueprintArmorEnchantmentReference> action)
     {
       return OnConfigureInternal(
@@ -813,12 +722,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Modifies <see cref="BlueprintArmorType.m_Destructible"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="destructible">
-    /// <para>
-    /// InfoBox: Default destructible property for type items. Can be overriden in BlueprintItem
-    /// </para>
-    /// </param>
     public TBuilder ModifyDestructible(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -859,22 +762,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Modifies <see cref="BlueprintArmorType.m_ShardItem"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="shardItem">
-    /// <para>
-    /// InfoBox: Trash-item that remains after destruction. Gives a hint to user what source item was like.
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyShardItem(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(

@@ -74,19 +74,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="ConsoleRoot.Texts"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="texts">
-    /// <para>
-    /// Blueprint of type GamePadTexts. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyTexts(Action<GamePadTexts.Reference> action)
     {
       return OnConfigureInternal(

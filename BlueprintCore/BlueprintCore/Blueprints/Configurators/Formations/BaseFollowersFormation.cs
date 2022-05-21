@@ -42,12 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Modifies <see cref="FollowersFormation.m_PlayerOffset"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="playerOffset">
-    /// <para>
-    /// Tooltip: Offset from main character. Y axis is in line with main character forward direction. X axis is in line with main character right direction.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPlayerOffset(Action<Vector2> action)
     {
       return OnConfigureInternal(
@@ -116,12 +110,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Removes elements from <see cref="FollowersFormation.m_Formation"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="formation">
-    /// <para>
-    /// Tooltip: Followers formation.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromFormation(Func<Vector2, bool> predicate)
     {
       return OnConfigureInternal(
@@ -135,12 +123,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Removes all elements from <see cref="FollowersFormation.m_Formation"/>
     /// </summary>
-    ///
-    /// <param name="formation">
-    /// <para>
-    /// Tooltip: Followers formation.
-    /// </para>
-    /// </param>
     public TBuilder ClearFormation()
     {
       return OnConfigureInternal(
@@ -153,12 +135,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Modifies <see cref="FollowersFormation.m_Formation"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="formation">
-    /// <para>
-    /// Tooltip: Followers formation.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFormation(Action<Vector2> action)
     {
       return OnConfigureInternal(
@@ -190,12 +166,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Modifies <see cref="FollowersFormation.m_RepathDistance"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="repathDistance">
-    /// <para>
-    /// Tooltip: Distance between current follower position and his target position on which follower remains idle.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRepathDistance(Action<float> action)
     {
       return OnConfigureInternal(
@@ -226,12 +196,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Modifies <see cref="FollowersFormation.m_RepathCooldownSec"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="repathCooldownSec">
-    /// <para>
-    /// Tooltip: Repath delay in seconds.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRepathCooldownSec(Action<float> action)
     {
       return OnConfigureInternal(
@@ -262,12 +226,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     /// <summary>
     /// Modifies <see cref="FollowersFormation.m_LookAngleRandomSpread"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="lookAngleRandomSpread">
-    /// <para>
-    /// Tooltip: Look angle spread. Follower look angle will be equal to main character look angle + Random(-LookAngleSpread/2,LookAngleSpread/2).
-    /// </para>
-    /// </param>
     public TBuilder ModifyLookAngleRandomSpread(Action<float> action)
     {
       return OnConfigureInternal(

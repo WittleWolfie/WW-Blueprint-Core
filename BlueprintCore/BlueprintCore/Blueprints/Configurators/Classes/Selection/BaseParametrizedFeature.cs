@@ -149,19 +149,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Modifies <see cref="BlueprintParametrizedFeature.m_SpellList"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spellList">
-    /// <para>
-    /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySpellList(Action<BlueprintSpellListReference> action)
     {
       return OnConfigureInternal(
@@ -200,19 +187,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Modifies <see cref="BlueprintParametrizedFeature.m_SpellcasterClass"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spellcasterClass">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySpellcasterClass(Action<BlueprintCharacterClassReference> action)
     {
       return OnConfigureInternal(
@@ -347,19 +321,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Modifies <see cref="BlueprintParametrizedFeature.m_Prerequisite"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="prerequisite">
-    /// <para>
-    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPrerequisite(Action<BlueprintParametrizedFeatureReference> action)
     {
       return OnConfigureInternal(
@@ -450,19 +411,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Removes elements from <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="customParameterVariants">
-    /// <para>
-    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromCustomParameterVariants(Func<AnyBlueprintReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -476,19 +424,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Removes all elements from <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/>
     /// </summary>
-    ///
-    /// <param name="customParameterVariants">
-    /// <para>
-    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearCustomParameterVariants()
     {
       return OnConfigureInternal(
@@ -501,19 +436,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Modifies <see cref="BlueprintParametrizedFeature.CustomParameterVariants"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="customParameterVariants">
-    /// <para>
-    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCustomParameterVariants(Action<AnyBlueprintReference> action)
     {
       return OnConfigureInternal(
@@ -652,19 +574,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Removes elements from <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="blueprintParameterVariants">
-    /// <para>
-    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromBlueprintParameterVariants(Func<AnyBlueprintReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -678,19 +587,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Removes all elements from <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/>
     /// </summary>
-    ///
-    /// <param name="blueprintParameterVariants">
-    /// <para>
-    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearBlueprintParameterVariants()
     {
       return OnConfigureInternal(
@@ -703,19 +599,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Modifies <see cref="BlueprintParametrizedFeature.BlueprintParameterVariants"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="blueprintParameterVariants">
-    /// <para>
-    /// Blueprint of type BlueprintScriptableObject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBlueprintParameterVariants(Action<AnyBlueprintReference> action)
     {
       return OnConfigureInternal(

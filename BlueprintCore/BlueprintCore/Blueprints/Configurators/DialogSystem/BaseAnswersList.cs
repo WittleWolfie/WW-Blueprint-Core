@@ -155,19 +155,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Removes elements from <see cref="BlueprintAnswersList.Answers"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="answers">
-    /// <para>
-    /// Blueprint of type BlueprintAnswerBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAnswers(Func<BlueprintAnswerBaseReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -181,19 +168,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAnswersList.Answers"/>
     /// </summary>
-    ///
-    /// <param name="answers">
-    /// <para>
-    /// Blueprint of type BlueprintAnswerBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAnswers()
     {
       return OnConfigureInternal(
@@ -206,19 +180,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Modifies <see cref="BlueprintAnswersList.Answers"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="answers">
-    /// <para>
-    /// Blueprint of type BlueprintAnswerBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAnswers(Action<BlueprintAnswerBaseReference> action)
     {
       return OnConfigureInternal(

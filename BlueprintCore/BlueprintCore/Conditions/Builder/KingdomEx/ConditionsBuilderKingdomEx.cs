@@ -625,7 +625,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///
     /// <param name="checkInitiatorHP">
     /// <para>
-    /// InfoBox: Compares with target's HP by default
+    /// InfoBox: Compares with target&amp;apos;s HP by default
     /// </para>
     /// </param>
     public static ConditionsBuilder TacticalCombatSquadHitPointsCondition(

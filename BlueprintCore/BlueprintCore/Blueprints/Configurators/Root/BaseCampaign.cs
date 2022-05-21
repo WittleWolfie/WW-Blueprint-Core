@@ -209,19 +209,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintCampaign.m_StartGamePreset"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="startGamePreset">
-    /// <para>
-    /// Blueprint of type BlueprintAreaPreset. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartGamePreset(Action<BlueprintAreaPresetReference> action)
     {
       return OnConfigureInternal(
@@ -312,19 +299,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Removes elements from <see cref="BlueprintCampaign.m_Pregens"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="pregens">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromPregens(Func<BlueprintUnitReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -338,19 +312,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Removes all elements from <see cref="BlueprintCampaign.m_Pregens"/>
     /// </summary>
-    ///
-    /// <param name="pregens">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearPregens()
     {
       return OnConfigureInternal(
@@ -363,19 +324,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintCampaign.m_Pregens"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="pregens">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPregens(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(

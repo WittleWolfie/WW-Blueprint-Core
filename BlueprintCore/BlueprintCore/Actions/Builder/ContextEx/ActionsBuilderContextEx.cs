@@ -1352,7 +1352,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     /// <param name="descriptor">
     /// <para>
-    /// Tooltip: 'None' means 'All'
+    /// Tooltip: &amp;apos;None&amp;apos; means &amp;apos;All&amp;apos;
     /// </para>
     /// </param>
     /// <param name="oneRollForAll">
@@ -1362,7 +1362,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     /// <param name="schools">
     /// <para>
-    /// Tooltip: Empty means 'All'
+    /// Tooltip: Empty means &amp;apos;All&amp;apos;
     /// </para>
     /// </param>
     public static ActionsBuilder DispelMagic(
@@ -2197,7 +2197,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HellAngelSwordDepersonalizeAbility</term><description>5f99f802d4ff52a4e9538e6bb7f66270</description></item>
+    /// <item><term>HellAngelSwordMarkAbility</term><description>ae29dd08cc0d883469516025df9641a4</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -2529,7 +2529,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///
     /// <param name="fromBuff">
     /// <para>
+    /// InfoBox: Search through Actions, find ContextActionApplyBuff and use it in saving throw rule (used in BuffDescriptorImmunity for now)
+    /// </para>
+    /// <para>
     /// If true, onResult must have a ContextActionConditionalSaved w/ ContextActionApplyBuff in it's success actions. The buff associated with that component is attached to the RuleSavingThrow.
+    /// </para>
+    /// </param>
+    /// <param name="useDCFromContextSavingThrow">
+    /// <para>
+    /// InfoBox: If context already had saving throw use DC from it (for example if this action is in trigger on fireball cast) If not check this fact DC or CustomDC
     /// </para>
     /// </param>
     public static ActionsBuilder SavingThrow(
@@ -2538,7 +2546,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         List<(ConditionsBuilder conditions, ContextValue modifier)>? conditionalDCModifiers = null,
         ContextValue? customDC = null,
         bool? fromBuff = null,
-        ActionsBuilder? onResult = null)
+        ActionsBuilder? onResult = null,
+        bool? useDCFromContextSavingThrow = null)
     {
       var element = ElementTool.Create<ContextActionSavingThrow>();
       element.Type = type;
@@ -2559,6 +2568,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       {
         element.Actions = Utils.Constants.Empty.Actions;
       }
+      element.UseDCFromContextSavingThrow = useDCFromContextSavingThrow ?? element.UseDCFromContextSavingThrow;
       return builder.Add(element);
     }
 
@@ -3479,6 +3489,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>StudentOfWarKnowFastYourEnemyAbility</term><description>0190e1225d974ad4affccae4bf19fc66</description></item>
     /// <item><term>StudentOfWarKnowYourEnemyAbility</term><description>4c056d3a0d3c4414399d1476c4142edb</description></item>
     /// </list>
     /// </remarks>

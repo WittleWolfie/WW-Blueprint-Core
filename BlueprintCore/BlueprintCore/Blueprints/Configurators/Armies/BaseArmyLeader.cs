@@ -79,19 +79,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintArmyLeader.m_Portrait"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="portrait">
-    /// <para>
-    /// Blueprint of type BlueprintPortrait. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPortrait(Action<BlueprintPortraitReference> action)
     {
       return OnConfigureInternal(
@@ -123,12 +110,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintArmyLeader.m_StartingLevel"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="startingLevel">
-    /// <para>
-    /// Tooltip: 1 - это Element0 в LeaderProgression От этого числа зависят стартовые атрибуты и сколько опыта нужно для лвлапа
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartingLevel(Action<int> action)
     {
       return OnConfigureInternal(
@@ -166,19 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintArmyLeader.m_LeaderProgression"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="leaderProgression">
-    /// <para>
-    /// Blueprint of type BlueprintLeaderProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyLeaderProgression(Action<BlueprintLeaderProgression.Reference> action)
     {
       return OnConfigureInternal(
@@ -217,19 +185,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintArmyLeader.m_Unit"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="unit">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyUnit(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -320,19 +275,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes elements from <see cref="BlueprintArmyLeader.m_baseSkills"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="baseSkills">
-    /// <para>
-    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromBaseSkills(Func<BlueprintLeaderSkillReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -346,19 +288,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes all elements from <see cref="BlueprintArmyLeader.m_baseSkills"/>
     /// </summary>
-    ///
-    /// <param name="baseSkills">
-    /// <para>
-    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearBaseSkills()
     {
       return OnConfigureInternal(
@@ -371,19 +300,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintArmyLeader.m_baseSkills"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="baseSkills">
-    /// <para>
-    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBaseSkills(Action<BlueprintLeaderSkillReference> action)
     {
       return OnConfigureInternal(

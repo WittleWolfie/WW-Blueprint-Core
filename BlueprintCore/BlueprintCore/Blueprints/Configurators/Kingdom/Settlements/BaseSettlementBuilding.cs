@@ -378,19 +378,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Modifies <see cref="BlueprintSettlementBuilding.m_UpgradesTo"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="upgradesTo">
-    /// <para>
-    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyUpgradesTo(Action<BlueprintSettlementBuildingReference> action)
     {
       return OnConfigureInternal(
@@ -480,7 +467,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         BuildingAdjacencyBonus.CalculationType? calculation = null,
         BuildingAdjacencyBonus.DistanceRequirementType? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noSuchBuildings = null,
         KingdomStats.Changes? stats = null)
     {
@@ -534,7 +521,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public TBuilder AddBuildingAttachedBuff(
         Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyInRegion = null)
     {
       var component = new BuildingAttachedBuff();
@@ -592,7 +579,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public TBuilder AddBuildingPartOfQuestObjective(
         List<Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>>? buildings = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
     {
       var component = new BuildingPartOfQuestObjective();
@@ -632,7 +619,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         int? favorsModifier = null,
         int? financeModifier = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? modifier = null)
     {
       var component = new BuildingResourceGrowthGlobalIncrease();
@@ -665,7 +652,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </param>
     public TBuilder AddBuildingResourceGrowthIncrease(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         KingdomResourcesAmount? resourcesAmount = null)
     {
       var component = new BuildingResourceGrowthIncrease();
@@ -712,7 +699,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         List<Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>>? affectedFlags = null,
         int? durationDeltaInDays = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BuildingSiegeDurationIncrease();
       component.m_AffectedFlags = affectedFlags?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AffectedFlags;
@@ -760,7 +747,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         BuildingTacticalUnitFactBonus.DistanceType? distance = null,
         List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyForCurrentRegion = null)
     {
       var component = new BuildingTacticalUnitFactBonus();
@@ -809,7 +796,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public TBuilder AddBuildingUnitGrowthIncrease(
         int? count = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {
       var component = new BuildingUnitGrowthIncrease();
@@ -844,7 +831,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </param>
     public TBuilder AddOncePerSettlementRestriction(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new OncePerSettlementRestriction();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -885,7 +872,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         List<Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>>? buildings = null,
         bool? invert = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? requireAll = null)
     {
       var component = new OtherBuildingRestriction();
@@ -938,7 +925,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </param>
     public TBuilder AddSpecificSettlementRestriction(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null,
         Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? settlement = null)
     {
@@ -1003,7 +990,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     public TBuilder AddUnlockRestriction(
         Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? mustBeLocked = null)
     {
       var component = new UnlockRestriction();
@@ -1040,7 +1027,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipDays = null)
     {
       var component = new EveryDayTrigger();
@@ -1080,7 +1067,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipWeeks = null)
     {
       var component = new EveryWeekTrigger();

@@ -106,22 +106,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.m_SpellsPerDay"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spellsPerDay">
-    /// <para>
-    /// Tooltip: Spells per day table. Further modified by casting stat.
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintSpellsTable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySpellsPerDay(Action<BlueprintSpellsTableReference> action)
     {
       return OnConfigureInternal(
@@ -163,22 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.m_SpellsKnown"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spellsKnown">
-    /// <para>
-    /// Tooltip: Spells known table. Only for spontaneous casters (but not for Arcanist).
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintSpellsTable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySpellsKnown(Action<BlueprintSpellsTableReference> action)
     {
       return OnConfigureInternal(
@@ -220,22 +188,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.m_SpellSlots"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spellSlots">
-    /// <para>
-    /// Tooltip: Spell slots table for arcanist.
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintSpellsTable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySpellSlots(Action<BlueprintSpellsTableReference> action)
     {
       return OnConfigureInternal(
@@ -274,19 +226,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.m_SpellList"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spellList">
-    /// <para>
-    /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySpellList(Action<BlueprintSpellListReference> action)
     {
       return OnConfigureInternal(
@@ -325,19 +264,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.m_MythicSpellList"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="mythicSpellList">
-    /// <para>
-    /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyMythicSpellList(Action<BlueprintSpellListReference> action)
     {
       return OnConfigureInternal(
@@ -376,19 +302,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.m_CharacterClass"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="characterClass">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCharacterClass(Action<BlueprintCharacterClassReference> action)
     {
       return OnConfigureInternal(
@@ -444,12 +357,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.Spontaneous"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spontaneous">
-    /// <para>
-    /// Tooltip: Spontaneous casting (sorcerers, oracles, bard)
-    /// </para>
-    /// </param>
     public TBuilder ModifySpontaneous(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -480,12 +387,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.SpellsPerLevel"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spellsPerLevel">
-    /// <para>
-    /// Tooltip: Spells count learned on each level. For wizards.
-    /// </para>
-    /// </param>
     public TBuilder ModifySpellsPerLevel(Action<int> action)
     {
       return OnConfigureInternal(
@@ -516,12 +417,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.AllSpellsKnown"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="allSpellsKnown">
-    /// <para>
-    /// Tooltip: No need to learn spells to memorize them. For clerics / druids / rangers.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAllSpellsKnown(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -552,12 +447,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.CantripsType"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="cantripsType">
-    /// <para>
-    /// Tooltip: For UI name.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCantripsType(Action<CantripsType> action)
     {
       return OnConfigureInternal(
@@ -588,12 +477,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellbook.CasterLevelModifier"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="casterLevelModifier">
-    /// <para>
-    /// Tooltip: For Ranger - his caster level is class level minus 3
-    /// </para>
-    /// </param>
     public TBuilder ModifyCasterLevelModifier(Action<int> action)
     {
       return OnConfigureInternal(
@@ -765,7 +648,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         int? count = null,
         int? maxSpellLevel = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSpellList, BlueprintSpellListReference>? spellList = null)
     {
       var component = new AddCustomSpells();

@@ -99,19 +99,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes elements from <see cref="BlueprintFaction.m_AttackFactions"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="attackFactions">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAttackFactions(Func<BlueprintFactionReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -125,19 +112,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes all elements from <see cref="BlueprintFaction.m_AttackFactions"/>
     /// </summary>
-    ///
-    /// <param name="attackFactions">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAttackFactions()
     {
       return OnConfigureInternal(
@@ -150,19 +124,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintFaction.m_AttackFactions"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="attackFactions">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAttackFactions(Action<BlueprintFactionReference> action)
     {
       return OnConfigureInternal(
@@ -253,19 +214,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes elements from <see cref="BlueprintFaction.m_AllyFactions"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="allyFactions">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAllyFactions(Func<BlueprintFactionReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -279,19 +227,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes all elements from <see cref="BlueprintFaction.m_AllyFactions"/>
     /// </summary>
-    ///
-    /// <param name="allyFactions">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAllyFactions()
     {
       return OnConfigureInternal(
@@ -304,19 +239,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintFaction.m_AllyFactions"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="allyFactions">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAllyFactions(Action<BlueprintFactionReference> action)
     {
       return OnConfigureInternal(
@@ -357,7 +279,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <param name="peaceful">
     /// <para>
-    /// InfoBox: Can't be target, can't join combat
+    /// InfoBox: Can&amp;apos;t be target, can&amp;apos;t join combat
     /// </para>
     /// </param>
     public TBuilder SetPeaceful(bool peaceful = true)
@@ -372,12 +294,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintFaction.Peaceful"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="peaceful">
-    /// <para>
-    /// InfoBox: Can't be target, can't join combat
-    /// </para>
-    /// </param>
     public TBuilder ModifyPeaceful(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -393,7 +309,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <param name="alwaysEnemy">
     /// <para>
-    /// InfoBox: If you add this to AttackFactions, faction will become enemy for every one. Don't use it!!!
+    /// InfoBox: If you add this to AttackFactions, faction will become enemy for every one. Don&amp;apos;t use it!!!
     /// </para>
     /// </param>
     public TBuilder SetAlwaysEnemy(bool alwaysEnemy = true)
@@ -408,12 +324,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintFaction.AlwaysEnemy"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="alwaysEnemy">
-    /// <para>
-    /// InfoBox: If you add this to AttackFactions, faction will become enemy for every one. Don't use it!!!
-    /// </para>
-    /// </param>
     public TBuilder ModifyAlwaysEnemy(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -444,12 +354,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintFaction.EnemyForEveryone"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="enemyForEveryone">
-    /// <para>
-    /// InfoBox: Unit will be always marked as enemy for others. Ignores AttackFactions
-    /// </para>
-    /// </param>
     public TBuilder ModifyEnemyForEveryone(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -480,12 +384,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintFaction.Neutral"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="neutral">
-    /// <para>
-    /// InfoBox: Will not start the combat, but can be target and will join combat if was attacked
-    /// </para>
-    /// </param>
     public TBuilder ModifyNeutral(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -516,12 +414,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintFaction.IsDirectlyControllable"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="isDirectlyControllable">
-    /// <para>
-    /// InfoBox: Can be manually controlled by Player
-    /// </para>
-    /// </param>
     public TBuilder ModifyIsDirectlyControllable(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -552,12 +444,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintFaction.NeverJoinCombat"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="neverJoinCombat">
-    /// <para>
-    /// InfoBox: Can be target by enemies but will not join combat
-    /// </para>
-    /// </param>
     public TBuilder ModifyNeverJoinCombat(Action<bool> action)
     {
       return OnConfigureInternal(

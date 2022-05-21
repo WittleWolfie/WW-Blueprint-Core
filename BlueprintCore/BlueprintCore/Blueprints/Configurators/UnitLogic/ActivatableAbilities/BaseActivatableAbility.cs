@@ -63,19 +63,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <summary>
     /// Modifies <see cref="BlueprintActivatableAbility.m_Buff"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="buff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBuff(Action<BlueprintBuffReference> action)
     {
       return OnConfigureInternal(
@@ -450,19 +437,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <summary>
     /// Modifies <see cref="BlueprintActivatableAbility.m_SelectTargetAbility"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="selectTargetAbility">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySelectTargetAbility(Action<BlueprintAbilityReference> action)
     {
       return OnConfigureInternal(
@@ -831,7 +805,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bool? ignoreIfStarted = null,
         bool? invert = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RestrictionHasUnitCondition();
       component.Condition = condition ?? component.Condition;
@@ -965,7 +939,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         UnitCondition? condition = null,
         bool? ignoreIfStarted = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RestrictionUnitConditionUnlessFact();
       component.m_CheckedFact = checkedFact?.Reference ?? component.m_CheckedFact;
@@ -1045,7 +1019,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </param>
     public TBuilder AddHideFeatureInInspect(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new HideFeatureInInspect();
       return AddUniqueComponent(component, mergeBehavior, merge);

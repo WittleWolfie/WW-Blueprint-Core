@@ -65,12 +65,6 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Modifies <see cref="BlueprintInteractionRoot.m_MagicPowerCost"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="magicPowerCost">
-    /// <para>
-    /// InfoBox: Used to calculate result count after item destruction: Item.Cost / MagicPowerCost = `count of MagicPowerItem`
-    /// </para>
-    /// </param>
     public TBuilder ModifyMagicPowerCost(Action<int> action)
     {
       return OnConfigureInternal(
@@ -111,22 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Modifies <see cref="BlueprintInteractionRoot.m_MagicPowerItem"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="magicPowerItem">
-    /// <para>
-    /// InfoBox: Will drop from destroyed items to indicate their cost
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyMagicPowerItem(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(
@@ -187,12 +165,6 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Modifies <see cref="BlueprintInteractionRoot.m_FxDenominator"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="fxDenominator">
-    /// <para>
-    /// InfoBox: For final Fx scale we use formula: 1 + (ObjectScale - 1) / FxDenominator
-    /// </para>
-    /// </param>
     public TBuilder ModifyFxDenominator(Action<float> action)
     {
       return OnConfigureInternal(

@@ -39,12 +39,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Modifies <see cref="BlueprintItemThiefTool.m_Consumable"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="consumable">
-    /// <para>
-    /// InfoBox: If true will be destroyed after first use
-    /// </para>
-    /// </param>
     public TBuilder ModifyConsumable(Action<bool> action)
     {
       return OnConfigureInternal(

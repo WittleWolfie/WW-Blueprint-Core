@@ -116,12 +116,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintKingdomBuff.Icon"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="icon">
-    /// <para>
-    /// InfoBox: Set to null to hide in UI
-    /// </para>
-    /// </param>
     public TBuilder ModifyIcon(Action<Sprite> action)
     {
       return OnConfigureInternal(
@@ -286,7 +280,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bool? allUnits = null,
         int? bonusPercent = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         KingdomUnitsGrowthIncrease.UnitListOperation? operation = null,
         ArmyProperties? properties = null,
         List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? units = null)
@@ -398,7 +392,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipDays = null)
     {
       var component = new EveryDayTrigger();
@@ -438,7 +432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipWeeks = null)
     {
       var component = new EveryWeekTrigger();
@@ -545,7 +539,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         int? favorsModifier = null,
         int? financeModifier = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? modifier = null)
     {
       var component = new KingdomIncomeModifier();
@@ -665,7 +659,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null,
         MercenariesIncludeOption? mercenariesFilter = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new KingdomTacticalArmyFeature();
       component.m_ArmyTag = armyTag ?? component.m_ArmyTag;
@@ -781,7 +775,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </param>
     public TBuilder AddKingdomStatFromCrusadeResources(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         KingdomStats.Type? stat = null,
         float? statPerFavors = null,
         float? statPerFinances = null,
@@ -836,7 +830,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </param>
     public TBuilder AddKingdomStatFromRecruitment(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         KingdomStats.Type? stat = null,
         float? statPerExp = null)
     {
@@ -895,7 +889,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </param>
     public TBuilder AddKingdomGainSkillToLeaders(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minLevel = null,
         Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>? skill = null,
         List<Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>>? skillsList = null,
@@ -943,7 +937,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         int? dailyMovementPoints = null,
         int? maxMovementPoints = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ArmyGlobalMapMovementBonus();
       component.DailyMovementPoints = dailyMovementPoints ?? component.DailyMovementPoints;

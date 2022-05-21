@@ -308,12 +308,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Modifies <see cref="BlueprintAnswer.RequireValidCue"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="requireValidCue">
-    /// <para>
-    /// Tooltip: Show this answer only if it is followed by a valid cue.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRequireValidCue(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -436,12 +430,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Removes elements from <see cref="BlueprintAnswer.FakeChecks"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="fakeChecks">
-    /// <para>
-    /// Tooltip: Show this check on answer in dialog interface. Instead of check calculated from BlueprintCheck node.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromFakeChecks(Func<CheckData, bool> predicate)
     {
       return OnConfigureInternal(
@@ -455,12 +443,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAnswer.FakeChecks"/>
     /// </summary>
-    ///
-    /// <param name="fakeChecks">
-    /// <para>
-    /// Tooltip: Show this check on answer in dialog interface. Instead of check calculated from BlueprintCheck node.
-    /// </para>
-    /// </param>
     public TBuilder ClearFakeChecks()
     {
       return OnConfigureInternal(
@@ -473,12 +455,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Modifies <see cref="BlueprintAnswer.FakeChecks"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="fakeChecks">
-    /// <para>
-    /// Tooltip: Show this check on answer in dialog interface. Instead of check calculated from BlueprintCheck node.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFakeChecks(Action<CheckData> action)
     {
       return OnConfigureInternal(

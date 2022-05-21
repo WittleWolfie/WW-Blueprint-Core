@@ -71,7 +71,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GreaterCognatogenIntelligenceCharismaBuff</term><description>1c2fdba3b33dacd41afd5b74d84c7332</description></item>
+    /// <item><term>GreaterCognatogenWisdomCharismaBuff</term><description>60eb20b9d1077ed4f8f8a9df5490a208</description></item>
     /// <item><term>WrathOfAncestorEnchantment</term><description>4dbc03bd6223b484d8cd9afc3e0369b0</description></item>
     /// </list>
     /// </remarks>

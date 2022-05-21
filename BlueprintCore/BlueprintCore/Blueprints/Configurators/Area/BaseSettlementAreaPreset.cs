@@ -49,19 +49,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintSettlementAreaPreset.m_StartSettlement"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="startSettlement">
-    /// <para>
-    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartSettlement(Action<BlueprintSettlement.Reference> action)
     {
       return OnConfigureInternal(
@@ -100,19 +87,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintSettlementAreaPreset.m_StartSettlementPoint"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="startSettlementPoint">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartSettlementPoint(Action<BlueprintGlobalMapPointReference> action)
     {
       return OnConfigureInternal(

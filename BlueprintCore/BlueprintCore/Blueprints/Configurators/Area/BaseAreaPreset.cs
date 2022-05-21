@@ -59,19 +59,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.m_Area"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="area">
-    /// <para>
-    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyArea(Action<BlueprintAreaReference> action)
     {
       return OnConfigureInternal(
@@ -110,19 +97,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.m_EnterPoint"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="enterPoint">
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEnterPoint(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -161,19 +135,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.m_GlobalMapLocation"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="globalMapLocation">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyGlobalMapLocation(Action<BlueprintGlobalMapPoint.Reference> action)
     {
       return OnConfigureInternal(
@@ -264,19 +225,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.AlsoLoadMechanics"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="alsoLoadMechanics">
-    /// <para>
-    /// Blueprint of type BlueprintAreaMechanics. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAlsoLoadMechanics(Func<BlueprintAreaMechanicsReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -290,19 +238,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.AlsoLoadMechanics"/>
     /// </summary>
-    ///
-    /// <param name="alsoLoadMechanics">
-    /// <para>
-    /// Blueprint of type BlueprintAreaMechanics. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAlsoLoadMechanics()
     {
       return OnConfigureInternal(
@@ -315,19 +250,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.AlsoLoadMechanics"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="alsoLoadMechanics">
-    /// <para>
-    /// Blueprint of type BlueprintAreaMechanics. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAlsoLoadMechanics(Action<BlueprintAreaMechanicsReference> action)
     {
       return OnConfigureInternal(
@@ -416,19 +338,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.m_PlayerCharacter"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="playerCharacter">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPlayerCharacter(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -591,19 +500,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.Companions"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="companions">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromCompanions(Func<BlueprintUnitReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -617,19 +513,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.Companions"/>
     /// </summary>
-    ///
-    /// <param name="companions">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearCompanions()
     {
       return OnConfigureInternal(
@@ -642,19 +525,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.Companions"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="companions">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCompanions(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -745,19 +615,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.CompanionsRemote"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="companionsRemote">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromCompanionsRemote(Func<BlueprintUnitReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -771,19 +628,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.CompanionsRemote"/>
     /// </summary>
-    ///
-    /// <param name="companionsRemote">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearCompanionsRemote()
     {
       return OnConfigureInternal(
@@ -796,19 +640,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.CompanionsRemote"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="companionsRemote">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCompanionsRemote(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -899,19 +730,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.ExCompanions"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="exCompanions">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromExCompanions(Func<BlueprintUnitReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -925,19 +743,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.ExCompanions"/>
     /// </summary>
-    ///
-    /// <param name="exCompanions">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearExCompanions()
     {
       return OnConfigureInternal(
@@ -950,19 +755,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.ExCompanions"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="exCompanions">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyExCompanions(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -1030,19 +822,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.m_Campaign"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="campaign">
-    /// <para>
-    /// Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCampaign(Action<BlueprintCampaignReference> action)
     {
       return OnConfigureInternal(
@@ -1210,19 +989,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.StartedQuests"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="startedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromStartedQuests(Func<BlueprintQuestObjectiveReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1236,19 +1002,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.StartedQuests"/>
     /// </summary>
-    ///
-    /// <param name="startedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearStartedQuests()
     {
       return OnConfigureInternal(
@@ -1261,19 +1014,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.StartedQuests"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="startedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartedQuests(Action<BlueprintQuestObjectiveReference> action)
     {
       return OnConfigureInternal(
@@ -1364,19 +1104,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.FinishedQuests"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="finishedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromFinishedQuests(Func<BlueprintQuestObjectiveReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1390,19 +1117,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.FinishedQuests"/>
     /// </summary>
-    ///
-    /// <param name="finishedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearFinishedQuests()
     {
       return OnConfigureInternal(
@@ -1415,19 +1129,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.FinishedQuests"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="finishedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFinishedQuests(Action<BlueprintQuestObjectiveReference> action)
     {
       return OnConfigureInternal(
@@ -1518,19 +1219,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.FailedQuests"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="failedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromFailedQuests(Func<BlueprintQuestObjectiveReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1544,19 +1232,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.FailedQuests"/>
     /// </summary>
-    ///
-    /// <param name="failedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearFailedQuests()
     {
       return OnConfigureInternal(
@@ -1569,19 +1244,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.FailedQuests"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="failedQuests">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFailedQuests(Action<BlueprintQuestObjectiveReference> action)
     {
       return OnConfigureInternal(
@@ -1672,19 +1334,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.StartEtudesNonRecursively"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="startEtudesNonRecursively">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromStartEtudesNonRecursively(Func<BlueprintEtudeReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1698,19 +1347,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.StartEtudesNonRecursively"/>
     /// </summary>
-    ///
-    /// <param name="startEtudesNonRecursively">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearStartEtudesNonRecursively()
     {
       return OnConfigureInternal(
@@ -1723,19 +1359,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.StartEtudesNonRecursively"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="startEtudesNonRecursively">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartEtudesNonRecursively(Action<BlueprintEtudeReference> action)
     {
       return OnConfigureInternal(
@@ -1826,19 +1449,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.StartEtudes"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="startEtudes">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromStartEtudes(Func<BlueprintEtudeReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1852,19 +1462,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.StartEtudes"/>
     /// </summary>
-    ///
-    /// <param name="startEtudes">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearStartEtudes()
     {
       return OnConfigureInternal(
@@ -1877,19 +1474,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.StartEtudes"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="startEtudes">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartEtudes(Action<BlueprintEtudeReference> action)
     {
       return OnConfigureInternal(
@@ -1980,19 +1564,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.ForceCompleteEtudes"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="forceCompleteEtudes">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromForceCompleteEtudes(Func<BlueprintEtudeReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -2006,19 +1577,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.ForceCompleteEtudes"/>
     /// </summary>
-    ///
-    /// <param name="forceCompleteEtudes">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearForceCompleteEtudes()
     {
       return OnConfigureInternal(
@@ -2031,19 +1589,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.ForceCompleteEtudes"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="forceCompleteEtudes">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyForceCompleteEtudes(Action<BlueprintEtudeReference> action)
     {
       return OnConfigureInternal(
@@ -2134,19 +1679,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.CuesSeen"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="cuesSeen">
-    /// <para>
-    /// Blueprint of type BlueprintCueBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromCuesSeen(Func<BlueprintCueBaseReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -2160,19 +1692,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.CuesSeen"/>
     /// </summary>
-    ///
-    /// <param name="cuesSeen">
-    /// <para>
-    /// Blueprint of type BlueprintCueBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearCuesSeen()
     {
       return OnConfigureInternal(
@@ -2185,19 +1704,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.CuesSeen"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="cuesSeen">
-    /// <para>
-    /// Blueprint of type BlueprintCueBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCuesSeen(Action<BlueprintCueBaseReference> action)
     {
       return OnConfigureInternal(
@@ -2288,19 +1794,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.AnswersSelected"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="answersSelected">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAnswersSelected(Func<BlueprintAnswerReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -2314,19 +1807,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.AnswersSelected"/>
     /// </summary>
-    ///
-    /// <param name="answersSelected">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAnswersSelected()
     {
       return OnConfigureInternal(
@@ -2339,19 +1819,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.AnswersSelected"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="answersSelected">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAnswersSelected(Action<BlueprintAnswerReference> action)
     {
       return OnConfigureInternal(
@@ -2490,19 +1957,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaPreset.ActiveEvents"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="activeEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromActiveEvents(Func<BlueprintKingdomEventBaseReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -2516,19 +1970,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAreaPreset.ActiveEvents"/>
     /// </summary>
-    ///
-    /// <param name="activeEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearActiveEvents()
     {
       return OnConfigureInternal(
@@ -2541,19 +1982,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPreset.ActiveEvents"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="activeEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyActiveEvents(Action<BlueprintKingdomEventBaseReference> action)
     {
       return OnConfigureInternal(

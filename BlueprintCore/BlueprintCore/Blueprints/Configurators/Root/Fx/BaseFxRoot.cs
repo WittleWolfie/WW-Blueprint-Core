@@ -51,19 +51,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Modifies <see cref="FxRoot.m_SingleHandCasts"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="singleHandCasts">
-    /// <para>
-    /// Blueprint of type CastsGroup. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySingleHandCasts(Action<CastsGroup.Reference> action)
     {
       return OnConfigureInternal(
@@ -102,19 +89,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Modifies <see cref="FxRoot.m_DoubleHandCasts"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="doubleHandCasts">
-    /// <para>
-    /// Blueprint of type CastsGroup. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDoubleHandCasts(Action<CastsGroup.Reference> action)
     {
       return OnConfigureInternal(
@@ -153,19 +127,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Modifies <see cref="FxRoot.m_HeadCasts"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="headCasts">
-    /// <para>
-    /// Blueprint of type CastsGroup. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyHeadCasts(Action<CastsGroup.Reference> action)
     {
       return OnConfigureInternal(
@@ -204,19 +165,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Modifies <see cref="FxRoot.m_TorsoCasts"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="torsoCasts">
-    /// <para>
-    /// Blueprint of type CastsGroup. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyTorsoCasts(Action<CastsGroup.Reference> action)
     {
       return OnConfigureInternal(
@@ -929,19 +877,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Removes elements from <see cref="FxRoot.FootprintsReferences"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="footprintsReferences">
-    /// <para>
-    /// Blueprint of type BlueprintFootprintType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromFootprintsReferences(Func<BlueprintFootprintTypeReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -955,19 +890,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Removes all elements from <see cref="FxRoot.FootprintsReferences"/>
     /// </summary>
-    ///
-    /// <param name="footprintsReferences">
-    /// <para>
-    /// Blueprint of type BlueprintFootprintType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearFootprintsReferences()
     {
       return OnConfigureInternal(
@@ -980,19 +902,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Modifies <see cref="FxRoot.FootprintsReferences"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="footprintsReferences">
-    /// <para>
-    /// Blueprint of type BlueprintFootprintType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFootprintsReferences(Action<BlueprintFootprintTypeReference> action)
     {
       return OnConfigureInternal(

@@ -432,19 +432,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintFeature.IsPrerequisiteFor"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="isPrerequisiteFor">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromIsPrerequisiteFor(Func<BlueprintFeatureReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -458,19 +445,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintFeature.IsPrerequisiteFor"/>
     /// </summary>
-    ///
-    /// <param name="isPrerequisiteFor">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearIsPrerequisiteFor()
     {
       return OnConfigureInternal(
@@ -483,19 +457,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintFeature.IsPrerequisiteFor"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="isPrerequisiteFor">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyIsPrerequisiteFor(Action<BlueprintFeatureReference> action)
     {
       return OnConfigureInternal(
@@ -535,7 +496,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue value,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimal = null,
         int? multiplier = null)
     {
@@ -561,7 +522,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
+    /// <item><term>HellsSealFeature</term><description>b6798b29d36982b4786a32dfd81a914f</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -649,7 +610,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? hideInUI = null,
         int? level = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteArchetypeLevel();
       component.m_Archetype = archetype?.Reference;
@@ -702,7 +663,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <param name="isArcane">
     /// <para>
-    /// InfoBox: Mythic & Alchemist Spellbooks don't cound
+    /// InfoBox: Mythic &amp; Alchemist Spellbooks don&amp;apos;t cound
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -719,7 +680,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteCasterTypeSpellLevel();
       component.IsArcane = isArcane;
@@ -797,7 +758,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new PrerequisiteClassLevel();
@@ -890,7 +851,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notPlaying = null,
         LocalizedString? uIText = null)
     {
@@ -946,7 +907,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteFeature();
       component.m_Feature = feature?.Reference;
@@ -995,7 +956,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteFeaturesFromList();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
@@ -1084,7 +1045,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteNoArchetype();
       component.m_Archetype = archetype?.Reference;
@@ -1133,7 +1094,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteNoClassLevel();
       component.m_CharacterClass = characterClass?.Reference;
@@ -1181,7 +1142,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteNoFeature();
       component.m_Feature = feature?.Reference;
@@ -1271,7 +1232,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1322,7 +1283,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1373,7 +1334,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1424,7 +1385,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteParametrizedWeaponSubcategory();
       component.m_Feature = feature?.Reference;
@@ -1460,7 +1421,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new PrerequisiteIsPet();
@@ -1509,7 +1470,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisitePlayerHasFeature();
       component.m_Feature = feature?.Reference;
@@ -1575,7 +1536,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteStatValue();
       component.Stat = stat;
@@ -1711,7 +1672,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         LocalizedString? uIText = null)
     {
       var component = new PrerequisiteCondition();
@@ -1780,7 +1741,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noCompanion = null,
         PetType? type = null)
     {
@@ -1829,7 +1790,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Blueprint<BlueprintFeatureSelection, BlueprintFeatureSelectionReference>? featureSelection = null,
         LocalizedString? introduction = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyIfRequiresThisFeature = null)
     {
       var component = new AddFeaturesFromSelectionToDescription();
@@ -1889,7 +1850,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddMagusMechanicPart(
         AddMagusMechanicPart.Feature? feature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddMagusMechanicPart();
       component.m_Feature = feature ?? component.m_Feature;
@@ -1923,7 +1884,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         StatType? highestStat = null,
         ContextValue? highestStatBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? secondHighestStat = null,
         ContextValue? secondHighestStatBonus = null)
     {
@@ -2016,7 +1977,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddSpellsToDescription(
         LocalizedString? introduction = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintSpellList, BlueprintSpellListReference>>? spellLists = null,
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
     {
@@ -2065,7 +2026,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ModifierDescriptor? descriptor = null,
         bool? isAdded = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddTricksterAthleticBonus();
       component.Descriptor = descriptor ?? component.Descriptor;
@@ -2094,7 +2055,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddWeaponEnhancementBonusToStat(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? multiplier = null,
         StatType? stat = null)
     {
@@ -2169,7 +2130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue? baseValue = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? upgradeFeature = null)
     {
@@ -2204,7 +2165,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <param name="triggerOnAreaEffectsDispell">
     /// <para>
-    /// InfoBox: Use this bool if you want to trigger action on a caster of an AOE effect. Eg: Ember cast Grease, Nenio dispells it -> Ember is target, hence received 1d6 damage 
+    /// InfoBox: Use this bool if you want to trigger action on a caster of an AOE effect. Eg: Ember cast Grease, Nenio dispells it -&amp;gt; Ember is target, hence received 1d6 damage 
     /// </para>
     /// </param>
     public TBuilder AddDispelMagicSuccessTrigger(
@@ -2332,7 +2293,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>JaethalCampBuff</term><description>e9cc770ccca8b73488196e1f508e2675</description></item>
+    /// <item><term>JagannathKhandaPoisonBuff</term><description>7cadc7cfdfb491143a62eabfdcd2d948</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -2345,7 +2306,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddContextCalculateSharedValue(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         double? modifier = null,
         ContextDiceValue? value = null,
         AbilitySharedValue? valueType = null)
@@ -2532,7 +2493,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddRecommendationAccomplishedSneakAttacker(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationAccomplishedSneakAttacker();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -2594,7 +2555,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddRecommendationCompanionBoon(
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? companionRank = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationCompanionBoon();
       component.m_CompanionRank = companionRank?.Reference ?? component.m_CompanionRank;
@@ -2641,7 +2602,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? feature = null,
         bool? mandatory = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationHasFeature();
       component.m_Feature = feature?.Reference ?? component.m_Feature;
@@ -2689,7 +2650,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? features = null,
         bool? goodIfNoFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationNoFeatFromGroup();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
@@ -2791,7 +2752,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddRecommendationStatMiminum(
         bool? goodIfHigher = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimalValue = null,
         StatType? stat = null)
     {
@@ -2826,7 +2787,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? badIfNoFocus = null,
         bool? hasFocus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeaponSubCategory? subcategory = null)
     {
       var component = new RecommendationWeaponSubcategoryFocus();
@@ -2880,7 +2841,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddStatRecommendationChange(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? recommended = null,
         StatType? stat = null)
     {
@@ -2915,7 +2876,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null,
         int? value = null)
     {
@@ -2963,7 +2924,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddSpellbookFeature(
         int? casterLevel = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>? spellbook = null)
     {
       var component = new AddSpellbookFeature();
@@ -3010,7 +2971,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddSpellbookLevel(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>? spellbook = null)
     {
       var component = new AddSpellbookLevel();
@@ -3046,7 +3007,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         int? amount = null,
         int[]? levels = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddSpellsPerDay();
       component.Amount = amount ?? component.Amount;
@@ -3080,7 +3041,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddArmorSpeedPenaltyRemoval(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ArmorSpeedPenaltyRemoval();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -3151,7 +3112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? exceptionFact = null,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? extraEffectBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BuffExtraEffects();
       component.m_CheckedBuff = checkedBuff?.Reference ?? component.m_CheckedBuff;
@@ -3199,7 +3160,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddSavesFixerRecalculate(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? version = null)
     {
       var component = new SavesFixerRecalculate();

@@ -351,19 +351,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// <summary>
     /// Removes elements from <see cref="CraftRoot.m_PotionsItems"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="potionsItems">
-    /// <para>
-    /// Blueprint of type BlueprintItemEquipmentUsable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromPotionsItems(Func<BlueprintItemEquipmentUsableReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -377,19 +364,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// <summary>
     /// Removes all elements from <see cref="CraftRoot.m_PotionsItems"/>
     /// </summary>
-    ///
-    /// <param name="potionsItems">
-    /// <para>
-    /// Blueprint of type BlueprintItemEquipmentUsable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearPotionsItems()
     {
       return OnConfigureInternal(
@@ -402,19 +376,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// <summary>
     /// Modifies <see cref="CraftRoot.m_PotionsItems"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="potionsItems">
-    /// <para>
-    /// Blueprint of type BlueprintItemEquipmentUsable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPotionsItems(Action<BlueprintItemEquipmentUsableReference> action)
     {
       return OnConfigureInternal(
@@ -505,19 +466,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// <summary>
     /// Removes elements from <see cref="CraftRoot.m_ScrollsItems"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="scrollsItems">
-    /// <para>
-    /// Blueprint of type BlueprintItemEquipmentUsable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromScrollsItems(Func<BlueprintItemEquipmentUsableReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -531,19 +479,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// <summary>
     /// Removes all elements from <see cref="CraftRoot.m_ScrollsItems"/>
     /// </summary>
-    ///
-    /// <param name="scrollsItems">
-    /// <para>
-    /// Blueprint of type BlueprintItemEquipmentUsable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearScrollsItems()
     {
       return OnConfigureInternal(
@@ -556,19 +491,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// <summary>
     /// Modifies <see cref="CraftRoot.m_ScrollsItems"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="scrollsItems">
-    /// <para>
-    /// Blueprint of type BlueprintItemEquipmentUsable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyScrollsItems(Action<BlueprintItemEquipmentUsableReference> action)
     {
       return OnConfigureInternal(

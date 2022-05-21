@@ -179,19 +179,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="allowedSpellbooks">
-    /// <para>
-    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAllowedSpellbooks(Func<BlueprintSpellbookReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -205,19 +192,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/>
     /// </summary>
-    ///
-    /// <param name="allowedSpellbooks">
-    /// <para>
-    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAllowedSpellbooks()
     {
       return OnConfigureInternal(
@@ -230,19 +204,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="allowedSpellbooks">
-    /// <para>
-    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAllowedSpellbooks(Action<BlueprintSpellbookReference> action)
     {
       return OnConfigureInternal(
@@ -281,19 +242,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintFeatureSelectMythicSpellbook.m_MythicSpellList"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="mythicSpellList">
-    /// <para>
-    /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyMythicSpellList(Action<BlueprintSpellListReference> action)
     {
       return OnConfigureInternal(
@@ -335,22 +283,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintFeatureSelectMythicSpellbook.m_SpellKnownForSpontaneous"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="spellKnownForSpontaneous">
-    /// <para>
-    /// InfoBox: Table should be based on mythic level (not caster level!)
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintSpellsTable. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySpellKnownForSpontaneous(Action<BlueprintSpellsTableReference> action)
     {
       return OnConfigureInternal(

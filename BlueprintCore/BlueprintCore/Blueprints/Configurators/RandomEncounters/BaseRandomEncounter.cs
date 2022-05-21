@@ -176,12 +176,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Modifies <see cref="BlueprintRandomEncounter.AvoidDC"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="avoidDC">
-    /// <para>
-    /// InfoBox: Skill check Stealth
-    /// </para>
-    /// </param>
     public TBuilder ModifyAvoidDC(Action<int> action)
     {
       return OnConfigureInternal(
@@ -399,19 +393,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Modifies <see cref="BlueprintRandomEncounter.m_AreaEntrance"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="areaEntrance">
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAreaEntrance(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -450,19 +431,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Modifies <see cref="BlueprintRandomEncounter.m_BookEvent"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="bookEvent">
-    /// <para>
-    /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBookEvent(Action<BlueprintDialogReference> action)
     {
       return OnConfigureInternal(

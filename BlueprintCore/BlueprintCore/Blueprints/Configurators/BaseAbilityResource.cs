@@ -196,12 +196,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintAbilityResource.m_Min"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="min">
-    /// <para>
-    /// InfoBox: Resource would be restored to at least this amount (Useful for MaxAmount dependent on stat modifier, that can be negative)
-    /// </para>
-    /// </param>
     public TBuilder ModifyMin(Action<int> action)
     {
       return OnConfigureInternal(

@@ -100,19 +100,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="characterClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromCharacterClasses(Func<BlueprintCharacterClassReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -126,19 +113,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/>
     /// </summary>
-    ///
-    /// <param name="characterClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearCharacterClasses()
     {
       return OnConfigureInternal(
@@ -151,19 +125,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="characterClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCharacterClasses(Action<BlueprintCharacterClassReference> action)
     {
       return OnConfigureInternal(

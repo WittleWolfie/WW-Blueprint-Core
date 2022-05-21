@@ -225,19 +225,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Removes elements from <see cref="BlueprintFeatureSelection.m_AllFeatures"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="allFeatures">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAllFeatures(Func<BlueprintFeatureReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -251,19 +238,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Removes all elements from <see cref="BlueprintFeatureSelection.m_AllFeatures"/>
     /// </summary>
-    ///
-    /// <param name="allFeatures">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAllFeatures()
     {
       return OnConfigureInternal(
@@ -276,19 +250,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <summary>
     /// Modifies <see cref="BlueprintFeatureSelection.m_AllFeatures"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="allFeatures">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAllFeatures(Action<BlueprintFeatureReference> action)
     {
       return OnConfigureInternal(
@@ -366,7 +327,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintFeatureSelection, BlueprintFeatureSelectionReference>? thisFeature = null)
     {
       var component = new PrerequisiteSelectionPossible();

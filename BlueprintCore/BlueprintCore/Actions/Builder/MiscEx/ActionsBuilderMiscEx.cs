@@ -516,7 +516,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0029</term><description>bad4b5bed29c82145b2fb62d6cb86f11</description></item>
+    /// <item><term>Cue_0029</term><description>2a5f92deaccded945b22cb6efb7c1e21</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
@@ -786,7 +786,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <param name="destinationContainer">
     /// <para>
-    /// InfoBox: If not specified, items will be moved to unit's inventory
+    /// InfoBox: If not specified, items will be moved to unit&amp;apos;s inventory
     /// </para>
     /// </param>
     public static ActionsBuilder UnequipAllItems(
@@ -820,7 +820,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <param name="destinationContainer">
     /// <para>
-    /// InfoBox: If not specified, item will be moved to unit's inventory
+    /// InfoBox: If not specified, item will be moved to unit&amp;apos;s inventory
     /// </para>
     /// </param>
     /// <param name="item">

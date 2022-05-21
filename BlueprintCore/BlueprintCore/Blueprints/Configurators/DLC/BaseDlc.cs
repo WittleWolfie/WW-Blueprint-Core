@@ -130,19 +130,6 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Removes elements from <see cref="BlueprintDlc.RewardReferences"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="rewardReferences">
-    /// <para>
-    /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromRewardReferences(Func<BlueprintDlcRewardReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -156,19 +143,6 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Removes all elements from <see cref="BlueprintDlc.RewardReferences"/>
     /// </summary>
-    ///
-    /// <param name="rewardReferences">
-    /// <para>
-    /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearRewardReferences()
     {
       return OnConfigureInternal(
@@ -181,19 +155,6 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Modifies <see cref="BlueprintDlc.RewardReferences"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="rewardReferences">
-    /// <para>
-    /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRewardReferences(Action<BlueprintDlcRewardReference> action)
     {
       return OnConfigureInternal(

@@ -150,19 +150,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Modifies <see cref="UnitCustomizationPreset.m_Distribution"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="distribution">
-    /// <para>
-    /// Blueprint of type RaceGenderDistribution. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDistribution(Action<RaceGenderDistributionReference> action)
     {
       return OnConfigureInternal(
@@ -253,19 +240,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Removes elements from <see cref="UnitCustomizationPreset.m_Units"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="units">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromUnits(Func<BlueprintUnitReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -279,19 +253,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Removes all elements from <see cref="UnitCustomizationPreset.m_Units"/>
     /// </summary>
-    ///
-    /// <param name="units">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearUnits()
     {
       return OnConfigureInternal(
@@ -304,19 +265,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Modifies <see cref="UnitCustomizationPreset.m_Units"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="units">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyUnits(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -561,19 +509,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Removes elements from <see cref="UnitCustomizationPreset.MaleVoices"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="maleVoices">
-    /// <para>
-    /// Blueprint of type BlueprintUnitAsksList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromMaleVoices(Func<BlueprintUnitAsksListReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -587,19 +522,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Removes all elements from <see cref="UnitCustomizationPreset.MaleVoices"/>
     /// </summary>
-    ///
-    /// <param name="maleVoices">
-    /// <para>
-    /// Blueprint of type BlueprintUnitAsksList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearMaleVoices()
     {
       return OnConfigureInternal(
@@ -612,19 +534,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Modifies <see cref="UnitCustomizationPreset.MaleVoices"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="maleVoices">
-    /// <para>
-    /// Blueprint of type BlueprintUnitAsksList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyMaleVoices(Action<BlueprintUnitAsksListReference> action)
     {
       return OnConfigureInternal(
@@ -715,19 +624,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Removes elements from <see cref="UnitCustomizationPreset.FemaleVoices"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="femaleVoices">
-    /// <para>
-    /// Blueprint of type BlueprintUnitAsksList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromFemaleVoices(Func<BlueprintUnitAsksListReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -741,19 +637,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Removes all elements from <see cref="UnitCustomizationPreset.FemaleVoices"/>
     /// </summary>
-    ///
-    /// <param name="femaleVoices">
-    /// <para>
-    /// Blueprint of type BlueprintUnitAsksList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearFemaleVoices()
     {
       return OnConfigureInternal(
@@ -766,19 +649,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     /// <summary>
     /// Modifies <see cref="UnitCustomizationPreset.FemaleVoices"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="femaleVoices">
-    /// <para>
-    /// Blueprint of type BlueprintUnitAsksList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFemaleVoices(Action<BlueprintUnitAsksListReference> action)
     {
       return OnConfigureInternal(

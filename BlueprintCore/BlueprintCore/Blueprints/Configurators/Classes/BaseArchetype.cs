@@ -177,19 +177,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.m_ReplaceSpellbook"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="replaceSpellbook">
-    /// <para>
-    /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyReplaceSpellbook(Action<BlueprintSpellbookReference> action)
     {
       return OnConfigureInternal(
@@ -530,19 +517,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintArchetype.m_StartingItems"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="startingItems">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromStartingItems(Func<BlueprintItemReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -556,19 +530,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintArchetype.m_StartingItems"/>
     /// </summary>
-    ///
-    /// <param name="startingItems">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearStartingItems()
     {
       return OnConfigureInternal(
@@ -581,19 +542,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.m_StartingItems"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="startingItems">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartingItems(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(
@@ -749,12 +697,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.IsDivineCaster"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="isDivineCaster">
-    /// <para>
-    /// Tooltip: Used to determine whether spell-like abilities granted by this class are considered divine or arcane (default). Also for prerequisites.
-    /// </para>
-    /// </param>
     public TBuilder ModifyIsDivineCaster(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -785,12 +727,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.IsArcaneCaster"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="isArcaneCaster">
-    /// <para>
-    /// Tooltip: Used for prerequisites.
-    /// </para>
-    /// </param>
     public TBuilder ModifyIsArcaneCaster(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -1080,19 +1016,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintArchetype.m_SignatureAbilities"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="signatureAbilities">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromSignatureAbilities(Func<BlueprintFeatureReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1106,19 +1029,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintArchetype.m_SignatureAbilities"/>
     /// </summary>
-    ///
-    /// <param name="signatureAbilities">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearSignatureAbilities()
     {
       return OnConfigureInternal(
@@ -1131,19 +1041,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.m_SignatureAbilities"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="signatureAbilities">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySignatureAbilities(Action<BlueprintFeatureReference> action)
     {
       return OnConfigureInternal(
@@ -1182,19 +1079,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.m_BaseAttackBonus"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="baseAttackBonus">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBaseAttackBonus(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -1233,19 +1117,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.m_FortitudeSave"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="fortitudeSave">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFortitudeSave(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -1284,19 +1155,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.m_ReflexSave"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="reflexSave">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyReflexSave(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -1335,19 +1193,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintArchetype.m_WillSave"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="willSave">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyWillSave(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -1487,7 +1332,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? hideInUI = null,
         int? level = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteArchetypeLevel();
       component.m_Archetype = archetype?.Reference;
@@ -1540,7 +1385,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <param name="isArcane">
     /// <para>
-    /// InfoBox: Mythic & Alchemist Spellbooks don't cound
+    /// InfoBox: Mythic &amp; Alchemist Spellbooks don&amp;apos;t cound
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1557,7 +1402,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteCasterTypeSpellLevel();
       component.IsArcane = isArcane;
@@ -1635,7 +1480,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new PrerequisiteClassLevel();
@@ -1728,7 +1573,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notPlaying = null,
         LocalizedString? uIText = null)
     {
@@ -1784,7 +1629,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteFeature();
       component.m_Feature = feature?.Reference;
@@ -1833,7 +1678,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteFeaturesFromList();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
@@ -1922,7 +1767,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteNoArchetype();
       component.m_Archetype = archetype?.Reference;
@@ -1971,7 +1816,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteNoClassLevel();
       component.m_CharacterClass = characterClass?.Reference;
@@ -2019,7 +1864,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteNoFeature();
       component.m_Feature = feature?.Reference;
@@ -2109,7 +1954,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -2160,7 +2005,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -2211,7 +2056,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -2262,7 +2107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteParametrizedWeaponSubcategory();
       component.m_Feature = feature?.Reference;
@@ -2298,7 +2143,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new PrerequisiteIsPet();
@@ -2347,7 +2192,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisitePlayerHasFeature();
       component.m_Feature = feature?.Reference;
@@ -2413,7 +2258,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteStatValue();
       component.Stat = stat;
@@ -2471,7 +2316,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         LocalizedString? uIText = null)
     {
       var component = new PrerequisiteCondition();
@@ -2540,7 +2385,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noCompanion = null,
         PetType? type = null)
     {
@@ -2578,7 +2423,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null,
         int? value = null)
     {

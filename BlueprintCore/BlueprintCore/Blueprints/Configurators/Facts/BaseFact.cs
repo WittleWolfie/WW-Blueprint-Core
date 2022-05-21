@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddComponentsList(
         Blueprint<BlueprintComponentList, BlueprintComponentListReference>? list = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ComponentsList();
       component.m_List = list?.Reference ?? component.m_List;
@@ -91,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? activated = null,
         ActionsBuilder? deactivated = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? newRound = null)
     {
       var component = new AddBuffActions();
@@ -137,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? activated = null,
         ActionsBuilder? deactivated = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? newRound = null)
     {
       var component = new AddFactContextActions();

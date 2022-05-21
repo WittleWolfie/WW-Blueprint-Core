@@ -81,19 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_CrusadersFaction"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="crusadersFaction">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCrusadersFaction(Action<BlueprintFactionReference> action)
     {
       return OnConfigureInternal(
@@ -132,19 +119,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DemonsFaction"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="demonsFaction">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDemonsFaction(Action<BlueprintFactionReference> action)
     {
       return OnConfigureInternal(
@@ -183,19 +157,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DefaultBrain"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="defaultBrain">
-    /// <para>
-    /// Blueprint of type BlueprintTacticalCombatBrain. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDefaultBrain(Action<BlueprintTacticalCombatBrain.Reference> action)
     {
       return OnConfigureInternal(
@@ -234,19 +195,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DefaultLeaderBrain"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="defaultLeaderBrain">
-    /// <para>
-    /// Blueprint of type BlueprintTacticalCombatBrain. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDefaultLeaderBrain(Action<BlueprintTacticalCombatBrain.Reference> action)
     {
       return OnConfigureInternal(
@@ -374,12 +322,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DelayBeforeBattleEnd"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="delayBeforeBattleEnd">
-    /// <para>
-    /// InfoBox: Time in seconds from last kill before result shown
-    /// </para>
-    /// </param>
     public TBuilder ModifyDelayBeforeBattleEnd(Action<float> action)
     {
       return OnConfigureInternal(
@@ -410,12 +352,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_MaxTurnDuration"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="maxTurnDuration">
-    /// <para>
-    /// InfoBox: Time in seconds before assert
-    /// </para>
-    /// </param>
     public TBuilder ModifyMaxTurnDuration(Action<float> action)
     {
       return OnConfigureInternal(
@@ -532,7 +468,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///
     /// <param name="autoVictoryChanceCoefficient">
     /// <para>
-    /// InfoBox: Chance = Coefficient * (Crusader's Danger) / (Demons' Danger)
+    /// InfoBox: Chance = Coefficient * (Crusader&amp;apos;s Danger) / (Demons&amp;apos; Danger)
     /// </para>
     /// </param>
     public TBuilder SetAutoVictoryChanceCoefficient(float autoVictoryChanceCoefficient)
@@ -547,12 +483,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceCoefficient"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="autoVictoryChanceCoefficient">
-    /// <para>
-    /// InfoBox: Chance = Coefficient * (Crusader's Danger) / (Demons' Danger)
-    /// </para>
-    /// </param>
     public TBuilder ModifyAutoVictoryChanceCoefficient(Action<float> action)
     {
       return OnConfigureInternal(
@@ -568,7 +498,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///
     /// <param name="autoVictoryChanceMinimum">
     /// <para>
-    /// InfoBox: Crusaders can't win if victory chance is below this value
+    /// InfoBox: Crusaders can&amp;apos;t win if victory chance is below this value
     /// </para>
     /// </param>
     public TBuilder SetAutoVictoryChanceMinimum(float autoVictoryChanceMinimum)
@@ -583,12 +513,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceMinimum"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="autoVictoryChanceMinimum">
-    /// <para>
-    /// InfoBox: Crusaders can't win if victory chance is below this value
-    /// </para>
-    /// </param>
     public TBuilder ModifyAutoVictoryChanceMinimum(Action<float> action)
     {
       return OnConfigureInternal(
@@ -604,7 +528,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///
     /// <param name="autoCombatLossesCoefficient">
     /// <para>
-    /// InfoBox: Losses Coefficient = (1 - Coefficient * (Crusader's Danger) / (Demons' Danger)) + AutoCombatMinimumLossesCoefficient
+    /// InfoBox: Losses Coefficient = (1 - Coefficient * (Crusader&amp;apos;s Danger) / (Demons&amp;apos; Danger)) + AutoCombatMinimumLossesCoefficient
     /// </para>
     /// </param>
     public TBuilder SetAutoCombatLossesCoefficient(float autoCombatLossesCoefficient)
@@ -619,12 +543,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AutoCombatLossesCoefficient"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="autoCombatLossesCoefficient">
-    /// <para>
-    /// InfoBox: Losses Coefficient = (1 - Coefficient * (Crusader's Danger) / (Demons' Danger)) + AutoCombatMinimumLossesCoefficient
-    /// </para>
-    /// </param>
     public TBuilder ModifyAutoCombatLossesCoefficient(Action<float> action)
     {
       return OnConfigureInternal(
@@ -679,12 +597,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DismembermentDamageCoefficient"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="dismembermentDamageCoefficient">
-    /// <para>
-    /// Tooltip: Damage to original stack full health ratio should exceed this value to trigger dismemberment
-    /// </para>
-    /// </param>
     public TBuilder ModifyDismembermentDamageCoefficient(Action<float> action)
     {
       return OnConfigureInternal(
@@ -800,19 +712,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes elements from <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="bannedUnitFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromBannedUnitFacts(Func<BlueprintUnitFactReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -826,19 +725,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes all elements from <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/>
     /// </summary>
-    ///
-    /// <param name="bannedUnitFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearBannedUnitFacts()
     {
       return OnConfigureInternal(
@@ -851,19 +737,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_BannedUnitFacts"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="bannedUnitFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBannedUnitFacts(Action<BlueprintUnitFactReference> action)
     {
       return OnConfigureInternal(
@@ -1003,19 +876,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_LeaderManaResource"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="leaderManaResource">
-    /// <para>
-    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyLeaderManaResource(Action<BlueprintAbilityResourceReference> action)
     {
       return OnConfigureInternal(
@@ -1054,19 +914,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintTacticalCombatRoot.m_WinnerCutscene"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="winnerCutscene">
-    /// <para>
-    /// Blueprint of type Cutscene. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyWinnerCutscene(Action<CutsceneReference> action)
     {
       return OnConfigureInternal(

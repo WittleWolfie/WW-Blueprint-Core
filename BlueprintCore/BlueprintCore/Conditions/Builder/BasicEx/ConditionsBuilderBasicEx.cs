@@ -599,8 +599,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DevilMythicClass</term><description>211f49705f478b3468db6daa802452a2</description></item>
-    /// <item><term>GoldenDragonClass</term><description>daf1235b6217787499c14e4e32142523</description></item>
+    /// <item><term>Colyphyr2NexusTransition</term><description>0b377d6a162f4c4c99020cd446149f6a</description></item>
+    /// <item><term>DLC1_Levelup</term><description>dca1299c933b43dd8078cdf078ee6121</description></item>
     /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
     /// </list>
     /// </remarks>
@@ -683,14 +683,14 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Answer_6</term><description>11dcb93a9d964a1ab005b10f899db142</description></item>
+    /// <item><term>Answer_7</term><description>f44d8f29a2f640c4885414cb2be61e05</description></item>
     /// <item><term>ZeorisDagger_ReforgeProject</term><description>22e8219563e84f11b6aed62661030770</description></item>
     /// </list>
     /// </remarks>
     ///
     /// <param name="ignoreRemoteCompanions">
     /// <para>
-    /// InfoBox: Check item `equipped` state and don't count items equipped on remote companions
+    /// InfoBox: Check item `equipped` state and don&amp;apos;t count items equipped on remote companions
     /// </para>
     /// </param>
     /// <param name="itemToCheck">

@@ -145,19 +145,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiCastSpell.m_Ability"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="ability">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAbility(Action<BlueprintAbilityReference> action)
     {
       return OnConfigureInternal(
@@ -268,19 +255,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiCastSpell.m_Variant"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="variant">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyVariant(Action<BlueprintAbilityReference> action)
     {
       return OnConfigureInternal(
@@ -380,22 +354,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes elements from <see cref="BlueprintAiCastSpell.m_VariantsSet"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="variantsSet">
-    /// <para>
-    /// InfoBox: In case of empty list, variant will be picked from all variants for specified ability
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromVariantsSet(Func<BlueprintAbilityReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -409,22 +367,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAiCastSpell.m_VariantsSet"/>
     /// </summary>
-    ///
-    /// <param name="variantsSet">
-    /// <para>
-    /// InfoBox: In case of empty list, variant will be picked from all variants for specified ability
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearVariantsSet()
     {
       return OnConfigureInternal(
@@ -437,22 +379,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiCastSpell.m_VariantsSet"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="variantsSet">
-    /// <para>
-    /// InfoBox: In case of empty list, variant will be picked from all variants for specified ability
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyVariantsSet(Action<BlueprintAbilityReference> action)
     {
       return OnConfigureInternal(
@@ -523,12 +449,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes elements from <see cref="BlueprintAiCastSpell.Locators"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="locators">
-    /// <para>
-    /// InfoBox: To use locators make sure you selected CheckCasterDistance or CheckPartyDistance.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromLocators(Func<EntityReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -542,12 +462,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAiCastSpell.Locators"/>
     /// </summary>
-    ///
-    /// <param name="locators">
-    /// <para>
-    /// InfoBox: To use locators make sure you selected CheckCasterDistance or CheckPartyDistance.
-    /// </para>
-    /// </param>
     public TBuilder ClearLocators()
     {
       return OnConfigureInternal(
@@ -560,12 +474,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiCastSpell.Locators"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="locators">
-    /// <para>
-    /// InfoBox: To use locators make sure you selected CheckCasterDistance or CheckPartyDistance.
-    /// </para>
-    /// </param>
     public TBuilder ModifyLocators(Action<EntityReference> action)
     {
       return OnConfigureInternal(
@@ -621,12 +529,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiCastSpell.MinCasterDistanceToLocator"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="minCasterDistanceToLocator">
-    /// <para>
-    /// InfoBox: Selects target point from locators which is distant from caster by at least MinCasterDistanceToLocator meters (0 means no limit)
-    /// </para>
-    /// </param>
     public TBuilder ModifyMinCasterDistanceToLocator(Action<float> action)
     {
       return OnConfigureInternal(
@@ -681,12 +583,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiCastSpell.MinPartyDistanceToLocator"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="minPartyDistanceToLocator">
-    /// <para>
-    /// InfoBox: Selects target point from locators which is distant from all party members by at least MinPartyDistanceToLocator meters (0 or less means no limit)
-    /// </para>
-    /// </param>
     public TBuilder ModifyMinPartyDistanceToLocator(Action<float> action)
     {
       return OnConfigureInternal(
@@ -717,12 +613,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiCastSpell.MaxPartyDistanceToLocator"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="maxPartyDistanceToLocator">
-    /// <para>
-    /// InfoBox: Selects target point from locators which is distant from at least one party member less than MaxPartyDistanceToLocator meters (0 or less means no limit)
-    /// </para>
-    /// </param>
     public TBuilder ModifyMaxPartyDistanceToLocator(Action<float> action)
     {
       return OnConfigureInternal(

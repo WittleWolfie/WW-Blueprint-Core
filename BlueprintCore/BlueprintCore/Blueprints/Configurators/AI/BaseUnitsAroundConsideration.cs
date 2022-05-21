@@ -240,7 +240,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///
     /// <param name="useAbilityShape">
     /// <para>
-    /// InfoBox: Check units in action's ability AoE from target. (In Tactical combat is considered as always true)
+    /// InfoBox: Check units in action&amp;apos;s ability AoE from target. (In Tactical combat is considered as always true)
     /// </para>
     /// </param>
     public TBuilder SetUseAbilityShape(bool useAbilityShape = true)
@@ -255,12 +255,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="UnitsAroundConsideration.UseAbilityShape"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="useAbilityShape">
-    /// <para>
-    /// InfoBox: Check units in action's ability AoE from target. (In Tactical combat is considered as always true)
-    /// </para>
-    /// </param>
     public TBuilder ModifyUseAbilityShape(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -291,12 +285,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="UnitsAroundConsideration.UseCustomRadius"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="useCustomRadius">
-    /// <para>
-    /// InfoBox: Check units in given radius (CustomRadiusInMeters) from target or caster (CheckRadiusFromCaster)
-    /// </para>
-    /// </param>
     public TBuilder ModifyUseCustomRadius(Action<bool> action)
     {
       return OnConfigureInternal(

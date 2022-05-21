@@ -52,19 +52,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaEnterPoint.m_Area"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="area">
-    /// <para>
-    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyArea(Action<BlueprintAreaReference> action)
     {
       return OnConfigureInternal(
@@ -103,19 +90,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaEnterPoint.m_AreaPart"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="areaPart">
-    /// <para>
-    /// Blueprint of type BlueprintAreaPart. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAreaPart(Action<BlueprintAreaPartReference> action)
     {
       return OnConfigureInternal(
@@ -238,7 +212,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///
     /// <param name="canBeOutsideNavmesh">
     /// <para>
-    /// Tooltip: If true, party can teleport to this point even if it's not on the navmesh. See PF-329173
+    /// Tooltip: If true, party can teleport to this point even if it&amp;apos;s not on the navmesh. See PF-329173
     /// </para>
     /// </param>
     public TBuilder SetCanBeOutsideNavmesh(bool canBeOutsideNavmesh = true)
@@ -253,12 +227,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaEnterPoint.m_CanBeOutsideNavmesh"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="canBeOutsideNavmesh">
-    /// <para>
-    /// Tooltip: If true, party can teleport to this point even if it's not on the navmesh. See PF-329173
-    /// </para>
-    /// </param>
     public TBuilder ModifyCanBeOutsideNavmesh(Action<bool> action)
     {
       return OnConfigureInternal(

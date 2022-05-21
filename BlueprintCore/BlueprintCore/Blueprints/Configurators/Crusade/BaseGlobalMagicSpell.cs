@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     ///
     /// <param name="setCooldownManually">
     /// <para>
-    /// InfoBox: Turn on if you set cooldown for this spell manually. And default cooldown set logic shouldn't be run
+    /// InfoBox: Turn on if you set cooldown for this spell manually. And default cooldown set logic shouldn&amp;apos;t be run
     /// </para>
     /// </param>
     public TBuilder SetSetCooldownManually(bool setCooldownManually = true)
@@ -238,12 +238,6 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMagicSpell.m_SetCooldownManually"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="setCooldownManually">
-    /// <para>
-    /// InfoBox: Turn on if you set cooldown for this spell manually. And default cooldown set logic shouldn't be run
-    /// </para>
-    /// </param>
     public TBuilder ModifySetCooldownManually(Action<bool> action)
     {
       return OnConfigureInternal(

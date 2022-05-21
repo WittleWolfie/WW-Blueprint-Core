@@ -170,12 +170,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintKingdomProject.Cooldown"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="cooldown">
-    /// <para>
-    /// InfoBox: For UI only!!!
-    /// </para>
-    /// </param>
     public TBuilder ModifyCooldown(Action<int> action)
     {
       return OnConfigureInternal(

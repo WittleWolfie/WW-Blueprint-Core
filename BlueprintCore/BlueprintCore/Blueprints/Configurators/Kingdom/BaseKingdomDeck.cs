@@ -100,19 +100,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="BlueprintKingdomDeck.Events"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="events">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomEvent. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromEvents(Func<BlueprintKingdomEventReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -126,19 +113,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="BlueprintKingdomDeck.Events"/>
     /// </summary>
-    ///
-    /// <param name="events">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomEvent. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearEvents()
     {
       return OnConfigureInternal(
@@ -151,19 +125,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintKingdomDeck.Events"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="events">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomEvent. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEvents(Action<BlueprintKingdomEventReference> action)
     {
       return OnConfigureInternal(

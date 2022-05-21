@@ -50,19 +50,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.m_Prerequisite"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="prerequisite">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPrerequisite(Action<BlueprintEtudeReference> action)
     {
       return OnConfigureInternal(
@@ -220,12 +207,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.CommonSettings"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="commonSettings">
-    /// <para>
-    /// InfoBox: Applied in game and in doll room
-    /// </para>
-    /// </param>
     public TBuilder ModifyCommonSettings(Action<BlueprintClassAdditionalVisualSettings.SettingsData> action)
     {
       return OnConfigureInternal(
@@ -258,12 +239,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.InGameSettings"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="inGameSettings">
-    /// <para>
-    /// InfoBox: Applied in game only (after CommonSettings)
-    /// </para>
-    /// </param>
     public TBuilder ModifyInGameSettings(Action<BlueprintClassAdditionalVisualSettings.SettingsData> action)
     {
       return OnConfigureInternal(
@@ -296,12 +271,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.DollRoomSettings"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="dollRoomSettings">
-    /// <para>
-    /// InfoBox: Applied in doll room only (after CommonSettings)
-    /// </para>
-    /// </param>
     public TBuilder ModifyDollRoomSettings(Action<BlueprintClassAdditionalVisualSettings.SettingsData> action)
     {
       return OnConfigureInternal(

@@ -42,12 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintArmyPreset.Morale"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="morale">
-    /// <para>
-    /// InfoBox: See morale limits in MoraleRoot
-    /// </para>
-    /// </param>
     public TBuilder ModifyMorale(Action<int> action)
     {
       return OnConfigureInternal(
@@ -162,19 +156,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintArmyPreset.m_Leader"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="leader">
-    /// <para>
-    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyLeader(Action<BlueprintArmyLeaderReference> action)
     {
       return OnConfigureInternal(
@@ -206,12 +187,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintArmyPreset.m_ArmyType"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="armyType">
-    /// <para>
-    /// InfoBox: Determines which pawn army will have. Note: moving armies will have Travelling type automatically
-    /// </para>
-    /// </param>
     public TBuilder ModifyArmyType(Action<ArmyType> action)
     {
       return OnConfigureInternal(

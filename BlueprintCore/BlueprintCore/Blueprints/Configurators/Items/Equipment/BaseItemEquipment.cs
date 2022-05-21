@@ -82,19 +82,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Modifies <see cref="BlueprintItemEquipment.m_Ability"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="ability">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAbility(Action<BlueprintAbilityReference> action)
     {
       return OnConfigureInternal(
@@ -133,19 +120,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Modifies <see cref="BlueprintItemEquipment.m_ActivatableAbility"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="activatableAbility">
-    /// <para>
-    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyActivatableAbility(Action<BlueprintActivatableAbilityReference> action)
     {
       return OnConfigureInternal(
@@ -352,19 +326,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Modifies <see cref="BlueprintItemEquipment.m_EquipmentEntity"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="equipmentEntity">
-    /// <para>
-    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEquipmentEntity(Action<KingmakerEquipmentEntityReference> action)
     {
       return OnConfigureInternal(
@@ -455,19 +416,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Removes elements from <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="equipmentEntityAlternatives">
-    /// <para>
-    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromEquipmentEntityAlternatives(Func<KingmakerEquipmentEntityReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -481,19 +429,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Removes all elements from <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/>
     /// </summary>
-    ///
-    /// <param name="equipmentEntityAlternatives">
-    /// <para>
-    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearEquipmentEntityAlternatives()
     {
       return OnConfigureInternal(
@@ -506,19 +441,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Modifies <see cref="BlueprintItemEquipment.m_EquipmentEntityAlternatives"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="equipmentEntityAlternatives">
-    /// <para>
-    /// Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEquipmentEntityAlternatives(Action<KingmakerEquipmentEntityReference> action)
     {
       return OnConfigureInternal(
@@ -588,7 +510,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     public TBuilder AddFactToEquipmentWielder(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddFactToEquipmentWielder();
       component.m_Fact = fact?.Reference ?? component.m_Fact;
@@ -622,7 +544,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     public TBuilder AddEquipmentRestrictionAlignment(
         AlignmentMaskType? alignment = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EquipmentRestrictionAlignment();
       component.Alignment = alignment ?? component.Alignment;
@@ -649,7 +571,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </param>
     public TBuilder AddEquipmentRestrictionCannotEquip(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EquipmentRestrictionCannotEquip();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -690,7 +612,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     public TBuilder AddEquipmentRestrictionClass(
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new EquipmentRestrictionClass();
@@ -781,7 +703,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// </param>
     public TBuilder AddEquipmentRestrictionStat(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minValue = null,
         StatType? stat = null)
     {

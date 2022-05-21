@@ -179,7 +179,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? checkWeapon = null,
         bool? criticalHit = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyHit = null,
         bool? onOwner = null,
         bool? sneakAttack = null,
@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators
         WeaponFighterGroup? group = null,
         bool? ignoreAutoHit = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notCriticalHit = null,
         bool? notExtraAttack = null,
         bool? notSneakAttack = null,
@@ -483,7 +483,7 @@ namespace BlueprintCore.Blueprints.Configurators
         WeaponFighterGroup? group = null,
         ConditionsBuilder? initiatorConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notCriticalHit = null,
         bool? notExtraAttack = null,
         bool? notSneakAttack = null,
@@ -585,7 +585,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ConditionEnum? firstAttack = null,
         ConditionEnum? fullAttack = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AdditionalStatBonusOnAttackDamage();
       component.Bonus = bonus ?? component.Bonus;
@@ -621,7 +621,7 @@ namespace BlueprintCore.Blueprints.Configurators
         int? bonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AllAttacksEnhancement();
       component.Bonus = bonus ?? component.Bonus;
@@ -649,7 +649,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddBashingFinish(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BashingFinish();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -675,7 +675,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddDestructiveShockwave(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DestructiveShockwave();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -701,7 +701,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddShieldMaster(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ShieldMaster();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -763,7 +763,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ArmyType? demonsArmyType = null,
         bool? demonsFromList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onCrusadersVictory = null,
         ActionsBuilder? onDemonsVictory = null,
         bool? specificCrusadeLeader = null)
@@ -830,7 +830,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddKingdomRegionClaimedTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintRegion, BlueprintRegionReference>>? regions = null)
     {
       var component = new KingdomRegionClaimedTrigger();
@@ -891,7 +891,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddSettlementSiegeTrigger(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onSettlementDestroyed = null,
         ActionsBuilder? onSiegeEnd = null,
         ActionsBuilder? onSiegeStart = null,
@@ -1063,7 +1063,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new GarrisonDefeatedTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -1115,7 +1115,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PlayerVisitGlobalMapLocationTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -1153,7 +1153,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         IsleEvaluator? isleEvaluator = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? targetState = null)
     {
       var component = new OnIsleStateEnterTrigger();
@@ -1190,7 +1190,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         IsleEvaluator? isleEvaluator = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? targetState = null)
     {
       var component = new OnIsleStateExitTrigger();
@@ -1234,7 +1234,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? alsoOnAreaLoad = null,
         ConditionsBuilder? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? once = null)
     {
       var component = new ActivateTrigger();
@@ -1277,7 +1277,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AreaDidLoadTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -1321,7 +1321,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DeactivateTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -1364,7 +1364,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddDeviceInteractionTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? restrictedActions = null)
     {
       var component = new DeviceInteractionTrigger();
@@ -1408,7 +1408,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEvaluatedUnitCombatTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? triggerOnExit = null,
         UnitEvaluator? unit = null)
     {
@@ -1452,7 +1452,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         bool? anyUnit = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EvaluatedUnitDeathTrigger();
@@ -1494,7 +1494,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddEvaluatedUnitHealthTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? once = null,
         int? percentage = null,
         bool? triggerOnAlreadyLowerHeath = null,
@@ -1540,14 +1540,14 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     /// <param name="triggerBeforeInteraction">
     /// <para>
-    /// InfoBox: Only for success interaction. If true runs this tregger's Actions first and only after that default actions from map object
+    /// InfoBox: Only for success interaction. If true runs this tregger&amp;apos;s Actions first and only after that default actions from map object
     /// </para>
     /// </param>
     public TBuilder AddGenericInteractionTrigger(
         ActionsBuilder? actions = null,
         EntityReference? mapObject = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? restrictedActions = null,
         bool? triggerBeforeInteraction = null)
     {
@@ -1621,7 +1621,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Blueprint<BlueprintItem, BlueprintItemReference>? itemToCheck = null,
         MapObjectEvaluator? mapObject = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onAddActions = null,
         ActionsBuilder? onRemoveActions = null)
     {
@@ -1672,7 +1672,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new LevelUpTrigger();
@@ -1730,7 +1730,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddPartyInventoryTrigger(
         Blueprint<BlueprintItem, BlueprintItemReference>? item = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onAddActions = null,
         ActionsBuilder? onRemoveActions = null)
     {
@@ -1776,7 +1776,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddPerceptionTrigger(
         MapObjectEvaluator? mapObject = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onSpotted = null,
         UnitEvaluator? unit = null)
     {
@@ -1802,7 +1802,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
-    /// <item><term>DLC2_Survive_RQ_RstIn_4</term><description>56b6d7b013134f7c952b86a748822783</description></item>
+    /// <item><term>DLC2_Survive_RQ_RstOutOn</term><description>d3c857a15aa741d380a876fc62c4d2fc</description></item>
     /// <item><term>WenduagRomance_BarksAfterSexRepeat</term><description>e3049ea03e2f80a42b5b2dab02c75e78</description></item>
     /// </list>
     /// </remarks>
@@ -1854,7 +1854,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddScriptZoneTrigger(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onEnterActions = null,
         ConditionsBuilder? onEnterConditions = null,
         ActionsBuilder? onExitActions = null,
@@ -1926,7 +1926,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddSpawnUnitTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnit, BlueprintUnitReference>? targetUnit = null)
     {
       var component = new SpawnUnitTrigger();
@@ -1978,7 +1978,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddSpellCastTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         EntityReference? scriptZone = null,
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
     {
@@ -2040,7 +2040,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ConditionsBuilder? conditions = null,
         int? count = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
     {
       var component = new SummonPoolTrigger();
@@ -2159,7 +2159,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddUnitHealthTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? percentage = null,
         Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
     {

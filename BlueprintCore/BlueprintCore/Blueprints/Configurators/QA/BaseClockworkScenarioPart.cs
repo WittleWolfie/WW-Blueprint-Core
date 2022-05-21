@@ -183,19 +183,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes elements from <see cref="BlueprintClockworkScenarioPart.HighPriorityAnswers"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="highPriorityAnswers">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromHighPriorityAnswers(Func<BlueprintAnswerReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -209,19 +196,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes all elements from <see cref="BlueprintClockworkScenarioPart.HighPriorityAnswers"/>
     /// </summary>
-    ///
-    /// <param name="highPriorityAnswers">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearHighPriorityAnswers()
     {
       return OnConfigureInternal(
@@ -234,19 +208,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Modifies <see cref="BlueprintClockworkScenarioPart.HighPriorityAnswers"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="highPriorityAnswers">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyHighPriorityAnswers(Action<BlueprintAnswerReference> action)
     {
       return OnConfigureInternal(
@@ -337,19 +298,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes elements from <see cref="BlueprintClockworkScenarioPart.DoNotSellItems"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="doNotSellItems">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromDoNotSellItems(Func<BlueprintItemReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -363,19 +311,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes all elements from <see cref="BlueprintClockworkScenarioPart.DoNotSellItems"/>
     /// </summary>
-    ///
-    /// <param name="doNotSellItems">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearDoNotSellItems()
     {
       return OnConfigureInternal(
@@ -388,19 +323,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotSellItems"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="doNotSellItems">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDoNotSellItems(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(
@@ -568,19 +490,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes elements from <see cref="BlueprintClockworkScenarioPart.DoNotInterractUnits"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="doNotInterractUnits">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromDoNotInterractUnits(Func<BlueprintUnitReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -594,19 +503,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes all elements from <see cref="BlueprintClockworkScenarioPart.DoNotInterractUnits"/>
     /// </summary>
-    ///
-    /// <param name="doNotInterractUnits">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearDoNotInterractUnits()
     {
       return OnConfigureInternal(
@@ -619,19 +515,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotInterractUnits"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="doNotInterractUnits">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDoNotInterractUnits(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -722,19 +605,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes elements from <see cref="BlueprintClockworkScenarioPart.DoNotUseAnswer"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="doNotUseAnswer">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromDoNotUseAnswer(Func<BlueprintAnswerReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -748,19 +618,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes all elements from <see cref="BlueprintClockworkScenarioPart.DoNotUseAnswer"/>
     /// </summary>
-    ///
-    /// <param name="doNotUseAnswer">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearDoNotUseAnswer()
     {
       return OnConfigureInternal(
@@ -773,19 +630,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotUseAnswer"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="doNotUseAnswer">
-    /// <para>
-    /// Blueprint of type BlueprintAnswer. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDoNotUseAnswer(Action<BlueprintAnswerReference> action)
     {
       return OnConfigureInternal(
@@ -876,19 +720,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes elements from <see cref="BlueprintClockworkScenarioPart.DoNotEnterAreas"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="doNotEnterAreas">
-    /// <para>
-    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromDoNotEnterAreas(Func<BlueprintAreaReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -902,19 +733,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Removes all elements from <see cref="BlueprintClockworkScenarioPart.DoNotEnterAreas"/>
     /// </summary>
-    ///
-    /// <param name="doNotEnterAreas">
-    /// <para>
-    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearDoNotEnterAreas()
     {
       return OnConfigureInternal(
@@ -927,19 +745,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <summary>
     /// Modifies <see cref="BlueprintClockworkScenarioPart.DoNotEnterAreas"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="doNotEnterAreas">
-    /// <para>
-    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDoNotEnterAreas(Action<BlueprintAreaReference> action)
     {
       return OnConfigureInternal(
@@ -1005,7 +810,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
         Condition? condition = null,
         bool? everyVisit = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AreaTest();
       component.Area = area?.Reference ?? component.Area;
@@ -1054,7 +859,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
         ClockworkCommandList? commandList = null,
         Condition? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ConditionalCommandList();
       Validate(commandList);

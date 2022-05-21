@@ -225,7 +225,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>DrezenBabauGateGuard</term><description>72d826140d6fc514b97809ff5480530d</description></item>
+    /// <item><term>DrezenBBD</term><description>b7e44fb6070a8e3499fd9a9ce248db2b</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -268,7 +268,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? hasDifficultyRequirements = null,
         bool? invertDifficultyRequirements = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         GameDifficultyOption? minDifficulty = null)
     {
       var component = new AddFacts();
@@ -311,7 +311,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         StatType skill,
         ActionsBuilder? action = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddInitiatorSkillRollTrigger();
       component.OnlySuccess = onlySuccess;
@@ -348,6 +348,42 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       Validate(exceptions);
       component.Exceptions = exceptions ?? component.Exceptions;
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BuffSkillBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: BuffMechanics/Bonus to Stealth skill
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>NecklaceOfDoubleCorssesFeature</term><description>64d5a59feeb292e49a6c459fe37c3953</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddBuffSkillBonus(
+        StatType stat,
+        int value,
+        ModifierDescriptor? descriptor = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new BuffSkillBonus();
+      component.Stat = stat;
+      component.Value = value;
+      component.Descriptor = descriptor ?? component.Descriptor;
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -458,7 +494,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddRestRoleBonus(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         CampingRoleType? roleType = null,
         ContextValue? value = null)
     {
@@ -598,7 +634,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     /// <param name="selectSpells">
     /// <para>
-    /// InfoBox: If some selection isn't specified here than first appropriate item will be selected
+    /// InfoBox: If some selection isn&amp;apos;t specified here than first appropriate item will be selected
     /// </para>
     /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
@@ -619,7 +655,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         StatType? levelsStat = null,
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? memorizeSpells = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? raceStat = null,
         SelectionEntry[]? selections = null,
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? selectSpells = null,
@@ -721,7 +757,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? dexterity = null,
         int? intelligence = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? strength = null,
         int? targetPoints = null,
         int? wisdom = null)
@@ -875,7 +911,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddAcrobaticMovement(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AcrobaticMovement();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -943,7 +979,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddAbilityResourceTrigger(
         ActionsBuilder? action = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null)
     {
       var component = new AddAbilityResourceTrigger();
@@ -1016,7 +1052,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? dontCheckType = null,
         bool? fromSpellbook = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? spellbooks = null,
         SpellDescriptorWrapper? spellDescriptor = null,
         bool? spellList = null,
@@ -1130,7 +1166,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? forOneSpell = null,
         bool? fromSpellbook = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? minSpellLevel = null,
         int? minSpellLevelLimit = null,
         AbilityRange? range = null,
@@ -1240,7 +1276,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null,
         GameObject? failFx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddAttackerSpellFailureChance();
       component.Chance = chance ?? component.Chance;
@@ -1281,7 +1317,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddBackgroundArmorProficiency(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ArmorProficiencyGroup? proficiency = null,
         ContextValue? stackBonus = null)
     {
@@ -1317,7 +1353,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddBackgroundClassSkill(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? skill = null)
     {
       var component = new AddBackgroundClassSkill();
@@ -1352,7 +1388,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddBackgroundWeaponProficiency(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeaponCategory? proficiency = null,
         ContextValue? stackBonus = null,
         ModifierDescriptor? stackBonusType = null)
@@ -1501,7 +1537,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null,
         GameObject? failFx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddCasterSpellFailureChance();
       component.Chance = chance ?? component.Chance;
@@ -1537,7 +1573,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddClassSkill(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? skill = null)
     {
       var component = new AddClassSkill();
@@ -1626,7 +1662,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         UnitCondition? condition = null,
         UnitConditionExceptions? exceptions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddCondition();
       component.Condition = condition ?? component.Condition;
@@ -1662,7 +1698,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddConditionImmunity(
         UnitCondition? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddConditionImmunity();
       component.Condition = condition ?? component.Condition;
@@ -1693,7 +1729,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? action = null,
         UnitCondition[]? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AddConditionTrigger.TriggerType? triggerType = null)
     {
       var component = new AddConditionTrigger();
@@ -1776,7 +1812,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddDamageResistanceEnergy(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? pool = null,
         DamageEnergyType? type = null,
         bool? usePool = null,
@@ -1832,7 +1868,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddDamageResistanceForce(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? pool = null,
         DamageEnergyType? type = null,
         bool? usePool = null,
@@ -1888,7 +1924,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddDamageResistanceHardness(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? pool = null,
         bool? usePool = null,
         ContextValue? value = null)
@@ -1970,7 +2006,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         PhysicalDamageForm? form = null,
         PhysicalDamageMaterial? material = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minEnhancementBonus = null,
         bool? or = null,
         ContextValue? pool = null,
@@ -2043,7 +2079,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         PhysicalDamageForm? formType = null,
         PhysicalDamageMaterial? materialType = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? physcicalAlignment = null,
         bool? physcicalForm = null,
         bool? physcicalMaterial = null)
@@ -2102,7 +2138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? healOnDamage = null,
         AddEnergyDamageImmunity.HealingRate? healRate = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddEnergyDamageImmunity();
       component.EnergyType = energyType ?? component.EnergyType;
@@ -2137,7 +2173,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddEnergyImmunity(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         DamageEnergyType? type = null)
     {
       var component = new AddEnergyImmunity();
@@ -2171,7 +2207,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddEnergyVulnerability(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         DamageEnergyType? type = null)
     {
       var component = new AddEnergyVulnerability();
@@ -2637,7 +2673,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? isRanged = null,
         PhysicalDamageMaterial? material = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         DamageRealityType? reality = null,
         Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? weaponType = null)
     {
@@ -2738,7 +2774,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? bonus = null,
         UsableItemType? itemType = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddItemCasterLevelBonus();
       component.Bonus = bonus ?? component.Bonus;
@@ -2806,7 +2842,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null,
         int? spellLevel = null)
     {
@@ -2876,7 +2912,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddMechanicsFeature(
         AddMechanicsFeature.MechanicsFeatureType? feature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddMechanicsFeature();
       component.m_Feature = feature ?? component.m_Feature;
@@ -3111,7 +3147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? isRanged = null,
         PhysicalDamageMaterial? material = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? myAlignment = null,
         bool? naturalAttacks = null,
         DamageRealityType? reality = null,
@@ -3233,7 +3269,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddPartyEncumbrance(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? value = null)
     {
       var component = new AddPartyEncumbrance();
@@ -3359,7 +3395,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddPhysicalImmunity(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PhysicalDamageForm? physicalDamageForms = null)
     {
       var component = new AddPhysicalImmunity();
@@ -3406,7 +3442,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddProficiencies(
         ArmorProficiencyGroup[]? armorProficiencies = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintRace, BlueprintRaceReference>? raceRestriction = null,
         WeaponCategory[]? weaponProficiencies = null)
     {
@@ -3501,7 +3537,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddSecondaryAttacks(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>>? weapon = null)
     {
       var component = new AddSecondaryAttacks();
@@ -3592,7 +3628,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
         bool? forArchetypeOnly = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSpellList, BlueprintSpellListReference>? spellList = null)
     {
       var component = new AddSpecialSpellList();
@@ -3721,7 +3757,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdamantineGolemImmunity</term><description>5f77c76c45df559479c158cb079600f1</description></item>
-    /// <item><term>MageShieldBuff</term><description>9c0fa9b438ada3f43864be8dd8b3e741</description></item>
+    /// <item><term>LifeBubbleBuff</term><description>4aa87d3319124a2daf74d80ca5d4595e</description></item>
     /// <item><term>WitchHexAuraOfPurityEffectBuff</term><description>c6e331831f3fbc642b4a1232b9f9e66e</description></item>
     /// </list>
     /// </remarks>
@@ -3822,7 +3858,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
         int? level = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlySpontaneous = null,
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null)
     {
@@ -3858,7 +3894,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <param name="allSpellResistancePenaltyDoNotUse">
     /// <para>
-    /// InfoBox: I don't know what does it mean but if AllSpellResistancePenaltyDoNotUse == false then Value is Spell Resistance and if AllSpellResistancePenaltyDoNotUse == true then Value is Spell Resistance Penalty
+    /// InfoBox: I don&amp;apos;t know what does it mean but if AllSpellResistancePenaltyDoNotUse == false then Value is Spell Resistance and if AllSpellResistancePenaltyDoNotUse == true then Value is Spell Resistance Penalty
     /// </para>
     /// </param>
     public TBuilder AddSpellResistance(
@@ -3966,7 +4002,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         WeaponCategory[]? categoryItems = null,
         Blueprint<BlueprintCategoryDefaults, BlueprintCategoryDefaultsReference>? customCategoryDefaults = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? parametrizedCategory = null,
         List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>>? restrictedByClass = null)
     {
@@ -4022,7 +4058,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddStatBonus(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? scaleByBasicAttackBonus = null,
         StatType? stat = null,
         int? value = null)
@@ -4058,7 +4094,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddStatModifier(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? modifierPercents = null,
         StatType? stat = null,
         bool? updateIfStatChanged = null,
@@ -4181,7 +4217,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AdditionalDamageOnSneakAttack(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyRanged = null,
         int? value = null)
     {
@@ -4446,7 +4482,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         List<Blueprint<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference>>? areaEffects = null,
         Kingmaker.UnitLogic.Abilities.Components.TargetType? casterType = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? specificAreaEffects = null)
     {
       var component = new AreaEffectImmunity();
@@ -4574,7 +4610,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? factToCheck = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BuffDescriptorImmunity();
       component.CheckFact = checkFact ?? component.CheckFact;
@@ -4601,7 +4637,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyDominateBuff</term><description>2ab491a0101344bc8ad3e62ba6a6dac6</description></item>
-    /// <item><term>CR4_Marauder_Human_RogueMelee_MaleRichQuater</term><description>db59e733b90f41ddaaabdc67b784a6e8</description></item>
+    /// <item><term>CR4_Marauder_Thiefling_Melee_Male_Neutral_DLC2</term><description>23a36462fbd64041bdf02d75093ceb62</description></item>
     /// <item><term>WitchHexAnimalServantBuff</term><description>c976bf2495a8d854ca4593318de1664d</description></item>
     /// </list>
     /// </remarks>
@@ -4643,7 +4679,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>CR21_ZombieLordFighter_DLC1</term><description>a356271a621747158164fcb22c5f7935</description></item>
+    /// <item><term>CR23_SkeletalChampion_Melee_DLC1</term><description>c4dddee9f3c64f6faab89ac8b28b0d97</description></item>
     /// <item><term>WoundWormsLair_BlackDragon</term><description>c540d81c08822c14da75761493427e4c</description></item>
     /// </list>
     /// </remarks>
@@ -4844,7 +4880,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddCompleteDamageImmunity(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new CompleteDamageImmunity();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -4883,7 +4919,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddConduitSurge(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new ConduitSurge();
@@ -4984,7 +5020,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddDisableOptimization(
         bool? aliveOnly = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DisableOptimization();
       component.AliveOnly = aliveOnly ?? component.AliveOnly;
@@ -5228,7 +5264,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddFavoredTerrain(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AreaSetting? setting = null)
     {
       var component = new FavoredTerrain();
@@ -5411,7 +5447,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         AlignmentMaskType? alignment = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? spellbooks = null)
     {
       var component = new ForbidSpellbookOnAlignmentDeviation();
@@ -5461,7 +5497,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddForbidSpellbookOnArmorEquip(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? spellbooks = null)
     {
       var component = new ForbidSpellbookOnArmorEquip();
@@ -5554,7 +5590,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddGentlePersuasionConditioning(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? punishmentBuff = null,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? rewardBuff = null)
     {
@@ -5724,7 +5760,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddHigherMythicsReplace(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new HigherMythicsReplace();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -5751,7 +5787,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddIgnoreIncommingDamage(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new IgnoreIncommingDamage();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -5800,7 +5836,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddIncorporealACBonus(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new IncorporealACBonus();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -5829,7 +5865,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddIncreaseActivatableAbilityGroupSize(
         ActivatableAbilityGroup? group = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new IncreaseActivatableAbilityGroupSize();
       component.Group = group ?? component.Group;
@@ -5870,7 +5906,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddIncreaseResourceAmount(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null,
         int? value = null)
     {
@@ -5919,7 +5955,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddIncreaseResourceAmountBySharedValue(
         bool? decrease = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null,
         ContextValue? value = null)
     {
@@ -6177,7 +6213,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSpellList, BlueprintSpellListReference>? spellList = null)
     {
       var component = new LearnSpellList();
@@ -6246,7 +6282,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddLearnSpells(
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
     {
       var component = new LearnSpells();
@@ -6286,7 +6322,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddLockEquipmentSlot(
         bool? deactivate = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         LockEquipmentSlot.SlotType? slotType = null)
     {
       var component = new LockEquipmentSlot();
@@ -6664,7 +6700,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddRedirectDamageToPet(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? percentRedirected = null,
         PetType? petType = null)
     {
@@ -6697,7 +6733,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddReplaceStatBaseAttribute(
         StatType? baseAttributeReplacement = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? targetStat = null)
     {
       var component = new ReplaceStatBaseAttribute();
@@ -6873,7 +6909,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddSpecificBuffImmunity(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SpecificBuffImmunity();
       component.m_Buff = buff?.Reference ?? component.m_Buff;
@@ -6920,7 +6956,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? casterIgnoreImmunityFact = null,
         SpellDescriptorWrapper? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SpellImmunityToSpellDescriptor();
       component.m_CasterIgnoreImmunityFact = casterIgnoreImmunityFact?.Reference ?? component.m_CasterIgnoreImmunityFact;
@@ -7037,7 +7073,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddSpontaneousSpellConversion(
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spellsByLevel = null)
     {
       var component = new SpontaneousSpellConversion();
@@ -7225,7 +7261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddUnearthlyGrace(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new UnearthlyGrace();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -7273,7 +7309,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddUnholyGrace(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new UnholyGrace();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -7307,7 +7343,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddUnitHealthGuard(
         int? healthPercent = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new UnitHealthGuard();
       component.HealthPercent = healthPercent ?? component.HealthPercent;
@@ -7815,7 +7851,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? actions = null,
         DamageEnergyType? damageType = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? spellsOnly = null)
     {
       var component = new AddEnergyDamageTrigger();
@@ -7843,6 +7879,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="actionsOnInitiator">
+    /// <para>
+    /// InfoBox: Make damage initiator to be target of running Actions
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -7851,6 +7892,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddIncomingDamageTrigger(
         ActionsBuilder? actions = null,
+        bool? actionsOnInitiator = null,
         AttackTypeFlag? attackType = null,
         bool? checkDamageDealt = null,
         bool? checkDamagePhysicalTypeNot = null,
@@ -7861,7 +7903,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         DamageEnergyType? energyType = null,
         bool? ignoreDamageFromThisFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? reduceBelowZero = null,
         ContextValue? targetValue = null,
         bool? triggerOnStatDamageOrEnergyDrain = null)
@@ -7872,6 +7914,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.Actions = Utils.Constants.Empty.Actions;
       }
+      component.ActionsOnInitiator = actionsOnInitiator ?? component.ActionsOnInitiator;
       component.AttackType = attackType ?? component.AttackType;
       component.CheckDamageDealt = checkDamageDealt ?? component.CheckDamageDealt;
       component.CheckDamagePhysicalTypeNot = checkDamagePhysicalTypeNot ?? component.CheckDamagePhysicalTypeNot;
@@ -7934,7 +7977,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <param name="chooseSave">
     /// <para>
-    /// InfoBox: Don't use Unknown - will not work on any throw
+    /// InfoBox: Don&amp;apos;t use Unknown - will not work on any throw
     /// </para>
     /// </param>
     public TBuilder AddInitiatorSavingThrowTrigger(
@@ -8065,6 +8108,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="runInReasonContext">
+    /// <para>
+    /// InfoBox: To get access to initiator from spell or attack, or ability context
+    /// </para>
+    /// </param>
     /// <param name="weaponType">
     /// <para>
     /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
@@ -8092,8 +8140,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         DamageEnergyType? energyType = null,
         bool? ignoreDamageFromThisFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notZeroDamage = null,
+        bool? runInReasonContext = null,
         SpellDescriptorWrapper? spellDescriptorsList = null,
         bool? targetKilledByThisDamage = null,
         ContextValue? targetValue = null,
@@ -8123,6 +8172,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.EnergyType = energyType ?? component.EnergyType;
       component.IgnoreDamageFromThisFact = ignoreDamageFromThisFact ?? component.IgnoreDamageFromThisFact;
       component.NotZeroDamage = notZeroDamage ?? component.NotZeroDamage;
+      component.RunInReasonContext = runInReasonContext ?? component.RunInReasonContext;
       component.SpellDescriptorsList = spellDescriptorsList ?? component.SpellDescriptorsList;
       component.TargetKilledByThisDamage = targetKilledByThisDamage ?? component.TargetKilledByThisDamage;
       component.TargetValue = targetValue ?? component.TargetValue;
@@ -8163,7 +8213,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int[]? diceBonuses = null,
         ContextDiceValue[]? diceValues = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpellDescriptorWrapper? spellDescriptorsList = null)
     {
       var component = new AddSpellDiceBonusTrigger();
@@ -8211,7 +8261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? criticalHit = null,
         bool? doNotPassAttackRoll = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null,
         bool? notReach = null,
         bool? notSneakAttack = null,
@@ -8405,7 +8455,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? actions = null,
         bool? checkResource = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyOnParty = null,
         Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null)
     {
@@ -8474,7 +8524,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddFlamewardenBurningRenewal(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null)
     {
       var component = new FlamewardenBurningRenewal();
@@ -8511,7 +8561,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddModifyAttackerMissChance(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new ModifyAttackerMissChance();
@@ -8706,7 +8756,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         WeaponCategory? category = null,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? deaitySacredWeaponFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SacredWeaponFavoriteDamageOverride();
       component.m_Buff1d10 = buff1d10?.Reference ?? component.m_Buff1d10;
@@ -8766,7 +8816,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddSetAttackerMissChance(
         ConditionsBuilder? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SetAttackerMissChance.Type? type = null,
         ContextValue? value = null)
     {
@@ -8808,7 +8858,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddSetFactOwnerMissChance(
         ConditionsBuilder? conditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SetFactOwnerMissChance.Type? type = null,
         ContextValue? value = null)
     {
@@ -9101,7 +9151,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddArmyChangeInitiative(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new ArmyChangeInitiative();
@@ -9152,7 +9202,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkCategory = null,
         bool? criticalHit = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null,
         bool? notReach = null,
         bool? notSneakAttack = null,
@@ -9242,7 +9292,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddChangeLeaderSkillPowerOnAbilityUse(
         bool? checkDescriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? modifier = null,
         SpellDescriptorWrapper? spellDescriptor = null)
     {
@@ -9388,7 +9438,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddTacticalCombatPercentDamageBonus(
         int? bonusPercent = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TacticalCombatPercentDamageBonus();
       component.BonusPercent = bonusPercent ?? component.BonusPercent;
@@ -9531,7 +9581,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyACAgainstRangeAuraFeature</term><description>e44e483c864349cf8eda2ac753ef0171</description></item>
-    /// <item><term>ArmyGainAttackWhenHitFeature</term><description>054665fdee674a5cac99b194b50af349</description></item>
+    /// <item><term>ArmyGhoulParalysisFeature</term><description>0ff98740c64f4d948e783f6e0dcd4bd7</description></item>
     /// <item><term>SubtypeExtraplanar</term><description>136fa0343d5b4b348bdaa05d83408db3</description></item>
     /// </list>
     /// </remarks>
@@ -9632,7 +9682,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? accumulateBonusPerCell = null,
         float? bonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onDamageDeal = null)
     {
       var component = new ArmyDamageAfterMovementBonus();
@@ -9660,7 +9710,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <param name="bonus">
     /// <para>
-    /// InfoBox: Add Bonus value if unit didn't move before attack
+    /// InfoBox: Add Bonus value if unit didn&amp;apos;t move before attack
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -9677,7 +9727,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddArmyStandingDamageBonus(
         int? bonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onDamageDeal = null)
     {
       var component = new ArmyStandingDamageBonus();
@@ -9749,7 +9799,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor? descriptor = null,
         bool? isTouch = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noShield = null,
         ArmorProficiencyGroup[]? notArmorCategory = null,
         bool? notTouch = null,
@@ -9872,7 +9922,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noFact = null)
     {
       var component = new ACBonusAgainstFactOwner();
@@ -9957,7 +10007,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddACBonusAgainstSize(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Size? size = null,
         ContextValue? value = null)
     {
@@ -9999,7 +10049,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? armorClassBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpellDescriptorWrapper? spellDescriptor = null)
     {
       var component = new ACBonusAgainstSpellsWithDescriptor();
@@ -10038,7 +10088,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         WeaponCategory? category = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ACBonusAgainstWeaponCategory();
       component.ArmorClassBonus = armorClassBonus ?? component.ArmorClassBonus;
@@ -10074,7 +10124,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor? descriptor = null,
         WeaponFighterGroup? fighterGroup = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ACBonusAgainstWeaponGroup();
       component.ArmorClassBonus = armorClassBonus ?? component.ArmorClassBonus;
@@ -10111,7 +10161,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? armorClassBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeaponSubCategory? subCategory = null)
     {
       var component = new ACBonusAgainstWeaponSubcategory();
@@ -10157,7 +10207,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? armorClassBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? type = null)
     {
       var component = new ACBonusAgainstWeaponType();
@@ -10255,7 +10305,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noFact = null)
     {
       var component = new ACContextBonusAgainstFactOwner();
@@ -10302,7 +10352,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddACContextBonusAgainstWeaponSubcategory(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeaponSubCategory? subCategory = null,
         ContextValue? value = null)
     {
@@ -10382,7 +10432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? bonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null)
     {
       var component = new AbilityScoreCheckBonus();
@@ -10483,7 +10533,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddAbilityResources(
         int? amount = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null,
         bool? restoreAmount = null,
         bool? restoreOnLevelUp = null,
@@ -10637,7 +10687,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? bonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null)
     {
       var component = new AddCasterLevelForAbility();
@@ -10783,7 +10833,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? feature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new AddFeatureIfHasFact();
@@ -10841,7 +10891,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         AlignmentComponent? alignment = null,
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddFeatureOnAlignment();
       component.Alignment = alignment ?? component.Alignment;
@@ -10888,7 +10938,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddFeatureOnApply(
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddFeatureOnApply();
       component.m_Feature = feature?.Reference ?? component.m_Feature;
@@ -10912,7 +10962,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSummonFeatureTier3</term><description>6c999087fd82ca9499cee45f107e9831</description></item>
-    /// <item><term>EnlightenedPhilosopherBonesMysteryFeature</term><description>511ee1f805f8d1445b64f4c8398ca938</description></item>
+    /// <item><term>EnlightenedPhilosopherFlameMysteryFeature</term><description>804e1560f21c95b43a45a9825336bd19</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -10979,7 +11029,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
         int? level = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddFeatureOnClassLevel();
       component.m_AdditionalClasses = additionalClasses?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AdditionalClasses;
@@ -11041,7 +11091,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddFeatureOnSkill(
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimalStat = null,
         StatType? statType = null)
     {
@@ -11136,7 +11186,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddFeatureToPet(
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PetType? petType = null)
     {
       var component = new AddFeatureToPet();
@@ -11185,7 +11235,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddSpellListAsAbilities(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>>? resourcePerSpellLevel = null,
         bool? searchInAddFeatureComponents = null)
     {
@@ -11374,7 +11424,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddAlliedSpellcaster(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? alliedSpellcasterFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? radius = null)
     {
       var component = new AlliedSpellcaster();
@@ -11482,7 +11532,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? healEnergyDrain = null,
         bool? healStatDamageAndDrain = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         EnergyDrainHealType? permanentNegativeLevelsHeal = null,
         EnergyDrainHealType? temporaryNegativeLevelsHeal = null)
     {
@@ -11521,7 +11571,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddAnyWeaponDamageStatReplacement(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyMelee = null,
         StatType? stat = null)
     {
@@ -11715,7 +11765,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? bonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? value = null)
     {
       var component = new ArmorClassBonusAgainstAlignment();
@@ -11777,7 +11827,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? damageBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyMelee = null)
     {
       var component = new AttackBonusAgainstAlignment();
@@ -11822,7 +11872,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ArmyProperties? armyProperties = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new AttackBonusAgainstArmyProperty();
@@ -11878,7 +11928,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new AttackBonusAgainstFactOwner();
@@ -11920,7 +11970,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? attackBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AttackBonusAgainstFriendly();
       component.AttackBonus = attackBonus ?? component.AttackBonus;
@@ -11964,7 +12014,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkTargetFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyForMelee = null,
         bool? onlyForRanged = null,
         Size? size = null,
@@ -12018,7 +12068,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AttackBonusConditional();
       component.Bonus = bonus ?? component.Bonus;
@@ -12201,7 +12251,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddAttackTypeChange(
         bool? changeAllTypes = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? needsWeapon = null,
         AttackType? newType = null,
         AttackType? originalType = null)
@@ -12274,7 +12324,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddAuraFeatureComponent(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AuraFeatureComponent();
       component.m_Buff = buff?.Reference ?? component.m_Buff;
@@ -12321,7 +12371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddAutoDetectStealth(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AutoDetectStealth();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -12382,7 +12432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         SpellDescriptorWrapper? descriptor = null,
         int? maxSpellLevel = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Metamagic? metamagic = null,
         bool? once = null,
         SpellSchool? school = null,
@@ -12442,7 +12492,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBackToBack(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? backToBackFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? radius = null)
     {
       var component = new BackToBack();
@@ -12488,7 +12538,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBackToBackBetter(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? backToBackBetterFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? radius = null)
     {
       var component = new BackToBackBetter();
@@ -12582,7 +12632,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? fullCasterChecks = null,
         int? levelStep = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? odd = null,
         StatType? stat = null)
     {
@@ -12648,7 +12698,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBindAbilitiesToHighest(
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? abilities = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BindAbilitiesToHighest();
       component.m_Abilities = abilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Abilities;
@@ -12729,7 +12779,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkDescriptor = null,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? gainedFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpellDescriptorWrapper? spellDescriptor = null,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? substituteBuff = null)
     {
@@ -12784,7 +12834,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new CMBBonus();
@@ -12839,7 +12889,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Size? size = null,
         ContextValue? value = null)
     {
@@ -12898,7 +12948,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor? descriptor = null,
         CombatManeuver[]? maneuvers = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new CMBBonusForManeuver();
@@ -12957,7 +13007,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onCaster = null,
         ContextValue? value = null)
     {
@@ -13002,7 +13052,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor? descriptor = null,
         CombatManeuver[]? maneuvers = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new CMDBonusAgainstManeuvers();
@@ -13055,7 +13105,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onCaster = null,
         Size? size = null,
         ContextValue? value = null)
@@ -13099,7 +13149,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCavalierMountedMastery(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new CavalierMountedMastery();
       component.Descriptor = descriptor ?? component.Descriptor;
@@ -13139,7 +13189,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCavalierRetribution(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new CavalierRetribution();
       component.m_Buff = buff?.Reference ?? component.m_Buff;
@@ -13183,7 +13233,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCavalierStandAgainstDarkness(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new CavalierStandAgainstDarkness();
       component.m_CheckedFact = checkedFact?.Reference ?? component.m_CheckedFact;
@@ -13214,7 +13264,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddCavalierStealGlory(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new CavalierStealGlory();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -13243,7 +13293,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkWielder = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ChargeAttackBonus();
       component.Bonus = bonus ?? component.Bonus;
@@ -13276,7 +13326,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddChargeImprovedCritical(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ChargeImprovedCritical();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -13334,7 +13384,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? actualClass = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? fakeClass = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         double? modifier = null,
         int? summand = null)
     {
@@ -13451,7 +13501,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCompanionBoon(
         int? bonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? rankFeature = null)
     {
       var component = new CompanionBoon();
@@ -13622,7 +13672,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCoordinatedDefense(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? coordinatedDefenseFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? radius = null)
     {
       var component = new CoordinatedDefense();
@@ -13668,7 +13718,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCoordinatedManeuvers(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? coordinatedManeuversFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? radius = null)
     {
       var component = new CoordinatedManeuvers();
@@ -13703,7 +13753,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCraftBonus(
         UsableItemType? bonusFor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new CraftBonus();
@@ -13900,7 +13950,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? damageBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyMelee = null)
     {
       var component = new DamageBonusAgainstAlignment();
@@ -13954,7 +14004,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? damageBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DamageBonusAgainstFactOwner();
       component.Bonus = bonus ?? component.Bonus;
@@ -14007,7 +14057,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DamageBonusOrderOfCockatrice();
       component.Bonus = bonus ?? component.Bonus;
@@ -14049,7 +14099,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddDamageGrace(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DamageGrace();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -14089,7 +14139,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddDamageReductionAgainstFactOwner(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? reduction = null)
     {
       var component = new DamageReductionAgainstFactOwner();
@@ -14209,7 +14259,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddDamageReductionBelowZero(
         bool? epicBypass = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? reduction = null)
     {
       var component = new DamageReductionBelowZero();
@@ -14283,7 +14333,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         StatType? derivativeStat = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DerivativeStatBonus();
       component.BaseStat = baseStat ?? component.BaseStat;
@@ -14319,7 +14369,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? hitAndArmorDifference = null,
         bool? meleeOnly = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onAttacker = null,
         bool? rangedOnly = null)
     {
@@ -14470,7 +14520,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? attackBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Feet? range = null)
     {
       var component = new DistanceAttackBonus();
@@ -14579,7 +14629,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmuletOfFourElementsEnchant</term><description>ccf3bd576cea03a4bb7beb08f55b0a0f</description></item>
-    /// <item><term>DragonAzataBuffAlliesBuff</term><description>a8bebfbc3f5cd1b4e82a778869ecfac4</description></item>
+    /// <item><term>DaggerOfLifeFeature</term><description>ea30904d76a703647b314675dec22b9f</description></item>
     /// <item><term>TwinSerpentsFeature</term><description>eae9f27c1fb62394f9ad9b834b5d4e2b</description></item>
     /// </list>
     /// </remarks>
@@ -14712,7 +14762,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddEnduringSpells(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? greater = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EnduringSpells();
       component.m_Greater = greater?.Reference ?? component.m_Greater;
@@ -14745,7 +14795,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddEvasion(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SavingThrowType? savingThrow = null)
     {
       var component = new Evasion();
@@ -14775,7 +14825,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddEvasionWithTowerShield(
         bool? improved = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EvasionWithTowerShield();
       component.Improved = improved ?? component.Improved;
@@ -14834,7 +14884,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddFactSinglify(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? newFacts = null,
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? oldFacts = null)
     {
@@ -14885,7 +14935,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddFactsChangeTrigger(
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? checkedFacts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onFactGainedActions = null,
         ActionsBuilder? onFactLostActions = null)
     {
@@ -14936,7 +14986,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? attackBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new FlankedAttackBonus();
       component.AttackBonus = attackBonus ?? component.AttackBonus;
@@ -15022,7 +15072,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddHardy(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? steelSoul = null)
     {
       var component = new Hardy();
@@ -15308,7 +15358,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddImprovedEvasion(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SavingThrowType? savingThrow = null)
     {
       var component = new ImprovedEvasion();
@@ -15409,7 +15459,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddIncreaseCastersSavingThrowTypeDC(
         int? bonusDC = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SavingThrowType? type = null)
     {
       var component = new IncreaseCastersSavingThrowTypeDC();
@@ -15441,7 +15491,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddIncreaseFeatRankByGroup(
         FeatureGroup? group = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new IncreaseFeatRankByGroup();
       component.Group = group ?? component.Group;
@@ -15535,7 +15585,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor? descriptor = null,
         bool? halfMythicRank = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null,
         bool? spellsOnly = null,
         bool? useContextBonus = null,
@@ -15658,7 +15708,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddIncreaseSpellHealing(
         ContextValue? healBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpellSchool? school = null)
     {
       var component = new IncreaseSpellHealing();
@@ -15728,7 +15778,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? bonusDC = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpellSchool? school = null)
     {
       var component = new IncreaseSpellSchoolDC();
@@ -15765,7 +15815,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddIncreaseSpellSchoolDamage(
         ContextValue? damageBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpellSchool? school = null)
     {
       var component = new IncreaseSpellSchoolDamage();
@@ -15818,7 +15868,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? bonusDC = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? spellbooks = null)
     {
       var component = new IncreaseSpellSpellbookDC();
@@ -15899,7 +15949,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? magusBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new KensaiCriticalPerfection();
       component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
@@ -15965,7 +16015,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? magusBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new KensaiIaijutsuFocus();
       component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
@@ -16031,7 +16081,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? magusBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new KensaiPerfectStrike();
       component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
@@ -16094,7 +16144,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? magusBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new KensaiPowerfulCrit();
       component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
@@ -16156,7 +16206,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? magusBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new KensaiWeaponMastery();
       component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
@@ -16194,7 +16244,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddMadDogPackTactics(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new MadDogPackTactics();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -16228,7 +16278,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? bonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? mythic = null,
         CombatManeuver? type = null)
     {
@@ -16291,7 +16341,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? bonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         CombatManeuver? type = null)
     {
       var component = new ManeuverDefenceBonus();
@@ -16323,7 +16373,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddManeuverImmunity(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         CombatManeuver? type = null)
     {
       var component = new ManeuverImmunity();
@@ -16353,7 +16403,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddManeuverIncreaseDuration(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         CombatManeuver? type = null)
     {
       var component = new ManeuverIncreaseDuration();
@@ -16389,7 +16439,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         WeaponCategory? category = null,
         CombatManeuver? maneuver = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ManeuverOnAttack();
       component.Category = category ?? component.Category;
@@ -16419,7 +16469,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddManeuverProvokeAttack(
         CombatManeuver? maneuverType = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ManeuverProvokeAttack();
       component.ManeuverType = maneuverType ?? component.ManeuverType;
@@ -16450,7 +16500,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? action = null,
         CombatManeuver? maneuverType = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlySuccess = null)
     {
       var component = new ManeuverTrigger();
@@ -16521,7 +16571,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddMeleeWeaponSizeChange(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? sizeCategoryChange = null)
     {
       var component = new MeleeWeaponSizeChange();
@@ -16594,7 +16644,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? dispellOn20 = null,
         bool? dispellOnRerollFinished = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ModifierDescriptor? modifierDescriptor = null,
         bool? replace = null,
         bool? rerollOnlyIfFailed = null,
@@ -16736,7 +16786,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddMonkReplaceAbilityDC(
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? ability = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? monk = null,
         Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? scaledFist = null)
     {
@@ -16783,7 +16833,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddMythicUnarmedStrike(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new MythicUnarmedStrike();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -16846,7 +16896,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     /// <param name="ifHaveFact">
     /// <para>
-    /// InfoBox: Caster's Fact
+    /// InfoBox: Caster&amp;apos;s Fact
     /// </para>
     /// <para>
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
@@ -16887,7 +16937,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? ifSummonHaveFact = null,
         bool? isInfinity = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpellDescriptorWrapper? spellDescriptor = null,
         AlignmentComponent? summonedAlignment = null)
     {
@@ -16937,7 +16987,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddOpportunist(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new Opportunist();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -16979,7 +17029,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? attackBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? outflankFact = null)
     {
       var component = new OutflankAttackBonus();
@@ -17028,7 +17078,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? damageBonus = null,
         int? increasedDamageBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? outflankFact = null)
     {
       var component = new OutflankDamageBonus();
@@ -17074,7 +17124,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddOutflankProvokeAttack(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? outflankFact = null)
     {
       var component = new OutflankProvokeAttack();
@@ -17151,7 +17201,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddPetManeuverProvokeAttack(
         CombatManeuver[]? maneuver = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PetManeuverProvokeAttack();
       component.Maneuver = maneuver ?? component.Maneuver;
@@ -17185,7 +17235,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddPointBlankMaster(
         WeaponCategory? category = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PointBlankMaster();
       component.Category = category ?? component.Category;
@@ -17212,7 +17262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddPointBlankMasterParametrized(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PointBlankMasterParametrized();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -17255,7 +17305,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddPowerAttackWatcher(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintActivatableAbility, BlueprintActivatableAbilityReference>? powerAttackBlueprint = null)
     {
       var component = new PowerAttackWatcher();
@@ -17358,7 +17408,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddPreciseStrike(
         DamageDescription? damage = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? preciseStrikeFact = null)
     {
       var component = new PreciseStrike();
@@ -17410,7 +17460,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddRangedWeaponSizeChange(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? sizeCategoryChange = null,
         List<Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>>? weaponTypes = null)
     {
@@ -17485,7 +17535,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddRecalculateOnFactsChange(
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? checkedFacts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecalculateOnFactsChange();
       component.m_CheckedFacts = checkedFacts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_CheckedFacts;
@@ -17636,7 +17686,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddRemoveFeatureOnApply(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? feature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RemoveFeatureOnApply();
       component.m_Feature = feature?.Reference ?? component.m_Feature;
@@ -17754,7 +17804,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddReplaceAbilityDC(
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? ability = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null)
     {
       var component = new ReplaceAbilityDC();
@@ -17802,7 +17852,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddReplaceAbilityParamsWithContext(
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? ability = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ReplaceAbilityParamsWithContext();
       component.m_Ability = ability?.Reference ?? component.m_Ability;
@@ -17930,7 +17980,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         List<Blueprint<BlueprintArchetype, BlueprintArchetypeReference>>? archetypes = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null)
     {
       var component = new ReplaceCasterLevelOfAbility();
@@ -18021,7 +18071,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddReplaceSourceBone(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? sourceBone = null)
     {
       var component = new ReplaceSourceBone();
@@ -18068,7 +18118,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddReplaceStatForPrerequisites(
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? newStat = null,
         StatType? oldStat = null,
         ReplaceStatForPrerequisites.StatReplacementPolicy? policy = null,
@@ -18189,7 +18239,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddSavesFixerFactReplacer(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? newFacts = null,
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? oldFacts = null)
     {
@@ -18251,7 +18301,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddSavesFixerReplaceInProgression(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? newFeature = null,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? oldFeature = null)
     {
@@ -18323,7 +18373,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         AbilityType? abilityType = null,
         ContextValue? bonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ModifierDescriptor? modifierDescriptor = null,
         bool? onlyPositiveValue = null,
         int? value = null)
@@ -18402,7 +18452,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? alignmentDifference = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SavingThrowType? savingThrow = null,
         int? value = null)
     {
@@ -18448,7 +18498,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? bonus = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? disablingFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ModifierDescriptor? modifierDescriptor = null,
         bool? onlyPositiveValue = null,
         int? value = null)
@@ -18506,7 +18556,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? bonus = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? disablingFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ModifierDescriptor? modifierDescriptor = null,
         bool? onlyPositiveValue = null,
         SpellDescriptorWrapper? spellDescriptor = null,
@@ -18571,7 +18621,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? checkedFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? value = null)
     {
       var component = new SavingThrowBonusAgainstFact();
@@ -18680,7 +18730,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddSavingThrowBonusAgainstSchoolAbilityValue(
         ContextValue? bonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ModifierDescriptor? modifierDescriptor = null,
         SpellSchool? school = null,
         int? value = null)
@@ -18781,7 +18831,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? againstArcaneSpells = null,
         ContextValue? bonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ModifierDescriptor? modifierDescriptor = null,
         bool? onlyPositiveValue = null,
         int? value = null)
@@ -18869,7 +18919,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddSavingThrowContextBonusAgainstDescriptor(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ModifierDescriptor? modifierDescriptor = null,
         SpellDescriptorWrapper? spellDescriptor = null,
         ContextValue? value = null)
@@ -18917,7 +18967,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddShakeItOff(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? radius = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? shakeItOffFact = null)
     {
@@ -19100,7 +19150,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddShieldWall(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? radius = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? shieldWallFact = null)
     {
@@ -19146,7 +19196,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddShieldedCaster(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? radius = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? shieldedCasterFact = null)
     {
@@ -19192,7 +19242,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddSiezeTheMoment(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? siezeTheMomentFact = null)
     {
       var component = new SiezeTheMoment();
@@ -19244,7 +19294,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? ability = null,
         int? dC = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SpellFixedDC();
       component.m_Ability = ability?.Reference ?? component.m_Ability;
@@ -19308,7 +19358,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? ability = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SpellLevelByClassLevel();
       component.m_Ability = ability?.Reference ?? component.m_Ability;
@@ -19448,7 +19498,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? anyType = null,
         UsableItemType? magicDeviceType = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? skill = null)
     {
       var component = new Take10ForSuccess();
@@ -19633,7 +19683,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor? descriptor = null,
         int? maxBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SavingThrowType? type = null)
     {
       var component = new TransferDescriptorBonusToSavingThrow();
@@ -19765,7 +19815,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         List<Blueprint<BlueprintArmorEnchantment, BlueprintArmorEnchantmentReference>>? armorEnchantments = null,
         List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? commonEnchantments = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyWeaponsShieldsAndArmor = null,
         List<Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>>? weaponEnchantments = null)
     {
@@ -19839,7 +19889,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? bestEnchantments = null,
         List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>>? enhancementEnchantments = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TricksterArcanaBetterEnhancements();
       component.BestEnchantments = bestEnchantments?.Select(bp => bp.Reference)?.ToList() ?? component.BestEnchantments;
@@ -19875,7 +19925,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddTricksterKnowledgeWorldD20(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TricksterKnowledgeWorldD20();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -19901,7 +19951,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddTricksterKnowledgeWorldSkillBonus(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TricksterKnowledgeWorldSkillBonus();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -19987,7 +20037,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddTricksterLoreNatureRestTrigger(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintBuff, BlueprintBuffReference>>? tier1Buffs = null,
         List<Blueprint<BlueprintBuff, BlueprintBuffReference>>? tier2Buffs = null,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? tier2Feature = null,
@@ -20219,7 +20269,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? attackBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new WeaponFocus();
@@ -20267,7 +20317,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? contextMultiplier = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? multiplyByContext = null,
         WeaponFighterGroup? weaponGroup = null)
     {
@@ -20433,7 +20483,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor? descriptor = null,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? fightersFinesse = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? multiplier = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? multiplierFact = null,
         bool? onlyFinessable = null,
@@ -20490,7 +20540,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddWeaponParametersCriticalEdgeIncrease(
         bool? light = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? ranged = null,
         bool? twoHanded = null)
     {
@@ -20580,7 +20630,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? fightersFinesse = null,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? greaterPowerAttackBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintFeature, BlueprintFeatureReference>? mythicBlueprint = null,
         bool? onlyFinessable = null,
         bool? onlySpecificItemBlueprint = null,
@@ -20653,7 +20703,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         WeaponCategory? category = null,
         bool? checkWeaponCategory = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? sizeCategoryChange = null)
     {
       var component = new WeaponSizeChange();
@@ -20701,7 +20751,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddWeaponTypeCriticalEdgeIncrease(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new WeaponTypeCriticalEdgeIncrease();
@@ -20741,7 +20791,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? anyCategory = null,
         WeaponCategory? category = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new WeaponTypeCriticalEdgeIncreaseStackable();
       component.AnyCategory = anyCategory ?? component.AnyCategory;
@@ -20787,7 +20837,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddWeaponTypeCriticalMultiplierIncrease(
         int? additionalMultiplier = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new WeaponTypeCriticalMultiplierIncrease();
@@ -20812,8 +20862,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BackgroundAlkenstarAlchemist</term><description>f51af2d4fa3358844879cbc5ee0f1073</description></item>
-    /// <item><term>WeaponSpecializationGreaterRay</term><description>c22badbb1101ebb46af588f7c166bbb2</description></item>
+    /// <item><term>BaphometPreacherBookFeature</term><description>6be2815963114cc0ac2b85a287d7ae83</description></item>
+    /// <item><term>WeaponSpecializationGreaterScimitar</term><description>890c468f9fba6ca4dbcb86a5d0cf4c86</description></item>
     /// <item><term>WeaponSpecializationUnarmed</term><description>74028e94b236a9c4ca9ba67e57299547</description></item>
     /// </list>
     /// </remarks>
@@ -20839,7 +20889,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddWeaponTypeDamageBonus(
         int? damageBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new WeaponTypeDamageBonus();
@@ -20879,7 +20929,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddWeaponTypeDamageStatReplacement(
         WeaponCategory? category = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyOneHanded = null,
         StatType? stat = null,
         bool? twoHandedBonus = null)
@@ -20949,7 +20999,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddImpatienceCalmingPart(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? impatience = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? patience = null,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? targetedImpatience = null)
     {
@@ -21029,7 +21079,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddImpatienceWatcherTickingResolve(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? impatience = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? patience = null,
         int[]? resolveChances = null,
         int[]? resolveChancesForHighInt = null,
@@ -21110,7 +21160,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintBuff, BlueprintBuffReference>? afterBuff = null,
         int? durationMultiplier = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new Afterbuff();
       component.m_AfterBuff = afterBuff?.Reference ?? component.m_AfterBuff;
@@ -21165,7 +21215,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddArmorFocus(
         ArmorProficiencyGroup? armorCategory = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ArmorFocus();
       component.ArmorCategory = armorCategory ?? component.ArmorCategory;
@@ -21238,7 +21288,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffAllSavesBonus(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? value = null)
     {
       var component = new BuffAllSavesBonus();
@@ -21274,7 +21324,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffAllSkillsBonus(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? multiplier = null,
         int? value = null)
     {
@@ -21316,7 +21366,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffAllSkillsBonusAbilityValue(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? value = null)
     {
       var component = new BuffAllSkillsBonusAbilityValue();
@@ -21354,7 +21404,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffAllSkillsBonusRankDependent(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimalRank = null,
         int? value = null)
     {
@@ -21395,7 +21445,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         DamageEnergyType? element = null,
         DiceFormula? energyDamageDice = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BuffDamageEachRound();
       component.AdditionalRoundsPerCasterLevel = additionalRoundsPerCasterLevel ?? component.AdditionalRoundsPerCasterLevel;
@@ -21500,7 +21550,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <param name="cappedMinimum">
     /// <para>
-    /// InfoBox: Doesn't actually cap bonus. It changes bonus to zero if value + bonus is less than 0. Min speed is always = 5, so use this flag carefully
+    /// InfoBox: Doesn&amp;apos;t actually cap bonus. It changes bonus to zero if value + bonus is less than 0. Min speed is always = 5, so use this flag carefully
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -21515,7 +21565,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? contextBonus = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimumCap = null,
         float? multiplierCap = null,
         int? value = null)
@@ -21572,7 +21622,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffOnArmor(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BuffOnArmor();
       component.m_Buff = buff?.Reference ?? component.m_Buff;
@@ -21621,7 +21671,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffOnHealthTickingTrigger(
         float? healthPercent = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? triggeredBuff = null)
     {
       var component = new BuffOnHealthTickingTrigger();
@@ -21672,7 +21722,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffOnLightOrNoArmor(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BuffOnLightOrNoArmor();
       component.m_Buff = buff?.Reference ?? component.m_Buff;
@@ -21712,7 +21762,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         PrefabLink? deactivateFx = null,
         PrefabLink? eachRoundFx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? playEachRound = null,
         bool? playOnActivate = null,
         bool? playOnDeactivate = null)
@@ -21768,7 +21818,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? actionsOnPass = null,
         int? increaseDC = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? saveDC = null,
         SavingThrowType? saveType = null)
     {
@@ -21786,42 +21836,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.IncreaseDC = increaseDC ?? component.IncreaseDC;
       component.SaveDC = saveDC ?? component.SaveDC;
       component.SaveType = saveType ?? component.SaveType;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BuffSkillBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: BuffMechanics/Bonus to Stealth skill
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>NecklaceOfDoubleCorssesFeature</term><description>64d5a59feeb292e49a6c459fe37c3953</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddBuffSkillBonus(
-        ModifierDescriptor? descriptor = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
-        StatType? stat = null,
-        int? value = null)
-    {
-      var component = new BuffSkillBonus();
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.Stat = stat ?? component.Stat;
-      component.Value = value ?? component.Value;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -21850,7 +21864,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffSkillLoreNatureBonus(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? value = null)
     {
       var component = new BuffSkillLoreNatureBonus();
@@ -21884,7 +21898,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffSkillStealthBonus(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? value = null)
     {
       var component = new BuffSkillStealthBonus();
@@ -22002,7 +22016,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddBuffStatusCondition(
         UnitCondition? condition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? saveEachRound = null,
         SavingThrowType? saveType = null)
     {
@@ -22033,7 +22047,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddBurstBarrier(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BurstBarrier();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -22086,7 +22100,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
         Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? requiresKensai = null)
     {
       var component = new CannyDefensePermanent();
@@ -22155,7 +22169,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ConditionsBuilder? conditions = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyWeaponDamage = null)
     {
       var component = new DamageBonusConditional();
@@ -22204,7 +22218,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         DamageEnergyType? energyType = null,
         bool? instantStartTick = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DamageOverTime();
       component.Damage = damage ?? component.Damage;
@@ -22262,7 +22276,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? basicStatBonus = null,
         int? derivativeStatBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DifficultyStatAdvancement();
       component.BasicStatBonus = basicStatBonus ?? component.BasicStatBonus;
@@ -22290,7 +22304,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddEchoesOfStoneTerrainBonus(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AreaSetting? setting = null)
     {
       var component = new EchoesOfStoneTerrainBonus();
@@ -22318,7 +22332,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <param name="isPermanent">
     /// <para>
-    /// InfoBox: If character receive permanent empty hand weapon while not permanent empty hand weapon is already active then new weapon goes to stack and doesn't override currently active weapon
+    /// InfoBox: If character receive permanent empty hand weapon while not permanent empty hand weapon is already active then new weapon goes to stack and doesn&amp;apos;t override currently active weapon
     /// </para>
     /// </param>
     /// <param name="weapon">
@@ -22386,7 +22400,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddHasArmorFeatureUnlock(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? newFact = null)
     {
       var component = new HasArmorFeatureUnlock();
@@ -22420,7 +22434,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddHealWithOutgoingDamage(
         float? fraction = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new HealWithOutgoingDamage();
       component.Fraction = fraction ?? component.Fraction;
@@ -22573,7 +22587,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddLiquidateTowerShieldPenalty(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new LiquidateTowerShieldPenalty();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -22643,7 +22657,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddModifySpell(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpellModificationType? modificationType = null,
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
     {
@@ -22722,7 +22736,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? isSohei = null,
         bool? isZenArcher = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? newFact = null,
         Blueprint<BlueprintBuff, BlueprintBuffReference>? rapidshotBuff = null)
     {
@@ -22785,7 +22799,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddMonkNoArmorFeatureUnlock(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? newFact = null)
     {
       var component = new MonkNoArmorFeatureUnlock();
@@ -22819,7 +22833,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddMysticTheurgeCombinedSpells(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? spellLevel = null)
     {
       var component = new MysticTheurgeCombinedSpells();
@@ -22906,7 +22920,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddPowerfulCharge(
         int? additionalDiceRolls = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? useContextBonus = null,
         ContextValue? value = null)
     {
@@ -22947,7 +22961,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddProtectionFromEnergy(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? pool = null,
         DamageEnergyType? type = null,
         bool? usePool = null,
@@ -23018,7 +23032,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddReduceDamageReduction(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? multiplier = null,
         ContextValue? value = null)
     {
@@ -23096,7 +23110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddResistEnergy(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? pool = null,
         DamageEnergyType? type = null,
         bool? usePool = null,
@@ -23152,7 +23166,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddResistEnergyContext(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? pool = null,
         DamageEnergyType? type = null,
         bool? usePool = null,
@@ -23231,7 +23245,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddShieldFocus(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ShieldFocus();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -23289,7 +23303,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ArmorProficiencyGroup[]? category = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noArmor = null)
     {
       var component = new SpeedBonusInArmorCategory();
@@ -23382,7 +23396,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ModifierDescriptor? descriptor = null,
         bool? duelistWeapon = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? oneHandedOnly = null,
         StatType? stat = null,
         int? value = null)
@@ -23418,7 +23432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddStonyStepTerrainBonus(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AreaSetting? setting = null)
     {
       var component = new StonyStepTerrainBonus();
@@ -23615,7 +23629,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddTowerShieldSpecialistTotalCover(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TowerShieldSpecialistTotalCover();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -23644,7 +23658,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddWeaponTrainingBonuses(
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null)
     {
       var component = new WeaponTrainingBonuses();
@@ -23691,7 +23705,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddWizardAbjurationResistance(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? pool = null,
         DamageEnergyType? type = null,
         bool? usePool = null,
@@ -23763,7 +23777,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddWizardEnergyAbsorption(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? pool = null,
         Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? resource = null,
         DamageEnergyType? type = null,

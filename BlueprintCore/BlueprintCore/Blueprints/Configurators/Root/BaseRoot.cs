@@ -73,19 +73,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_DefaultPlayerCharacter"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="defaultPlayerCharacter">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDefaultPlayerCharacter(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -176,19 +163,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Removes elements from <see cref="BlueprintRoot.m_SelectablePlayerCharacters"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="selectablePlayerCharacters">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromSelectablePlayerCharacters(Func<BlueprintUnitReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -202,19 +176,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Removes all elements from <see cref="BlueprintRoot.m_SelectablePlayerCharacters"/>
     /// </summary>
-    ///
-    /// <param name="selectablePlayerCharacters">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearSelectablePlayerCharacters()
     {
       return OnConfigureInternal(
@@ -227,19 +188,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_SelectablePlayerCharacters"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="selectablePlayerCharacters">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySelectablePlayerCharacters(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -278,19 +226,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_PlayerFaction"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="playerFaction">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPlayerFaction(Action<BlueprintFactionReference> action)
     {
       return OnConfigureInternal(
@@ -353,19 +288,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_KingFlag"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="kingFlag">
-    /// <para>
-    /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyKingFlag(Action<BlueprintUnlockableFlagReference> action)
     {
       return OnConfigureInternal(
@@ -478,19 +400,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_NewGamePreset"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="newGamePreset">
-    /// <para>
-    /// Blueprint of type BlueprintAreaPreset. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyNewGamePreset(Action<BlueprintAreaPresetReference> action)
     {
       return OnConfigureInternal(
@@ -610,19 +519,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_RE"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="rE">
-    /// <para>
-    /// Blueprint of type RandomEncountersRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRE(Action<RandomEncountersRootReference> action)
     {
       return OnConfigureInternal(
@@ -1051,19 +947,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_InvisibleKittenUnit"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="invisibleKittenUnit">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyInvisibleKittenUnit(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -1131,19 +1014,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_CoinItem"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="coinItem">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCoinItem(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(
@@ -1442,19 +1312,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_CutscenesRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="cutscenesRoot">
-    /// <para>
-    /// Blueprint of type CutscenesRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCutscenesRoot(Action<CutscenesRoot.Reference> action)
     {
       return OnConfigureInternal(
@@ -1493,19 +1350,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_Kingdom"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="kingdom">
-    /// <para>
-    /// Blueprint of type KingdomRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyKingdom(Action<KingdomRootReference> action)
     {
       return OnConfigureInternal(
@@ -1544,19 +1388,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_CorruptionRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="corruptionRoot">
-    /// <para>
-    /// Blueprint of type BlueprintCorruptionRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCorruptionRoot(Action<BlueprintCorruptionRoot.Reference> action)
     {
       return OnConfigureInternal(
@@ -1595,19 +1426,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_ArmyRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="armyRoot">
-    /// <para>
-    /// Blueprint of type ArmyRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyArmyRoot(Action<ArmyRootReference> action)
     {
       return OnConfigureInternal(
@@ -1646,19 +1464,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_CraftRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="craftRoot">
-    /// <para>
-    /// Blueprint of type CraftRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCraftRoot(Action<CraftRoot.Reference> action)
     {
       return OnConfigureInternal(
@@ -1697,19 +1502,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_LeadersRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="leadersRoot">
-    /// <para>
-    /// Blueprint of type LeadersRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyLeadersRoot(Action<LeadersRootReference> action)
     {
       return OnConfigureInternal(
@@ -1748,19 +1540,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_MoraleRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="moraleRoot">
-    /// <para>
-    /// Blueprint of type MoraleRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyMoraleRoot(Action<MoraleRoot.Reference> action)
     {
       return OnConfigureInternal(
@@ -1799,19 +1578,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_TacticalCombat"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="tacticalCombat">
-    /// <para>
-    /// Blueprint of type BlueprintTacticalCombatRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyTacticalCombat(Action<BlueprintTacticalCombatRoot.Reference> action)
     {
       return OnConfigureInternal(
@@ -1876,19 +1642,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_Formations"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="formations">
-    /// <para>
-    /// Blueprint of type FormationsRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFormations(Action<FormationsRootReference> action)
     {
       return OnConfigureInternal(
@@ -2005,19 +1758,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_FxRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="fxRoot">
-    /// <para>
-    /// Blueprint of type FxRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFxRoot(Action<FxRootReference> action)
     {
       return OnConfigureInternal(
@@ -2056,19 +1796,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_HitSystemRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="hitSystemRoot">
-    /// <para>
-    /// Blueprint of type HitSystemRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyHitSystemRoot(Action<HitSystemRootReference> action)
     {
       return OnConfigureInternal(
@@ -2107,19 +1834,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_PlayerUpgradeActions"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="playerUpgradeActions">
-    /// <para>
-    /// Blueprint of type PlayerUpgradeActionsRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPlayerUpgradeActions(Action<PlayerUpgradeActionsRoot.Reference> action)
     {
       return OnConfigureInternal(
@@ -2158,19 +1872,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_CustomCompanion"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="customCompanion">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCustomCompanion(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -2409,19 +2110,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Removes elements from <see cref="BlueprintRoot.m_UnitTypes"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="unitTypes">
-    /// <para>
-    /// Blueprint of type BlueprintUnitType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromUnitTypes(Func<BlueprintUnitTypeReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -2435,19 +2123,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Removes all elements from <see cref="BlueprintRoot.m_UnitTypes"/>
     /// </summary>
-    ///
-    /// <param name="unitTypes">
-    /// <para>
-    /// Blueprint of type BlueprintUnitType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearUnitTypes()
     {
       return OnConfigureInternal(
@@ -2460,19 +2135,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_UnitTypes"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="unitTypes">
-    /// <para>
-    /// Blueprint of type BlueprintUnitType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyUnitTypes(Action<BlueprintUnitTypeReference> action)
     {
       return OnConfigureInternal(
@@ -2537,19 +2199,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_Dungeon"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="dungeon">
-    /// <para>
-    /// Blueprint of type BlueprintDungeonRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDungeon(Action<BlueprintDungeonRootReference> action)
     {
       return OnConfigureInternal(
@@ -2588,19 +2237,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_ConsoleRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="consoleRoot">
-    /// <para>
-    /// Blueprint of type ConsoleRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyConsoleRoot(Action<ConsoleRootReference> action)
     {
       return OnConfigureInternal(
@@ -2639,19 +2275,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_BlueprintTrapSettingsRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="blueprintTrapSettingsRoot">
-    /// <para>
-    /// Blueprint of type BlueprintTrapSettingsRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBlueprintTrapSettingsRoot(Action<BlueprintTrapSettingsRootReference> action)
     {
       return OnConfigureInternal(
@@ -2690,19 +2313,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_InteractionRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="interactionRoot">
-    /// <para>
-    /// Blueprint of type BlueprintInteractionRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyInteractionRoot(Action<BlueprintInteractionRoot.Referense> action)
     {
       return OnConfigureInternal(
@@ -2741,19 +2351,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_BlueprintMythicsSettingsReference"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="blueprintMythicsSettingsReference">
-    /// <para>
-    /// Blueprint of type BlueprintMythicsSettings. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBlueprintMythicsSettingsReference(Action<BlueprintMythicsSettingsReference> action)
     {
       return OnConfigureInternal(
@@ -2792,19 +2389,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_CustomAiConsiderations"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="customAiConsiderations">
-    /// <para>
-    /// Blueprint of type CustomAiConsiderationsRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCustomAiConsiderations(Action<CustomAiConsiderationsRoot.Reference> action)
     {
       return OnConfigureInternal(
@@ -2843,19 +2427,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Modifies <see cref="BlueprintRoot.m_BlueprintBugReportTutorialReference"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="blueprintBugReportTutorialReference">
-    /// <para>
-    /// Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBlueprintBugReportTutorialReference(Action<BlueprintTutorial.Reference> action)
     {
       return OnConfigureInternal(

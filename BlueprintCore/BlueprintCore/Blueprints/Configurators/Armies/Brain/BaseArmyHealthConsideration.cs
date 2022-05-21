@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     ///
     /// <param name="fullBorder">
     /// <para>
-    /// InfoBox: If unit current HP is above this percent of max HP -> return FullScore
+    /// InfoBox: If unit current HP is above this percent of max HP -&amp;gt; return FullScore
     /// </para>
     /// </param>
     public TBuilder SetFullBorder(float fullBorder)
@@ -40,12 +40,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Modifies <see cref="ArmyHealthConsideration.FullBorder"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="fullBorder">
-    /// <para>
-    /// InfoBox: If unit current HP is above this percent of max HP -> return FullScore
-    /// </para>
-    /// </param>
     public TBuilder ModifyFullBorder(Action<float> action)
     {
       return OnConfigureInternal(
@@ -61,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     ///
     /// <param name="deadBorder">
     /// <para>
-    /// InfoBox: If unit current HP is below this percent of max HP -> return DeadScore
+    /// InfoBox: If unit current HP is below this percent of max HP -&amp;gt; return DeadScore
     /// </para>
     /// </param>
     public TBuilder SetDeadBorder(float deadBorder)
@@ -76,12 +70,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Modifies <see cref="ArmyHealthConsideration.DeadBorder"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="deadBorder">
-    /// <para>
-    /// InfoBox: If unit current HP is below this percent of max HP -> return DeadScore
-    /// </para>
-    /// </param>
     public TBuilder ModifyDeadBorder(Action<float> action)
     {
       return OnConfigureInternal(
@@ -112,12 +100,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// <summary>
     /// Modifies <see cref="ArmyHealthConsideration.FullScore"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="fullScore">
-    /// <para>
-    /// InfoBox: According to current HP percentage returns score between FullScore and DeadScore Current HP here is sum of all alive squad units HP
-    /// </para>
-    /// </param>
     public TBuilder ModifyFullScore(Action<float> action)
     {
       return OnConfigureInternal(

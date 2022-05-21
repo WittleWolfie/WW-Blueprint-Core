@@ -55,19 +55,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_BlueprintRegionCapital"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="blueprintRegionCapital">
-    /// <para>
-    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBlueprintRegionCapital(Action<BlueprintRegionReference> action)
     {
       return OnConfigureInternal(
@@ -106,19 +93,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_CapitalSettlement"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="capitalSettlement">
-    /// <para>
-    /// Blueprint of type BlueprintSettlement. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCapitalSettlement(Action<BlueprintSettlement.Reference> action)
     {
       return OnConfigureInternal(
@@ -157,19 +131,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_ThroneRoom"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="throneRoom">
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyThroneRoom(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -286,19 +247,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="KingdomRoot.m_StartingEventDecks"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="startingEventDecks">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomDeck. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromStartingEventDecks(Func<BlueprintKingdomDeckReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -312,19 +260,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="KingdomRoot.m_StartingEventDecks"/>
     /// </summary>
-    ///
-    /// <param name="startingEventDecks">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomDeck. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearStartingEventDecks()
     {
       return OnConfigureInternal(
@@ -337,19 +272,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_StartingEventDecks"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="startingEventDecks">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomDeck. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartingEventDecks(Action<BlueprintKingdomDeckReference> action)
     {
       return OnConfigureInternal(
@@ -440,19 +362,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="KingdomRoot.m_KingdomProjectEvents"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="kingdomProjectEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromKingdomProjectEvents(Func<BlueprintKingdomProjectReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -466,19 +375,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="KingdomRoot.m_KingdomProjectEvents"/>
     /// </summary>
-    ///
-    /// <param name="kingdomProjectEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearKingdomProjectEvents()
     {
       return OnConfigureInternal(
@@ -491,19 +387,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_KingdomProjectEvents"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="kingdomProjectEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyKingdomProjectEvents(Action<BlueprintKingdomProjectReference> action)
     {
       return OnConfigureInternal(
@@ -594,19 +477,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="KingdomRoot.m_Buildings"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="buildings">
-    /// <para>
-    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromBuildings(Func<BlueprintSettlementBuildingReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -620,19 +490,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="KingdomRoot.m_Buildings"/>
     /// </summary>
-    ///
-    /// <param name="buildings">
-    /// <para>
-    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearBuildings()
     {
       return OnConfigureInternal(
@@ -645,19 +502,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_Buildings"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="buildings">
-    /// <para>
-    /// Blueprint of type BlueprintSettlementBuilding. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBuildings(Action<BlueprintSettlementBuildingReference> action)
     {
       return OnConfigureInternal(
@@ -696,19 +540,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_UnrestPriorityDeck"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="unrestPriorityDeck">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomDeck. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyUnrestPriorityDeck(Action<BlueprintKingdomDeckReference> action)
     {
       return OnConfigureInternal(
@@ -823,19 +654,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="KingdomRoot.m_UnrestMitigationEvents"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="unrestMitigationEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromUnrestMitigationEvents(Func<BlueprintKingdomProjectReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -849,19 +667,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="KingdomRoot.m_UnrestMitigationEvents"/>
     /// </summary>
-    ///
-    /// <param name="unrestMitigationEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearUnrestMitigationEvents()
     {
       return OnConfigureInternal(
@@ -874,19 +679,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_UnrestMitigationEvents"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="unrestMitigationEvents">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyUnrestMitigationEvents(Action<BlueprintKingdomProjectReference> action)
     {
       return OnConfigureInternal(
@@ -925,19 +717,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_UIRoot"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="uIRoot">
-    /// <para>
-    /// Blueprint of type KingdomUIRoot. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyUIRoot(Action<KingdomUIRootReference> action)
     {
       return OnConfigureInternal(
@@ -1105,19 +884,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="KingdomRoot.m_StartingNPCLeaders"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="startingNPCLeaders">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromStartingNPCLeaders(Func<BlueprintUnitReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1131,19 +897,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="KingdomRoot.m_StartingNPCLeaders"/>
     /// </summary>
-    ///
-    /// <param name="startingNPCLeaders">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearStartingNPCLeaders()
     {
       return OnConfigureInternal(
@@ -1156,19 +909,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_StartingNPCLeaders"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="startingNPCLeaders">
-    /// <para>
-    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartingNPCLeaders(Action<BlueprintUnitReference> action)
     {
       return OnConfigureInternal(
@@ -1207,19 +947,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_Timeline"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="timeline">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomEventTimeline. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyTimeline(Action<BlueprintKingdomEventTimelineReference> action)
     {
       return OnConfigureInternal(
@@ -1258,19 +985,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_CrusadeEventsTimeline"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="crusadeEventsTimeline">
-    /// <para>
-    /// Blueprint of type BlueprintCrusadeEventTimeline. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCrusadeEventsTimeline(Action<BlueprintCrusadeEventTimeline.Reference> action)
     {
       return OnConfigureInternal(
@@ -1309,19 +1023,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_RegionUpgradesAvailable"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="regionUpgradesAvailable">
-    /// <para>
-    /// Blueprint of type BlueprintUnlockableFlag. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRegionUpgradesAvailable(Action<BlueprintUnlockableFlagReference> action)
     {
       return OnConfigureInternal(
@@ -1360,19 +1061,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_BpVendorItem"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="bpVendorItem">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBpVendorItem(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(
@@ -1411,19 +1099,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_ConsumableEventBonusVendorItem"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="consumableEventBonusVendorItem">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyConsumableEventBonusVendorItem(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(
@@ -1973,7 +1648,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///
     /// <param name="maxArmySquadsCount">
     /// <para>
-    /// InfoBox: Army can't have squads more than that, even with bonuses
+    /// InfoBox: Army can&amp;apos;t have squads more than that, even with bonuses
     /// </para>
     /// </param>
     public TBuilder SetMaxArmySquadsCount(int maxArmySquadsCount)
@@ -1988,12 +1663,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.MaxArmySquadsCount"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="maxArmySquadsCount">
-    /// <para>
-    /// InfoBox: Army can't have squads more than that, even with bonuses
-    /// </para>
-    /// </param>
     public TBuilder ModifyMaxArmySquadsCount(Action<int> action)
     {
       return OnConfigureInternal(
@@ -2031,19 +1700,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_StoryModeBuff"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="storyModeBuff">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStoryModeBuff(Action<BlueprintKingdomBuffReference> action)
     {
       return OnConfigureInternal(
@@ -2082,19 +1738,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_CasualModeBuff"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="casualModeBuff">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCasualModeBuff(Action<BlueprintKingdomBuffReference> action)
     {
       return OnConfigureInternal(
@@ -2288,19 +1931,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_EntryPoint"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="entryPoint">
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEntryPoint(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -2391,19 +2021,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="KingdomRoot.m_Regions"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="regions">
-    /// <para>
-    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromRegions(Func<BlueprintRegionReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -2417,19 +2034,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="KingdomRoot.m_Regions"/>
     /// </summary>
-    ///
-    /// <param name="regions">
-    /// <para>
-    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearRegions()
     {
       return OnConfigureInternal(
@@ -2442,19 +2046,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_Regions"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="regions">
-    /// <para>
-    /// Blueprint of type BlueprintRegion. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRegions(Action<BlueprintRegionReference> action)
     {
       return OnConfigureInternal(
@@ -2545,19 +2136,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="KingdomRoot.m_Locations"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="locations">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromLocations(Func<BlueprintGlobalMapPoint.Reference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -2571,19 +2149,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="KingdomRoot.m_Locations"/>
     /// </summary>
-    ///
-    /// <param name="locations">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearLocations()
     {
       return OnConfigureInternal(
@@ -2596,19 +2161,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="KingdomRoot.m_Locations"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="locations">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyLocations(Action<BlueprintGlobalMapPoint.Reference> action)
     {
       return OnConfigureInternal(

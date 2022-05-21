@@ -51,19 +51,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="LeadersRoot.m_ExpTable"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="expTable">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyExpTable(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -154,19 +141,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes elements from <see cref="LeadersRoot.m_Leaders"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="leaders">
-    /// <para>
-    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromLeaders(Func<BlueprintArmyLeaderReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -180,19 +154,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Removes all elements from <see cref="LeadersRoot.m_Leaders"/>
     /// </summary>
-    ///
-    /// <param name="leaders">
-    /// <para>
-    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearLeaders()
     {
       return OnConfigureInternal(
@@ -205,19 +166,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="LeadersRoot.m_Leaders"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="leaders">
-    /// <para>
-    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyLeaders(Action<BlueprintArmyLeaderReference> action)
     {
       return OnConfigureInternal(
@@ -256,19 +204,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="LeadersRoot.m_AttackLeaderFeature"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="attackLeaderFeature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAttackLeaderFeature(Action<BlueprintFeatureReference> action)
     {
       return OnConfigureInternal(
@@ -307,19 +242,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="LeadersRoot.m_DeffenceLeaderFeature"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="deffenceLeaderFeature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDeffenceLeaderFeature(Action<BlueprintFeatureReference> action)
     {
       return OnConfigureInternal(
@@ -478,19 +400,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="LeadersRoot.m_CheaperLeadersProject"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="cheaperLeadersProject">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCheaperLeadersProject(Action<BlueprintKingdomProjectReference> action)
     {
       return OnConfigureInternal(
@@ -529,19 +438,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="LeadersRoot.m_TalentedLeadersProject"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="talentedLeadersProject">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyTalentedLeadersProject(Action<BlueprintKingdomProjectReference> action)
     {
       return OnConfigureInternal(
@@ -580,19 +476,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="LeadersRoot.m_ExperiencedLeadersProject"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="experiencedLeadersProject">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyExperiencedLeadersProject(Action<BlueprintKingdomProjectReference> action)
     {
       return OnConfigureInternal(
@@ -631,19 +514,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="LeadersRoot.m_ExcellentLeadersProject"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="excellentLeadersProject">
-    /// <para>
-    /// Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyExcellentLeadersProject(Action<BlueprintKingdomProjectReference> action)
     {
       return OnConfigureInternal(

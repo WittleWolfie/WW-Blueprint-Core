@@ -302,12 +302,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPart.m_ManageBanksSeparately"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="manageBanksSeparately">
-    /// <para>
-    /// InfoBox: Turn on to load banks only on enter this area part
-    /// </para>
-    /// </param>
     public TBuilder ModifyManageBanksSeparately(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -338,12 +332,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Modifies <see cref="BlueprintAreaPart.m_UnloadBanksDelay"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="unloadBanksDelay">
-    /// <para>
-    /// InfoBox: Delay before area banks unload. Needed to fade all sounds properly
-    /// </para>
-    /// </param>
     public TBuilder ModifyUnloadBanksDelay(Action<float> action)
     {
       return OnConfigureInternal(

@@ -463,19 +463,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Modifies <see cref="BlueprintTutorial.EncyclopediaReference"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="encyclopediaReference">
-    /// <para>
-    /// Blueprint of type BlueprintEncyclopediaPage. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEncyclopediaReference(Action<BlueprintEncyclopediaPageReference> action)
     {
       return OnConfigureInternal(
@@ -509,7 +496,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TBuilder AddTutorialPage(
         LocalizedString? descriptionText = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpriteLink? picture = null,
         LocalizedString? solutionFoundText = null,
         LocalizedString? solutionNotFoundText = null,
@@ -1191,7 +1178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool? allowItemsWithSpell = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? enemyFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null,
         UnitEntityData? unit = null)
     {
@@ -1992,7 +1979,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///
     /// <param name="demonsWon">
     /// <para>
-    /// InfoBox: If true triggers on demon's victory, otherwise on crusaders'
+    /// InfoBox: If true triggers on demon&amp;apos;s victory, otherwise on crusaders&amp;apos;
     /// </para>
     /// </param>
     /// <param name="onlyGarrison">
@@ -2366,12 +2353,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </param>
     /// <param name="checkVulnerability">
     /// <para>
-    /// InfoBox: Consider only spells which have target's vulnerable descriptors
+    /// InfoBox: Consider only spells which have target&amp;apos;s vulnerable descriptors
     /// </para>
     /// </param>
     /// <param name="ignoredSpells">
     /// <para>
-    /// InfoBox: These spells can't be solution. For example, ChannelNegativeEnergy can't damage all tarrgets
+    /// InfoBox: These spells can&amp;apos;t be solution. For example, ChannelNegativeEnergy can&amp;apos;t damage all tarrgets
     /// </para>
     /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:

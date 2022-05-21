@@ -225,19 +225,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Modifies <see cref="RandomEncountersRoot.m_TrashLootSettings"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="trashLootSettings">
-    /// <para>
-    /// Blueprint of type TrashLootSettings. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyTrashLootSettings(Action<TrashLootSettingsReference> action)
     {
       return OnConfigureInternal(
@@ -405,19 +392,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Removes elements from <see cref="RandomEncountersRoot.m_Encounters"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="encounters">
-    /// <para>
-    /// Blueprint of type BlueprintRandomEncounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromEncounters(Func<BlueprintRandomEncounterReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -431,19 +405,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Removes all elements from <see cref="RandomEncountersRoot.m_Encounters"/>
     /// </summary>
-    ///
-    /// <param name="encounters">
-    /// <para>
-    /// Blueprint of type BlueprintRandomEncounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearEncounters()
     {
       return OnConfigureInternal(
@@ -456,19 +417,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Modifies <see cref="RandomEncountersRoot.m_Encounters"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="encounters">
-    /// <para>
-    /// Blueprint of type BlueprintRandomEncounter. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEncounters(Action<BlueprintRandomEncounterReference> action)
     {
       return OnConfigureInternal(

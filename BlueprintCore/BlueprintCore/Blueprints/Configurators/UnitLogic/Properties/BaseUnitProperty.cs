@@ -72,12 +72,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <summary>
     /// Modifies <see cref="BlueprintUnitProperty.OperationOnComponents"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="operationOnComponents">
-    /// <para>
-    /// InfoBox: Unit Property value is result for aggregating all getter components with given operation. Make sure that BaseValue for Multiply operation is not equals to 0
-    /// </para>
-    /// </param>
     public TBuilder ModifyOperationOnComponents(Action<BlueprintUnitProperty.MathOperation> action)
     {
       return OnConfigureInternal(
@@ -120,7 +114,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddCountCorpsesAroundPropertyGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitType, BlueprintUnitTypeReference>? onlyOfType = null,
         Feet? radius = null,
         PropertySettings? settings = null)
@@ -174,7 +168,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         int? featureBonus = null,
         List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new BaseAttackPropertyWithFeatureList();
@@ -212,7 +206,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddCurrentMeleeWeaponDamageStatGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new CurrentMeleeWeaponDamageStatGetter();
@@ -241,7 +235,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddCurrentWeaponCriticalMultiplierGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new CurrentWeaponCriticalMultiplierGetter();
@@ -296,7 +290,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? duelingFeatures = null,
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? features = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new FightingDefensivelyACBonusProperty();
@@ -374,7 +368,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? features = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? halfBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new FightingDefensivelyAttackPenaltyProperty();
@@ -419,7 +413,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddKineticistBurnPropertyGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? multiplyOnClassLevel = null,
         bool? multyplyOnCharacterLevel = null,
         PropertySettings? settings = null)
@@ -452,7 +446,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddKineticistMainStatBonusPropertyGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new KineticistMainStatBonusPropertyGetter();
@@ -493,7 +487,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddStatBonusIfHasFactProperty(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? multiplier = null,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? requiredFact = null,
         PropertySettings? settings = null,
@@ -532,7 +526,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddAnimalPetOwnerRankGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitProperty? property = null,
         PropertySettings? settings = null)
     {
@@ -567,7 +561,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         int? bonus = null,
         int? denominator = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? multiplier = null,
         PropertySettings? settings = null)
     {
@@ -615,7 +609,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     public TBuilder AddClassLevelGetter(
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new ClassLevelGetter();
@@ -664,7 +658,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     public TBuilder AddFactRankGetter(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new FactRankGetter();
@@ -710,13 +704,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     /// <param name="rankMultiplier">
     /// <para>
-    /// InfoBox: Multiplies Fact's Rank before progression calculation.
+    /// InfoBox: Multiplies Fact&amp;apos;s Rank before progression calculation.
     /// </para>
     /// </param>
     public TBuilder AddPropertyWithFactRankGetter(
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitProperty? property = null,
         int? rankMultiplier = null,
         PropertySettings? settings = null)
@@ -754,7 +748,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddShieldBonusGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new ShieldBonusGetter();
@@ -785,7 +779,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddSimplePropertyGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitProperty? property = null,
         PropertySettings? settings = null)
     {
@@ -818,7 +812,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddSkillRankGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null,
         StatType? skill = null)
     {
@@ -849,7 +843,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddSkillValueGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null,
         StatType? skill = null)
     {
@@ -880,7 +874,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddSpellLevelGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new SpellLevelGetter();
@@ -950,7 +944,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         List<Blueprint<BlueprintArchetype, BlueprintArchetypeReference>>? archetypes = null,
         List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new SummClassLevelGetter();
@@ -1010,7 +1004,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         bool? attributeBonus = null,
         Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new CastingAttributeGetter();
@@ -1049,7 +1043,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         int? bonus = null,
         int? denominator = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? multiplier = null,
         UnitProperty? property = null,
         PropertySettings? settings = null)
@@ -1084,7 +1078,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddMaxAttributeBonusGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new MaxAttributeBonusGetter();
@@ -1129,7 +1123,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>>? classes = null,
         StatType? defaultStat = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
     {
       var component = new MaxCastingAttributeGetter();

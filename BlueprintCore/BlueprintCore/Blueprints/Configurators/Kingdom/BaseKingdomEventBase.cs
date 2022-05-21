@@ -401,12 +401,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="BlueprintKingdomEventBase.AIStopping"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="aIStopping">
-    /// <para>
-    /// Tooltip: If true, this event would stop AI when it is resolved, or its recurrence ticks
-    /// </para>
-    /// </param>
     public TBuilder ModifyAIStopping(Action<bool> action)
     {
       return OnConfigureInternal(

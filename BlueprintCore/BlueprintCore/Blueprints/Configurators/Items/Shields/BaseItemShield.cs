@@ -49,19 +49,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     /// <summary>
     /// Modifies <see cref="BlueprintItemShield.m_WeaponComponent"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="weaponComponent">
-    /// <para>
-    /// Blueprint of type BlueprintItemWeapon. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyWeaponComponent(Action<BlueprintItemWeaponReference> action)
     {
       return OnConfigureInternal(
@@ -100,19 +87,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     /// <summary>
     /// Modifies <see cref="BlueprintItemShield.m_ArmorComponent"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="armorComponent">
-    /// <para>
-    /// Blueprint of type BlueprintItemArmor. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyArmorComponent(Action<BlueprintItemArmorReference> action)
     {
       return OnConfigureInternal(

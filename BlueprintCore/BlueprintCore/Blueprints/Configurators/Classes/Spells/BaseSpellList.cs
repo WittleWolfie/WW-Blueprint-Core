@@ -149,19 +149,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellList.m_FilteredList"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="filteredList">
-    /// <para>
-    /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFilteredList(Action<BlueprintSpellListReference> action)
     {
       return OnConfigureInternal(
@@ -241,12 +228,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Modifies <see cref="BlueprintSpellList.Descriptor"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="descriptor">
-    /// <para>
-    /// InfoBox: Add only spells with any specified descriptors
-    /// </para>
-    /// </param>
     public TBuilder ModifyDescriptor(Action<SpellDescriptorWrapper> action)
     {
       return OnConfigureInternal(

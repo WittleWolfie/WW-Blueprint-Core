@@ -52,19 +52,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.m_StartLocation"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="startLocation">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartLocation(Action<BlueprintGlobalMapPoint.Reference> action)
     {
       return OnConfigureInternal(
@@ -103,19 +90,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.m_GlobalMapEnterPoint"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="globalMapEnterPoint">
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyGlobalMapEnterPoint(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -173,12 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.VisualSpeedBase"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="visualSpeedBase">
-    /// <para>
-    /// Tooltip: Miles per second
-    /// </para>
-    /// </param>
     public TBuilder ModifyVisualSpeedBase(Action<float> action)
     {
       return OnConfigureInternal(
@@ -209,12 +177,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.MechanicsSpeedBase"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="mechanicsSpeedBase">
-    /// <para>
-    /// Tooltip: Miles per hour
-    /// </para>
-    /// </param>
     public TBuilder ModifyMechanicsSpeedBase(Action<float> action)
     {
       return OnConfigureInternal(
@@ -293,12 +255,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.RandomEncounterTimer"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="randomEncounterTimer">
-    /// <para>
-    /// Tooltip: Interface animation duration for starting random encounter. Seconds.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRandomEncounterTimer(Action<float> action)
     {
       return OnConfigureInternal(
@@ -329,12 +285,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.ExploreDistance"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="exploreDistance">
-    /// <para>
-    /// Tooltip: How long path does pawn see from its position
-    /// </para>
-    /// </param>
     public TBuilder ModifyExploreDistance(Action<float> action)
     {
       return OnConfigureInternal(
@@ -448,19 +398,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes elements from <see cref="BlueprintGlobalMap.Points"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="points">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromPoints(Func<BlueprintGlobalMapPoint.Reference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -474,19 +411,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes all elements from <see cref="BlueprintGlobalMap.Points"/>
     /// </summary>
-    ///
-    /// <param name="points">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearPoints()
     {
       return OnConfigureInternal(
@@ -499,19 +423,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.Points"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="points">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPoints(Action<BlueprintGlobalMapPoint.Reference> action)
     {
       return OnConfigureInternal(
@@ -602,19 +513,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes elements from <see cref="BlueprintGlobalMap.Edges"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="edges">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapEdge. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromEdges(Func<BlueprintGlobalMapEdge.Reference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -628,19 +526,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes all elements from <see cref="BlueprintGlobalMap.Edges"/>
     /// </summary>
-    ///
-    /// <param name="edges">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapEdge. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearEdges()
     {
       return OnConfigureInternal(
@@ -653,19 +538,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.Edges"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="edges">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapEdge. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEdges(Action<BlueprintGlobalMapEdge.Reference> action)
     {
       return OnConfigureInternal(
@@ -786,19 +658,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMap.CampLocation"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="campLocation">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCampLocation(Action<BlueprintGlobalMapPoint.Reference> action)
     {
       return OnConfigureInternal(

@@ -53,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bool? checkPhysicalDamageForm = null,
         DamageEnergyType? energyType = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PhysicalDamageForm? physicalDamageForm = null)
     {
       var component = new DamageToMapObjectTrigger();

@@ -63,19 +63,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMapPoint.m_GlobalMap"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="globalMap">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyGlobalMap(Action<BlueprintGlobalMap.Reference> action)
     {
       return OnConfigureInternal(
@@ -499,19 +486,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMapPoint.m_AreaEntrance"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="areaEntrance">
-    /// <para>
-    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAreaEntrance(Action<BlueprintAreaEnterPointReference> action)
     {
       return OnConfigureInternal(
@@ -550,19 +524,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMapPoint.m_Entrances"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="entrances">
-    /// <para>
-    /// Blueprint of type BlueprintMultiEntrance. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEntrances(Action<BlueprintMultiEntrance.Reference> action)
     {
       return OnConfigureInternal(
@@ -601,19 +562,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMapPoint.m_BookEvent"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="bookEvent">
-    /// <para>
-    /// Blueprint of type BlueprintDialog. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBookEvent(Action<BlueprintDialogReference> action)
     {
       return OnConfigureInternal(
@@ -733,19 +681,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes elements from <see cref="BlueprintGlobalMapPoint.LocationVariations"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="locationVariations">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPointVariation. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromLocationVariations(Func<BlueprintGlobalMapPointVariation.Reference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -759,19 +694,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes all elements from <see cref="BlueprintGlobalMapPoint.LocationVariations"/>
     /// </summary>
-    ///
-    /// <param name="locationVariations">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPointVariation. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearLocationVariations()
     {
       return OnConfigureInternal(
@@ -784,19 +706,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMapPoint.LocationVariations"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="locationVariations">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMapPointVariation. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyLocationVariations(Action<BlueprintGlobalMapPointVariation.Reference> action)
     {
       return OnConfigureInternal(
@@ -1169,19 +1078,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMapPoint.m_ArmyObjective"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="armyObjective">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyArmyObjective(Action<BlueprintQuestObjectiveReference> action)
     {
       return OnConfigureInternal(
@@ -1350,19 +1246,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMapPoint.DemonGarrison"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="demonGarrison">
-    /// <para>
-    /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyDemonGarrison(Action<BlueprintArmyPreset.Reference> action)
     {
       return OnConfigureInternal(
@@ -1401,19 +1284,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintGlobalMapPoint.GarrisonLeader"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="garrisonLeader">
-    /// <para>
-    /// Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyGarrisonLeader(Action<BlueprintArmyLeaderReference> action)
     {
       return OnConfigureInternal(

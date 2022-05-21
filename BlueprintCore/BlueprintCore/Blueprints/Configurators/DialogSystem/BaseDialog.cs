@@ -259,12 +259,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Modifies <see cref="BlueprintDialog.IsLockCameraRotationButtons"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="isLockCameraRotationButtons">
-    /// <para>
-    /// Tooltip: ��������� �������� ������ ������� �� ����� �������
-    /// </para>
-    /// </param>
     public TBuilder ModifyIsLockCameraRotationButtons(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -320,12 +314,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Modifies <see cref="BlueprintDialog.m_OverrideAreaCR"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="overrideAreaCR">
-    /// <para>
-    /// Tooltip: Override zone CR
-    /// </para>
-    /// </param>
     public TBuilder ModifyOverrideAreaCR(Action<IntEvaluator> action)
     {
       return OnConfigureInternal(

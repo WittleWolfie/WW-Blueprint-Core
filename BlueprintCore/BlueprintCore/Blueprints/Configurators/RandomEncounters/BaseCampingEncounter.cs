@@ -124,12 +124,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Modifies <see cref="BlueprintCampingEncounter.InterruptsRest"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="interruptsRest">
-    /// <para>
-    /// InfoBox: Rest will be interrupted during sleep phase. None rest effects will be applied
-    /// </para>
-    /// </param>
     public TBuilder ModifyInterruptsRest(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -160,12 +154,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Modifies <see cref="BlueprintCampingEncounter.PartyTired"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="partyTired">
-    /// <para>
-    /// InfoBox: Party wont get natural healing and wont recover spell slots
-    /// </para>
-    /// </param>
     public TBuilder ModifyPartyTired(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -196,12 +184,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Modifies <see cref="BlueprintCampingEncounter.MainCharacterTired"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="mainCharacterTired">
-    /// <para>
-    /// InfoBox: MainCharacter wont get natural healing and wont recover spell slots
-    /// </para>
-    /// </param>
     public TBuilder ModifyMainCharacterTired(Action<bool> action)
     {
       return OnConfigureInternal(

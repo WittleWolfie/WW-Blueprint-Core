@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </param>
     public TBuilder AddTwoWeaponCriticalAdditionalAttackEnchant(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TwoWeaponCriticalAdditionalAttackEnchant();
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -670,7 +670,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         int? enhancementBonus = null,
         bool? isBane = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new WeaponConditionalEnhancementBonus();
       component.CheckWielder = checkWielder ?? component.CheckWielder;

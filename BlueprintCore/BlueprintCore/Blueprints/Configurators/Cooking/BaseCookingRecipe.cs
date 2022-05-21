@@ -256,19 +256,6 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     /// <summary>
     /// Removes elements from <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="partyBuffs">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromPartyBuffs(Func<BlueprintBuffReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -282,19 +269,6 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     /// <summary>
     /// Removes all elements from <see cref="BlueprintCookingRecipe.m_PartyBuffs"/>
     /// </summary>
-    ///
-    /// <param name="partyBuffs">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearPartyBuffs()
     {
       return OnConfigureInternal(
@@ -307,19 +281,6 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     /// <summary>
     /// Modifies <see cref="BlueprintCookingRecipe.m_PartyBuffs"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="partyBuffs">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPartyBuffs(Action<BlueprintBuffReference> action)
     {
       return OnConfigureInternal(

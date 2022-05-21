@@ -154,19 +154,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes elements from <see cref="BlueprintMultiEntrance.m_Entries"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="entries">
-    /// <para>
-    /// Blueprint of type BlueprintMultiEntranceEntry. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromEntries(Func<BlueprintMultiEntranceEntryReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -180,19 +167,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Removes all elements from <see cref="BlueprintMultiEntrance.m_Entries"/>
     /// </summary>
-    ///
-    /// <param name="entries">
-    /// <para>
-    /// Blueprint of type BlueprintMultiEntranceEntry. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearEntries()
     {
       return OnConfigureInternal(
@@ -205,19 +179,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Modifies <see cref="BlueprintMultiEntrance.m_Entries"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="entries">
-    /// <para>
-    /// Blueprint of type BlueprintMultiEntranceEntry. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyEntries(Action<BlueprintMultiEntranceEntryReference> action)
     {
       return OnConfigureInternal(

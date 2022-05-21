@@ -46,12 +46,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <summary>
     /// Modifies <see cref="BlueprintDungeonLocalizedStrings.StageNameParameterized"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="stageNameParameterized">
-    /// <para>
-    /// Tooltip: {text} will be with stage number
-    /// </para>
-    /// </param>
     public TBuilder ModifyStageNameParameterized(Action<LocalizedString> action)
     {
       return OnConfigureInternal(

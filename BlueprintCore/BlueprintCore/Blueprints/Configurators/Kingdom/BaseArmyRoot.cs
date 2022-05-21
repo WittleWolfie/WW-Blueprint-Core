@@ -180,19 +180,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_NobilitySettlementsProgression"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="nobilitySettlementsProgression">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyNobilitySettlementsProgression(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -231,19 +218,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_NobilityBuildingsProgression"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="nobilityBuildingsProgression">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyNobilityBuildingsProgression(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -282,19 +256,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_NobilityIncomeProgression"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="nobilityIncomeProgression">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyNobilityIncomeProgression(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -333,19 +294,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_NobilityArmyStrengthProgression"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="nobilityArmyStrengthProgression">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyNobilityArmyStrengthProgression(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -384,19 +332,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_RoyalCourtLeadersProgression"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="royalCourtLeadersProgression">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRoyalCourtLeadersProgression(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -435,19 +370,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_RoyalCourtRanksProgression"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="royalCourtRanksProgression">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRoyalCourtRanksProgression(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -486,19 +408,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_RoyalCourtMissionProgressionChapter2"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="royalCourtMissionProgressionChapter2">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRoyalCourtMissionProgressionChapter2(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -537,19 +446,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_RoyalCourtMissionProgressionChapter3"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="royalCourtMissionProgressionChapter3">
-    /// <para>
-    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRoyalCourtMissionProgressionChapter3(Action<BlueprintStatProgressionReference> action)
     {
       return OnConfigureInternal(
@@ -588,19 +484,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_NobilityPresetReward"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="nobilityPresetReward">
-    /// <para>
-    /// Blueprint of type BlueprintArmyPreset. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyNobilityPresetReward(Action<BlueprintArmyPresetReference> action)
     {
       return OnConfigureInternal(
@@ -639,19 +522,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_SummonArmiesMap"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="summonArmiesMap">
-    /// <para>
-    /// Blueprint of type BlueprintGlobalMap. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySummonArmiesMap(Action<BlueprintGlobalMapReference> action)
     {
       return OnConfigureInternal(
@@ -803,12 +673,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_MercenaryDefaultCountDivider"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="mercenaryDefaultCountDivider">
-    /// <para>
-    /// InfoBox: Growth Formula: slot size = MercenariesBaseGrowths * (MercenaryDefaultCountBonus + MercenaryDefaultCountFormula / MercenaryDefaultCountDivider)
-    /// </para>
-    /// </param>
     public TBuilder ModifyMercenaryDefaultCountDivider(Action<float> action)
     {
       return OnConfigureInternal(
@@ -887,12 +751,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_MercenaryPriceMoraleModifierCoefficient"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="mercenaryPriceMoraleModifierCoefficient">
-    /// <para>
-    /// InfoBox: ResultCost = ResultCost * (1 + (MercenaryFormulaMoraleCap - Min(CurrentMorale + MoraleMaxValue, MercenaryFormulaMoraleCap)) / MercenaryPriceMoraleModifierCoefficient)
-    /// </para>
-    /// </param>
     public TBuilder ModifyMercenaryPriceMoraleModifierCoefficient(Action<float> action)
     {
       return OnConfigureInternal(
@@ -947,12 +805,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_ExperienceFinancesCoef"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="experienceFinancesCoef">
-    /// <para>
-    /// InfoBox: Experience and value formula: finances * ExperienceFinancesCoef + materials * ExperienceMaterialsCoef + favors * ExperienceFavorsCoef
-    /// </para>
-    /// </param>
     public TBuilder ModifyExperienceFinancesCoef(Action<float> action)
     {
       return OnConfigureInternal(
@@ -1031,12 +883,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Modifies <see cref="ArmyRoot.m_ArmyDangerBonus"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="armyDangerBonus">
-    /// <para>
-    /// InfoBox: Danger rating = ((Army squads experience) + ArmyDangerBonus) *  ArmyDangerMultiplier
-    /// </para>
-    /// </param>
     public TBuilder ModifyArmyDangerBonus(Action<int> action)
     {
       return OnConfigureInternal(

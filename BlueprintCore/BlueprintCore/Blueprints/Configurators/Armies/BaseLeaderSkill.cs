@@ -294,19 +294,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes elements from <see cref="BlueprintLeaderSkill.m_Prerequisites"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="prerequisites">
-    /// <para>
-    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromPrerequisites(Func<BlueprintLeaderSkillReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -320,19 +307,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Removes all elements from <see cref="BlueprintLeaderSkill.m_Prerequisites"/>
     /// </summary>
-    ///
-    /// <param name="prerequisites">
-    /// <para>
-    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearPrerequisites()
     {
       return OnConfigureInternal(
@@ -345,19 +319,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Modifies <see cref="BlueprintLeaderSkill.m_Prerequisites"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="prerequisites">
-    /// <para>
-    /// Blueprint of type BlueprintLeaderSkill. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPrerequisites(Action<BlueprintLeaderSkillReference> action)
     {
       return OnConfigureInternal(
@@ -441,7 +402,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TBuilder AddFactOnTacticalUnit(
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         TargetFilter? targetController = null)
     {
       var component = new AddFactOnTacticalUnit();
@@ -493,7 +454,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TBuilder AddCastOnTacticalCombatStart(
         List<int>? allowedColumns = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbility, BlueprintAbilityReference>? spellToCast = null,
         bool? targetCell = null)
     {
@@ -642,7 +603,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TBuilder AddPlaceLeaderTrapOnCombatStart(
         List<int>? allowedColumns = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>>? possibleTrapSkills = null)
     {
       var component = new PlaceLeaderTrapOnCombatStart();
@@ -692,7 +653,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TBuilder AddRemoveFactFromTacticalUnit(
         List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         TargetFilter? targetController = null)
     {
       var component = new RemoveFactFromTacticalUnit();
@@ -749,7 +710,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         TargetFilter? filter = null,
         int? maxSquadsCount = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SquadsActionOnTacticalCombatStart();
       component.m_Actions = actions?.Build() ?? component.m_Actions;
@@ -856,7 +817,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     public TBuilder AddTacticalMoraleModifier(
         TacticalMoraleModifier.FactionTarget? factionTarget = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? modValue = null,
         TargetFilter? targetFilter = null)
     {
@@ -892,7 +853,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         int? dailyMovementPoints = null,
         int? maxMovementPoints = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ArmyGlobalMapMovementBonus();
       component.DailyMovementPoints = dailyMovementPoints ?? component.DailyMovementPoints;

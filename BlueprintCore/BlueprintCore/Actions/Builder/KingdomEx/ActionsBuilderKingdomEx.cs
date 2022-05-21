@@ -875,7 +875,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </param>
     /// <param name="applyToRegion">
     /// <para>
-    /// InfoBox: If true applies buff to region from Region field or (if it's null) to region for context (settlement, event or parent buff)
+    /// InfoBox: If true applies buff to region from Region field or (if it&amp;apos;s null) to region for context (settlement, event or parent buff)
     /// </para>
     /// </param>
     /// <param name="region">
@@ -1324,7 +1324,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///
     /// <param name="unit">
     /// <para>
-    /// InfoBox: Amount to hire is setup in BlueprintUnit -> ArmyUnitComponent -> MercenariesBaseGrowths
+    /// InfoBox: Amount to hire is setup in BlueprintUnit -&amp;gt; ArmyUnitComponent -&amp;gt; MercenariesBaseGrowths
     /// </para>
     /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -1435,7 +1435,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///
     /// <param name="inCurrentTurn">
     /// <para>
-    /// InfoBox: Can't be used on combat setup. Otherwise make sure that context target is not null
+    /// InfoBox: Can&amp;apos;t be used on combat setup. Otherwise make sure that context target is not null
     /// </para>
     /// </param>
     public static ActionsBuilder ArmyAdditionalAction(

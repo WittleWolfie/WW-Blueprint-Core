@@ -101,19 +101,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes elements from <see cref="TargetClassConsideration.m_FirstPriorityClasses"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="firstPriorityClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromFirstPriorityClasses(Func<BlueprintCharacterClassReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -127,19 +114,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes all elements from <see cref="TargetClassConsideration.m_FirstPriorityClasses"/>
     /// </summary>
-    ///
-    /// <param name="firstPriorityClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearFirstPriorityClasses()
     {
       return OnConfigureInternal(
@@ -152,19 +126,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="TargetClassConsideration.m_FirstPriorityClasses"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="firstPriorityClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFirstPriorityClasses(Action<BlueprintCharacterClassReference> action)
     {
       return OnConfigureInternal(
@@ -279,19 +240,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes elements from <see cref="TargetClassConsideration.m_SecondPriorityClasses"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="secondPriorityClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromSecondPriorityClasses(Func<BlueprintCharacterClassReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -305,19 +253,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes all elements from <see cref="TargetClassConsideration.m_SecondPriorityClasses"/>
     /// </summary>
-    ///
-    /// <param name="secondPriorityClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearSecondPriorityClasses()
     {
       return OnConfigureInternal(
@@ -330,19 +265,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="TargetClassConsideration.m_SecondPriorityClasses"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="secondPriorityClasses">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifySecondPriorityClasses(Action<BlueprintCharacterClassReference> action)
     {
       return OnConfigureInternal(

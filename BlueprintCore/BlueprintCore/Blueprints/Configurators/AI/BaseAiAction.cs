@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///
     /// <param name="additionalBehaviour">
     /// <para>
-    /// Tooltip: Action's availability affected by difficulty settings
+    /// Tooltip: Action&amp;apos;s availability affected by difficulty settings
     /// </para>
     /// </param>
     public TBuilder SetAdditionalBehaviour(bool additionalBehaviour = true)
@@ -44,12 +44,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiAction.AdditionalBehaviour"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="additionalBehaviour">
-    /// <para>
-    /// Tooltip: Action's availability affected by difficulty settings
-    /// </para>
-    /// </param>
     public TBuilder ModifyAdditionalBehaviour(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -388,22 +382,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes elements from <see cref="BlueprintAiAction.m_ActorConsiderations"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="actorConsiderations">
-    /// <para>
-    /// Tooltip: Considerations that only depend on deciding unit
-    /// </para>
-    /// <para>
-    /// Blueprint of type Consideration. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromActorConsiderations(Func<ConsiderationReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -417,22 +395,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAiAction.m_ActorConsiderations"/>
     /// </summary>
-    ///
-    /// <param name="actorConsiderations">
-    /// <para>
-    /// Tooltip: Considerations that only depend on deciding unit
-    /// </para>
-    /// <para>
-    /// Blueprint of type Consideration. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearActorConsiderations()
     {
       return OnConfigureInternal(
@@ -445,22 +407,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiAction.m_ActorConsiderations"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="actorConsiderations">
-    /// <para>
-    /// Tooltip: Considerations that only depend on deciding unit
-    /// </para>
-    /// <para>
-    /// Blueprint of type Consideration. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyActorConsiderations(Action<ConsiderationReference> action)
     {
       return OnConfigureInternal(
@@ -560,22 +506,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes elements from <see cref="BlueprintAiAction.m_TargetConsiderations"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="targetConsiderations">
-    /// <para>
-    /// Tooltip: Considerations that also depend on action target
-    /// </para>
-    /// <para>
-    /// Blueprint of type Consideration. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromTargetConsiderations(Func<ConsiderationReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -589,22 +519,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Removes all elements from <see cref="BlueprintAiAction.m_TargetConsiderations"/>
     /// </summary>
-    ///
-    /// <param name="targetConsiderations">
-    /// <para>
-    /// Tooltip: Considerations that also depend on action target
-    /// </para>
-    /// <para>
-    /// Blueprint of type Consideration. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearTargetConsiderations()
     {
       return OnConfigureInternal(
@@ -617,22 +531,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="BlueprintAiAction.m_TargetConsiderations"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="targetConsiderations">
-    /// <para>
-    /// Tooltip: Considerations that also depend on action target
-    /// </para>
-    /// <para>
-    /// Blueprint of type Consideration. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyTargetConsiderations(Action<ConsiderationReference> action)
     {
       return OnConfigureInternal(

@@ -599,7 +599,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </param>
     /// <param name="toRemove">
     /// <para>
-    /// InfoBox: If both ToRemove and ToAdd specified but ToRemove is missing in unit's inventory then ToAdd will be ignored
+    /// InfoBox: If both ToRemove and ToAdd specified but ToRemove is missing in unit&amp;apos;s inventory then ToAdd will be ignored
     /// </para>
     /// <para>
     /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
@@ -856,7 +856,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///
     /// <param name="spawner">
     /// <para>
-    /// InfoBox: Don't call this action if you dont understand what it's for
+    /// InfoBox: Don&amp;apos;t call this action if you dont understand what it&amp;apos;s for
     /// </para>
     /// </param>
     public static ActionsBuilder RespawnNewUnit(

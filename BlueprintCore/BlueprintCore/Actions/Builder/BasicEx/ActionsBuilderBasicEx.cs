@@ -845,8 +845,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>NT_GettingThrough_BookEvent</term><description>2a4cff3b6fae4b7ea74464022f8e5cdd</description></item>
-    /// <item><term>RestBookEvent_2</term><description>7420233e3d8c4199994499ab10368c8b</description></item>
+    /// <item><term>Kenabres_CorruptionFree</term><description>24671efbec02423b923a32d471c3e0d1</description></item>
+    /// <item><term>RestBookEvent_1</term><description>3086724dfdd247d99abb16c9fc78875c</description></item>
     /// <item><term>RestBookEvent_3</term><description>a7509175fd75496ba3604dea877ffc74</description></item>
     /// </list>
     /// </remarks>

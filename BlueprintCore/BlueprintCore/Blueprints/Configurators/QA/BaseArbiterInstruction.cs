@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
         ArbiterElementList? areaParts = null,
         bool? makeMapScreenshot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAreaPreset, BlueprintAreaPresetReference>? overrideAreaPreset = null,
         bool? overrideTimeOfDay = null,
         TimeOfDay? timeOfDay = null)

@@ -39,12 +39,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="ArmorTypeConsideration.LightArmorScore"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="lightArmorScore">
-    /// <para>
-    /// Tooltip: Light or no armor
-    /// </para>
-    /// </param>
     public TBuilder ModifyLightArmorScore(Action<float> action)
     {
       return OnConfigureInternal(
@@ -75,12 +69,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// <summary>
     /// Modifies <see cref="ArmorTypeConsideration.HeavyArmorScore"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="heavyArmorScore">
-    /// <para>
-    /// Tooltip: Heavy or medium armor
-    /// </para>
-    /// </param>
     public TBuilder ModifyHeavyArmorScore(Action<float> action)
     {
       return OnConfigureInternal(

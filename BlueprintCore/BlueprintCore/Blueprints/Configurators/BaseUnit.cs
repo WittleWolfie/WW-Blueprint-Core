@@ -87,19 +87,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_Type"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="type">
-    /// <para>
-    /// Blueprint of type BlueprintUnitType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyType(Action<BlueprintUnitTypeReference> action)
     {
       return OnConfigureInternal(
@@ -260,19 +247,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_Race"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="race">
-    /// <para>
-    /// Blueprint of type BlueprintRace. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyRace(Action<BlueprintRaceReference> action)
     {
       return OnConfigureInternal(
@@ -335,19 +309,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_Portrait"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="portrait">
-    /// <para>
-    /// Blueprint of type BlueprintPortrait. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyPortrait(Action<BlueprintPortraitReference> action)
     {
       return OnConfigureInternal(
@@ -412,19 +373,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_CustomizationPreset"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="customizationPreset">
-    /// <para>
-    /// Blueprint of type UnitCustomizationPreset. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyCustomizationPreset(Action<UnitCustomizationPresetReference> action)
     {
       return OnConfigureInternal(
@@ -489,19 +437,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_Faction"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="faction">
-    /// <para>
-    /// Blueprint of type BlueprintFaction. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyFaction(Action<BlueprintFactionReference> action)
     {
       return OnConfigureInternal(
@@ -618,19 +553,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes elements from <see cref="BlueprintUnit.m_StartingInventory"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="startingInventory">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromStartingInventory(Func<BlueprintItemReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -644,19 +566,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes all elements from <see cref="BlueprintUnit.m_StartingInventory"/>
     /// </summary>
-    ///
-    /// <param name="startingInventory">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearStartingInventory()
     {
       return OnConfigureInternal(
@@ -669,19 +578,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_StartingInventory"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="startingInventory">
-    /// <para>
-    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyStartingInventory(Action<BlueprintItemReference> action)
     {
       return OnConfigureInternal(
@@ -720,19 +616,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_Brain"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="brain">
-    /// <para>
-    /// Blueprint of type BlueprintBrain. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyBrain(Action<BlueprintBrainReference> action)
     {
       return OnConfigureInternal(
@@ -823,19 +706,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes elements from <see cref="BlueprintUnit.AlternativeBrains"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="alternativeBrains">
-    /// <para>
-    /// Blueprint of type BlueprintBrain. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAlternativeBrains(Func<BlueprintBrainReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -849,19 +719,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes all elements from <see cref="BlueprintUnit.AlternativeBrains"/>
     /// </summary>
-    ///
-    /// <param name="alternativeBrains">
-    /// <para>
-    /// Blueprint of type BlueprintBrain. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAlternativeBrains()
     {
       return OnConfigureInternal(
@@ -874,19 +731,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.AlternativeBrains"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="alternativeBrains">
-    /// <para>
-    /// Blueprint of type BlueprintBrain. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAlternativeBrains(Action<BlueprintBrainReference> action)
     {
       return OnConfigureInternal(
@@ -1245,19 +1089,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes elements from <see cref="BlueprintUnit.m_AdditionalTemplates"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="additionalTemplates">
-    /// <para>
-    /// Blueprint of type BlueprintUnitTemplate. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAdditionalTemplates(Func<BlueprintUnitTemplateReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1271,19 +1102,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes all elements from <see cref="BlueprintUnit.m_AdditionalTemplates"/>
     /// </summary>
-    ///
-    /// <param name="additionalTemplates">
-    /// <para>
-    /// Blueprint of type BlueprintUnitTemplate. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAdditionalTemplates()
     {
       return OnConfigureInternal(
@@ -1296,19 +1114,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_AdditionalTemplates"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="additionalTemplates">
-    /// <para>
-    /// Blueprint of type BlueprintUnitTemplate. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAdditionalTemplates(Action<BlueprintUnitTemplateReference> action)
     {
       return OnConfigureInternal(
@@ -1399,19 +1204,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes elements from <see cref="BlueprintUnit.m_AddFacts"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="addFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromAddFacts(Func<BlueprintUnitFactReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -1425,19 +1217,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes all elements from <see cref="BlueprintUnit.m_AddFacts"/>
     /// </summary>
-    ///
-    /// <param name="addFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearAddFacts()
     {
       return OnConfigureInternal(
@@ -1450,19 +1229,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.m_AddFacts"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="addFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAddFacts(Action<BlueprintUnitFactReference> action)
     {
       return OnConfigureInternal(
@@ -1494,12 +1260,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Modifies <see cref="BlueprintUnit.IsCheater"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="isCheater">
-    /// <para>
-    /// Tooltip: Trap actors, mapobject cast targets and other untis that are not actually subject ot game mechanics. Cheaters can use any ability, are never ingame but do show FX
-    /// </para>
-    /// </param>
     public TBuilder ModifyIsCheater(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -1616,7 +1376,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionUnitVelociraptor</term><description>28d1986d57a7081439fbb581aa6f960c</description></item>
-    /// <item><term>GiantSpiderSummoned</term><description>9e120b5e0ad3c794491c049aa24b9fde</description></item>
+    /// <item><term>GiantFrogSummoned</term><description>1ed9a630f0d9d7f44855d3d1d1b2cdf2</description></item>
     /// <item><term>WyvernPeridot</term><description>6a8af899a123abf459e3e1fedf39e8be</description></item>
     /// </list>
     /// </remarks>
@@ -2105,7 +1865,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddPregenUnitComponent(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         LocalizedString? pregenClass = null,
         LocalizedString? pregenDescription = null,
         LocalizedString? pregenName = null,
@@ -2296,7 +2056,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddAbilityToCharacterComponent(
         List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? abilities = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddAbilityToCharacterComponent();
       component.m_Abilities = abilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Abilities;
@@ -2371,7 +2131,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddLoot(
         Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddLoot();
       component.m_Loot = loot?.Reference ?? component.m_Loot;
@@ -2417,7 +2177,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddLootToVendorTable(
         Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddLootToVendorTable();
       component.m_Loot = loot?.Reference ?? component.m_Loot;
@@ -2479,7 +2239,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Asty</term><description>d8e2475977bd87b439c4bba8f5f55949</description></item>
-    /// <item><term>CR2_Marauder_Human_FighterMelee_Male</term><description>a148c7c95cec68e43ac490852071c711</description></item>
+    /// <item><term>CR2_Marauder_Human_FighterRanged_Female</term><description>7956220e37fe19f4e9d54df6fc65bb49</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>
@@ -2544,7 +2304,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddVendorItems(
         Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddVendorItems();
       component.m_Loot = loot?.Reference ?? component.m_Loot;
@@ -2577,7 +2337,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Dictionary<BlueprintItem,long>? itemsToBuyCosts = null,
         Dictionary<BlueprintItem,long>? itemsToSellCosts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ChangeVendorPrices.Entry[]? priceOverrides = null)
     {
       var component = new ChangeVendorPrices();
@@ -2667,7 +2427,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddFixUnitOnPostLoad_AddNewFact(
         string? comment = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? newFact = null,
         string? taskId = null)
     {
@@ -2717,7 +2477,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddReturnVendorTable(
         string? comment = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>? table = null,
         string? taskId = null)
     {
@@ -2811,7 +2571,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddTacticalMoraleModifier(
         TacticalMoraleModifier.FactionTarget? factionTarget = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? modValue = null,
         TargetFilter? targetFilter = null)
     {
@@ -2931,7 +2691,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddBuffOnEntityCreated(
         Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BuffOnEntityCreated();
       component.m_Buff = buff?.Reference ?? component.m_Buff;
@@ -2968,7 +2728,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddMobCaster(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Merge)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new MobCaster();
       return AddUniqueComponent(component, mergeBehavior, merge);

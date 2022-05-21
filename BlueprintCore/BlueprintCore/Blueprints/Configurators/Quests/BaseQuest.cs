@@ -288,19 +288,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Removes elements from <see cref="BlueprintQuest.m_Objectives"/> that match the provided predicate.
     /// </summary>
-    ///
-    /// <param name="objectives">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder RemoveFromObjectives(Func<BlueprintQuestObjectiveReference, bool> predicate)
     {
       return OnConfigureInternal(
@@ -314,19 +301,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Removes all elements from <see cref="BlueprintQuest.m_Objectives"/>
     /// </summary>
-    ///
-    /// <param name="objectives">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ClearObjectives()
     {
       return OnConfigureInternal(
@@ -339,19 +313,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Modifies <see cref="BlueprintQuest.m_Objectives"/> by invoking the provided action on each element.
     /// </summary>
-    ///
-    /// <param name="objectives">
-    /// <para>
-    /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder ModifyObjectives(Action<BlueprintQuestObjectiveReference> action)
     {
       return OnConfigureInternal(

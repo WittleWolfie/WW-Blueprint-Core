@@ -92,12 +92,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Modifies <see cref="Cutscene.ForbidDialogs"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="forbidDialogs">
-    /// <para>
-    /// Tooltip: If set, units moved by this cutscene cannot start a dialog
-    /// </para>
-    /// </param>
     public TBuilder ModifyForbidDialogs(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -128,12 +122,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Modifies <see cref="Cutscene.ForbidRandomIdles"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="forbidRandomIdles">
-    /// <para>
-    /// Tooltip: If set, units moved by this cutscene never play idle variants
-    /// </para>
-    /// </param>
     public TBuilder ModifyForbidRandomIdles(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -149,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     ///
     /// <param name="isBackground">
     /// <para>
-    /// Tooltip: If set, the cutscene auto-pauses when there's a dialog, rest, or exclusive cutscene playing
+    /// Tooltip: If set, the cutscene auto-pauses when there&amp;apos;s a dialog, rest, or exclusive cutscene playing
     /// </para>
     /// </param>
     public TBuilder SetIsBackground(bool isBackground = true)
@@ -164,12 +152,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Modifies <see cref="Cutscene.IsBackground"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="isBackground">
-    /// <para>
-    /// Tooltip: If set, the cutscene auto-pauses when there's a dialog, rest, or exclusive cutscene playing
-    /// </para>
-    /// </param>
     public TBuilder ModifyIsBackground(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -200,12 +182,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Modifies <see cref="Cutscene.Sleepless"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="sleepless">
-    /// <para>
-    /// Tooltip: If not set, cutscene is paused when all anchors are in fog of war or away enough from party
-    /// </para>
-    /// </param>
     public TBuilder ModifySleepless(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -236,12 +212,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Modifies <see cref="Cutscene.AllowCopies"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="allowCopies">
-    /// <para>
-    /// Tooltip: If set, exact copies of this cutscene (with the same parameters) can play at the same time. You probably do not need to set this.
-    /// </para>
-    /// </param>
     public TBuilder ModifyAllowCopies(Action<bool> action)
     {
       return OnConfigureInternal(
@@ -373,12 +343,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Modifies <see cref="Cutscene.MarkedUnitHandling"/> by invoking the provided action.
     /// </summary>
-    ///
-    /// <param name="markedUnitHandling">
-    /// <para>
-    /// Tooltip: How to react when a unit marked by this cutscene is in combat or marked by a higher priority cutscene
-    /// </para>
-    /// </param>
     public TBuilder ModifyMarkedUnitHandling(Action<Cutscene.MarkedUnitHandlingType> action)
     {
       return OnConfigureInternal(
