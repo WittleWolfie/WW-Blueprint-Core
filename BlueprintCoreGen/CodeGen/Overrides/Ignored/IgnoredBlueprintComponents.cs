@@ -72,7 +72,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(ActingCompanion),
         typeof(ChangeGlobalMagicPower),
         typeof(EtudeDisableCooking),
-        typeof(EtudeOverrideCorruptionGrowth),
         typeof(DualCompanionComponent),
         typeof(LockedCompanionComponent),
         typeof(UnlockableFlagComponent),

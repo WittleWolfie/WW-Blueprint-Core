@@ -23,7 +23,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidButton1_CheckPassedActions", "2a969038211346358597f80d271d9b94"),
-            new Blueprint("Answer_6", "11dcb93a9d964a1ab005b10f899db142"),
+            new Blueprint("Answer_7", "f44d8f29a2f640c4885414cb2be61e05"),
             new Blueprint("ZeorisDagger_ReforgeProject", "22e8219563e84f11b6aed62661030770"),
           }
         },
@@ -73,7 +73,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidBomb", "fd101fbc4aacf5d48b76a65e3aa5db6d"),
-            new Blueprint("GreaterCognatogenIntelligenceCharismaBuff", "1c2fdba3b33dacd41afd5b74d84c7332"),
+            new Blueprint("GreaterCognatogenWisdomCharismaBuff", "60eb20b9d1077ed4f8f8a9df5490a208"),
             new Blueprint("WrathOfAncestorEnchantment", "4dbc03bd6223b484d8cd9afc3e0369b0"),
           }
         },
@@ -241,7 +241,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[DLC1_Taberdine]_BarkConditions", "c1bbb11f93d44e13b5587d4c9701515d"),
-            new Blueprint("Cue_0005", "ef16f026e72107d4492aa6861b66739f"),
+            new Blueprint("Cue_0005", "7a54f8069d7961d4483fb1f3fe6894e6"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -628,7 +628,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[Kerz]_BarkCondition", "59c232c2fa5e7c54baa235fee0e049d6"),
-            new Blueprint("BookPage_0022", "2227fb9fab608364da1b6a2fffdae66f"),
+            new Blueprint("BookPage_Room1Clean", "e43df5891e0598e4d9f6583db03dff51"),
             new Blueprint("ZanedraInTemple", "0d22fd186d557a049b46c0fb3d623f04"),
           }
         },
@@ -763,8 +763,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(IsUnitMythicLevel),
           new()
           {
-            new Blueprint("DevilMythicClass", "211f49705f478b3468db6daa802452a2"),
-            new Blueprint("GoldenDragonClass", "daf1235b6217787499c14e4e32142523"),
+            new Blueprint("Colyphyr2NexusTransition", "0b377d6a162f4c4c99020cd446149f6a"),
+            new Blueprint("DLC1_Levelup", "dca1299c933b43dd8078cdf078ee6121"),
             new Blueprint("SwarmThatWalksClass", "5295b8e13c2303f4c88bdb3d7760a757"),
           }
         },

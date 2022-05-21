@@ -60,7 +60,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("EyebiteAbility", "582009cf6013790469d6e98e5210477a"),
+            new Blueprint("FaerieDragon_CheckAlignment", "1f0e965084fa2154e9e244c6b061b426"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -190,7 +190,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("HellAngelSwordDepersonalizeAbility", "5f99f802d4ff52a4e9538e6bb7f66270"),
+            new Blueprint("HellAngelSwordMarkAbility", "ae29dd08cc0d883469516025df9641a4"),
             new Blueprint("ZeorisDaggerRing_GoverningFeature", "0faee0a55f634902895b4e1faf828502"),
           }
         },
@@ -417,7 +417,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("4BarrierDevice01", "2099b5c949f74ad0a598fb66efbe186e"),
-            new Blueprint("Cue_0029", "bc2c3c2a3cec484bbcee21b3349856ea"),
+            new Blueprint("Cue_0029", "120366a2301b4ec993267871245b2e4c"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -558,7 +558,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("01_IzDrezen", "09c503b7a398d49469b9463ee9d22fd4"),
-            new Blueprint("Cue_0028", "4773b880723186744a6529da012af2b4"),
+            new Blueprint("Cue_0028", "89749874f3563034ab430fddec9e9fac"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -681,7 +681,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("(CR 6) Necromancer_SpawnActions", "966067be66094e699fd7247f4507dd1a"),
-            new Blueprint("Cue_0049", "4a1d11f041aae8a4bb752848b2f3df08"),
+            new Blueprint("Cue_0049", "5a2c83b1758ca624bbd3d87d7a3e15c2"),
             new Blueprint("Zone3_Epigraph_SZ", "fde009ee2ae62024baaac478de277b28"),
           }
         },
@@ -721,7 +721,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("03_SanctumBosses", "d44f91b07f9914349aa0b6c082d98c25"),
-            new Blueprint("Cue_0037", "1132b009fe2a5d841954b9c31d559941"),
+            new Blueprint("Cue_0037", "b3c8473879169ba479a3d5a4f4ac508f"),
             new Blueprint("ZigguratActive", "6716edd224e0d4049a55030f4d01c8ed"),
           }
         },
@@ -761,7 +761,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[Hepzamirah]_SpawnActions", "df28026f8a4845a3978f48834852e6b0"),
-            new Blueprint("CrazyMythicDemonAggro", "8fa22e1e65aaf674a98d16026383f16c"),
+            new Blueprint("Cue_0001", "95f0f9086de30c44495240d955dc909a"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -1146,6 +1146,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(ContextActionMakeKnowledgeCheck),
           new()
           {
+            new Blueprint("StudentOfWarKnowFastYourEnemyAbility", "0190e1225d974ad4affccae4bf19fc66"),
             new Blueprint("StudentOfWarKnowYourEnemyAbility", "4c056d3a0d3c4414399d1476c4142edb"),
           }
         },
@@ -1413,7 +1414,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidButton1_CheckPassedActions", "2a969038211346358597f80d271d9b94"),
-            new Blueprint("Cue_0029", "bad4b5bed29c82145b2fb62d6cb86f11"),
+            new Blueprint("Cue_0029", "2a5f92deaccded945b22cb6efb7c1e21"),
             new Blueprint("ZeorisDaggerRingProject_Enchanting", "0dc3a4e036064970857b3c3e296a7d94"),
           }
         },
@@ -2161,7 +2162,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1ArenaCombat", "8e64ed1e12bc30c498402e99c95e75e3"),
-            new Blueprint("DoorToSecret_CheckPassedActions", "9fbd1302f9b54df4f87deb14b8de55a5"),
+            new Blueprint("DoorToKB_CheckPassedActions", "e16485ef06cc2dd4a94db114939109fa"),
             new Blueprint("YeribethHall_FinishCipher1", "d5c8170f5bf5725459b6f7f895ecd458"),
           }
         },
@@ -3400,8 +3401,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(ClearCorruptionLevelAction),
           new()
           {
-            new Blueprint("NT_GettingThrough_BookEvent", "2a4cff3b6fae4b7ea74464022f8e5cdd"),
-            new Blueprint("RestBookEvent_2", "7420233e3d8c4199994499ab10368c8b"),
+            new Blueprint("Kenabres_CorruptionFree", "24671efbec02423b923a32d471c3e0d1"),
+            new Blueprint("RestBookEvent_1", "3086724dfdd247d99abb16c9fc78875c"),
             new Blueprint("RestBookEvent_3", "a7509175fd75496ba3604dea877ffc74"),
           }
         },

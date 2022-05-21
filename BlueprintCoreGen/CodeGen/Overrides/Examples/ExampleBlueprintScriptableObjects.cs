@@ -119,7 +119,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("HungryPit", "f63f4d1806b78604a952b3958892ce1c"),
+            new Blueprint("HunterOneWithTheWIld", "3f487d5b93a02984cbbb202fa7c73025"),
             new Blueprint("ZoneOfPredetermination", "756f1d07f9ae29448888ecf016fa40a7"),
           }
         },
@@ -1107,7 +1107,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("3statues", "bb2d0a9204cb34f49b89365c71e51b8b"),
-            new Blueprint("GargoyleAttack_AneviaLeftHQ", "dd241e05169ab6d4396168b800c70c09"),
+            new Blueprint("GargoyleAtack_Kidnap_2_flag", "0e1a6f93e9a94dc49c69f517d9ee85ff"),
             new Blueprint("ZombieRoomEnter2", "61f52bd1057441adbf7ce9901f535e3e"),
           }
         },
@@ -1593,7 +1593,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("01_DevouredByDarkness", "67d3321ed01a4e58a9ed3e13f94f1d04"),
-            new Blueprint("KenabresRebuilded", "4337a2c7b05d48b6beb35b1ec651fb02"),
+            new Blueprint("KenabresMapEtude", "68d8b3a6007a47aba2a4731dc0d0f67c"),
             new Blueprint("ZosielQ0", "6d1bb3f8743892a4aaf498f7fc5212f0"),
           }
         },
@@ -1633,7 +1633,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarRace", "b7f02ba92b363064fb873963bec275ee"),
-            new Blueprint("HalflingRace", "b0c3ef2729c498f47970bb50fa1acd30"),
+            new Blueprint("HalfElfRace", "b3646842ffbd01643ab4dac7479b20b0"),
             new Blueprint("ZombiesRace", "b9668860eed943eca2419fd8c371f481"),
           }
         },
@@ -2164,7 +2164,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1stFight_Final", "8ef514ae57a6c704ba2e125a4e0f78ad"),
-            new Blueprint("InevitableWin", "8b12a11ef88222845bae69e16c14b52b"),
+            new Blueprint("InevitableDarknessPainting", "e1b8121341984f929ba478d580fec8b6"),
             new Blueprint("Zone3_Epigraph", "00f1dceaedf422e41f2d9cd0d9c6e571"),
           }
         },
@@ -2174,7 +2174,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("gate", "fc268500370d415da9cf27c32043ace3"),
-            new Blueprint("gate 2", "a006ff5070ee0d24693252f3cef702a1"),
+            new Blueprint("gate 2", "c0e2783ad39753446bea3f7feedb6678"),
             new Blueprint("gate9", "5b1a0b6731eb475692ebef9f02f1808b"),
           }
         },
