@@ -1,18 +1,18 @@
-//***** AUTO-GENERATED - DO NOT EDIT *****//
-
+﻿using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 
-namespace BlueprintCore.Blueprints.Configurators
+namespace BlueprintCore.Blueprints.CustomConfigurators
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintScriptableObject"/>.
   /// </summary>
   /// <inheritdoc/>
-  public class BlueprintConfigurator
-    : BaseBlueprintConfigurator<BlueprintScriptableObject, BlueprintConfigurator>
+  public class BlueprintConfigurator<T>
+    : BaseBlueprintConfigurator<T, BlueprintConfigurator<T>>
+    where T : BlueprintScriptableObject, new()
   {
-    private BlueprintConfigurator(Blueprint<BlueprintScriptableObject, BlueprintReference<BlueprintScriptableObject>> blueprint) : base(blueprint) { }
+    private BlueprintConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -25,9 +25,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static BlueprintConfigurator For(Blueprint<BlueprintScriptableObject, BlueprintReference<BlueprintScriptableObject>> blueprint)
+    public static BlueprintConfigurator<T> For(Blueprint<T, BlueprintReference<T>> blueprint)
     {
-      return new BlueprintConfigurator(blueprint);
+      return new BlueprintConfigurator<T>(blueprint);
     }
     /// <summary>
     /// Creates a new blueprint and returns a new configurator to modify it.
@@ -40,9 +40,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
-    public static BlueprintConfigurator New(string name, string guid)
+    public static BlueprintConfigurator<T> New(string name, string guid)
     {
-      BlueprintTool.Create<BlueprintScriptableObject>(name, guid);
+      BlueprintTool.Create<T>(name, guid);
       return For(name);
     }
 

@@ -20,7 +20,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides
         typeof(BlueprintAbility),
         typeof(BlueprintAbilityAreaEffect),
         typeof(BlueprintAbilityResource),
-        typeof(BlueprintBuff)
+        typeof(BlueprintBuff),
+        typeof(BlueprintScriptableObject),
       };
 
     public static readonly Dictionary<Type, string> TypeNameOverrides =
