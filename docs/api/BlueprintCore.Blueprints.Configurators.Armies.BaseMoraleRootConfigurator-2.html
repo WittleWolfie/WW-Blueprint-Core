@@ -282,112 +282,40 @@
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Implementation is based on the
-<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
+that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
+base game.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
-    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
-</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p><strong>Creating a Blueprint</strong></p>
+<p>Use <code>New(string, string)</code> to create a blueprint:</p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</code>
+<p>Once <code>New()</code> is called the blueprint is added to the game library and can be referenced.</p>
+<p><strong>Using the Configurator</strong></p>
 <p>
-Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
-exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-component types.
+<code>New()</code> returns a configurator with methods to set or modify blueprint fields and add or modify
+<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>:
 </p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();</code>
 <p>
-See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
-for more information on component and blueprint type safety.
+Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+<code>Configure()</code> is called, at which point the changes are applied and validated. Potential problems with the
+blueprint are logged as warnings.
 </p>
-</td></tr><tr><td>Validation</td><td>
-<p>
-When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
-which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-complicated configuration problems such as
-<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
-usage.
-</p>
-<p>
-Validation uses a combination of code from the game library and manually tuned logic. See
-<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
-</p>
-</td></tr><tr><td>Builder Style API</td><td>
-<p>
-The API is designed to minimize boilerplate required to modify blueprints and create components.
-Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
-</p>
-<p>
-Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
-configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
-</p>
-</td></tr></tbody></table>
-TODO: Update the example
-<example>
-Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
-<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
-var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
-var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
-var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
-var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
-var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
-<p>// Register the names
-BlueprintTool.AddGuidsByName(
-(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
-(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
-(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
-// New blueprints and guids
-(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
-(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
-(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
-<p>// Load the icons and strings (not provided by library)
-var skaldsVigorIcon = LoadSkaldsVigorIcon();
-var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-var skaldsVigorName = LoadSkaldsVigorName();
-var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-var skaldsVigorDescription = LoadSkaldsVigorDescription();
-var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
-<p>// Create the buff
-BuffConfigurator.New(skaldsVigorBuff)
-.ContextRankConfig(
-// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-.FastHealing(1, bonusValue: ContextValues.Rank())
-.Configure();</p>
-<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-// Rage is active.
-var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(inspiredRageBuff)
-.FactContextActions(
-onActivated:
-ActionsBuilder.New()
-// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-// the feat.
-.Conditional(
-ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-ifTrue: applyBuff)
-// For characters other than the caster, Skald's Vigor is only applied if the caster has the
-// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-// buffs do not stack so it has no effect.
-.Conditional(
-ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-onDeactivated:
-// Removes Skald's Vigor when Inspired Rage ends.
-// There is actually a bug with this implementation; Lingering Song will extend the duration of
-// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-.Configure();</code></pre>
-</example><p>
+<p><strong>Modifying an Existing Blueprint</strong></p>
+<p>Use <code>For(Blueprint)</code> to modify existing blueprints:</p>
+<code>CharacterClassConfigurator.For(WizardClassGuid)</code>
+<p>Usage is otherwise identical to creating a new blueprint.</p>
+<p>For more information see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</a>.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L26">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L25">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseMoraleRootConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -418,10 +346,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_AddToNegativeFacts_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.AddToNegativeFacts(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_AddToNegativeFacts_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.AddToNegativeFacts(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L165">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L152">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_AddToNegativeFacts_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.AddToNegativeFacts*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_AddToNegativeFacts_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.AddToNegativeFacts(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference}[])">AddToNegativeFacts(Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;[])</h4>
@@ -471,10 +399,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ClearNegativeFacts.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ClearNegativeFacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ClearNegativeFacts.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ClearNegativeFacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L243">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L204">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ClearNegativeFacts_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ClearNegativeFacts*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ClearNegativeFacts" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ClearNegativeFacts">ClearNegativeFacts()</h4>
@@ -502,10 +430,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyArmyEffectOnSquad_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyArmyEffectOnSquad(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyArmyEffectOnSquad_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyArmyEffectOnSquad(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L377">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L312">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyArmyEffectOnSquad_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyArmyEffectOnSquad*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyArmyEffectOnSquad_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyArmyEffectOnSquad(System.Action{Kingmaker.Localization.LocalizedString})">ModifyArmyEffectOnSquad(Action&lt;LocalizedString&gt;)</h4>
@@ -550,10 +478,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyBaseMoraleValue_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyBaseMoraleValue(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyBaseMoraleValue_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyBaseMoraleValue(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L348">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L283">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyBaseMoraleValue_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyBaseMoraleValue*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyBaseMoraleValue_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyBaseMoraleValue(System.Action{Kingmaker.Localization.LocalizedString})">ModifyBaseMoraleValue(Action&lt;LocalizedString&gt;)</h4>
@@ -598,14 +526,15 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyDevineForNegative_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyDevineForNegative(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyDevineForNegative_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyDevineForNegative(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L79">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L72">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyDevineForNegative_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyDevineForNegative*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyDevineForNegative_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyDevineForNegative(System.Action{System.Single})">ModifyDevineForNegative(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.Blueprints.MoraleRoot.m_DevineForNegative</span> by invoking the provided action.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -645,10 +574,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyDevineForPositive_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyDevineForPositive(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyDevineForPositive_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyDevineForPositive(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L115">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L102">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyDevineForPositive_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyDevineForPositive*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyDevineForPositive_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyDevineForPositive(System.Action{System.Single})">ModifyDevineForPositive(Action&lt;Single&gt;)</h4>
@@ -693,10 +622,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyGlobalArmiesMoraleBuff_System_Action_Kingmaker_Blueprints_BlueprintKingdomBuffReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyGlobalArmiesMoraleBuff(System.Action%7BKingmaker.Blueprints.BlueprintKingdomBuffReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyGlobalArmiesMoraleBuff_System_Action_Kingmaker_Blueprints_BlueprintKingdomBuffReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyGlobalArmiesMoraleBuff(System.Action%7BKingmaker.Blueprints.BlueprintKingdomBuffReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L319">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L254">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyGlobalArmiesMoraleBuff_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyGlobalArmiesMoraleBuff*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyGlobalArmiesMoraleBuff_System_Action_Kingmaker_Blueprints_BlueprintKingdomBuffReference__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyGlobalArmiesMoraleBuff(System.Action{Kingmaker.Blueprints.BlueprintKingdomBuffReference})">ModifyGlobalArmiesMoraleBuff(Action&lt;BlueprintKingdomBuffReference&gt;)</h4>
@@ -741,10 +670,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyMoraleBorder_System_Action_UnityEngine_Vector2Int__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyMoraleBorder(System.Action%7BUnityEngine.Vector2Int%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyMoraleBorder_System_Action_UnityEngine_Vector2Int__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyMoraleBorder(System.Action%7BUnityEngine.Vector2Int%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L43">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L42">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyMoraleBorder_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyMoraleBorder*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyMoraleBorder_System_Action_UnityEngine_Vector2Int__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyMoraleBorder(System.Action{UnityEngine.Vector2Int})">ModifyMoraleBorder(Action&lt;Vector2Int&gt;)</h4>
@@ -789,10 +718,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyNegativeFacts_System_Action_Kingmaker_Blueprints_BlueprintUnitFactReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyNegativeFacts(System.Action%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyNegativeFacts_System_Action_Kingmaker_Blueprints_BlueprintUnitFactReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyNegativeFacts(System.Action%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L268">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L216">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyNegativeFacts_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyNegativeFacts*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyNegativeFacts_System_Action_Kingmaker_Blueprints_BlueprintUnitFactReference__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyNegativeFacts(System.Action{Kingmaker.Blueprints.BlueprintUnitFactReference})">ModifyNegativeFacts(Action&lt;BlueprintUnitFactReference&gt;)</h4>
@@ -837,10 +766,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyUnitNotHaveMorale_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyUnitNotHaveMorale(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyUnitNotHaveMorale_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.ModifyUnitNotHaveMorale(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L406">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L341">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyUnitNotHaveMorale_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyUnitNotHaveMorale*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_ModifyUnitNotHaveMorale_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.ModifyUnitNotHaveMorale(System.Action{Kingmaker.Localization.LocalizedString})">ModifyUnitNotHaveMorale(Action&lt;LocalizedString&gt;)</h4>
@@ -885,10 +814,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_RemoveFromNegativeFacts_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.RemoveFromNegativeFacts(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_RemoveFromNegativeFacts_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.RemoveFromNegativeFacts(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L191">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L178">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_RemoveFromNegativeFacts_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.RemoveFromNegativeFacts*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_RemoveFromNegativeFacts_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.RemoveFromNegativeFacts(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference}[])">RemoveFromNegativeFacts(Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;[])</h4>
@@ -938,10 +867,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_RemoveFromNegativeFacts_System_Func_Kingmaker_Blueprints_BlueprintUnitFactReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.RemoveFromNegativeFacts(System.Func%7BKingmaker.Blueprints.BlueprintUnitFactReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_RemoveFromNegativeFacts_System_Func_Kingmaker_Blueprints_BlueprintUnitFactReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.RemoveFromNegativeFacts(System.Func%7BKingmaker.Blueprints.BlueprintUnitFactReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L217">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L191">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_RemoveFromNegativeFacts_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.RemoveFromNegativeFacts*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_RemoveFromNegativeFacts_System_Func_Kingmaker_Blueprints_BlueprintUnitFactReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.RemoveFromNegativeFacts(System.Func{Kingmaker.Blueprints.BlueprintUnitFactReference,System.Boolean})">RemoveFromNegativeFacts(Func&lt;BlueprintUnitFactReference, Boolean&gt;)</h4>
@@ -986,10 +915,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetArmyEffectOnSquad_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetArmyEffectOnSquad(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetArmyEffectOnSquad_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetArmyEffectOnSquad(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L361">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L296">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetArmyEffectOnSquad_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetArmyEffectOnSquad*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetArmyEffectOnSquad_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetArmyEffectOnSquad(Kingmaker.Localization.LocalizedString)">SetArmyEffectOnSquad(LocalizedString)</h4>
@@ -1034,10 +963,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetBaseMoraleValue_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetBaseMoraleValue(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetBaseMoraleValue_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetBaseMoraleValue(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L332">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L267">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetBaseMoraleValue_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetBaseMoraleValue*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetBaseMoraleValue_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetBaseMoraleValue(Kingmaker.Localization.LocalizedString)">SetBaseMoraleValue(LocalizedString)</h4>
@@ -1082,14 +1011,15 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetDevineForNegative_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetDevineForNegative(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetDevineForNegative_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetDevineForNegative(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L61">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L60">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetDevineForNegative_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetDevineForNegative*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetDevineForNegative_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetDevineForNegative(System.Single)">SetDevineForNegative(Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.MoraleRoot.m_DevineForNegative</span></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1108,7 +1038,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">devineForNegative</span></td>
-        <td></td>
+        <td><p>
+Tooltip: Если мораль &amp;lt; 0. Шанс негативного = UnitMorale/DevineForNegative
+</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1129,10 +1062,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetDevineForPositive_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetDevineForPositive(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetDevineForPositive_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetDevineForPositive(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L97">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L90">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetDevineForPositive_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetDevineForPositive*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetDevineForPositive_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetDevineForPositive(System.Single)">SetDevineForPositive(Single)</h4>
@@ -1157,7 +1090,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">devineForPositive</span></td>
         <td><p>
-Tooltip: Если мораль > 0. Шанс позитивного = UnitMorale/DevineForPositive
+Tooltip: Если мораль &amp;gt; 0. Шанс позитивного = UnitMorale/DevineForPositive
 </p>
 </td>
       </tr>
@@ -1180,10 +1113,10 @@ Tooltip: Если мораль > 0. Шанс позитивного = UnitMorale
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetGlobalArmiesMoraleBuff_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomBuff_Kingmaker_Blueprints_BlueprintKingdomBuffReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetGlobalArmiesMoraleBuff(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomBuff%2CKingmaker.Blueprints.BlueprintKingdomBuffReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetGlobalArmiesMoraleBuff_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomBuff_Kingmaker_Blueprints_BlueprintKingdomBuffReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetGlobalArmiesMoraleBuff(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomBuff%2CKingmaker.Blueprints.BlueprintKingdomBuffReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L294">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L242">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetGlobalArmiesMoraleBuff_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetGlobalArmiesMoraleBuff*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetGlobalArmiesMoraleBuff_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomBuff_Kingmaker_Blueprints_BlueprintKingdomBuffReference__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetGlobalArmiesMoraleBuff(BlueprintCore.Utils.Blueprint{Kingmaker.Kingdom.Blueprints.BlueprintKingdomBuff,Kingmaker.Blueprints.BlueprintKingdomBuffReference})">SetGlobalArmiesMoraleBuff(Blueprint&lt;BlueprintKingdomBuff, BlueprintKingdomBuffReference&gt;)</h4>
@@ -1233,10 +1166,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetMoraleBorder_UnityEngine_Vector2Int_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetMoraleBorder(UnityEngine.Vector2Int)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetMoraleBorder_UnityEngine_Vector2Int_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetMoraleBorder(UnityEngine.Vector2Int)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L31">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L30">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetMoraleBorder_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetMoraleBorder*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetMoraleBorder_UnityEngine_Vector2Int_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetMoraleBorder(UnityEngine.Vector2Int)">SetMoraleBorder(Vector2Int)</h4>
@@ -1281,19 +1214,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetNegativeFacts_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetNegativeFacts(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetNegativeFacts_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetNegativeFacts(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L140">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L127">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetNegativeFacts_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetNegativeFacts*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetNegativeFacts_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference___" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetNegativeFacts(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference}})">SetNegativeFacts(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetNegativeFacts_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference____" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetNegativeFacts(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference}[])">SetNegativeFacts(Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;[])</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Armies.Blueprints.MoraleRoot.m_NegativeFacts</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetNegativeFacts(List&lt;Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;&gt; negativeFacts)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetNegativeFacts(params Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;[] negativeFacts)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1306,7 +1239,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;[]</td>
         <td><span class="parametername">negativeFacts</span></td>
         <td><p>
 Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
@@ -1334,10 +1267,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetUnitNotHaveMorale_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetUnitNotHaveMorale(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetUnitNotHaveMorale_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602.SetUnitNotHaveMorale(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L390">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L325">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetUnitNotHaveMorale_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetUnitNotHaveMorale*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2_SetUnitNotHaveMorale_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator`2.SetUnitNotHaveMorale(Kingmaker.Localization.LocalizedString)">SetUnitNotHaveMorale(LocalizedString)</h4>
@@ -1388,10 +1321,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_BaseMoraleRootConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.BaseMoraleRootConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L21" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/BaseMoraleRoot.cs/#L20" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

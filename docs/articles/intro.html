@@ -69,15 +69,11 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
+<h2 id="project-setup">Project Setup</h2>
 <ol>
-<li>Set up your project. If you haven't written mods for any Pathfinder game, start with the wiki's <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">Beginner Guide</a>.</li>
+<li>Create a C# Class Library. If you haven't written mods for any Pathfinder game consider going through the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">Beginner Guide</a>.</li>
 <li>Create a <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicize-Assemblies">public assembly</a>.</li>
-<li>Install <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">WW-Blueprint-Core</a> using <a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget">NuGet</a>.
-<ul>
-<li>For v1.3.0+ the package is a DLL that <strong>must be merged into your mod assembly</strong></li>
-<li>Prior to v1.3.0 the package included either a signed DLL or source code. The source code is still published as a <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/releases">Release on GitHub</a> if you prefer including the source directly.</li>
-</ul>
-</li>
+<li>Install <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">WW-Blueprint-Core</a> using <a href="https://docs.microsoft.com/en-us/nuget/what-is-nuget">NuGet</a>.</li>
 <li>Make sure your project is configured for .NET 4.7.2 and the latest C# language version
 <ul>
 <li>In your .csproj file you should have the following properties:</li>
@@ -91,11 +87,15 @@
 <li>Add the required assembly references:
 <ul>
 <li>Publicized copy of <code>%WrathPath%\Wrath_Data\Managed\Assembly-CSharp.dll</code></li>
+<li><code>%WrathPath%\Wrath_Data\Managed\Assembly-CSharp-firstpass.dll</code></li>
 <li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</code></li>
-<li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</code></li>
+<li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll</code></li>
+<li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\UnityEngine.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll</code></li>
+<li><code>$WrathPath%\Wrath_Data\Managed\UnityModManager\0Harmony.dll</code></li>
+<li><code>$WrathPath%\Wrath_Data\Managed\UnityModManager\UnityModManager.dll</code></li>
 </ul>
 </li>
 <li>Configure DLL Merging:
@@ -145,90 +145,299 @@
 </li>
 <li>You're ready to go!</li>
 </ol>
-<p><a href="tutorials/overview.html">Tutorials</a> explain how to mod the game using the library. The sections below provide an overview of the main features.</p>
+<p>If you already have a project or are having trouble, take a look at <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore%20Tutorial/BlueprintCore%20Tutorial/BlueprintCore%20Tutorial.csproj">BlueprintCore Tutorial.csproj</a>.</p>
+<p>Your project file should look almost identical to the tutorial project file, with the exception that you may have additional package and assembly references. In particular make sure:</p>
+<ul>
+<li>Your publicized assembly is called <code>Assembly-CSharp.dll</code></li>
+<li>Your assembly references do not set <code>&lt;Private&gt;false&lt;/Private&gt;</code></li>
+<li>All referenced assemblies are included</li>
+</ul>
+<p>Without these <code>ILRepack</code> will fail.</p>
+<h2 id="using-blueprintcore">Using BlueprintCore</h2>
+<p>For a step-by-step walkthrough see <a href="tutorials/overview.html">Tutorials</a>.</p>
 <p>If you're having problems check <a href="issues.html">Known Issues</a>.</p>
 <p>If you're interested in contributing see <a href="contributing.html">How to Contribute</a>.</p>
-<h2 id="blueprint-configurators">Blueprint Configurators</h2>
-<p>All blueprint types inheriting from BlueprintScriptableObject have a corresponding configurator. e.g. <a href="xref:BlueprintCore.Blueprints.Configurators.Buffs.BuffConfigurator">BuffConfigurator</a> is the configurator for <code>BlueprintBuff</code>.</p>
-<p>If you write a custom blueprint or use one from a mod you can use <a href="xref:BlueprintCore.Blueprints.Configurators.BlueprintConfigurator%601">BlueprintConfigurator</a>. This won't expose fields and supported components for the type but allows use of the basic configurator API and validation with any blueprint type:</p>
-<p>To use a configurator:</p>
+<p>Below is an overview of the basic features of BlueprintCore and how to use them.</p>
+<h3 id="blueprint-configurators">Blueprint Configurators</h3>
+<p>For every blueprint type inheriting from <code>BlueprintScriptableObject</code> there is a corresponding configurator. e.g. <a href="xref:BlueprintCore.Blueprints.Configurators.Buffs.BuffConfigurator">BuffConfigurator</a> is the configurator for <code>BlueprintBuff</code>.</p>
+<p>Blueprint types not used in the base game do not have configurators and should not be used.</p>
+<h4 id="basic-usage">Basic Usage</h4>
 <ol>
-<li>Instantiate a configurator using <code>For()</code> or <code>New()</code>
-<ul>
-<li><code>For()</code> creates a configurator for an existing blueprint</li>
-<li><code>New()</code> creates and registers a new blueprint</li>
-</ul>
-</li>
-<li>Modify the blueprint using the configurator methods</li>
-<li>Commit the configuration with <a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.Configure">Configure()</a>
-<ul>
-<li>Until this is called, no changes are made to the blueprint</li>
-<li>After commit the blueprint is validated and any errors are logged as a warning</li>
-</ul>
-</li>
+<li>Creating a new Blueprint</li>
 </ol>
-<pre><code class="lang-C#">BuffConfigurator.New(MyBuffName, MyBuffGuid).AddStatBonus(stat: StatType.Strength, value: 2).Configure();
+<pre><code class="lang-C#">// Creates a feature with the provided name and guid. Once this is called the blueprint is registered in the game
+// library and is accessible, but has nothing configured.
+FeatureConfigurator.New(FeatName, FeatGuid)
+  // Sets the m_DisplayName field inherited from BlueprintUnitFact to the created localized string.
+  .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
+  // Sets the Groups field.
+  .SetGroups(FeatureGroup.Feat)
+  // Adds a BuffSkillBonus component which increases the Knowledge Arcana skill by 2.
+  .AddBuffSkillBonus(StatType.SkillKnowledgeArcana, 2)
+  // Commits changes to the blueprint and returns the configured blueprint. If any validation errors are detected it
+  // logs a warning.
+  .Configure();
 </code></pre>
-<p>This code will create a new <code>BlueprintBuff</code> using the provided name and GUID. When the buff is applied to a unit it
-grants +2 to Strength because of the <code>AddStatBonus</code> component.</p>
-<h3 id="common-methods">Common Methods</h3>
-<ul>
-<li><a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.AddComponent(Kingmaker.Blueprints.BlueprintComponent)">AddComponent</a>
-<ul>
-<li>Adds a <code>BlueprintComponent</code> of any type</li>
-<li>Used internally by all configurator methods that add a new component</li>
-<li>Use this for custom components in your modification</li>
-<li>All component types in the base game are supported by type specific methods. e.g. <code>AddStatBonus</code></li>
-</ul>
-</li>
-<li><a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.AddUniqueComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%7B%600,%601%7D.ComponentMerge,System.Action%7BKingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent%7D)">AddUniqueComponent</a>
-<ul>
-<li>Similar to <code>AddComponent</code>, but for components for which only one can exist in a blueprint</li>
-<li>Supports user defined conflict resolution if multiple components are present. See <a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.ComponentMerge">ComponentMerge</a>.</li>
-</ul>
-</li>
-<li><a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.RemoveComponents(System.Func%7BKingmaker.Blueprints.BlueprintComponent,System.Boolean%7D)">RemoveComponents</a>
-<ul>
-<li>Removes any components matching the supplied <code>Func&lt;BlueprintComponent, bool&gt;</code></li>
-</ul>
-</li>
-<li><a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.EditComponent%60%601(System.Action%7B%60%600%7D)">EditComponent</a>
-<ul>
-<li>After configuring components, runs the provided <code>Action</code> on the first component matching the specified type</li>
-</ul>
-</li>
-<li><a href="xref:BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator%602.OnConfigure(System.Action%7B%600%7D%5B%5D)">OnConfigure</a>
-<ul>
-<li>Executes an <code>Action</code> on the blueprint as the last step in configuration</li>
-</ul>
-</li>
-</ul>
-<h3 id="modifying-fields">Modifying Fields</h3>
-<p>Each configurator exposes methods to set and modify fields. The comment summary for these methods links to the field they modify.</p>
-<p>Simple fields such as booleans and integers are usually controlled by methods of the form <code>SetX()</code> while more complex or correlated fields have methods enforcing implicit contracts. For example, fields representing flags are often modified using <code>AddX()</code> and <code>RemoveY()</code> methods.</p>
-<p>All blueprint fields should be exposed in their configurator. Some fields are not exposed because they are unused or unnecessary.</p>
-<h3 id="adding-components">Adding Components</h3>
-<p>Each <code>BlueprintComponent</code> type exposes methods to create and add them to the blueprint. The comment summary for these methods links to the type of component they create, or in some cases modify.</p>
-<p>Within the game library you can add any component to any blueprint since they are all stored in a <code>BlueprintComponent</code> array. In reality, each component has restrictions on how it is used such as which type of blueprint and whether there can be more than one copy in a blueprint. See the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Blueprints</a> article on the wiki for more details.</p>
-<p>The configurator API enforce these requirements through two mechanisms:</p>
-<ol>
-<li>Configurators expose methods for components that are flagged as compatible</li>
-<li>Validation identifies and logs an error if an invalid component is present</li>
+<ol start="2">
+<li>Modify an existing Blueprint</li>
 </ol>
-<p>This ensures you can see conflicts or problems in existing blueprints as well as your own. However, just because a component is exposed on a configurator does not guarantee it will work. The existing component annotations are not always correct or complete and manual review of the 1000+ components is not feasible. If you detect any conflicts please report it so the API can be updated.</p>
-<h3 id="quick-example-fast-healing">Quick Example: Fast Healing</h3>
-<p>The following snippet creates a new <code>BlueprintBuff</code> that grants fast healing 1 until combat ends.</p>
-<pre><code class="lang-C#">BuffConfigurator.New(Name, Guid)
-    .SetDisplayName(DisplayName)
-    .SetDescription(Description)
-    .SetIcon(Icon)
-    .FastHealing(1)
-    .RemoveWhenCombatEnds()
-    .Configure();
+<pre><code class="lang-C#">// Fetches the BlueprintFeatureSelection from the game library with the provided guid. In this case it is the selection
+// for all general feats available in the game.
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  // Adds the feat referenced by FeatName to the blueprint field m_AllFeatures.
+  .AddToAllFeatures(FeatName)
+  // Commits changes to the blueprint and returns the configured blueprint. If any validation errors are detected it
+  // logs a warning.
+  .Configure();
 </code></pre>
-<h2 id="actionsbuilder-and-conditionsbuilder">ActionsBuilder and ConditionsBuilder</h2>
-<p>Actions and conditions in the game are always used in the form of <code>ActionList</code> and <code>ConditionsChecker</code>. <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> provide builder APIs for constructing them.</p>
-<p>Basic usage both builders is the same:</p>
+<h5 id="adding-components">Adding Components</h5>
+<p>Every supported component has at least one AddX method where X is the component type, e.g. <code>AddBuffSkillBonus</code> in <code>FeatureConfigurator</code>. Through community contributions Some components have multiple methods based on usage. For example, <code>PrerequisiteParametrizedFeature</code> is implemented in three methods: AddPrerequisiteParametrizedSpellFeature, AddPrerequisiteParametrizedWeaponFeature, and AddPrerequisiteParametrizedWeaponFeature.</p>
+<p>Some component types are unique: only one component should exist in a given blueprint. By default adding a second unique component will result in a failure but you can override this to skip or provide a merging function to combine the two components. For more details see <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a>.</p>
+<pre><code class="lang-C#">FeatureConfigurator.For(FeatGuid)
+  // Ignores the change if the feat already has this prerequisite.
+  // This could happen if another mod or a game patch released after your mod adds it already.
+  .AddPrerequisiteIsPet(mergeBehavior: ComponentMerge.Skip)
+  .Configure();
+</code></pre>
+<h5 id="modifing-fields">Modifing Fields</h5>
+<p>Fields are implemented through several methods. Note that for the purpose of naming, internal prefixes are removed so m_Spell is treated as Spell.</p>
+<ul>
+<li>SetX - Sets the value of X
+<ul>
+<li>All exposed fields have this method</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
+  .SetGroups(FeatureGroup.Feat)
+  .Configure();
+</code></pre>
+<ul>
+<li>ModifyX - Modifies X by invoking a provided <code>Action</code>
+<ul>
+<li>All non-primitive, non-enum fields have this method</li>
+<li>For lists and arrays the action is invoked on each element</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-C#">AbilityConfigurator.For(AbilityGuid)
+  .ModifyDefaultAiAction(aiAction =&gt; UpdateDefaultAiAction(aiAction))
+  .Configure();
+</code></pre>
+<ul>
+<li>AddToX - Adds elements to X
+<ul>
+<li>All list and array fields have this method</li>
+<li>Bitflag fields have this method</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
+  .AddToGroups(FeatureGroup.Feat)
+  .Configure();
+</code></pre>
+<ul>
+<li>RemoveFromX - Removes elements from X
+<ul>
+<li>All list and array fields have this method</li>
+<li>Bitflag fields have this method</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.For(FeatGuid)
+  .RemoveFromGroups(FeatureGroup.Feat)
+  .Configure();
+</code></pre>
+<ul>
+<li>RemoveFromX (Predicate) - Removes elements from X matching the provided predicate
+<ul>
+<li>All list and array fields have this method</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
+  .RemoveFromGroups(group =&gt; group == FeatureGroup.Feat)
+  .Configure();
+</code></pre>
+<ul>
+<li>Clear - Clears the value of X
+<ul>
+<li>All list and array fields have this method</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.For(FeatName)
+  .ClearGroups()
+  .Configure();
+</code></pre>
+<h4 id="advanced-usage">Advanced Usage</h4>
+<p>If you wrote your own component or want to use a component from another mod or mod library, you can add components directly through methods in <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html">RootConfigurator</a>:</p>
+<ul>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">AddComponent</a>
+<ul>
+<li>A typed version of this method exists which accepts an init <code>Action</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
+  // Both calls are equivalent
+  .AddComponent(new MyCustomComponent(someValue))
+  .AddComponent&lt;MyCustomComponent&gt;(c =&gt; c.Value = someValue)
+  .Configure();
+</code></pre>
+<ul>
+<li><a href="xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.AddComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Action%7BKingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent%7D)">AddUniqueComponent</a>
+<ul>
+<li>Similar to <code>AddComponent</code> but includes support for merging unique components</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_EditComponent__1_System_Action___0__">EditComponent</a>
+<ul>
+<li>Invokes the provided action on the first component matching the specified type</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.For(FeatGuid)
+  .EditComponent&lt;ContextRankConfig&gt;(c =&gt; UpdateContextRankConfig(c))
+  .Configure();
+</code></pre>
+<ul>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__">RemoveComponent</a>
+<ul>
+<li>Removes any components matching the supplied predicate</li>
+</ul>
+</li>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigure_System_Action__0____">OnConfigure</a>
+<ul>
+<li>Invokes the provided <code>Action</code> on the blueprint as the last step in configuration</li>
+</ul>
+</li>
+</ul>
+<p>As with all changes to the blueprint, these functions are only applied once <code>Configure()</code> is called, and the action provided in <code>OnConfigure()</code> is invoked after everything else is done.</p>
+<h4 id="customizing-configurators">Customizing Configurators</h4>
+<p>If you want to extend a configurator to include your own logic you can do so with one limitation: you cannot extend concrete implementations.</p>
+<p>To support this the library implements almost all configurator functionality within abstract classes and only exposes <code>New()</code> and <code>For()</code> in concrete classes. For example, <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.UI.UISoundConfigurator.html">UISoundConfigurator</a> can be customized by extending <a href="xref:BlueprintCore.Blueprints.Configurators.UI.BaseUISoundConfigurator-2">BaseUISoundConfigurator</a>.</p>
+<p>As the library is improved concrete implementations are hand written to include additional logic, e.g. <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs.BuffConfigurator.html">BuffConfigurator</a>. Any logic included here would be lost if you choose to create your own BuffConfigurator class.</p>
+<p>To implement a custom configurator use this as a template for your class:</p>
+<pre><code class="lang-C#">/// &lt;summary&gt;
+/// Configurator for &lt;see cref=&quot;BlueprintType&quot;/&gt;.
+/// &lt;/summary&gt;
+/// &lt;inheritdoc/&gt;
+public class TypeConfigurator : BaseTypeConfigurator&lt;BlueprintType, TypeConfigurator&gt;
+{
+  private TypeConfigurator(Blueprint&lt;BlueprintType, BlueprintReference&lt;BlueprintType&gt;&gt; blueprint) : base(blueprint) { }
+
+  /// &lt;summary&gt;
+  /// Returns a configurator to modify the specified blueprint.
+  /// &lt;/summary&gt;
+  /// &lt;remarks&gt;
+  /// &lt;para&gt;
+  /// Use this to modify existing blueprints, such as blueprints from the base game.
+  /// &lt;/para&gt;
+  /// &lt;para&gt;
+  /// If you're using &lt;see href=&quot;https://github.com/OwlcatOpenSource/WrathModificationTemplate&quot;&gt;WrathModificationTemplate&lt;/see&gt; blueprints defined in JSON already exist.
+  /// &lt;/para&gt;
+  /// &lt;/remarks&gt;
+  public static TypeConfigurator For(Blueprint&lt;BlueprintType, BlueprintReference&lt;BlueprintType&gt;&gt; blueprint)
+  {
+    return new TypeConfigurator(blueprint);
+  }
+
+  /// &lt;summary&gt;
+  /// Creates a new blueprint and returns a new configurator to modify it.
+  /// &lt;/summary&gt; 
+  /// &lt;remarks&gt;
+  /// &lt;para&gt;
+  /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
+  /// &lt;/para&gt;
+  /// &lt;para&gt;
+  /// An implicit cast converts the string to &lt;see cref=&quot;Blueprint{T, TRef}&quot;/&gt;, exposing the blueprint instance and its reference.
+  /// &lt;/para&gt;
+  /// &lt;/remarks&gt;
+  public static TypeConfigurator New(string name, string guid)
+  {
+    BlueprintTool.Create&lt;BlueprintType&gt;(name, guid);
+    return For(name);
+  }
+}
+</code></pre>
+<p>At this point you can create new methods:</p>
+<pre><code class="lang-C#">public TypeConfigurator DoSomething()
+{
+  // Do something
+  return this;
+}
+</code></pre>
+<p>or you can override existing methods:</p>
+<pre><code class="lang-C#">public new TypeConfigurator SetField(int fieldValue)
+{
+  // Do something
+  return this;
+}
+</code></pre>
+<p>In the last example, the use of <code>new</code> ensures that the inherited method is hidden and calls will direct to your method instead.</p>
+<h4 id="new-blueprint-types">New Blueprint Types</h4>
+<p>In the event that you need a configurator for a blueprint not in the base game you can use <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.BlueprintConfigurator-1.html">BlueprintConfigurator</a>.</p>
+<p>This will not expose all component types or fields, but it provides the method chain API, advanced component methods, and runs validation when configured.</p>
+<pre><code class="lang-C#">BlueprintConfigurator&lt;MyBlueprintType&gt;.New()
+  .AddComponent(someComponent)
+  .OnConfigure(bp =&gt; bp.myBlueprintField = someValue)
+  .Configure();
+</code></pre>
+<p>Notice the usage of <code>OnConfigure()</code> to set fields not exposed by the API.</p>
+<p>If the blueprint is more complex it may be better to create your own configurator as described above in Customizing Configurators.</p>
+<h3 id="actionsbuilder-and-conditionsbuilder">ActionsBuilder and ConditionsBuilder</h3>
+<p>Actions and conditions in the game are (almost) always used in the form of <code>ActionList</code> and <code>ConditionsChecker</code>. <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> provide builder APIs for constructing them. Both APIs behave the same.</p>
+<h4 id="basic-usage-1">Basic Usage</h4>
+<pre><code class="lang-C#">using BlueprintCore.Actions.Builder.ContextEx;
+
+// Creates an ActionsBuilder which grants a buff and triggers a melee attack
+var meleeAttack =
+  ActionsBuilder.New()
+    .ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+    .MeleeAttack();
+</code></pre>
+<p>You can call <code>Build()</code> directly but usually this is not necessary. Actions and conditions are used in the context of blueprints, blueprint components, or other actions and conditions. BlueprintCore APIs all accept builders in place of <code>ActionList</code> and <code>ConditionsChecker</code>:</p>
+<pre><code class="lang-C#">using BlueprintCore.Actions.Builder.ContextEx;
+
+AbilityConfigurator.New(AbilityName, AbilityGuid)
+  // Adds an AbilityEffectRunAction component which grants a buff and triggers a melee attack when the ability is used.
+  // Build() is called internally by the library.
+  .AddAbilityEffectRunAction(
+    ActionsBuilder.New()
+      .ApplyBuff(MyAttackBuff, duration: ContextDuration.Fixed(1))
+      .MeleeAttack())
+  .Configure();
+</code></pre>
+<p>Notice that both examples included the namespace <code>BlueprintCore.Actions.Builder.ContextEx</code>. This is because actions and conditions are implemented using extension classes. Each extension namespace includes a different set of actions and conditions, grouped loosely by usage.</p>
+<p>The full breakdown of extension classes is provided in <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a>. At a glance:</p>
+<ul>
+<li>AreaEx - Involves the game map, dungeons, or locations</li>
+<li>AVEx - Involves audiovisual effects such as dialogs, camera, cutscenes, and sounds</li>
+<li>BasicEx - Most non-context actions and conditions related to game mechanics</li>
+<li>ContextEx - Most context actions and conditions related to game mechanics</li>
+<li>KingdomEx - Involves the Kingdom and Crusade system</li>
+<li>MiscEx - Catch-all for uncategorized</li>
+<li>NewEx - New actions and conditions implemented in BlueprintCore</li>
+<li>UpgraderEx - UpgraderOnlyActions (does not exist for conditions)</li>
+</ul>
+<p>Only actions or conditions in the extension classes imported will be available in auto-complete or compilation. Usually you only need a single extension class for a given blueprint.</p>
+<h4 id="customizing-builders">Customizing Builders</h4>
+<p>Builders are implemented almost entirely through extension classes and methods. To add your own methods just create a class and use the extension method syntax:</p>
+<pre><code class="lang-C#">public static ActionsBuilder AddMyCustomAction(this ActionsBuilder builder, int someValue)
+{
+  return builder.Add(ElementTool.Create&lt;MyCustomAction&gt;() { Value = someValue });
+}
+</code></pre>
+<p>Note the usage of <a href="xref:BlueprintCore.Utils.ElementTool.Create%601">ElementTool.Create</a>. Use this when instantiating types inheriting from <code>Element</code> to ensure they are configured properly or it can cause your mod to fail.</p>
+<h4 id="advanced-usage-1">Advanced Usage</h4>
+<p>Builders have an <code>Add()</code> method which can be used to add any relevant type:</p>
+<pre><code class="lang-C#">var actions = ActionsBuilder.New().Add(ElementTool.Create&lt;MyCustomAction&gt;());
+</code></pre>
+<p>There is also a version of <code>Add()</code> which takes a type argument and init action:</p>
+<pre><code class="lang-C#">var actions = ActionsBuilder.New().Add&lt;MyCustomAction&gt;(a =&gt; a.Value = someValue);
+</code></pre>
+<p>ConditionsBuilder has a special method, <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html#BlueprintCore_Conditions_Builder_ConditionsBuilder_UseOr">UseOr()</a>, which results in the conditions being evaluated using or instead of and logic. i.e. By default all conditions in the builder must pass but calling <code>UseOr()</code> means only a single condition needs to pass.</p>
 <ol>
 <li>Instantiate a builder using <code>New()</code></li>
 <li>Add actions/conditions using builder methods
@@ -243,83 +452,149 @@ grants +2 to Strength because of the <code>AddStatBonus</code> component.</p>
 </ul>
 </li>
 </ol>
-<p>Builder methods declare the game type they implement in their comment summary.</p>
-<h3 id="extensions">Extensions</h3>
-<p>To limit the number of actions and conditions available when using <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a>, specific types are implemented in extension methods.</p>
-<p>Extension methods are logically grouped so most of the time you can include a single extension namespace. The extension groups are the same for both builders:</p>
-<ul>
-<li>AreaEx
-<ul>
-<li>Extensions involving the game map, dungeons, or locations</li>
-<li>Types specifically related to the Kingdom and Crusade system are in KingdomEx</li>
-</ul>
-</li>
-<li>AVEx
-<ul>
-<li>Extensions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds</li>
-<li><code>ActionsBuilder</code> only</li>
-</ul>
-</li>
-<li>BasicEx
-<ul>
-<li>Extensions for most game mechanics not included in ContextEx</li>
-</ul>
-</li>
-<li>ContextEx
-<ul>
-<li>Extensions for <code>ContextAction</code> and <code>ContextCondition</code> types</li>
-<li>Some types are implemented in more specific extensions such as KingdomEx</li>
-</ul>
-</li>
-<li>KingdomEx
-<ul>
-<li>Extensions for the Kingom and Crusade systems</li>
-</ul>
-</li>
-<li>MiscEx
-<ul>
-<li>Extensions that are not game mechanics related and don't fit into other categories</li>
-<li>Examples include things like achievement related actions</li>
-</ul>
-</li>
-<li>NewEx
-<ul>
-<li>Extensions for types provided by BlueprintCore</li>
-</ul>
-</li>
-<li>StoryEx
-<ul>
-<li>Extensions related to the story such as companion stories, quests, and etudes</li>
-</ul>
-</li>
-<li>UpgraderEx
-<ul>
-<li>Extensions for all <code>UpgraderOnlyActions</code> types</li>
-<li><code>ActionsBuilder</code> only</li>
-</ul>
-</li>
-</ul>
-<h3 id="quick-example-melee-attack">Quick Example: Melee Attack</h3>
-<p>The following snippet creates a new <code>ActionList</code> that initiates a melee attack if the target is in melee range.</p>
-<pre><code>// Extension for MeleeAttack() which is a ContextAction
-using BlueprintCore.Actions.Builder.ContextEx;
-// Extension for TargetInMeleeRange() which is a new condition in the library
-using BlueprintCore.Conditions.Builder.NewEx;
-
-ActionsBuilder.New()
-    .Conditional(
-        ConditionsBuilder.New().TargetInMeleeRange(),
-        ifTrue: ActionsBuilder.New().MeleeAttack())
-    .Build();
-</code></pre>
 <h2 id="referencing-blueprints">Referencing Blueprints</h2>
-<p>When a blueprint reference is required the API accepts a <code>string</code> argument. The argument can be the guid for the blueprint or it can be the name of the blueprint if you have registered a name to guid mapping using <a class="xref" href="../api/BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">BlueprintTool#AddGuidsByName()</a>. Blueprints created using <a class="xref" href="../api/BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_Create__1_System_String_System_String_">BlueprintTool#Create(string, string)</a> automatically register the name to guid mapping.</p>
-<p>The parameter comment declares the type of blueprint reference expected.</p>
-<h2 id="generated-methods">Generated Methods</h2>
-<p>The majority of the API is implemented using generated code. These methods are identified by the <a href="xref:BlueprintCore.Utils.GeneratedAttribute">GeneratedAttribute</a>.</p>
-<p>Generated methods have a parameter for every field in the object, essentially acting as a constructor. To minimize boilerplate generated methods declare most parameters as optional.</p>
-<p>This is not an indication of how the object should be used. Optional parameters in a generated method may be required for the object to function. In contrast, non-generated methods expose strict APIs that only declare parameters optional when they are not needed.</p>
-<p>If you identify methods in need of manual implementations please report them. This should be reserved for complex objects with a large number of fields or complex requirements for its fields.</p>
+<p>Many API calls require references to a blueprint. To simplify blueprint references BlueprintCore defines <a class="xref" href="../api/BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a>. This provides implicit constructors which allow referencing blueprints by:</p>
+<ul>
+<li>GUID / Asset ID string</li>
+</ul>
+<pre><code class="lang-C#">var basicFeatSelectionGuid = &quot;247a4068-296e-8be4-2890-143f451b4b45&quot;;
+FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
+</code></pre>
+<ul>
+<li>Name string - only applies to blueprint created using BlueprintCore</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid);
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(FeatName)
+  .Configure();
+</code></pre>
+<ul>
+<li>Blueprint instance</li>
+</ul>
+<pre><code class="lang-C#">var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(feat)
+  .Configure();
+</code></pre>
+<ul>
+<li>Blueprint reference</li>
+</ul>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid);
+var featReference = BlueprintTool.GetRef&lt;BlueprintFeature, BlueprintFeatureReference&gt;(FeatGuid);
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(featReference)
+  .Configure();
+</code></pre>
+<ul>
+<li>Guid</li>
+</ul>
+<pre><code class="lang-C#">var basicFeatSelectionGuid = Guid.Parse(&quot;247a4068-296e-8be4-2890-143f451b4b45&quot;);
+FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
+</code></pre>
+<ul>
+<li>BlueprintGuid</li>
+</ul>
+<pre><code class="lang-C#">var basicFeatSelectionGuid = BlueprintGuid.Parse(&quot;247a4068-296e-8be4-2890-143f451b4b45&quot;);
+FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
+</code></pre>
+<p>When passing in a list or array you can mix and match:</p>
+<pre><code class="lang-C#">var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
+var myOtherFeatGuid = &quot;247a4068-296e-8be4-2890-143f451b4b46&quot;;
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(feat, myOtherFeatGuid)
+  .Configure();
+</code></pre>
+<p>If you're declaring or storing a list or array you need to declare the correct type for the collection:</p>
+<pre><code class="lang-C#">var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
+var myOtherFeatGuid = &quot;247a4068-296e-8be4-2890-143f451b4b46&quot;;
+var newFeats = new Blueprint&lt;BlueprintFeature, BlueprintFeatureReference&gt;[] { feat, myOtherFeatGuid };
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(newFeats)
+  .Configure();
+</code></pre>
+<p>These examples use configurators but the same approach works for all BlueprintCore APIs.</p>
+<h2 id="understanding-the-api">Understanding the API</h2>
+<p>The configurator and builder APIs, with the exception of the builder base classes and configurators in the <code>BlueprintCore.Blueprints.CustomConfigurators</code> namespace, are generated code.</p>
+<p>Here are some examples to help understand the resulting API:</p>
+<p><img src="%7E%5Cimages%5Cprerequisite_character_class_method.PNG" alt="Prerequisite Character Class Method"></p>
+<ol>
+<li>This method adds a <code>PrerequisiteClassLevel</code> component to the blueprint</li>
+<li>Adding this component requires <code>characterClass</code> and <code>level</code></li>
+</ol>
+<ul>
+<li>By default APIs have no required parameters. This is because it is difficult if not impossible to judge whether a type needs a value for a field specified using static analysis.</li>
+<li>Since these are required, it indicates this method has been overriden by a manual config indicating that you should always specify these values for a <code>PrerequisiteClassLevel</code> component.</li>
+</ul>
+<ol start="3">
+<li>Every other parameter is null, excluding <code>mergeBehavior</code></li>
+</ol>
+<ul>
+<li>By default all parameters have a default value of null (primitives are handled using nullable types)</li>
+<li>If you do not provide these parameters the default value of the corresponding field in <code>PrerequisiteClassLevel</code> is used
+<ul>
+<li>Essentially, the API will not set the value of fields that are not specified, barring some exceptions covered in the next example</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>BlueprintCore specific parameters are present: <code>mergeBehavior</code> and <code>merge</code></li>
+</ol>
+<ul>
+<li>This indicates the component is unique: there should only be a single copy in any given blueprint</li>
+<li>These parameters grant control over interactions if there are multiple copies present</li>
+</ul>
+<p><img src="%7E%5Cimages%5Cadd_rest_trigger_method.PNG" alt="Rest Trigger Method"></p>
+<ol>
+<li>This method adds an <code>AddRestTrigger</code> component to the blueprint</li>
+</ol>
+<ul>
+<li>The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.</li>
+</ul>
+<ol start="2">
+<li>Adding this component doesn't require anything</li>
+</ol>
+<ul>
+<li>After using this example, it now requires an <code>ActionsBuilder</code>; I updated the config because this component obviously doesn't make sense without one</li>
+</ul>
+<ol start="3">
+<li>Something special happens in the library if no argument is passed in</li>
+</ol>
+<ul>
+<li><code>ActionsBuilder</code> is used to set an <code>ActionList</code> field value, but the game will throw an exception if an <code>ActionList</code> field is null</li>
+<li>To ensure that the <code>ActionList</code> is not null, BlueprintCore checks the field value and if it detects a null field it sets it to <a class="xref" href="../api/BlueprintCore.Utils.Constants.Empty.html#BlueprintCore_Utils_Constants_Empty_Actions">Constants.Empty.Actions</a></li>
+</ul>
+<p>The null handling case is an important one: there are several types in the game library that generally cause problems when null. As a result BlueprintCore APIs will automatically set fields with these types to &quot;empty&quot; defaults. As of writing these types include:</p>
+<ul>
+<li>ActionList</li>
+<li>ConditionsChecker</li>
+<li>ContextDiceValue</li>
+<li>ContextValue</li>
+<li>LocalizedString</li>
+<li>PrefabLink</li>
+</ul>
+<p>If you find other types that should never be null please file a <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/issues">GitHub Issue</a>.</p>
+<p>Similarly you can file an issue if you think a given method should be implemented differently, usually requiring certain inputs. More details on providing this feedback are in <a href="contributing.html">How to Contribute</a>.</p>
+<h3 id="limitations">Limitations</h3>
+<p>BlueprintCoreGen analyzes the game library and combines that data with community provided configuration overrides to generate methods and classes which wrap common game types. The goal is to provide an API with minimal boilerplate which enforces proper usage of game types as much as possible, but there are some limitations to this approach:</p>
+<ul>
+<li>Hand tuning code can be more complicated than simply writing a function
+<ul>
+<li>Specific configuration paths are required for any code output and it's not always easy to logically define this</li>
+</ul>
+</li>
+<li>When the game API changes, so does the BlueprintCore API
+<ul>
+<li>This leads to breaking changes at times, though generally this means the code you wrote would break anyways</li>
+<li>So far only Patch 1.2 has truly introduced breaking changes</li>
+</ul>
+</li>
+<li>When the community adds configuration overrides, the BlueprintCore API changes
+<ul>
+<li>This leads to break changes for anyone using those functions</li>
+</ul>
+</li>
+</ul>
+<p>Generally API breaking changes are limited to basic things like renaming methods or method parameters. These should be trivial to update between versions, but it is something to keep in mind when using BlueprintCore.</p>
 <h2 id="logging-and-utils">Logging and Utils</h2>
 <h3 id="tools">Tools</h3>
 <p>Tool classes provide simple utility functions, usually related to a specific type. See each class for more details, but some notable uses:</p>
@@ -343,31 +618,54 @@ ActionsBuilder.New()
 <h3 id="type-constructors">Type Constructors</h3>
 <p>Utility classes are provided to simplify creating game objects.</p>
 <ul>
-<li><a class="xref" href="../api/BlueprintCore.Utils.ContextDuration.html">ContextDuration</a>
+<li><a class="xref" href="../api/BlueprintCore.Utils.Types.ContextDuration.html">ContextDuration</a></li>
+</ul>
+<pre><code class="lang-C#">var contextDuration = ContextDuration.Fixed(2);
+</code></pre>
 <ul>
-<li>Creates <code>ContextDurationValue</code></li>
+<li><a class="xref" href="../api/BlueprintCore.Utils.Types.ContextValues.html">ContextValues</a></li>
 </ul>
-</li>
-<li><a class="xref" href="../api/BlueprintCore.Utils.ContextValues.html">ContextValues</a>
+<pre><code class="lang-C#">var contextValue = ContextValues.Rank();
+</code></pre>
 <ul>
-<li>Creates <code>ContextValue</code></li>
+<li><a class="xref" href="../api/BlueprintCore.Utils.Types.ContextRankConfigs.html">ContextRankConfigs</a></li>
 </ul>
-</li>
-<li><a class="xref" href="../api/BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>
+<pre><code class="lang-C#">var contextRankConfig = ContextRankConfigs.BaseAttack().WithDivStepProgression(2);
+</code></pre>
 <ul>
-<li>Creates <code>ContextRankConfig</code></li>
+<li><a class="xref" href="../api/BlueprintCore.Utils.Types.UnitConditionException.html">UnitConditionException</a></li>
 </ul>
-</li>
-<li><a href="xref:BlueprintCore.Blueprints.Configurators.Abilities.ResourceAmountBuilder">ResourceAmountBuilder</a>
-<ul>
-<li>Creates <code>BlueprintAbilityResource.Amount</code></li>
-</ul>
-</li>
-</ul>
+<pre><code class="lang-C#">var unitConditionException = UnitConditionException.TargetHasFeatures(FeatureGuid1, FeatureGuid2);
+</code></pre>
 <h3 id="logging">Logging</h3>
-<p><a class="xref" href="../api/BlueprintCore.Utils.LogWrapper.html">LogWrapper</a> wraps the game's <code>LogChannel</code> class to provide control over verbose log output. It is used internally for logging within BlueprintCore and is available for use within your modification, but not required.</p>
+<p><a class="xref" href="../api/BlueprintCore.Utils.LogWrapper.html">LogWrapper</a> wraps the game's <code>LogChannel</code> class to provide control over verbose log output.</p>
+<p>It is used internally for logging within BlueprintCore and is available for use within your modification, but not required.</p>
+<pre><code class="lang-C#">private static readonly LogWrapper ModLogger = LogWrapper.Get(&quot;MyMod&quot;);
+private static readonly LogWrapper FeatLogger = LogWrapper.Get(&quot;Feats&quot;);
+
+ModLogger.Info(&quot;Mod initialized.&quot;);
+FeatLogger.Info.(&quot;Feat initialized.&quot;);
+</code></pre>
+<p>The output to the log from the above example is:</p>
+<pre><code>BlueprintCore.MyMod: Mod initialized.
+BlueprintCore.Feats: Mod initialized.
+</code></pre>
+<p>Log output is available locally in <code>%APPDATA%\..\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLogFull.txt</code> or in <a href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">Remote Console</a>.</p>
+<p>Log output uses the <code>Mods</code> channel currently.</p>
 <h3 id="validator">Validator</h3>
-<p><a class="xref" href="../api/BlueprintCore.Utils.Validator.html">Validator</a> is used by the library to validate method inputs, actions, conditions, blueprint components, and blueprints. Any game objects you create outside of the library can be validated using <a class="xref" href="../api/BlueprintCore.Utils.Validator.html#BlueprintCore_Utils_Validator_Check_System_Object_">Validator#Check()</a>.</p>
+<p><a class="xref" href="../api/BlueprintCore.Utils.Validator.html">Validator</a> is used by the library to validate method inputs, actions, conditions, blueprint components, and blueprints.</p>
+<p>You can also use it separately for any game objects created outside of the library:</p>
+<pre><code class="lang-C#">private static readonly LogWrapper ModLogger = LogWrapper.Get(&quot;MyMod&quot;);
+
+var validator = new Validator(&quot;MyValidator&quot;, &quot;BlueprintBuff&quot;);
+validator.Check(myBuff);
+validator.Check(myBuffActions);
+if (validator.HasErrors())
+{
+  ModLogger.Warning(validator.GetErrorString());
+}
+</code></pre>
+<p>Once you create a <code>Validator</code>, you can call <code>Check()</code> for any objects related to it and they will all be bundled into the same error validation string.</p>
 </article>
           </div>
           
@@ -376,7 +674,7 @@ ActionsBuilder.New()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

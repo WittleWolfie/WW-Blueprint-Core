@@ -293,112 +293,40 @@
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Implementation is based on the
-<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
+that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
+base game.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
-    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
-</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p><strong>Creating a Blueprint</strong></p>
+<p>Use <code>New(string, string)</code> to create a blueprint:</p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</code>
+<p>Once <code>New()</code> is called the blueprint is added to the game library and can be referenced.</p>
+<p><strong>Using the Configurator</strong></p>
 <p>
-Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
-exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-component types.
+<code>New()</code> returns a configurator with methods to set or modify blueprint fields and add or modify
+<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>:
 </p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();</code>
 <p>
-See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
-for more information on component and blueprint type safety.
+Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+<code>Configure()</code> is called, at which point the changes are applied and validated. Potential problems with the
+blueprint are logged as warnings.
 </p>
-</td></tr><tr><td>Validation</td><td>
-<p>
-When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
-which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-complicated configuration problems such as
-<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
-usage.
-</p>
-<p>
-Validation uses a combination of code from the game library and manually tuned logic. See
-<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
-</p>
-</td></tr><tr><td>Builder Style API</td><td>
-<p>
-The API is designed to minimize boilerplate required to modify blueprints and create components.
-Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
-</p>
-<p>
-Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
-configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
-</p>
-</td></tr></tbody></table>
-TODO: Update the example
-<example>
-Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
-<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
-var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
-var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
-var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
-var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
-var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
-<p>// Register the names
-BlueprintTool.AddGuidsByName(
-(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
-(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
-(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
-// New blueprints and guids
-(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
-(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
-(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
-<p>// Load the icons and strings (not provided by library)
-var skaldsVigorIcon = LoadSkaldsVigorIcon();
-var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-var skaldsVigorName = LoadSkaldsVigorName();
-var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-var skaldsVigorDescription = LoadSkaldsVigorDescription();
-var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
-<p>// Create the buff
-BuffConfigurator.New(skaldsVigorBuff)
-.ContextRankConfig(
-// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-.FastHealing(1, bonusValue: ContextValues.Rank())
-.Configure();</p>
-<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-// Rage is active.
-var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(inspiredRageBuff)
-.FactContextActions(
-onActivated:
-ActionsBuilder.New()
-// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-// the feat.
-.Conditional(
-ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-ifTrue: applyBuff)
-// For characters other than the caster, Skald's Vigor is only applied if the caster has the
-// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-// buffs do not stack so it has no effect.
-.Conditional(
-ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-onDeactivated:
-// Removes Skald's Vigor when Inspired Rage ends.
-// There is actually a bug with this implementation; Lingering Song will extend the duration of
-// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-.Configure();</code></pre>
-</example><p>
+<p><strong>Modifying an Existing Blueprint</strong></p>
+<p>Use <code>For(Blueprint)</code> to modify existing blueprints:</p>
+<code>CharacterClassConfigurator.For(WizardClassGuid)</code>
+<p>Usage is otherwise identical to creating a new blueprint.</p>
+<p>For more information see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</a>.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L25">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L25">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseAreaPartConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -429,10 +357,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_AddToAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.AddToAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_AddToAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.AddToAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L147">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L147">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_AddToAudioTimeOfDayVariants_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.AddToAudioTimeOfDayVariants*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_AddToAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.AddToAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference[])">AddToAudioTimeOfDayVariants(SceneReference[])</h4>
@@ -477,10 +405,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_AddToSoundBankNames_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.AddToSoundBankNames(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_AddToSoundBankNames_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.AddToSoundBankNames(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L223">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L223">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_AddToSoundBankNames_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.AddToSoundBankNames*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_AddToSoundBankNames_System_String___" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.AddToSoundBankNames(System.String[])">AddToSoundBankNames(String[])</h4>
@@ -525,10 +453,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ClearAudioTimeOfDayVariants.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ClearAudioTimeOfDayVariants%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ClearAudioTimeOfDayVariants.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ClearAudioTimeOfDayVariants%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L186">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L186">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ClearAudioTimeOfDayVariants_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ClearAudioTimeOfDayVariants*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ClearAudioTimeOfDayVariants" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ClearAudioTimeOfDayVariants">ClearAudioTimeOfDayVariants()</h4>
@@ -556,10 +484,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ClearSoundBankNames.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ClearSoundBankNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ClearSoundBankNames.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ClearSoundBankNames%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L262">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L262">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ClearSoundBankNames_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ClearSoundBankNames*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ClearSoundBankNames" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ClearSoundBankNames">ClearSoundBankNames()</h4>
@@ -587,10 +515,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyAudioTimeOfDayVariants_System_Action_Kingmaker_Blueprints_Area_SceneReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyAudioTimeOfDayVariants(System.Action%7BKingmaker.Blueprints.Area.SceneReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyAudioTimeOfDayVariants_System_Action_Kingmaker_Blueprints_Area_SceneReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyAudioTimeOfDayVariants(System.Action%7BKingmaker.Blueprints.Area.SceneReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L198">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L198">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyAudioTimeOfDayVariants_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyAudioTimeOfDayVariants*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyAudioTimeOfDayVariants_System_Action_Kingmaker_Blueprints_Area_SceneReference__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyAudioTimeOfDayVariants(System.Action{Kingmaker.Blueprints.Area.SceneReference})">ModifyAudioTimeOfDayVariants(Action&lt;SceneReference&gt;)</h4>
@@ -635,10 +563,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyBounds_System_Action_Kingmaker_Blueprints_Area_AreaPartBounds__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyBounds(System.Action%7BKingmaker.Blueprints.Area.AreaPartBounds%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyBounds_System_Action_Kingmaker_Blueprints_Area_AreaPartBounds__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyBounds(System.Action%7BKingmaker.Blueprints.Area.AreaPartBounds%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L121">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L121">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyBounds_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyBounds*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyBounds_System_Action_Kingmaker_Blueprints_Area_AreaPartBounds__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyBounds(System.Action{Kingmaker.Blueprints.Area.AreaPartBounds})">ModifyBounds(Action&lt;AreaPartBounds&gt;)</h4>
@@ -683,10 +611,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyDynamicScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyDynamicScene(System.Action%7BKingmaker.Blueprints.Area.SceneReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyDynamicScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyDynamicScene(System.Action%7BKingmaker.Blueprints.Area.SceneReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L43">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L43">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyDynamicScene_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyDynamicScene*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyDynamicScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyDynamicScene(System.Action{Kingmaker.Blueprints.Area.SceneReference})">ModifyDynamicScene(Action&lt;SceneReference&gt;)</h4>
@@ -731,10 +659,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyGraphCache_System_Action_Kingmaker_ResourceLinks_TextAssetLink__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyGraphCache(System.Action%7BKingmaker.ResourceLinks.TextAssetLink%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyGraphCache_System_Action_Kingmaker_ResourceLinks_TextAssetLink__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyGraphCache(System.Action%7BKingmaker.ResourceLinks.TextAssetLink%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L592">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L580">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyGraphCache_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyGraphCache*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyGraphCache_System_Action_Kingmaker_ResourceLinks_TextAssetLink__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyGraphCache(System.Action{Kingmaker.ResourceLinks.TextAssetLink})">ModifyGraphCache(Action&lt;TextAssetLink&gt;)</h4>
@@ -779,10 +707,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyIndoorType_System_Action_Kingmaker_Blueprints_Area_IndoorType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyIndoorType(System.Action%7BKingmaker.Blueprints.Area.IndoorType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyIndoorType_System_Action_Kingmaker_Blueprints_Area_IndoorType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyIndoorType(System.Action%7BKingmaker.Blueprints.Area.IndoorType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L421">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L409">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyIndoorType_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyIndoorType*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyIndoorType_System_Action_Kingmaker_Blueprints_Area_IndoorType__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyIndoorType(System.Action{Kingmaker.Blueprints.Area.IndoorType})">ModifyIndoorType(Action&lt;IndoorType&gt;)</h4>
@@ -827,10 +755,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyIsSingleLightScene_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyIsSingleLightScene(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyIsSingleLightScene_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyIsSingleLightScene(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L519">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L507">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyIsSingleLightScene_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyIsSingleLightScene*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyIsSingleLightScene_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyIsSingleLightScene(System.Action{System.Boolean})">ModifyIsSingleLightScene(Action&lt;Boolean&gt;)</h4>
@@ -875,10 +803,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyLightScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyLightScene(System.Action%7BKingmaker.Blueprints.Area.SceneReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyLightScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyLightScene(System.Action%7BKingmaker.Blueprints.Area.SceneReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L95">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L95">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyLightScene_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyLightScene*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyLightScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyLightScene(System.Action{Kingmaker.Blueprints.Area.SceneReference})">ModifyLightScene(Action&lt;SceneReference&gt;)</h4>
@@ -923,10 +851,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyLocalMapRotation_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyLocalMapRotation(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyLocalMapRotation_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyLocalMapRotation(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L543">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L531">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyLocalMapRotation_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyLocalMapRotation*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyLocalMapRotation_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyLocalMapRotation(System.Action{System.Single})">ModifyLocalMapRotation(Action&lt;Single&gt;)</h4>
@@ -971,10 +899,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyManageBanksSeparately_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyManageBanksSeparately(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyManageBanksSeparately_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyManageBanksSeparately(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L311">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L305">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyManageBanksSeparately_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyManageBanksSeparately*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyManageBanksSeparately_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyManageBanksSeparately(System.Action{System.Boolean})">ModifyManageBanksSeparately(Action&lt;Boolean&gt;)</h4>
@@ -1019,10 +947,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyMusicTheme_System_Action_System_String__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyMusicTheme(System.Action%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyMusicTheme_System_Action_System_String__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyMusicTheme(System.Action%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L371">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L359">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyMusicTheme_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyMusicTheme*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyMusicTheme_System_Action_System_String__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyMusicTheme(System.Action{System.String})">ModifyMusicTheme(Action&lt;String&gt;)</h4>
@@ -1067,10 +995,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyMusicThemeStop_System_Action_System_String__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyMusicThemeStop(System.Action%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyMusicThemeStop_System_Action_System_String__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyMusicThemeStop(System.Action%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L396">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L384">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyMusicThemeStop_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyMusicThemeStop*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyMusicThemeStop_System_Action_System_String__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyMusicThemeStop(System.Action{System.String})">ModifyMusicThemeStop(Action&lt;String&gt;)</h4>
@@ -1115,10 +1043,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifySetting_System_Action_Kingmaker_Enums_AreaSetting__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifySetting(System.Action%7BKingmaker.Enums.AreaSetting%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifySetting_System_Action_Kingmaker_Enums_AreaSetting__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifySetting(System.Action%7BKingmaker.Enums.AreaSetting%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L567">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L555">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifySetting_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifySetting*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifySetting_System_Action_Kingmaker_Enums_AreaSetting__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifySetting(System.Action{Kingmaker.Enums.AreaSetting})">ModifySetting(Action&lt;AreaSetting&gt;)</h4>
@@ -1163,10 +1091,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifySoundBankNames_System_Action_System_String__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifySoundBankNames(System.Action%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifySoundBankNames_System_Action_System_String__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifySoundBankNames(System.Action%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L274">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L274">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifySoundBankNames_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifySoundBankNames*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifySoundBankNames_System_Action_System_String__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifySoundBankNames(System.Action{System.String})">ModifySoundBankNames(Action&lt;String&gt;)</h4>
@@ -1211,10 +1139,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyStaticScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyStaticScene(System.Action%7BKingmaker.Blueprints.Area.SceneReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyStaticScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyStaticScene(System.Action%7BKingmaker.Blueprints.Area.SceneReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L69">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L69">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyStaticScene_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyStaticScene*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyStaticScene_System_Action_Kingmaker_Blueprints_Area_SceneReference__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyStaticScene(System.Action{Kingmaker.Blueprints.Area.SceneReference})">ModifyStaticScene(Action&lt;SceneReference&gt;)</h4>
@@ -1259,10 +1187,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyUnloadBanksDelay_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyUnloadBanksDelay(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyUnloadBanksDelay_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyUnloadBanksDelay(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L347">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L335">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyUnloadBanksDelay_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyUnloadBanksDelay*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyUnloadBanksDelay_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyUnloadBanksDelay(System.Action{System.Single})">ModifyUnloadBanksDelay(Action&lt;Single&gt;)</h4>
@@ -1307,10 +1235,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherInclemencyMax_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyWeatherInclemencyMax(System.Action%7BOwlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherInclemencyMax_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyWeatherInclemencyMax(System.Action%7BOwlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L495">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L483">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherInclemencyMax_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyWeatherInclemencyMax*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherInclemencyMax_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyWeatherInclemencyMax(System.Action{Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType})">ModifyWeatherInclemencyMax(Action&lt;InclemencyType&gt;)</h4>
@@ -1355,10 +1283,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherInclemencyMin_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyWeatherInclemencyMin(System.Action%7BOwlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherInclemencyMin_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyWeatherInclemencyMin(System.Action%7BOwlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L471">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L459">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherInclemencyMin_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyWeatherInclemencyMin*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherInclemencyMin_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyWeatherInclemencyMin(System.Action{Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType})">ModifyWeatherInclemencyMin(Action&lt;InclemencyType&gt;)</h4>
@@ -1403,10 +1331,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherProfile_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyWeatherProfile(System.Action%7BOwlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherProfile_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.ModifyWeatherProfile(System.Action%7BOwlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L446">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L434">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherProfile_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyWeatherProfile*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_ModifyWeatherProfile_System_Action_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.ModifyWeatherProfile(System.Action{Owlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended})">ModifyWeatherProfile(Action&lt;WeatherProfileExtended&gt;)</h4>
@@ -1451,10 +1379,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.RemoveFromAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.RemoveFromAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L160">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L160">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromAudioTimeOfDayVariants_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.RemoveFromAudioTimeOfDayVariants*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.RemoveFromAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference[])">RemoveFromAudioTimeOfDayVariants(SceneReference[])</h4>
@@ -1499,10 +1427,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromAudioTimeOfDayVariants_System_Func_Kingmaker_Blueprints_Area_SceneReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.RemoveFromAudioTimeOfDayVariants(System.Func%7BKingmaker.Blueprints.Area.SceneReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromAudioTimeOfDayVariants_System_Func_Kingmaker_Blueprints_Area_SceneReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.RemoveFromAudioTimeOfDayVariants(System.Func%7BKingmaker.Blueprints.Area.SceneReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L173">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L173">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromAudioTimeOfDayVariants_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.RemoveFromAudioTimeOfDayVariants*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromAudioTimeOfDayVariants_System_Func_Kingmaker_Blueprints_Area_SceneReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.RemoveFromAudioTimeOfDayVariants(System.Func{Kingmaker.Blueprints.Area.SceneReference,System.Boolean})">RemoveFromAudioTimeOfDayVariants(Func&lt;SceneReference, Boolean&gt;)</h4>
@@ -1547,10 +1475,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromSoundBankNames_System_Func_System_String_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.RemoveFromSoundBankNames(System.Func%7BSystem.String%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromSoundBankNames_System_Func_System_String_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.RemoveFromSoundBankNames(System.Func%7BSystem.String%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L249">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L249">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromSoundBankNames_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.RemoveFromSoundBankNames*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromSoundBankNames_System_Func_System_String_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.RemoveFromSoundBankNames(System.Func{System.String,System.Boolean})">RemoveFromSoundBankNames(Func&lt;String, Boolean&gt;)</h4>
@@ -1595,10 +1523,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromSoundBankNames_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.RemoveFromSoundBankNames(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromSoundBankNames_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.RemoveFromSoundBankNames(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L236">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L236">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromSoundBankNames_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.RemoveFromSoundBankNames*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_RemoveFromSoundBankNames_System_String___" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.RemoveFromSoundBankNames(System.String[])">RemoveFromSoundBankNames(String[])</h4>
@@ -1643,10 +1571,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L134">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L134">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetAudioTimeOfDayVariants_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetAudioTimeOfDayVariants*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetAudioTimeOfDayVariants_Kingmaker_Blueprints_Area_SceneReference___" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetAudioTimeOfDayVariants(Kingmaker.Blueprints.Area.SceneReference[])">SetAudioTimeOfDayVariants(SceneReference[])</h4>
@@ -1655,7 +1583,7 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetAudioTimeOfDayVariants(SceneReference[] audioTimeOfDayVariants)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetAudioTimeOfDayVariants(params SceneReference[] audioTimeOfDayVariants)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1691,10 +1619,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetBounds_Kingmaker_Blueprints_Area_AreaPartBounds_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetBounds(Kingmaker.Blueprints.Area.AreaPartBounds)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetBounds_Kingmaker_Blueprints_Area_AreaPartBounds_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetBounds(Kingmaker.Blueprints.Area.AreaPartBounds)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L108">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L108">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetBounds_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetBounds*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetBounds_Kingmaker_Blueprints_Area_AreaPartBounds_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetBounds(Kingmaker.Blueprints.Area.AreaPartBounds)">SetBounds(AreaPartBounds)</h4>
@@ -1739,10 +1667,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetDynamicScene_Kingmaker_Blueprints_Area_SceneReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetDynamicScene(Kingmaker.Blueprints.Area.SceneReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetDynamicScene_Kingmaker_Blueprints_Area_SceneReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetDynamicScene(Kingmaker.Blueprints.Area.SceneReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L30">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L30">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetDynamicScene_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetDynamicScene*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetDynamicScene_Kingmaker_Blueprints_Area_SceneReference_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetDynamicScene(Kingmaker.Blueprints.Area.SceneReference)">SetDynamicScene(SceneReference)</h4>
@@ -1787,10 +1715,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetGraphCache_Kingmaker_ResourceLinks_TextAssetLink_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetGraphCache(Kingmaker.ResourceLinks.TextAssetLink)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetGraphCache_Kingmaker_ResourceLinks_TextAssetLink_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetGraphCache(Kingmaker.ResourceLinks.TextAssetLink)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L579">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L567">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetGraphCache_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetGraphCache*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetGraphCache_Kingmaker_ResourceLinks_TextAssetLink_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetGraphCache(Kingmaker.ResourceLinks.TextAssetLink)">SetGraphCache(TextAssetLink)</h4>
@@ -1835,10 +1763,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetIndoorType_Kingmaker_Blueprints_Area_IndoorType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetIndoorType(Kingmaker.Blueprints.Area.IndoorType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetIndoorType_Kingmaker_Blueprints_Area_IndoorType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetIndoorType(Kingmaker.Blueprints.Area.IndoorType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L409">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L397">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetIndoorType_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetIndoorType*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetIndoorType_Kingmaker_Blueprints_Area_IndoorType_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetIndoorType(Kingmaker.Blueprints.Area.IndoorType)">SetIndoorType(IndoorType)</h4>
@@ -1883,10 +1811,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetIsSingleLightScene_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetIsSingleLightScene(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetIsSingleLightScene_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetIsSingleLightScene(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L507">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L495">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetIsSingleLightScene_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetIsSingleLightScene*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetIsSingleLightScene_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetIsSingleLightScene(System.Boolean)">SetIsSingleLightScene(Boolean)</h4>
@@ -1931,10 +1859,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetLightScene_Kingmaker_Blueprints_Area_SceneReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetLightScene(Kingmaker.Blueprints.Area.SceneReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetLightScene_Kingmaker_Blueprints_Area_SceneReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetLightScene(Kingmaker.Blueprints.Area.SceneReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L82">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L82">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetLightScene_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetLightScene*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetLightScene_Kingmaker_Blueprints_Area_SceneReference_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetLightScene(Kingmaker.Blueprints.Area.SceneReference)">SetLightScene(SceneReference)</h4>
@@ -1979,10 +1907,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetLocalMapRotation_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetLocalMapRotation(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetLocalMapRotation_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetLocalMapRotation(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L531">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L519">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetLocalMapRotation_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetLocalMapRotation*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetLocalMapRotation_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetLocalMapRotation(System.Single)">SetLocalMapRotation(Single)</h4>
@@ -2027,10 +1955,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetManageBanksSeparately_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetManageBanksSeparately(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetManageBanksSeparately_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetManageBanksSeparately(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L293">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L293">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetManageBanksSeparately_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetManageBanksSeparately*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetManageBanksSeparately_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetManageBanksSeparately(System.Boolean)">SetManageBanksSeparately(Boolean)</h4>
@@ -2078,10 +2006,10 @@ InfoBox: Turn on to load banks only on enter this area part
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetMusicTheme_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetMusicTheme(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetMusicTheme_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetMusicTheme(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L359">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L347">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetMusicTheme_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetMusicTheme*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetMusicTheme_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetMusicTheme(System.String)">SetMusicTheme(String)</h4>
@@ -2126,10 +2054,10 @@ InfoBox: Turn on to load banks only on enter this area part
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetMusicThemeStop_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetMusicThemeStop(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetMusicThemeStop_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetMusicThemeStop(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L384">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L372">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetMusicThemeStop_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetMusicThemeStop*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetMusicThemeStop_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetMusicThemeStop(System.String)">SetMusicThemeStop(String)</h4>
@@ -2174,10 +2102,10 @@ InfoBox: Turn on to load banks only on enter this area part
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetSetting_Kingmaker_Enums_AreaSetting_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetSetting(Kingmaker.Enums.AreaSetting)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetSetting_Kingmaker_Enums_AreaSetting_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetSetting(Kingmaker.Enums.AreaSetting)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L555">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L543">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetSetting_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetSetting*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetSetting_Kingmaker_Enums_AreaSetting_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetSetting(Kingmaker.Enums.AreaSetting)">SetSetting(AreaSetting)</h4>
@@ -2222,10 +2150,10 @@ InfoBox: Turn on to load banks only on enter this area part
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetSoundBankNames_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetSoundBankNames(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetSoundBankNames_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetSoundBankNames(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L211">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L211">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetSoundBankNames_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetSoundBankNames*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetSoundBankNames_System_String___" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetSoundBankNames(System.String[])">SetSoundBankNames(String[])</h4>
@@ -2234,7 +2162,7 @@ InfoBox: Turn on to load banks only on enter this area part
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetSoundBankNames(string[] soundBankNames)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetSoundBankNames(params string[] soundBankNames)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2270,10 +2198,10 @@ InfoBox: Turn on to load banks only on enter this area part
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetStaticScene_Kingmaker_Blueprints_Area_SceneReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetStaticScene(Kingmaker.Blueprints.Area.SceneReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetStaticScene_Kingmaker_Blueprints_Area_SceneReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetStaticScene(Kingmaker.Blueprints.Area.SceneReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L56">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L56">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetStaticScene_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetStaticScene*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetStaticScene_Kingmaker_Blueprints_Area_SceneReference_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetStaticScene(Kingmaker.Blueprints.Area.SceneReference)">SetStaticScene(SceneReference)</h4>
@@ -2318,10 +2246,10 @@ InfoBox: Turn on to load banks only on enter this area part
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetUnloadBanksDelay_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetUnloadBanksDelay(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetUnloadBanksDelay_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetUnloadBanksDelay(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L329">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L323">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetUnloadBanksDelay_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetUnloadBanksDelay*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetUnloadBanksDelay_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetUnloadBanksDelay(System.Single)">SetUnloadBanksDelay(Single)</h4>
@@ -2369,10 +2297,10 @@ InfoBox: Delay before area banks unload. Needed to fade all sounds properly
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherInclemencyMax_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetWeatherInclemencyMax(Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherInclemencyMax_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetWeatherInclemencyMax(Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L483">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L471">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherInclemencyMax_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetWeatherInclemencyMax*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherInclemencyMax_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetWeatherInclemencyMax(Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType)">SetWeatherInclemencyMax(InclemencyType)</h4>
@@ -2417,10 +2345,10 @@ InfoBox: Delay before area banks unload. Needed to fade all sounds properly
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherInclemencyMin_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetWeatherInclemencyMin(Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherInclemencyMin_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetWeatherInclemencyMin(Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L459">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L447">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherInclemencyMin_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetWeatherInclemencyMin*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherInclemencyMin_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetWeatherInclemencyMin(Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType)">SetWeatherInclemencyMin(InclemencyType)</h4>
@@ -2465,10 +2393,10 @@ InfoBox: Delay before area banks unload. Needed to fade all sounds properly
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherProfile_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetWeatherProfile(Owlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherProfile_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602.SetWeatherProfile(Owlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L433">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L421">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherProfile_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetWeatherProfile*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2_SetWeatherProfile_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended_" data-uid="BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator`2.SetWeatherProfile(Owlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended)">SetWeatherProfile(WeatherProfileExtended)</h4>
@@ -2519,10 +2447,10 @@ InfoBox: Delay before area banks unload. Needed to fade all sounds properly
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Area_BaseAreaPartConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Area.BaseAreaPartConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L20" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Area/BaseAreaPart.cs/#L20" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

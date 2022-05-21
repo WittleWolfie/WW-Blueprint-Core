@@ -282,112 +282,40 @@
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Implementation is based on the
-<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
+that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
+base game.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
-    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
-</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p><strong>Creating a Blueprint</strong></p>
+<p>Use <code>New(string, string)</code> to create a blueprint:</p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</code>
+<p>Once <code>New()</code> is called the blueprint is added to the game library and can be referenced.</p>
+<p><strong>Using the Configurator</strong></p>
 <p>
-Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
-exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-component types.
+<code>New()</code> returns a configurator with methods to set or modify blueprint fields and add or modify
+<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>:
 </p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();</code>
 <p>
-See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
-for more information on component and blueprint type safety.
+Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+<code>Configure()</code> is called, at which point the changes are applied and validated. Potential problems with the
+blueprint are logged as warnings.
 </p>
-</td></tr><tr><td>Validation</td><td>
-<p>
-When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
-which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-complicated configuration problems such as
-<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
-usage.
-</p>
-<p>
-Validation uses a combination of code from the game library and manually tuned logic. See
-<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
-</p>
-</td></tr><tr><td>Builder Style API</td><td>
-<p>
-The API is designed to minimize boilerplate required to modify blueprints and create components.
-Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
-</p>
-<p>
-Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
-configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
-</p>
-</td></tr></tbody></table>
-TODO: Update the example
-<example>
-Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
-<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
-var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
-var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
-var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
-var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
-var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
-<p>// Register the names
-BlueprintTool.AddGuidsByName(
-(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
-(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
-(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
-// New blueprints and guids
-(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
-(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
-(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
-<p>// Load the icons and strings (not provided by library)
-var skaldsVigorIcon = LoadSkaldsVigorIcon();
-var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-var skaldsVigorName = LoadSkaldsVigorName();
-var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-var skaldsVigorDescription = LoadSkaldsVigorDescription();
-var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
-<p>// Create the buff
-BuffConfigurator.New(skaldsVigorBuff)
-.ContextRankConfig(
-// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-.FastHealing(1, bonusValue: ContextValues.Rank())
-.Configure();</p>
-<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-// Rage is active.
-var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(inspiredRageBuff)
-.FactContextActions(
-onActivated:
-ActionsBuilder.New()
-// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-// the feat.
-.Conditional(
-ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-ifTrue: applyBuff)
-// For characters other than the caster, Skald's Vigor is only applied if the caster has the
-// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-// buffs do not stack so it has no effect.
-.Conditional(
-ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-onDeactivated:
-// Removes Skald's Vigor when Inspired Rage ends.
-// There is actually a bug with this implementation; Lingering Song will extend the duration of
-// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-.Configure();</code></pre>
-</example><p>
+<p><strong>Modifying an Existing Blueprint</strong></p>
+<p>Use <code>For(Blueprint)</code> to modify existing blueprints:</p>
+<code>CharacterClassConfigurator.For(WizardClassGuid)</code>
+<p>Usage is otherwise identical to creating a new blueprint.</p>
+<p>For more information see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</a>.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L23">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L23">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseSpellbookConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -418,10 +346,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddCustomSpells_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.AddCustomSpells(System.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellList%2CKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddCustomSpells_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.AddCustomSpells(System.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellList%2CKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L763">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L646">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddCustomSpells_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.AddCustomSpells*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddCustomSpells_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.AddCustomSpells(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList,Kingmaker.Blueprints.BlueprintSpellListReference})">AddCustomSpells(Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintSpellList, BlueprintSpellListReference&gt;)</h4>
@@ -430,7 +358,7 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddCustomSpells(int? casterLevel = null, int? count = null, int? maxSpellLevel = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, Blueprint&lt;BlueprintSpellList, BlueprintSpellListReference&gt; spellList = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddCustomSpells(int? casterLevel = null, int? count = null, int? maxSpellLevel = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, Blueprint&lt;BlueprintSpellList, BlueprintSpellListReference&gt; spellList = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -501,10 +429,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddIsAlchemistSpellbook.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.AddIsAlchemistSpellbook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddIsAlchemistSpellbook.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.AddIsAlchemistSpellbook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L794">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L677">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddIsAlchemistSpellbook_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.AddIsAlchemistSpellbook*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddIsAlchemistSpellbook" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.AddIsAlchemistSpellbook">AddIsAlchemistSpellbook()</h4>
@@ -535,10 +463,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddIsSinMagicSpecialistSpellbook.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.AddIsSinMagicSpecialistSpellbook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddIsSinMagicSpecialistSpellbook.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.AddIsSinMagicSpecialistSpellbook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L812">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L695">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddIsSinMagicSpecialistSpellbook_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.AddIsSinMagicSpecialistSpellbook*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_AddIsSinMagicSpecialistSpellbook" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.AddIsSinMagicSpecialistSpellbook">AddIsSinMagicSpecialistSpellbook()</h4>
@@ -569,10 +497,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyAllSpellsKnown_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyAllSpellsKnown(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyAllSpellsKnown_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyAllSpellsKnown(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L525">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L420">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyAllSpellsKnown_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyAllSpellsKnown*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyAllSpellsKnown_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyAllSpellsKnown(System.Action{System.Boolean})">ModifyAllSpellsKnown(Action&lt;Boolean&gt;)</h4>
@@ -617,10 +545,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCanCopyScrolls_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCanCopyScrolls(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCanCopyScrolls_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCanCopyScrolls(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L621">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L504">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCanCopyScrolls_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCanCopyScrolls*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCanCopyScrolls_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCanCopyScrolls(System.Action{System.Boolean})">ModifyCanCopyScrolls(Action&lt;Boolean&gt;)</h4>
@@ -665,10 +593,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCantripsType_System_Action_Kingmaker_Blueprints_Classes_Spells_CantripsType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCantripsType(System.Action%7BKingmaker.Blueprints.Classes.Spells.CantripsType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCantripsType_System_Action_Kingmaker_Blueprints_Classes_Spells_CantripsType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCantripsType(System.Action%7BKingmaker.Blueprints.Classes.Spells.CantripsType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L561">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L450">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCantripsType_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCantripsType*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCantripsType_System_Action_Kingmaker_Blueprints_Classes_Spells_CantripsType__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCantripsType(System.Action{Kingmaker.Blueprints.Classes.Spells.CantripsType})">ModifyCantripsType(Action&lt;CantripsType&gt;)</h4>
@@ -713,10 +641,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCasterLevelModifier_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCasterLevelModifier(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCasterLevelModifier_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCasterLevelModifier(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L597">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L480">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCasterLevelModifier_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCasterLevelModifier*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCasterLevelModifier_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCasterLevelModifier(System.Action{System.Int32})">ModifyCasterLevelModifier(Action&lt;Int32&gt;)</h4>
@@ -761,10 +689,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCastingAttribute_System_Action_Kingmaker_EntitySystem_Stats_StatType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCastingAttribute(System.Action%7BKingmaker.EntitySystem.Stats.StatType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCastingAttribute_System_Action_Kingmaker_EntitySystem_Stats_StatType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCastingAttribute(System.Action%7BKingmaker.EntitySystem.Stats.StatType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L417">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L330">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCastingAttribute_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCastingAttribute*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCastingAttribute_System_Action_Kingmaker_EntitySystem_Stats_StatType__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCastingAttribute(System.Action{Kingmaker.EntitySystem.Stats.StatType})">ModifyCastingAttribute(Action&lt;StatType&gt;)</h4>
@@ -809,10 +737,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCharacterClass_System_Action_Kingmaker_Blueprints_BlueprintCharacterClassReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCharacterClass(System.Action%7BKingmaker.Blueprints.BlueprintCharacterClassReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCharacterClass_System_Action_Kingmaker_Blueprints_BlueprintCharacterClassReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyCharacterClass(System.Action%7BKingmaker.Blueprints.BlueprintCharacterClassReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L392">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L305">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCharacterClass_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCharacterClass*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyCharacterClass_System_Action_Kingmaker_Blueprints_BlueprintCharacterClassReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyCharacterClass(System.Action{Kingmaker.Blueprints.BlueprintCharacterClassReference})">ModifyCharacterClass(Action&lt;BlueprintCharacterClassReference&gt;)</h4>
@@ -857,10 +785,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyHasSpecialSpellList_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyHasSpecialSpellList(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyHasSpecialSpellList_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyHasSpecialSpellList(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L693">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L576">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyHasSpecialSpellList_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyHasSpecialSpellList*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyHasSpecialSpellList_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyHasSpecialSpellList(System.Action{System.Boolean})">ModifyHasSpecialSpellList(Action&lt;Boolean&gt;)</h4>
@@ -905,10 +833,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsArcane_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyIsArcane(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsArcane_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyIsArcane(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L645">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L528">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsArcane_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyIsArcane*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsArcane_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyIsArcane(System.Action{System.Boolean})">ModifyIsArcane(Action&lt;Boolean&gt;)</h4>
@@ -953,10 +881,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsArcanist_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyIsArcanist(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsArcanist_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyIsArcanist(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L669">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L552">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsArcanist_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyIsArcanist*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsArcanist_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyIsArcanist(System.Action{System.Boolean})">ModifyIsArcanist(Action&lt;Boolean&gt;)</h4>
@@ -1001,10 +929,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsMythic_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyIsMythic(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsMythic_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyIsMythic(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L69">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L69">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsMythic_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyIsMythic*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyIsMythic_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyIsMythic(System.Action{System.Boolean})">ModifyIsMythic(Action&lt;Boolean&gt;)</h4>
@@ -1049,10 +977,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyMythicSpellList_System_Action_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyMythicSpellList(System.Action%7BKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyMythicSpellList_System_Action_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyMythicSpellList(System.Action%7BKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L341">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L267">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyMythicSpellList_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyMythicSpellList*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyMythicSpellList_System_Action_Kingmaker_Blueprints_BlueprintSpellListReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyMythicSpellList(System.Action{Kingmaker.Blueprints.BlueprintSpellListReference})">ModifyMythicSpellList(Action&lt;BlueprintSpellListReference&gt;)</h4>
@@ -1097,10 +1025,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifyName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L44">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L44">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyName_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifyName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifyName(System.Action{Kingmaker.Localization.LocalizedString})">ModifyName(Action&lt;LocalizedString&gt;)</h4>
@@ -1145,10 +1073,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpecialSpellListName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpecialSpellListName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpecialSpellListName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpecialSpellListName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L721">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L604">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpecialSpellListName_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpecialSpellListName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpecialSpellListName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpecialSpellListName(System.Action{Kingmaker.Localization.LocalizedString})">ModifySpecialSpellListName(Action&lt;LocalizedString&gt;)</h4>
@@ -1193,10 +1121,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellList_System_Action_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellList(System.Action%7BKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellList_System_Action_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellList(System.Action%7BKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L290">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L229">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellList_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellList*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellList_System_Action_Kingmaker_Blueprints_BlueprintSpellListReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellList(System.Action{Kingmaker.Blueprints.BlueprintSpellListReference})">ModifySpellList(Action&lt;BlueprintSpellListReference&gt;)</h4>
@@ -1241,10 +1169,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsKnown_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellsKnown(System.Action%7BKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsKnown_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellsKnown(System.Action%7BKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L182">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L150">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsKnown_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellsKnown*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsKnown_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellsKnown(System.Action{Kingmaker.Blueprints.BlueprintSpellsTableReference})">ModifySpellsKnown(Action&lt;BlueprintSpellsTableReference&gt;)</h4>
@@ -1289,10 +1217,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellSlots_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellSlots(System.Action%7BKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellSlots_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellSlots(System.Action%7BKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L239">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L191">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellSlots_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellSlots*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellSlots_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellSlots(System.Action{Kingmaker.Blueprints.BlueprintSpellsTableReference})">ModifySpellSlots(Action&lt;BlueprintSpellsTableReference&gt;)</h4>
@@ -1337,10 +1265,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsPerDay_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellsPerDay(System.Action%7BKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsPerDay_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellsPerDay(System.Action%7BKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L125">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L109">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsPerDay_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellsPerDay*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsPerDay_System_Action_Kingmaker_Blueprints_BlueprintSpellsTableReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellsPerDay(System.Action{Kingmaker.Blueprints.BlueprintSpellsTableReference})">ModifySpellsPerDay(Action&lt;BlueprintSpellsTableReference&gt;)</h4>
@@ -1385,10 +1313,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsPerLevel_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellsPerLevel(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsPerLevel_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpellsPerLevel(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L489">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L390">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsPerLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellsPerLevel*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpellsPerLevel_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpellsPerLevel(System.Action{System.Int32})">ModifySpellsPerLevel(Action&lt;Int32&gt;)</h4>
@@ -1433,10 +1361,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpontaneous_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpontaneous(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpontaneous_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.ModifySpontaneous(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L453">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L360">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpontaneous_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpontaneous*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_ModifySpontaneous_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.ModifySpontaneous(System.Action{System.Boolean})">ModifySpontaneous(Action&lt;Boolean&gt;)</h4>
@@ -1481,10 +1409,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetAllSpellsKnown_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetAllSpellsKnown(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetAllSpellsKnown_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetAllSpellsKnown(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L507">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L408">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetAllSpellsKnown_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetAllSpellsKnown*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetAllSpellsKnown_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetAllSpellsKnown(System.Boolean)">SetAllSpellsKnown(Boolean)</h4>
@@ -1532,10 +1460,10 @@ Tooltip: No need to learn spells to memorize them. For clerics / druids / ranger
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCanCopyScrolls_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCanCopyScrolls(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCanCopyScrolls_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCanCopyScrolls(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L609">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L492">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCanCopyScrolls_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCanCopyScrolls*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCanCopyScrolls_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCanCopyScrolls(System.Boolean)">SetCanCopyScrolls(Boolean)</h4>
@@ -1580,10 +1508,10 @@ Tooltip: No need to learn spells to memorize them. For clerics / druids / ranger
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCantripsType_Kingmaker_Blueprints_Classes_Spells_CantripsType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCantripsType(Kingmaker.Blueprints.Classes.Spells.CantripsType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCantripsType_Kingmaker_Blueprints_Classes_Spells_CantripsType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCantripsType(Kingmaker.Blueprints.Classes.Spells.CantripsType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L543">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L438">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCantripsType_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCantripsType*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCantripsType_Kingmaker_Blueprints_Classes_Spells_CantripsType_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCantripsType(Kingmaker.Blueprints.Classes.Spells.CantripsType)">SetCantripsType(CantripsType)</h4>
@@ -1631,10 +1559,10 @@ Tooltip: For UI name.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCasterLevelModifier_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCasterLevelModifier(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCasterLevelModifier_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCasterLevelModifier(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L579">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L468">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCasterLevelModifier_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCasterLevelModifier*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCasterLevelModifier_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCasterLevelModifier(System.Int32)">SetCasterLevelModifier(Int32)</h4>
@@ -1682,10 +1610,10 @@ Tooltip: For Ranger - his caster level is class level minus 3
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCastingAttribute_Kingmaker_EntitySystem_Stats_StatType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCastingAttribute(Kingmaker.EntitySystem.Stats.StatType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCastingAttribute_Kingmaker_EntitySystem_Stats_StatType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCastingAttribute(Kingmaker.EntitySystem.Stats.StatType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L405">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L318">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCastingAttribute_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCastingAttribute*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCastingAttribute_Kingmaker_EntitySystem_Stats_StatType_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCastingAttribute(Kingmaker.EntitySystem.Stats.StatType)">SetCastingAttribute(StatType)</h4>
@@ -1730,10 +1658,10 @@ Tooltip: For Ranger - his caster level is class level minus 3
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCharacterClass_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCharacterClass(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintCharacterClass%2CKingmaker.Blueprints.BlueprintCharacterClassReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCharacterClass_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetCharacterClass(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintCharacterClass%2CKingmaker.Blueprints.BlueprintCharacterClassReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L367">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L293">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCharacterClass_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCharacterClass*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetCharacterClass_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetCharacterClass(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.BlueprintCharacterClass,Kingmaker.Blueprints.BlueprintCharacterClassReference})">SetCharacterClass(Blueprint&lt;BlueprintCharacterClass, BlueprintCharacterClassReference&gt;)</h4>
@@ -1783,10 +1711,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetHasSpecialSpellList_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetHasSpecialSpellList(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetHasSpecialSpellList_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetHasSpecialSpellList(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L681">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L564">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetHasSpecialSpellList_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetHasSpecialSpellList*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetHasSpecialSpellList_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetHasSpecialSpellList(System.Boolean)">SetHasSpecialSpellList(Boolean)</h4>
@@ -1831,10 +1759,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsArcane_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetIsArcane(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsArcane_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetIsArcane(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L633">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L516">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsArcane_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetIsArcane*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsArcane_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetIsArcane(System.Boolean)">SetIsArcane(Boolean)</h4>
@@ -1879,10 +1807,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsArcanist_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetIsArcanist(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsArcanist_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetIsArcanist(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L657">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L540">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsArcanist_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetIsArcanist*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsArcanist_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetIsArcanist(System.Boolean)">SetIsArcanist(Boolean)</h4>
@@ -1927,10 +1855,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsMythic_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetIsMythic(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsMythic_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetIsMythic(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L57">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L57">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsMythic_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetIsMythic*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetIsMythic_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetIsMythic(System.Boolean)">SetIsMythic(Boolean)</h4>
@@ -1975,10 +1903,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetMythicSpellList_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetMythicSpellList(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellList%2CKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetMythicSpellList_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetMythicSpellList(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellList%2CKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L316">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L255">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetMythicSpellList_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetMythicSpellList*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetMythicSpellList_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetMythicSpellList(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList,Kingmaker.Blueprints.BlueprintSpellListReference})">SetMythicSpellList(Blueprint&lt;BlueprintSpellList, BlueprintSpellListReference&gt;)</h4>
@@ -2028,10 +1956,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L28">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L28">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetName_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetName(Kingmaker.Localization.LocalizedString)">SetName(LocalizedString)</h4>
@@ -2076,10 +2004,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpecialSpellListName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpecialSpellListName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpecialSpellListName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpecialSpellListName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L705">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L588">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpecialSpellListName_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpecialSpellListName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpecialSpellListName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpecialSpellListName(Kingmaker.Localization.LocalizedString)">SetSpecialSpellListName(LocalizedString)</h4>
@@ -2124,10 +2052,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellList_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellList(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellList%2CKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellList_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellList(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellList%2CKingmaker.Blueprints.BlueprintSpellListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L265">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L217">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellList_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellList*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellList_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellList_Kingmaker_Blueprints_BlueprintSpellListReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellList(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList,Kingmaker.Blueprints.BlueprintSpellListReference})">SetSpellList(Blueprint&lt;BlueprintSpellList, BlueprintSpellListReference&gt;)</h4>
@@ -2177,10 +2105,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsKnown_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellsKnown(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable%2CKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsKnown_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellsKnown(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable%2CKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L154">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L138">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsKnown_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellsKnown*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsKnown_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellsKnown(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable,Kingmaker.Blueprints.BlueprintSpellsTableReference})">SetSpellsKnown(Blueprint&lt;BlueprintSpellsTable, BlueprintSpellsTableReference&gt;)</h4>
@@ -2233,10 +2161,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellSlots_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellSlots(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable%2CKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellSlots_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellSlots(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable%2CKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L211">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L179">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellSlots_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellSlots*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellSlots_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellSlots(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable,Kingmaker.Blueprints.BlueprintSpellsTableReference})">SetSpellSlots(Blueprint&lt;BlueprintSpellsTable, BlueprintSpellsTableReference&gt;)</h4>
@@ -2289,10 +2217,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsPerDay_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellsPerDay(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable%2CKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsPerDay_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellsPerDay(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable%2CKingmaker.Blueprints.BlueprintSpellsTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L97">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L97">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsPerDay_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellsPerDay*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsPerDay_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_Spells_BlueprintSpellsTable_Kingmaker_Blueprints_BlueprintSpellsTableReference__" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellsPerDay(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable,Kingmaker.Blueprints.BlueprintSpellsTableReference})">SetSpellsPerDay(Blueprint&lt;BlueprintSpellsTable, BlueprintSpellsTableReference&gt;)</h4>
@@ -2345,10 +2273,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsPerLevel_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellsPerLevel(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsPerLevel_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpellsPerLevel(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L471">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L378">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsPerLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellsPerLevel*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpellsPerLevel_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpellsPerLevel(System.Int32)">SetSpellsPerLevel(Int32)</h4>
@@ -2396,10 +2324,10 @@ Tooltip: Spells count learned on each level. For wizards.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpontaneous_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpontaneous(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpontaneous_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602.SetSpontaneous(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L435">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L348">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpontaneous_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpontaneous*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2_SetSpontaneous_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator`2.SetSpontaneous(System.Boolean)">SetSpontaneous(Boolean)</h4>
@@ -2453,10 +2381,10 @@ Tooltip: Spontaneous casting (sorcerers, oracles, bard)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Classes_Spells_BaseSpellbookConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Classes.Spells.BaseSpellbookConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Classes/Spells/BaseSpellbook.cs/#L18" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

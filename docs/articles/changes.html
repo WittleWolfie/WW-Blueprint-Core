@@ -69,6 +69,36 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<p>#v2.0.2 Release</p>
+<ul>
+<li>Update to 1.3.4e game patch</li>
+<li>Handles GUIDs with uppercase letters</li>
+<li>Type specific handling updates</li>
+<li>New util for creating <code>UnitConditionExceptions</code></li>
+<li>Blueprint field setters use <code>params</code> for enumerable types</li>
+<li>Fixed bug with Encyclopedia tagging causing exceptions</li>
+<li>Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail</li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>Namespaces are changes to organize type specific util classes
+<ul>
+<li><code>ContextRankConfigs</code></li>
+<li><code>ContextDuration</code></li>
+<li><code>ContextValues</code></li>
+</ul>
+</li>
+<li>Blueprint field setters use <code>params</code> for enumerable types
+<ul>
+<li>This breaks for <code>List&lt;&gt;</code> fields</li>
+</ul>
+</li>
+<li>Removed support for <code>AddStatBonusScaled</code>
+<ul>
+<li>This is a legacy type and can be replaced with <code>AddContextStatBonus</code></li>
+</ul>
+</li>
+</ul>
 <p>#v2.0.1 Release</p>
 <ul>
 <li>Reverts <code>Configurator.Build()</code> to return the blueprint directly</li>
@@ -105,7 +135,7 @@ their level editor</li>
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
+<h3 id="breaking-changes-1">Breaking Changes</h3>
 <ul>
 <li>Configurator namespaces may have changed to align w/ game code structure</li>
 <li>Method and parameter names changed for ActionsBuilder, ConditionsBuilder, and Configurators</li>
@@ -180,7 +210,7 @@ and Saving Throw progressions</li>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/changes.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/articles/changes.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

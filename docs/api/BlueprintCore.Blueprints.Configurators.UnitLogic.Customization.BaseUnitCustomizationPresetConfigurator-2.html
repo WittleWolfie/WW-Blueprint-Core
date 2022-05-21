@@ -282,112 +282,40 @@
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Implementation is based on the
-<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
+that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
+base game.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
-    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
-</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p><strong>Creating a Blueprint</strong></p>
+<p>Use <code>New(string, string)</code> to create a blueprint:</p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</code>
+<p>Once <code>New()</code> is called the blueprint is added to the game library and can be referenced.</p>
+<p><strong>Using the Configurator</strong></p>
 <p>
-Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
-exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-component types.
+<code>New()</code> returns a configurator with methods to set or modify blueprint fields and add or modify
+<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>:
 </p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();</code>
 <p>
-See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
-for more information on component and blueprint type safety.
+Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+<code>Configure()</code> is called, at which point the changes are applied and validated. Potential problems with the
+blueprint are logged as warnings.
 </p>
-</td></tr><tr><td>Validation</td><td>
-<p>
-When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
-which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-complicated configuration problems such as
-<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
-usage.
-</p>
-<p>
-Validation uses a combination of code from the game library and manually tuned logic. See
-<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
-</p>
-</td></tr><tr><td>Builder Style API</td><td>
-<p>
-The API is designed to minimize boilerplate required to modify blueprints and create components.
-Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
-</p>
-<p>
-Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
-configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
-</p>
-</td></tr></tbody></table>
-TODO: Update the example
-<example>
-Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
-<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
-var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
-var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
-var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
-var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
-var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
-<p>// Register the names
-BlueprintTool.AddGuidsByName(
-(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
-(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
-(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
-// New blueprints and guids
-(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
-(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
-(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
-<p>// Load the icons and strings (not provided by library)
-var skaldsVigorIcon = LoadSkaldsVigorIcon();
-var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-var skaldsVigorName = LoadSkaldsVigorName();
-var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-var skaldsVigorDescription = LoadSkaldsVigorDescription();
-var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
-<p>// Create the buff
-BuffConfigurator.New(skaldsVigorBuff)
-.ContextRankConfig(
-// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-.FastHealing(1, bonusValue: ContextValues.Rank())
-.Configure();</p>
-<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-// Rage is active.
-var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(inspiredRageBuff)
-.FactContextActions(
-onActivated:
-ActionsBuilder.New()
-// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-// the feat.
-.Conditional(
-ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-ifTrue: applyBuff)
-// For characters other than the caster, Skald's Vigor is only applied if the caster has the
-// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-// buffs do not stack so it has no effect.
-.Conditional(
-ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-onDeactivated:
-// Removes Skald's Vigor when Inspired Rage ends.
-// There is actually a bug with this implementation; Lingering Song will extend the duration of
-// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-.Configure();</code></pre>
-</example><p>
+<p><strong>Modifying an Existing Blueprint</strong></p>
+<p>Use <code>For(Blueprint)</code> to modify existing blueprints:</p>
+<code>CharacterClassConfigurator.For(WizardClassGuid)</code>
+<p>Usage is otherwise identical to creating a new blueprint.</p>
+<p>For more information see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</a>.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L23">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L22">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseUnitCustomizationPresetConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -418,10 +346,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L347">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L294">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToClothesSelections_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToClothesSelections*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection[])">AddToClothesSelections(ClothesSelection[])</h4>
@@ -466,10 +394,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToFemaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToFemaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToFemaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToFemaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L680">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L588">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToFemaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToFemaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToFemaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToFemaleVoices(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.Sound.BlueprintUnitAsksList,Kingmaker.Blueprints.BlueprintUnitAsksListReference}[])">AddToFemaleVoices(Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;[])</h4>
@@ -519,10 +447,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToMaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToMaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToMaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToMaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L526">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L473">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToMaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToMaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToMaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToMaleVoices(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.Sound.BlueprintUnitAsksList,Kingmaker.Blueprints.BlueprintUnitAsksListReference}[])">AddToMaleVoices(Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;[])</h4>
@@ -572,10 +500,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToPresetObjects_Kingmaker_UnitLogic_Customization_PresetObject___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToPresetObjects(Kingmaker.UnitLogic.Customization.PresetObject%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToPresetObjects_Kingmaker_UnitLogic_Customization_PresetObject___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToPresetObjects(Kingmaker.UnitLogic.Customization.PresetObject%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L41">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L40">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToPresetObjects_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToPresetObjects*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToPresetObjects_Kingmaker_UnitLogic_Customization_PresetObject___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToPresetObjects(Kingmaker.UnitLogic.Customization.PresetObject[])">AddToPresetObjects(PresetObject[])</h4>
@@ -620,10 +548,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToUnits_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToUnits(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToUnits_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToUnits(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L218">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L204">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToUnits_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToUnits*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToUnits_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToUnits(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnit,Kingmaker.Blueprints.BlueprintUnitReference}[])">AddToUnits(Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;[])</h4>
@@ -673,10 +601,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToUnitVariations_Kingmaker_UnitLogic_Customization_UnitVariations___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToUnitVariations(Kingmaker.UnitLogic.Customization.UnitVariations%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToUnitVariations_Kingmaker_UnitLogic_Customization_UnitVariations___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.AddToUnitVariations(Kingmaker.UnitLogic.Customization.UnitVariations%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L424">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L371">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToUnitVariations_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToUnitVariations*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_AddToUnitVariations_Kingmaker_UnitLogic_Customization_UnitVariations___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.AddToUnitVariations(Kingmaker.UnitLogic.Customization.UnitVariations[])">AddToUnitVariations(UnitVariations[])</h4>
@@ -721,10 +649,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearClothesSelections.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearClothesSelections%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearClothesSelections.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearClothesSelections%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L386">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L333">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearClothesSelections_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearClothesSelections*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearClothesSelections" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearClothesSelections">ClearClothesSelections()</h4>
@@ -752,10 +680,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearFemaleVoices.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearFemaleVoices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearFemaleVoices.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearFemaleVoices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L758">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L640">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearFemaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearFemaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearFemaleVoices" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearFemaleVoices">ClearFemaleVoices()</h4>
@@ -783,10 +711,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearMaleVoices.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearMaleVoices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearMaleVoices.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearMaleVoices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L604">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L525">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearMaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearMaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearMaleVoices" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearMaleVoices">ClearMaleVoices()</h4>
@@ -814,10 +742,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearPresetObjects.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearPresetObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearPresetObjects.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearPresetObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L80">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L79">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearPresetObjects_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearPresetObjects*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearPresetObjects" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearPresetObjects">ClearPresetObjects()</h4>
@@ -845,10 +773,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearUnits.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearUnits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearUnits.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearUnits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L296">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L256">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearUnits_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearUnits*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearUnits" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearUnits">ClearUnits()</h4>
@@ -876,10 +804,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearUnitVariations.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearUnitVariations%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearUnitVariations.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ClearUnitVariations%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L463">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L410">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearUnitVariations_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearUnitVariations*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ClearUnitVariations" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ClearUnitVariations">ClearUnitVariations()</h4>
@@ -907,10 +835,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyClothesSelections_System_Action_Kingmaker_UnitLogic_Customization_ClothesSelection__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyClothesSelections(System.Action%7BKingmaker.UnitLogic.Customization.ClothesSelection%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyClothesSelections_System_Action_Kingmaker_UnitLogic_Customization_ClothesSelection__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyClothesSelections(System.Action%7BKingmaker.UnitLogic.Customization.ClothesSelection%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L398">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L345">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyClothesSelections_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyClothesSelections*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyClothesSelections_System_Action_Kingmaker_UnitLogic_Customization_ClothesSelection__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyClothesSelections(System.Action{Kingmaker.UnitLogic.Customization.ClothesSelection})">ModifyClothesSelections(Action&lt;ClothesSelection&gt;)</h4>
@@ -955,10 +883,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyDistribution_System_Action_Kingmaker_Blueprints_RaceGenderDistributionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyDistribution(System.Action%7BKingmaker.Blueprints.RaceGenderDistributionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyDistribution_System_Action_Kingmaker_Blueprints_RaceGenderDistributionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyDistribution(System.Action%7BKingmaker.Blueprints.RaceGenderDistributionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L167">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L153">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyDistribution_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyDistribution*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyDistribution_System_Action_Kingmaker_Blueprints_RaceGenderDistributionReference__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyDistribution(System.Action{Kingmaker.Blueprints.RaceGenderDistributionReference})">ModifyDistribution(Action&lt;RaceGenderDistributionReference&gt;)</h4>
@@ -1003,10 +931,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyFemaleVoices_System_Action_Kingmaker_Blueprints_BlueprintUnitAsksListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyFemaleVoices(System.Action%7BKingmaker.Blueprints.BlueprintUnitAsksListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyFemaleVoices_System_Action_Kingmaker_Blueprints_BlueprintUnitAsksListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyFemaleVoices(System.Action%7BKingmaker.Blueprints.BlueprintUnitAsksListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L783">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L652">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyFemaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyFemaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyFemaleVoices_System_Action_Kingmaker_Blueprints_BlueprintUnitAsksListReference__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyFemaleVoices(System.Action{Kingmaker.Blueprints.BlueprintUnitAsksListReference})">ModifyFemaleVoices(Action&lt;BlueprintUnitAsksListReference&gt;)</h4>
@@ -1051,10 +979,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyMaleVoices_System_Action_Kingmaker_Blueprints_BlueprintUnitAsksListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyMaleVoices(System.Action%7BKingmaker.Blueprints.BlueprintUnitAsksListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyMaleVoices_System_Action_Kingmaker_Blueprints_BlueprintUnitAsksListReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyMaleVoices(System.Action%7BKingmaker.Blueprints.BlueprintUnitAsksListReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L629">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L537">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyMaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyMaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyMaleVoices_System_Action_Kingmaker_Blueprints_BlueprintUnitAsksListReference__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyMaleVoices(System.Action{Kingmaker.Blueprints.BlueprintUnitAsksListReference})">ModifyMaleVoices(Action&lt;BlueprintUnitAsksListReference&gt;)</h4>
@@ -1099,10 +1027,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyPresetObjects_System_Action_Kingmaker_UnitLogic_Customization_PresetObject__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyPresetObjects(System.Action%7BKingmaker.UnitLogic.Customization.PresetObject%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyPresetObjects_System_Action_Kingmaker_UnitLogic_Customization_PresetObject__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyPresetObjects(System.Action%7BKingmaker.UnitLogic.Customization.PresetObject%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L92">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L91">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyPresetObjects_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyPresetObjects*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyPresetObjects_System_Action_Kingmaker_UnitLogic_Customization_PresetObject__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyPresetObjects(System.Action{Kingmaker.UnitLogic.Customization.PresetObject})">ModifyPresetObjects(Action&lt;PresetObject&gt;)</h4>
@@ -1147,10 +1075,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyUnits_System_Action_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyUnits(System.Action%7BKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyUnits_System_Action_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyUnits(System.Action%7BKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L321">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L268">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyUnits_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyUnits*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyUnits_System_Action_Kingmaker_Blueprints_BlueprintUnitReference__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyUnits(System.Action{Kingmaker.Blueprints.BlueprintUnitReference})">ModifyUnits(Action&lt;BlueprintUnitReference&gt;)</h4>
@@ -1195,10 +1123,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyUnitVariations_System_Action_Kingmaker_UnitLogic_Customization_UnitVariations__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyUnitVariations(System.Action%7BKingmaker.UnitLogic.Customization.UnitVariations%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyUnitVariations_System_Action_Kingmaker_UnitLogic_Customization_UnitVariations__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyUnitVariations(System.Action%7BKingmaker.UnitLogic.Customization.UnitVariations%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L475">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L422">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyUnitVariations_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyUnitVariations*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyUnitVariations_System_Action_Kingmaker_UnitLogic_Customization_UnitVariations__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyUnitVariations(System.Action{Kingmaker.UnitLogic.Customization.UnitVariations})">ModifyUnitVariations(Action&lt;UnitVariations&gt;)</h4>
@@ -1243,10 +1171,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyVariationsCount_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyVariationsCount(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyVariationsCount_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.ModifyVariationsCount(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L117">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L116">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyVariationsCount_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyVariationsCount*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_ModifyVariationsCount_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.ModifyVariationsCount(System.Action{System.Int32})">ModifyVariationsCount(Action&lt;Int32&gt;)</h4>
@@ -1291,10 +1219,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L360">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L307">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromClothesSelections_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromClothesSelections*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection[])">RemoveFromClothesSelections(ClothesSelection[])</h4>
@@ -1339,10 +1267,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromClothesSelections_System_Func_Kingmaker_UnitLogic_Customization_ClothesSelection_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromClothesSelections(System.Func%7BKingmaker.UnitLogic.Customization.ClothesSelection%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromClothesSelections_System_Func_Kingmaker_UnitLogic_Customization_ClothesSelection_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromClothesSelections(System.Func%7BKingmaker.UnitLogic.Customization.ClothesSelection%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L373">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L320">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromClothesSelections_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromClothesSelections*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromClothesSelections_System_Func_Kingmaker_UnitLogic_Customization_ClothesSelection_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromClothesSelections(System.Func{Kingmaker.UnitLogic.Customization.ClothesSelection,System.Boolean})">RemoveFromClothesSelections(Func&lt;ClothesSelection, Boolean&gt;)</h4>
@@ -1387,10 +1315,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromFemaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromFemaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromFemaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromFemaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L706">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L614">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromFemaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromFemaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromFemaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromFemaleVoices(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.Sound.BlueprintUnitAsksList,Kingmaker.Blueprints.BlueprintUnitAsksListReference}[])">RemoveFromFemaleVoices(Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;[])</h4>
@@ -1440,10 +1368,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromFemaleVoices_System_Func_Kingmaker_Blueprints_BlueprintUnitAsksListReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromFemaleVoices(System.Func%7BKingmaker.Blueprints.BlueprintUnitAsksListReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromFemaleVoices_System_Func_Kingmaker_Blueprints_BlueprintUnitAsksListReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromFemaleVoices(System.Func%7BKingmaker.Blueprints.BlueprintUnitAsksListReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L732">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L627">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromFemaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromFemaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromFemaleVoices_System_Func_Kingmaker_Blueprints_BlueprintUnitAsksListReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromFemaleVoices(System.Func{Kingmaker.Blueprints.BlueprintUnitAsksListReference,System.Boolean})">RemoveFromFemaleVoices(Func&lt;BlueprintUnitAsksListReference, Boolean&gt;)</h4>
@@ -1488,10 +1416,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromMaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromMaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromMaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromMaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L552">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L499">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromMaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromMaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromMaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromMaleVoices(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.Sound.BlueprintUnitAsksList,Kingmaker.Blueprints.BlueprintUnitAsksListReference}[])">RemoveFromMaleVoices(Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;[])</h4>
@@ -1541,10 +1469,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromMaleVoices_System_Func_Kingmaker_Blueprints_BlueprintUnitAsksListReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromMaleVoices(System.Func%7BKingmaker.Blueprints.BlueprintUnitAsksListReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromMaleVoices_System_Func_Kingmaker_Blueprints_BlueprintUnitAsksListReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromMaleVoices(System.Func%7BKingmaker.Blueprints.BlueprintUnitAsksListReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L578">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L512">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromMaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromMaleVoices*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromMaleVoices_System_Func_Kingmaker_Blueprints_BlueprintUnitAsksListReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromMaleVoices(System.Func{Kingmaker.Blueprints.BlueprintUnitAsksListReference,System.Boolean})">RemoveFromMaleVoices(Func&lt;BlueprintUnitAsksListReference, Boolean&gt;)</h4>
@@ -1589,10 +1517,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromPresetObjects_Kingmaker_UnitLogic_Customization_PresetObject___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromPresetObjects(Kingmaker.UnitLogic.Customization.PresetObject%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromPresetObjects_Kingmaker_UnitLogic_Customization_PresetObject___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromPresetObjects(Kingmaker.UnitLogic.Customization.PresetObject%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L54">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L53">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromPresetObjects_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromPresetObjects*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromPresetObjects_Kingmaker_UnitLogic_Customization_PresetObject___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromPresetObjects(Kingmaker.UnitLogic.Customization.PresetObject[])">RemoveFromPresetObjects(PresetObject[])</h4>
@@ -1637,10 +1565,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromPresetObjects_System_Func_Kingmaker_UnitLogic_Customization_PresetObject_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromPresetObjects(System.Func%7BKingmaker.UnitLogic.Customization.PresetObject%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromPresetObjects_System_Func_Kingmaker_UnitLogic_Customization_PresetObject_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromPresetObjects(System.Func%7BKingmaker.UnitLogic.Customization.PresetObject%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L67">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L66">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromPresetObjects_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromPresetObjects*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromPresetObjects_System_Func_Kingmaker_UnitLogic_Customization_PresetObject_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromPresetObjects(System.Func{Kingmaker.UnitLogic.Customization.PresetObject,System.Boolean})">RemoveFromPresetObjects(Func&lt;PresetObject, Boolean&gt;)</h4>
@@ -1685,10 +1613,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnits_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromUnits(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnits_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromUnits(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L244">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L230">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnits_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromUnits*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnits_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromUnits(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnit,Kingmaker.Blueprints.BlueprintUnitReference}[])">RemoveFromUnits(Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;[])</h4>
@@ -1738,10 +1666,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnits_System_Func_Kingmaker_Blueprints_BlueprintUnitReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromUnits(System.Func%7BKingmaker.Blueprints.BlueprintUnitReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnits_System_Func_Kingmaker_Blueprints_BlueprintUnitReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromUnits(System.Func%7BKingmaker.Blueprints.BlueprintUnitReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L270">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L243">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnits_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromUnits*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnits_System_Func_Kingmaker_Blueprints_BlueprintUnitReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromUnits(System.Func{Kingmaker.Blueprints.BlueprintUnitReference,System.Boolean})">RemoveFromUnits(Func&lt;BlueprintUnitReference, Boolean&gt;)</h4>
@@ -1786,10 +1714,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnitVariations_Kingmaker_UnitLogic_Customization_UnitVariations___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromUnitVariations(Kingmaker.UnitLogic.Customization.UnitVariations%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnitVariations_Kingmaker_UnitLogic_Customization_UnitVariations___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromUnitVariations(Kingmaker.UnitLogic.Customization.UnitVariations%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L437">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L384">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnitVariations_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromUnitVariations*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnitVariations_Kingmaker_UnitLogic_Customization_UnitVariations___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromUnitVariations(Kingmaker.UnitLogic.Customization.UnitVariations[])">RemoveFromUnitVariations(UnitVariations[])</h4>
@@ -1834,10 +1762,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnitVariations_System_Func_Kingmaker_UnitLogic_Customization_UnitVariations_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromUnitVariations(System.Func%7BKingmaker.UnitLogic.Customization.UnitVariations%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnitVariations_System_Func_Kingmaker_UnitLogic_Customization_UnitVariations_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.RemoveFromUnitVariations(System.Func%7BKingmaker.UnitLogic.Customization.UnitVariations%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L450">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L397">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnitVariations_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromUnitVariations*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_RemoveFromUnitVariations_System_Func_Kingmaker_UnitLogic_Customization_UnitVariations_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.RemoveFromUnitVariations(System.Func{Kingmaker.UnitLogic.Customization.UnitVariations,System.Boolean})">RemoveFromUnitVariations(Func&lt;UnitVariations, Boolean&gt;)</h4>
@@ -1882,10 +1810,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L334">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L281">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetClothesSelections_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetClothesSelections*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetClothesSelections_Kingmaker_UnitLogic_Customization_ClothesSelection___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetClothesSelections(Kingmaker.UnitLogic.Customization.ClothesSelection[])">SetClothesSelections(ClothesSelection[])</h4>
@@ -1894,7 +1822,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetClothesSelections(ClothesSelection[] clothesSelections)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetClothesSelections(params ClothesSelection[] clothesSelections)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1930,10 +1858,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetDistribution_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Customization_RaceGenderDistribution_Kingmaker_Blueprints_RaceGenderDistributionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetDistribution(BlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Customization.RaceGenderDistribution%2CKingmaker.Blueprints.RaceGenderDistributionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetDistribution_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Customization_RaceGenderDistribution_Kingmaker_Blueprints_RaceGenderDistributionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetDistribution(BlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Customization.RaceGenderDistribution%2CKingmaker.Blueprints.RaceGenderDistributionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L142">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L141">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetDistribution_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetDistribution*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetDistribution_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Customization_RaceGenderDistribution_Kingmaker_Blueprints_RaceGenderDistributionReference__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetDistribution(BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Customization.RaceGenderDistribution,Kingmaker.Blueprints.RaceGenderDistributionReference})">SetDistribution(Blueprint&lt;RaceGenderDistribution, RaceGenderDistributionReference&gt;)</h4>
@@ -1983,19 +1911,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetFemaleVoices_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetFemaleVoices(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetFemaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetFemaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L655">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L563">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetFemaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetFemaleVoices*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetFemaleVoices_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetFemaleVoices(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Visual.Sound.BlueprintUnitAsksList,Kingmaker.Blueprints.BlueprintUnitAsksListReference}})">SetFemaleVoices(List&lt;Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetFemaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetFemaleVoices(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.Sound.BlueprintUnitAsksList,Kingmaker.Blueprints.BlueprintUnitAsksListReference}[])">SetFemaleVoices(Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;[])</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.UnitLogic.Customization.UnitCustomizationPreset.FemaleVoices</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetFemaleVoices(List&lt;Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;&gt; femaleVoices)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetFemaleVoices(params Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;[] femaleVoices)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2008,7 +1936,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Visual.Sound.BlueprintUnitAsksList</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitAsksListReference</span>&gt;&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Visual.Sound.BlueprintUnitAsksList</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitAsksListReference</span>&gt;[]</td>
         <td><span class="parametername">femaleVoices</span></td>
         <td><p>
 Blueprint of type BlueprintUnitAsksList. You can pass in the blueprint using:
@@ -2036,19 +1964,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetMaleVoices_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetMaleVoices(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetMaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetMaleVoices(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.Sound.BlueprintUnitAsksList%2CKingmaker.Blueprints.BlueprintUnitAsksListReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L501">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L448">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetMaleVoices_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetMaleVoices*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetMaleVoices_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetMaleVoices(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Visual.Sound.BlueprintUnitAsksList,Kingmaker.Blueprints.BlueprintUnitAsksListReference}})">SetMaleVoices(List&lt;Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetMaleVoices_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_Sound_BlueprintUnitAsksList_Kingmaker_Blueprints_BlueprintUnitAsksListReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetMaleVoices(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.Sound.BlueprintUnitAsksList,Kingmaker.Blueprints.BlueprintUnitAsksListReference}[])">SetMaleVoices(Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;[])</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.UnitLogic.Customization.UnitCustomizationPreset.MaleVoices</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetMaleVoices(List&lt;Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;&gt; maleVoices)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetMaleVoices(params Blueprint&lt;BlueprintUnitAsksList, BlueprintUnitAsksListReference&gt;[] maleVoices)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2061,7 +1989,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Visual.Sound.BlueprintUnitAsksList</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitAsksListReference</span>&gt;&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Visual.Sound.BlueprintUnitAsksList</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitAsksListReference</span>&gt;[]</td>
         <td><span class="parametername">maleVoices</span></td>
         <td><p>
 Blueprint of type BlueprintUnitAsksList. You can pass in the blueprint using:
@@ -2089,19 +2017,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetPresetObjects_System_Collections_Generic_List_Kingmaker_UnitLogic_Customization_PresetObject__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetPresetObjects(System.Collections.Generic.List%7BKingmaker.UnitLogic.Customization.PresetObject%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetPresetObjects_Kingmaker_UnitLogic_Customization_PresetObject___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetPresetObjects(Kingmaker.UnitLogic.Customization.PresetObject%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L28">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L27">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetPresetObjects_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetPresetObjects*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetPresetObjects_System_Collections_Generic_List_Kingmaker_UnitLogic_Customization_PresetObject__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetPresetObjects(System.Collections.Generic.List{Kingmaker.UnitLogic.Customization.PresetObject})">SetPresetObjects(List&lt;PresetObject&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetPresetObjects_Kingmaker_UnitLogic_Customization_PresetObject___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetPresetObjects(Kingmaker.UnitLogic.Customization.PresetObject[])">SetPresetObjects(PresetObject[])</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.UnitLogic.Customization.UnitCustomizationPreset.PresetObjects</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetPresetObjects(List&lt;PresetObject&gt; presetObjects)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetPresetObjects(params PresetObject[] presetObjects)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2114,7 +2042,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Kingmaker.UnitLogic.Customization.PresetObject</span>&gt;</td>
+        <td><span class="xref">Kingmaker.UnitLogic.Customization.PresetObject</span>[]</td>
         <td><span class="parametername">presetObjects</span></td>
         <td></td>
       </tr>
@@ -2137,19 +2065,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnits_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetUnits(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnits_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetUnits(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L193">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L179">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnits_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetUnits*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnits_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetUnits(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnit,Kingmaker.Blueprints.BlueprintUnitReference}})">SetUnits(List&lt;Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnits_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference____" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetUnits(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnit,Kingmaker.Blueprints.BlueprintUnitReference}[])">SetUnits(Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;[])</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.UnitLogic.Customization.UnitCustomizationPreset.m_Units</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetUnits(List&lt;Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;&gt; units)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetUnits(params Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;[] units)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2162,7 +2090,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnit</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitReference</span>&gt;&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnit</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitReference</span>&gt;[]</td>
         <td><span class="parametername">units</span></td>
         <td><p>
 Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -2190,19 +2118,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnitVariations_System_Collections_Generic_List_Kingmaker_UnitLogic_Customization_UnitVariations__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetUnitVariations(System.Collections.Generic.List%7BKingmaker.UnitLogic.Customization.UnitVariations%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnitVariations_Kingmaker_UnitLogic_Customization_UnitVariations___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetUnitVariations(Kingmaker.UnitLogic.Customization.UnitVariations%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L411">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L358">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnitVariations_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetUnitVariations*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnitVariations_System_Collections_Generic_List_Kingmaker_UnitLogic_Customization_UnitVariations__" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetUnitVariations(System.Collections.Generic.List{Kingmaker.UnitLogic.Customization.UnitVariations})">SetUnitVariations(List&lt;UnitVariations&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetUnitVariations_Kingmaker_UnitLogic_Customization_UnitVariations___" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetUnitVariations(Kingmaker.UnitLogic.Customization.UnitVariations[])">SetUnitVariations(UnitVariations[])</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.UnitLogic.Customization.UnitCustomizationPreset.UnitVariations</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetUnitVariations(List&lt;UnitVariations&gt; unitVariations)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetUnitVariations(params UnitVariations[] unitVariations)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2215,7 +2143,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Kingmaker.UnitLogic.Customization.UnitVariations</span>&gt;</td>
+        <td><span class="xref">Kingmaker.UnitLogic.Customization.UnitVariations</span>[]</td>
         <td><span class="parametername">unitVariations</span></td>
         <td></td>
       </tr>
@@ -2238,10 +2166,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetVariationsCount_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetVariationsCount(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetVariationsCount_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602.SetVariationsCount(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L105">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L104">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetVariationsCount_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetVariationsCount*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2_SetVariationsCount_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator`2.SetVariationsCount(System.Int32)">SetVariationsCount(Int32)</h4>
@@ -2292,10 +2220,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_UnitLogic_Customization_BaseUnitCustomizationPresetConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.UnitLogic.Customization.BaseUnitCustomizationPresetConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/UnitLogic/Customization/BaseUnitCustomizationPreset.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

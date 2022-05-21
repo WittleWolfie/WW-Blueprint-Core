@@ -282,112 +282,40 @@
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Implementation is based on the
-<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
+that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
+base game.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
-    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
-</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p><strong>Creating a Blueprint</strong></p>
+<p>Use <code>New(string, string)</code> to create a blueprint:</p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</code>
+<p>Once <code>New()</code> is called the blueprint is added to the game library and can be referenced.</p>
+<p><strong>Using the Configurator</strong></p>
 <p>
-Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
-exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-component types.
+<code>New()</code> returns a configurator with methods to set or modify blueprint fields and add or modify
+<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>:
 </p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();</code>
 <p>
-See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
-for more information on component and blueprint type safety.
+Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+<code>Configure()</code> is called, at which point the changes are applied and validated. Potential problems with the
+blueprint are logged as warnings.
 </p>
-</td></tr><tr><td>Validation</td><td>
-<p>
-When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
-which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-complicated configuration problems such as
-<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
-usage.
-</p>
-<p>
-Validation uses a combination of code from the game library and manually tuned logic. See
-<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
-</p>
-</td></tr><tr><td>Builder Style API</td><td>
-<p>
-The API is designed to minimize boilerplate required to modify blueprints and create components.
-Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
-</p>
-<p>
-Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
-configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
-</p>
-</td></tr></tbody></table>
-TODO: Update the example
-<example>
-Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
-<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
-var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
-var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
-var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
-var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
-var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
-<p>// Register the names
-BlueprintTool.AddGuidsByName(
-(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
-(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
-(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
-// New blueprints and guids
-(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
-(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
-(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
-<p>// Load the icons and strings (not provided by library)
-var skaldsVigorIcon = LoadSkaldsVigorIcon();
-var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-var skaldsVigorName = LoadSkaldsVigorName();
-var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-var skaldsVigorDescription = LoadSkaldsVigorDescription();
-var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
-<p>// Create the buff
-BuffConfigurator.New(skaldsVigorBuff)
-.ContextRankConfig(
-// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-.FastHealing(1, bonusValue: ContextValues.Rank())
-.Configure();</p>
-<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-// Rage is active.
-var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(inspiredRageBuff)
-.FactContextActions(
-onActivated:
-ActionsBuilder.New()
-// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-// the feat.
-.Conditional(
-ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-ifTrue: applyBuff)
-// For characters other than the caster, Skald's Vigor is only applied if the caster has the
-// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-// buffs do not stack so it has no effect.
-.Conditional(
-ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-onDeactivated:
-// Removes Skald's Vigor when Inspired Rage ends.
-// There is actually a bug with this implementation; Lingering Song will extend the duration of
-// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-.Configure();</code></pre>
-</example><p>
+<p><strong>Modifying an Existing Blueprint</strong></p>
+<p>Use <code>For(Blueprint)</code> to modify existing blueprints:</p>
+<code>CharacterClassConfigurator.For(WizardClassGuid)</code>
+<p>Usage is otherwise identical to creating a new blueprint.</p>
+<p>For more information see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</a>.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L36">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L36">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseComponentListConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -418,10 +346,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddDisableCompanionPartyChecks_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_Kingmaker_AreaLogic_Etudes_DisableCompanionPartyChecks_ModeType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddDisableCompanionPartyChecks(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BKingmaker.AreaLogic.Etudes.DisableCompanionPartyChecks.ModeType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddDisableCompanionPartyChecks_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_Kingmaker_AreaLogic_Etudes_DisableCompanionPartyChecks_ModeType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddDisableCompanionPartyChecks(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BKingmaker.AreaLogic.Etudes.DisableCompanionPartyChecks.ModeType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L304">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L332">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddDisableCompanionPartyChecks_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddDisableCompanionPartyChecks*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddDisableCompanionPartyChecks_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference___System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_Kingmaker_AreaLogic_Etudes_DisableCompanionPartyChecks_ModeType__" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddDisableCompanionPartyChecks(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnit,Kingmaker.Blueprints.BlueprintUnitReference}},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{Kingmaker.AreaLogic.Etudes.DisableCompanionPartyChecks.ModeType})">AddDisableCompanionPartyChecks(List&lt;Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;DisableCompanionPartyChecks.ModeType&gt;)</h4>
@@ -430,7 +358,7 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddDisableCompanionPartyChecks(List&lt;Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;&gt; companions = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, DisableCompanionPartyChecks.ModeType? mode = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddDisableCompanionPartyChecks(List&lt;Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;&gt; companions = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, DisableCompanionPartyChecks.ModeType? mode = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -491,10 +419,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAllowMythicPortrait_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketAllowMythicPortrait(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAllowMythicPortrait_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketAllowMythicPortrait(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L339">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L367">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAllowMythicPortrait_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketAllowMythicPortrait*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAllowMythicPortrait_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketAllowMythicPortrait(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketAllowMythicPortrait(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -503,7 +431,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketAllowMythicPortrait(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketAllowMythicPortrait(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -549,10 +477,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAudioEvents_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Sound_AkEventReference___Kingmaker_Sound_AkEventReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketAudioEvents(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.Sound.AkEventReference%5B%5D%2CKingmaker.Sound.AkEventReference%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAudioEvents_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Sound_AkEventReference___Kingmaker_Sound_AkEventReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketAudioEvents(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.Sound.AkEventReference%5B%5D%2CKingmaker.Sound.AkEventReference%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L367">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L395">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAudioEvents_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketAudioEvents*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAudioEvents_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Sound_AkEventReference___Kingmaker_Sound_AkEventReference___" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketAudioEvents(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.Sound.AkEventReference[],Kingmaker.Sound.AkEventReference[])">AddEtudeBracketAudioEvents(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, AkEventReference[], AkEventReference[])</h4>
@@ -561,7 +489,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketAudioEvents(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, AkEventReference[] onEtudeStart = null, AkEventReference[] onEtudeStop = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketAudioEvents(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, AkEventReference[] onEtudeStart = null, AkEventReference[] onEtudeStop = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -617,10 +545,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAudioObjects_System_String_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketAudioObjects(System.String%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAudioObjects_System_String_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketAudioObjects(System.String%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L409">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L437">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAudioObjects_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketAudioObjects*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketAudioObjects_System_String_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketAudioObjects(System.String,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketAudioObjects(String, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -629,7 +557,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketAudioObjects(string connectedObjectName = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketAudioObjects(string connectedObjectName = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -680,10 +608,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketCampingAction_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketCampingAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketCampingAction_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketCampingAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L439">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L467">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketCampingAction_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketCampingAction*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketCampingAction_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketCampingAction(BlueprintCore.Actions.Builder.ActionsBuilder,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.Boolean})">AddEtudeBracketCampingAction(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;)</h4>
@@ -692,7 +620,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketCampingAction(ActionsBuilder actions = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, bool? skipRest = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketCampingAction(ActionsBuilder actions = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, bool? skipRest = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -748,10 +676,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDetachPet_Kingmaker_ElementsSystem_UnitEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_Kingmaker_Enums_PetType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketDetachPet(Kingmaker.ElementsSystem.UnitEvaluator%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BKingmaker.Enums.PetType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDetachPet_Kingmaker_ElementsSystem_UnitEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_Kingmaker_Enums_PetType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketDetachPet(Kingmaker.ElementsSystem.UnitEvaluator%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BKingmaker.Enums.PetType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L475">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L503">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDetachPet_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketDetachPet*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDetachPet_Kingmaker_ElementsSystem_UnitEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_Kingmaker_Enums_PetType__" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketDetachPet(Kingmaker.ElementsSystem.UnitEvaluator,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{Kingmaker.Enums.PetType})">AddEtudeBracketDetachPet(UnitEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;PetType&gt;)</h4>
@@ -760,7 +688,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketDetachPet(UnitEvaluator master = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, PetType? petType = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketDetachPet(UnitEvaluator master = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, PetType? petType = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -816,10 +744,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisableCampingEncounters_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketDisableCampingEncounters(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisableCampingEncounters_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketDisableCampingEncounters(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L507">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L535">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisableCampingEncounters_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketDisableCampingEncounters*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisableCampingEncounters_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketDisableCampingEncounters(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketDisableCampingEncounters(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -828,7 +756,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketDisableCampingEncounters(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketDisableCampingEncounters(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -874,10 +802,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisablePlayerRespec_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketDisablePlayerRespec(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisablePlayerRespec_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketDisablePlayerRespec(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L533">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L561">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisablePlayerRespec_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketDisablePlayerRespec*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisablePlayerRespec_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketDisablePlayerRespec(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketDisablePlayerRespec(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -886,7 +814,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketDisablePlayerRespec(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketDisablePlayerRespec(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -932,10 +860,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisableRandomEncounters_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketDisableRandomEncounters(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisableRandomEncounters_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketDisableRandomEncounters(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L560">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L588">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisableRandomEncounters_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketDisableRandomEncounters*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketDisableRandomEncounters_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketDisableRandomEncounters(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketDisableRandomEncounters(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -944,7 +872,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketDisableRandomEncounters(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketDisableRandomEncounters(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -990,10 +918,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableAzataIsland_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Reference__BlueprintCore_Utils_Blueprint_Kingmaker_Crusade_GlobalMagic_BlueprintGlobalMagicSpell_Kingmaker_Crusade_GlobalMagic_BlueprintGlobalMagicSpell_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketEnableAzataIsland(BlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMap%2CKingmaker.Globalmap.Blueprints.BlueprintGlobalMap.Reference%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell%2CKingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell.Reference%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableAzataIsland_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Reference__BlueprintCore_Utils_Blueprint_Kingmaker_Crusade_GlobalMagic_BlueprintGlobalMagicSpell_Kingmaker_Crusade_GlobalMagic_BlueprintGlobalMagicSpell_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketEnableAzataIsland(BlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMap%2CKingmaker.Globalmap.Blueprints.BlueprintGlobalMap.Reference%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell%2CKingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell.Reference%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L610">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L638">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableAzataIsland_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketEnableAzataIsland*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableAzataIsland_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Reference__BlueprintCore_Utils_Blueprint_Kingmaker_Crusade_GlobalMagic_BlueprintGlobalMagicSpell_Kingmaker_Crusade_GlobalMagic_BlueprintGlobalMagicSpell_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketEnableAzataIsland(BlueprintCore.Utils.Blueprint{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap,Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap.Reference},BlueprintCore.Utils.Blueprint{Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell,Kingmaker.Crusade.GlobalMagic.BlueprintGlobalMagicSpell.Reference},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketEnableAzataIsland(Blueprint&lt;BlueprintGlobalMap, BlueprintGlobalMap.Reference&gt;, Blueprint&lt;BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -1002,7 +930,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketEnableAzataIsland(Blueprint&lt;BlueprintGlobalMap, BlueprintGlobalMap.Reference&gt; globalMap = null, Blueprint&lt;BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference&gt; globalMapSpell = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketEnableAzataIsland(Blueprint&lt;BlueprintGlobalMap, BlueprintGlobalMap.Reference&gt; globalMap = null, Blueprint&lt;BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference&gt; globalMapSpell = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1068,10 +996,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableTutorials_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketEnableTutorials(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Tutorial.BlueprintTutorial%2CKingmaker.Tutorial.BlueprintTutorial.Reference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableTutorials_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketEnableTutorials(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Tutorial.BlueprintTutorial%2CKingmaker.Tutorial.BlueprintTutorial.Reference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L116">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L116">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableTutorials_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketEnableTutorials*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableTutorials_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference___" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketEnableTutorials(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Tutorial.BlueprintTutorial,Kingmaker.Tutorial.BlueprintTutorial.Reference}})">AddEtudeBracketEnableTutorials(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, List&lt;Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt;&gt;)</h4>
@@ -1080,7 +1008,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketEnableTutorials(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, List&lt;Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt;&gt; tutorials = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketEnableTutorials(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, List&lt;Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt;&gt; tutorials = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1136,10 +1064,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableTutorialSingle_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketEnableTutorialSingle(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Tutorial.BlueprintTutorial%2CKingmaker.Tutorial.BlueprintTutorial.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableTutorialSingle_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketEnableTutorialSingle(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Tutorial.BlueprintTutorial%2CKingmaker.Tutorial.BlueprintTutorial.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L70">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L70">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableTutorialSingle_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketEnableTutorialSingle*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableTutorialSingle_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference__" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketEnableTutorialSingle(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,BlueprintCore.Utils.Blueprint{Kingmaker.Tutorial.BlueprintTutorial,Kingmaker.Tutorial.BlueprintTutorial.Reference})">AddEtudeBracketEnableTutorialSingle(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt;)</h4>
@@ -1148,7 +1076,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketEnableTutorialSingle(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt; tutorial = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketEnableTutorialSingle(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt; tutorial = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1204,10 +1132,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableWarcamp_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketEnableWarcamp(BlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMap%2CKingmaker.Globalmap.Blueprints.BlueprintGlobalMap.Reference%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableWarcamp_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketEnableWarcamp(BlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMap%2CKingmaker.Globalmap.Blueprints.BlueprintGlobalMap.Reference%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L660">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L688">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableWarcamp_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketEnableWarcamp*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketEnableWarcamp_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMap_Reference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketEnableWarcamp(BlueprintCore.Utils.Blueprint{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap,Kingmaker.Globalmap.Blueprints.BlueprintGlobalMap.Reference},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketEnableWarcamp(Blueprint&lt;BlueprintGlobalMap, BlueprintGlobalMap.Reference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -1216,7 +1144,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketEnableWarcamp(Blueprint&lt;BlueprintGlobalMap, BlueprintGlobalMap.Reference&gt; globalMap = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketEnableWarcamp(Blueprint&lt;BlueprintGlobalMap, BlueprintGlobalMap.Reference&gt; globalMap = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1272,10 +1200,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketFollowUnit_System_Nullable_System_Boolean__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPool_Kingmaker_Blueprints_BlueprintSummonPoolReference__Kingmaker_ElementsSystem_UnitEvaluator_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketFollowUnit(System.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSummonPool%2CKingmaker.Blueprints.BlueprintSummonPoolReference%7D%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketFollowUnit_System_Nullable_System_Boolean__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPool_Kingmaker_Blueprints_BlueprintSummonPoolReference__Kingmaker_ElementsSystem_UnitEvaluator_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketFollowUnit(System.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSummonPool%2CKingmaker.Blueprints.BlueprintSummonPoolReference%7D%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L711">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L739">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketFollowUnit_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketFollowUnit*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketFollowUnit_System_Nullable_System_Boolean__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPool_Kingmaker_Blueprints_BlueprintSummonPoolReference__Kingmaker_ElementsSystem_UnitEvaluator_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketFollowUnit(System.Nullable{System.Boolean},System.Nullable{System.Boolean},Kingmaker.ElementsSystem.UnitEvaluator,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintSummonPool,Kingmaker.Blueprints.BlueprintSummonPoolReference},Kingmaker.ElementsSystem.UnitEvaluator,System.Nullable{System.Boolean})">AddEtudeBracketFollowUnit(Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, UnitEvaluator, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintSummonPool, BlueprintSummonPoolReference&gt;, UnitEvaluator, Nullable&lt;Boolean&gt;)</h4>
@@ -1284,7 +1212,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketFollowUnit(bool? alwaysRun = null, bool? canBeSlowerThanLeader = null, UnitEvaluator leader = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, Blueprint&lt;BlueprintSummonPool, BlueprintSummonPoolReference&gt; summonPool = null, UnitEvaluator unit = null, bool? useSummonPool = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketFollowUnit(bool? alwaysRun = null, bool? canBeSlowerThanLeader = null, UnitEvaluator leader = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, Blueprint&lt;BlueprintSummonPool, BlueprintSummonPoolReference&gt; summonPool = null, UnitEvaluator unit = null, bool? useSummonPool = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1368,10 +1296,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketForceCombatMode_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketForceCombatMode(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketForceCombatMode_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketForceCombatMode(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L755">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L783">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketForceCombatMode_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketForceCombatMode*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketForceCombatMode_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketForceCombatMode(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketForceCombatMode(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -1380,7 +1308,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketForceCombatMode(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketForceCombatMode(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1426,10 +1354,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketIgnoreGameover_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketIgnoreGameover(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketIgnoreGameover_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketIgnoreGameover(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L782">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L810">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketIgnoreGameover_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketIgnoreGameover*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketIgnoreGameover_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketIgnoreGameover(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketIgnoreGameover(ActionsBuilder, EtudeBracketGameModeWaiter, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -1438,7 +1366,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketIgnoreGameover(ActionsBuilder actionList = null, EtudeBracketGameModeWaiter gameModeWaiter = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketIgnoreGameover(ActionsBuilder actionList = null, EtudeBracketGameModeWaiter gameModeWaiter = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1494,10 +1422,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMakePassive_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketMakePassive(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMakePassive_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketMakePassive(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L819">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L847">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMakePassive_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketMakePassive*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMakePassive_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketMakePassive(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.ElementsSystem.UnitEvaluator)">AddEtudeBracketMakePassive(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</h4>
@@ -1506,7 +1434,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketMakePassive(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, UnitEvaluator unit = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketMakePassive(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, UnitEvaluator unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1557,10 +1485,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMarkUnitEssential_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketMarkUnitEssential(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMarkUnitEssential_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketMarkUnitEssential(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L850">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L878">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMarkUnitEssential_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketMarkUnitEssential*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMarkUnitEssential_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketMarkUnitEssential(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.ElementsSystem.UnitEvaluator)">AddEtudeBracketMarkUnitEssential(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</h4>
@@ -1569,7 +1497,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketMarkUnitEssential(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, UnitEvaluator target = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketMarkUnitEssential(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, UnitEvaluator target = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1620,10 +1548,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMusic_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Sound_AkEventReference_Kingmaker_Sound_AkEventReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketMusic(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.Sound.AkEventReference%2CKingmaker.Sound.AkEventReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMusic_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Sound_AkEventReference_Kingmaker_Sound_AkEventReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketMusic(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.Sound.AkEventReference%2CKingmaker.Sound.AkEventReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L881">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L909">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMusic_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketMusic*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketMusic_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Sound_AkEventReference_Kingmaker_Sound_AkEventReference_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketMusic(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.Sound.AkEventReference,Kingmaker.Sound.AkEventReference)">AddEtudeBracketMusic(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, AkEventReference, AkEventReference)</h4>
@@ -1632,7 +1560,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketMusic(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, AkEventReference startTheme = null, AkEventReference stopTheme = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketMusic(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, AkEventReference startTheme = null, AkEventReference stopTheme = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1688,10 +1616,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideActionsOnClick_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideActionsOnClick(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideActionsOnClick_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideActionsOnClick(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L915">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L943">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideActionsOnClick_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideActionsOnClick*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideActionsOnClick_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideActionsOnClick(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Single},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.ElementsSystem.UnitEvaluator)">AddEtudeBracketOverrideActionsOnClick(ActionsBuilder, Nullable&lt;Single&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</h4>
@@ -1700,7 +1628,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideActionsOnClick(ActionsBuilder actions = null, float? distance = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, UnitEvaluator unit = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideActionsOnClick(ActionsBuilder actions = null, float? distance = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, UnitEvaluator unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1761,10 +1689,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideBark_System_Nullable_System_Boolean__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Localization_SharedStringAsset_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideBark(System.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.Localization.SharedStringAsset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideBark_System_Nullable_System_Boolean__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Localization_SharedStringAsset_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideBark(System.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.Localization.SharedStringAsset)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L959">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L987">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideBark_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideBark*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideBark_System_Nullable_System_Boolean__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_Localization_SharedStringAsset_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideBark(System.Nullable{System.Boolean},System.Nullable{System.Single},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.Localization.SharedStringAsset)">AddEtudeBracketOverrideBark(Nullable&lt;Boolean&gt;, Nullable&lt;Single&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator, SharedStringAsset)</h4>
@@ -1773,7 +1701,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideBark(bool? barkDurationByText = null, float? distance = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, UnitEvaluator unit = null, SharedStringAsset whatToBarkShared = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideBark(bool? barkDurationByText = null, float? distance = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, UnitEvaluator unit = null, SharedStringAsset whatToBarkShared = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1842,10 +1770,10 @@ Tooltip: Bark duration depends on text length
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideDialog_BlueprintCore_Utils_Blueprint_Kingmaker_DialogSystem_Blueprints_BlueprintDialog_Kingmaker_Blueprints_BlueprintDialogReference__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideDialog(BlueprintCore.Utils.Blueprint%7BKingmaker.DialogSystem.Blueprints.BlueprintDialog%2CKingmaker.Blueprints.BlueprintDialogReference%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideDialog_BlueprintCore_Utils_Blueprint_Kingmaker_DialogSystem_Blueprints_BlueprintDialog_Kingmaker_Blueprints_BlueprintDialogReference__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideDialog(BlueprintCore.Utils.Blueprint%7BKingmaker.DialogSystem.Blueprints.BlueprintDialog%2CKingmaker.Blueprints.BlueprintDialogReference%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1009">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1037">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideDialog_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideDialog*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideDialog_BlueprintCore_Utils_Blueprint_Kingmaker_DialogSystem_Blueprints_BlueprintDialog_Kingmaker_Blueprints_BlueprintDialogReference__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideDialog(BlueprintCore.Utils.Blueprint{Kingmaker.DialogSystem.Blueprints.BlueprintDialog,Kingmaker.Blueprints.BlueprintDialogReference},System.Nullable{System.Single},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.ElementsSystem.UnitEvaluator)">AddEtudeBracketOverrideDialog(Blueprint&lt;BlueprintDialog, BlueprintDialogReference&gt;, Nullable&lt;Single&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</h4>
@@ -1854,7 +1782,7 @@ Tooltip: Bark duration depends on text length
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideDialog(Blueprint&lt;BlueprintDialog, BlueprintDialogReference&gt; dialog = null, float? distance = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, UnitEvaluator unit = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideDialog(Blueprint&lt;BlueprintDialog, BlueprintDialogReference&gt; dialog = null, float? distance = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, UnitEvaluator unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1920,10 +1848,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideWeatherInclemency_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Nullable_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideWeatherInclemency(Kingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter%2CSystem.Nullable%7BOwlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideWeatherInclemency_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Nullable_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideWeatherInclemency(Kingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter%2CSystem.Nullable%7BOwlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1048">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1076">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideWeatherInclemency_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideWeatherInclemency*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideWeatherInclemency_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Nullable_Owlcat_Runtime_Visual_Effects_WeatherSystem_InclemencyType__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideWeatherInclemency(Kingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter,System.Nullable{Owlcat.Runtime.Visual.Effects.WeatherSystem.InclemencyType},System.Nullable{System.Boolean},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeBracketOverrideWeatherInclemency(EtudeBracketGameModeWaiter, Nullable&lt;InclemencyType&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -1932,7 +1860,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideWeatherInclemency(EtudeBracketGameModeWaiter gameModeWaiter = null, InclemencyType? inclemency = null, bool? instantly = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideWeatherInclemency(EtudeBracketGameModeWaiter gameModeWaiter = null, InclemencyType? inclemency = null, bool? instantly = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1993,10 +1921,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideWeatherProfile_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideWeatherProfile(Kingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2COwlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideWeatherProfile_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketOverrideWeatherProfile(Kingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2COwlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1083">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1111">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideWeatherProfile_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideWeatherProfile*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketOverrideWeatherProfile_Kingmaker_AreaLogic_Etudes_EtudeBracketGameModeWaiter_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Owlcat_Runtime_Visual_Effects_WeatherSystem_WeatherProfileExtended_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketOverrideWeatherProfile(Kingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Owlcat.Runtime.Visual.Effects.WeatherSystem.WeatherProfileExtended)">AddEtudeBracketOverrideWeatherProfile(EtudeBracketGameModeWaiter, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, WeatherProfileExtended)</h4>
@@ -2005,7 +1933,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideWeatherProfile(EtudeBracketGameModeWaiter gameModeWaiter = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, WeatherProfileExtended weatherProfile = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketOverrideWeatherProfile(EtudeBracketGameModeWaiter gameModeWaiter = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, WeatherProfileExtended weatherProfile = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2061,10 +1989,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketPinCompanionInParty_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketPinCompanionInParty(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketPinCompanionInParty_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketPinCompanionInParty(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1116">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1144">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketPinCompanionInParty_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketPinCompanionInParty*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketPinCompanionInParty_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketPinCompanionInParty(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.ElementsSystem.UnitEvaluator)">AddEtudeBracketPinCompanionInParty(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</h4>
@@ -2073,7 +2001,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketPinCompanionInParty(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, UnitEvaluator unit = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketPinCompanionInParty(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, UnitEvaluator unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2124,10 +2052,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketPreventDirectControl_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketPreventDirectControl(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketPreventDirectControl_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketPreventDirectControl(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1147">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1175">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketPreventDirectControl_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketPreventDirectControl*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketPreventDirectControl_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketPreventDirectControl(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.ElementsSystem.UnitEvaluator)">AddEtudeBracketPreventDirectControl(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, UnitEvaluator)</h4>
@@ -2136,7 +2064,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketPreventDirectControl(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, UnitEvaluator unit = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketPreventDirectControl(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, UnitEvaluator unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2187,10 +2115,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketProgressBar_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketProgressBar(System.Nullable%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketProgressBar_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketProgressBar(System.Nullable%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CKingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1176">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1204">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketProgressBar_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketProgressBar*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketProgressBar_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketProgressBar(System.Nullable{System.Int32},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,Kingmaker.Localization.LocalizedString)">AddEtudeBracketProgressBar(Nullable&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, LocalizedString)</h4>
@@ -2199,7 +2127,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketProgressBar(int? maxProgress = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, LocalizedString title = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketProgressBar(int? maxProgress = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, LocalizedString title = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2255,10 +2183,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketSetCompanionPosition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketSetCompanionPosition(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.Blueprints.EntityReference%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketSetCompanionPosition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketSetCompanionPosition(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.Blueprints.EntityReference%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1229">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1257">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketSetCompanionPosition_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketSetCompanionPosition*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketSetCompanionPosition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketSetCompanionPosition(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnit,Kingmaker.Blueprints.BlueprintUnitReference},System.Nullable{System.Boolean},Kingmaker.Blueprints.EntityReference,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.Boolean})">AddEtudeBracketSetCompanionPosition(Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;, Nullable&lt;Boolean&gt;, EntityReference, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;)</h4>
@@ -2267,7 +2195,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketSetCompanionPosition(Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt; companion = null, bool? ignoreWhenEx = null, EntityReference locator = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, bool? shouldRelease = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketSetCompanionPosition(Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt; companion = null, bool? ignoreWhenEx = null, EntityReference locator = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, bool? shouldRelease = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2293,7 +2221,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
         <td><span class="parametername">ignoreWhenEx</span></td>
         <td><p>
-InfoBox: Don&apos;t do anything if companion is Ex
+InfoBox: Don&amp;apos;t do anything if companion is Ex
 </p>
 </td>
       </tr>
@@ -2341,10 +2269,10 @@ InfoBox: Don&apos;t do anything if companion is Ex
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketSummonpoolOverrideDialog_BlueprintCore_Utils_Blueprint_Kingmaker_DialogSystem_Blueprints_BlueprintDialog_Kingmaker_Blueprints_BlueprintDialogReference__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPool_Kingmaker_Blueprints_BlueprintSummonPoolReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketSummonpoolOverrideDialog(BlueprintCore.Utils.Blueprint%7BKingmaker.DialogSystem.Blueprints.BlueprintDialog%2CKingmaker.Blueprints.BlueprintDialogReference%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSummonPool%2CKingmaker.Blueprints.BlueprintSummonPoolReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketSummonpoolOverrideDialog_BlueprintCore_Utils_Blueprint_Kingmaker_DialogSystem_Blueprints_BlueprintDialog_Kingmaker_Blueprints_BlueprintDialogReference__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPool_Kingmaker_Blueprints_BlueprintSummonPoolReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketSummonpoolOverrideDialog(BlueprintCore.Utils.Blueprint%7BKingmaker.DialogSystem.Blueprints.BlueprintDialog%2CKingmaker.Blueprints.BlueprintDialogReference%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSummonPool%2CKingmaker.Blueprints.BlueprintSummonPoolReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1294">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1322">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketSummonpoolOverrideDialog_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketSummonpoolOverrideDialog*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketSummonpoolOverrideDialog_BlueprintCore_Utils_Blueprint_Kingmaker_DialogSystem_Blueprints_BlueprintDialog_Kingmaker_Blueprints_BlueprintDialogReference__System_Nullable_System_Single__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPool_Kingmaker_Blueprints_BlueprintSummonPoolReference__" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketSummonpoolOverrideDialog(BlueprintCore.Utils.Blueprint{Kingmaker.DialogSystem.Blueprints.BlueprintDialog,Kingmaker.Blueprints.BlueprintDialogReference},System.Nullable{System.Single},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintSummonPool,Kingmaker.Blueprints.BlueprintSummonPoolReference})">AddEtudeBracketSummonpoolOverrideDialog(Blueprint&lt;BlueprintDialog, BlueprintDialogReference&gt;, Nullable&lt;Single&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Blueprint&lt;BlueprintSummonPool, BlueprintSummonPoolReference&gt;)</h4>
@@ -2353,7 +2281,7 @@ InfoBox: Don&apos;t do anything if companion is Ex
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketSummonpoolOverrideDialog(Blueprint&lt;BlueprintDialog, BlueprintDialogReference&gt; dialog = null, float? distance = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, Blueprint&lt;BlueprintSummonPool, BlueprintSummonPoolReference&gt; summonPool = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketSummonpoolOverrideDialog(Blueprint&lt;BlueprintDialog, BlueprintDialogReference&gt; dialog = null, float? distance = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, Blueprint&lt;BlueprintSummonPool, BlueprintSummonPoolReference&gt; summonPool = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2424,10 +2352,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketTriggerAction_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketTriggerAction(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketTriggerAction_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeBracketTriggerAction(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1336">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1364">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketTriggerAction_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketTriggerAction*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeBracketTriggerAction_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeBracketTriggerAction(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">AddEtudeBracketTriggerAction(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, ActionsBuilder, ActionsBuilder)</h4>
@@ -2436,7 +2364,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketTriggerAction(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, ActionsBuilder onActivated = null, ActionsBuilder onDeactivated = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeBracketTriggerAction(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, ActionsBuilder onActivated = null, ActionsBuilder onDeactivated = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2492,10 +2420,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCompleteTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeCompleteTrigger(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCompleteTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeCompleteTrigger(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L212">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L240">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCompleteTrigger_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeCompleteTrigger*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCompleteTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeCompleteTrigger(BlueprintCore.Actions.Builder.ActionsBuilder,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeCompleteTrigger(ActionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -2504,7 +2432,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeCompleteTrigger(ActionsBuilder actions = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeCompleteTrigger(ActionsBuilder actions = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2558,10 +2486,10 @@ ComponentName: Events/EtudeCompleteTrigger
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCorruptionFreeZone_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeCorruptionFreeZone(System.Nullable%7BSystem.Boolean%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCorruptionFreeZone_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeCorruptionFreeZone(System.Nullable%7BSystem.Boolean%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L150">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L150">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCorruptionFreeZone_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeCorruptionFreeZone*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCorruptionFreeZone_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeCorruptionFreeZone(System.Nullable{System.Boolean},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeCorruptionFreeZone(Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -2570,7 +2498,7 @@ ComponentName: Events/EtudeCompleteTrigger
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeCorruptionFreeZone(bool? clearAllCorruption = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeCorruptionFreeZone(bool? clearAllCorruption = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2617,14 +2545,14 @@ ComponentName: Events/EtudeCompleteTrigger
     </tbody>
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeCorruptionFreeZone_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DHOutdoorDefault0ad51df6001a4f8479cd1efa2506ea54</li><li>PuluraFall0439718217ff3b549b88530b2bbecaf8</li><li>WarCamp_GorgoyleAttack29990bd61e5e3d84195f4f0d0ae81ec8</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DHOutdoorDefault0ad51df6001a4f8479cd1efa2506ea54</li><li>Nexus03Finala7065c0d6f6b83d4e9eb259279b7d66c</li><li>WarCamp_GorgoyleAttack29990bd61e5e3d84195f4f0d0ae81ec8</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeDisableCraft_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeDisableCraft(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeDisableCraft_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeDisableCraft(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L180">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L180">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeDisableCraft_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeDisableCraft*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeDisableCraft_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeDisableCraft(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeDisableCraft(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -2633,7 +2561,7 @@ ComponentName: Events/EtudeCompleteTrigger
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeDisableCraft(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeDisableCraft(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2679,10 +2607,10 @@ ComponentName: Events/EtudeCompleteTrigger
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeIgnorePartyEncumbrance_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeIgnorePartyEncumbrance(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeIgnorePartyEncumbrance_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeIgnorePartyEncumbrance(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1376">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1404">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeIgnorePartyEncumbrance_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeIgnorePartyEncumbrance*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeIgnorePartyEncumbrance_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeIgnorePartyEncumbrance(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeIgnorePartyEncumbrance(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -2691,7 +2619,7 @@ ComponentName: Events/EtudeCompleteTrigger
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeIgnorePartyEncumbrance(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeIgnorePartyEncumbrance(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2737,10 +2665,10 @@ ComponentName: Events/EtudeCompleteTrigger
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeIgnorePersonalEncumbrance_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeIgnorePersonalEncumbrance(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeIgnorePersonalEncumbrance_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeIgnorePersonalEncumbrance(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1404">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1432">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeIgnorePersonalEncumbrance_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeIgnorePersonalEncumbrance*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeIgnorePersonalEncumbrance_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeIgnorePersonalEncumbrance(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeIgnorePersonalEncumbrance(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -2749,7 +2677,7 @@ ComponentName: Events/EtudeCompleteTrigger
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeIgnorePersonalEncumbrance(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeIgnorePersonalEncumbrance(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2795,10 +2723,73 @@ ComponentName: Events/EtudeCompleteTrigger
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudePeacefulZone_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudePeacefulZone(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeOverrideCorruptionGrowth_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudeOverrideCorruptionGrowth(System.Nullable%7BSystem.Int32%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1432">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L206">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeOverrideCorruptionGrowth_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeOverrideCorruptionGrowth*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeOverrideCorruptionGrowth_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudeOverrideCorruptionGrowth(System.Nullable{System.Int32},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudeOverrideCorruptionGrowth(Nullable&lt;Int32&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Corruption.EtudeOverrideCorruptionGrowth</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudeOverrideCorruptionGrowth(int? corruptionGrowth = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">corruptionGrowth</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>, <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">merge</span></td>
+        <td><p>If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a></td>
+        <td><span class="parametername">mergeBehavior</span></td>
+        <td><p>Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudeOverrideCorruptionGrowth_System_Nullable_System_Int32__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Kenabres_CorruptionFree24671efbec02423b923a32d471c3e0d1</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudePeacefulZone_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudePeacefulZone(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L1460">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudePeacefulZone_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudePeacefulZone*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudePeacefulZone_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudePeacefulZone(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEtudePeacefulZone(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -2807,7 +2798,7 @@ ComponentName: Events/EtudeCompleteTrigger
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudePeacefulZone(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudePeacefulZone(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2853,10 +2844,10 @@ ComponentName: Events/EtudeCompleteTrigger
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudePlayTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudePlayTrigger(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudePlayTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602.AddEtudePlayTrigger(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L250">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L278">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudePlayTrigger_" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudePlayTrigger*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2_AddEtudePlayTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator`2.AddEtudePlayTrigger(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.Boolean})">AddEtudePlayTrigger(ActionsBuilder, ConditionsBuilder, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;)</h4>
@@ -2865,7 +2856,7 @@ ComponentName: Events/EtudeCompleteTrigger
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEtudePlayTrigger(ActionsBuilder actions = null, ConditionsBuilder conditions = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, bool? once = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEtudePlayTrigger(ActionsBuilder actions = null, ConditionsBuilder conditions = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, bool? once = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2935,10 +2926,10 @@ ComponentName: Events/EtudePlayTrigger
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BaseComponentListConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BaseComponentListConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L31" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BaseComponentList.cs/#L31" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

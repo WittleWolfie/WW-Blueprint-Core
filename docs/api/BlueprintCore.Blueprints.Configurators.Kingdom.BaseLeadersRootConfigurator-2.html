@@ -282,112 +282,40 @@
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Implementation is based on the
-<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
+that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
+base game.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
-    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
-</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p><strong>Creating a Blueprint</strong></p>
+<p>Use <code>New(string, string)</code> to create a blueprint:</p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</code>
+<p>Once <code>New()</code> is called the blueprint is added to the game library and can be referenced.</p>
+<p><strong>Using the Configurator</strong></p>
 <p>
-Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
-exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-component types.
+<code>New()</code> returns a configurator with methods to set or modify blueprint fields and add or modify
+<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>:
 </p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();</code>
 <p>
-See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
-for more information on component and blueprint type safety.
+Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+<code>Configure()</code> is called, at which point the changes are applied and validated. Potential problems with the
+blueprint are logged as warnings.
 </p>
-</td></tr><tr><td>Validation</td><td>
-<p>
-When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
-which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-complicated configuration problems such as
-<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
-usage.
-</p>
-<p>
-Validation uses a combination of code from the game library and manually tuned logic. See
-<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
-</p>
-</td></tr><tr><td>Builder Style API</td><td>
-<p>
-The API is designed to minimize boilerplate required to modify blueprints and create components.
-Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
-</p>
-<p>
-Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
-configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
-</p>
-</td></tr></tbody></table>
-TODO: Update the example
-<example>
-Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
-<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
-var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
-var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
-var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
-var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
-var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
-<p>// Register the names
-BlueprintTool.AddGuidsByName(
-(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
-(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
-(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
-// New blueprints and guids
-(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
-(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
-(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
-<p>// Load the icons and strings (not provided by library)
-var skaldsVigorIcon = LoadSkaldsVigorIcon();
-var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-var skaldsVigorName = LoadSkaldsVigorName();
-var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-var skaldsVigorDescription = LoadSkaldsVigorDescription();
-var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
-<p>// Create the buff
-BuffConfigurator.New(skaldsVigorBuff)
-.ContextRankConfig(
-// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-.FastHealing(1, bonusValue: ContextValues.Rank())
-.Configure();</p>
-<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-// Rage is active.
-var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(inspiredRageBuff)
-.FactContextActions(
-onActivated:
-ActionsBuilder.New()
-// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-// the feat.
-.Conditional(
-ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-ifTrue: applyBuff)
-// For characters other than the caster, Skald's Vigor is only applied if the caster has the
-// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-// buffs do not stack so it has no effect.
-.Conditional(
-ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-onDeactivated:
-// Removes Skald's Vigor when Inspired Rage ends.
-// There is actually a bug with this implementation; Lingering Song will extend the duration of
-// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-.Configure();</code></pre>
-</example><p>
+<p><strong>Modifying an Existing Blueprint</strong></p>
+<p>Use <code>For(Blueprint)</code> to modify existing blueprints:</p>
+<code>CharacterClassConfigurator.For(WizardClassGuid)</code>
+<p>Usage is otherwise identical to creating a new blueprint.</p>
+<p>For more information see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</a>.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L25">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L24">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseLeadersRootConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -418,10 +346,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_AddToLeaders_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.AddToLeaders(BlueprintCore.Utils.Blueprint%7BKingmaker.Armies.BlueprintArmyLeader%2CKingmaker.Blueprints.BlueprintArmyLeaderReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_AddToLeaders_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.AddToLeaders(BlueprintCore.Utils.Blueprint%7BKingmaker.Armies.BlueprintArmyLeader%2CKingmaker.Blueprints.BlueprintArmyLeaderReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L119">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L105">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_AddToLeaders_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.AddToLeaders*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_AddToLeaders_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference____" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.AddToLeaders(BlueprintCore.Utils.Blueprint{Kingmaker.Armies.BlueprintArmyLeader,Kingmaker.Blueprints.BlueprintArmyLeaderReference}[])">AddToLeaders(Blueprint&lt;BlueprintArmyLeader, BlueprintArmyLeaderReference&gt;[])</h4>
@@ -471,10 +399,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ClearLeaders.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ClearLeaders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ClearLeaders.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ClearLeaders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L197">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L157">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ClearLeaders_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ClearLeaders*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ClearLeaders" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ClearLeaders">ClearLeaders()</h4>
@@ -502,10 +430,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyArmyLeaderAssignmentCooldownDays_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyArmyLeaderAssignmentCooldownDays(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyArmyLeaderAssignmentCooldownDays_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyArmyLeaderAssignmentCooldownDays(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L445">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L366">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyArmyLeaderAssignmentCooldownDays_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyArmyLeaderAssignmentCooldownDays*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyArmyLeaderAssignmentCooldownDays_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyArmyLeaderAssignmentCooldownDays(System.Action{System.Int32})">ModifyArmyLeaderAssignmentCooldownDays(Action&lt;Int32&gt;)</h4>
@@ -550,10 +478,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyAttackBonusName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyAttackBonusName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyAttackBonusName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyAttackBonusName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L735">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L604">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyAttackBonusName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyAttackBonusName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyAttackBonusName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyAttackBonusName(System.Action{Kingmaker.Localization.LocalizedString})">ModifyAttackBonusName(Action&lt;LocalizedString&gt;)</h4>
@@ -598,10 +526,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyAttackLeaderFeature_System_Action_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyAttackLeaderFeature(System.Action%7BKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyAttackLeaderFeature_System_Action_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyAttackLeaderFeature(System.Action%7BKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L273">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L207">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyAttackLeaderFeature_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyAttackLeaderFeature*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyAttackLeaderFeature_System_Action_Kingmaker_Blueprints_BlueprintFeatureReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyAttackLeaderFeature(System.Action{Kingmaker.Blueprints.BlueprintFeatureReference})">ModifyAttackLeaderFeature(Action&lt;BlueprintFeatureReference&gt;)</h4>
@@ -646,10 +574,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyBaseManaRegen_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyBaseManaRegen(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyBaseManaRegen_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyBaseManaRegen(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L349">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L270">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyBaseManaRegen_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyBaseManaRegen*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyBaseManaRegen_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyBaseManaRegen(System.Action{System.Int32})">ModifyBaseManaRegen(Action&lt;Int32&gt;)</h4>
@@ -694,10 +622,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyCheaperLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyCheaperLeadersProject(System.Action%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyCheaperLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyCheaperLeadersProject(System.Action%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L495">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L403">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyCheaperLeadersProject_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyCheaperLeadersProject*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyCheaperLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyCheaperLeadersProject(System.Action{Kingmaker.Blueprints.BlueprintKingdomProjectReference})">ModifyCheaperLeadersProject(Action&lt;BlueprintKingdomProjectReference&gt;)</h4>
@@ -742,10 +670,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyDeffBonusName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyDeffBonusName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyDeffBonusName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyDeffBonusName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L764">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L633">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyDeffBonusName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyDeffBonusName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyDeffBonusName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyDeffBonusName(System.Action{Kingmaker.Localization.LocalizedString})">ModifyDeffBonusName(Action&lt;LocalizedString&gt;)</h4>
@@ -790,10 +718,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyDeffenceLeaderFeature_System_Action_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyDeffenceLeaderFeature(System.Action%7BKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyDeffenceLeaderFeature_System_Action_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyDeffenceLeaderFeature(System.Action%7BKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L324">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L245">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyDeffenceLeaderFeature_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyDeffenceLeaderFeature*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyDeffenceLeaderFeature_System_Action_Kingmaker_Blueprints_BlueprintFeatureReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyDeffenceLeaderFeature(System.Action{Kingmaker.Blueprints.BlueprintFeatureReference})">ModifyDeffenceLeaderFeature(Action&lt;BlueprintFeatureReference&gt;)</h4>
@@ -838,10 +766,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExcellentLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyExcellentLeadersProject(System.Action%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExcellentLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyExcellentLeadersProject(System.Action%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L648">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L517">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExcellentLeadersProject_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyExcellentLeadersProject*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExcellentLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyExcellentLeadersProject(System.Action{Kingmaker.Blueprints.BlueprintKingdomProjectReference})">ModifyExcellentLeadersProject(Action&lt;BlueprintKingdomProjectReference&gt;)</h4>
@@ -886,10 +814,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExperiencedLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyExperiencedLeadersProject(System.Action%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExperiencedLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyExperiencedLeadersProject(System.Action%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L597">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L479">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExperiencedLeadersProject_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyExperiencedLeadersProject*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExperiencedLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyExperiencedLeadersProject(System.Action{Kingmaker.Blueprints.BlueprintKingdomProjectReference})">ModifyExperiencedLeadersProject(Action&lt;BlueprintKingdomProjectReference&gt;)</h4>
@@ -934,10 +862,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExpTable_System_Action_Kingmaker_Blueprints_BlueprintStatProgressionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyExpTable(System.Action%7BKingmaker.Blueprints.BlueprintStatProgressionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExpTable_System_Action_Kingmaker_Blueprints_BlueprintStatProgressionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyExpTable(System.Action%7BKingmaker.Blueprints.BlueprintStatProgressionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L68">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L54">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExpTable_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyExpTable*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyExpTable_System_Action_Kingmaker_Blueprints_BlueprintStatProgressionReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyExpTable(System.Action{Kingmaker.Blueprints.BlueprintStatProgressionReference})">ModifyExpTable(Action&lt;BlueprintStatProgressionReference&gt;)</h4>
@@ -982,10 +910,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyFirstLeadCost_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyFirstLeadCost(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyFirstLeadCost_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyFirstLeadCost(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L373">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L294">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyFirstLeadCost_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyFirstLeadCost*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyFirstLeadCost_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyFirstLeadCost(System.Action{System.Int32})">ModifyFirstLeadCost(Action&lt;Int32&gt;)</h4>
@@ -1030,10 +958,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeadCostMultiply_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyLeadCostMultiply(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeadCostMultiply_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyLeadCostMultiply(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L421">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L342">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeadCostMultiply_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyLeadCostMultiply*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeadCostMultiply_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyLeadCostMultiply(System.Action{System.Single})">ModifyLeadCostMultiply(Action&lt;Single&gt;)</h4>
@@ -1078,10 +1006,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeaderHireText_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyLeaderHireText(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeaderHireText_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyLeaderHireText(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L822">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L691">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeaderHireText_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyLeaderHireText*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeaderHireText_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyLeaderHireText(System.Action{Kingmaker.Localization.LocalizedString})">ModifyLeaderHireText(Action&lt;LocalizedString&gt;)</h4>
@@ -1126,10 +1054,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeaders_System_Action_Kingmaker_Blueprints_BlueprintArmyLeaderReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyLeaders(System.Action%7BKingmaker.Blueprints.BlueprintArmyLeaderReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeaders_System_Action_Kingmaker_Blueprints_BlueprintArmyLeaderReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyLeaders(System.Action%7BKingmaker.Blueprints.BlueprintArmyLeaderReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L222">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L169">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeaders_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyLeaders*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyLeaders_System_Action_Kingmaker_Blueprints_BlueprintArmyLeaderReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyLeaders(System.Action{Kingmaker.Blueprints.BlueprintArmyLeaderReference})">ModifyLeaders(Action&lt;BlueprintArmyLeaderReference&gt;)</h4>
@@ -1174,10 +1102,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyManaName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyManaName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyManaName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyManaName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L706">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L575">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyManaName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyManaName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyManaName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyManaName(System.Action{Kingmaker.Localization.LocalizedString})">ModifyManaName(Action&lt;LocalizedString&gt;)</h4>
@@ -1222,10 +1150,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyReducedLeadCost_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyReducedLeadCost(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyReducedLeadCost_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyReducedLeadCost(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L397">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L318">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyReducedLeadCost_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyReducedLeadCost*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyReducedLeadCost_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyReducedLeadCost(System.Action{System.Int32})">ModifyReducedLeadCost(Action&lt;Int32&gt;)</h4>
@@ -1270,10 +1198,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifySkillsListName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifySkillsListName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifySkillsListName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifySkillsListName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L677">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L546">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifySkillsListName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifySkillsListName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifySkillsListName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifySkillsListName(System.Action{Kingmaker.Localization.LocalizedString})">ModifySkillsListName(Action&lt;LocalizedString&gt;)</h4>
@@ -1318,10 +1246,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifySpellStrengthName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifySpellStrengthName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifySpellStrengthName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifySpellStrengthName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L793">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L662">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifySpellStrengthName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifySpellStrengthName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifySpellStrengthName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifySpellStrengthName(System.Action{Kingmaker.Localization.LocalizedString})">ModifySpellStrengthName(Action&lt;LocalizedString&gt;)</h4>
@@ -1366,10 +1294,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyTalentedLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyTalentedLeadersProject(System.Action%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyTalentedLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.ModifyTalentedLeadersProject(System.Action%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L546">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L441">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyTalentedLeadersProject_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyTalentedLeadersProject*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_ModifyTalentedLeadersProject_System_Action_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.ModifyTalentedLeadersProject(System.Action{Kingmaker.Blueprints.BlueprintKingdomProjectReference})">ModifyTalentedLeadersProject(Action&lt;BlueprintKingdomProjectReference&gt;)</h4>
@@ -1414,10 +1342,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_RemoveFromLeaders_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.RemoveFromLeaders(BlueprintCore.Utils.Blueprint%7BKingmaker.Armies.BlueprintArmyLeader%2CKingmaker.Blueprints.BlueprintArmyLeaderReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_RemoveFromLeaders_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.RemoveFromLeaders(BlueprintCore.Utils.Blueprint%7BKingmaker.Armies.BlueprintArmyLeader%2CKingmaker.Blueprints.BlueprintArmyLeaderReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L145">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L131">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_RemoveFromLeaders_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.RemoveFromLeaders*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_RemoveFromLeaders_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference____" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.RemoveFromLeaders(BlueprintCore.Utils.Blueprint{Kingmaker.Armies.BlueprintArmyLeader,Kingmaker.Blueprints.BlueprintArmyLeaderReference}[])">RemoveFromLeaders(Blueprint&lt;BlueprintArmyLeader, BlueprintArmyLeaderReference&gt;[])</h4>
@@ -1467,10 +1395,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_RemoveFromLeaders_System_Func_Kingmaker_Blueprints_BlueprintArmyLeaderReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.RemoveFromLeaders(System.Func%7BKingmaker.Blueprints.BlueprintArmyLeaderReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_RemoveFromLeaders_System_Func_Kingmaker_Blueprints_BlueprintArmyLeaderReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.RemoveFromLeaders(System.Func%7BKingmaker.Blueprints.BlueprintArmyLeaderReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L171">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L144">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_RemoveFromLeaders_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.RemoveFromLeaders*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_RemoveFromLeaders_System_Func_Kingmaker_Blueprints_BlueprintArmyLeaderReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.RemoveFromLeaders(System.Func{Kingmaker.Blueprints.BlueprintArmyLeaderReference,System.Boolean})">RemoveFromLeaders(Func&lt;BlueprintArmyLeaderReference, Boolean&gt;)</h4>
@@ -1515,10 +1443,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetArmyLeaderAssignmentCooldownDays_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetArmyLeaderAssignmentCooldownDays(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetArmyLeaderAssignmentCooldownDays_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetArmyLeaderAssignmentCooldownDays(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L433">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L354">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetArmyLeaderAssignmentCooldownDays_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetArmyLeaderAssignmentCooldownDays*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetArmyLeaderAssignmentCooldownDays_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetArmyLeaderAssignmentCooldownDays(System.Int32)">SetArmyLeaderAssignmentCooldownDays(Int32)</h4>
@@ -1563,10 +1491,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetAttackBonusName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetAttackBonusName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetAttackBonusName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetAttackBonusName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L719">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L588">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetAttackBonusName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetAttackBonusName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetAttackBonusName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetAttackBonusName(Kingmaker.Localization.LocalizedString)">SetAttackBonusName(LocalizedString)</h4>
@@ -1611,10 +1539,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetAttackLeaderFeature_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetAttackLeaderFeature(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintFeature%2CKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetAttackLeaderFeature_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetAttackLeaderFeature(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintFeature%2CKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L248">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L195">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetAttackLeaderFeature_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetAttackLeaderFeature*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetAttackLeaderFeature_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetAttackLeaderFeature(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.BlueprintFeature,Kingmaker.Blueprints.BlueprintFeatureReference})">SetAttackLeaderFeature(Blueprint&lt;BlueprintFeature, BlueprintFeatureReference&gt;)</h4>
@@ -1664,10 +1592,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetBaseManaRegen_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetBaseManaRegen(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetBaseManaRegen_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetBaseManaRegen(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L337">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L258">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetBaseManaRegen_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetBaseManaRegen*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetBaseManaRegen_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetBaseManaRegen(System.Int32)">SetBaseManaRegen(Int32)</h4>
@@ -1712,10 +1640,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetCheaperLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetCheaperLeadersProject(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomProject%2CKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetCheaperLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetCheaperLeadersProject(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomProject%2CKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L470">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L391">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetCheaperLeadersProject_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetCheaperLeadersProject*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetCheaperLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetCheaperLeadersProject(BlueprintCore.Utils.Blueprint{Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject,Kingmaker.Blueprints.BlueprintKingdomProjectReference})">SetCheaperLeadersProject(Blueprint&lt;BlueprintKingdomProject, BlueprintKingdomProjectReference&gt;)</h4>
@@ -1765,10 +1693,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetDeffBonusName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetDeffBonusName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetDeffBonusName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetDeffBonusName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L748">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L617">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetDeffBonusName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetDeffBonusName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetDeffBonusName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetDeffBonusName(Kingmaker.Localization.LocalizedString)">SetDeffBonusName(LocalizedString)</h4>
@@ -1813,10 +1741,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetDeffenceLeaderFeature_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetDeffenceLeaderFeature(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintFeature%2CKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetDeffenceLeaderFeature_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetDeffenceLeaderFeature(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintFeature%2CKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L299">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L233">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetDeffenceLeaderFeature_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetDeffenceLeaderFeature*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetDeffenceLeaderFeature_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetDeffenceLeaderFeature(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.BlueprintFeature,Kingmaker.Blueprints.BlueprintFeatureReference})">SetDeffenceLeaderFeature(Blueprint&lt;BlueprintFeature, BlueprintFeatureReference&gt;)</h4>
@@ -1866,10 +1794,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExcellentLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetExcellentLeadersProject(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomProject%2CKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExcellentLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetExcellentLeadersProject(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomProject%2CKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L623">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L505">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExcellentLeadersProject_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetExcellentLeadersProject*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExcellentLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetExcellentLeadersProject(BlueprintCore.Utils.Blueprint{Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject,Kingmaker.Blueprints.BlueprintKingdomProjectReference})">SetExcellentLeadersProject(Blueprint&lt;BlueprintKingdomProject, BlueprintKingdomProjectReference&gt;)</h4>
@@ -1919,10 +1847,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExperiencedLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetExperiencedLeadersProject(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomProject%2CKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExperiencedLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetExperiencedLeadersProject(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomProject%2CKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L572">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L467">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExperiencedLeadersProject_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetExperiencedLeadersProject*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExperiencedLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetExperiencedLeadersProject(BlueprintCore.Utils.Blueprint{Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject,Kingmaker.Blueprints.BlueprintKingdomProjectReference})">SetExperiencedLeadersProject(Blueprint&lt;BlueprintKingdomProject, BlueprintKingdomProjectReference&gt;)</h4>
@@ -1972,10 +1900,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExpTable_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintStatProgression_Kingmaker_Blueprints_BlueprintStatProgressionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetExpTable(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintStatProgression%2CKingmaker.Blueprints.BlueprintStatProgressionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExpTable_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintStatProgression_Kingmaker_Blueprints_BlueprintStatProgressionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetExpTable(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintStatProgression%2CKingmaker.Blueprints.BlueprintStatProgressionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L43">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L42">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExpTable_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetExpTable*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetExpTable_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintStatProgression_Kingmaker_Blueprints_BlueprintStatProgressionReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetExpTable(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.BlueprintStatProgression,Kingmaker.Blueprints.BlueprintStatProgressionReference})">SetExpTable(Blueprint&lt;BlueprintStatProgression, BlueprintStatProgressionReference&gt;)</h4>
@@ -2025,10 +1953,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetFirstLeadCost_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetFirstLeadCost(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetFirstLeadCost_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetFirstLeadCost(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L361">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L282">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetFirstLeadCost_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetFirstLeadCost*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetFirstLeadCost_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetFirstLeadCost(System.Int32)">SetFirstLeadCost(Int32)</h4>
@@ -2073,10 +2001,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeadCostMultiply_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetLeadCostMultiply(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeadCostMultiply_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetLeadCostMultiply(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L409">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L330">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeadCostMultiply_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetLeadCostMultiply*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeadCostMultiply_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetLeadCostMultiply(System.Single)">SetLeadCostMultiply(Single)</h4>
@@ -2121,10 +2049,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaderHireText_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetLeaderHireText(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaderHireText_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetLeaderHireText(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L806">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L675">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaderHireText_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetLeaderHireText*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaderHireText_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetLeaderHireText(Kingmaker.Localization.LocalizedString)">SetLeaderHireText(LocalizedString)</h4>
@@ -2169,19 +2097,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaders_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetLeaders(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Armies.BlueprintArmyLeader%2CKingmaker.Blueprints.BlueprintArmyLeaderReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaders_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetLeaders(BlueprintCore.Utils.Blueprint%7BKingmaker.Armies.BlueprintArmyLeader%2CKingmaker.Blueprints.BlueprintArmyLeaderReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L94">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L80">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaders_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetLeaders*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaders_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference___" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetLeaders(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Armies.BlueprintArmyLeader,Kingmaker.Blueprints.BlueprintArmyLeaderReference}})">SetLeaders(List&lt;Blueprint&lt;BlueprintArmyLeader, BlueprintArmyLeaderReference&gt;&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetLeaders_BlueprintCore_Utils_Blueprint_Kingmaker_Armies_BlueprintArmyLeader_Kingmaker_Blueprints_BlueprintArmyLeaderReference____" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetLeaders(BlueprintCore.Utils.Blueprint{Kingmaker.Armies.BlueprintArmyLeader,Kingmaker.Blueprints.BlueprintArmyLeaderReference}[])">SetLeaders(Blueprint&lt;BlueprintArmyLeader, BlueprintArmyLeaderReference&gt;[])</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Kingdom.Blueprints.LeadersRoot.m_Leaders</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetLeaders(List&lt;Blueprint&lt;BlueprintArmyLeader, BlueprintArmyLeaderReference&gt;&gt; leaders)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetLeaders(params Blueprint&lt;BlueprintArmyLeader, BlueprintArmyLeaderReference&gt;[] leaders)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2194,7 +2122,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Armies.BlueprintArmyLeader</span>, <span class="xref">Kingmaker.Blueprints.BlueprintArmyLeaderReference</span>&gt;&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Armies.BlueprintArmyLeader</span>, <span class="xref">Kingmaker.Blueprints.BlueprintArmyLeaderReference</span>&gt;[]</td>
         <td><span class="parametername">leaders</span></td>
         <td><p>
 Blueprint of type BlueprintArmyLeader. You can pass in the blueprint using:
@@ -2222,10 +2150,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetManaName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetManaName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetManaName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetManaName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L690">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L559">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetManaName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetManaName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetManaName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetManaName(Kingmaker.Localization.LocalizedString)">SetManaName(LocalizedString)</h4>
@@ -2270,10 +2198,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetReducedLeadCost_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetReducedLeadCost(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetReducedLeadCost_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetReducedLeadCost(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L385">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L306">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetReducedLeadCost_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetReducedLeadCost*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetReducedLeadCost_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetReducedLeadCost(System.Int32)">SetReducedLeadCost(Int32)</h4>
@@ -2318,10 +2246,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetSkillsListName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetSkillsListName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetSkillsListName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetSkillsListName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L661">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L530">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetSkillsListName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetSkillsListName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetSkillsListName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetSkillsListName(Kingmaker.Localization.LocalizedString)">SetSkillsListName(LocalizedString)</h4>
@@ -2366,10 +2294,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetSpellStrengthName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetSpellStrengthName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetSpellStrengthName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetSpellStrengthName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L777">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L646">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetSpellStrengthName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetSpellStrengthName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetSpellStrengthName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetSpellStrengthName(Kingmaker.Localization.LocalizedString)">SetSpellStrengthName(LocalizedString)</h4>
@@ -2414,10 +2342,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetTalentedLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetTalentedLeadersProject(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomProject%2CKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetTalentedLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602.SetTalentedLeadersProject(BlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Blueprints.BlueprintKingdomProject%2CKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L521">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L429">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetTalentedLeadersProject_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetTalentedLeadersProject*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2_SetTalentedLeadersProject_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Blueprints_BlueprintKingdomProject_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator`2.SetTalentedLeadersProject(BlueprintCore.Utils.Blueprint{Kingmaker.Kingdom.Blueprints.BlueprintKingdomProject,Kingmaker.Blueprints.BlueprintKingdomProjectReference})">SetTalentedLeadersProject(Blueprint&lt;BlueprintKingdomProject, BlueprintKingdomProjectReference&gt;)</h4>
@@ -2473,10 +2401,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseLeadersRootConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseLeadersRootConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L20" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseLeadersRoot.cs/#L19" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

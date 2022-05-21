@@ -282,112 +282,40 @@
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Implementation is based on the
-<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
+that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
+base game.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
-    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
-</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p><strong>Creating a Blueprint</strong></p>
+<p>Use <code>New(string, string)</code> to create a blueprint:</p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</code>
+<p>Once <code>New()</code> is called the blueprint is added to the game library and can be referenced.</p>
+<p><strong>Using the Configurator</strong></p>
 <p>
-Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
-exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-component types.
+<code>New()</code> returns a configurator with methods to set or modify blueprint fields and add or modify
+<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>:
 </p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();</code>
 <p>
-See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
-for more information on component and blueprint type safety.
+Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+<code>Configure()</code> is called, at which point the changes are applied and validated. Potential problems with the
+blueprint are logged as warnings.
 </p>
-</td></tr><tr><td>Validation</td><td>
-<p>
-When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
-which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-complicated configuration problems such as
-<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
-usage.
-</p>
-<p>
-Validation uses a combination of code from the game library and manually tuned logic. See
-<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
-</p>
-</td></tr><tr><td>Builder Style API</td><td>
-<p>
-The API is designed to minimize boilerplate required to modify blueprints and create components.
-Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
-</p>
-<p>
-Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
-configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
-</p>
-</td></tr></tbody></table>
-TODO: Update the example
-<example>
-Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
-<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
-var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
-var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
-var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
-var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
-var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
-<p>// Register the names
-BlueprintTool.AddGuidsByName(
-(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
-(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
-(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
-// New blueprints and guids
-(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
-(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
-(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
-<p>// Load the icons and strings (not provided by library)
-var skaldsVigorIcon = LoadSkaldsVigorIcon();
-var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-var skaldsVigorName = LoadSkaldsVigorName();
-var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-var skaldsVigorDescription = LoadSkaldsVigorDescription();
-var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
-<p>// Create the buff
-BuffConfigurator.New(skaldsVigorBuff)
-.ContextRankConfig(
-// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-.FastHealing(1, bonusValue: ContextValues.Rank())
-.Configure();</p>
-<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-// Rage is active.
-var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(inspiredRageBuff)
-.FactContextActions(
-onActivated:
-ActionsBuilder.New()
-// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-// the feat.
-.Conditional(
-ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-ifTrue: applyBuff)
-// For characters other than the caster, Skald's Vigor is only applied if the caster has the
-// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-// buffs do not stack so it has no effect.
-.Conditional(
-ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-onDeactivated:
-// Removes Skald's Vigor when Inspired Rage ends.
-// There is actually a bug with this implementation; Lingering Song will extend the duration of
-// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-.Configure();</code></pre>
-</example><p>
+<p><strong>Modifying an Existing Blueprint</strong></p>
+<p>Use <code>For(Blueprint)</code> to modify existing blueprints:</p>
+<code>CharacterClassConfigurator.For(WizardClassGuid)</code>
+<p>Usage is otherwise identical to creating a new blueprint.</p>
+<p>For more information see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</a>.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L22">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L22">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseBarkBanterConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -418,10 +346,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_AddToFirstPhrase_Kingmaker_Localization_LocalizedString___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.AddToFirstPhrase(Kingmaker.Localization.LocalizedString%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_AddToFirstPhrase_Kingmaker_Localization_LocalizedString___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.AddToFirstPhrase(Kingmaker.Localization.LocalizedString%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L165">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L152">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_AddToFirstPhrase_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.AddToFirstPhrase*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_AddToFirstPhrase_Kingmaker_Localization_LocalizedString___" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.AddToFirstPhrase(Kingmaker.Localization.LocalizedString[])">AddToFirstPhrase(LocalizedString[])</h4>
@@ -466,10 +394,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_AddToResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.AddToResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_AddToResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.AddToResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L242">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L229">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_AddToResponses_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.AddToResponses*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_AddToResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.AddToResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry[])">AddToResponses(BlueprintBarkBanter.BanterResponseEntry[])</h4>
@@ -514,10 +442,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ClearFirstPhrase.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ClearFirstPhrase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ClearFirstPhrase.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ClearFirstPhrase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L204">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L191">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ClearFirstPhrase_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ClearFirstPhrase*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ClearFirstPhrase" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ClearFirstPhrase">ClearFirstPhrase()</h4>
@@ -545,10 +473,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ClearResponses.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ClearResponses%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ClearResponses.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ClearResponses%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L281">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L268">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ClearResponses_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ClearResponses*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ClearResponses" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ClearResponses">ClearResponses()</h4>
@@ -576,10 +504,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyConditions_System_Action_Kingmaker_BarkBanters_BanterConditions__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyConditions(System.Action%7BKingmaker.BarkBanters.BanterConditions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyConditions_System_Action_Kingmaker_BarkBanters_BanterConditions__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyConditions(System.Action%7BKingmaker.BarkBanters.BanterConditions%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L115">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L102">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyConditions_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyConditions*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyConditions_System_Action_Kingmaker_BarkBanters_BanterConditions__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyConditions(System.Action{Kingmaker.BarkBanters.BanterConditions})">ModifyConditions(Action&lt;BanterConditions&gt;)</h4>
@@ -624,10 +552,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyFirstPhrase_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyFirstPhrase(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyFirstPhrase_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyFirstPhrase(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L216">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L203">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyFirstPhrase_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyFirstPhrase*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyFirstPhrase_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyFirstPhrase(System.Action{Kingmaker.Localization.LocalizedString})">ModifyFirstPhrase(Action&lt;LocalizedString&gt;)</h4>
@@ -672,10 +600,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyResponses_System_Action_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyResponses(System.Action%7BKingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyResponses_System_Action_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyResponses(System.Action%7BKingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L293">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L280">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyResponses_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyResponses*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyResponses_System_Action_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyResponses(System.Action{Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry})">ModifyResponses(Action&lt;BlueprintBarkBanter.BanterResponseEntry&gt;)</h4>
@@ -720,10 +648,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifySpeakerType_System_Action_Kingmaker_BarkBanters_SpeakerType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifySpeakerType(System.Action%7BKingmaker.BarkBanters.SpeakerType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifySpeakerType_System_Action_Kingmaker_BarkBanters_SpeakerType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifySpeakerType(System.Action%7BKingmaker.BarkBanters.SpeakerType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L39">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L39">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifySpeakerType_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifySpeakerType*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifySpeakerType_System_Action_Kingmaker_BarkBanters_SpeakerType__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifySpeakerType(System.Action{Kingmaker.BarkBanters.SpeakerType})">ModifySpeakerType(Action&lt;SpeakerType&gt;)</h4>
@@ -768,10 +696,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyUnit_System_Action_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyUnit(System.Action%7BKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyUnit_System_Action_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyUnit(System.Action%7BKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L89">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L76">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyUnit_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyUnit*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyUnit_System_Action_Kingmaker_Blueprints_BlueprintUnitReference__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyUnit(System.Action{Kingmaker.Blueprints.BlueprintUnitReference})">ModifyUnit(Action&lt;BlueprintUnitReference&gt;)</h4>
@@ -816,10 +744,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyWeight_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyWeight(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyWeight_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.ModifyWeight(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L140">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L127">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyWeight_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyWeight*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_ModifyWeight_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.ModifyWeight(System.Action{System.Single})">ModifyWeight(Action&lt;Single&gt;)</h4>
@@ -864,10 +792,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromFirstPhrase_Kingmaker_Localization_LocalizedString___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.RemoveFromFirstPhrase(Kingmaker.Localization.LocalizedString%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromFirstPhrase_Kingmaker_Localization_LocalizedString___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.RemoveFromFirstPhrase(Kingmaker.Localization.LocalizedString%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L178">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L165">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromFirstPhrase_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.RemoveFromFirstPhrase*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromFirstPhrase_Kingmaker_Localization_LocalizedString___" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.RemoveFromFirstPhrase(Kingmaker.Localization.LocalizedString[])">RemoveFromFirstPhrase(LocalizedString[])</h4>
@@ -912,10 +840,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromFirstPhrase_System_Func_Kingmaker_Localization_LocalizedString_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.RemoveFromFirstPhrase(System.Func%7BKingmaker.Localization.LocalizedString%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromFirstPhrase_System_Func_Kingmaker_Localization_LocalizedString_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.RemoveFromFirstPhrase(System.Func%7BKingmaker.Localization.LocalizedString%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L191">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L178">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromFirstPhrase_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.RemoveFromFirstPhrase*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromFirstPhrase_System_Func_Kingmaker_Localization_LocalizedString_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.RemoveFromFirstPhrase(System.Func{Kingmaker.Localization.LocalizedString,System.Boolean})">RemoveFromFirstPhrase(Func&lt;LocalizedString, Boolean&gt;)</h4>
@@ -960,10 +888,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.RemoveFromResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.RemoveFromResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L255">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L242">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromResponses_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.RemoveFromResponses*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.RemoveFromResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry[])">RemoveFromResponses(BlueprintBarkBanter.BanterResponseEntry[])</h4>
@@ -1008,10 +936,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromResponses_System_Func_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.RemoveFromResponses(System.Func%7BKingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromResponses_System_Func_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.RemoveFromResponses(System.Func%7BKingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L268">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L255">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromResponses_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.RemoveFromResponses*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_RemoveFromResponses_System_Func_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.RemoveFromResponses(System.Func{Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry,System.Boolean})">RemoveFromResponses(Func&lt;BlueprintBarkBanter.BanterResponseEntry, Boolean&gt;)</h4>
@@ -1056,10 +984,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetConditions_Kingmaker_BarkBanters_BanterConditions_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetConditions(Kingmaker.BarkBanters.BanterConditions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetConditions_Kingmaker_BarkBanters_BanterConditions_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetConditions(Kingmaker.BarkBanters.BanterConditions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L102">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L89">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetConditions_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetConditions*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetConditions_Kingmaker_BarkBanters_BanterConditions_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetConditions(Kingmaker.BarkBanters.BanterConditions)">SetConditions(BanterConditions)</h4>
@@ -1104,10 +1032,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetFirstPhrase_Kingmaker_Localization_LocalizedString___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetFirstPhrase(Kingmaker.Localization.LocalizedString%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetFirstPhrase_Kingmaker_Localization_LocalizedString___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetFirstPhrase(Kingmaker.Localization.LocalizedString%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L152">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L139">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetFirstPhrase_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetFirstPhrase*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetFirstPhrase_Kingmaker_Localization_LocalizedString___" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetFirstPhrase(Kingmaker.Localization.LocalizedString[])">SetFirstPhrase(LocalizedString[])</h4>
@@ -1116,7 +1044,7 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetFirstPhrase(LocalizedString[] firstPhrase)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetFirstPhrase(params LocalizedString[] firstPhrase)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1152,10 +1080,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L229">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L216">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetResponses_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetResponses*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetResponses_Kingmaker_BarkBanters_BlueprintBarkBanter_BanterResponseEntry___" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetResponses(Kingmaker.BarkBanters.BlueprintBarkBanter.BanterResponseEntry[])">SetResponses(BlueprintBarkBanter.BanterResponseEntry[])</h4>
@@ -1164,7 +1092,7 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetResponses(BlueprintBarkBanter.BanterResponseEntry[] responses)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetResponses(params BlueprintBarkBanter.BanterResponseEntry[] responses)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1200,10 +1128,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetSpeakerType_Kingmaker_BarkBanters_SpeakerType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetSpeakerType(Kingmaker.BarkBanters.SpeakerType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetSpeakerType_Kingmaker_BarkBanters_SpeakerType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetSpeakerType(Kingmaker.BarkBanters.SpeakerType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L27">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L27">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetSpeakerType_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetSpeakerType*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetSpeakerType_Kingmaker_BarkBanters_SpeakerType_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetSpeakerType(Kingmaker.BarkBanters.SpeakerType)">SetSpeakerType(SpeakerType)</h4>
@@ -1248,10 +1176,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetUnit_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetUnit(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetUnit_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetUnit(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L64">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L64">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetUnit_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetUnit*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetUnit_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetUnit(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnit,Kingmaker.Blueprints.BlueprintUnitReference})">SetUnit(Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;)</h4>
@@ -1301,10 +1229,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetWeight_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetWeight(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetWeight_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602.SetWeight(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L128">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L115">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetWeight_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetWeight*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2_SetWeight_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator`2.SetWeight(System.Single)">SetWeight(Single)</h4>
@@ -1355,10 +1283,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_BarkBanters_BaseBarkBanterConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.BarkBanters.BaseBarkBanterConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L17" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/BarkBanters/BaseBarkBanter.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

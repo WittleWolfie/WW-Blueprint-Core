@@ -212,7 +212,7 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.Items.BaseItemConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Items_BaseItemConfigurator_2_ModifyTrashLootTypes_System_Action_Kingmaker_Enums_TrashLootType__">BaseItemConfigurator&lt;T, TBuilder&gt;.ModifyTrashLootTypes(Action&lt;TrashLootType&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.Items.BaseItemConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Items_BaseItemConfigurator_2_SetCachedEnchantments_System_Collections_Generic_List_Kingmaker_Blueprints_Items_Ecnchantments_BlueprintItemEnchantment__">BaseItemConfigurator&lt;T, TBuilder&gt;.SetCachedEnchantments(List&lt;BlueprintItemEnchantment&gt;)</a>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.Items.BaseItemConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Items_BaseItemConfigurator_2_SetCachedEnchantments_Kingmaker_Blueprints_Items_Ecnchantments_BlueprintItemEnchantment___">BaseItemConfigurator&lt;T, TBuilder&gt;.SetCachedEnchantments(BlueprintItemEnchantment[])</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.Items.BaseItemConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Items_BaseItemConfigurator_2_AddToCachedEnchantments_Kingmaker_Blueprints_Items_Ecnchantments_BlueprintItemEnchantment___">BaseItemConfigurator&lt;T, TBuilder&gt;.AddToCachedEnchantments(BlueprintItemEnchantment[])</a>
@@ -467,112 +467,40 @@
   </table>
   <h5 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
-Implementation is based on the
-<a href="https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern">Curiously Recurring Template Pattern</a>.
+Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
+that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
+base game.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td>Blueprint Creation</td><td>
-    Each configurator provides a builder API for creating and modifying a specific type of blueprint. The
-    configurator API includes methods to set or modify fields and create or remove <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>s.
-</td></tr><tr><td>Blueprint Component Safety</td><td>
+<p><strong>Creating a Blueprint</strong></p>
+<p>Use <code>New(string, string)</code> to create a blueprint:</p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid)</code>
+<p>Once <code>New()</code> is called the blueprint is added to the game library and can be referenced.</p>
+<p><strong>Using the Configurator</strong></p>
 <p>
-Most <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> types only function in specific blueprints. The configurator API only
-exposes methods for component types supported by that blueprint. This relies on manual tuning and type
-attributes from the game library; it is not guaranteed to be correct but is safer than allowing any
-component types.
+<code>New()</code> returns a configurator with methods to set or modify blueprint fields and add or modify
+<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>:
 </p>
+<code>FeatureConfigurator.New(MyBlueprintName, MyBlueprintGuid).AddToGroups(FeatureGroup.Feat).AddPrerequisiteAlignment(AlignmentMaskType.LawfulGood).Configure();</code>
 <p>
-See <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Wrath Blueprints</a>
-for more information on component and blueprint type safety.
+Each method call returns the configurator allowing you to chain calls. Nothing is modified on the blueprint until
+<code>Configure()</code> is called, at which point the changes are applied and validated. Potential problems with the
+blueprint are logged as warnings.
 </p>
-</td></tr><tr><td>Validation</td><td>
-<p>
-When <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called the blueprint is run through validation to detect configuration issues
-which are logged as warnings. In addition to confirming the Blueprint Component Safety, validation checks
-complicated configuration problems such as
-<a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/[Wrath]-Abilities">AbilityEffects</a>
-usage.
-</p>
-<p>
-Validation uses a combination of code from the game library and manually tuned logic. See
-<span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validator</span> for more details on how validation works.
-</p>
-</td></tr><tr><td>Builder Style API</td><td>
-<p>
-The API is designed to minimize boilerplate required to modify blueprints and create components.
-Configurators work seamlessly with the <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> APIs.
-</p>
-<p>
-Some complicated components, notably <span class="xref">Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig</span>, cannot be well implemented within the
-configurator API and have their own helper classes: <a class="xref" href="BlueprintCore.Blueprints.Components.ContextRankConfigs.html">ContextRankConfigs</a>.
-</p>
-</td></tr></tbody></table>
-TODO: Update the example
-<example>
-Add the Skald&apos;s Vigor and Greater Skald&apos;s Vigor feats (minus UI icons):
-<pre><code>var skaldClass = &quot;WW-SkaldClass&quot;;
-var inspiredRageFeature = &quot;WW-InspiredRageFeature&quot;;
-var inspiredRageBuff = &quot;WW-InspiredRageBuff&quot;;
-var skaldsVigorBuff = &quot;WW-SkaldsVigorBuff&quot;;
-var skaldsVigorFeat = &quot;WW-SkaldsVigorFeat&quot;;
-var greaterSkaldsVigorFeat = &quot;WW-GreaterSkaldsVigorFeat&quot;;
-<p>// Register the names
-BlueprintTool.AddGuidsByName(
-(skaldClass, &quot;6afa347d804838b48bda16acb0573dc0&quot;),
-(inspiredRageFeature, &quot;1a639eadc2c3ed546bc4bb236864cd0c&quot;),
-(inspiredRageBuff, &quot;75b3978757908d24aaaecaf2dc209b89&quot;),
-// New blueprints and guids
-(skaldsVigorBuff, &quot;35fa838eb545491fbe73d593a3c456ed&quot;),
-(skaldsVigorFeat, &quot;59f825ec85744ac29e7d49201561638d&quot;),
-(greaterSkaldsVigorFeat, &quot;b97fa348973a4c5a916d78e9ed029e1f&quot;));</p>
-<p>// Load the icons and strings (not provided by library)
-var skaldsVigorIcon = LoadSkaldsVigorIcon();
-var greaterSkaldsVigorIcon = LoadGreaterSkaldsVigorIcon();
-var skaldsVigorName = LoadSkaldsVigorName();
-var greaterSkaldsVigorName = LoadGreaterSkaldsVigorName();
-var skaldsVigorDescription = LoadSkaldsVigorDescription();
-var greaterSkaldsVigorDescription = LoadGreaterSkaldsVigorDescription();</p>
-<p>// Create the buff
-BuffConfigurator.New(skaldsVigorBuff)
-.ContextRankConfig(
-// Sets a context rank value to 1 + 2 * (SkaldLevels / 8).
-ContextRankConfigs.ClassLevel(new string[] { skaldClass }).DivideByThenDoubleThenAdd1(8))
-// Adds fast healing to the buff. The base value is 1 and the context rank value is added. Before level 8
-// it provides 2; at level 8 it increases to 4; at level 16 it increases to 6.
-.FastHealing(1, bonusValue: ContextValues.Rank())
-.Configure();</p>
-<p>// Creates an action to apply the buff. Permanent duration is used because it stays active as long as Inspired
-// Rage is active.
-var applyBuff = ActionsBuilder.New().ApplyBuff(skaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(inspiredRageBuff)
-.FactContextActions(
-onActivated:
-ActionsBuilder.New()
-// When the Inspired Rage buff is applied to the caster, Skald's Vigor is applied if they have
-// the feat.
-.Conditional(
-ConditionsBuilder.New().TargetIsYourself().HasFact(skaldsVigorFeat),
-ifTrue: applyBuff)
-// For characters other than the caster, Skald's Vigor is only applied if the caster has the
-// greater feat. Note: Technically this will apply the buff to the caster twice, but by default
-// buffs do not stack so it has no effect.
-.Conditional(
-ConditionsBuilder.New().CasterHasFact(greaterSkaldsVigorFeat), ifTrue: applyBuff),
-onDeactivated:
-// Removes Skald's Vigor when Inspired Rage ends.
-// There is actually a bug with this implementation; Lingering Song will extend the duration of
-// Skald's Vigor when it should not. The fix for this is beyond the scope of this example.
-ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
-.Configure();</code></pre>
-</example><p>
+<p><strong>Modifying an Existing Blueprint</strong></p>
+<p>Use <code>For(Blueprint)</code> to modify existing blueprints:</p>
+<code>CharacterClassConfigurator.For(WizardClassGuid)</code>
+<p>Usage is otherwise identical to creating a new blueprint.</p>
+<p>For more information see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</a>.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7B%600%2CKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L31">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L31">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2__ctor_BlueprintCore_Utils_Blueprint__0_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{`0,Kingmaker.Blueprints.BlueprintReference{`0}})">BaseItemEquipmentConfigurator(Blueprint&lt;T, BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -603,10 +531,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionAlignment_System_Nullable_Kingmaker_UnitLogic_Alignments_AlignmentMaskType__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionAlignment(System.Nullable%7BKingmaker.UnitLogic.Alignments.AlignmentMaskType%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionAlignment_System_Nullable_Kingmaker_UnitLogic_Alignments_AlignmentMaskType__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionAlignment(System.Nullable%7BKingmaker.UnitLogic.Alignments.AlignmentMaskType%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L622">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L544">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionAlignment_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionAlignment*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionAlignment_System_Nullable_Kingmaker_UnitLogic_Alignments_AlignmentMaskType__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionAlignment(System.Nullable{Kingmaker.UnitLogic.Alignments.AlignmentMaskType},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEquipmentRestrictionAlignment(Nullable&lt;AlignmentMaskType&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -615,7 +543,7 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEquipmentRestrictionAlignment(AlignmentMaskType? alignment = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEquipmentRestrictionAlignment(AlignmentMaskType? alignment = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -666,10 +594,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionCannotEquip_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionCannotEquip(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionCannotEquip_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionCannotEquip(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L650">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L572">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionCannotEquip_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionCannotEquip*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionCannotEquip_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionCannotEquip(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddEquipmentRestrictionCannotEquip(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -678,7 +606,7 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEquipmentRestrictionCannotEquip(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEquipmentRestrictionCannotEquip(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -724,10 +652,10 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionClass_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionClass(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintCharacterClass%2CKingmaker.Blueprints.BlueprintCharacterClassReference%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionClass_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionClass(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintCharacterClass%2CKingmaker.Blueprints.BlueprintCharacterClassReference%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L690">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L612">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionClass_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionClass*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionClass_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionClass(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.BlueprintCharacterClass,Kingmaker.Blueprints.BlueprintCharacterClassReference},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.Boolean})">AddEquipmentRestrictionClass(Blueprint&lt;BlueprintCharacterClass, BlueprintCharacterClassReference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Boolean&gt;)</h4>
@@ -736,7 +664,7 @@ ActionsBuilder.New().RemoveBuff(skaldsVigorBuff))
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEquipmentRestrictionClass(Blueprint&lt;BlueprintCharacterClass, BlueprintCharacterClassReference&gt; clazz = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, bool? not = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEquipmentRestrictionClass(Blueprint&lt;BlueprintCharacterClass, BlueprintCharacterClassReference&gt; clazz = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, bool? not = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -797,10 +725,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionHasAnyClassFromList_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference___System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionHasAnyClassFromList(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintCharacterClass%2CKingmaker.Blueprints.BlueprintCharacterClassReference%7D%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionHasAnyClassFromList_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference___System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionHasAnyClassFromList(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintCharacterClass%2CKingmaker.Blueprints.BlueprintCharacterClassReference%7D%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L732">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L654">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionHasAnyClassFromList_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionHasAnyClassFromList*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionHasAnyClassFromList_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference___System_Nullable_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionHasAnyClassFromList(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.BlueprintCharacterClass,Kingmaker.Blueprints.BlueprintCharacterClassReference}},System.Nullable{System.Boolean})">AddEquipmentRestrictionHasAnyClassFromList(List&lt;Blueprint&lt;BlueprintCharacterClass, BlueprintCharacterClassReference&gt;&gt;, Nullable&lt;Boolean&gt;)</h4>
@@ -858,10 +786,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionMainPlayer.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionMainPlayer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionMainPlayer.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionMainPlayer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L759">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L681">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionMainPlayer_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionMainPlayer*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionMainPlayer" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionMainPlayer">AddEquipmentRestrictionMainPlayer()</h4>
@@ -892,10 +820,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionStat_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__System_Nullable_Kingmaker_EntitySystem_Stats_StatType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionStat(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BKingmaker.EntitySystem.Stats.StatType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionStat_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__System_Nullable_Kingmaker_EntitySystem_Stats_StatType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddEquipmentRestrictionStat(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BKingmaker.EntitySystem.Stats.StatType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L782">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L704">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionStat_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionStat*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddEquipmentRestrictionStat_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__System_Nullable_Kingmaker_EntitySystem_Stats_StatType__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddEquipmentRestrictionStat(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.Int32},System.Nullable{Kingmaker.EntitySystem.Stats.StatType})">AddEquipmentRestrictionStat(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Int32&gt;, Nullable&lt;StatType&gt;)</h4>
@@ -904,7 +832,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddEquipmentRestrictionStat(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge, int? minValue = null, StatType? stat = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddEquipmentRestrictionStat(Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, int? minValue = null, StatType? stat = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -960,10 +888,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddFactToEquipmentWielder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddFactToEquipmentWielder(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddFactToEquipmentWielder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddFactToEquipmentWielder(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L588">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L510">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddFactToEquipmentWielder_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddFactToEquipmentWielder*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddFactToEquipmentWielder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddFactToEquipmentWielder(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge)">AddFactToEquipmentWielder(Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</h4>
@@ -972,7 +900,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddFactToEquipmentWielder(Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt; fact = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Merge)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddFactToEquipmentWielder(Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt; fact = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1028,10 +956,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddToEquipmentEntityAlternatives_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddToEquipmentEntityAlternatives(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity%2CKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddToEquipmentEntityAlternatives_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.AddToEquipmentEntityAlternatives(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity%2CKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L419">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L380">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddToEquipmentEntityAlternatives_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddToEquipmentEntityAlternatives*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_AddToEquipmentEntityAlternatives_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference____" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.AddToEquipmentEntityAlternatives(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity,Kingmaker.Blueprints.KingmakerEquipmentEntityReference}[])">AddToEquipmentEntityAlternatives(Blueprint&lt;KingmakerEquipmentEntity, KingmakerEquipmentEntityReference&gt;[])</h4>
@@ -1081,10 +1009,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ClearEquipmentEntityAlternatives.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ClearEquipmentEntityAlternatives%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ClearEquipmentEntityAlternatives.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ClearEquipmentEntityAlternatives%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L497">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L432">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ClearEquipmentEntityAlternatives_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ClearEquipmentEntityAlternatives*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ClearEquipmentEntityAlternatives" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ClearEquipmentEntityAlternatives">ClearEquipmentEntityAlternatives()</h4>
@@ -1112,10 +1040,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyAbility_System_Action_Kingmaker_Blueprints_BlueprintAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyAbility(System.Action%7BKingmaker.Blueprints.BlueprintAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyAbility_System_Action_Kingmaker_Blueprints_BlueprintAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyAbility(System.Action%7BKingmaker.Blueprints.BlueprintAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L98">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L85">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyAbility_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyAbility*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyAbility_System_Action_Kingmaker_Blueprints_BlueprintAbilityReference__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyAbility(System.Action{Kingmaker.Blueprints.BlueprintAbilityReference})">ModifyAbility(Action&lt;BlueprintAbilityReference&gt;)</h4>
@@ -1160,10 +1088,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyActivatableAbility_System_Action_Kingmaker_Blueprints_BlueprintActivatableAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyActivatableAbility(System.Action%7BKingmaker.Blueprints.BlueprintActivatableAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyActivatableAbility_System_Action_Kingmaker_Blueprints_BlueprintActivatableAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyActivatableAbility(System.Action%7BKingmaker.Blueprints.BlueprintActivatableAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L149">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L123">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyActivatableAbility_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyActivatableAbility*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyActivatableAbility_System_Action_Kingmaker_Blueprints_BlueprintActivatableAbilityReference__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyActivatableAbility(System.Action{Kingmaker.Blueprints.BlueprintActivatableAbilityReference})">ModifyActivatableAbility(Action&lt;BlueprintActivatableAbilityReference&gt;)</h4>
@@ -1208,10 +1136,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCasterLevel_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyCasterLevel(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCasterLevel_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyCasterLevel(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L246">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L220">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCasterLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyCasterLevel*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCasterLevel_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyCasterLevel(System.Action{System.Int32})">ModifyCasterLevel(Action&lt;Int32&gt;)</h4>
@@ -1256,10 +1184,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCharges_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyCharges(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCharges_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyCharges(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L198">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L172">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCharges_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyCharges*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCharges_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyCharges(System.Action{System.Int32})">ModifyCharges(Action&lt;Int32&gt;)</h4>
@@ -1304,10 +1232,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCR_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyCR(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCR_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyCR(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L48">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L48">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCR_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyCR*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyCR_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyCR(System.Action{System.Int32})">ModifyCR(Action&lt;Int32&gt;)</h4>
@@ -1352,10 +1280,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyDC_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyDC(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyDC_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyDC(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L294">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L268">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyDC_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyDC*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyDC_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyDC(System.Action{System.Int32})">ModifyDC(Action&lt;Int32&gt;)</h4>
@@ -1400,10 +1328,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyEquipmentEntity_System_Action_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyEquipmentEntity(System.Action%7BKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyEquipmentEntity_System_Action_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyEquipmentEntity(System.Action%7BKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L368">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L329">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyEquipmentEntity_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyEquipmentEntity*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyEquipmentEntity_System_Action_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyEquipmentEntity(System.Action{Kingmaker.Blueprints.KingmakerEquipmentEntityReference})">ModifyEquipmentEntity(Action&lt;KingmakerEquipmentEntityReference&gt;)</h4>
@@ -1448,10 +1376,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyEquipmentEntityAlternatives_System_Action_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyEquipmentEntityAlternatives(System.Action%7BKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyEquipmentEntityAlternatives_System_Action_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyEquipmentEntityAlternatives(System.Action%7BKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L522">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L444">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyEquipmentEntityAlternatives_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyEquipmentEntityAlternatives*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyEquipmentEntityAlternatives_System_Action_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyEquipmentEntityAlternatives(System.Action{Kingmaker.Blueprints.KingmakerEquipmentEntityReference})">ModifyEquipmentEntityAlternatives(Action&lt;KingmakerEquipmentEntityReference&gt;)</h4>
@@ -1496,10 +1424,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyForcedRampColorPresetIndex_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyForcedRampColorPresetIndex(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyForcedRampColorPresetIndex_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyForcedRampColorPresetIndex(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L547">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L469">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyForcedRampColorPresetIndex_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyForcedRampColorPresetIndex*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyForcedRampColorPresetIndex_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyForcedRampColorPresetIndex(System.Action{System.Int32})">ModifyForcedRampColorPresetIndex(Action&lt;Int32&gt;)</h4>
@@ -1544,10 +1472,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyIsNonRemovable_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyIsNonRemovable(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyIsNonRemovable_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyIsNonRemovable(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L318">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L292">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyIsNonRemovable_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyIsNonRemovable*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyIsNonRemovable_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyIsNonRemovable(System.Action{System.Boolean})">ModifyIsNonRemovable(Action&lt;Boolean&gt;)</h4>
@@ -1592,10 +1520,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyRestoreChargesOnRest_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyRestoreChargesOnRest(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyRestoreChargesOnRest_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifyRestoreChargesOnRest(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L222">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L196">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyRestoreChargesOnRest_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyRestoreChargesOnRest*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifyRestoreChargesOnRest_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifyRestoreChargesOnRest(System.Action{System.Boolean})">ModifyRestoreChargesOnRest(Action&lt;Boolean&gt;)</h4>
@@ -1640,10 +1568,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifySpellLevel_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifySpellLevel(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifySpellLevel_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifySpellLevel(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L270">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L244">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifySpellLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifySpellLevel*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifySpellLevel_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifySpellLevel(System.Action{System.Int32})">ModifySpellLevel(Action&lt;Int32&gt;)</h4>
@@ -1688,10 +1616,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifySpendCharges_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifySpendCharges(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifySpendCharges_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.ModifySpendCharges(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L174">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L148">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifySpendCharges_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifySpendCharges*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_ModifySpendCharges_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.ModifySpendCharges(System.Action{System.Boolean})">ModifySpendCharges(Action&lt;Boolean&gt;)</h4>
@@ -1736,10 +1664,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_RemoveFromEquipmentEntityAlternatives_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.RemoveFromEquipmentEntityAlternatives(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity%2CKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_RemoveFromEquipmentEntityAlternatives_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.RemoveFromEquipmentEntityAlternatives(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity%2CKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L445">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L406">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_RemoveFromEquipmentEntityAlternatives_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.RemoveFromEquipmentEntityAlternatives*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_RemoveFromEquipmentEntityAlternatives_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference____" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.RemoveFromEquipmentEntityAlternatives(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity,Kingmaker.Blueprints.KingmakerEquipmentEntityReference}[])">RemoveFromEquipmentEntityAlternatives(Blueprint&lt;KingmakerEquipmentEntity, KingmakerEquipmentEntityReference&gt;[])</h4>
@@ -1789,10 +1717,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_RemoveFromEquipmentEntityAlternatives_System_Func_Kingmaker_Blueprints_KingmakerEquipmentEntityReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.RemoveFromEquipmentEntityAlternatives(System.Func%7BKingmaker.Blueprints.KingmakerEquipmentEntityReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_RemoveFromEquipmentEntityAlternatives_System_Func_Kingmaker_Blueprints_KingmakerEquipmentEntityReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.RemoveFromEquipmentEntityAlternatives(System.Func%7BKingmaker.Blueprints.KingmakerEquipmentEntityReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L471">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L419">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_RemoveFromEquipmentEntityAlternatives_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.RemoveFromEquipmentEntityAlternatives*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_RemoveFromEquipmentEntityAlternatives_System_Func_Kingmaker_Blueprints_KingmakerEquipmentEntityReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.RemoveFromEquipmentEntityAlternatives(System.Func{Kingmaker.Blueprints.KingmakerEquipmentEntityReference,System.Boolean})">RemoveFromEquipmentEntityAlternatives(Func&lt;KingmakerEquipmentEntityReference, Boolean&gt;)</h4>
@@ -1837,10 +1765,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetAbility_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetAbility(BlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility%2CKingmaker.Blueprints.BlueprintAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetAbility_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetAbility(BlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility%2CKingmaker.Blueprints.BlueprintAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L73">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L73">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetAbility_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetAbility*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetAbility_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Abilities_Blueprints_BlueprintAbility_Kingmaker_Blueprints_BlueprintAbilityReference__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetAbility(BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility,Kingmaker.Blueprints.BlueprintAbilityReference})">SetAbility(Blueprint&lt;BlueprintAbility, BlueprintAbilityReference&gt;)</h4>
@@ -1890,10 +1818,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetActivatableAbility_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_ActivatableAbilities_BlueprintActivatableAbility_Kingmaker_Blueprints_BlueprintActivatableAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetActivatableAbility(BlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility%2CKingmaker.Blueprints.BlueprintActivatableAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetActivatableAbility_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_ActivatableAbilities_BlueprintActivatableAbility_Kingmaker_Blueprints_BlueprintActivatableAbilityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetActivatableAbility(BlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility%2CKingmaker.Blueprints.BlueprintActivatableAbilityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L124">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L111">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetActivatableAbility_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetActivatableAbility*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetActivatableAbility_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_ActivatableAbilities_BlueprintActivatableAbility_Kingmaker_Blueprints_BlueprintActivatableAbilityReference__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetActivatableAbility(BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility,Kingmaker.Blueprints.BlueprintActivatableAbilityReference})">SetActivatableAbility(Blueprint&lt;BlueprintActivatableAbility, BlueprintActivatableAbilityReference&gt;)</h4>
@@ -1943,10 +1871,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCasterLevel_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetCasterLevel(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCasterLevel_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetCasterLevel(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L234">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L208">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCasterLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetCasterLevel*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCasterLevel_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetCasterLevel(System.Int32)">SetCasterLevel(Int32)</h4>
@@ -1991,10 +1919,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCharges_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetCharges(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCharges_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetCharges(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L186">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L160">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCharges_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetCharges*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCharges_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetCharges(System.Int32)">SetCharges(Int32)</h4>
@@ -2039,10 +1967,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCR_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetCR(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCR_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetCR(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L36">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L36">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCR_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetCR*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetCR_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetCR(System.Int32)">SetCR(Int32)</h4>
@@ -2087,10 +2015,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetDC_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetDC(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetDC_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetDC(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L282">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L256">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetDC_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetDC*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetDC_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetDC(System.Int32)">SetDC(Int32)</h4>
@@ -2135,10 +2063,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntity_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetEquipmentEntity(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity%2CKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntity_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetEquipmentEntity(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity%2CKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L343">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L317">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntity_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetEquipmentEntity*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntity_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference__" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetEquipmentEntity(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity,Kingmaker.Blueprints.KingmakerEquipmentEntityReference})">SetEquipmentEntity(Blueprint&lt;KingmakerEquipmentEntity, KingmakerEquipmentEntityReference&gt;)</h4>
@@ -2188,19 +2116,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntityAlternatives_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetEquipmentEntityAlternatives(System.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity%2CKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntityAlternatives_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetEquipmentEntityAlternatives(BlueprintCore.Utils.Blueprint%7BKingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity%2CKingmaker.Blueprints.KingmakerEquipmentEntityReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L394">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L355">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntityAlternatives_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetEquipmentEntityAlternatives*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntityAlternatives_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference___" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetEquipmentEntityAlternatives(System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity,Kingmaker.Blueprints.KingmakerEquipmentEntityReference}})">SetEquipmentEntityAlternatives(List&lt;Blueprint&lt;KingmakerEquipmentEntity, KingmakerEquipmentEntityReference&gt;&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetEquipmentEntityAlternatives_BlueprintCore_Utils_Blueprint_Kingmaker_Visual_CharacterSystem_KingmakerEquipmentEntity_Kingmaker_Blueprints_KingmakerEquipmentEntityReference____" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetEquipmentEntityAlternatives(BlueprintCore.Utils.Blueprint{Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity,Kingmaker.Blueprints.KingmakerEquipmentEntityReference}[])">SetEquipmentEntityAlternatives(Blueprint&lt;KingmakerEquipmentEntity, KingmakerEquipmentEntityReference&gt;[])</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipment.m_EquipmentEntityAlternatives</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetEquipmentEntityAlternatives(List&lt;Blueprint&lt;KingmakerEquipmentEntity, KingmakerEquipmentEntityReference&gt;&gt; equipmentEntityAlternatives)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetEquipmentEntityAlternatives(params Blueprint&lt;KingmakerEquipmentEntity, KingmakerEquipmentEntityReference&gt;[] equipmentEntityAlternatives)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2213,7 +2141,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity</span>, <span class="xref">Kingmaker.Blueprints.KingmakerEquipmentEntityReference</span>&gt;&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Visual.CharacterSystem.KingmakerEquipmentEntity</span>, <span class="xref">Kingmaker.Blueprints.KingmakerEquipmentEntityReference</span>&gt;[]</td>
         <td><span class="parametername">equipmentEntityAlternatives</span></td>
         <td><p>
 Blueprint of type KingmakerEquipmentEntity. You can pass in the blueprint using:
@@ -2241,10 +2169,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetForcedRampColorPresetIndex_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetForcedRampColorPresetIndex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetForcedRampColorPresetIndex_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetForcedRampColorPresetIndex(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L535">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L457">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetForcedRampColorPresetIndex_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetForcedRampColorPresetIndex*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetForcedRampColorPresetIndex_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetForcedRampColorPresetIndex(System.Int32)">SetForcedRampColorPresetIndex(Int32)</h4>
@@ -2289,10 +2217,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetIsNonRemovable_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetIsNonRemovable(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetIsNonRemovable_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetIsNonRemovable(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L306">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L280">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetIsNonRemovable_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetIsNonRemovable*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetIsNonRemovable_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetIsNonRemovable(System.Boolean)">SetIsNonRemovable(Boolean)</h4>
@@ -2337,10 +2265,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetRestoreChargesOnRest_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetRestoreChargesOnRest(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetRestoreChargesOnRest_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetRestoreChargesOnRest(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L210">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L184">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetRestoreChargesOnRest_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetRestoreChargesOnRest*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetRestoreChargesOnRest_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetRestoreChargesOnRest(System.Boolean)">SetRestoreChargesOnRest(Boolean)</h4>
@@ -2385,10 +2313,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetSpellLevel_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetSpellLevel(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetSpellLevel_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetSpellLevel(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L258">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L232">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetSpellLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetSpellLevel*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetSpellLevel_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetSpellLevel(System.Int32)">SetSpellLevel(Int32)</h4>
@@ -2433,10 +2361,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetSpendCharges_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetSpendCharges(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetSpendCharges_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602.SetSpendCharges(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L162">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L136">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetSpendCharges_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetSpendCharges*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2_SetSpendCharges_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator`2.SetSpendCharges(System.Boolean)">SetSpendCharges(Boolean)</h4>
@@ -2487,10 +2415,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/2.0.x/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_Equipment_BaseItemEquipmentConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.Equipment.BaseItemEquipmentConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L26" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/Equipment/BaseItemEquipment.cs/#L26" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

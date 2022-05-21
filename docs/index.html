@@ -63,18 +63,38 @@
 <h1 id="ww-blueprint-core">WW-Blueprint-Core</h1>
 
 <p><a href="https://www.nuget.org/packages/WW-Blueprint-Core"><img src="https://img.shields.io/nuget/v/WW-Blueprint-Core?style=flat-square" alt="NuGet"></a></p>
+<p><em>Disclaimer</em>: While the documentation is still mostly correct, function and parameter names may have changed in the 2.0 release. Documentation updates are in progress.</p>
 <p><em>What is BlueprintCore</em>: A library to simplify modifying Pathfinder: Wrath of the Righteous. At a glance it provides:</p>
 <ul>
-<li>A fluent API for creating and modifying Blueprints, Actions, and Conditions</li>
+<li>A method chaining API for creating and modifying Blueprints, Actions, and Conditions</li>
 </ul>
-<pre><code class="lang-C#">BuffConfigurator.New(MyBuffName, MyBuffGuid).AddStatBonus(stat: StatType.Strength, value: 2).Configure();
+<pre><code class="lang-C#">BuffConfigurator.New(MyBuffName, MyBuffGuid)
+  .AddContextStatBonus(StatType.Strength, ContextValues.Constant(2))
+  .Configure();
 </code></pre>
 <ul>
-<li>Exposed methods for finding all Blueprint, Action, Condition, and Blueprint Component types in the game</li>
-<li>Restricted API for modifying Blueprints which exposes only Blueprint Components usable with the given Blueprint type</li>
-<li>Runtime validation and warnings when potential problems are detected
+<li>Methods for constructing  Blueprint, Action, Condition, and BlueprintComponent types
 <ul>
-<li>Uses custom logic along with validation checks provided in the game library</li>
+<li>Comments provide example blueprints</li>
+<li>Comments provide usage details sourced from the modding community and game assembly</li>
+<li>Constructors provide default, non-null values for types which should not be null</li>
+<li>Manual tuning of methods enforces required fields and other implicit requirements
+<ul>
+<li>Implemented with help from modders like you, see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/contributing.html">How to Contribute</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Blueprint modification API limiting BlueprintComponents to usable types</li>
+<li>Runtime validation of blueprint configurations
+<ul>
+<li>Uses the game's own validation code in combination with custom logic to validate implicit constraints</li>
+</ul>
+</li>
+<li>Utility classes
+<ul>
+<li>Tools for creating common types</li>
+<li>Tools for localization, blueprint management, logging, and more</li>
 </ul>
 </li>
 </ul>
@@ -82,38 +102,56 @@
 <p>For usage see <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html">Getting Started</a>.</p>
 <h2 id="features">Features</h2>
 <h3 id="blueprint-configurators">Blueprint Configurators</h3>
-<p>Each Blueprint class has a corresponding configurator, e.g. <code>BuffConfigurator</code>, which exposes a fluent API for modifying its fields and components. Once you call <code>Configure()</code> all of the changes are committed and validation errors are logged as a warning.</p>
-<p>This API exposes all supported Blueprint Component types available in the game library. When used with auto-complete it provides a quick and easy way to search for Blueprint Component types.</p>
+<p>Each Blueprint class has a corresponding configurator, e.g. <code>BuffConfigurator</code>, which exposes an API for modifying its fields and components. Once you call <code>Configure()</code> all of the changes are committed and validation errors are logged as a warning.</p>
+<p>The API uses method chaining, meaning each method call returns the configurator resulting in reduced boilerplate:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
+  .AddBuffSkillBonus(StatType.SkillKnowledgeArcana, 2)
+  .AddBuffSkillBonus(StatType.SkillUseMagicDevice, 2)
+  .Configure();
+</code></pre>
+<p>The API includes methods to set or modify Blueprint fields and add all supported BlueprintComponent types. With auto-complete this provides a quick and easy way to search for BlueprintComponent types.</p>
+<p>Supported BlueprintComponent types means types that <em>should</em> work with a given blueprint. This is determined using the game's type attributes which declare supported Blueprint types for each component: <code>AllowedOn</code>. The attribute is not always correct, so please report any problems with the API: <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/issues">GitHub Issues</a>.</p>
+<p>Every effort is made to minimize boilerplate in the API and enforce proper usage of Blueprint field and components. Blueprint fields that should not be modified are hidden when reported by a contributor or on <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/issues">GitHub Issues</a>. Component methods are regularly updated to ignore unused fields and require fields necessary for the component to function. Field types that should not be null are automatically populated with a default to prevent exceptions.</p>
+<p>For example, the <code>FeatureConfigurator</code> exposes a method <code>AddPrerequisiteCharacterLevel</code>:
+<img src="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/docs/images/configurator_method_example.png" alt="AddPreRequisiteCharacterLevel VS Documentation"></p>
 <h3 id="actionlist-and-conditionschecker-builders">ActionList and ConditionsChecker Builders</h3>
-<p><code>ActionsBuilder</code> is a builder API for <code>ActionList</code> and <code>ConditionsBuilder</code> is a builder API for <code>ConditionsChecker</code>.</p>
-<p>The builders provide methods for creating all Action and Condition types, spread across extension classes which limit the scope of auto-complete. The extensions are logically grouped so most uses require only one set.</p>
-<p>When <code>Build()</code> is called the corresponding game type is returned and validation errors are logged as a warning. Library methods accept builders directly and call <code>Build()</code> internally to minimize boilerplate.</p>
+<p><code>ActionsBuilder</code> is a builder API for <code>ActionList</code> and <code>ConditionsBuilder</code> is a builder API for <code>ConditionsChecker</code>. When <code>Build()</code> is called the corresponding game type is returned and validation errors are logged as a warning.</p>
+<p>They provide methods for creating Action and Condition types, split across extension classes to limit the scope of auto-complete. The extensions are logically grouped so most uses require only one set.</p>
+<p>For example, <code>ActionsBuilderKingdomEx</code> contains builder methods for actions related to the Kingdom and Crusade system and can be referenced by including the namespace <code>BlueprintCore.Actions.Builder.KingdomEx</code>:</p>
+<pre><code class="lang-C#">using BlueprintCore.Actions.Builder.KingdomEx;
+
+ActionsBuilder.New()
+  .ChangeTacticalMorale(ContextValues.Constant(5))
+  .Build();
+</code></pre>
+<p>Library methods, such as configurator methods, accept builders directly and call <code>Build()</code> internally to minimize boilerplate:</p>
+<pre><code class="lang-C#">BuffConfigurator.New(BuffName, BuffGuid)
+  .AddRestTrigger(ActionsBuilder.New().AddRandomTrashItem(TrashLootType.Scrolls, 100))
+  .Configure();
+</code></pre>
 <h3 id="utils">Utils</h3>
+<p>Util classes provide type builders, constant references, tools, and more.</p>
+<h4 id="tools">Tools</h4>
+<p>Tool classes include methods for common operations. These vary from operations like <code>CommonTool#Append&lt;&gt;()</code> for concatening arrays to <code>BlueprintTool.GetRef&lt;T&gt;()</code> which creates a blueprint reference directly, without fetching the blueprint.</p>
+<h4 id="logging">Logging</h4>
+<p><code>LogWrapper</code> exposes the game's logger for mod usage. This results in logging output to the game logs which can be viewed using <a href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">Remote Console</a>.</p>
+<p>It exposes verbose logging with more control for debugging and prefixes logs to quickly identify logs output by your mod or BlueprintCore.</p>
+<p>For example, this code</p>
+<pre><code class="lang-C#">LogWrapper logger = LogWrapper.Get(&quot;MyMod&quot;);
+logger.Info(&quot;Logger initialized.&quot;);
+</code></pre>
+<p>would log:</p>
+<pre><code>BlueprintCore.MyMod: Logger initialized.
+</code></pre>
+<h4 id="type-builders">Type Builders</h4>
+<p>Classes for constructing simple types like <code>ContexValues</code> for creating <code>ContextValue</code> types or <code>ContextRankConfigs</code> for creating <code>ContextRankConfig</code> components.</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatureName, FeatureGuid)
+  .AddContextRankConfig(ContextRankConfigs.BaseAttack().WithBonusValueProgression(2))
+  .Build();
+</code></pre>
 <p>Utility classes provide additional functionality to simplify modifying the game as well as helping ensure correct use of game types.</p>
 <h2 id="usage">Usage</h2>
-<p>BlueprintCore is available as <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">NuGet package</a> that provides the source code for compilation into your modification. It requires a <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicise-Assemblies">public assembly</a>. An optional DLL release is available on <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/releases">GitHub</a> for use with <a href="https://github.com/ravibpatel/ILRepack.Lib.MSBuild.Task">ILRepack</a>.</p>
-<p>For more details see the <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html">documentation</a>.</p>
-<h3 id="example">Example</h3>
-<p><strong>Partial Implementation of Skald's Vigor</strong></p>
-<pre><code class="lang-C#">BuffConfigurator.For(SkaldsVigorBuff)
-    .ContextRankConfig(ContextRankConfigs.ClassLevel(new string[] { SkaldClass }).WithStartPlusDoubleDivStepProgression(8))
-    .FastHealing(1, bonusValue: ContextValues.Rank(AbilityRankType.Default))
-    .Configure();
-
-var applyBuff = ActionsBuilder.New().ApplyBuff(SkaldsVigorBuff, permanent: true, dispellable: false);
-BuffConfigurator.For(RagingSongBuff)
-    .AddFactContextActions(
-        onActivated:
-            ActionsBuilder.New()
-                .Conditional(
-                    ConditionsBuilder.New().TargetIsYourself().HasFact(SkaldsVigor),
-                    ifTrue: applyBuff)
-                .Conditional(
-                    ConditionsBuilder.New().CasterHasFact(GreaterSkaldsVigor),
-                    ifTrue: applyBuff),
-        onDeactivated: ActionsBuilder.New().RemoveBuff(SkaldsVigorBuff))
-    .Configure();
-</code></pre>
+<p>BlueprintCore is available as a <a href="https://www.nuget.org/packages/WW-Blueprint-Core/">NuGet package</a>. For more details see the <a href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html">Getting Started</a>.</p>
 <h1 id="acknowledgements">Acknowledgements</h1>
 <ul>
 <li>Thank you to the Owlcat modders who came before me, documenting their process and sharing their code.</li>
@@ -132,7 +170,7 @@ BuffConfigurator.For(RagingSongBuff)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/2.0.x/BlueprintCore/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
