@@ -458,7 +458,7 @@ The configurator and builder APIs, with the exception of the builder base classe
 
 Here are some examples to help understand the resulting API:
 
-![Prerequisite Character Class Method](~\images\prerequisite_character_class_method.PNG)
+![Prerequisite Character Class Method](~/images/prerequisite_character_class_method.png)
 
 1. This method adds a `PrerequisiteClassLevel` component to the blueprint
 2. Adding this component requires `characterClass` and `level`
@@ -472,7 +472,7 @@ Here are some examples to help understand the resulting API:
   * This indicates the component is unique: there should only be a single copy in any given blueprint
   * These parameters grant control over interactions if there are multiple copies present
   
-![Rest Trigger Method](~\images\add_rest_trigger_method.PNG)
+![Rest Trigger Method](~/images/add_rest_trigger_method.png)
 
 1. This method adds an `AddRestTrigger` component to the blueprint
   * The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.
