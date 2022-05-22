@@ -55,7 +55,45 @@ Every effort is made to minimize boilerplate and enforce proper usage of fields 
 Component methods are regularly updated to ignore unused fields and require fields necessary for the component to function. Field types that should not be null are automatically populated with a default to prevent exceptions.
 
 For example, the `FeatureConfigurator` exposes a method `AddPrerequisiteCharacterLevel`:
-![AddPreRequisiteCharacterLevel VS Documentation](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/images/configurator_method_example.png)
+
+```C#
+// Summary:
+//     Adds Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel
+//
+// Parameters:
+//   characterClass:
+//     Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+//     • A blueprint instance –
+//     • A blueprint reference –
+//     • A blueprint id as a string, Guid, or BlueprintGuid –
+//     • A blueprint name registered with BlueprintTool –
+//     See Blueprint for more details.
+//
+//   merge:
+//     If mergeBehavior is ComponentMerge.Merge and the component already exists, this
+//     expression is called to merge the components.
+//
+//   mergeBehavior:
+//     Handling if the component already exists since the component is unique. Defaults
+//     to ComponentMerge.Fail.
+//
+// Remarks:
+//     • Used by
+//     • AdvancedWeaponTraining1 –3aa4cbdd4af5ba54888b0dc7f07f80c4
+//     • OracleRevelationSoulSiphon –226c053a75fd7c34cab1b493f5847787
+//     • WreckingBlowsFeature –5bccc86dd1f187a4a99f092dc054c755
+public TBuilder AddPrerequisiteClassLevel(
+    Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
+    int level,
+    bool? checkInProgression = null,
+    Prerequisite.GroupType? group = null,
+    bool? hideInUI = null,
+    Action<BlueprintComponent, BlueprintComponent>? merge = null,
+    ComponentMerge mergeBehavior = ComponentMerge.Fail, bool? not = null)
+```
+
+`characterClass` and `level` are required while the rest of the parameters can be ignored. The remarks include three
+blueprints which use the component for reference.
 
 ### ActionList and ConditionsChecker Builders
 

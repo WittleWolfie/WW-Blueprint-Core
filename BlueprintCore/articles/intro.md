@@ -142,45 +142,45 @@ FeatureConfigurator.For(FeatGuid)
 Fields are implemented through several methods. Note that for the purpose of naming, internal prefixes are removed so m_Spell is treated as Spell.
 
 * SetX - Sets the value of X
-  * All exposed fields have this method
+    * All exposed fields have this method
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid)
   .SetGroups(FeatureGroup.Feat)
   .Configure();
 ```
 * ModifyX - Modifies X by invoking a provided `Action`
-  * All non-primitive, non-enum fields have this method
-  * For lists and arrays the action is invoked on each element
+    * All non-primitive, non-enum fields have this method
+    * For lists and arrays the action is invoked on each element
 ```C#
 AbilityConfigurator.For(AbilityGuid)
   .ModifyDefaultAiAction(aiAction => UpdateDefaultAiAction(aiAction))
   .Configure();
 ```
 * AddToX - Adds elements to X
-  * All list and array fields have this method
-  * Bitflag fields have this method
+    * All list and array fields have this method
+    * Bitflag fields have this method
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid)
   .AddToGroups(FeatureGroup.Feat)
   .Configure();
 ```
 * RemoveFromX - Removes elements from X
-  * All list and array fields have this method
-  * Bitflag fields have this method
+    * All list and array fields have this method
+    * Bitflag fields have this method
 ```C#
 FeatureConfigurator.For(FeatGuid)
   .RemoveFromGroups(FeatureGroup.Feat)
   .Configure();
 ```
 * RemoveFromX (Predicate) - Removes elements from X matching the provided predicate
-  * All list and array fields have this method
+    * All list and array fields have this method
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid)
   .RemoveFromGroups(group => group == FeatureGroup.Feat)
   .Configure();
 ```
 * Clear - Clears the value of X
-  * All list and array fields have this method
+    * All list and array fields have this method
 ```C#
 FeatureConfigurator.For(FeatName)
   .ClearGroups()
@@ -192,7 +192,7 @@ FeatureConfigurator.For(FeatName)
 If you wrote your own component or want to use a component from another mod or mod library, you can add components directly through methods in [RootConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2):
 
 * [AddComponent](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.AddComponent(Kingmaker.Blueprints.BlueprintComponent))
-  * A typed version of this method exists which accepts an init `Action`
+    * A typed version of this method exists which accepts an init `Action`
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid)
   // Both calls are equivalent
@@ -201,9 +201,9 @@ FeatureConfigurator.New(FeatName, FeatGuid)
   .Configure();
 ```
 * [AddUniqueComponent](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.AddUniqueComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent}))
-  * Similar to `AddComponent` but includes support for merging unique components
+    * Similar to `AddComponent` but includes support for merging unique components
 * [EditComponent](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.EditComponent``1(System.Action{``0}))
-  * Invokes the provided action on the first component matching the specified type
+    * Invokes the provided action on the first component matching the specified type
 ```C#
 FeatureConfigurator.For(FeatGuid)
   .EditComponent<ContextRankConfig>(c => UpdateContextRankConfig(c))
@@ -225,6 +225,7 @@ To support this the library implements almost all configurator functionality wit
 As the library is improved concrete implementations are hand written to include additional logic, e.g. [BuffConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs.BuffConfigurator). Any logic included here would be lost if you choose to create your own BuffConfigurator class.
 
 To implement a custom configurator use this as a template for your class:
+
 ```C#
 /// <summary>
 /// Configurator for <see cref="BlueprintType"/>.
@@ -462,25 +463,25 @@ Here are some examples to help understand the resulting API:
 
 1. This method adds a `PrerequisiteClassLevel` component to the blueprint
 2. Adding this component requires `characterClass` and `level`
-  * By default APIs have no required parameters. This is because it is difficult if not impossible to judge whether a type needs a value for a field specified using static analysis.
-  * Since these are required, it indicates this method has been overriden by a manual config indicating that you should always specify these values for a `PrerequisiteClassLevel` component.
+    * By default APIs have no required parameters. This is because it is difficult if not impossible to judge whether a type needs a value for a field specified using static analysis.
+    * Since these are required, it indicates this method has been overriden by a manual config indicating that you should always specify these values for a `PrerequisiteClassLevel` component.
 3. Every other parameter is null, excluding `mergeBehavior`
-  * By default all parameters have a default value of null (primitives are handled using nullable types)
-  * If you do not provide these parameters the default value of the corresponding field in `PrerequisiteClassLevel` is used
-    * Essentially, the API will not set the value of fields that are not specified, barring some exceptions covered in the next example
+    * By default all parameters have a default value of null (primitives are handled using nullable types)
+    * If you do not provide these parameters the default value of the corresponding field in `PrerequisiteClassLevel` is used
+        * Essentially, the API will not set the value of fields that are not specified, barring some exceptions covered in the next example
 4. BlueprintCore specific parameters are present: `mergeBehavior` and `merge`
-  * This indicates the component is unique: there should only be a single copy in any given blueprint
-  * These parameters grant control over interactions if there are multiple copies present
+    * This indicates the component is unique: there should only be a single copy in any given blueprint
+    * These parameters grant control over interactions if there are multiple copies present
   
 ![Rest Trigger Method](~/images/add_rest_trigger_method.png)
 
 1. This method adds an `AddRestTrigger` component to the blueprint
-  * The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.
+    * The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.
 2. Adding this component doesn't require anything
-  * After using this example, it now requires an `ActionsBuilder`; I updated the config because this component obviously doesn't make sense without one
+    * After using this example, it now requires an `ActionsBuilder`; I updated the config because this component obviously doesn't make sense without one
 3. Something special happens in the library if no argument is passed in
-  * `ActionsBuilder` is used to set an `ActionList` field value, but the game will throw an exception if an `ActionList` field is null
-  * To ensure that the `ActionList` is not null, BlueprintCore checks the field value and if it detects a null field it sets it to [Constants.Empty.Actions](xref:BlueprintCore.Utils.Constants.Empty.Actions)
+    * `ActionsBuilder` is used to set an `ActionList` field value, but the game will throw an exception if an `ActionList` field is null
+    * To ensure that the `ActionList` is not null, BlueprintCore checks the field value and if it detects a null field it sets it to [Constants.Empty.Actions](xref:BlueprintCore.Utils.Constants.Empty.Actions)
 
 The null handling case is an important one: there are several types in the game library that generally cause problems when null. As a result BlueprintCore APIs will automatically set fields with these types to "empty" defaults. As of writing these types include:
 
@@ -500,12 +501,12 @@ Similarly you can file an issue if you think a given method should be implemente
 BlueprintCoreGen analyzes the game library and combines that data with community provided configuration overrides to generate methods and classes which wrap common game types. The goal is to provide an API with minimal boilerplate which enforces proper usage of game types as much as possible, but there are some limitations to this approach:
 
 * Hand tuning code can be more complicated than simply writing a function
-  * Specific configuration paths are required for any code output and it's not always easy to logically define this
+    * Specific configuration paths are required for any code output and it's not always easy to logically define this
 * When the game API changes, so does the BlueprintCore API
-  * This leads to breaking changes at times, though generally this means the code you wrote would break anyways
-  * So far only Patch 1.2 has truly introduced breaking changes
+    * This leads to breaking changes at times, though generally this means the code you wrote would break anyways
+    * So far only Patch 1.2 has truly introduced breaking changes
 * When the community adds configuration overrides, the BlueprintCore API changes
-  * This leads to break changes for anyone using those functions
+    * This leads to break changes for anyone using those functions
 
 Generally API breaking changes are limited to basic things like renaming methods or method parameters. These should be trivial to update between versions, but it is something to keep in mind when using BlueprintCore.
 

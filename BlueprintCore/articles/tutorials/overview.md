@@ -91,4 +91,4 @@ This will merge all the assemblies you add to `InputAssemblies` into your mod's 
 
 Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials).
 
-Be sure to check [known issues](~articles/issues.md) if you run into any problems.
+Be sure to check [known issues](~/articles/issues.md) if you run into any problems.

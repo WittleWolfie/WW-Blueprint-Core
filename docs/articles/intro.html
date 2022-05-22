@@ -519,15 +519,13 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <p><img src="../images/prerequisite_character_class_method.png" alt="Prerequisite Character Class Method"></p>
 <ol>
 <li>This method adds a <code>PrerequisiteClassLevel</code> component to the blueprint</li>
-<li>Adding this component requires <code>characterClass</code> and <code>level</code></li>
-</ol>
+<li>Adding this component requires <code>characterClass</code> and <code>level</code>
 <ul>
 <li>By default APIs have no required parameters. This is because it is difficult if not impossible to judge whether a type needs a value for a field specified using static analysis.</li>
 <li>Since these are required, it indicates this method has been overriden by a manual config indicating that you should always specify these values for a <code>PrerequisiteClassLevel</code> component.</li>
 </ul>
-<ol start="3">
-<li>Every other parameter is null, excluding <code>mergeBehavior</code></li>
-</ol>
+</li>
+<li>Every other parameter is null, excluding <code>mergeBehavior</code>
 <ul>
 <li>By default all parameters have a default value of null (primitives are handled using nullable types)</li>
 <li>If you do not provide these parameters the default value of the corresponding field in <code>PrerequisiteClassLevel</code> is used
@@ -536,33 +534,33 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 </ul>
 </li>
 </ul>
-<ol start="4">
-<li>BlueprintCore specific parameters are present: <code>mergeBehavior</code> and <code>merge</code></li>
-</ol>
+</li>
+<li>BlueprintCore specific parameters are present: <code>mergeBehavior</code> and <code>merge</code>
 <ul>
 <li>This indicates the component is unique: there should only be a single copy in any given blueprint</li>
 <li>These parameters grant control over interactions if there are multiple copies present</li>
 </ul>
+</li>
+</ol>
 <p><img src="../images/add_rest_trigger_method.png" alt="Rest Trigger Method"></p>
 <ol>
-<li>This method adds an <code>AddRestTrigger</code> component to the blueprint</li>
-</ol>
+<li>This method adds an <code>AddRestTrigger</code> component to the blueprint
 <ul>
 <li>The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.</li>
 </ul>
-<ol start="2">
-<li>Adding this component doesn't require anything</li>
-</ol>
+</li>
+<li>Adding this component doesn't require anything
 <ul>
 <li>After using this example, it now requires an <code>ActionsBuilder</code>; I updated the config because this component obviously doesn't make sense without one</li>
 </ul>
-<ol start="3">
-<li>Something special happens in the library if no argument is passed in</li>
-</ol>
+</li>
+<li>Something special happens in the library if no argument is passed in
 <ul>
 <li><code>ActionsBuilder</code> is used to set an <code>ActionList</code> field value, but the game will throw an exception if an <code>ActionList</code> field is null</li>
 <li>To ensure that the <code>ActionList</code> is not null, BlueprintCore checks the field value and if it detects a null field it sets it to <a class="xref" href="../api/BlueprintCore.Utils.Constants.Empty.html#BlueprintCore_Utils_Constants_Empty_Actions">Constants.Empty.Actions</a></li>
 </ul>
+</li>
+</ol>
 <p>The null handling case is an important one: there are several types in the game library that generally cause problems when null. As a result BlueprintCore APIs will automatically set fields with these types to &quot;empty&quot; defaults. As of writing these types include:</p>
 <ul>
 <li>ActionList</li>

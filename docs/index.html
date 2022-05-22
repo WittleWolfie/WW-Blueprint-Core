@@ -114,8 +114,43 @@
 <p>The Configure <em>should</em> guarantee components work with a given blueprint. This is determined using the game's <code>AllowedOn</code> attribute which declares supported blueprint types for each component. This is not always correct so please report any problems with the API: <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/issues">GitHub Issues</a>.</p>
 <p>Every effort is made to minimize boilerplate and enforce proper usage of fields and components. Blueprint fields that should not be modified are hidden when reported by a contributor or on <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/issues">GitHub Issues</a>.</p>
 <p>Component methods are regularly updated to ignore unused fields and require fields necessary for the component to function. Field types that should not be null are automatically populated with a default to prevent exceptions.</p>
-<p>For example, the <code>FeatureConfigurator</code> exposes a method <code>AddPrerequisiteCharacterLevel</code>:
-<img src="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/images/configurator_method_example.png" alt="AddPreRequisiteCharacterLevel VS Documentation"></p>
+<p>For example, the <code>FeatureConfigurator</code> exposes a method <code>AddPrerequisiteCharacterLevel</code>:</p>
+<pre><code class="lang-C#">// Summary:
+//     Adds Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteClassLevel
+//
+// Parameters:
+//   characterClass:
+//     Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+//     � A blueprint instance �
+//     � A blueprint reference �
+//     � A blueprint id as a string, Guid, or BlueprintGuid �
+//     � A blueprint name registered with BlueprintTool �
+//     See Blueprint for more details.
+//
+//   merge:
+//     If mergeBehavior is ComponentMerge.Merge and the component already exists, this
+//     expression is called to merge the components.
+//
+//   mergeBehavior:
+//     Handling if the component already exists since the component is unique. Defaults
+//     to ComponentMerge.Fail.
+//
+// Remarks:
+//     � Used by
+//     � AdvancedWeaponTraining1 �3aa4cbdd4af5ba54888b0dc7f07f80c4
+//     � OracleRevelationSoulSiphon �226c053a75fd7c34cab1b493f5847787
+//     � WreckingBlowsFeature �5bccc86dd1f187a4a99f092dc054c755
+public TBuilder AddPrerequisiteClassLevel(
+    Blueprint&lt;BlueprintCharacterClass, BlueprintCharacterClassReference&gt; characterClass,
+    int level,
+    bool? checkInProgression = null,
+    Prerequisite.GroupType? group = null,
+    bool? hideInUI = null,
+    Action&lt;BlueprintComponent, BlueprintComponent&gt;? merge = null,
+    ComponentMerge mergeBehavior = ComponentMerge.Fail, bool? not = null)
+</code></pre>
+<p><code>characterClass</code> and <code>level</code> are required while the rest of the parameters can be ignored. The remarks include three
+blueprints which use the component for reference.</p>
 <h3 id="actionlist-and-conditionschecker-builders">ActionList and ConditionsChecker Builders</h3>
 <p><code>ActionsBuilder</code> is a builder API for <code>ActionList</code> and <code>ConditionsBuilder</code> is a builder API for <code>ConditionsChecker</code>.</p>
 <p>BlueprintCore APIs accept builders directly or you can call <code>Build()</code> to construct them and run validation. Validation errors are logged as a warning.</p>
