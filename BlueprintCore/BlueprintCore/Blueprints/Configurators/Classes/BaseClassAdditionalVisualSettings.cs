@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where T : BlueprintClassAdditionalVisualSettings
     where TBuilder : BaseClassAdditionalVisualSettingsConfigurator<T, TBuilder>
   {
-    protected BaseClassAdditionalVisualSettingsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseClassAdditionalVisualSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettings.m_Prerequisite"/>
@@ -35,10 +35,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPrerequisite(Blueprint<BlueprintEtude, BlueprintEtudeReference> prerequisite)
+    public TBuilder SetPrerequisite(Blueprint<BlueprintEtudeReference> prerequisite)
     {
       return OnConfigureInternal(
         bp =>

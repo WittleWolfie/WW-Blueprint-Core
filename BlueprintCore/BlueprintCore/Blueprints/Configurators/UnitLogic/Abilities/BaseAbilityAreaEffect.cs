@@ -40,7 +40,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     where T : BlueprintAbilityAreaEffect
     where TBuilder : BaseAbilityAreaEffectConfigurator<T, TBuilder>
   {
-    protected BaseAbilityAreaEffectConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAbilityAreaEffectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_AllowNonContextActions"/>
@@ -484,11 +484,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddUniqueAreaEffect(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? feature = null)
+        Blueprint<BlueprintUnitFactReference>? feature = null)
     {
       var component = new UniqueAreaEffect();
       component.m_Feature = feature?.Reference ?? component.m_Feature;
@@ -522,12 +522,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParams(
         ContextValue? casterLevel = null,
-        Blueprint<BlueprintUnitProperty, BlueprintUnitPropertyReference>? customProperty = null,
+        Blueprint<BlueprintUnitPropertyReference>? customProperty = null,
         bool? replaceCasterLevel = null,
         bool? replaceSpellLevel = null,
         ContextValue? spellLevel = null,
@@ -582,11 +582,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
         StatType? statType = null,
         bool? useKineticistMainStat = null)
     {
@@ -746,11 +746,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityAreaEffectBuff(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         bool? checkConditionEveryRound = null,
         ConditionsBuilder? condition = null)
     {
@@ -855,12 +855,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityAreaEffectSpecialBehaviour(
         SpecialBehaviour? behaviour = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         Buff? buffFact = null,
         int? count = null)
     {
@@ -923,7 +923,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="evadingImmunityFacts">
@@ -935,7 +935,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="unitOnEdgeBuff">
@@ -947,7 +947,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="visualSettings">
@@ -959,20 +959,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAreaEffectPit(
         ContextValue? climbDC = null,
         bool? disableClimb = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? effectsImmunityFacts = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? evadingImmunityFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? effectsImmunityFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? evadingImmunityFacts = null,
         ActionsBuilder? everyRoundAction = null,
         Size? maxUnitSize = null,
         ActionsBuilder? onEndedActionForUnitsInside = null,
         ActionsBuilder? onFallAction = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? unitOnEdgeBuff = null,
-        Blueprint<BlueprintAreaEffectPitVisualSettings, BlueprintAreaEffectPitVisualSettingsReference>? visualSettings = null)
+        Blueprint<BlueprintBuffReference>? unitOnEdgeBuff = null,
+        Blueprint<BlueprintAreaEffectPitVisualSettingsReference>? visualSettings = null)
     {
       var component = new AreaEffectPit();
       component.ClimbDC = climbDC ?? component.ClimbDC;
@@ -1076,11 +1076,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTacticalCombatCellsProviderLink(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? abilityWithCellsProvider = null)
+        Blueprint<BlueprintAbilityReference>? abilityWithCellsProvider = null)
     {
       var component = new TacticalCombatCellsProviderLink();
       component.m_AbilityWithCellsProvider = abilityWithCellsProvider?.Reference ?? component.m_AbilityWithCellsProvider;

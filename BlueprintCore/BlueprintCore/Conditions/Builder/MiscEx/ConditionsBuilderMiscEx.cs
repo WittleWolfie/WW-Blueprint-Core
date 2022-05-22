@@ -185,12 +185,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder IsDlcActive(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>? blueprintDlcReward = null,
+        Blueprint<BlueprintDlcRewardReference>? blueprintDlcReward = null,
         bool negate = false)
     {
       var element = ElementTool.Create<IsDlcActive>();
@@ -226,12 +226,12 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder IsDLCEnabled(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>? blueprintDlcReward = null,
+        Blueprint<BlueprintDlcRewardReference>? blueprintDlcReward = null,
         bool negate = false)
     {
       var element = ElementTool.Create<IsDLCEnabled>();
@@ -293,13 +293,13 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder IsListContainsItem(
         this ConditionsBuilder builder,
         ItemEvaluator? item = null,
-        Blueprint<BlueprintItemsList, BlueprintItemsList.Reference>? list = null,
+        Blueprint<BlueprintItemsList.Reference>? list = null,
         bool negate = false)
     {
       var element = ElementTool.Create<IsListContainsItem>();

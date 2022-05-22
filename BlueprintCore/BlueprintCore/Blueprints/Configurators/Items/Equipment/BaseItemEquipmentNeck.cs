@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     where T : BlueprintItemEquipmentNeck
     where TBuilder : BaseItemEquipmentNeckConfigurator<T, TBuilder>
   {
-    protected BaseItemEquipmentNeckConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemEquipmentNeckConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

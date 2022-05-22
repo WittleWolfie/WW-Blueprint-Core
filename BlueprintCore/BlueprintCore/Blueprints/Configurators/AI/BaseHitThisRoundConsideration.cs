@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : HitThisRoundConsideration
     where TBuilder : BaseHitThisRoundConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseHitThisRoundConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseHitThisRoundConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="HitThisRoundConsideration.HitScore"/>

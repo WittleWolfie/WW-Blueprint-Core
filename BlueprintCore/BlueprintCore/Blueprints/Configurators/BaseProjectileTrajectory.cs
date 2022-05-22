@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintProjectileTrajectory
     where TBuilder : BaseProjectileTrajectoryConfigurator<T, TBuilder>
   {
-    protected BaseProjectileTrajectoryConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseProjectileTrajectoryConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectileTrajectory.UpDirection"/>

@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     where T : BlueprintUISound
     where TBuilder : BaseUISoundConfigurator<T, TBuilder>
   {
-    protected BaseUISoundConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUISoundConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintUISound.Sounds"/>

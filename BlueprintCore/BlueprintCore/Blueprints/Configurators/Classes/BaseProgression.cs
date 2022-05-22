@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where T : BlueprintProgression
     where TBuilder : BaseProgressionConfigurator<T, TBuilder>
   {
-    protected BaseProgressionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseProgressionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_Classes"/>
@@ -487,10 +487,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBase, BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
+    public TBuilder SetUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
     {
       return OnConfigureInternal(
         bp =>
@@ -515,10 +515,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBase, BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
+    public TBuilder AddToUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
     {
       return OnConfigureInternal(
         bp =>
@@ -544,10 +544,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBase, BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
+    public TBuilder RemoveFromUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
     {
       return OnConfigureInternal(
         bp =>
@@ -608,10 +608,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetExclusiveProgression(Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> exclusiveProgression)
+    public TBuilder SetExclusiveProgression(Blueprint<BlueprintCharacterClassReference> exclusiveProgression)
     {
       return OnConfigureInternal(
         bp =>
@@ -673,10 +673,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFeaturesRankIncrease(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] featuresRankIncrease)
+    public TBuilder SetFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
     {
       return OnConfigureInternal(
         bp =>
@@ -701,10 +701,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToFeaturesRankIncrease(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] featuresRankIncrease)
+    public TBuilder AddToFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
     {
       return OnConfigureInternal(
         bp =>
@@ -730,10 +730,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromFeaturesRankIncrease(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] featuresRankIncrease)
+    public TBuilder RemoveFromFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
     {
       return OnConfigureInternal(
         bp =>

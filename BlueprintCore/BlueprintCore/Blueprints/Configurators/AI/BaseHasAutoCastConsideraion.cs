@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : HasAutoCastConsideraion
     where TBuilder : BaseHasAutoCastConsideraionConfigurator<T, TBuilder>
   {
-    protected BaseHasAutoCastConsideraionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseHasAutoCastConsideraionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="HasAutoCastConsideraion.NoAutoCastScore"/>

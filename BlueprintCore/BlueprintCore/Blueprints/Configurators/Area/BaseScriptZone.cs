@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where T : BlueprintScriptZone
     where TBuilder : BaseScriptZoneConfigurator<T, TBuilder>
   {
-    protected BaseScriptZoneConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseScriptZoneConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintScriptZone.TriggerConditions"/>

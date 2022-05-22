@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
   public class CraftRootConfigurator
     : BaseCraftRootConfigurator<CraftRoot, CraftRootConfigurator>
   {
-    private CraftRootConfigurator(Blueprint<CraftRoot, BlueprintReference<CraftRoot>> blueprint) : base(blueprint) { }
+    private CraftRootConfigurator(Blueprint<BlueprintReference<CraftRoot>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static CraftRootConfigurator For(Blueprint<CraftRoot, BlueprintReference<CraftRoot>> blueprint)
+    public static CraftRootConfigurator For(Blueprint<BlueprintReference<CraftRoot>> blueprint)
     {
       return new CraftRootConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static CraftRootConfigurator New(string name, string guid)

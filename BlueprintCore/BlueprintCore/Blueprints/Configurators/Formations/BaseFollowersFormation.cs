@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     where T : FollowersFormation
     where TBuilder : BaseFollowersFormationConfigurator<T, TBuilder>
   {
-    protected BaseFollowersFormationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseFollowersFormationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="FollowersFormation.m_PlayerOffset"/>

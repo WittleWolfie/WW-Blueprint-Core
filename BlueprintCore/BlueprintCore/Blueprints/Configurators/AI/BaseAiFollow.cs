@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : BlueprintAiFollow
     where TBuilder : BaseAiFollowConfigurator<T, TBuilder>
   {
-    protected BaseAiFollowConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAiFollowConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAiFollow.TargetType"/>

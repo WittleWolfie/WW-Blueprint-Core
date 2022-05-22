@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     where T : BlueprintLeaderSkill
     where TBuilder : BaseLeaderSkillConfigurator<T, TBuilder>
   {
-    protected BaseLeaderSkillConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLeaderSkillConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderSkill.Icon"/>
@@ -227,10 +227,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPrerequisites(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] prerequisites)
+    public TBuilder SetPrerequisites(params Blueprint<BlueprintLeaderSkillReference>[] prerequisites)
     {
       return OnConfigureInternal(
         bp =>
@@ -252,10 +252,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToPrerequisites(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] prerequisites)
+    public TBuilder AddToPrerequisites(params Blueprint<BlueprintLeaderSkillReference>[] prerequisites)
     {
       return OnConfigureInternal(
         bp =>
@@ -278,10 +278,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromPrerequisites(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] prerequisites)
+    public TBuilder RemoveFromPrerequisites(params Blueprint<BlueprintLeaderSkillReference>[] prerequisites)
     {
       return OnConfigureInternal(
         bp =>
@@ -352,11 +352,11 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddFactOnLeaderUnit(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null)
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null)
     {
       var component = new AddFactOnLeaderUnit();
       component.m_Facts = facts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Facts;
@@ -390,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -400,7 +400,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddFactOnTacticalUnit(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         TargetFilter? targetController = null)
@@ -448,14 +448,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddCastOnTacticalCombatStart(
         List<int>? allowedColumns = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? spellToCast = null,
+        Blueprint<BlueprintAbilityReference>? spellToCast = null,
         bool? targetCell = null)
     {
       var component = new CastOnTacticalCombatStart();
@@ -496,12 +496,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddLeaderExpBonus(
         int? bonusPercent = null,
-        Blueprint<BlueprintLeaderSkillsList, BlueprintLeaderSkillsList.Reference>? bonusSkills = null,
+        Blueprint<BlueprintLeaderSkillsList.Reference>? bonusSkills = null,
         int? levelForBonusSkills = null)
     {
       var component = new LeaderExpBonus();
@@ -597,14 +597,14 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddPlaceLeaderTrapOnCombatStart(
         List<int>? allowedColumns = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        List<Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>>? possibleTrapSkills = null)
+        List<Blueprint<BlueprintLeaderSkillReference>>? possibleTrapSkills = null)
     {
       var component = new PlaceLeaderTrapOnCombatStart();
       component.m_AllowedColumns = allowedColumns ?? component.m_AllowedColumns;
@@ -641,7 +641,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -651,7 +651,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddRemoveFactFromTacticalUnit(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         TargetFilter? targetController = null)
@@ -690,7 +690,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="maxSquadsCount">
@@ -706,7 +706,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// </param>
     public TBuilder AddSquadsActionOnTacticalCombatStart(
         ActionsBuilder? actions = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? bannedFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? bannedFacts = null,
         TargetFilter? filter = null,
         int? maxSquadsCount = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -752,11 +752,11 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTacticalLeaderRitualComponent(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? ability = null)
+        Blueprint<BlueprintAbilityReference>? ability = null)
     {
       var component = new TacticalLeaderRitualComponent();
       component.m_Ability = ability?.Reference ?? component.m_Ability;

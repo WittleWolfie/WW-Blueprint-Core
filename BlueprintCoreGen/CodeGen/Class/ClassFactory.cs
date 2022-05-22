@@ -106,14 +106,14 @@ namespace BlueprintCoreGen.CodeGen.Class
         configuratorClass.AddLine($"    where T : {configurator.TypeName}");
         configuratorClass.AddLine($"    where TBuilder : {configurator.ClassName}<T, TBuilder>");
         configuratorClass.AddLine($"  {{");
-        configuratorClass.AddLine($"    protected {configurator.ClassName}(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) {{ }}");
+        configuratorClass.AddLine($"    protected {configurator.ClassName}(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) {{ }}");
       }
       else
       {
         configuratorClass.AddLine($"  public class {configurator.ClassName}");
         configuratorClass.AddLine($"    : {configurator.ParentClassName}<{configurator.TypeName}, {configurator.ClassName}>");
         configuratorClass.AddLine($"  {{");
-        configuratorClass.AddLine($"    private {configurator.ClassName}(Blueprint<{configurator.TypeName}, BlueprintReference<{configurator.TypeName}>> blueprint) : base(blueprint) {{ }}");
+        configuratorClass.AddLine($"    private {configurator.ClassName}(Blueprint<BlueprintReference<{configurator.TypeName}>> blueprint) : base(blueprint) {{ }}");
 
         // Instantiation methods
         MethodFactory.CreateForNewConfigurator(configurator.BlueprintType, configurator.ClassName)

@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     where T : BlueprintSettlementBuilding
     where TBuilder : BaseSettlementBuildingConfigurator<T, TBuilder>
   {
-    protected BaseSettlementBuildingConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSettlementBuildingConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.Name"/>
@@ -363,10 +363,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUpgradesTo(Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference> upgradesTo)
+    public TBuilder SetUpgradesTo(Blueprint<BlueprintSettlementBuildingReference> upgradesTo)
     {
       return OnConfigureInternal(
         bp =>
@@ -409,11 +409,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddLocationRadiusBuff(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         float? radius = null)
     {
       var component = new LocationRadiusBuff();
@@ -447,7 +447,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -463,7 +463,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </param>
     public TBuilder AddBuildingAdjacencyBonus(
         bool? anyBuilding = null,
-        List<Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>>? buildings = null,
+        List<Blueprint<BlueprintSettlementBuildingReference>>? buildings = null,
         BuildingAdjacencyBonus.CalculationType? calculation = null,
         BuildingAdjacencyBonus.DistanceRequirementType? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -509,7 +509,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -519,7 +519,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddBuildingAttachedBuff(
-        Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>? buff = null,
+        Blueprint<BlueprintKingdomBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyInRegion = null)
@@ -555,7 +555,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -573,14 +573,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddBuildingPartOfQuestObjective(
-        List<Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>>? buildings = null,
+        List<Blueprint<BlueprintSettlementBuildingReference>>? buildings = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
+        Blueprint<BlueprintQuestObjectiveReference>? objective = null)
     {
       var component = new BuildingPartOfQuestObjective();
       component.m_Buildings = buildings?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Buildings;
@@ -681,7 +681,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="durationDeltaInDays">
@@ -696,7 +696,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddBuildingSiegeDurationIncrease(
-        List<Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>>? affectedFlags = null,
+        List<Blueprint<BlueprintKingdomMoraleFlag.Reference>>? affectedFlags = null,
         int? durationDeltaInDays = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -734,7 +734,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -745,7 +745,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </param>
     public TBuilder AddBuildingTacticalUnitFactBonus(
         BuildingTacticalUnitFactBonus.DistanceType? distance = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null,
+        List<Blueprint<BlueprintFeatureReference>>? features = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyForCurrentRegion = null)
@@ -790,14 +790,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddBuildingUnitGrowthIncrease(
         int? count = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var component = new BuildingUnitGrowthIncrease();
       component.Count = count ?? component.Count;
@@ -859,7 +859,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -869,7 +869,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddOtherBuildingRestriction(
-        List<Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>>? buildings = null,
+        List<Blueprint<BlueprintSettlementBuildingReference>>? buildings = null,
         bool? invert = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -920,14 +920,14 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpecificSettlementRestriction(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null,
-        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? settlement = null)
+        Blueprint<BlueprintSettlement.Reference>? settlement = null)
     {
       var component = new SpecificSettlementRestriction();
       component.m_Not = not ?? component.m_Not;
@@ -978,7 +978,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -988,7 +988,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddUnlockRestriction(
-        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null,
+        Blueprint<BlueprintUnlockableFlagReference>? flag = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? mustBeLocked = null)

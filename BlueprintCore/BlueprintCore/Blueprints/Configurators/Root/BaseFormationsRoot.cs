@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     where T : FormationsRoot
     where TBuilder : BaseFormationsRootConfigurator<T, TBuilder>
   {
-    protected BaseFormationsRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseFormationsRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="FormationsRoot.m_PredefinedFormations"/>
@@ -34,10 +34,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPredefinedFormations(params Blueprint<BlueprintPartyFormation, BlueprintPartyFormationReference>[] predefinedFormations)
+    public TBuilder SetPredefinedFormations(params Blueprint<BlueprintPartyFormationReference>[] predefinedFormations)
     {
       return OnConfigureInternal(
         bp =>
@@ -59,10 +59,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToPredefinedFormations(params Blueprint<BlueprintPartyFormation, BlueprintPartyFormationReference>[] predefinedFormations)
+    public TBuilder AddToPredefinedFormations(params Blueprint<BlueprintPartyFormationReference>[] predefinedFormations)
     {
       return OnConfigureInternal(
         bp =>
@@ -85,10 +85,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromPredefinedFormations(params Blueprint<BlueprintPartyFormation, BlueprintPartyFormationReference>[] predefinedFormations)
+    public TBuilder RemoveFromPredefinedFormations(params Blueprint<BlueprintPartyFormationReference>[] predefinedFormations)
     {
       return OnConfigureInternal(
         bp =>
@@ -149,10 +149,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFollowersFormation(Blueprint<FollowersFormation, BlueprintFollowersFormationReference> followersFormation)
+    public TBuilder SetFollowersFormation(Blueprint<BlueprintFollowersFormationReference> followersFormation)
     {
       return OnConfigureInternal(
         bp =>

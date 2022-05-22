@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintKingdomEventBase
     where TBuilder : BaseKingdomEventBaseConfigurator<T, TBuilder>
   {
-    protected BaseKingdomEventBaseConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseKingdomEventBaseConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.InfoType"/>

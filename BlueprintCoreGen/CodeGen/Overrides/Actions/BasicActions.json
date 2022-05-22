@@ -62,7 +62,7 @@
             "FieldName": "m_ItemToGive",
             "Required": true,
             "ExtraAssignmentFmtLines": [
-              "var bp = {1}.Instance;",
+              "var bp = {1}.Reference.Get();",
               "if (bp is BlueprintItemEquipmentHand)",
               "{{",
               "  throw new InvalidOperationException(\"Item fits in hand slot. Use GiveHandSlotItemToPlayer.\");",
@@ -83,7 +83,7 @@
             "FieldName": "m_ItemToGive",
             "Required": true,
             "ExtraAssignmentFmtLines": [
-              "var bp = {1}.Instance;",
+              "var bp = {1}.Reference.Get();",
               "if (bp is BlueprintItemEquipmentHand)",
               "{{",
               "  throw new InvalidOperationException(\"Item fits in hand slot. Use GiveHandSlotItemToPlayer.\");",
@@ -103,7 +103,7 @@
             "FieldName": "m_ItemToGive",
             "Required": true,
             "ExtraAssignmentFmtLines": [
-              "var bp = {1}.Instance;",
+              "var bp = {1}.Reference.Get();",
               "if (bp is not BlueprintItemEquipmentHand)",
               "{{",
               "  if (bp is BlueprintItemEquipment)",

@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where T : BlueprintMythicsSettings
     where TBuilder : BaseMythicsSettingsConfigurator<T, TBuilder>
   {
-    protected BaseMythicsSettingsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseMythicsSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintMythicsSettings.m_MythicsInfos"/>
@@ -34,10 +34,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMythicsInfos(params Blueprint<BlueprintMythicInfo, BlueprintMythicInfoReference>[] mythicsInfos)
+    public TBuilder SetMythicsInfos(params Blueprint<BlueprintMythicInfoReference>[] mythicsInfos)
     {
       return OnConfigureInternal(
         bp =>
@@ -59,10 +59,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToMythicsInfos(params Blueprint<BlueprintMythicInfo, BlueprintMythicInfoReference>[] mythicsInfos)
+    public TBuilder AddToMythicsInfos(params Blueprint<BlueprintMythicInfoReference>[] mythicsInfos)
     {
       return OnConfigureInternal(
         bp =>
@@ -85,10 +85,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromMythicsInfos(params Blueprint<BlueprintMythicInfo, BlueprintMythicInfoReference>[] mythicsInfos)
+    public TBuilder RemoveFromMythicsInfos(params Blueprint<BlueprintMythicInfoReference>[] mythicsInfos)
     {
       return OnConfigureInternal(
         bp =>
@@ -226,10 +226,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetTutorialChooseMythic(Blueprint<BlueprintTutorial, BlueprintTutorial.Reference> tutorialChooseMythic)
+    public TBuilder SetTutorialChooseMythic(Blueprint<BlueprintTutorial.Reference> tutorialChooseMythic)
     {
       return OnConfigureInternal(
         bp =>

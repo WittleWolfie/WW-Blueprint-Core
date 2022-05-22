@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : BlueprintBrain
     where TBuilder : BaseBrainConfigurator<T, TBuilder>
   {
-    protected BaseBrainConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseBrainConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintBrain.m_Actions"/>
@@ -33,10 +33,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetActions(params Blueprint<BlueprintAiAction, BlueprintAiActionReference>[] actions)
+    public TBuilder SetActions(params Blueprint<BlueprintAiActionReference>[] actions)
     {
       return OnConfigureInternal(
         bp =>
@@ -58,10 +58,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToActions(params Blueprint<BlueprintAiAction, BlueprintAiActionReference>[] actions)
+    public TBuilder AddToActions(params Blueprint<BlueprintAiActionReference>[] actions)
     {
       return OnConfigureInternal(
         bp =>
@@ -84,10 +84,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromActions(params Blueprint<BlueprintAiAction, BlueprintAiActionReference>[] actions)
+    public TBuilder RemoveFromActions(params Blueprint<BlueprintAiActionReference>[] actions)
     {
       return OnConfigureInternal(
         bp =>

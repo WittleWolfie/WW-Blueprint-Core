@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
   public class UnitFactConfigurator
     : BaseUnitFactConfigurator<BlueprintUnitFact, UnitFactConfigurator>
   {
-    private UnitFactConfigurator(Blueprint<BlueprintUnitFact, BlueprintReference<BlueprintUnitFact>> blueprint) : base(blueprint) { }
+    private UnitFactConfigurator(Blueprint<BlueprintReference<BlueprintUnitFact>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static UnitFactConfigurator For(Blueprint<BlueprintUnitFact, BlueprintReference<BlueprintUnitFact>> blueprint)
+    public static UnitFactConfigurator For(Blueprint<BlueprintReference<BlueprintUnitFact>> blueprint)
     {
       return new UnitFactConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static UnitFactConfigurator New(string name, string guid)

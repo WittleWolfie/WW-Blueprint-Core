@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : ManualTargetConsideration
     where TBuilder : BaseManualTargetConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseManualTargetConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseManualTargetConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="ManualTargetConsideration.IsManualTargetScore"/>

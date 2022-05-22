@@ -51,12 +51,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder CompleteEtude(
         this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude,
+        Blueprint<BlueprintEtudeReference> etude,
         BlueprintEvaluator? etudeEvaluator = null)
     {
       var element = ElementTool.Create<CompleteEtude>();
@@ -161,12 +161,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder GiveObjective(
         this ActionsBuilder builder,
-        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
+        Blueprint<BlueprintQuestObjectiveReference>? objective = null)
     {
       var element = ElementTool.Create<GiveObjective>();
       element.m_Objective = objective?.Reference ?? element.m_Objective;
@@ -260,12 +260,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder IncrementFlagValue(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null,
+        Blueprint<BlueprintUnlockableFlagReference>? flag = null,
         bool? unlockIfNot = null,
         IntEvaluator? value = null)
     {
@@ -369,12 +369,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder LockFlag(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null)
+        Blueprint<BlueprintUnlockableFlagReference>? flag = null)
     {
       var element = ElementTool.Create<LockFlag>();
       element.m_Flag = flag?.Reference ?? element.m_Flag;
@@ -408,12 +408,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder MarkAnswersSelected(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>>? answers = null)
+        List<Blueprint<BlueprintAnswerReference>>? answers = null)
     {
       var element = ElementTool.Create<MarkAnswersSelected>();
       element.m_Answers = answers?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Answers;
@@ -447,12 +447,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder MarkCuesSeen(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintCueBase, BlueprintCueBaseReference>>? cues = null)
+        List<Blueprint<BlueprintCueBaseReference>>? cues = null)
     {
       var element = ElementTool.Create<MarkCuesSeen>();
       element.m_Cues = cues?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Cues;
@@ -484,7 +484,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="location">
@@ -496,13 +496,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder MoveAzataIslandToLocation(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
+        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null,
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<MoveAzataIslandToLocation>();
       element.m_GlobalMap = globalMap?.Reference ?? element.m_GlobalMap;
@@ -539,12 +539,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder MoveAzataIslandToNearestCrossroad(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null)
+        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null)
     {
       var element = ElementTool.Create<MoveAzataIslandToNearestCrossroad>();
       element.m_GlobalMap = globalMap?.Reference ?? element.m_GlobalMap;
@@ -625,13 +625,13 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder PartyMembersDetach(
         this ActionsBuilder builder,
         ActionsBuilder? afterDetach = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? detachAllExcept = null,
+        List<Blueprint<BlueprintUnitReference>>? detachAllExcept = null,
         int? partySize = null,
         bool? restrictPartySize = null)
     {
@@ -776,12 +776,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RecruitInactive(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? companionBlueprint = null,
+        Blueprint<BlueprintUnitReference>? companionBlueprint = null,
         ActionsBuilder? onRecruit = null)
     {
       var element = ElementTool.Create<RecruitInactive>();
@@ -848,7 +848,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="objectiveToStart">
@@ -860,7 +860,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="quest">
@@ -872,14 +872,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ResetQuest(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>>? objectivesToReset = null,
-        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objectiveToStart = null,
-        Blueprint<BlueprintQuest, BlueprintQuestReference>? quest = null)
+        List<Blueprint<BlueprintQuestObjectiveReference>>? objectivesToReset = null,
+        Blueprint<BlueprintQuestObjectiveReference>? objectiveToStart = null,
+        Blueprint<BlueprintQuestReference>? quest = null)
     {
       var element = ElementTool.Create<ResetQuest>();
       element.m_ObjectivesToReset = objectivesToReset?.Select(bp => bp.Reference)?.ToArray() ?? element.m_ObjectivesToReset;
@@ -921,12 +921,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ResetQuestObjective(
         this ActionsBuilder builder,
-        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
+        Blueprint<BlueprintQuestObjectiveReference>? objective = null)
     {
       var element = ElementTool.Create<ResetQuestObjective>();
       element.m_Objective = objective?.Reference ?? element.m_Objective;
@@ -1037,12 +1037,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SetObjectiveStatus(
         this ActionsBuilder builder,
-        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null,
+        Blueprint<BlueprintQuestObjectiveReference>? objective = null,
         bool? startObjectiveIfNone = null,
         SummonPoolCountTrigger.ObjectiveStatus? status = null)
     {
@@ -1080,12 +1080,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SetPortrait(
         this ActionsBuilder builder,
-        Blueprint<BlueprintPortrait, BlueprintPortraitReference>? portrait = null,
+        Blueprint<BlueprintPortraitReference>? portrait = null,
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<SetPortrait>();
@@ -1320,7 +1320,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="dialogueOwner">
@@ -1336,7 +1336,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder StartDialog(
         this ActionsBuilder builder,
         BlueprintEvaluator? dialogEvaluator = null,
-        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialogue = null,
+        Blueprint<BlueprintDialogReference>? dialogue = null,
         UnitEvaluator? dialogueOwner = null,
         LocalizedString? speakerName = null)
     {
@@ -1381,12 +1381,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder StartEncounter(
         this ActionsBuilder builder,
-        Blueprint<BlueprintRandomEncounter, BlueprintRandomEncounterReference>? encounter = null)
+        Blueprint<BlueprintRandomEncounterReference>? encounter = null)
     {
       var element = ElementTool.Create<StartEncounter>();
       element.m_Encounter = encounter?.Reference ?? element.m_Encounter;
@@ -1420,12 +1420,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder StartEtude(
         this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
+        Blueprint<BlueprintEtudeReference>? etude = null,
         BlueprintEvaluator? etudeEvaluator = null,
         bool? evaluate = null)
     {
@@ -1462,12 +1462,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SwitchAzataIsland(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
+        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null,
         bool? isOn = null)
     {
       var element = ElementTool.Create<SwitchAzataIsland>();
@@ -1558,12 +1558,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SwitchFaction(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFaction, BlueprintFactionReference>? faction = null,
+        Blueprint<BlueprintFactionReference>? faction = null,
         bool? includeGroup = null,
         bool? resetAllRelations = null,
         UnitEvaluator? target = null)
@@ -1656,12 +1656,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SwitchToEnemy(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFaction, BlueprintFactionReference>? factionToAttack = null,
+        Blueprint<BlueprintFactionReference>? factionToAttack = null,
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<SwitchToEnemy>();
@@ -1702,7 +1702,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="target">
@@ -1712,7 +1712,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </param>
     public static ActionsBuilder SwitchToNeutral(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFaction, BlueprintFactionReference>? faction = null,
+        Blueprint<BlueprintFactionReference>? faction = null,
         bool? includeGroup = null,
         UnitEvaluator? target = null)
     {
@@ -1814,12 +1814,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UnlockCompanionStory(
         this ActionsBuilder builder,
-        Blueprint<BlueprintCompanionStory, BlueprintCompanionStoryReference>? story = null)
+        Blueprint<BlueprintCompanionStoryReference>? story = null)
     {
       var element = ElementTool.Create<UnlockCompanionStory>();
       element.m_Story = story?.Reference ?? element.m_Story;
@@ -1857,12 +1857,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UnlockFlag(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null,
+        Blueprint<BlueprintUnlockableFlagReference>? flag = null,
         int? flagValue = null)
     {
       var element = ElementTool.Create<UnlockFlag>();
@@ -1898,12 +1898,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UnmarkAnswersSelected(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintAnswer, BlueprintAnswerReference>>? answers = null)
+        List<Blueprint<BlueprintAnswerReference>>? answers = null)
     {
       var element = ElementTool.Create<UnmarkAnswersSelected>();
       element.m_Answers = answers?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Answers;
@@ -1941,12 +1941,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder Unrecruit(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? companionBlueprint = null,
+        Blueprint<BlueprintUnitReference>? companionBlueprint = null,
         ActionsBuilder? onUnrecruit = null)
     {
       var element = ElementTool.Create<Unrecruit>();
@@ -1984,12 +1984,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UpdateEtudeProgressBar(
         this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
+        Blueprint<BlueprintEtudeReference>? etude = null,
         IntEvaluator? progress = null)
     {
       var element = ElementTool.Create<UpdateEtudeProgressBar>();

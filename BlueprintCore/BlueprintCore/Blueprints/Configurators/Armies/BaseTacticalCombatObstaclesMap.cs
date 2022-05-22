@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     where T : BlueprintTacticalCombatObstaclesMap
     where TBuilder : BaseTacticalCombatObstaclesMapConfigurator<T, TBuilder>
   {
-    protected BaseTacticalCombatObstaclesMapConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTacticalCombatObstaclesMapConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatObstaclesMap.Obstacles"/>

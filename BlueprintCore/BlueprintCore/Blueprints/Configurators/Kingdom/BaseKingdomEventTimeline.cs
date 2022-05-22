@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintKingdomEventTimeline
     where TBuilder : BaseKingdomEventTimelineConfigurator<T, TBuilder>
   {
-    protected BaseKingdomEventTimelineConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseKingdomEventTimelineConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventTimeline.Entries"/>

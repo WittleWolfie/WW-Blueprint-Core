@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : HealthAroundConsideration
     where TBuilder : BaseHealthAroundConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseHealthAroundConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseHealthAroundConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="HealthAroundConsideration.RequiredMissingHealth"/>

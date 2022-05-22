@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
   public class BarkBanterConfigurator
     : BaseBarkBanterConfigurator<BlueprintBarkBanter, BarkBanterConfigurator>
   {
-    private BarkBanterConfigurator(Blueprint<BlueprintBarkBanter, BlueprintReference<BlueprintBarkBanter>> blueprint) : base(blueprint) { }
+    private BarkBanterConfigurator(Blueprint<BlueprintReference<BlueprintBarkBanter>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static BarkBanterConfigurator For(Blueprint<BlueprintBarkBanter, BlueprintReference<BlueprintBarkBanter>> blueprint)
+    public static BarkBanterConfigurator For(Blueprint<BlueprintReference<BlueprintBarkBanter>> blueprint)
     {
       return new BarkBanterConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static BarkBanterConfigurator New(string name, string guid)

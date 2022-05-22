@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   public class AiFollowConfigurator
     : BaseAiFollowConfigurator<BlueprintAiFollow, AiFollowConfigurator>
   {
-    private AiFollowConfigurator(Blueprint<BlueprintAiFollow, BlueprintReference<BlueprintAiFollow>> blueprint) : base(blueprint) { }
+    private AiFollowConfigurator(Blueprint<BlueprintReference<BlueprintAiFollow>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static AiFollowConfigurator For(Blueprint<BlueprintAiFollow, BlueprintReference<BlueprintAiFollow>> blueprint)
+    public static AiFollowConfigurator For(Blueprint<BlueprintReference<BlueprintAiFollow>> blueprint)
     {
       return new AiFollowConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static AiFollowConfigurator New(string name, string guid)

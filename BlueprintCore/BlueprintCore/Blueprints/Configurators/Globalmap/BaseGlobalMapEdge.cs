@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     where T : BlueprintGlobalMapEdge
     where TBuilder : BaseGlobalMapEdgeConfigurator<T, TBuilder>
   {
-    protected BaseGlobalMapEdgeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseGlobalMapEdgeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapEdge.Type"/>
@@ -81,10 +81,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPoint1(Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> point1)
+    public TBuilder SetPoint1(Blueprint<BlueprintGlobalMapPoint.Reference> point1)
     {
       return OnConfigureInternal(
         bp =>
@@ -119,10 +119,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPoint2(Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> point2)
+    public TBuilder SetPoint2(Blueprint<BlueprintGlobalMapPoint.Reference> point2)
     {
       return OnConfigureInternal(
         bp =>

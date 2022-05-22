@@ -21,7 +21,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     where T : Cutscene
     where TBuilder : BaseCutsceneConfigurator<T, TBuilder>
   {
-    protected BaseCutsceneConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCutsceneConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="Cutscene.Priority"/>

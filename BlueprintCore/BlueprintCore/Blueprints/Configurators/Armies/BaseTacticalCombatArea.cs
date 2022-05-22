@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     where T : BlueprintTacticalCombatArea
     where TBuilder : BaseTacticalCombatAreaConfigurator<T, TBuilder>
   {
-    protected BaseTacticalCombatAreaConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTacticalCombatAreaConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatArea.m_GridCenter"/>

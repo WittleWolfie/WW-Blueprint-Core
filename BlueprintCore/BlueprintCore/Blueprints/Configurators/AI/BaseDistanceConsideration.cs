@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : DistanceConsideration
     where TBuilder : BaseDistanceConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseDistanceConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseDistanceConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="DistanceConsideration.MinDistance"/>

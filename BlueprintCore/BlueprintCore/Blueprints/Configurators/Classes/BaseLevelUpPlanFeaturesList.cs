@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where T : BlueprintLevelUpPlanFeaturesList
     where TBuilder : BaseLevelUpPlanFeaturesListConfigurator<T, TBuilder>
   {
-    protected BaseLevelUpPlanFeaturesListConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLevelUpPlanFeaturesListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintLevelUpPlanFeaturesList.Features"/>

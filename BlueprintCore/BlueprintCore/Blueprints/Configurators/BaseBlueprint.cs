@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintScriptableObject
     where TBuilder : BaseBlueprintConfigurator<T, TBuilder>
   {
-    protected BaseBlueprintConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseBlueprintConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Adds <see cref="DlcCondition"/>
@@ -73,11 +73,11 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddDlcCondition(
-        Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>? dlcReward = null,
+        Blueprint<BlueprintDlcRewardReference>? dlcReward = null,
         bool? hideInstead = null)
     {
       var component = new DlcCondition();
@@ -112,11 +112,11 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddBuffOnCorruptionClear(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         int? targetBuffRank = null)
     {
       var component = new AddBuffOnCorruptionClear();
@@ -230,7 +230,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddInitiatorAttackWithWeaponTrigger(
@@ -264,7 +264,7 @@ namespace BlueprintCore.Blueprints.Configurators
         WeaponRangeType? rangeType = null,
         bool? reduceHPToZero = null,
         bool? waitForAttackResolve = null,
-        Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? weaponType = null)
+        Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new AddInitiatorAttackWithWeaponTrigger();
       component.Action = action?.Build() ?? component.Action;
@@ -464,7 +464,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AdditionalDiceOnAttack(
@@ -499,7 +499,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? reduceHPToZero = null,
         ConditionsBuilder? targetConditions = null,
         ContextDiceValue? value = null,
-        Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? weaponType = null)
+        Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new AdditionalDiceOnAttack();
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed ?? component.AllNaturalAndUnarmed;
@@ -735,7 +735,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="demonArmies">
@@ -747,7 +747,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -758,8 +758,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddArmyBattleResultsTrigger(
         RegionId? assignedRegion = null,
-        Blueprint<BlueprintArmyLeader, BlueprintArmyLeaderReference>? crusadeLeader = null,
-        List<Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference>>? demonArmies = null,
+        Blueprint<BlueprintArmyLeaderReference>? crusadeLeader = null,
+        List<Blueprint<BlueprintArmyPresetReference>>? demonArmies = null,
         ArmyType? demonsArmyType = null,
         bool? demonsFromList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -824,14 +824,14 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddKingdomRegionClaimedTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        List<Blueprint<BlueprintRegion, BlueprintRegionReference>>? regions = null)
+        List<Blueprint<BlueprintRegionReference>>? regions = null)
     {
       var component = new KingdomRegionClaimedTrigger();
       component.m_Actions = actions?.Build() ?? component.m_Actions;
@@ -886,7 +886,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSettlementSiegeTrigger(
@@ -895,7 +895,7 @@ namespace BlueprintCore.Blueprints.Configurators
         ActionsBuilder? onSettlementDestroyed = null,
         ActionsBuilder? onSiegeEnd = null,
         ActionsBuilder? onSiegeStart = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>? settlementLocation = null,
+        Blueprint<BlueprintGlobalMapPointReference>? settlementLocation = null,
         bool? specificLocation = null)
     {
       var component = new SettlementSiegeTrigger();
@@ -944,13 +944,13 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddArmyUnitRecruitedTrigger(
         ActionsBuilder? action = null,
         ArmyProperties? armyTag = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? armyUnits = null,
+        List<Blueprint<BlueprintUnitReference>>? armyUnits = null,
         bool? byTag = null,
         bool? byUnits = null,
         MercenariesIncludeOption? mercenariesFilter = null,
@@ -1050,7 +1050,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1061,7 +1061,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddGarrisonDefeatedTrigger(
         ActionsBuilder? actions = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -1102,7 +1102,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1113,7 +1113,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddPlayerVisitGlobalMapLocationTrigger(
         ActionsBuilder? actions = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -1598,7 +1598,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1618,7 +1618,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </para>
     /// </param>
     public TBuilder AddItemInContainerTrigger(
-        Blueprint<BlueprintItem, BlueprintItemReference>? itemToCheck = null,
+        Blueprint<BlueprintItemReference>? itemToCheck = null,
         MapObjectEvaluator? mapObject = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -1718,7 +1718,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1728,7 +1728,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPartyInventoryTrigger(
-        Blueprint<BlueprintItem, BlueprintItemReference>? item = null,
+        Blueprint<BlueprintItemReference>? item = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onAddActions = null,
@@ -1920,14 +1920,14 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpawnUnitTrigger(
         ActionsBuilder? actions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? targetUnit = null)
+        Blueprint<BlueprintUnitReference>? targetUnit = null)
     {
       var component = new SpawnUnitTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -1972,7 +1972,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpellCastTrigger(
@@ -1980,7 +1980,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         EntityReference? scriptZone = null,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
+        List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new SpellCastTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -2031,7 +2031,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSummonPoolTrigger(
@@ -2041,7 +2041,7 @@ namespace BlueprintCore.Blueprints.Configurators
         int? count = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null)
     {
       var component = new SummonPoolTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -2153,7 +2153,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddUnitHealthTrigger(
@@ -2161,7 +2161,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? percentage = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var component = new UnitHealthTrigger();
       component.Actions = actions?.Build() ?? component.Actions;

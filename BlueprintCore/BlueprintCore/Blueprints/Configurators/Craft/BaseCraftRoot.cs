@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     where T : CraftRoot
     where TBuilder : BaseCraftRootConfigurator<T, TBuilder>
   {
-    protected BaseCraftRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCraftRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="CraftRoot.m_CraftCostMultiplyer"/>
@@ -284,10 +284,10 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPotionsItems(params Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>[] potionsItems)
+    public TBuilder SetPotionsItems(params Blueprint<BlueprintItemEquipmentUsableReference>[] potionsItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -309,10 +309,10 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToPotionsItems(params Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>[] potionsItems)
+    public TBuilder AddToPotionsItems(params Blueprint<BlueprintItemEquipmentUsableReference>[] potionsItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -335,10 +335,10 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromPotionsItems(params Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>[] potionsItems)
+    public TBuilder RemoveFromPotionsItems(params Blueprint<BlueprintItemEquipmentUsableReference>[] potionsItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -399,10 +399,10 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetScrollsItems(params Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>[] scrollsItems)
+    public TBuilder SetScrollsItems(params Blueprint<BlueprintItemEquipmentUsableReference>[] scrollsItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -424,10 +424,10 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToScrollsItems(params Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>[] scrollsItems)
+    public TBuilder AddToScrollsItems(params Blueprint<BlueprintItemEquipmentUsableReference>[] scrollsItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -450,10 +450,10 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromScrollsItems(params Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>[] scrollsItems)
+    public TBuilder RemoveFromScrollsItems(params Blueprint<BlueprintItemEquipmentUsableReference>[] scrollsItems)
     {
       return OnConfigureInternal(
         bp =>

@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     where T : TrashLootSettings
     where TBuilder : BaseTrashLootSettingsConfigurator<T, TBuilder>
   {
-    protected BaseTrashLootSettingsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTrashLootSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="TrashLootSettings.CRToCost"/>

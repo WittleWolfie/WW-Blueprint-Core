@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where T : BlueprintDialog
     where TBuilder : BaseDialogConfigurator<T, TBuilder>
   {
-    protected BaseDialogConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseDialogConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintDialog.FirstCue"/>

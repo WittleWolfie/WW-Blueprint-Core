@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : SwarmTargetsConsideration
     where TBuilder : BaseSwarmTargetsConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseSwarmTargetsConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSwarmTargetsConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="SwarmTargetsConsideration.HasEnemiesScore"/>

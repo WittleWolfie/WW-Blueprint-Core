@@ -50,12 +50,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AchievementUnlock(
         this ActionsBuilder builder,
-        Blueprint<AchievementData, AchievementDataReference> achievement)
+        Blueprint<AchievementDataReference> achievement)
     {
       var element = ElementTool.Create<ActionAchievementUnlock>();
       element.m_Achievement = achievement?.Reference;
@@ -83,7 +83,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="items">
@@ -95,7 +95,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="playerFeatures">
@@ -107,15 +107,15 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddPremiumReward(
         this ActionsBuilder builder,
         ActionsBuilder? additionalActions = null,
-        Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>? dlcReward = null,
-        List<Blueprint<BlueprintItem, BlueprintItemReference>>? items = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? playerFeatures = null)
+        Blueprint<BlueprintDlcRewardReference>? dlcReward = null,
+        List<Blueprint<BlueprintItemReference>>? items = null,
+        List<Blueprint<BlueprintFeatureReference>>? playerFeatures = null)
     {
       var element = ElementTool.Create<AddPremiumReward>();
       element.AdditionalActions = additionalActions?.Build() ?? element.AdditionalActions;
@@ -164,13 +164,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddVendorItemsAction(
         this ActionsBuilder builder,
         VendorEvaluator? vendorEvaluator = null,
-        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? vendorTable = null)
+        Blueprint<BlueprintUnitLootReference>? vendorTable = null)
     {
       var element = ElementTool.Create<AddVendorItemsAction>();
       builder.Validate(vendorEvaluator);
@@ -205,12 +205,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ClearVendorTable(
         this ActionsBuilder builder,
-        Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>? table = null)
+        Blueprint<BlueprintSharedVendorTableReference>? table = null)
     {
       var element = ElementTool.Create<ClearVendorTable>();
       element.m_Table = table?.Reference ?? element.m_Table;
@@ -331,7 +331,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="letPlayerChooseSave">
@@ -342,7 +342,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     public static ActionsBuilder ImportSave(
         this ActionsBuilder builder,
         bool? autoImportIfOnlyOneSave = null,
-        Blueprint<BlueprintCampaign, BlueprintCampaignReference>? campaign = null,
+        Blueprint<BlueprintCampaignReference>? campaign = null,
         bool? letPlayerChooseSave = null)
     {
       var element = ElementTool.Create<ImportSave>();
@@ -401,12 +401,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder MakeItemNonRemovable(
         this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference>? item = null,
+        Blueprint<BlueprintItemReference>? item = null,
         bool? nonRemovable = null)
     {
       var element = ElementTool.Create<MakeItemNonRemovable>();
@@ -530,12 +530,12 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveItemFromPlayer(
         this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference>? itemToRemove = null,
+        Blueprint<BlueprintItemReference>? itemToRemove = null,
         bool? money = null,
         float? percentage = null,
         int? quantity = null,
@@ -613,13 +613,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SellCollectibleItems(
         this ActionsBuilder builder,
         bool? halfPrice = null,
-        Blueprint<BlueprintItem, BlueprintItemReference>? itemToSell = null)
+        Blueprint<BlueprintItemReference>? itemToSell = null)
     {
       var element = ElementTool.Create<SellCollectibleItems>();
       element.HalfPrice = halfPrice ?? element.HalfPrice;
@@ -684,13 +684,13 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ShowNewTutorial(
         this ActionsBuilder builder,
         TutorialContextDataEvaluator[]? evaluators = null,
-        Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>? tutorial = null)
+        Blueprint<BlueprintTutorial.Reference>? tutorial = null)
     {
       var element = ElementTool.Create<ShowNewTutorial>();
       foreach (var item in evaluators) { builder.Validate(item); }
@@ -832,14 +832,14 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UnequipItem(
         this ActionsBuilder builder,
         bool? all = null,
         ItemsCollectionEvaluator? destinationContainer = null,
-        Blueprint<BlueprintItem, BlueprintItemReference>? item = null,
+        Blueprint<BlueprintItemReference>? item = null,
         bool? silent = null,
         UnitEvaluator? unit = null)
     {

@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     where T : BlueprintActivatableAbility
     where TBuilder : BaseActivatableAbilityConfigurator<T, TBuilder>
   {
-    protected BaseActivatableAbilityConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseActivatableAbilityConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.m_Buff"/>
@@ -48,10 +48,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBuff(Blueprint<BlueprintBuff, BlueprintBuffReference> buff)
+    public TBuilder SetBuff(Blueprint<BlueprintBuffReference> buff)
     {
       return OnConfigureInternal(
         bp =>
@@ -422,10 +422,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSelectTargetAbility(Blueprint<BlueprintAbility, BlueprintAbilityReference> selectTargetAbility)
+    public TBuilder SetSelectTargetAbility(Blueprint<BlueprintAbilityReference> selectTargetAbility)
     {
       return OnConfigureInternal(
         bp =>
@@ -637,7 +637,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="requiredResource">
@@ -649,13 +649,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddActivatableAbilityResourceLogic(
         WeaponCategory[]? categories = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? freeBlueprint = null,
-        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? requiredResource = null,
+        Blueprint<BlueprintUnitFactReference>? freeBlueprint = null,
+        Blueprint<BlueprintAbilityResourceReference>? requiredResource = null,
         ActivatableAbilityResourceLogic.ResourceSpendType? spendType = null)
     {
       var component = new ActivatableAbilityResourceLogic();
@@ -757,11 +757,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddRestrictionHasFact(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? feature = null,
+        Blueprint<BlueprintUnitFactReference>? feature = null,
         bool? ignoreIfStarted = null,
         bool? not = null)
     {
@@ -840,7 +840,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="chosenWeaponBlueprint">
@@ -852,12 +852,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddRestrictionKensaiWeapon(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
         bool? ignoreIfStarted = null)
     {
       var component = new RestrictionKensaiWeapon();
@@ -925,7 +925,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -935,7 +935,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddRestrictionUnitConditionUnlessFact(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
+        Blueprint<BlueprintUnitFactReference>? checkedFact = null,
         UnitCondition? condition = null,
         bool? ignoreIfStarted = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -978,13 +978,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddRestrictionUnlockableFlag(
         bool? ignoreIfStarted = null,
         bool? invert = null,
-        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? neededFlag = null)
+        Blueprint<BlueprintUnlockableFlagReference>? neededFlag = null)
     {
       var component = new RestrictionUnlockableFlag();
       component.IgnoreIfStarted = ignoreIfStarted ?? component.IgnoreIfStarted;

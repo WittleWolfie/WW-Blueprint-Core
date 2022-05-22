@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     where T : BlueprintTacticalCombatRoot
     where TBuilder : BaseTacticalCombatRootConfigurator<T, TBuilder>
   {
-    protected BaseTacticalCombatRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTacticalCombatRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_ProbabilitySampler"/>
@@ -66,10 +66,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCrusadersFaction(Blueprint<BlueprintFaction, BlueprintFactionReference> crusadersFaction)
+    public TBuilder SetCrusadersFaction(Blueprint<BlueprintFactionReference> crusadersFaction)
     {
       return OnConfigureInternal(
         bp =>
@@ -104,10 +104,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDemonsFaction(Blueprint<BlueprintFaction, BlueprintFactionReference> demonsFaction)
+    public TBuilder SetDemonsFaction(Blueprint<BlueprintFactionReference> demonsFaction)
     {
       return OnConfigureInternal(
         bp =>
@@ -142,10 +142,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDefaultBrain(Blueprint<BlueprintTacticalCombatBrain, BlueprintTacticalCombatBrain.Reference> defaultBrain)
+    public TBuilder SetDefaultBrain(Blueprint<BlueprintTacticalCombatBrain.Reference> defaultBrain)
     {
       return OnConfigureInternal(
         bp =>
@@ -180,10 +180,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDefaultLeaderBrain(Blueprint<BlueprintTacticalCombatBrain, BlueprintTacticalCombatBrain.Reference> defaultLeaderBrain)
+    public TBuilder SetDefaultLeaderBrain(Blueprint<BlueprintTacticalCombatBrain.Reference> defaultLeaderBrain)
     {
       return OnConfigureInternal(
         bp =>
@@ -645,10 +645,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBannedUnitFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] bannedUnitFacts)
+    public TBuilder SetBannedUnitFacts(params Blueprint<BlueprintUnitFactReference>[] bannedUnitFacts)
     {
       return OnConfigureInternal(
         bp =>
@@ -670,10 +670,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToBannedUnitFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] bannedUnitFacts)
+    public TBuilder AddToBannedUnitFacts(params Blueprint<BlueprintUnitFactReference>[] bannedUnitFacts)
     {
       return OnConfigureInternal(
         bp =>
@@ -696,10 +696,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromBannedUnitFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] bannedUnitFacts)
+    public TBuilder RemoveFromBannedUnitFacts(params Blueprint<BlueprintUnitFactReference>[] bannedUnitFacts)
     {
       return OnConfigureInternal(
         bp =>
@@ -861,10 +861,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLeaderManaResource(Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference> leaderManaResource)
+    public TBuilder SetLeaderManaResource(Blueprint<BlueprintAbilityResourceReference> leaderManaResource)
     {
       return OnConfigureInternal(
         bp =>
@@ -899,10 +899,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetWinnerCutscene(Blueprint<Cutscene, CutsceneReference> winnerCutscene)
+    public TBuilder SetWinnerCutscene(Blueprint<CutsceneReference> winnerCutscene)
     {
       return OnConfigureInternal(
         bp =>

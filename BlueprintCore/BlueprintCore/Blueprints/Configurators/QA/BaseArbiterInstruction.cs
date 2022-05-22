@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     where T : BlueprintArbiterInstruction
     where TBuilder : BaseArbiterInstructionConfigurator<T, TBuilder>
   {
-    protected BaseArbiterInstructionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArbiterInstructionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Adds <see cref="AreaCheckerComponent"/>
@@ -48,7 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -66,16 +66,16 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAreaCheckerComponent(
-        Blueprint<BlueprintArea, BlueprintAreaReference>? area = null,
+        Blueprint<BlueprintAreaReference>? area = null,
         ArbiterElementList? areaParts = null,
         bool? makeMapScreenshot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintAreaPreset, BlueprintAreaPresetReference>? overrideAreaPreset = null,
+        Blueprint<BlueprintAreaPresetReference>? overrideAreaPreset = null,
         bool? overrideTimeOfDay = null,
         TimeOfDay? timeOfDay = null)
     {

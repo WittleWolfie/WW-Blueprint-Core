@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     where T : BlueprintUnitAsksList
     where TBuilder : BaseUnitAsksListConfigurator<T, TBuilder>
   {
-    protected BaseUnitAsksListConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUnitAsksListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitAsksList.DisplayName"/>

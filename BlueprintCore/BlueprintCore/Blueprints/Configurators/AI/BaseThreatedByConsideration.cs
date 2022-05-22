@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : ThreatedByConsideration
     where TBuilder : BaseThreatedByConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseThreatedByConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseThreatedByConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="ThreatedByConsideration.MinCount"/>

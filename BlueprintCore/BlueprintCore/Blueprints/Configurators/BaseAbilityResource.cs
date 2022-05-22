@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintAbilityResource
     where TBuilder : BaseAbilityResourceConfigurator<T, TBuilder>
   {
-    protected BaseAbilityResourceConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAbilityResourceConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityResource.LocalizedName"/>

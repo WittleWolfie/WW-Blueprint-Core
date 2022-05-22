@@ -167,17 +167,21 @@ namespace BlueprintCore.Utils
     /// 
     /// <param name="nameOrGuid">Use Name if you have registered it using <see cref="AddGuidsByName"/> or Guid otherwise.</param>
     /// <returns>A blueprint reference of type T. If nameOrGuid it returns a non-null, empty reference.</returns>
-    public static TRef GetRef<TRef>(string? nameOrGuid)
-        where TRef : BlueprintReferenceBase, new()
+    public static TRef GetRef<TRef>(string? nameOrGuid) where TRef : BlueprintReferenceBase
     {
-      if (string.IsNullOrEmpty(nameOrGuid)) { return BlueprintReferenceBase.CreateTyped<TRef>(null); }
+      if (string.IsNullOrEmpty(nameOrGuid)) { return GetRef<TRef>(BlueprintGuid.Empty); }
 
       if (!GuidsByName.TryGetValue(nameOrGuid!, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid!.ToLower()); }
 
+      return GetRef<TRef>(new BlueprintGuid(assetId));
+    }
+
+    internal static TRef GetRef<TRef>(BlueprintGuid guid) where TRef : BlueprintReferenceBase
+    {
       // Copied from BlueprintReferenceBase to allow creating a reference w/o fetching a blueprint.This allows
       // referencing a blueprint before it is added to the cache.
       var reference = Activator.CreateInstance<TRef>();
-      reference.deserializedGuid = new BlueprintGuid(assetId);
+      reference.deserializedGuid = guid;
       return reference;
     }
   }
@@ -241,11 +245,8 @@ namespace BlueprintCore.Utils
   /// Provides implicit constructors mapping different types to a blueprint. This is used in the library to provide
   /// flexibility when passing in blueprint as method parameters.
   /// </remarks>
-  public class Blueprint<T, TRef>
-    where T : SimpleBlueprint
-    where TRef : BlueprintReference<T>, new()
+  public class Blueprint<TRef> where TRef : BlueprintReferenceBase
   {
-    public T Instance => Reference.Get();
     public readonly TRef Reference;
 
     private Blueprint(TRef blueprintReference)
@@ -253,29 +254,29 @@ namespace BlueprintCore.Utils
       Reference = blueprintReference;
     }
 
-    public static implicit operator Blueprint<T, TRef>(T blueprint)
+    public static implicit operator Blueprint<TRef>(SimpleBlueprint blueprint)
     {
-      return new Blueprint<T, TRef>(blueprint.ToReference<TRef>());
+      return new Blueprint<TRef>(BlueprintTool.GetRef<TRef>(blueprint.AssetGuid));
     }
 
-    public static implicit operator Blueprint<T, TRef>(TRef blueprintReference)
+    public static implicit operator Blueprint<TRef>(TRef blueprintReference)
     {
-      return new Blueprint<T, TRef>(blueprintReference);
+      return new Blueprint<TRef>(blueprintReference);
     }
 
-    public static implicit operator Blueprint<T, TRef>(string nameOrGuid)
+    public static implicit operator Blueprint<TRef>(string nameOrGuid)
     {
-      return new Blueprint<T, TRef>(BlueprintTool.GetRef<TRef>(nameOrGuid));
+      return new Blueprint<TRef>(BlueprintTool.GetRef<TRef>(nameOrGuid));
     }
 
-    public static implicit operator Blueprint<T, TRef>(Guid guid)
+    public static implicit operator Blueprint<TRef>(Guid guid)
     {
-      return new Blueprint<T, TRef>(BlueprintTool.GetRef<TRef>(guid.ToString()));
+      return new Blueprint<TRef>(BlueprintTool.GetRef<TRef>(guid.ToString()));
     }
 
-    public static implicit operator Blueprint<T, TRef>(BlueprintGuid guid)
+    public static implicit operator Blueprint<TRef>(BlueprintGuid guid)
     {
-      return new Blueprint<T, TRef>(BlueprintTool.GetRef<TRef>(guid.ToString()));
+      return new Blueprint<TRef>(BlueprintTool.GetRef<TRef>(guid.ToString()));
     }
   }
 }

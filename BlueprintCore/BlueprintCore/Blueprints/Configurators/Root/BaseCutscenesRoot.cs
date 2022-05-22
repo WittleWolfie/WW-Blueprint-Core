@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     where T : CutscenesRoot
     where TBuilder : BaseCutscenesRootConfigurator<T, TBuilder>
   {
-    protected BaseCutscenesRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCutscenesRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="CutscenesRoot.m_FadeScreenOnSkip"/>

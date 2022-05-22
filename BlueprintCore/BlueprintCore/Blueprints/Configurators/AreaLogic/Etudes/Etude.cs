@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
   public class EtudeConfigurator
     : BaseEtudeConfigurator<BlueprintEtude, EtudeConfigurator>
   {
-    private EtudeConfigurator(Blueprint<BlueprintEtude, BlueprintReference<BlueprintEtude>> blueprint) : base(blueprint) { }
+    private EtudeConfigurator(Blueprint<BlueprintReference<BlueprintEtude>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static EtudeConfigurator For(Blueprint<BlueprintEtude, BlueprintReference<BlueprintEtude>> blueprint)
+    public static EtudeConfigurator For(Blueprint<BlueprintReference<BlueprintEtude>> blueprint)
     {
       return new EtudeConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static EtudeConfigurator New(string name, string guid)

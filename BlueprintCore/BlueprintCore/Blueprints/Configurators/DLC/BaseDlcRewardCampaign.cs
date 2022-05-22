@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     where T : BlueprintDlcRewardCampaign
     where TBuilder : BaseDlcRewardCampaignConfigurator<T, TBuilder>
   {
-    protected BaseDlcRewardCampaignConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseDlcRewardCampaignConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcRewardCampaign.ScreenshotForImportSave"/>
@@ -59,10 +59,10 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCampaign(Blueprint<BlueprintCampaign, BlueprintCampaignReference> campaign)
+    public TBuilder SetCampaign(Blueprint<BlueprintCampaignReference> campaign)
     {
       return OnConfigureInternal(
         bp =>

@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     where T : BlueprintDungeonLocalizedStrings
     where TBuilder : BaseDungeonLocalizedStringsConfigurator<T, TBuilder>
   {
-    protected BaseDungeonLocalizedStringsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseDungeonLocalizedStringsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLocalizedStrings.StageNameParameterized"/>

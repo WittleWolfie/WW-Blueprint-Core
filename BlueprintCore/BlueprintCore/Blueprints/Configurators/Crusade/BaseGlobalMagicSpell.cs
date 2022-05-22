@@ -21,7 +21,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     where T : BlueprintGlobalMagicSpell
     where TBuilder : BaseGlobalMagicSpellConfigurator<T, TBuilder>
   {
-    protected BaseGlobalMagicSpellConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseGlobalMagicSpellConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMagicSpell.m_SpellName"/>

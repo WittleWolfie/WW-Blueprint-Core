@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintKingdomProject
     where TBuilder : BaseKingdomProjectConfigurator<T, TBuilder>
   {
-    protected BaseKingdomProjectConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseKingdomProjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomProject.ProjectType"/>
@@ -274,12 +274,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEventItemCost(
         int? amount = null,
-        List<Blueprint<BlueprintItem, BlueprintItemReference>>? items = null)
+        List<Blueprint<BlueprintItemReference>>? items = null)
     {
       var component = new EventItemCost();
       component.Amount = amount ?? component.Amount;
@@ -313,11 +313,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddFinishObjectiveOnTrigger(
-        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? objective = null)
+        Blueprint<BlueprintQuestObjectiveReference>? objective = null)
     {
       var component = new FinishObjectiveOnTrigger();
       component.m_Objective = objective?.Reference ?? component.m_Objective;

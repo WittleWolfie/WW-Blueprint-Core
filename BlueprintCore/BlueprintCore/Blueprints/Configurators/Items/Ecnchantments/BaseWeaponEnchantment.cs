@@ -36,7 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     where T : BlueprintWeaponEnchantment
     where TBuilder : BaseWeaponEnchantmentConfigurator<T, TBuilder>
   {
-    protected BaseWeaponEnchantmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseWeaponEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/>
@@ -308,7 +308,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="not">
@@ -317,7 +317,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </para>
     /// </param>
     public TBuilder AddIgnoreConcealmentAgainstFactOwner(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         bool? not = null)
     {
       var component = new IgnoreConcealmentAgainstFactOwner();
@@ -426,11 +426,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddMissAgainstFactOwner(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null)
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null)
     {
       var component = new MissAgainstFactOwner();
       component.m_Facts = facts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Facts;
@@ -487,13 +487,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddWeaponAngelDamageDice(
         DamageEnergyType? element = null,
         DiceFormula? energyDamageDice = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? maximizeFeature = null)
+        Blueprint<BlueprintUnitFactReference>? maximizeFeature = null)
     {
       var component = new WeaponAngelDamageDice();
       component.Element = element ?? component.Element;
@@ -531,11 +531,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddWeaponBuffOnAttack(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         Rounds? duration = null,
         PrefabLink? fx = null)
     {
@@ -579,11 +579,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddWeaponBuffOnConfirmedCrit(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         Rounds? duration = null,
         PrefabLink? fx = null,
         bool? onlyNatural20 = null)
@@ -761,11 +761,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddWeaponDebuffOnAttack(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         int? dC = null,
         Rounds? duration = null,
         PrefabLink? fx = null,

@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where T : BlueprintClassAdditionalVisualSettingsProgression
     where TBuilder : BaseClassAdditionalVisualSettingsProgressionConfigurator<T, TBuilder>
   {
-    protected BaseClassAdditionalVisualSettingsProgressionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseClassAdditionalVisualSettingsProgressionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/>

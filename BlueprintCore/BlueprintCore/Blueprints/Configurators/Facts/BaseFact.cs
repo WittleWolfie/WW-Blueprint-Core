@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     where T : BlueprintFact
     where TBuilder : BaseFactConfigurator<T, TBuilder>
   {
-    protected BaseFactConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseFactConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Adds <see cref="ComponentsList"/>
@@ -45,7 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -55,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddComponentsList(
-        Blueprint<BlueprintComponentList, BlueprintComponentListReference>? list = null,
+        Blueprint<BlueprintComponentListReference>? list = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {

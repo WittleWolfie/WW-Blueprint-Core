@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : UnitsAroundConsideration
     where TBuilder : BaseUnitsAroundConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseUnitsAroundConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUnitsAroundConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.m_SqrCustomRadius"/>

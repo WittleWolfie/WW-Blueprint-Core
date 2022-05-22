@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   public class DlcConfigurator
     : BaseDlcConfigurator<BlueprintDlc, DlcConfigurator>
   {
-    private DlcConfigurator(Blueprint<BlueprintDlc, BlueprintReference<BlueprintDlc>> blueprint) : base(blueprint) { }
+    private DlcConfigurator(Blueprint<BlueprintReference<BlueprintDlc>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static DlcConfigurator For(Blueprint<BlueprintDlc, BlueprintReference<BlueprintDlc>> blueprint)
+    public static DlcConfigurator For(Blueprint<BlueprintReference<BlueprintDlc>> blueprint)
     {
       return new DlcConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static DlcConfigurator New(string name, string guid)

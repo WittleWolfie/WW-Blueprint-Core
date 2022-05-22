@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     where T : BlueprintSpawnableObject
     where TBuilder : BaseSpawnableObjectConfigurator<T, TBuilder>
   {
-    protected BaseSpawnableObjectConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSpawnableObjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpawnableObject.Prefab"/>

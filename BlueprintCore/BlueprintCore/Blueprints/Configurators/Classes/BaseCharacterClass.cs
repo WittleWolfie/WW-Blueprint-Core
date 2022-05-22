@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where T : BlueprintCharacterClass
     where TBuilder : BaseCharacterClassConfigurator<T, TBuilder>
   {
-    protected BaseCharacterClassConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCharacterClassConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.LocalizedName"/>
@@ -317,10 +317,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBaseAttackBonus(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> baseAttackBonus)
+    public TBuilder SetBaseAttackBonus(Blueprint<BlueprintStatProgressionReference> baseAttackBonus)
     {
       return OnConfigureInternal(
         bp =>
@@ -355,10 +355,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFortitudeSave(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> fortitudeSave)
+    public TBuilder SetFortitudeSave(Blueprint<BlueprintStatProgressionReference> fortitudeSave)
     {
       return OnConfigureInternal(
         bp =>
@@ -393,10 +393,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetReflexSave(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> reflexSave)
+    public TBuilder SetReflexSave(Blueprint<BlueprintStatProgressionReference> reflexSave)
     {
       return OnConfigureInternal(
         bp =>
@@ -431,10 +431,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetWillSave(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> willSave)
+    public TBuilder SetWillSave(Blueprint<BlueprintStatProgressionReference> willSave)
     {
       return OnConfigureInternal(
         bp =>
@@ -469,10 +469,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetProgression(Blueprint<BlueprintProgression, BlueprintProgressionReference> progression)
+    public TBuilder SetProgression(Blueprint<BlueprintProgressionReference> progression)
     {
       return OnConfigureInternal(
         bp =>
@@ -507,10 +507,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSpellbook(Blueprint<BlueprintSpellbook, BlueprintSpellbookReference> spellbook)
+    public TBuilder SetSpellbook(Blueprint<BlueprintSpellbookReference> spellbook)
     {
       return OnConfigureInternal(
         bp =>
@@ -681,10 +681,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetArchetypes(params Blueprint<BlueprintArchetype, BlueprintArchetypeReference>[] archetypes)
+    public TBuilder SetArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -706,10 +706,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToArchetypes(params Blueprint<BlueprintArchetype, BlueprintArchetypeReference>[] archetypes)
+    public TBuilder AddToArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -732,10 +732,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromArchetypes(params Blueprint<BlueprintArchetype, BlueprintArchetypeReference>[] archetypes)
+    public TBuilder RemoveFromArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -820,10 +820,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartingItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingItems)
+    public TBuilder SetStartingItems(params Blueprint<BlueprintItemReference>[] startingItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -845,10 +845,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToStartingItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingItems)
+    public TBuilder AddToStartingItems(params Blueprint<BlueprintItemReference>[] startingItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -871,10 +871,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromStartingItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingItems)
+    public TBuilder RemoveFromStartingItems(params Blueprint<BlueprintItemReference>[] startingItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -983,10 +983,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEquipmentEntities(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntities)
+    public TBuilder SetEquipmentEntities(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
@@ -1008,10 +1008,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToEquipmentEntities(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntities)
+    public TBuilder AddToEquipmentEntities(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
@@ -1034,10 +1034,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromEquipmentEntities(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntities)
+    public TBuilder RemoveFromEquipmentEntities(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
@@ -1428,10 +1428,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSignatureAbilities(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] signatureAbilities)
+    public TBuilder SetSignatureAbilities(params Blueprint<BlueprintFeatureReference>[] signatureAbilities)
     {
       return OnConfigureInternal(
         bp =>
@@ -1453,10 +1453,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToSignatureAbilities(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] signatureAbilities)
+    public TBuilder AddToSignatureAbilities(params Blueprint<BlueprintFeatureReference>[] signatureAbilities)
     {
       return OnConfigureInternal(
         bp =>
@@ -1479,10 +1479,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromSignatureAbilities(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] signatureAbilities)
+    public TBuilder RemoveFromSignatureAbilities(params Blueprint<BlueprintFeatureReference>[] signatureAbilities)
     {
       return OnConfigureInternal(
         bp =>
@@ -1543,10 +1543,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDefaultBuild(Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> defaultBuild)
+    public TBuilder SetDefaultBuild(Blueprint<BlueprintUnitFactReference> defaultBuild)
     {
       return OnConfigureInternal(
         bp =>
@@ -1581,10 +1581,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAdditionalVisualSettings(Blueprint<BlueprintClassAdditionalVisualSettingsProgression, BlueprintClassAdditionalVisualSettingsProgression.Reference> additionalVisualSettings)
+    public TBuilder SetAdditionalVisualSettings(Blueprint<BlueprintClassAdditionalVisualSettingsProgression.Reference> additionalVisualSettings)
     {
       return OnConfigureInternal(
         bp =>
@@ -1680,7 +1680,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="characterClass">
@@ -1692,7 +1692,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1702,8 +1702,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteArchetypeLevel(
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference> archetype,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
+        Blueprint<BlueprintArchetypeReference> archetype,
+        Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -1841,7 +1841,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1851,7 +1851,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteClassLevel(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
+        Blueprint<BlueprintCharacterClassReference> characterClass,
         int level,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
@@ -1893,11 +1893,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddPrerequisiteClassSpellLevel(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
+        Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -1935,7 +1935,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1945,7 +1945,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteEtude(
-        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude,
+        Blueprint<BlueprintEtudeReference> etude,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -1991,7 +1991,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2001,7 +2001,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteFeature(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -2039,7 +2039,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2049,7 +2049,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteFeaturesFromList(
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>> features,
+        List<Blueprint<BlueprintFeatureReference>> features,
         int? amount = null,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
@@ -2116,7 +2116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="characterClass">
@@ -2128,7 +2128,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2138,8 +2138,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteNoArchetype(
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference> archetype,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
+        Blueprint<BlueprintArchetypeReference> archetype,
+        Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -2178,7 +2178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2188,7 +2188,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteNoClassLevel(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
+        Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -2226,7 +2226,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2236,7 +2236,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteNoFeature(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -2303,7 +2303,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="spell">
@@ -2315,7 +2315,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2325,8 +2325,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteParametrizedSpellFeature(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference> spell,
+        Blueprint<BlueprintFeatureReference> feature,
+        Blueprint<BlueprintAbilityReference> spell,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -2366,7 +2366,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2376,7 +2376,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteParametrizedWeaponFeature(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintFeatureReference> feature,
         WeaponCategory weaponCategory,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
@@ -2417,7 +2417,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2427,7 +2427,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteParametrizedSpellSchoolFeature(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintFeatureReference> feature,
         SpellSchool spellSchool,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
@@ -2468,7 +2468,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2478,7 +2478,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisiteParametrizedWeaponSubcategory(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintFeatureReference> feature,
         WeaponSubCategory subCategory,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
@@ -2554,7 +2554,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2564,7 +2564,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddPrerequisitePlayerHasFeature(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
@@ -2708,7 +2708,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddMythicClassArtComponent(
@@ -2717,7 +2717,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         SpriteLink? commonFrameDecor = null,
         SpriteLink? emblem = null,
         SpriteLink? portraitFrame = null,
-        List<Blueprint<BlueprintPortrait, BlueprintPortraitReference>>? portraits = null,
+        List<Blueprint<BlueprintPortraitReference>>? portraits = null,
         SpriteLink? selectorFrame = null,
         SpriteLink? selectorPortrait = null,
         SpriteLink? selectorPortraitLineart = null)

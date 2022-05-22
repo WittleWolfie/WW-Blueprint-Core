@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : BlueprintAiAttack
     where TBuilder : BaseAiAttackConfigurator<T, TBuilder>
   {
-    protected BaseAiAttackConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAiAttackConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

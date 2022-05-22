@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     where T : BlueprintHiddenItem
     where TBuilder : BaseHiddenItemConfigurator<T, TBuilder>
   {
-    protected BaseHiddenItemConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseHiddenItemConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

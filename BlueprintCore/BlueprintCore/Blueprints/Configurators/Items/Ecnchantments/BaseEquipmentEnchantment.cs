@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     where T : BlueprintEquipmentEnchantment
     where TBuilder : BaseEquipmentEnchantmentConfigurator<T, TBuilder>
   {
-    protected BaseEquipmentEnchantmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseEquipmentEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Adds <see cref="AllSavesBonusEquipment"/>

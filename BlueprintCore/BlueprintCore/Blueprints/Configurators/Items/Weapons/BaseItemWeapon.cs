@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     where T : BlueprintItemWeapon
     where TBuilder : BaseItemWeaponConfigurator<T, TBuilder>
   {
-    protected BaseItemWeaponConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemWeaponConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemWeapon.m_Type"/>
@@ -40,10 +40,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetType(Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference> type)
+    public TBuilder SetType(Blueprint<BlueprintWeaponTypeReference> type)
     {
       return OnConfigureInternal(
         bp =>
@@ -102,10 +102,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEnchantments(params Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>[] enchantments)
+    public TBuilder SetEnchantments(params Blueprint<BlueprintWeaponEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
@@ -127,10 +127,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToEnchantments(params Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>[] enchantments)
+    public TBuilder AddToEnchantments(params Blueprint<BlueprintWeaponEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
@@ -153,10 +153,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromEnchantments(params Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>[] enchantments)
+    public TBuilder RemoveFromEnchantments(params Blueprint<BlueprintWeaponEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
@@ -339,10 +339,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSecondWeapon(Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference> secondWeapon)
+    public TBuilder SetSecondWeapon(Blueprint<BlueprintItemWeaponReference> secondWeapon)
     {
       return OnConfigureInternal(
         bp =>
@@ -495,7 +495,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="blast">
@@ -507,12 +507,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddWeaponKineticBlade(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? activationAbility = null,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? blast = null)
+        Blueprint<BlueprintAbilityReference>? activationAbility = null,
+        Blueprint<BlueprintAbilityReference>? blast = null)
     {
       var component = new WeaponKineticBlade();
       component.m_ActivationAbility = activationAbility?.Reference ?? component.m_ActivationAbility;

@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintCompanionStory
     where TBuilder : BaseCompanionStoryConfigurator<T, TBuilder>
   {
-    protected BaseCompanionStoryConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCompanionStoryConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCompanionStory.m_Companion"/>
@@ -32,10 +32,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCompanion(Blueprint<BlueprintUnit, BlueprintUnitReference> companion)
+    public TBuilder SetCompanion(Blueprint<BlueprintUnitReference> companion)
     {
       return OnConfigureInternal(
         bp =>

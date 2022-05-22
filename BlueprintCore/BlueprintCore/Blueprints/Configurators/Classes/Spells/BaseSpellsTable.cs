@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     where T : BlueprintSpellsTable
     where TBuilder : BaseSpellsTableConfigurator<T, TBuilder>
   {
-    protected BaseSpellsTableConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSpellsTableConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellsTable.Levels"/>

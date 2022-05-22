@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : BlueprintAiTouch
     where TBuilder : BaseAiTouchConfigurator<T, TBuilder>
   {
-    protected BaseAiTouchConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAiTouchConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

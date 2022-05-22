@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     where T : HitSystemRoot
     where TBuilder : BaseHitSystemRootConfigurator<T, TBuilder>
   {
-    protected BaseHitSystemRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseHitSystemRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.DamageTypes"/>

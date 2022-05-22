@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
   public class InteractionRootConfigurator
     : BaseInteractionRootConfigurator<BlueprintInteractionRoot, InteractionRootConfigurator>
   {
-    private InteractionRootConfigurator(Blueprint<BlueprintInteractionRoot, BlueprintReference<BlueprintInteractionRoot>> blueprint) : base(blueprint) { }
+    private InteractionRootConfigurator(Blueprint<BlueprintReference<BlueprintInteractionRoot>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static InteractionRootConfigurator For(Blueprint<BlueprintInteractionRoot, BlueprintReference<BlueprintInteractionRoot>> blueprint)
+    public static InteractionRootConfigurator For(Blueprint<BlueprintReference<BlueprintInteractionRoot>> blueprint)
     {
       return new InteractionRootConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static InteractionRootConfigurator New(string name, string guid)

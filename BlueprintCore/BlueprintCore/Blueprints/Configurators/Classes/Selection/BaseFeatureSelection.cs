@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     where T : BlueprintFeatureSelection
     where TBuilder : BaseFeatureSelectionConfigurator<T, TBuilder>
   {
-    protected BaseFeatureSelectionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseFeatureSelectionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelection.IgnorePrerequisites"/>
@@ -158,10 +158,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAllFeatures(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] allFeatures)
+    public TBuilder SetAllFeatures(params Blueprint<BlueprintFeatureReference>[] allFeatures)
     {
       return OnConfigureInternal(
         bp =>
@@ -183,10 +183,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAllFeatures(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] allFeatures)
+    public TBuilder AddToAllFeatures(params Blueprint<BlueprintFeatureReference>[] allFeatures)
     {
       return OnConfigureInternal(
         bp =>
@@ -209,10 +209,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAllFeatures(params Blueprint<BlueprintFeature, BlueprintFeatureReference>[] allFeatures)
+    public TBuilder RemoveFromAllFeatures(params Blueprint<BlueprintFeatureReference>[] allFeatures)
     {
       return OnConfigureInternal(
         bp =>
@@ -319,7 +319,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddPrerequisiteSelectionPossible(
@@ -328,7 +328,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bool? hideInUI = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintFeatureSelection, BlueprintFeatureSelectionReference>? thisFeature = null)
+        Blueprint<BlueprintFeatureSelectionReference>? thisFeature = null)
     {
       var component = new PrerequisiteSelectionPossible();
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
@@ -365,12 +365,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddNoSelectionIfAlreadyHasFeature(
         bool? anyFeatureFromSelection = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null)
+        List<Blueprint<BlueprintFeatureReference>>? features = null)
     {
       var component = new NoSelectionIfAlreadyHasFeature();
       component.AnyFeatureFromSelection = anyFeatureFromSelection ?? component.AnyFeatureFromSelection;

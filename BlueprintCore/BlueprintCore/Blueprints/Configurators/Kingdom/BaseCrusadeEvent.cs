@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintCrusadeEvent
     where TBuilder : BaseCrusadeEventConfigurator<T, TBuilder>
   {
-    protected BaseCrusadeEventConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCrusadeEventConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCrusadeEvent.m_EventSolutions"/>

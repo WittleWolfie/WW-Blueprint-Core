@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : ActiveCommandConsideration
     where TBuilder : BaseActiveCommandConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseActiveCommandConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseActiveCommandConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="ActiveCommandConsideration.CommandType"/>

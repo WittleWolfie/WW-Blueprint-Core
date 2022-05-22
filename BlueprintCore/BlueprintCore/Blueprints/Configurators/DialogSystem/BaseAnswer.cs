@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where T : BlueprintAnswer
     where TBuilder : BaseAnswerConfigurator<T, TBuilder>
   {
-    protected BaseAnswerConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAnswerConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswer.Text"/>

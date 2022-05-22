@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : TargetMainCharacter
     where TBuilder : BaseTargetMainCharacterConfigurator<T, TBuilder>
   {
-    protected BaseTargetMainCharacterConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTargetMainCharacterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="TargetMainCharacter.IsMainCharacterScore"/>

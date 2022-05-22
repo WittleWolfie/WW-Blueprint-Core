@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     where T : BlueprintCategoryDefaults
     where TBuilder : BaseCategoryDefaultsConfigurator<T, TBuilder>
   {
-    protected BaseCategoryDefaultsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCategoryDefaultsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCategoryDefaults.Entries"/>

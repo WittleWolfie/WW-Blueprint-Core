@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     where T : BlueprintMultiEntrance
     where TBuilder : BaseMultiEntranceConfigurator<T, TBuilder>
   {
-    protected BaseMultiEntranceConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseMultiEntranceConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintMultiEntrance.Map"/>
@@ -87,10 +87,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEntries(params Blueprint<BlueprintMultiEntranceEntry, BlueprintMultiEntranceEntryReference>[] entries)
+    public TBuilder SetEntries(params Blueprint<BlueprintMultiEntranceEntryReference>[] entries)
     {
       return OnConfigureInternal(
         bp =>
@@ -112,10 +112,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToEntries(params Blueprint<BlueprintMultiEntranceEntry, BlueprintMultiEntranceEntryReference>[] entries)
+    public TBuilder AddToEntries(params Blueprint<BlueprintMultiEntranceEntryReference>[] entries)
     {
       return OnConfigureInternal(
         bp =>
@@ -138,10 +138,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromEntries(params Blueprint<BlueprintMultiEntranceEntry, BlueprintMultiEntranceEntryReference>[] entries)
+    public TBuilder RemoveFromEntries(params Blueprint<BlueprintMultiEntranceEntryReference>[] entries)
     {
       return OnConfigureInternal(
         bp =>

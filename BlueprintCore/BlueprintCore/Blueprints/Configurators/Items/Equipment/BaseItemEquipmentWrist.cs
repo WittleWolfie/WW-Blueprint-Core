@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     where T : BlueprintItemEquipmentWrist
     where TBuilder : BaseItemEquipmentWristConfigurator<T, TBuilder>
   {
-    protected BaseItemEquipmentWristConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemEquipmentWristConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

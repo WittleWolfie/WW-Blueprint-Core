@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     where T : BlueprintEtudeConflictingGroup
     where TBuilder : BaseEtudeConflictingGroupConfigurator<T, TBuilder>
   {
-    protected BaseEtudeConflictingGroupConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseEtudeConflictingGroupConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

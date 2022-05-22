@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     where T : BlueprintUnitProperty
     where TBuilder : BaseUnitPropertyConfigurator<T, TBuilder>
   {
-    protected BaseUnitPropertyConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUnitPropertyConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitProperty.BaseValue"/>
@@ -109,13 +109,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddCountCorpsesAroundPropertyGetter(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintUnitType, BlueprintUnitTypeReference>? onlyOfType = null,
+        Blueprint<BlueprintUnitTypeReference>? onlyOfType = null,
         Feet? radius = null,
         PropertySettings? settings = null)
     {
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -166,7 +166,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         int? baseAttackZero = null,
         int? baseValue = null,
         int? featureBonus = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null,
+        List<Blueprint<BlueprintFeatureReference>>? features = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
@@ -265,7 +265,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="features">
@@ -277,7 +277,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -287,8 +287,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddFightingDefensivelyACBonusProperty(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? duelingFeatures = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? features = null,
+        List<Blueprint<BlueprintUnitFactReference>>? duelingFeatures = null,
+        List<Blueprint<BlueprintUnitFactReference>>? features = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
@@ -330,7 +330,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="features">
@@ -342,7 +342,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="halfBuff">
@@ -354,7 +354,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -364,9 +364,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddFightingDefensivelyAttackPenaltyProperty(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? duelingFeatures = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? features = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? halfBuff = null,
+        List<Blueprint<BlueprintUnitFactReference>>? duelingFeatures = null,
+        List<Blueprint<BlueprintUnitFactReference>>? features = null,
+        Blueprint<BlueprintUnitFactReference>? halfBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
@@ -482,14 +482,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddStatBonusIfHasFactProperty(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? multiplier = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? requiredFact = null,
+        Blueprint<BlueprintUnitFactReference>? requiredFact = null,
         PropertySettings? settings = null,
         StatType? stat = null)
     {
@@ -597,7 +597,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -607,7 +607,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddClassLevelGetter(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
+        Blueprint<BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
@@ -646,7 +646,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -656,7 +656,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddFactRankGetter(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
+        Blueprint<BlueprintUnitFactReference>? fact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
@@ -693,7 +693,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -708,7 +708,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </para>
     /// </param>
     public TBuilder AddPropertyWithFactRankGetter(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
+        Blueprint<BlueprintUnitFactReference>? fact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitProperty? property = null,
@@ -906,7 +906,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="archetypes">
@@ -918,7 +918,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="clazz">
@@ -930,7 +930,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -940,9 +940,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddSummClassLevelGetter(
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
-        List<Blueprint<BlueprintArchetype, BlueprintArchetypeReference>>? archetypes = null,
-        List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>>? clazz = null,
+        Blueprint<BlueprintArchetypeReference>? archetype = null,
+        List<Blueprint<BlueprintArchetypeReference>>? archetypes = null,
+        List<Blueprint<BlueprintCharacterClassReference>>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
@@ -991,7 +991,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1002,7 +1002,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddCastingAttributeGetter(
         bool? attributeBonus = null,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
+        Blueprint<BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PropertySettings? settings = null)
@@ -1109,7 +1109,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1120,7 +1120,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </param>
     public TBuilder AddMaxCastingAttributeGetter(
         bool? attributeBonus = null,
-        List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>>? classes = null,
+        List<Blueprint<BlueprintCharacterClassReference>>? classes = null,
         StatType? defaultStat = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,

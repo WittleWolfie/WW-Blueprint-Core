@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     where T : BlueprintItemEquipmentFeet
     where TBuilder : BaseItemEquipmentFeetConfigurator<T, TBuilder>
   {
-    protected BaseItemEquipmentFeetConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemEquipmentFeetConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

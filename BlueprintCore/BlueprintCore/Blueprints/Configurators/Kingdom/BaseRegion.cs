@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintRegion
     where TBuilder : BaseRegionConfigurator<T, TBuilder>
   {
-    protected BaseRegionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseRegionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintRegion.m_Id"/>
@@ -119,10 +119,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAdjacent(params Blueprint<BlueprintRegion, BlueprintRegionReference>[] adjacent)
+    public TBuilder SetAdjacent(params Blueprint<BlueprintRegionReference>[] adjacent)
     {
       return OnConfigureInternal(
         bp =>
@@ -144,10 +144,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAdjacent(params Blueprint<BlueprintRegion, BlueprintRegionReference>[] adjacent)
+    public TBuilder AddToAdjacent(params Blueprint<BlueprintRegionReference>[] adjacent)
     {
       return OnConfigureInternal(
         bp =>
@@ -170,10 +170,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAdjacent(params Blueprint<BlueprintRegion, BlueprintRegionReference>[] adjacent)
+    public TBuilder RemoveFromAdjacent(params Blueprint<BlueprintRegionReference>[] adjacent)
     {
       return OnConfigureInternal(
         bp =>
@@ -234,10 +234,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetClaimEvent(Blueprint<BlueprintKingdomClaim, BlueprintKingdomClaimReference> claimEvent)
+    public TBuilder SetClaimEvent(Blueprint<BlueprintKingdomClaimReference> claimEvent)
     {
       return OnConfigureInternal(
         bp =>
@@ -375,10 +375,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetArtisans(params Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>[] artisans)
+    public TBuilder SetArtisans(params Blueprint<BlueprintKingdomArtisanReference>[] artisans)
     {
       return OnConfigureInternal(
         bp =>
@@ -400,10 +400,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToArtisans(params Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>[] artisans)
+    public TBuilder AddToArtisans(params Blueprint<BlueprintKingdomArtisanReference>[] artisans)
     {
       return OnConfigureInternal(
         bp =>
@@ -426,10 +426,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromArtisans(params Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>[] artisans)
+    public TBuilder RemoveFromArtisans(params Blueprint<BlueprintKingdomArtisanReference>[] artisans)
     {
       return OnConfigureInternal(
         bp =>
@@ -586,10 +586,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetGlobalMap(Blueprint<BlueprintGlobalMap, BlueprintGlobalMapReference> globalMap)
+    public TBuilder SetGlobalMap(Blueprint<BlueprintGlobalMapReference> globalMap)
     {
       return OnConfigureInternal(
         bp =>

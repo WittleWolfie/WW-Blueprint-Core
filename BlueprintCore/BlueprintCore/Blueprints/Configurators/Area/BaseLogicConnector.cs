@@ -21,7 +21,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where T : BlueprintLogicConnector
     where TBuilder : BaseLogicConnectorConfigurator<T, TBuilder>
   {
-    protected BaseLogicConnectorConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLogicConnectorConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/>

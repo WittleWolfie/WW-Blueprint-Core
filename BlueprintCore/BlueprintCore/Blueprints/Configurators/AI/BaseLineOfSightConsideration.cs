@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : LineOfSightConsideration
     where TBuilder : BaseLineOfSightConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseLineOfSightConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLineOfSightConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="LineOfSightConsideration.HasNoLosScore"/>

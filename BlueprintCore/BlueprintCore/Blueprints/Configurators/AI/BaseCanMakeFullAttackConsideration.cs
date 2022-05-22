@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : CanMakeFullAttackConsideration
     where TBuilder : BaseCanMakeFullAttackConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseCanMakeFullAttackConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCanMakeFullAttackConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="CanMakeFullAttackConsideration.SuccessScore"/>

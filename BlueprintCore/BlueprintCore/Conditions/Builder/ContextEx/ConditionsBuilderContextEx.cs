@@ -48,12 +48,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasBuffFromCaster(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        Blueprint<BlueprintBuffReference> buff,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionHasBuffFromCaster>();
@@ -85,12 +85,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CasterHasFact(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
+        Blueprint<BlueprintUnitFactReference> fact,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionCasterHasFact>();
@@ -122,12 +122,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasFact(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
+        Blueprint<BlueprintUnitFactReference> fact,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionHasFact>();
@@ -254,12 +254,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder BuffRank(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         bool negate = false,
         ContextValue? rankValue = null)
     {
@@ -345,13 +345,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CharacterClass(
         this ConditionsBuilder builder,
         bool? checkCaster = null,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
+        Blueprint<BlueprintCharacterClassReference>? clazz = null,
         int? minLevel = null,
         bool negate = false)
     {
@@ -529,12 +529,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasBuff(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionHasBuff>();
@@ -568,12 +568,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasBuffFromThisAreaEffect(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionHasBuffFromThisAreaEffect>();
@@ -659,12 +659,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasItem(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference>? itemToCheck = null,
+        Blueprint<BlueprintItemReference>? itemToCheck = null,
         bool? money = null,
         bool negate = false,
         int? quantity = null)
@@ -722,12 +722,12 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasUniqueBuff(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionHasUniqueBuff>();
@@ -1402,13 +1402,13 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder TargetIsBlueprint(
         this ConditionsBuilder builder,
         bool negate = false,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<ContextConditionTargetIsBlueprint>();
       element.Not = negate;

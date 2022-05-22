@@ -59,7 +59,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     where T : BlueprintAbility
     where TBuilder : BaseAbilityConfigurator<T, TBuilder>
   {
-    protected BaseAbilityConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAbilityConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.m_DefaultAiAction"/>
@@ -79,10 +79,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDefaultAiAction(Blueprint<BlueprintAiCastSpell, BlueprintAiCastSpell.Reference> defaultAiAction)
+    public TBuilder SetDefaultAiAction(Blueprint<BlueprintAiCastSpell.Reference> defaultAiAction)
     {
       return OnConfigureInternal(
         bp =>
@@ -161,10 +161,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetParent(Blueprint<BlueprintAbility, BlueprintAbilityReference> parent)
+    public TBuilder SetParent(Blueprint<BlueprintAbilityReference> parent)
     {
       return OnConfigureInternal(
         bp =>
@@ -1403,7 +1403,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1414,7 +1414,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCasterAlignment(
         AlignmentMaskType? alignment = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreFact = null,
+        Blueprint<BlueprintUnitFactReference>? ignoreFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -1449,7 +1449,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="ignoreWeaponFact">
@@ -1461,7 +1461,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1471,8 +1471,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAbilityCasterHasChosenWeapon(
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference> chosenWeaponFeature,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? ignoreWeaponFact = null,
+        Blueprint<BlueprintParametrizedFeatureReference> chosenWeaponFeature,
+        Blueprint<BlueprintUnitFactReference>? ignoreWeaponFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -1629,11 +1629,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityVariants(
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>> variants)
+        List<Blueprint<BlueprintAbilityReference>> variants)
     {
       var component = new AbilityVariants();
       component.m_Variants = variants?.Select(bp => bp.Reference)?.ToArray();
@@ -1727,11 +1727,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTargetHasBuffsFromCaster(
-        List<Blueprint<BlueprintBuff, BlueprintBuffReference>> buffs,
+        List<Blueprint<BlueprintBuffReference>> buffs,
         bool? requireAllBuffs = null)
     {
       var component = new TargetHasBuffsFromCaster();
@@ -1975,14 +1975,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpellListComponent(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? spellLevel = null,
-        Blueprint<BlueprintSpellList, BlueprintSpellListReference>? spellList = null)
+        Blueprint<BlueprintSpellListReference>? spellList = null)
     {
       var component = new SpellListComponent();
       component.SpellLevel = spellLevel ?? component.SpellLevel;
@@ -2095,7 +2095,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="requiredResource">
@@ -2107,7 +2107,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="resourceCostDecreasingFacts">
@@ -2119,7 +2119,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="resourceCostIncreasingFacts">
@@ -2131,20 +2131,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityKineticist(
         int? amount = null,
         int? blastBurnCost = null,
         List<AbilityKineticist.DamageInfo>? cachedDamageInfo = null,
-        Blueprint<BlueprintScriptableObject, AnyBlueprintReference>? cachedDamageSource = null,
+        Blueprint<AnyBlueprintReference>? cachedDamageSource = null,
         bool? costIsCustom = null,
         int? infusionBurnCost = null,
         bool? isSpendResource = null,
-        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? requiredResource = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? resourceCostDecreasingFacts = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? resourceCostIncreasingFacts = null,
+        Blueprint<BlueprintAbilityResourceReference>? requiredResource = null,
+        List<Blueprint<BlueprintUnitFactReference>>? resourceCostDecreasingFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? resourceCostIncreasingFacts = null,
         int? wildTalentBurnCost = null)
     {
       var component = new AbilityKineticist();
@@ -2205,12 +2205,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParams(
         ContextValue? casterLevel = null,
-        Blueprint<BlueprintUnitProperty, BlueprintUnitPropertyReference>? customProperty = null,
+        Blueprint<BlueprintUnitPropertyReference>? customProperty = null,
         bool? replaceCasterLevel = null,
         bool? replaceSpellLevel = null,
         ContextValue? spellLevel = null,
@@ -2265,11 +2265,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
         StatType? statType = null,
         bool? useKineticistMainStat = null)
     {
@@ -2411,7 +2411,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="casterDisappearProjectile">
@@ -2423,7 +2423,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideAppearProjectile">
@@ -2435,7 +2435,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideDisappearProjectile">
@@ -2447,24 +2447,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddArmyAbilityTeleportation(
         bool? cameraShouldFollow = null,
         PrefabLink? casterAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         PrefabLink? casterDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterDisappearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         string? portalBone = null,
         PrefabLink? portalFromPrefab = null,
         PrefabLink? portalToPrefab = null,
         Feet? radius = null,
         PrefabLink? sideAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         PrefabLink? sideDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideDisappearProjectile = null)
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new ArmyAbilityTeleportation();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
@@ -2616,12 +2616,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityApplyFact(
         ContextDurationValue? duration = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         bool? hasDuration = null,
         AbilityApplyFact.FactRestriction? restriction = null)
     {
@@ -2659,11 +2659,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityConvertSpellLevelToResource(
-        Blueprint<BlueprintScriptableObject, AnyBlueprintReference>? resource = null)
+        Blueprint<AnyBlueprintReference>? resource = null)
     {
       var component = new AbilityConvertSpellLevelToResource();
       component.m_Resource = resource?.Reference ?? component.m_Resource;
@@ -2743,11 +2743,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomCleave(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? greaterFeature = null,
+        Blueprint<BlueprintFeatureReference>? greaterFeature = null,
         bool? hasIsAllyEffectRunConditions = null)
     {
       var component = new AbilityCustomCleave();
@@ -2783,7 +2783,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="casterDisappearProjectile">
@@ -2795,7 +2795,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideAppearProjectile">
@@ -2807,7 +2807,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideDisappearProjectile">
@@ -2819,24 +2819,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoor(
         bool? cameraShouldFollow = null,
         PrefabLink? casterAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         PrefabLink? casterDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterDisappearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         string? portalBone = null,
         PrefabLink? portalFromPrefab = null,
         PrefabLink? portalToPrefab = null,
         Feet? radius = null,
         PrefabLink? sideAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         PrefabLink? sideDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideDisappearProjectile = null)
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomDimensionDoor();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
@@ -2917,7 +2917,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="disappearProjectile">
@@ -2929,14 +2929,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoorSwap(
         PrefabLink? appearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? appearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? appearProjectile = null,
         PrefabLink? disappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? disappearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? disappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         string? portalBone = null,
         PrefabLink? portalFromPrefab = null)
@@ -2995,7 +2995,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="casterDisappearProjectile">
@@ -3007,7 +3007,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideAppearProjectile">
@@ -3019,7 +3019,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideDisappearProjectile">
@@ -3031,24 +3031,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoorTargets(
         bool? cameraShouldFollow = null,
         PrefabLink? casterAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         PrefabLink? casterDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterDisappearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         string? portalBone = null,
         PrefabLink? portalFromPrefab = null,
         PrefabLink? portalToPrefab = null,
         Feet? radius = null,
         PrefabLink? sideAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         PrefabLink? sideDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideDisappearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null,
         UnitEvaluator[]? targets = null)
     {
       var component = new AbilityCustomDimensionDoorTargets();
@@ -3137,7 +3137,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="casterDisappearProjectile">
@@ -3149,7 +3149,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideAppearProjectile">
@@ -3161,7 +3161,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideDisappearProjectile">
@@ -3173,24 +3173,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomDweomerLeap(
         bool? cameraShouldFollow = null,
         PrefabLink? casterAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         PrefabLink? casterDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterDisappearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         string? portalBone = null,
         PrefabLink? portalFromPrefab = null,
         PrefabLink? portalToPrefab = null,
         Feet? radius = null,
         PrefabLink? sideAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         PrefabLink? sideDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideDisappearProjectile = null)
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomDweomerLeap();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
@@ -3271,7 +3271,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="casterDisappearProjectile">
@@ -3283,7 +3283,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="flashShot">
@@ -3295,7 +3295,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideAppearProjectile">
@@ -3307,7 +3307,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="sideDisappearProjectile">
@@ -3319,25 +3319,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomFlashStep(
         bool? cameraShouldFollow = null,
         PrefabLink? casterAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         PrefabLink? casterDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? casterDisappearProjectile = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? flashShot = null,
+        Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
+        Blueprint<BlueprintUnitFactReference>? flashShot = null,
         bool? hasIsAllyEffectRunConditions = null,
         string? portalBone = null,
         PrefabLink? portalFromPrefab = null,
         PrefabLink? portalToPrefab = null,
         Feet? radius = null,
         PrefabLink? sideAppearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideAppearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         PrefabLink? sideDisappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? sideDisappearProjectile = null)
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomFlashStep();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
@@ -3459,7 +3459,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="rowdyFeature">
@@ -3471,13 +3471,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomMeleeAttack(
         bool? hasIsAllyEffectRunConditions = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? mythicBlueprint = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? rowdyFeature = null,
+        Blueprint<BlueprintFeatureReference>? mythicBlueprint = null,
+        Blueprint<BlueprintFeatureReference>? rowdyFeature = null,
         AbilityCustomMeleeAttack.AttackType? type = null,
         int? vitalStrikeMod = null)
     {
@@ -3521,7 +3521,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="delayAfterFinish">
@@ -3536,7 +3536,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomOverrun(
         ActionsBuilder? actions = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? addBuffWhileRunning = null,
+        Blueprint<BlueprintBuffReference>? addBuffWhileRunning = null,
         bool? autoSuccess = null,
         float? delayAfterFinish = null,
         float? delayBeforeStart = null,
@@ -3587,7 +3587,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomTeleportation(
@@ -3596,7 +3596,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         float? disappearDuration = null,
         PrefabLink? disappearFx = null,
         bool? hasIsAllyEffectRunConditions = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? projectile = null)
+        Blueprint<BlueprintProjectileReference>? projectile = null)
     {
       var component = new AbilityCustomTeleportation();
       component.AppearDuration = appearDuration ?? component.AppearDuration;
@@ -3679,7 +3679,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="rowdyFeature">
@@ -3691,13 +3691,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomVitalStrike(
         bool? hasIsAllyEffectRunConditions = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? mythicBlueprint = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? rowdyFeature = null,
+        Blueprint<BlueprintFeatureReference>? mythicBlueprint = null,
+        Blueprint<BlueprintFeatureReference>? rowdyFeature = null,
         int? vitalStrikeMod = null)
     {
       var component = new AbilityCustomVitalStrike();
@@ -3760,7 +3760,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="projectileFirst">
@@ -3772,14 +3772,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityDeliverChain(
         ConditionsBuilder? condition = null,
         bool? hasIsAllyEffectRunConditions = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? projectile = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? projectileFirst = null,
+        Blueprint<BlueprintProjectileReference>? projectile = null,
+        Blueprint<BlueprintProjectileReference>? projectileFirst = null,
         Feet? radius = null,
         bool? targetDead = null,
         ContextValue? targetsCount = null,
@@ -3834,7 +3834,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="weapon">
@@ -3846,7 +3846,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityDeliverClashingRocks(
@@ -3854,8 +3854,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bool? hasIsAllyEffectRunConditions = null,
         bool? ignoreConcealment = null,
         bool? needAttackRoll = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? projectile = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weapon = null,
+        Blueprint<BlueprintProjectileReference>? projectile = null,
+        Blueprint<BlueprintItemWeaponReference>? weapon = null,
         Feet? width = null)
     {
       var component = new AbilityDeliverClashingRocks();
@@ -3923,7 +3923,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="projectiles">
@@ -3935,7 +3935,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="weapon">
@@ -3947,12 +3947,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityDeliverProjectile(
         StatType? attackRollBonusStat = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? controlledProjectileHolderBuff = null,
+        Blueprint<BlueprintBuffReference>? controlledProjectileHolderBuff = null,
         float? delayBetweenProjectiles = null,
         bool? hasIsAllyEffectRunConditions = null,
         bool? isHandOfTheApprentice = null,
@@ -3960,11 +3960,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         Feet? lineWidth = null,
         AbilityRankType? maxProjectilesCountRank = null,
         bool? needAttackRoll = null,
-        List<Blueprint<BlueprintProjectile, BlueprintProjectileReference>>? projectiles = null,
+        List<Blueprint<BlueprintProjectileReference>>? projectiles = null,
         bool? replaceAttackRollBonusStat = null,
         AbilityProjectileType? type = null,
         bool? useMaxProjectilesCount = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weapon = null)
+        Blueprint<BlueprintItemWeaponReference>? weapon = null)
     {
       var component = new AbilityDeliverProjectile();
       component.AttackRollBonusStat = attackRollBonusStat ?? component.AttackRollBonusStat;
@@ -4019,7 +4019,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="launchProjectileOnGridLine">
@@ -4036,7 +4036,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="weapon">
@@ -4048,12 +4048,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityDeliverProjectileOnGrid(
         StatType? attackRollBonusStat = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? controlledProjectileHolderBuff = null,
+        Blueprint<BlueprintBuffReference>? controlledProjectileHolderBuff = null,
         float? delayBetweenProjectiles = null,
         bool? hasIsAllyEffectRunConditions = null,
         bool? isHandOfTheApprentice = null,
@@ -4063,11 +4063,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         Feet? lineWidth = null,
         AbilityRankType? maxProjectilesCountRank = null,
         bool? needAttackRoll = null,
-        List<Blueprint<BlueprintProjectile, BlueprintProjectileReference>>? projectiles = null,
+        List<Blueprint<BlueprintProjectileReference>>? projectiles = null,
         bool? replaceAttackRollBonusStat = null,
         AbilityProjectileType? type = null,
         bool? useMaxProjectilesCount = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weapon = null)
+        Blueprint<BlueprintItemWeaponReference>? weapon = null)
     {
       var component = new AbilityDeliverProjectileOnGrid();
       component.AttackRollBonusStat = attackRollBonusStat ?? component.AttackRollBonusStat;
@@ -4124,12 +4124,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityDeliverTouch(
         bool? hasIsAllyEffectRunConditions = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? touchWeapon = null)
+        Blueprint<BlueprintItemWeaponReference>? touchWeapon = null)
     {
       var component = new AbilityDeliverTouch();
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
@@ -4228,11 +4228,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityEffectStickyTouch(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? touchDeliveryAbility = null)
+        Blueprint<BlueprintAbilityReference>? touchDeliveryAbility = null)
     {
       var component = new AbilityEffectStickyTouch();
       component.m_TouchDeliveryAbility = touchDeliveryAbility?.Reference ?? component.m_TouchDeliveryAbility;
@@ -4300,11 +4300,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityMagusSpellRecallCostCalculator(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? improvedFeature = null)
+        Blueprint<BlueprintFeatureReference>? improvedFeature = null)
     {
       var component = new AbilityMagusSpellRecallCostCalculator();
       component.m_ImprovedFeature = improvedFeature?.Reference ?? component.m_ImprovedFeature;
@@ -4408,7 +4408,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="resourceCostDecreasingFacts">
@@ -4420,7 +4420,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="resourceCostIncreasingFacts">
@@ -4432,16 +4432,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityResourceLogic(
         int? amount = null,
         bool? costIsCustom = null,
         bool? isSpendResource = null,
-        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference>? requiredResource = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? resourceCostDecreasingFacts = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? resourceCostIncreasingFacts = null)
+        Blueprint<BlueprintAbilityResourceReference>? requiredResource = null,
+        List<Blueprint<BlueprintUnitFactReference>>? resourceCostDecreasingFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? resourceCostIncreasingFacts = null)
     {
       var component = new AbilityResourceLogic();
       component.Amount = amount ?? component.Amount;
@@ -4536,7 +4536,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="spellList">
@@ -4548,16 +4548,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityShadowSpell(
         bool? anySchool = null,
-        Blueprint<BlueprintUnitProperty, BlueprintUnitPropertyReference>? factor = null,
+        Blueprint<BlueprintUnitPropertyReference>? factor = null,
         bool? hasIsAllyEffectRunConditions = null,
         int? maxSpellLevel = null,
         SpellSchool? school = null,
-        Blueprint<BlueprintSpellList, BlueprintSpellListReference>? spellList = null)
+        Blueprint<BlueprintSpellListReference>? spellList = null)
     {
       var component = new AbilityShadowSpell();
       component.AnySchool = anySchool ?? component.AnySchool;
@@ -4600,12 +4600,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityShowIfCasterHasFact(
         bool? not = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? unitFact = null)
+        Blueprint<BlueprintUnitFactReference>? unitFact = null)
     {
       var component = new AbilityShowIfCasterHasFact();
       component.Not = not ?? component.Not;
@@ -4660,7 +4660,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="disappearProjectile">
@@ -4672,15 +4672,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilitySwitchDualCompanion(
         float? appearDelay = null,
         GameObject? appearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? appearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? appearProjectile = null,
         GameObject? disappearFx = null,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference>? disappearProjectile = null,
+        Blueprint<BlueprintProjectileReference>? disappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         string? portalBone = null,
         GameObject? portalPrefab = null)
@@ -4892,7 +4892,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="undeadFact">
@@ -4904,12 +4904,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityTargetBreathOfLife(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? recentlyDeadBuff = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? undeadFact = null)
+        Blueprint<BlueprintBuffReference>? recentlyDeadBuff = null,
+        Blueprint<BlueprintUnitFactReference>? undeadFact = null)
     {
       var component = new AbilityTargetBreathOfLife();
       component.m_RecentlyDeadBuff = recentlyDeadBuff?.Reference ?? component.m_RecentlyDeadBuff;
@@ -5026,7 +5026,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -5036,7 +5036,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAbilityTargetDivineTroth(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? checkBuff = null,
+        Blueprint<BlueprintBuffReference>? checkBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -5076,7 +5076,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -5093,7 +5093,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbilityTargetHPCondition(
         bool? checkFact = null,
         int? currentHPLessThan = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? factToCheck = null,
+        Blueprint<BlueprintUnitFactReference>? factToCheck = null,
         bool? inverted = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -5165,11 +5165,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityTargetHasConditionOrBuff(
-        List<Blueprint<BlueprintBuff, BlueprintBuffReference>>? buffs = null,
+        List<Blueprint<BlueprintBuffReference>>? buffs = null,
         UnitCondition? condition = null,
         bool? not = null)
     {
@@ -5211,7 +5211,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -5221,7 +5221,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAbilityTargetHasFact(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? checkedFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? checkedFacts = null,
         bool? inverted = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -5281,7 +5281,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -5299,14 +5299,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAbilityTargetHasNoFactUnless(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? checkedFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? checkedFacts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? unlessFact = null)
+        Blueprint<BlueprintUnitFactReference>? unlessFact = null)
     {
       var component = new AbilityTargetHasNoFactUnless();
       component.m_CheckedFacts = checkedFacts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_CheckedFacts;
@@ -5724,7 +5724,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -5734,7 +5734,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAbilityCasterHasFacts(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         List<BlueprintUnitFact>? factsMissingCache = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -5779,7 +5779,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -5789,7 +5789,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAbilityCasterHasNoFacts(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         List<BlueprintUnitFact>? factsPresentedCache = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -5862,7 +5862,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -5872,7 +5872,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAbilityCasterIsOnFavoredTerrain(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? ignoreFeature = null,
+        Blueprint<BlueprintFeatureReference>? ignoreFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -6144,11 +6144,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTacticalCombatCellsProviderLink(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? abilityWithCellsProvider = null)
+        Blueprint<BlueprintAbilityReference>? abilityWithCellsProvider = null)
     {
       var component = new TacticalCombatCellsProviderLink();
       component.m_AbilityWithCellsProvider = abilityWithCellsProvider?.Reference ?? component.m_AbilityWithCellsProvider;
@@ -6268,7 +6268,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -6278,7 +6278,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddRecommendationCompanionBoon(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? companionRank = null,
+        Blueprint<BlueprintFeatureReference>? companionRank = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -6314,7 +6314,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -6324,7 +6324,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddRecommendationHasFeature(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? feature = null,
+        Blueprint<BlueprintUnitFactReference>? feature = null,
         bool? mandatory = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -6362,7 +6362,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -6372,7 +6372,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddRecommendationNoFeatFromGroup(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? features = null,
+        List<Blueprint<BlueprintUnitFactReference>>? features = null,
         bool? goodIfNoFeature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)

@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     where T : RaceGenderDistribution
     where TBuilder : BaseRaceGenderDistributionConfigurator<T, TBuilder>
   {
-    protected BaseRaceGenderDistributionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseRaceGenderDistributionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="RaceGenderDistribution.Races"/>

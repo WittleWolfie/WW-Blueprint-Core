@@ -43,7 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     where T : BlueprintRoot
     where TBuilder : BaseRootConfigurator<T, TBuilder>
   {
-    protected BaseRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.m_DefaultPlayerCharacter"/>
@@ -58,10 +58,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDefaultPlayerCharacter(Blueprint<BlueprintUnit, BlueprintUnitReference> defaultPlayerCharacter)
+    public TBuilder SetDefaultPlayerCharacter(Blueprint<BlueprintUnitReference> defaultPlayerCharacter)
     {
       return OnConfigureInternal(
         bp =>
@@ -96,10 +96,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSelectablePlayerCharacters(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] selectablePlayerCharacters)
+    public TBuilder SetSelectablePlayerCharacters(params Blueprint<BlueprintUnitReference>[] selectablePlayerCharacters)
     {
       return OnConfigureInternal(
         bp =>
@@ -121,10 +121,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToSelectablePlayerCharacters(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] selectablePlayerCharacters)
+    public TBuilder AddToSelectablePlayerCharacters(params Blueprint<BlueprintUnitReference>[] selectablePlayerCharacters)
     {
       return OnConfigureInternal(
         bp =>
@@ -147,10 +147,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromSelectablePlayerCharacters(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] selectablePlayerCharacters)
+    public TBuilder RemoveFromSelectablePlayerCharacters(params Blueprint<BlueprintUnitReference>[] selectablePlayerCharacters)
     {
       return OnConfigureInternal(
         bp =>
@@ -211,10 +211,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPlayerFaction(Blueprint<BlueprintFaction, BlueprintFactionReference> playerFaction)
+    public TBuilder SetPlayerFaction(Blueprint<BlueprintFactionReference> playerFaction)
     {
       return OnConfigureInternal(
         bp =>
@@ -273,10 +273,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetKingFlag(Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference> kingFlag)
+    public TBuilder SetKingFlag(Blueprint<BlueprintUnlockableFlagReference> kingFlag)
     {
       return OnConfigureInternal(
         bp =>
@@ -385,10 +385,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNewGamePreset(Blueprint<BlueprintAreaPreset, BlueprintAreaPresetReference> newGamePreset)
+    public TBuilder SetNewGamePreset(Blueprint<BlueprintAreaPresetReference> newGamePreset)
     {
       return OnConfigureInternal(
         bp =>
@@ -504,10 +504,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRE(Blueprint<RandomEncountersRoot, RandomEncountersRootReference> rE)
+    public TBuilder SetRE(Blueprint<RandomEncountersRootReference> rE)
     {
       return OnConfigureInternal(
         bp =>
@@ -932,10 +932,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetInvisibleKittenUnit(Blueprint<BlueprintUnit, BlueprintUnitReference> invisibleKittenUnit)
+    public TBuilder SetInvisibleKittenUnit(Blueprint<BlueprintUnitReference> invisibleKittenUnit)
     {
       return OnConfigureInternal(
         bp =>
@@ -999,10 +999,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCoinItem(Blueprint<BlueprintItem, BlueprintItemReference> coinItem)
+    public TBuilder SetCoinItem(Blueprint<BlueprintItemReference> coinItem)
     {
       return OnConfigureInternal(
         bp =>
@@ -1297,10 +1297,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCutscenesRoot(Blueprint<CutscenesRoot, CutscenesRoot.Reference> cutscenesRoot)
+    public TBuilder SetCutscenesRoot(Blueprint<CutscenesRoot.Reference> cutscenesRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -1335,10 +1335,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetKingdom(Blueprint<KingdomRoot, KingdomRootReference> kingdom)
+    public TBuilder SetKingdom(Blueprint<KingdomRootReference> kingdom)
     {
       return OnConfigureInternal(
         bp =>
@@ -1373,10 +1373,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCorruptionRoot(Blueprint<BlueprintCorruptionRoot, BlueprintCorruptionRoot.Reference> corruptionRoot)
+    public TBuilder SetCorruptionRoot(Blueprint<BlueprintCorruptionRoot.Reference> corruptionRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -1411,10 +1411,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetArmyRoot(Blueprint<ArmyRoot, ArmyRootReference> armyRoot)
+    public TBuilder SetArmyRoot(Blueprint<ArmyRootReference> armyRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -1449,10 +1449,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCraftRoot(Blueprint<CraftRoot, CraftRoot.Reference> craftRoot)
+    public TBuilder SetCraftRoot(Blueprint<CraftRoot.Reference> craftRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -1487,10 +1487,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLeadersRoot(Blueprint<LeadersRoot, LeadersRootReference> leadersRoot)
+    public TBuilder SetLeadersRoot(Blueprint<LeadersRootReference> leadersRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -1525,10 +1525,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMoraleRoot(Blueprint<MoraleRoot, MoraleRoot.Reference> moraleRoot)
+    public TBuilder SetMoraleRoot(Blueprint<MoraleRoot.Reference> moraleRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -1563,10 +1563,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetTacticalCombat(Blueprint<BlueprintTacticalCombatRoot, BlueprintTacticalCombatRoot.Reference> tacticalCombat)
+    public TBuilder SetTacticalCombat(Blueprint<BlueprintTacticalCombatRoot.Reference> tacticalCombat)
     {
       return OnConfigureInternal(
         bp =>
@@ -1627,10 +1627,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFormations(Blueprint<FormationsRoot, FormationsRootReference> formations)
+    public TBuilder SetFormations(Blueprint<FormationsRootReference> formations)
     {
       return OnConfigureInternal(
         bp =>
@@ -1743,10 +1743,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFxRoot(Blueprint<FxRoot, FxRootReference> fxRoot)
+    public TBuilder SetFxRoot(Blueprint<FxRootReference> fxRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -1781,10 +1781,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetHitSystemRoot(Blueprint<HitSystemRoot, HitSystemRootReference> hitSystemRoot)
+    public TBuilder SetHitSystemRoot(Blueprint<HitSystemRootReference> hitSystemRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -1819,10 +1819,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPlayerUpgradeActions(Blueprint<PlayerUpgradeActionsRoot, PlayerUpgradeActionsRoot.Reference> playerUpgradeActions)
+    public TBuilder SetPlayerUpgradeActions(Blueprint<PlayerUpgradeActionsRoot.Reference> playerUpgradeActions)
     {
       return OnConfigureInternal(
         bp =>
@@ -1857,10 +1857,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCustomCompanion(Blueprint<BlueprintUnit, BlueprintUnitReference> customCompanion)
+    public TBuilder SetCustomCompanion(Blueprint<BlueprintUnitReference> customCompanion)
     {
       return OnConfigureInternal(
         bp =>
@@ -2043,10 +2043,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUnitTypes(params Blueprint<BlueprintUnitType, BlueprintUnitTypeReference>[] unitTypes)
+    public TBuilder SetUnitTypes(params Blueprint<BlueprintUnitTypeReference>[] unitTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -2068,10 +2068,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToUnitTypes(params Blueprint<BlueprintUnitType, BlueprintUnitTypeReference>[] unitTypes)
+    public TBuilder AddToUnitTypes(params Blueprint<BlueprintUnitTypeReference>[] unitTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -2094,10 +2094,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromUnitTypes(params Blueprint<BlueprintUnitType, BlueprintUnitTypeReference>[] unitTypes)
+    public TBuilder RemoveFromUnitTypes(params Blueprint<BlueprintUnitTypeReference>[] unitTypes)
     {
       return OnConfigureInternal(
         bp =>
@@ -2184,10 +2184,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDungeon(Blueprint<BlueprintDungeonRoot, BlueprintDungeonRootReference> dungeon)
+    public TBuilder SetDungeon(Blueprint<BlueprintDungeonRootReference> dungeon)
     {
       return OnConfigureInternal(
         bp =>
@@ -2222,10 +2222,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetConsoleRoot(Blueprint<ConsoleRoot, ConsoleRootReference> consoleRoot)
+    public TBuilder SetConsoleRoot(Blueprint<ConsoleRootReference> consoleRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -2260,10 +2260,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBlueprintTrapSettingsRoot(Blueprint<BlueprintTrapSettingsRoot, BlueprintTrapSettingsRootReference> blueprintTrapSettingsRoot)
+    public TBuilder SetBlueprintTrapSettingsRoot(Blueprint<BlueprintTrapSettingsRootReference> blueprintTrapSettingsRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -2298,10 +2298,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetInteractionRoot(Blueprint<BlueprintInteractionRoot, BlueprintInteractionRoot.Referense> interactionRoot)
+    public TBuilder SetInteractionRoot(Blueprint<BlueprintInteractionRoot.Referense> interactionRoot)
     {
       return OnConfigureInternal(
         bp =>
@@ -2336,10 +2336,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBlueprintMythicsSettingsReference(Blueprint<BlueprintMythicsSettings, BlueprintMythicsSettingsReference> blueprintMythicsSettingsReference)
+    public TBuilder SetBlueprintMythicsSettingsReference(Blueprint<BlueprintMythicsSettingsReference> blueprintMythicsSettingsReference)
     {
       return OnConfigureInternal(
         bp =>
@@ -2374,10 +2374,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCustomAiConsiderations(Blueprint<CustomAiConsiderationsRoot, CustomAiConsiderationsRoot.Reference> customAiConsiderations)
+    public TBuilder SetCustomAiConsiderations(Blueprint<CustomAiConsiderationsRoot.Reference> customAiConsiderations)
     {
       return OnConfigureInternal(
         bp =>
@@ -2412,10 +2412,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBlueprintBugReportTutorialReference(Blueprint<BlueprintTutorial, BlueprintTutorial.Reference> blueprintBugReportTutorialReference)
+    public TBuilder SetBlueprintBugReportTutorialReference(Blueprint<BlueprintTutorial.Reference> blueprintBugReportTutorialReference)
     {
       return OnConfigureInternal(
         bp =>

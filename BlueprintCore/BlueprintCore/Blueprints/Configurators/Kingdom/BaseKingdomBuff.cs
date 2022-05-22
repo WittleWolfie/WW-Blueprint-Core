@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintKingdomBuff
     where TBuilder : BaseKingdomBuffConfigurator<T, TBuilder>
   {
-    protected BaseKingdomBuffConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseKingdomBuffConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomBuff.DisplayName"/>
@@ -273,7 +273,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddKingdomUnitsGrowthIncrease(
@@ -283,7 +283,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         KingdomUnitsGrowthIncrease.UnitListOperation? operation = null,
         ArmyProperties? properties = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? units = null)
+        List<Blueprint<BlueprintUnitReference>>? units = null)
     {
       var component = new KingdomUnitsGrowthIncrease();
       component.AllUnits = allUnits ?? component.AllUnits;
@@ -321,7 +321,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="modifier">
@@ -330,7 +330,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </para>
     /// </param>
     public TBuilder AddBuildingCostModifier(
-        List<Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>>? buildings = null,
+        List<Blueprint<BlueprintSettlementBuildingReference>>? buildings = null,
         float? modifier = null)
     {
       var component = new BuildingCostModifier();
@@ -629,7 +629,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="features">
@@ -641,7 +641,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -652,11 +652,11 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </param>
     public TBuilder AddKingdomTacticalArmyFeature(
         ArmyProperties? armyTag = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? armyUnits = null,
+        List<Blueprint<BlueprintUnitReference>>? armyUnits = null,
         bool? byTag = null,
         bool? byUnits = null,
         ArmyFaction? faction = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null,
+        List<Blueprint<BlueprintFeatureReference>>? features = null,
         MercenariesIncludeOption? mercenariesFilter = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -713,7 +713,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddRecruitCostModifier(
@@ -722,7 +722,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         float? modifier = null,
         KingdomUnitsGrowthIncrease.UnitListOperation? operation = null,
         ArmyProperties? properties = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? units = null)
+        List<Blueprint<BlueprintUnitReference>>? units = null)
     {
       var component = new RecruitCostModifier();
       component.AllUnits = allUnits ?? component.AllUnits;
@@ -869,7 +869,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="skillsList">
@@ -884,15 +884,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddKingdomGainSkillToLeaders(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minLevel = null,
-        Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>? skill = null,
-        List<Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>>? skillsList = null,
+        Blueprint<BlueprintLeaderSkillReference>? skill = null,
+        List<Blueprint<BlueprintLeaderSkillReference>>? skillsList = null,
         ArmyFaction? targetFactions = null,
         bool? useSkillsList = null)
     {

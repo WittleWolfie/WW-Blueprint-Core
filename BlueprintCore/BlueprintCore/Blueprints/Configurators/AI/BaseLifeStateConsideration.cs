@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : LifeStateConsideration
     where TBuilder : BaseLifeStateConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseLifeStateConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLifeStateConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="LifeStateConsideration.AliveScore"/>

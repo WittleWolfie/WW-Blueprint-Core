@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : NotImpatientConsideration
     where TBuilder : BaseNotImpatientConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseNotImpatientConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseNotImpatientConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     where T : BlueprintKingdomMoraleFlag
     where TBuilder : BaseKingdomMoraleFlagConfigurator<T, TBuilder>
   {
-    protected BaseKingdomMoraleFlagConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseKingdomMoraleFlagConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomMoraleFlag.m_DisplayName"/>

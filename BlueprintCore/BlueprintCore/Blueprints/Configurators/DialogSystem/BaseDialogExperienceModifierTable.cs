@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where T : BlueprintDialogExperienceModifierTable
     where TBuilder : BaseDialogExperienceModifierTableConfigurator<T, TBuilder>
   {
-    protected BaseDialogExperienceModifierTableConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseDialogExperienceModifierTableConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintDialogExperienceModifierTable.MultiplierLow"/>

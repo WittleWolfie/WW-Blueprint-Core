@@ -9,7 +9,7 @@ namespace BlueprintCore.Blueprints
   /// </summary>
   public static class Features
   {
-    public static readonly Blueprint<BlueprintFeature, BlueprintFeatureReference> DisplayWeaponProwess = "ac8d4d2e375a8c841a19ed46696e5af2";
-    public static readonly Blueprint<BlueprintFeature, BlueprintFeatureReference> ShatterConfidence = "14225a2e4561bfd46874c9a4a97e7133";
+    public static readonly Blueprint<BlueprintFeatureReference> DisplayWeaponProwess = "ac8d4d2e375a8c841a19ed46696e5af2";
+    public static readonly Blueprint<BlueprintFeatureReference> ShatterConfidence = "14225a2e4561bfd46874c9a4a97e7133";
   }
 }

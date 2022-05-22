@@ -83,7 +83,7 @@ For example, the `FeatureConfigurator` exposes a method `AddPrerequisiteCharacte
 //     • OracleRevelationSoulSiphon –226c053a75fd7c34cab1b493f5847787
 //     • WreckingBlowsFeature –5bccc86dd1f187a4a99f092dc054c755
 public TBuilder AddPrerequisiteClassLevel(
-    Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass,
+    Blueprint<BlueprintCharacterClassReference> characterClass,
     int level,
     bool? checkInProgression = null,
     Prerequisite.GroupType? group = null,

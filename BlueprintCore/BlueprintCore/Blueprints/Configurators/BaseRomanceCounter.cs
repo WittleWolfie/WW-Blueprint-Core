@@ -15,7 +15,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintRomanceCounter
     where TBuilder : BaseRomanceCounterConfigurator<T, TBuilder>
   {
-    protected BaseRomanceCounterConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseRomanceCounterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintRomanceCounter.m_CounterFlag"/>
@@ -30,10 +30,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCounterFlag(Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference> counterFlag)
+    public TBuilder SetCounterFlag(Blueprint<BlueprintUnlockableFlagReference> counterFlag)
     {
       return OnConfigureInternal(
         bp =>
@@ -68,10 +68,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMinValueFlag(Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference> minValueFlag)
+    public TBuilder SetMinValueFlag(Blueprint<BlueprintUnlockableFlagReference> minValueFlag)
     {
       return OnConfigureInternal(
         bp =>
@@ -106,10 +106,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMaxValueFlag(Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference> maxValueFlag)
+    public TBuilder SetMaxValueFlag(Blueprint<BlueprintUnlockableFlagReference> maxValueFlag)
     {
       return OnConfigureInternal(
         bp =>

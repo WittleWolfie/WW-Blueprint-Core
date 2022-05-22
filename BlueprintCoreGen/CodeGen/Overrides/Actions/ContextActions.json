@@ -81,7 +81,7 @@
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -90,7 +90,7 @@
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -99,7 +99,7 @@
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -108,7 +108,7 @@
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -117,7 +117,7 @@
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -143,7 +143,7 @@
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -152,7 +152,7 @@
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -161,7 +161,7 @@
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -170,7 +170,7 @@
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -179,7 +179,7 @@
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -244,7 +244,7 @@
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -253,7 +253,7 @@
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -262,7 +262,7 @@
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -271,7 +271,7 @@
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -280,7 +280,7 @@
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -306,7 +306,7 @@
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -315,7 +315,7 @@
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -324,7 +324,7 @@
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -333,7 +333,7 @@
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -342,7 +342,7 @@
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
@@ -671,7 +671,7 @@
         "CustomFields": [
           {
             "FieldName": "m_Enchantment",
-            "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+            "TypeName": "Blueprint<BlueprintItemEnchantmentReference>",
             "Required": "true",
             "AssignmentFmtRhs": "new BlueprintItemEnchantmentReference[] {{ {0}.Reference }}"
           }
@@ -708,7 +708,7 @@
         "CustomFields": [
           {
             "FieldName": "m_Enchantment",
-            "TypeName": "Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>",
+            "TypeName": "Blueprint<BlueprintItemEnchantmentReference>",
             "Required": "true",
             "AssignmentFmtRhs": "new BlueprintItemEnchantmentReference[] {{ {0}.Reference }}"
           }

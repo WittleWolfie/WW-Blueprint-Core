@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : AlignmentConsideration
     where TBuilder : BaseAlignmentConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseAlignmentConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAlignmentConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="AlignmentConsideration.Alignment"/>

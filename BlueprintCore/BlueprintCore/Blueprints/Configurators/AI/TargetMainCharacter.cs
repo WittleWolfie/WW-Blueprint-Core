@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   public class TargetMainCharacterConfigurator
     : BaseTargetMainCharacterConfigurator<TargetMainCharacter, TargetMainCharacterConfigurator>
   {
-    private TargetMainCharacterConfigurator(Blueprint<TargetMainCharacter, BlueprintReference<TargetMainCharacter>> blueprint) : base(blueprint) { }
+    private TargetMainCharacterConfigurator(Blueprint<BlueprintReference<TargetMainCharacter>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static TargetMainCharacterConfigurator For(Blueprint<TargetMainCharacter, BlueprintReference<TargetMainCharacter>> blueprint)
+    public static TargetMainCharacterConfigurator For(Blueprint<BlueprintReference<TargetMainCharacter>> blueprint)
     {
       return new TargetMainCharacterConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static TargetMainCharacterConfigurator New(string name, string guid)

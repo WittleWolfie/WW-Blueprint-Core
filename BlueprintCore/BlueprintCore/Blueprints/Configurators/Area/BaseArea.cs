@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where T : BlueprintArea
     where TBuilder : BaseAreaConfigurator<T, TBuilder>
   {
-    protected BaseAreaConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAreaConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintArea.m_Parts"/>
@@ -43,10 +43,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetParts(params Blueprint<BlueprintAreaPart, BlueprintAreaPartReference>[] parts)
+    public TBuilder SetParts(params Blueprint<BlueprintAreaPartReference>[] parts)
     {
       return OnConfigureInternal(
         bp =>
@@ -68,10 +68,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToParts(params Blueprint<BlueprintAreaPart, BlueprintAreaPartReference>[] parts)
+    public TBuilder AddToParts(params Blueprint<BlueprintAreaPartReference>[] parts)
     {
       return OnConfigureInternal(
         bp =>
@@ -94,10 +94,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromParts(params Blueprint<BlueprintAreaPart, BlueprintAreaPartReference>[] parts)
+    public TBuilder RemoveFromParts(params Blueprint<BlueprintAreaPartReference>[] parts)
     {
       return OnConfigureInternal(
         bp =>
@@ -514,10 +514,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDefaultPreset(Blueprint<BlueprintAreaPreset, BlueprintAreaPresetReference> defaultPreset)
+    public TBuilder SetDefaultPreset(Blueprint<BlueprintAreaPresetReference> defaultPreset)
     {
       return OnConfigureInternal(
         bp =>
@@ -651,10 +651,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetHotAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] hotAreas)
+    public TBuilder SetHotAreas(params Blueprint<BlueprintAreaReference>[] hotAreas)
     {
       return OnConfigureInternal(
         bp =>
@@ -679,10 +679,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToHotAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] hotAreas)
+    public TBuilder AddToHotAreas(params Blueprint<BlueprintAreaReference>[] hotAreas)
     {
       return OnConfigureInternal(
         bp =>
@@ -708,10 +708,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromHotAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] hotAreas)
+    public TBuilder RemoveFromHotAreas(params Blueprint<BlueprintAreaReference>[] hotAreas)
     {
       return OnConfigureInternal(
         bp =>
@@ -804,7 +804,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="goodAvoidanceEnterPoint">
@@ -816,14 +816,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddCombatRandomEncounterAreaSettings(
         GlobalMapZone[]? allowedNaturalSettings = null,
-        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? defaultEnterPoint = null,
+        Blueprint<BlueprintAreaEnterPointReference>? defaultEnterPoint = null,
         CombatRandomEncounterAreaSettings.Formation[]? formations = null,
-        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? goodAvoidanceEnterPoint = null)
+        Blueprint<BlueprintAreaEnterPointReference>? goodAvoidanceEnterPoint = null)
     {
       var component = new CombatRandomEncounterAreaSettings();
       component.AllowedNaturalSettings = allowedNaturalSettings ?? component.AllowedNaturalSettings;
@@ -982,7 +982,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="aIBuildListTown">
@@ -994,7 +994,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="aIBuildListVillage">
@@ -1006,13 +1006,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSettlementAISettings(
-        Blueprint<SettlementBuildList, SettlementBuildListReference>? aIBuildListCity = null,
-        Blueprint<SettlementBuildList, SettlementBuildListReference>? aIBuildListTown = null,
-        Blueprint<SettlementBuildList, SettlementBuildListReference>? aIBuildListVillage = null)
+        Blueprint<SettlementBuildListReference>? aIBuildListCity = null,
+        Blueprint<SettlementBuildListReference>? aIBuildListTown = null,
+        Blueprint<SettlementBuildListReference>? aIBuildListVillage = null)
     {
       var component = new SettlementAISettings();
       component.m_AIBuildListCity = aIBuildListCity?.Reference ?? component.m_AIBuildListCity;

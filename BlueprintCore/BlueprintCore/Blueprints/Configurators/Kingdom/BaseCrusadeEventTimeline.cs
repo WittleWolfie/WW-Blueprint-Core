@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintCrusadeEventTimeline
     where TBuilder : BaseCrusadeEventTimelineConfigurator<T, TBuilder>
   {
-    protected BaseCrusadeEventTimelineConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCrusadeEventTimelineConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCrusadeEventTimeline.Chapters"/>

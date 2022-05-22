@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     where T : BlueprintGlobalMapPoint
     where TBuilder : BaseGlobalMapPointConfigurator<T, TBuilder>
   {
-    protected BaseGlobalMapPointConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseGlobalMapPointConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.m_GlobalMap"/>
@@ -48,10 +48,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetGlobalMap(Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference> globalMap)
+    public TBuilder SetGlobalMap(Blueprint<BlueprintGlobalMap.Reference> globalMap)
     {
       return OnConfigureInternal(
         bp =>
@@ -471,10 +471,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAreaEntrance(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> areaEntrance)
+    public TBuilder SetAreaEntrance(Blueprint<BlueprintAreaEnterPointReference> areaEntrance)
     {
       return OnConfigureInternal(
         bp =>
@@ -509,10 +509,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEntrances(Blueprint<BlueprintMultiEntrance, BlueprintMultiEntrance.Reference> entrances)
+    public TBuilder SetEntrances(Blueprint<BlueprintMultiEntrance.Reference> entrances)
     {
       return OnConfigureInternal(
         bp =>
@@ -547,10 +547,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBookEvent(Blueprint<BlueprintDialog, BlueprintDialogReference> bookEvent)
+    public TBuilder SetBookEvent(Blueprint<BlueprintDialogReference> bookEvent)
     {
       return OnConfigureInternal(
         bp =>
@@ -614,10 +614,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLocationVariations(params Blueprint<BlueprintGlobalMapPointVariation, BlueprintGlobalMapPointVariation.Reference>[] locationVariations)
+    public TBuilder SetLocationVariations(params Blueprint<BlueprintGlobalMapPointVariation.Reference>[] locationVariations)
     {
       return OnConfigureInternal(
         bp =>
@@ -639,10 +639,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToLocationVariations(params Blueprint<BlueprintGlobalMapPointVariation, BlueprintGlobalMapPointVariation.Reference>[] locationVariations)
+    public TBuilder AddToLocationVariations(params Blueprint<BlueprintGlobalMapPointVariation.Reference>[] locationVariations)
     {
       return OnConfigureInternal(
         bp =>
@@ -665,10 +665,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromLocationVariations(params Blueprint<BlueprintGlobalMapPointVariation, BlueprintGlobalMapPointVariation.Reference>[] locationVariations)
+    public TBuilder RemoveFromLocationVariations(params Blueprint<BlueprintGlobalMapPointVariation.Reference>[] locationVariations)
     {
       return OnConfigureInternal(
         bp =>
@@ -1063,10 +1063,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetArmyObjective(Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference> armyObjective)
+    public TBuilder SetArmyObjective(Blueprint<BlueprintQuestObjectiveReference> armyObjective)
     {
       return OnConfigureInternal(
         bp =>
@@ -1231,10 +1231,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDemonGarrison(Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference> demonGarrison)
+    public TBuilder SetDemonGarrison(Blueprint<BlueprintArmyPreset.Reference> demonGarrison)
     {
       return OnConfigureInternal(
         bp =>
@@ -1269,10 +1269,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetGarrisonLeader(Blueprint<BlueprintArmyLeader, BlueprintArmyLeaderReference> garrisonLeader)
+    public TBuilder SetGarrisonLeader(Blueprint<BlueprintArmyLeaderReference> garrisonLeader)
     {
       return OnConfigureInternal(
         bp =>
@@ -1418,11 +1418,11 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddLocationRadiusBuff(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         float? radius = null)
     {
       var component = new LocationRadiusBuff();
@@ -1458,14 +1458,14 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddLocationRestriction(
         ConditionsBuilder? allowedCondition = null,
         LocalizedString? description = null,
         ConditionsBuilder? ignoreCondition = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? requiredCompanions = null)
+        List<Blueprint<BlueprintUnitReference>>? requiredCompanions = null)
     {
       var component = new LocationRestriction();
       component.AllowedCondition = allowedCondition?.Build() ?? component.AllowedCondition;

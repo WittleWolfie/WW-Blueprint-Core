@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     where T : BlueprintEncyclopediaChapter
     where TBuilder : BaseEncyclopediaChapterConfigurator<T, TBuilder>
   {
-    protected BaseEncyclopediaChapterConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseEncyclopediaChapterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

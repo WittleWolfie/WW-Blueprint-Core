@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
     where T : BlueprintUnitUpgrader
     where TBuilder : BaseUnitUpgraderConfigurator<T, TBuilder>
   {
-    protected BaseUnitUpgraderConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUnitUpgraderConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitUpgrader.ApplyFromPlaceholder"/>

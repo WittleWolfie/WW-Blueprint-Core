@@ -81,10 +81,10 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     private readonly List<Action<T>> InternalOnConfigure = new();
     private readonly List<Action<T>> ExternalOnConfigure = new();
 
-    protected RootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint)
+    protected RootConfigurator(Blueprint<BlueprintReference<T>> blueprint)
     {
       Self = (TBuilder)this;
-      Blueprint = blueprint.Instance;
+      Blueprint = blueprint.Reference.Get();
       Validator = new(Blueprint.name, typeof(T).Name);
     }
 

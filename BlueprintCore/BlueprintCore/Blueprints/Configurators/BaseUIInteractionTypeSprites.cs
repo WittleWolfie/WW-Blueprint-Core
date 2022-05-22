@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintUIInteractionTypeSprites
     where TBuilder : BaseUIInteractionTypeSpritesConfigurator<T, TBuilder>
   {
-    protected BaseUIInteractionTypeSpritesConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUIInteractionTypeSpritesConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Main"/>

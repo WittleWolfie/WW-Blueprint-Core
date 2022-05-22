@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintUnit
     where TBuilder : BaseUnitConfigurator<T, TBuilder>
   {
-    protected BaseUnitConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUnitConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.m_Type"/>
@@ -72,10 +72,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetType(Blueprint<BlueprintUnitType, BlueprintUnitTypeReference> type)
+    public TBuilder SetType(Blueprint<BlueprintUnitTypeReference> type)
     {
       return OnConfigureInternal(
         bp =>
@@ -232,10 +232,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRace(Blueprint<BlueprintRace, BlueprintRaceReference> race)
+    public TBuilder SetRace(Blueprint<BlueprintRaceReference> race)
     {
       return OnConfigureInternal(
         bp =>
@@ -294,10 +294,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPortrait(Blueprint<BlueprintPortrait, BlueprintPortraitReference> portrait)
+    public TBuilder SetPortrait(Blueprint<BlueprintPortraitReference> portrait)
     {
       return OnConfigureInternal(
         bp =>
@@ -358,10 +358,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCustomizationPreset(Blueprint<UnitCustomizationPreset, UnitCustomizationPresetReference> customizationPreset)
+    public TBuilder SetCustomizationPreset(Blueprint<UnitCustomizationPresetReference> customizationPreset)
     {
       return OnConfigureInternal(
         bp =>
@@ -422,10 +422,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFaction(Blueprint<BlueprintFaction, BlueprintFactionReference> faction)
+    public TBuilder SetFaction(Blueprint<BlueprintFactionReference> faction)
     {
       return OnConfigureInternal(
         bp =>
@@ -486,10 +486,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartingInventory(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingInventory)
+    public TBuilder SetStartingInventory(params Blueprint<BlueprintItemReference>[] startingInventory)
     {
       return OnConfigureInternal(
         bp =>
@@ -511,10 +511,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToStartingInventory(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingInventory)
+    public TBuilder AddToStartingInventory(params Blueprint<BlueprintItemReference>[] startingInventory)
     {
       return OnConfigureInternal(
         bp =>
@@ -537,10 +537,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromStartingInventory(params Blueprint<BlueprintItem, BlueprintItemReference>[] startingInventory)
+    public TBuilder RemoveFromStartingInventory(params Blueprint<BlueprintItemReference>[] startingInventory)
     {
       return OnConfigureInternal(
         bp =>
@@ -601,10 +601,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBrain(Blueprint<BlueprintBrain, BlueprintBrainReference> brain)
+    public TBuilder SetBrain(Blueprint<BlueprintBrainReference> brain)
     {
       return OnConfigureInternal(
         bp =>
@@ -639,10 +639,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAlternativeBrains(params Blueprint<BlueprintBrain, BlueprintBrainReference>[] alternativeBrains)
+    public TBuilder SetAlternativeBrains(params Blueprint<BlueprintBrainReference>[] alternativeBrains)
     {
       return OnConfigureInternal(
         bp =>
@@ -664,10 +664,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAlternativeBrains(params Blueprint<BlueprintBrain, BlueprintBrainReference>[] alternativeBrains)
+    public TBuilder AddToAlternativeBrains(params Blueprint<BlueprintBrainReference>[] alternativeBrains)
     {
       return OnConfigureInternal(
         bp =>
@@ -690,10 +690,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAlternativeBrains(params Blueprint<BlueprintBrain, BlueprintBrainReference>[] alternativeBrains)
+    public TBuilder RemoveFromAlternativeBrains(params Blueprint<BlueprintBrainReference>[] alternativeBrains)
     {
       return OnConfigureInternal(
         bp =>
@@ -1022,10 +1022,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAdditionalTemplates(params Blueprint<BlueprintUnitTemplate, BlueprintUnitTemplateReference>[] additionalTemplates)
+    public TBuilder SetAdditionalTemplates(params Blueprint<BlueprintUnitTemplateReference>[] additionalTemplates)
     {
       return OnConfigureInternal(
         bp =>
@@ -1047,10 +1047,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAdditionalTemplates(params Blueprint<BlueprintUnitTemplate, BlueprintUnitTemplateReference>[] additionalTemplates)
+    public TBuilder AddToAdditionalTemplates(params Blueprint<BlueprintUnitTemplateReference>[] additionalTemplates)
     {
       return OnConfigureInternal(
         bp =>
@@ -1073,10 +1073,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAdditionalTemplates(params Blueprint<BlueprintUnitTemplate, BlueprintUnitTemplateReference>[] additionalTemplates)
+    public TBuilder RemoveFromAdditionalTemplates(params Blueprint<BlueprintUnitTemplateReference>[] additionalTemplates)
     {
       return OnConfigureInternal(
         bp =>
@@ -1137,10 +1137,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAddFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] addFacts)
+    public TBuilder SetAddFacts(params Blueprint<BlueprintUnitFactReference>[] addFacts)
     {
       return OnConfigureInternal(
         bp =>
@@ -1162,10 +1162,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAddFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] addFacts)
+    public TBuilder AddToAddFacts(params Blueprint<BlueprintUnitFactReference>[] addFacts)
     {
       return OnConfigureInternal(
         bp =>
@@ -1188,10 +1188,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAddFacts(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] addFacts)
+    public TBuilder RemoveFromAddFacts(params Blueprint<BlueprintUnitFactReference>[] addFacts)
     {
       return OnConfigureInternal(
         bp =>
@@ -1390,11 +1390,11 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddUnitUpgraderComponent(
-        List<Blueprint<BlueprintUnitUpgrader, BlueprintUnitUpgrader.Reference>>? upgraders = null)
+        List<Blueprint<BlueprintUnitUpgrader.Reference>>? upgraders = null)
     {
       var component = new UnitUpgraderComponent();
       component.m_Upgraders = upgraders?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Upgraders;
@@ -1428,7 +1428,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="dlcReward">
@@ -1440,7 +1440,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="enemiesBuffOnRandomEncounter">
@@ -1452,7 +1452,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="partyBuff">
@@ -1464,7 +1464,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="partyBuffDuringCamp">
@@ -1476,7 +1476,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="partyBuffOnRandomEncounter">
@@ -1488,7 +1488,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="selfBuff">
@@ -1500,7 +1500,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="selfBuffOnRandomEncounter">
@@ -1512,26 +1512,26 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddCampingSpecialAbility(
-        Blueprint<Cutscene, CutsceneReference>? campCutscene = null,
+        Blueprint<CutsceneReference>? campCutscene = null,
         CampPositionType? campPositionType = null,
         CampingSpecialCustomMechanics? customMechanics = null,
         LocalizedString? description = null,
-        Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>? dlcReward = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? enemiesBuffOnRandomEncounter = null,
+        Blueprint<BlueprintDlcRewardReference>? dlcReward = null,
+        Blueprint<BlueprintBuffReference>? enemiesBuffOnRandomEncounter = null,
         int? extraRations = null,
         int? maxEnemyRandomEncounterBuffs = null,
         int? minEnemyRandomEncounterBuffs = null,
         LocalizedString? name = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? partyBuff = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? partyBuffDuringCamp = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? partyBuffOnRandomEncounter = null,
+        Blueprint<BlueprintBuffReference>? partyBuff = null,
+        Blueprint<BlueprintBuffReference>? partyBuffDuringCamp = null,
+        Blueprint<BlueprintBuffReference>? partyBuffOnRandomEncounter = null,
         float? randomEncounterBuffsChance = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? selfBuff = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? selfBuffOnRandomEncounter = null)
+        Blueprint<BlueprintBuffReference>? selfBuff = null,
+        Blueprint<BlueprintBuffReference>? selfBuffOnRandomEncounter = null)
     {
       var component = new CampingSpecialAbility();
       component.m_CampCutscene = campCutscene?.Reference ?? component.m_CampCutscene;
@@ -1616,11 +1616,11 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddOverrideAnimationRaceComponent(
-        Blueprint<BlueprintRace, BlueprintRaceReference>? blueprintRace = null)
+        Blueprint<BlueprintRaceReference>? blueprintRace = null)
     {
       var component = new OverrideAnimationRaceComponent();
       component.BlueprintRace = blueprintRace?.Reference ?? component.BlueprintRace;
@@ -1709,11 +1709,11 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddReplaceUnitBlueprintForRespec(
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null)
+        Blueprint<BlueprintUnitReference>? blueprint = null)
     {
       var component = new ReplaceUnitBlueprintForRespec();
       component.m_Blueprint = blueprint?.Reference ?? component.m_Blueprint;
@@ -1982,13 +1982,13 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddDialogOnClick(
         ConditionsBuilder? conditions = null,
         float? cooldown = null,
-        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialog = null,
+        Blueprint<BlueprintDialogReference>? dialog = null,
         ActionsBuilder? noDialogActions = null,
         float? overrideDistance = null,
         bool? triggerOnApproach = null,
@@ -2044,7 +2044,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2054,7 +2054,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAbilityToCharacterComponent(
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? abilities = null,
+        List<Blueprint<BlueprintAbilityReference>>? abilities = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2119,7 +2119,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2129,7 +2129,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddLoot(
-        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
+        Blueprint<BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2165,7 +2165,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2175,7 +2175,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddLootToVendorTable(
-        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
+        Blueprint<BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2215,11 +2215,11 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSharedVendor(
-        Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>? m_Table = null)
+        Blueprint<BlueprintSharedVendorTableReference>? m_Table = null)
     {
       var component = new AddSharedVendor();
       component.m_m_Table = m_Table?.Reference ?? component.m_m_Table;
@@ -2292,7 +2292,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2302,7 +2302,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddVendorItems(
-        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference>? loot = null,
+        Blueprint<BlueprintUnitLootReference>? loot = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2421,14 +2421,14 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddFixUnitOnPostLoad_AddNewFact(
         string? comment = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? newFact = null,
+        Blueprint<BlueprintUnitFactReference>? newFact = null,
         string? taskId = null)
     {
       var component = new FixUnitOnPostLoad_AddNewFact();
@@ -2471,14 +2471,14 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddReturnVendorTable(
         string? comment = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintSharedVendorTable, BlueprintSharedVendorTableReference>? table = null,
+        Blueprint<BlueprintSharedVendorTableReference>? table = null,
         string? taskId = null)
     {
       var component = new ReturnVendorTable();
@@ -2679,7 +2679,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2689,7 +2689,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddBuffOnEntityCreated(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {

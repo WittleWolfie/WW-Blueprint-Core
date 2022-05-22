@@ -67,7 +67,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="setRankFrom">
@@ -82,13 +82,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddFeature(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> permanentFeature,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? setRankFrom = null)
+        Blueprint<BlueprintFeatureReference> permanentFeature,
+        Blueprint<BlueprintFeatureReference>? setRankFrom = null)
     {
       var element = ElementTool.Create<ContextActionAddFeature>();
       element.m_PermanentFeature = permanentFeature?.Reference;
@@ -121,12 +121,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddLocustClone(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> cloneFeature)
+        Blueprint<BlueprintFeatureReference> cloneFeature)
     {
       var element = ElementTool.Create<ContextActionAddLocustClone>();
       element.m_CloneFeature = cloneFeature?.Reference;
@@ -184,12 +184,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ApplyBuffPermanent(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        Blueprint<BlueprintBuffReference> buff,
         bool? asChild = null,
         bool? isFromSpell = null,
         bool? isNotDispelable = null,
@@ -231,12 +231,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ApplyBuffWithDurationSeconds(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        Blueprint<BlueprintBuffReference> buff,
         float durationSeconds,
         bool? asChild = null,
         bool? isFromSpell = null,
@@ -280,12 +280,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ApplyBuff(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        Blueprint<BlueprintBuffReference> buff,
         ContextDurationValue durationValue,
         bool? asChild = null,
         bool? isFromSpell = null,
@@ -343,11 +343,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         EnchantPoolType enchantPool,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionArmorEnchantPool>();
@@ -398,11 +398,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         EnchantPoolType enchantPool,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionShieldArmorEnchantPool>();
@@ -441,7 +441,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// Applied on success. Defaults to Shaken.
@@ -456,7 +456,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// Applied on success when the caster has the extraEffectFeature. Defaults to ShatterConfidence.
@@ -471,7 +471,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// Unit feature which determines whether to apply extraEffect on success. Defaults to ShatterConfidence.
@@ -486,7 +486,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// Applied on success when the caster has a feature that adds a greater effect. Defaults to Frightened.
@@ -495,11 +495,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder Demoralize(
         this ActionsBuilder builder,
         int? bonus = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> buff = null,
+        Blueprint<BlueprintBuffReference> buff = null,
         bool? dazzlingDisplay = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> extraEffect = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> extraEffectFeature = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> greaterBuff = null,
+        Blueprint<BlueprintBuffReference> extraEffect = null,
+        Blueprint<BlueprintFeatureReference> extraEffectFeature = null,
+        Blueprint<BlueprintBuffReference> greaterBuff = null,
         ActionsBuilder? tricksterRank3Actions = null)
     {
       var element = ElementTool.Create<Demoralize>();
@@ -571,11 +571,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         EnchantPoolType enchantPool,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionWeaponEnchantPool>();
@@ -626,11 +626,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         EnchantPoolType enchantPool,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionShieldWeaponEnchantPool>();
@@ -713,7 +713,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="overrideDC">
@@ -728,7 +728,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder CastSpell(
         this ActionsBuilder builder,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference> spell,
+        Blueprint<BlueprintAbilityReference> spell,
         bool? castByTarget = null,
         bool? logIfCanNotTarget = null,
         ContextValue? overrideDC = null,
@@ -920,12 +920,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ClearSummonPool(
         this ActionsBuilder builder,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool)
+        Blueprint<BlueprintSummonPoolReference> summonPool)
     {
       var element = ElementTool.Create<ContextActionClearSummonPool>();
       element.m_SummonPool = summonPool?.Reference;
@@ -1453,13 +1453,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder EnhanceWeapon(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> enchantment,
+        Blueprint<BlueprintItemEnchantmentReference> enchantment,
         bool? useSecondaryHand = null)
     {
       var element = ElementTool.Create<EnhanceWeapon>();
@@ -1498,14 +1498,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder EnhanceWeaponGreater(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         ContextValue enchantLevel,
-        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>> enchantment,
+        List<Blueprint<BlueprintItemEnchantmentReference>> enchantment,
         bool? useSecondaryHand = null)
     {
       var element = ElementTool.Create<EnhanceWeapon>();
@@ -1542,13 +1542,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder EnhanceNaturalWeapon(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> enchantment)
+        Blueprint<BlueprintItemEnchantmentReference> enchantment)
     {
       var element = ElementTool.Create<EnhanceWeapon>();
       builder.Validate(durationValue);
@@ -1585,14 +1585,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder EnhanceNaturalWeaponGreater(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         ContextValue enchantLevel,
-        List<Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>> enchantment)
+        List<Blueprint<BlueprintItemEnchantmentReference>> enchantment)
     {
       var element = ElementTool.Create<EnhanceWeapon>();
       builder.Validate(durationValue);
@@ -1627,13 +1627,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder EnchantWornItem(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> enchantment,
+        Blueprint<BlueprintItemEnchantmentReference> enchantment,
         EquipSlotBase.SlotType slot,
         bool? permanent = null,
         bool? removeOnUnequip = null,
@@ -1673,12 +1673,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder FinishObjective(
         this ActionsBuilder builder,
-        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference> objective)
+        Blueprint<BlueprintQuestObjectiveReference> objective)
     {
       var element = ElementTool.Create<ContextActionFinishObjective>();
       element.m_Objective = objective?.Reference;
@@ -1708,7 +1708,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// Buff applied to the caster for the duration of the grapple check
@@ -1723,7 +1723,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// Buff applied to the target for the duration of the grapple check
@@ -1731,8 +1731,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder Grapple(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? casterBuff = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
+        Blueprint<BlueprintBuffReference>? casterBuff = null,
+        Blueprint<BlueprintBuffReference>? targetBuff = null)
     {
       var element = ElementTool.Create<ContextActionGrapple>();
       element.m_CasterBuff = casterBuff?.Reference ?? element.m_CasterBuff;
@@ -1935,13 +1935,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder OnRandomTargetsAround(
         this ActionsBuilder builder,
         ActionsBuilder actions,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? filterNoFact = null,
+        Blueprint<BlueprintUnitFactReference>? filterNoFact = null,
         int? numberOfTargets = null,
         bool? onEnemies = null,
         Feet? radius = null)
@@ -2030,12 +2030,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ProjectileFx(
         this ActionsBuilder builder,
-        Blueprint<BlueprintProjectile, BlueprintProjectileReference> projectile)
+        Blueprint<BlueprintProjectileReference> projectile)
     {
       var element = ElementTool.Create<ContextActionProjectileFx>();
       element.m_Projectile = projectile?.Reference;
@@ -2092,12 +2092,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RecoverItemCharges(
         this ActionsBuilder builder,
-        Blueprint<BlueprintItemEquipment, BlueprintItemEquipmentReference> item,
+        Blueprint<BlueprintItemEquipmentReference> item,
         int? chargesRecoverCount = null)
     {
       var element = ElementTool.Create<ContextActionRecoverItemCharges>();
@@ -2129,13 +2129,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder IncreaseBuffDuration(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> targetBuff,
+        Blueprint<BlueprintBuffReference> targetBuff,
         bool? toTarget = null)
     {
       var element = ElementTool.Create<ContextActionReduceBuffDuration>();
@@ -2170,13 +2170,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ReduceBuffDuration(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> targetBuff,
+        Blueprint<BlueprintBuffReference> targetBuff,
         bool? toTarget = null)
     {
       var element = ElementTool.Create<ContextActionReduceBuffDuration>();
@@ -2211,7 +2211,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="onlyFromCaster">
@@ -2226,7 +2226,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder RemoveBuff(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        Blueprint<BlueprintBuffReference> buff,
         bool? onlyFromCaster = null,
         bool? removeRank = null,
         bool? toCaster = null)
@@ -2286,12 +2286,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveBuffSingleStack(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> targetBuff)
+        Blueprint<BlueprintBuffReference> targetBuff)
     {
       var element = ElementTool.Create<ContextActionRemoveBuffSingleStack>();
       element.m_TargetBuff = targetBuff?.Reference;
@@ -2343,7 +2343,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="value">
@@ -2353,7 +2353,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder RestoreResource(
         this ActionsBuilder builder,
-        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference> resource,
+        Blueprint<BlueprintAbilityResourceReference> resource,
         ContextValue? value = null)
     {
       var element = ElementTool.Create<ContextRestoreResource>();
@@ -2408,12 +2408,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RestoreSpells(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>> spellbooks)
+        List<Blueprint<BlueprintSpellbookReference>> spellbooks)
     {
       var element = ElementTool.Create<ContextActionRestoreSpells>();
       element.m_Spellbooks = spellbooks?.Select(bp => bp.Reference)?.ToArray();
@@ -2443,7 +2443,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// Replaces the default resurrection buff. Must contain a ResurrectionLogic component.
@@ -2456,7 +2456,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder Resurrect(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? customResurrectionBuff = null,
+        Blueprint<BlueprintBuffReference>? customResurrectionBuff = null,
         float? resultHealth = null)
     {
       var element = ElementTool.Create<ContextActionResurrect>();
@@ -2493,7 +2493,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// Replaces the default resurrection buff. Must contain a ResurrectionLogic component.
@@ -2501,7 +2501,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder ResurrectAndFullRestore(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? customResurrectionBuff = null)
+        Blueprint<BlueprintBuffReference>? customResurrectionBuff = null)
     {
       var element = ElementTool.Create<ContextActionResurrect>();
       element.m_CustomResurrectionBuff = customResurrectionBuff?.Reference ?? element.m_CustomResurrectionBuff;
@@ -2732,12 +2732,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SpawnAreaEffect(
         this ActionsBuilder builder,
-        Blueprint<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference> areaEffect,
+        Blueprint<BlueprintAbilityAreaEffectReference> areaEffect,
         ContextDurationValue durationValue,
         bool? onUnit = null)
     {
@@ -2771,7 +2771,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="controllableProjectile">
@@ -2783,13 +2783,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SpawnControllableProjectile(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> associatedCasterBuff,
-        Blueprint<BlueprintControllableProjectile, BlueprintControllableProjectileReference> controllableProjectile)
+        Blueprint<BlueprintBuffReference> associatedCasterBuff,
+        Blueprint<BlueprintControllableProjectileReference> controllableProjectile)
     {
       var element = ElementTool.Create<ContextActionSpawnControllableProjectile>();
       element.AssociatedCasterBuff = associatedCasterBuff?.Reference;
@@ -2820,14 +2820,14 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SpawnMonster(
         this ActionsBuilder builder,
         ContextDiceValue countValue,
         ContextDurationValue durationValue,
-        Blueprint<BlueprintUnit, BlueprintUnitReference> monster,
+        Blueprint<BlueprintUnitReference> monster,
         ActionsBuilder? afterSpawn = null,
         bool? doNotLinkToCaster = null,
         bool? isDirectlyControllable = null,
@@ -2876,7 +2876,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="summonPool">
@@ -2888,15 +2888,15 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SpawnMonsterUsingSummonPool(
         this ActionsBuilder builder,
         ContextDiceValue countValue,
         ContextDurationValue durationValue,
-        Blueprint<BlueprintUnit, BlueprintUnitReference> monster,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
+        Blueprint<BlueprintUnitReference> monster,
+        Blueprint<BlueprintSummonPoolReference> summonPool,
         ActionsBuilder? afterSpawn = null,
         bool? doNotLinkToCaster = null,
         bool? isDirectlyControllable = null,
@@ -2946,12 +2946,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SpawnUnlinkedMonster(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference> monster)
+        Blueprint<BlueprintUnitReference> monster)
     {
       var element = ElementTool.Create<ContextActionSpawnUnlinkedMonster>();
       element.m_Blueprint = monster?.Reference;
@@ -2981,7 +2981,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="value">
@@ -2991,7 +2991,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </param>
     public static ActionsBuilder ContextSpendResource(
         this ActionsBuilder builder,
-        Blueprint<BlueprintAbilityResource, BlueprintAbilityResourceReference> resource,
+        Blueprint<BlueprintAbilityResourceReference> resource,
         ContextValue? value = null)
     {
       var element = ElementTool.Create<ContextSpendResource>();
@@ -3048,12 +3048,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SwordlordAdaptiveTacticsAdd(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> source)
+        Blueprint<BlueprintUnitFactReference> source)
     {
       var element = ElementTool.Create<SwordlordAdaptiveTacticsAdd>();
       element.m_Source = source?.Reference;
@@ -3817,12 +3817,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RestoreAllSpellSlots(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>>? excludeSpellbooks = null,
+        List<Blueprint<BlueprintSpellbookReference>>? excludeSpellbooks = null,
         UnitEvaluator? target = null,
         int? upToSpellLevel = null)
     {
@@ -3861,12 +3861,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SwallowWhole(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? targetBuff = null)
+        Blueprint<BlueprintBuffReference>? targetBuff = null)
     {
       var element = ElementTool.Create<ContextActionSwallowWhole>();
       element.m_TargetBuff = targetBuff?.Reference ?? element.m_TargetBuff;

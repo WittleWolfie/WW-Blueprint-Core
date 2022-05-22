@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where T : BlueprintDynamicMapObject
     where TBuilder : BaseDynamicMapObjectConfigurator<T, TBuilder>
   {
-    protected BaseDynamicMapObjectConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseDynamicMapObjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

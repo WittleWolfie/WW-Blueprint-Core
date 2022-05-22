@@ -76,12 +76,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder AnotherEtudeOfGroupIsPlaying(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintEtudeConflictingGroup, BlueprintEtudeConflictingGroupReference>? group = null,
+        Blueprint<BlueprintEtudeConflictingGroupReference>? group = null,
         bool negate = false)
     {
       var element = ElementTool.Create<AnotherEtudeOfGroupIsPlaying>();
@@ -117,7 +117,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="currentDialog">
@@ -127,7 +127,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </param>
     public static ConditionsBuilder AnswerListShown(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintAnswersList, BlueprintAnswersListReference>? answersList = null,
+        Blueprint<BlueprintAnswersListReference>? answersList = null,
         bool? currentDialog = null,
         bool negate = false)
     {
@@ -165,7 +165,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="currentDialog">
@@ -175,7 +175,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </param>
     public static ConditionsBuilder AnswerSelected(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintAnswer, BlueprintAnswerReference>? answer = null,
+        Blueprint<BlueprintAnswerReference>? answer = null,
         bool? currentDialog = null,
         bool negate = false)
     {
@@ -213,12 +213,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder BarkBanterPlayed(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintBarkBanter, BlueprintBarkBanterReference>? banter = null,
+        Blueprint<BlueprintBarkBanterReference>? banter = null,
         bool negate = false)
     {
       var element = ElementTool.Create<BarkBanterPlayed>();
@@ -252,12 +252,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CampaignCompleted(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCampaign, BlueprintCampaignReference>? campaign = null,
+        Blueprint<BlueprintCampaignReference>? campaign = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CampaignCompleted>();
@@ -293,12 +293,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CheckFailed(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCheck, BlueprintCheckReference>? check = null,
+        Blueprint<BlueprintCheckReference>? check = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CheckFailed>();
@@ -334,12 +334,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CheckPassed(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCheck, BlueprintCheckReference>? check = null,
+        Blueprint<BlueprintCheckReference>? check = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CheckPassed>();
@@ -375,7 +375,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="currentDialog">
@@ -385,7 +385,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </param>
     public static ConditionsBuilder CueSeen(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCueBase, BlueprintCueBaseReference>? cue = null,
+        Blueprint<BlueprintCueBaseReference>? cue = null,
         bool? currentDialog = null,
         bool negate = false)
     {
@@ -515,12 +515,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder DialogSeen(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialog = null,
+        Blueprint<BlueprintDialogReference>? dialog = null,
         bool negate = false)
     {
       var element = ElementTool.Create<DialogSeen>();
@@ -556,14 +556,14 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder EtudeStatus(
         this ConditionsBuilder builder,
         bool? completed = null,
         bool? completionInProgress = null,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference>? etude = null,
+        Blueprint<BlueprintEtudeReference>? etude = null,
         bool negate = false,
         bool? notStarted = null,
         bool? playing = null,
@@ -611,12 +611,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder FlagInRange(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flag = null,
+        Blueprint<BlueprintUnlockableFlagReference>? flag = null,
         int? maxValue = null,
         int? minValue = null,
         bool negate = false)
@@ -660,7 +660,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="exceptSpecifiedValues">
@@ -670,7 +670,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// </param>
     public static ConditionsBuilder FlagUnlocked(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? conditionFlag = null,
+        Blueprint<BlueprintUnlockableFlagReference>? conditionFlag = null,
         bool? exceptSpecifiedValues = null,
         bool negate = false,
         List<int>? specifiedValues = null)
@@ -713,12 +713,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder IsCampaign(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCampaign, BlueprintCampaignReference>? blueprintCampaign = null,
+        Blueprint<BlueprintCampaignReference>? blueprintCampaign = null,
         bool negate = false)
     {
       var element = ElementTool.Create<IsCampaign>();
@@ -752,12 +752,12 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder IsCampaignImported(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCampaign, BlueprintCampaignReference>? blueprintCampaign = null,
+        Blueprint<BlueprintCampaignReference>? blueprintCampaign = null,
         bool negate = false)
     {
       var element = ElementTool.Create<IsCampaignImported>();
@@ -843,13 +843,13 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder ObjectiveStatus(
         this ConditionsBuilder builder,
         bool negate = false,
-        Blueprint<BlueprintQuestObjective, BlueprintQuestObjectiveReference>? questObjective = null,
+        Blueprint<BlueprintQuestObjectiveReference>? questObjective = null,
         QuestObjectiveState? state = null)
     {
       var element = ElementTool.Create<ObjectiveStatus>();
@@ -952,7 +952,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="characterClassGroup">
@@ -964,13 +964,13 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder PlayerSignificantClassIs(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
-        Blueprint<BlueprintCharacterClassGroup, BlueprintCharacterClassGroupReference>? characterClassGroup = null,
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClassGroupReference>? characterClassGroup = null,
         bool? checkGroup = null,
         bool negate = false)
     {
@@ -1013,7 +1013,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="characterClassGroup">
@@ -1025,13 +1025,13 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder PlayerTopClassIs(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
-        Blueprint<BlueprintCharacterClassGroup, BlueprintCharacterClassGroupReference>? characterClassGroup = null,
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClassGroupReference>? characterClassGroup = null,
         bool? checkGroup = null,
         bool negate = false)
     {
@@ -1078,13 +1078,13 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder QuestStatus(
         this ConditionsBuilder builder,
         bool negate = false,
-        Blueprint<BlueprintQuest, BlueprintQuestReference>? quest = null,
+        Blueprint<BlueprintQuestReference>? quest = null,
         QuestState? state = null)
     {
       var element = ElementTool.Create<QuestStatus>();

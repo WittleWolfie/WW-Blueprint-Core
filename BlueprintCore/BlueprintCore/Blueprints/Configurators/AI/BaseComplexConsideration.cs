@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : ComplexConsideration
     where TBuilder : BaseComplexConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseComplexConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseComplexConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="ComplexConsideration.m_Considerations"/>
@@ -33,10 +33,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetConsiderations(params Blueprint<Consideration, ConsiderationReference>[] considerations)
+    public TBuilder SetConsiderations(params Blueprint<ConsiderationReference>[] considerations)
     {
       return OnConfigureInternal(
         bp =>
@@ -58,10 +58,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToConsiderations(params Blueprint<Consideration, ConsiderationReference>[] considerations)
+    public TBuilder AddToConsiderations(params Blueprint<ConsiderationReference>[] considerations)
     {
       return OnConfigureInternal(
         bp =>
@@ -84,10 +84,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromConsiderations(params Blueprint<Consideration, ConsiderationReference>[] considerations)
+    public TBuilder RemoveFromConsiderations(params Blueprint<ConsiderationReference>[] considerations)
     {
       return OnConfigureInternal(
         bp =>

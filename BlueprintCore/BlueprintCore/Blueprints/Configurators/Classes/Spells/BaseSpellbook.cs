@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     where T : BlueprintSpellbook
     where TBuilder : BaseSpellbookConfigurator<T, TBuilder>
   {
-    protected BaseSpellbookConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSpellbookConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.Name"/>
@@ -91,10 +91,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSpellsPerDay(Blueprint<BlueprintSpellsTable, BlueprintSpellsTableReference> spellsPerDay)
+    public TBuilder SetSpellsPerDay(Blueprint<BlueprintSpellsTableReference> spellsPerDay)
     {
       return OnConfigureInternal(
         bp =>
@@ -132,10 +132,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSpellsKnown(Blueprint<BlueprintSpellsTable, BlueprintSpellsTableReference> spellsKnown)
+    public TBuilder SetSpellsKnown(Blueprint<BlueprintSpellsTableReference> spellsKnown)
     {
       return OnConfigureInternal(
         bp =>
@@ -173,10 +173,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSpellSlots(Blueprint<BlueprintSpellsTable, BlueprintSpellsTableReference> spellSlots)
+    public TBuilder SetSpellSlots(Blueprint<BlueprintSpellsTableReference> spellSlots)
     {
       return OnConfigureInternal(
         bp =>
@@ -211,10 +211,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSpellList(Blueprint<BlueprintSpellList, BlueprintSpellListReference> spellList)
+    public TBuilder SetSpellList(Blueprint<BlueprintSpellListReference> spellList)
     {
       return OnConfigureInternal(
         bp =>
@@ -249,10 +249,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMythicSpellList(Blueprint<BlueprintSpellList, BlueprintSpellListReference> mythicSpellList)
+    public TBuilder SetMythicSpellList(Blueprint<BlueprintSpellListReference> mythicSpellList)
     {
       return OnConfigureInternal(
         bp =>
@@ -287,10 +287,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCharacterClass(Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> characterClass)
+    public TBuilder SetCharacterClass(Blueprint<BlueprintCharacterClassReference> characterClass)
     {
       return OnConfigureInternal(
         bp =>
@@ -640,7 +640,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddCustomSpells(
@@ -649,7 +649,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         int? maxSpellLevel = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintSpellList, BlueprintSpellListReference>? spellList = null)
+        Blueprint<BlueprintSpellListReference>? spellList = null)
     {
       var component = new AddCustomSpells();
       component.CasterLevel = casterLevel ?? component.CasterLevel;

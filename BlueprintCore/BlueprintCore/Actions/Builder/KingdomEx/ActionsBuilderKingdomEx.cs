@@ -71,12 +71,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddBuffToSquad(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        Blueprint<BlueprintBuffReference> buff,
         SquadFilter filter,
         GlobalMagicValue hoursDuration)
     {
@@ -252,12 +252,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ArmyRemoveFacts(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? factsToRemove = null)
+        List<Blueprint<BlueprintUnitFactReference>>? factsToRemove = null)
     {
       var element = ElementTool.Create<ContextActionArmyRemoveFacts>();
       element.m_FactsToRemove = factsToRemove?.Select(bp => bp.Reference)?.ToArray() ?? element.m_FactsToRemove;
@@ -354,7 +354,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="summonPool">
@@ -366,15 +366,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SummonTacticalSquad(
         this ActionsBuilder builder,
         ContextValue count,
         ActionsBuilder? afterSpawn = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
+        Blueprint<BlueprintUnitReference>? blueprint = null,
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<ContextActionSummonTacticalSquad>();
       element.m_Count = count;
@@ -463,7 +463,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="location">
@@ -475,7 +475,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="applyRecruitIncrease">
@@ -492,15 +492,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder CreateCrusaderArmy(
         this ActionsBuilder builder,
-        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference> army,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<BlueprintArmyPreset.Reference> army,
+        Blueprint<BlueprintGlobalMapPoint.Reference> location,
         bool? applyRecruitIncrease = null,
-        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null,
+        Blueprint<ArmyLeader.Reference>? armyLeader = null,
         float? armySpeed = null,
         int? movementPoints = null)
     {
@@ -543,7 +543,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="location">
@@ -555,7 +555,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="armyLeader">
@@ -567,7 +567,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="completeActions">
@@ -579,16 +579,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder CreateDemonArmy(
         this ActionsBuilder builder,
-        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference> army,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
-        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null,
+        Blueprint<BlueprintArmyPreset.Reference> army,
+        Blueprint<BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<ArmyLeader.Reference>? armyLeader = null,
         float? armySpeed = null,
-        Blueprint<BlueprintActionList, BlueprintActionList.Reference>? completeActions = null,
+        Blueprint<BlueprintActionList.Reference>? completeActions = null,
         bool targetNearestEnemy = false)
     {
       var element = ElementTool.Create<CreateArmy>();
@@ -634,7 +634,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="applyRecruitIncrease">
@@ -644,7 +644,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </param>
     public static ActionsBuilder CreateArmyFromLosses(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<BlueprintGlobalMapPoint.Reference> location,
         int squadsMaxCount,
         int sumExperience,
         bool? applyRecruitIncrease = null)
@@ -679,7 +679,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="location">
@@ -691,7 +691,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="armyLeader">
@@ -703,7 +703,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="hasNoReward">
@@ -713,9 +713,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </param>
     public static ActionsBuilder CreateGarrison(
         this ActionsBuilder builder,
-        Blueprint<BlueprintArmyPreset, BlueprintArmyPreset.Reference> army,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
-        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null,
+        Blueprint<BlueprintArmyPreset.Reference> army,
+        Blueprint<BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<ArmyLeader.Reference>? armyLeader = null,
         bool? hasNoReward = null)
     {
       var element = ElementTool.Create<CreateGarrison>();
@@ -801,12 +801,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder GainGlobalMagicSpell(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference> spell)
+        Blueprint<BlueprintGlobalMagicSpell.Reference> spell)
     {
       var element = ElementTool.Create<GainGlobalMagicSpell>();
       element.m_Spell = spell?.Reference;
@@ -870,7 +870,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="applyToRegion">
@@ -887,16 +887,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionAddBuff(
         this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference> buff,
+        Blueprint<BlueprintKingdomBuffReference> buff,
         bool? applyToRegion = null,
         bool? copyToAdjacentRegions = null,
         int? overrideDuration = null,
-        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
+        Blueprint<BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomActionAddBuff>();
       element.m_Blueprint = buff?.Reference;
@@ -934,12 +934,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionAddRandomBuff(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>>? buffs = null,
+        List<Blueprint<BlueprintKingdomBuffReference>>? buffs = null,
         int? overrideDurationDays = null)
     {
       var element = ElementTool.Create<KingdomActionAddRandomBuff>();
@@ -975,12 +975,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionConquerRegion(
         this ActionsBuilder builder,
-        Blueprint<BlueprintRegion, BlueprintRegionReference> region)
+        Blueprint<BlueprintRegionReference> region)
     {
       var element = ElementTool.Create<KingdomActionConquerRegion>();
       element.m_Region = region?.Reference;
@@ -1008,7 +1008,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="specificSettlement">
@@ -1020,13 +1020,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionFillSettlement(
         this ActionsBuilder builder,
-        Blueprint<SettlementBuildList, SettlementBuildListReference> buildList,
-        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference> specificSettlement)
+        Blueprint<SettlementBuildListReference> buildList,
+        Blueprint<BlueprintSettlement.Reference> specificSettlement)
     {
       var element = ElementTool.Create<KingdomActionFillSettlement>();
       element.m_BuildList = buildList?.Reference;
@@ -1057,7 +1057,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="settlement">
@@ -1069,13 +1069,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionFoundSettlement(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> location,
-        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference> settlement)
+        Blueprint<BlueprintGlobalMapPoint.Reference> location,
+        Blueprint<BlueprintSettlement.Reference> settlement)
     {
       var element = ElementTool.Create<KingdomActionFoundSettlement>();
       element.m_Location = location?.Reference;
@@ -1130,12 +1130,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ManuallySetGlobalSpellCooldown(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference> spell)
+        Blueprint<BlueprintGlobalMagicSpell.Reference> spell)
     {
       var element = ElementTool.Create<ManuallySetGlobalSpellCooldown>();
       element.m_Spell = spell?.Reference;
@@ -1185,12 +1185,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveGlobalMagicSpell(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference> spell)
+        Blueprint<BlueprintGlobalMagicSpell.Reference> spell)
     {
       var element = ElementTool.Create<RemoveGlobalMagicSpell>();
       element.m_Spell = spell?.Reference;
@@ -1334,12 +1334,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddMercenaryToPool(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null,
+        Blueprint<BlueprintUnitReference>? unit = null,
         float? weight = null)
     {
       var element = ElementTool.Create<AddMercenaryToPool>();
@@ -1375,7 +1375,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="features">
@@ -1387,17 +1387,17 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddTacticalArmyFeature(
         this ActionsBuilder builder,
         ArmyProperties? armyTag = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? armyUnits = null,
+        List<Blueprint<BlueprintUnitReference>>? armyUnits = null,
         bool? byTag = null,
         bool? byUnits = null,
         ArmyFaction? faction = null,
-        List<Blueprint<BlueprintFeature, BlueprintFeatureReference>>? features = null,
+        List<Blueprint<BlueprintFeatureReference>>? features = null,
         MercenariesIncludeOption? mercenariesFilter = null)
     {
       var element = ElementTool.Create<AddTacticalArmyFeature>();
@@ -1614,13 +1614,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder DecreaseRecruitsGrowth(
         this ActionsBuilder builder,
         int? count = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<DecreaseRecruitsGrowth>();
       element.Count = count ?? element.Count;
@@ -1654,12 +1654,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder EnterKingdomInterface(
         this ActionsBuilder builder,
-        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? returnPoint = null,
+        Blueprint<BlueprintAreaEnterPointReference>? returnPoint = null,
         ActionsBuilder? triggerAfterAuto = null)
     {
       var element = ElementTool.Create<EnterKingdomInterface>();
@@ -1709,7 +1709,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="oldUnit">
@@ -1721,16 +1721,16 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ExchangeRecruits(
         this ActionsBuilder builder,
         float? convertCoefficient = null,
         int? newGrowth = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? newUnit = null,
+        Blueprint<BlueprintUnitReference>? newUnit = null,
         int? oldGrowth = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? oldUnit = null)
+        Blueprint<BlueprintUnitReference>? oldUnit = null)
     {
       var element = ElementTool.Create<ExchangeRecruits>();
       element.ConvertCoefficient = convertCoefficient ?? element.ConvertCoefficient;
@@ -1770,13 +1770,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder IncreaseRecruitsGrowth(
         this ActionsBuilder builder,
         int? count = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<IncreaseRecruitsGrowth>();
       element.Count = count ?? element.Count;
@@ -1809,13 +1809,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder IncreaseRecruitsPool(
         this ActionsBuilder builder,
         int? count = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<IncreaseRecruitsPool>();
       element.Count = count ?? element.Count;
@@ -2056,12 +2056,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionImproveSettlement(
         this ActionsBuilder builder,
-        Blueprint<BlueprintSettlement, BlueprintSettlement.Reference>? specificSettlement = null,
+        Blueprint<BlueprintSettlement.Reference>? specificSettlement = null,
         SettlementState.LevelType? toLevel = null)
     {
       var element = ElementTool.Create<KingdomActionImproveSettlement>();
@@ -2188,7 +2188,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="region">
@@ -2200,15 +2200,15 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionRemoveBuff(
         this ActionsBuilder builder,
         bool? allBuffs = null,
         bool? applyToRegion = null,
-        Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>? blueprint = null,
-        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
+        Blueprint<BlueprintKingdomBuffReference>? blueprint = null,
+        Blueprint<BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomActionRemoveBuff>();
       element.m_AllBuffs = allBuffs ?? element.m_AllBuffs;
@@ -2249,14 +2249,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionRemoveEvent(
         this ActionsBuilder builder,
         bool? allIfMultiple = null,
         bool? cancelIfInProgress = null,
-        Blueprint<BlueprintKingdomEventBase, BlueprintKingdomEventBaseReference>? eventBlueprint = null)
+        Blueprint<BlueprintKingdomEventBaseReference>? eventBlueprint = null)
     {
       var element = ElementTool.Create<KingdomActionRemoveEvent>();
       element.AllIfMultiple = allIfMultiple ?? element.AllIfMultiple;
@@ -2291,12 +2291,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionResolveCrusadeEvent(
         this ActionsBuilder builder,
-        Blueprint<BlueprintCrusadeEvent, BlueprintCrusadeEvent.Reference>? eventBlueprint = null,
+        Blueprint<BlueprintCrusadeEvent.Reference>? eventBlueprint = null,
         int? solutionIndex = null)
     {
       var element = ElementTool.Create<KingdomActionResolveCrusadeEvent>();
@@ -2332,13 +2332,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionResolveEvent(
         this ActionsBuilder builder,
         Alignment? alignment = null,
-        Blueprint<BlueprintKingdomEvent, BlueprintKingdomEventReference>? eventBlueprint = null,
+        Blueprint<BlueprintKingdomEventReference>? eventBlueprint = null,
         bool? finalResolve = null,
         EventResult.MarginType? result = null)
     {
@@ -2377,12 +2377,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionResolveProject(
         this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>? eventBlueprint = null)
+        Blueprint<BlueprintKingdomProjectReference>? eventBlueprint = null)
     {
       var element = ElementTool.Create<KingdomActionResolveProject>();
       element.m_EventBlueprint = eventBlueprint?.Reference ?? element.m_EventBlueprint;
@@ -2446,7 +2446,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="locations">
@@ -2458,14 +2458,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionSpawnRandomArmy(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference>>? armies = null,
+        List<Blueprint<BlueprintArmyPresetReference>>? armies = null,
         ArmyFaction? faction = null,
-        List<Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>>? locations = null)
+        List<Blueprint<BlueprintGlobalMapPoint.Reference>>? locations = null)
     {
       var element = ElementTool.Create<KingdomActionSpawnRandomArmy>();
       element.m_Armies = armies?.Select(bp => bp.Reference)?.ToList() ?? element.m_Armies;
@@ -2505,7 +2505,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="region">
@@ -2517,7 +2517,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionStartEvent(
@@ -2525,9 +2525,9 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         bool? checkTriggerImmediately = null,
         bool? checkTriggerOnStart = null,
         int? delayDays = null,
-        Blueprint<BlueprintKingdomEventBase, BlueprintKingdomEventBaseReference>? eventValue = null,
+        Blueprint<BlueprintKingdomEventBaseReference>? eventValue = null,
         bool? randomRegion = null,
-        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null,
+        Blueprint<BlueprintRegionReference>? region = null,
         bool? startNextMonth = null)
     {
       var element = ElementTool.Create<KingdomActionStartEvent>();
@@ -2572,12 +2572,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomActionUnlockArtisan(
         this ActionsBuilder builder,
-        Blueprint<BlueprintKingdomArtisan, BlueprintKingdomArtisanReference>? artisan = null)
+        Blueprint<BlueprintKingdomArtisanReference>? artisan = null)
     {
       var element = ElementTool.Create<KingdomActionUnlockArtisan>();
       element.m_Artisan = artisan?.Reference ?? element.m_Artisan;
@@ -2611,12 +2611,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomAddMoraleFlags(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>>? newFlags = null)
+        List<Blueprint<BlueprintKingdomMoraleFlag.Reference>>? newFlags = null)
     {
       var element = ElementTool.Create<KingdomAddMoraleFlags>();
       element.m_NewFlags = newFlags?.Select(bp => bp.Reference)?.ToArray() ?? element.m_NewFlags;
@@ -2655,13 +2655,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomFlagIncrement(
         this ActionsBuilder builder,
         int? increment = null,
-        Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>? targetFlag = null)
+        Blueprint<BlueprintKingdomMoraleFlag.Reference>? targetFlag = null)
     {
       var element = ElementTool.Create<KingdomFlagIncrement>();
       element.m_Increment = increment ?? element.m_Increment;
@@ -2736,12 +2736,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomRemoveMoraleFlags(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>>? flagsToRemove = null)
+        List<Blueprint<BlueprintKingdomMoraleFlag.Reference>>? flagsToRemove = null)
     {
       var element = ElementTool.Create<KingdomRemoveMoraleFlags>();
       element.m_FlagsToRemove = flagsToRemove?.Select(bp => bp.Reference)?.ToArray() ?? element.m_FlagsToRemove;
@@ -2775,14 +2775,14 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder KingdomSetFlagState(
         this ActionsBuilder builder,
         int? maxDays = null,
         KingdomMoraleFlag.State? state = null,
-        Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>? targetFlag = null)
+        Blueprint<BlueprintKingdomMoraleFlag.Reference>? targetFlag = null)
     {
       var element = ElementTool.Create<KingdomSetFlagState>();
       element.m_MaxDays = maxDays ?? element.m_MaxDays;
@@ -2818,12 +2818,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RecruiteArmyLeader(
         this ActionsBuilder builder,
-        Blueprint<BlueprintArmyLeader, ArmyLeader.Reference>? armyLeader = null)
+        Blueprint<ArmyLeader.Reference>? armyLeader = null)
     {
       var element = ElementTool.Create<RecruiteArmyLeader>();
       element.ArmyLeader = armyLeader?.Reference ?? element.ArmyLeader;
@@ -2898,12 +2898,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveDemonArmies(
         this ActionsBuilder builder,
-        Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference>? armyPreset = null,
+        Blueprint<BlueprintArmyPresetReference>? armyPreset = null,
         ArmyType? armyType = null)
     {
       var element = ElementTool.Create<RemoveDemonArmies>();
@@ -2939,13 +2939,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveGarrison(
         this ActionsBuilder builder,
         bool? handleAsGarrisonDefeated = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<RemoveGarrison>();
       element.HandleAsGarrisonDefeated = handleAsGarrisonDefeated ?? element.HandleAsGarrisonDefeated;
@@ -2980,12 +2980,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveMercenaryFromPool(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<RemoveMercenaryFromPool>();
       element.m_Unit = unit?.Reference ?? element.m_Unit;
@@ -3053,7 +3053,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveUnitFromArmy(
@@ -3070,7 +3070,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         int? unitExperienceMinimum = null,
         UnitTag[]? unitTagBlacklist = null,
         UnitTag[]? unitTagWhitelist = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unitToRemove = null)
+        Blueprint<BlueprintUnitReference>? unitToRemove = null)
     {
       var element = ElementTool.Create<RemoveUnitFromArmy>();
       builder.Validate(armies);
@@ -3124,7 +3124,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="oldBuilding">
@@ -3136,13 +3136,13 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ReplaceBuildings(
         this ActionsBuilder builder,
-        Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>? newBuilding = null,
-        Blueprint<BlueprintSettlementBuilding, BlueprintSettlementBuildingReference>? oldBuilding = null)
+        Blueprint<BlueprintSettlementBuildingReference>? newBuilding = null,
+        Blueprint<BlueprintSettlementBuildingReference>? oldBuilding = null)
     {
       var element = ElementTool.Create<ReplaceBuildings>();
       element.m_NewBuilding = newBuilding?.Reference ?? element.m_NewBuilding;
@@ -3181,12 +3181,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SetRecruitPoint(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? point = null)
+        Blueprint<BlueprintGlobalMapPoint.Reference>? point = null)
     {
       var element = ElementTool.Create<SetRecruitPoint>();
       element.m_Point = point?.Reference ?? element.m_Point;
@@ -3220,12 +3220,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SetWarCampLocation(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<SetWarCampLocation>();
       element.m_Location = location?.Reference ?? element.m_Location;
@@ -3299,12 +3299,12 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UnlockUnitsGrowth(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<UnlockUnitsGrowth>();
       element.m_Unit = unit?.Reference ?? element.m_Unit;

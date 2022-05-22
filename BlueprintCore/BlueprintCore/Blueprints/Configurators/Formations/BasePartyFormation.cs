@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     where T : BlueprintPartyFormation
     where TBuilder : BasePartyFormationConfigurator<T, TBuilder>
   {
-    protected BasePartyFormationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BasePartyFormationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintPartyFormation.Positions"/>

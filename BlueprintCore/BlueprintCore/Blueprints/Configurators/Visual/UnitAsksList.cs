@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   public class UnitAsksListConfigurator
     : BaseUnitAsksListConfigurator<BlueprintUnitAsksList, UnitAsksListConfigurator>
   {
-    private UnitAsksListConfigurator(Blueprint<BlueprintUnitAsksList, BlueprintReference<BlueprintUnitAsksList>> blueprint) : base(blueprint) { }
+    private UnitAsksListConfigurator(Blueprint<BlueprintReference<BlueprintUnitAsksList>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static UnitAsksListConfigurator For(Blueprint<BlueprintUnitAsksList, BlueprintReference<BlueprintUnitAsksList>> blueprint)
+    public static UnitAsksListConfigurator For(Blueprint<BlueprintReference<BlueprintUnitAsksList>> blueprint)
     {
       return new UnitAsksListConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static UnitAsksListConfigurator New(string name, string guid)

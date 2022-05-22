@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     where T : BlueprintGlobalMap
     where TBuilder : BaseGlobalMapConfigurator<T, TBuilder>
   {
-    protected BaseGlobalMapConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseGlobalMapConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMap.m_StartLocation"/>
@@ -37,10 +37,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartLocation(Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> startLocation)
+    public TBuilder SetStartLocation(Blueprint<BlueprintGlobalMapPoint.Reference> startLocation)
     {
       return OnConfigureInternal(
         bp =>
@@ -75,10 +75,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetGlobalMapEnterPoint(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> globalMapEnterPoint)
+    public TBuilder SetGlobalMapEnterPoint(Blueprint<BlueprintAreaEnterPointReference> globalMapEnterPoint)
     {
       return OnConfigureInternal(
         bp =>
@@ -331,10 +331,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPoints(params Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>[] points)
+    public TBuilder SetPoints(params Blueprint<BlueprintGlobalMapPoint.Reference>[] points)
     {
       return OnConfigureInternal(
         bp =>
@@ -356,10 +356,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToPoints(params Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>[] points)
+    public TBuilder AddToPoints(params Blueprint<BlueprintGlobalMapPoint.Reference>[] points)
     {
       return OnConfigureInternal(
         bp =>
@@ -382,10 +382,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromPoints(params Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>[] points)
+    public TBuilder RemoveFromPoints(params Blueprint<BlueprintGlobalMapPoint.Reference>[] points)
     {
       return OnConfigureInternal(
         bp =>
@@ -446,10 +446,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEdges(params Blueprint<BlueprintGlobalMapEdge, BlueprintGlobalMapEdge.Reference>[] edges)
+    public TBuilder SetEdges(params Blueprint<BlueprintGlobalMapEdge.Reference>[] edges)
     {
       return OnConfigureInternal(
         bp =>
@@ -471,10 +471,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToEdges(params Blueprint<BlueprintGlobalMapEdge, BlueprintGlobalMapEdge.Reference>[] edges)
+    public TBuilder AddToEdges(params Blueprint<BlueprintGlobalMapEdge.Reference>[] edges)
     {
       return OnConfigureInternal(
         bp =>
@@ -497,10 +497,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromEdges(params Blueprint<BlueprintGlobalMapEdge, BlueprintGlobalMapEdge.Reference>[] edges)
+    public TBuilder RemoveFromEdges(params Blueprint<BlueprintGlobalMapEdge.Reference>[] edges)
     {
       return OnConfigureInternal(
         bp =>
@@ -643,10 +643,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCampLocation(Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference> campLocation)
+    public TBuilder SetCampLocation(Blueprint<BlueprintGlobalMapPoint.Reference> campLocation)
     {
       return OnConfigureInternal(
         bp =>

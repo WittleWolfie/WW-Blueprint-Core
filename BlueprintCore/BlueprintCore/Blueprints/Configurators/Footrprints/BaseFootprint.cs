@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     where T : BlueprintFootprint
     where TBuilder : BaseFootprintConfigurator<T, TBuilder>
   {
-    protected BaseFootprintConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseFootprintConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.LeftFootPrint"/>

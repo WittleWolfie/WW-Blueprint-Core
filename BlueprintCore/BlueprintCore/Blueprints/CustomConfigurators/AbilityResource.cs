@@ -14,7 +14,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
   public class AbilityResourceConfigurator
     : BaseAbilityResourceConfigurator<BlueprintAbilityResource, AbilityResourceConfigurator>
   {
-    private AbilityResourceConfigurator(Blueprint<BlueprintAbilityResource, BlueprintReference<BlueprintAbilityResource>> blueprint) : base(blueprint) { }
+    private AbilityResourceConfigurator(Blueprint<BlueprintReference<BlueprintAbilityResource>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -27,7 +27,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static AbilityResourceConfigurator For(Blueprint<BlueprintAbilityResource, BlueprintReference<BlueprintAbilityResource>> blueprint)
+    public static AbilityResourceConfigurator For(Blueprint<BlueprintReference<BlueprintAbilityResource>> blueprint)
     {
       return new AbilityResourceConfigurator(blueprint);
     }
@@ -40,7 +40,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static AbilityResourceConfigurator New(string name, string guid)

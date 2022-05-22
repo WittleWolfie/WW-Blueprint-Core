@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   public class TimeOfDaySettingsConfigurator
     : BaseTimeOfDaySettingsConfigurator<BlueprintTimeOfDaySettings, TimeOfDaySettingsConfigurator>
   {
-    private TimeOfDaySettingsConfigurator(Blueprint<BlueprintTimeOfDaySettings, BlueprintReference<BlueprintTimeOfDaySettings>> blueprint) : base(blueprint) { }
+    private TimeOfDaySettingsConfigurator(Blueprint<BlueprintReference<BlueprintTimeOfDaySettings>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static TimeOfDaySettingsConfigurator For(Blueprint<BlueprintTimeOfDaySettings, BlueprintReference<BlueprintTimeOfDaySettings>> blueprint)
+    public static TimeOfDaySettingsConfigurator For(Blueprint<BlueprintReference<BlueprintTimeOfDaySettings>> blueprint)
     {
       return new TimeOfDaySettingsConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static TimeOfDaySettingsConfigurator New(string name, string guid)

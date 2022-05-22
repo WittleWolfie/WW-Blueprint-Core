@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : LastTargetConsideration
     where TBuilder : BaseLastTargetConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseLastTargetConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLastTargetConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="LastTargetConsideration.SameLastTargetScore"/>

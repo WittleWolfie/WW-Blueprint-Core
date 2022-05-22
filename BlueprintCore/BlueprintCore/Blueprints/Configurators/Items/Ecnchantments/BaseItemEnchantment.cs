@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     where T : BlueprintItemEnchantment
     where TBuilder : BaseItemEnchantmentConfigurator<T, TBuilder>
   {
-    protected BaseItemEnchantmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_AllowNonContextActions"/>
@@ -296,12 +296,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParams(
         ContextValue? casterLevel = null,
-        Blueprint<BlueprintUnitProperty, BlueprintUnitPropertyReference>? customProperty = null,
+        Blueprint<BlueprintUnitPropertyReference>? customProperty = null,
         bool? replaceCasterLevel = null,
         bool? replaceSpellLevel = null,
         ContextValue? spellLevel = null,
@@ -356,11 +356,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
         StatType? statType = null,
         bool? useKineticistMainStat = null)
     {
@@ -520,7 +520,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -531,7 +531,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </param>
     public TBuilder AddACBonusAgainstFactOwnerEquipment(
         int? bonus = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? checkedFact = null,
+        Blueprint<BlueprintFeatureReference>? checkedFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -580,7 +580,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddCasterLevelEquipment(
@@ -588,7 +588,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null)
+        Blueprint<BlueprintAbilityReference>? spell = null)
     {
       var component = new AddCasterLevelEquipment();
       component.Bonus = bonus ?? component.Bonus;
@@ -662,14 +662,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpellbookEquipment(
         int? casterLevel = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>? spellbook = null)
+        Blueprint<BlueprintSpellbookReference>? spellbook = null)
     {
       var component = new AddSpellbookEquipment();
       component.CasterLevel = casterLevel ?? component.CasterLevel;
@@ -744,7 +744,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -754,7 +754,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddStatBonusEquipmentUnlessEnchant(
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? checkedEnchantment = null,
+        Blueprint<BlueprintItemEnchantmentReference>? checkedEnchantment = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -796,7 +796,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -806,7 +806,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddUnitFactEquipment(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? blueprint = null,
+        Blueprint<BlueprintUnitFactReference>? blueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -842,7 +842,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -852,7 +852,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddUnitFeatureEquipment(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null,
+        Blueprint<BlueprintFeatureReference>? feature = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -892,7 +892,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -903,7 +903,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </param>
     public TBuilder AddAttackBonusAgainstFactOwnerEquipment(
         int? attackBonus = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? checkedFact = null,
+        Blueprint<BlueprintFeatureReference>? checkedFact = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -946,7 +946,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -956,7 +956,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddDamageBonusAgainstFactOwnerEquipment(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? checkedFact = null,
+        Blueprint<BlueprintUnitFactReference>? checkedFact = null,
         int? damageBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -1099,11 +1099,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddPreventAbilityInterruption(
-        List<Blueprint<BlueprintActivatableAbility, BlueprintActivatableAbilityReference>>? abilities = null)
+        List<Blueprint<BlueprintActivatableAbilityReference>>? abilities = null)
     {
       var component = new PreventAbilityInterruption();
       component.m_Abilities = abilities?.Select(bp => bp.Reference)?.ToList() ?? component.m_Abilities;
@@ -1147,7 +1147,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddWeaponTypeAttackEnchant(
@@ -1155,7 +1155,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? type = null)
+        Blueprint<BlueprintWeaponTypeReference>? type = null)
     {
       var component = new WeaponTypeAttackEnchant();
       component.Bonus = bonus ?? component.Bonus;

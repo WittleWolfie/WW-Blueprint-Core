@@ -14,6 +14,6 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintUnlockableFlag
     where TBuilder : BaseUnlockableFlagConfigurator<T, TBuilder>
   {
-    protected BaseUnlockableFlagConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUnlockableFlagConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

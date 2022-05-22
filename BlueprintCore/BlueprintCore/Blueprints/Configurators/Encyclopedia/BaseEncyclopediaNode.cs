@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     where T : BlueprintEncyclopediaNode
     where TBuilder : BaseEncyclopediaNodeConfigurator<T, TBuilder>
   {
-    protected BaseEncyclopediaNodeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseEncyclopediaNodeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintEncyclopediaNode.Title"/>
@@ -87,10 +87,10 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetChildPages(params Blueprint<BlueprintEncyclopediaPage, BlueprintEncyclopediaPageReference>[] childPages)
+    public TBuilder SetChildPages(params Blueprint<BlueprintEncyclopediaPageReference>[] childPages)
     {
       return OnConfigureInternal(
         bp =>
@@ -112,10 +112,10 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToChildPages(params Blueprint<BlueprintEncyclopediaPage, BlueprintEncyclopediaPageReference>[] childPages)
+    public TBuilder AddToChildPages(params Blueprint<BlueprintEncyclopediaPageReference>[] childPages)
     {
       return OnConfigureInternal(
         bp =>
@@ -138,10 +138,10 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromChildPages(params Blueprint<BlueprintEncyclopediaPage, BlueprintEncyclopediaPageReference>[] childPages)
+    public TBuilder RemoveFromChildPages(params Blueprint<BlueprintEncyclopediaPageReference>[] childPages)
     {
       return OnConfigureInternal(
         bp =>

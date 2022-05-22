@@ -21,7 +21,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     where T : FxRoot
     where TBuilder : BaseFxRootConfigurator<T, TBuilder>
   {
-    protected BaseFxRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseFxRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="FxRoot.m_SingleHandCasts"/>
@@ -36,10 +36,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSingleHandCasts(Blueprint<CastsGroup, CastsGroup.Reference> singleHandCasts)
+    public TBuilder SetSingleHandCasts(Blueprint<CastsGroup.Reference> singleHandCasts)
     {
       return OnConfigureInternal(
         bp =>
@@ -74,10 +74,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoubleHandCasts(Blueprint<CastsGroup, CastsGroup.Reference> doubleHandCasts)
+    public TBuilder SetDoubleHandCasts(Blueprint<CastsGroup.Reference> doubleHandCasts)
     {
       return OnConfigureInternal(
         bp =>
@@ -112,10 +112,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetHeadCasts(Blueprint<CastsGroup, CastsGroup.Reference> headCasts)
+    public TBuilder SetHeadCasts(Blueprint<CastsGroup.Reference> headCasts)
     {
       return OnConfigureInternal(
         bp =>
@@ -150,10 +150,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetTorsoCasts(Blueprint<CastsGroup, CastsGroup.Reference> torsoCasts)
+    public TBuilder SetTorsoCasts(Blueprint<CastsGroup.Reference> torsoCasts)
     {
       return OnConfigureInternal(
         bp =>
@@ -810,10 +810,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFootprintsReferences(params Blueprint<BlueprintFootprintType, BlueprintFootprintTypeReference>[] footprintsReferences)
+    public TBuilder SetFootprintsReferences(params Blueprint<BlueprintFootprintTypeReference>[] footprintsReferences)
     {
       return OnConfigureInternal(
         bp =>
@@ -835,10 +835,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToFootprintsReferences(params Blueprint<BlueprintFootprintType, BlueprintFootprintTypeReference>[] footprintsReferences)
+    public TBuilder AddToFootprintsReferences(params Blueprint<BlueprintFootprintTypeReference>[] footprintsReferences)
     {
       return OnConfigureInternal(
         bp =>
@@ -861,10 +861,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromFootprintsReferences(params Blueprint<BlueprintFootprintType, BlueprintFootprintTypeReference>[] footprintsReferences)
+    public TBuilder RemoveFromFootprintsReferences(params Blueprint<BlueprintFootprintTypeReference>[] footprintsReferences)
     {
       return OnConfigureInternal(
         bp =>

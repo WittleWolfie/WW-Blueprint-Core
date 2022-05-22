@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : KingdomUIRoot
     where TBuilder : BaseKingdomUIRootConfigurator<T, TBuilder>
   {
-    protected BaseKingdomUIRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseKingdomUIRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.DefaultOpportunityMapMarker"/>

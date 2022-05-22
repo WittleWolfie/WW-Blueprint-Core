@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : CanUseSpellCombatConsideration
     where TBuilder : BaseCanUseSpellCombatConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseCanUseSpellCombatConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCanUseSpellCombatConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

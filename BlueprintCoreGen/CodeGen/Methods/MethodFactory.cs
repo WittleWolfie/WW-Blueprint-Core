@@ -43,7 +43,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           "If you're using <see href=\"https://github.com/OwlcatOpenSource/WrathModificationTemplate\">WrathModificationTemplate</see> blueprints defined in JSON already exist."
         });
 
-      forBp.AddLine($"public static {returnType} For(Blueprint<{typeName}, BlueprintReference<{typeName}>> blueprint)");
+      forBp.AddLine($"public static {returnType} For(Blueprint<BlueprintReference<{typeName}>> blueprint)");
       forBp.AddLine($"{{");
       forBp.AddLine($"  return new {returnType}(blueprint);");
       forBp.AddLine($"}}");
@@ -54,7 +54,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
         new()
         {
           "After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.",
-          "An implicit cast converts the string to <see cref=\"Utils.Blueprint{T, TRef}\"/>, exposing the blueprint instance and its reference."
+          "An implicit cast converts the string to <see cref=\"Utils.Blueprint{TRef}\"/>, exposing the blueprint instance and its reference."
         });
        
       forBp.AddLine($"public static {returnType} New(string name, string guid)");

@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     where T : BlueprintLeaderProgression
     where TBuilder : BaseLeaderProgressionConfigurator<T, TBuilder>
   {
-    protected BaseLeaderProgressionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLeaderProgressionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderProgression.m_ProgressionType"/>

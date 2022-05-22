@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : FactConsideration
     where TBuilder : BaseFactConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseFactConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseFactConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="FactConsideration.m_Fact"/>
@@ -34,10 +34,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFact(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] fact)
+    public TBuilder SetFact(params Blueprint<BlueprintUnitFactReference>[] fact)
     {
       return OnConfigureInternal(
         bp =>
@@ -59,10 +59,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToFact(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] fact)
+    public TBuilder AddToFact(params Blueprint<BlueprintUnitFactReference>[] fact)
     {
       return OnConfigureInternal(
         bp =>
@@ -85,10 +85,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromFact(params Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>[] fact)
+    public TBuilder RemoveFromFact(params Blueprint<BlueprintUnitFactReference>[] fact)
     {
       return OnConfigureInternal(
         bp =>

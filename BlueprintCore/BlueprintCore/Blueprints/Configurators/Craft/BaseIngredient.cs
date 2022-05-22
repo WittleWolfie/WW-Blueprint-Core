@@ -16,6 +16,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     where T : BlueprintIngredient
     where TBuilder : BaseIngredientConfigurator<T, TBuilder>
   {
-    protected BaseIngredientConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseIngredientConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

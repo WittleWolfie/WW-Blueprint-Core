@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : CasterClassConsideration
     where TBuilder : BaseCasterClassConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseCasterClassConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCasterClassConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="CasterClassConsideration.NotCasterScore"/>

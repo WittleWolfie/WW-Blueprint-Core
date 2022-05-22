@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     where T : BlueprintClockworkScenario
     where TBuilder : BaseClockworkScenarioConfigurator<T, TBuilder>
   {
-    protected BaseClockworkScenarioConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseClockworkScenarioConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintClockworkScenario.m_ScenarioName"/>
@@ -138,10 +138,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPreset(Blueprint<BlueprintAreaPreset, BlueprintAreaPresetReference> preset)
+    public TBuilder SetPreset(Blueprint<BlueprintAreaPresetReference> preset)
     {
       return OnConfigureInternal(
         bp =>
@@ -226,10 +226,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBlueprintPlayerUnit(Blueprint<BlueprintUnit, BlueprintUnitReference> blueprintPlayerUnit)
+    public TBuilder SetBlueprintPlayerUnit(Blueprint<BlueprintUnitReference> blueprintPlayerUnit)
     {
       return OnConfigureInternal(
         bp =>
@@ -632,10 +632,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetScenarioParts(params Blueprint<BlueprintClockworkScenarioPart, BlueprintClockworkScenarioPartReference>[] scenarioParts)
+    public TBuilder SetScenarioParts(params Blueprint<BlueprintClockworkScenarioPartReference>[] scenarioParts)
     {
       return OnConfigureInternal(
         bp =>
@@ -657,10 +657,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToScenarioParts(params Blueprint<BlueprintClockworkScenarioPart, BlueprintClockworkScenarioPartReference>[] scenarioParts)
+    public TBuilder AddToScenarioParts(params Blueprint<BlueprintClockworkScenarioPartReference>[] scenarioParts)
     {
       return OnConfigureInternal(
         bp =>
@@ -683,10 +683,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromScenarioParts(params Blueprint<BlueprintClockworkScenarioPart, BlueprintClockworkScenarioPartReference>[] scenarioParts)
+    public TBuilder RemoveFromScenarioParts(params Blueprint<BlueprintClockworkScenarioPartReference>[] scenarioParts)
     {
       return OnConfigureInternal(
         bp =>
@@ -824,10 +824,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetHighPriorityAnswers(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] highPriorityAnswers)
+    public TBuilder SetHighPriorityAnswers(params Blueprint<BlueprintAnswerReference>[] highPriorityAnswers)
     {
       return OnConfigureInternal(
         bp =>
@@ -849,10 +849,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToHighPriorityAnswers(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] highPriorityAnswers)
+    public TBuilder AddToHighPriorityAnswers(params Blueprint<BlueprintAnswerReference>[] highPriorityAnswers)
     {
       return OnConfigureInternal(
         bp =>
@@ -875,10 +875,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromHighPriorityAnswers(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] highPriorityAnswers)
+    public TBuilder RemoveFromHighPriorityAnswers(params Blueprint<BlueprintAnswerReference>[] highPriorityAnswers)
     {
       return OnConfigureInternal(
         bp =>
@@ -939,10 +939,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoNotSellItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] doNotSellItems)
+    public TBuilder SetDoNotSellItems(params Blueprint<BlueprintItemReference>[] doNotSellItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -964,10 +964,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToDoNotSellItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] doNotSellItems)
+    public TBuilder AddToDoNotSellItems(params Blueprint<BlueprintItemReference>[] doNotSellItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -990,10 +990,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromDoNotSellItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] doNotSellItems)
+    public TBuilder RemoveFromDoNotSellItems(params Blueprint<BlueprintItemReference>[] doNotSellItems)
     {
       return OnConfigureInternal(
         bp =>
@@ -1131,10 +1131,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoNotInterractUnits(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] doNotInterractUnits)
+    public TBuilder SetDoNotInterractUnits(params Blueprint<BlueprintUnitReference>[] doNotInterractUnits)
     {
       return OnConfigureInternal(
         bp =>
@@ -1156,10 +1156,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToDoNotInterractUnits(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] doNotInterractUnits)
+    public TBuilder AddToDoNotInterractUnits(params Blueprint<BlueprintUnitReference>[] doNotInterractUnits)
     {
       return OnConfigureInternal(
         bp =>
@@ -1182,10 +1182,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromDoNotInterractUnits(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] doNotInterractUnits)
+    public TBuilder RemoveFromDoNotInterractUnits(params Blueprint<BlueprintUnitReference>[] doNotInterractUnits)
     {
       return OnConfigureInternal(
         bp =>
@@ -1246,10 +1246,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoNotUseAnswer(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] doNotUseAnswer)
+    public TBuilder SetDoNotUseAnswer(params Blueprint<BlueprintAnswerReference>[] doNotUseAnswer)
     {
       return OnConfigureInternal(
         bp =>
@@ -1271,10 +1271,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToDoNotUseAnswer(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] doNotUseAnswer)
+    public TBuilder AddToDoNotUseAnswer(params Blueprint<BlueprintAnswerReference>[] doNotUseAnswer)
     {
       return OnConfigureInternal(
         bp =>
@@ -1297,10 +1297,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromDoNotUseAnswer(params Blueprint<BlueprintAnswer, BlueprintAnswerReference>[] doNotUseAnswer)
+    public TBuilder RemoveFromDoNotUseAnswer(params Blueprint<BlueprintAnswerReference>[] doNotUseAnswer)
     {
       return OnConfigureInternal(
         bp =>
@@ -1361,10 +1361,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDoNotEnterAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] doNotEnterAreas)
+    public TBuilder SetDoNotEnterAreas(params Blueprint<BlueprintAreaReference>[] doNotEnterAreas)
     {
       return OnConfigureInternal(
         bp =>
@@ -1386,10 +1386,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToDoNotEnterAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] doNotEnterAreas)
+    public TBuilder AddToDoNotEnterAreas(params Blueprint<BlueprintAreaReference>[] doNotEnterAreas)
     {
       return OnConfigureInternal(
         bp =>
@@ -1412,10 +1412,10 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromDoNotEnterAreas(params Blueprint<BlueprintArea, BlueprintAreaReference>[] doNotEnterAreas)
+    public TBuilder RemoveFromDoNotEnterAreas(params Blueprint<BlueprintAreaReference>[] doNotEnterAreas)
     {
       return OnConfigureInternal(
         bp =>
@@ -1696,7 +1696,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="areaPart">
@@ -1708,7 +1708,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1718,8 +1718,8 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAreaTest(
-        Blueprint<BlueprintArea, BlueprintAreaReference>? area = null,
-        Blueprint<BlueprintAreaPart, BlueprintAreaPartReference>? areaPart = null,
+        Blueprint<BlueprintAreaReference>? area = null,
+        Blueprint<BlueprintAreaPartReference>? areaPart = null,
         ClockworkCommandList? commandList = null,
         Condition? condition = null,
         bool? everyVisit = null,
@@ -1808,7 +1808,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1818,7 +1818,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddExploreFlyingIsles(
-        List<Blueprint<BlueprintArea, BlueprintAreaReference>>? areas = null,
+        List<Blueprint<BlueprintAreaReference>>? areas = null,
         bool? justIgnoreWalls = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -1865,7 +1865,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="earlyMythic">
@@ -1880,7 +1880,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="lateMythic">
@@ -1895,13 +1895,13 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddMythicLevelUpPlan(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? beginnerMythic = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? earlyMythic = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? lateMythic = null)
+        Blueprint<BlueprintFeatureReference>? beginnerMythic = null,
+        Blueprint<BlueprintFeatureReference>? earlyMythic = null,
+        Blueprint<BlueprintFeatureReference>? lateMythic = null)
     {
       var component = new MythicLevelUpPlan();
       component.BeginnerMythic = beginnerMythic?.Reference ?? component.BeginnerMythic;

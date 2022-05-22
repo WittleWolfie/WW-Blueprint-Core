@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     where T : AchievementData
     where TBuilder : BaseAchievementDataConfigurator<T, TBuilder>
   {
-    protected BaseAchievementDataConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAchievementDataConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="AchievementData.m_UnlockedIcon"/>
@@ -288,10 +288,10 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSpecificCampaign(Blueprint<BlueprintCampaign, BlueprintCampaignReference> specificCampaign)
+    public TBuilder SetSpecificCampaign(Blueprint<BlueprintCampaignReference> specificCampaign)
     {
       return OnConfigureInternal(
         bp =>
@@ -449,10 +449,10 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFinishGameFlag(Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference> finishGameFlag)
+    public TBuilder SetFinishGameFlag(Blueprint<BlueprintUnlockableFlagReference> finishGameFlag)
     {
       return OnConfigureInternal(
         bp =>

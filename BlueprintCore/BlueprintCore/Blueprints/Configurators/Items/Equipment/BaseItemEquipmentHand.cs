@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     where T : BlueprintItemEquipmentHand
     where TBuilder : BaseItemEquipmentHandConfigurator<T, TBuilder>
   {
-    protected BaseItemEquipmentHandConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemEquipmentHandConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentHand.m_VisualParameters"/>

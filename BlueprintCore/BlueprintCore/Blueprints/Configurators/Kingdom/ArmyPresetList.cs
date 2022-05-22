@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   public class ArmyPresetListConfigurator
     : BaseArmyPresetListConfigurator<BlueprintArmyPresetList, ArmyPresetListConfigurator>
   {
-    private ArmyPresetListConfigurator(Blueprint<BlueprintArmyPresetList, BlueprintReference<BlueprintArmyPresetList>> blueprint) : base(blueprint) { }
+    private ArmyPresetListConfigurator(Blueprint<BlueprintReference<BlueprintArmyPresetList>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static ArmyPresetListConfigurator For(Blueprint<BlueprintArmyPresetList, BlueprintReference<BlueprintArmyPresetList>> blueprint)
+    public static ArmyPresetListConfigurator For(Blueprint<BlueprintReference<BlueprintArmyPresetList>> blueprint)
     {
       return new ArmyPresetListConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static ArmyPresetListConfigurator New(string name, string guid)

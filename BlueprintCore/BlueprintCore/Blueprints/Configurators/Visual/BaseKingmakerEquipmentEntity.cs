@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     where T : KingmakerEquipmentEntity
     where TBuilder : BaseKingmakerEquipmentEntityConfigurator<T, TBuilder>
   {
-    protected BaseKingmakerEquipmentEntityConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseKingmakerEquipmentEntityConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_MaleArray"/>

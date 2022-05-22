@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : ArmorTypeConsideration
     where TBuilder : BaseArmorTypeConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseArmorTypeConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArmorTypeConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="ArmorTypeConsideration.LightArmorScore"/>

@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where T : BlueprintTacticalCombatAiAttack
     where TBuilder : BaseTacticalCombatAiAttackConfigurator<T, TBuilder>
   {
-    protected BaseTacticalCombatAiAttackConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTacticalCombatAiAttackConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatAiAttack.CanAttackAllies"/>

@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintFaction
     where TBuilder : BaseFactionConfigurator<T, TBuilder>
   {
-    protected BaseFactionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseFactionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintFaction.m_AttackFactions"/>
@@ -32,10 +32,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAttackFactions(params Blueprint<BlueprintFaction, BlueprintFactionReference>[] attackFactions)
+    public TBuilder SetAttackFactions(params Blueprint<BlueprintFactionReference>[] attackFactions)
     {
       return OnConfigureInternal(
         bp =>
@@ -57,10 +57,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAttackFactions(params Blueprint<BlueprintFaction, BlueprintFactionReference>[] attackFactions)
+    public TBuilder AddToAttackFactions(params Blueprint<BlueprintFactionReference>[] attackFactions)
     {
       return OnConfigureInternal(
         bp =>
@@ -83,10 +83,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAttackFactions(params Blueprint<BlueprintFaction, BlueprintFactionReference>[] attackFactions)
+    public TBuilder RemoveFromAttackFactions(params Blueprint<BlueprintFactionReference>[] attackFactions)
     {
       return OnConfigureInternal(
         bp =>
@@ -147,10 +147,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAllyFactions(params Blueprint<BlueprintFaction, BlueprintFactionReference>[] allyFactions)
+    public TBuilder SetAllyFactions(params Blueprint<BlueprintFactionReference>[] allyFactions)
     {
       return OnConfigureInternal(
         bp =>
@@ -172,10 +172,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAllyFactions(params Blueprint<BlueprintFaction, BlueprintFactionReference>[] allyFactions)
+    public TBuilder AddToAllyFactions(params Blueprint<BlueprintFactionReference>[] allyFactions)
     {
       return OnConfigureInternal(
         bp =>
@@ -198,10 +198,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAllyFactions(params Blueprint<BlueprintFaction, BlueprintFactionReference>[] allyFactions)
+    public TBuilder RemoveFromAllyFactions(params Blueprint<BlueprintFactionReference>[] allyFactions)
     {
       return OnConfigureInternal(
         bp =>

@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where T : BlueprintMapObject
     where TBuilder : BaseMapObjectConfigurator<T, TBuilder>
   {
-    protected BaseMapObjectConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseMapObjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintMapObject.Prefab"/>

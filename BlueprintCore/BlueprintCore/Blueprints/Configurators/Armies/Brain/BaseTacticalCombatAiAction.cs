@@ -16,6 +16,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where T : BlueprintTacticalCombatAiAction
     where TBuilder : BaseTacticalCombatAiActionConfigurator<T, TBuilder>
   {
-    protected BaseTacticalCombatAiActionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTacticalCombatAiActionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

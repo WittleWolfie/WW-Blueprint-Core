@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : BlueprintAiCastSpell
     where TBuilder : BaseAiCastSpellConfigurator<T, TBuilder>
   {
-    protected BaseAiCastSpellConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAiCastSpellConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.m_MinCasterSqrDistanceToLocator"/>
@@ -130,10 +130,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAbility(Blueprint<BlueprintAbility, BlueprintAbilityReference> ability)
+    public TBuilder SetAbility(Blueprint<BlueprintAbilityReference> ability)
     {
       return OnConfigureInternal(
         bp =>
@@ -240,10 +240,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetVariant(Blueprint<BlueprintAbility, BlueprintAbilityReference> variant)
+    public TBuilder SetVariant(Blueprint<BlueprintAbilityReference> variant)
     {
       return OnConfigureInternal(
         bp =>
@@ -281,10 +281,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetVariantsSet(params Blueprint<BlueprintAbility, BlueprintAbilityReference>[] variantsSet)
+    public TBuilder SetVariantsSet(params Blueprint<BlueprintAbilityReference>[] variantsSet)
     {
       return OnConfigureInternal(
         bp =>
@@ -309,10 +309,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToVariantsSet(params Blueprint<BlueprintAbility, BlueprintAbilityReference>[] variantsSet)
+    public TBuilder AddToVariantsSet(params Blueprint<BlueprintAbilityReference>[] variantsSet)
     {
       return OnConfigureInternal(
         bp =>
@@ -338,10 +338,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromVariantsSet(params Blueprint<BlueprintAbility, BlueprintAbilityReference>[] variantsSet)
+    public TBuilder RemoveFromVariantsSet(params Blueprint<BlueprintAbilityReference>[] variantsSet)
     {
       return OnConfigureInternal(
         bp =>

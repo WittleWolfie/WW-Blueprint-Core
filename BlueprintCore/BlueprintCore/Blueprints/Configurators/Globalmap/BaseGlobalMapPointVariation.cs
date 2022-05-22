@@ -24,7 +24,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     where T : BlueprintGlobalMapPointVariation
     where TBuilder : BaseGlobalMapPointVariationConfigurator<T, TBuilder>
   {
-    protected BaseGlobalMapPointVariationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseGlobalMapPointVariationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.Conditions"/>
@@ -97,10 +97,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNameFromSettlement(Blueprint<BlueprintSettlement, BlueprintSettlement.Reference> nameFromSettlement)
+    public TBuilder SetNameFromSettlement(Blueprint<BlueprintSettlement.Reference> nameFromSettlement)
     {
       return OnConfigureInternal(
         bp =>
@@ -222,10 +222,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAreaEntrance(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> areaEntrance)
+    public TBuilder SetAreaEntrance(Blueprint<BlueprintAreaEnterPointReference> areaEntrance)
     {
       return OnConfigureInternal(
         bp =>
@@ -260,10 +260,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEntrances(Blueprint<BlueprintMultiEntrance, BlueprintMultiEntranceReference> entrances)
+    public TBuilder SetEntrances(Blueprint<BlueprintMultiEntranceReference> entrances)
     {
       return OnConfigureInternal(
         bp =>
@@ -298,10 +298,10 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBookEvent(Blueprint<BlueprintDialog, BlueprintDialogReference> bookEvent)
+    public TBuilder SetBookEvent(Blueprint<BlueprintDialogReference> bookEvent)
     {
       return OnConfigureInternal(
         bp =>
@@ -346,14 +346,14 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddLocationRestriction(
         ConditionsBuilder? allowedCondition = null,
         LocalizedString? description = null,
         ConditionsBuilder? ignoreCondition = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? requiredCompanions = null)
+        List<Blueprint<BlueprintUnitReference>>? requiredCompanions = null)
     {
       var component = new LocationRestriction();
       component.AllowedCondition = allowedCondition?.Build() ?? component.AllowedCondition;

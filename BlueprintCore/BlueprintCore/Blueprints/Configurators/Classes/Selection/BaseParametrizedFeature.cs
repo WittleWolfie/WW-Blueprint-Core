@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     where T : BlueprintParametrizedFeature
     where TBuilder : BaseParametrizedFeatureConfigurator<T, TBuilder>
   {
-    protected BaseParametrizedFeatureConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseParametrizedFeatureConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintParametrizedFeature.ParameterType"/>
@@ -134,10 +134,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSpellList(Blueprint<BlueprintSpellList, BlueprintSpellListReference> spellList)
+    public TBuilder SetSpellList(Blueprint<BlueprintSpellListReference> spellList)
     {
       return OnConfigureInternal(
         bp =>
@@ -172,10 +172,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSpellcasterClass(Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference> spellcasterClass)
+    public TBuilder SetSpellcasterClass(Blueprint<BlueprintCharacterClassReference> spellcasterClass)
     {
       return OnConfigureInternal(
         bp =>
@@ -306,10 +306,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPrerequisite(Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference> prerequisite)
+    public TBuilder SetPrerequisite(Blueprint<BlueprintParametrizedFeatureReference> prerequisite)
     {
       return OnConfigureInternal(
         bp =>
@@ -344,10 +344,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetCustomParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] customParameterVariants)
+    public TBuilder SetCustomParameterVariants(params Blueprint<AnyBlueprintReference>[] customParameterVariants)
     {
       return OnConfigureInternal(
         bp =>
@@ -369,10 +369,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToCustomParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] customParameterVariants)
+    public TBuilder AddToCustomParameterVariants(params Blueprint<AnyBlueprintReference>[] customParameterVariants)
     {
       return OnConfigureInternal(
         bp =>
@@ -395,10 +395,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromCustomParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] customParameterVariants)
+    public TBuilder RemoveFromCustomParameterVariants(params Blueprint<AnyBlueprintReference>[] customParameterVariants)
     {
       return OnConfigureInternal(
         bp =>
@@ -507,10 +507,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBlueprintParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] blueprintParameterVariants)
+    public TBuilder SetBlueprintParameterVariants(params Blueprint<AnyBlueprintReference>[] blueprintParameterVariants)
     {
       return OnConfigureInternal(
         bp =>
@@ -532,10 +532,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToBlueprintParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] blueprintParameterVariants)
+    public TBuilder AddToBlueprintParameterVariants(params Blueprint<AnyBlueprintReference>[] blueprintParameterVariants)
     {
       return OnConfigureInternal(
         bp =>
@@ -558,10 +558,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromBlueprintParameterVariants(params Blueprint<BlueprintScriptableObject, AnyBlueprintReference>[] blueprintParameterVariants)
+    public TBuilder RemoveFromBlueprintParameterVariants(params Blueprint<AnyBlueprintReference>[] blueprintParameterVariants)
     {
       return OnConfigureInternal(
         bp =>
@@ -786,7 +786,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="greaterFeature">
@@ -798,7 +798,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="greaterFocus">
@@ -810,7 +810,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="greaterSpecialization">
@@ -822,7 +822,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="improvedCritical">
@@ -834,7 +834,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="specialization">
@@ -846,7 +846,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="weaponMastery">
@@ -858,17 +858,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddFullWeaponMasterySkeletonParametrized(
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? focus = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? greaterFeature = null,
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? greaterFocus = null,
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? greaterSpecialization = null,
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? improvedCritical = null,
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? specialization = null,
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? weaponMastery = null)
+        Blueprint<BlueprintParametrizedFeatureReference>? focus = null,
+        Blueprint<BlueprintFeatureReference>? greaterFeature = null,
+        Blueprint<BlueprintParametrizedFeatureReference>? greaterFocus = null,
+        Blueprint<BlueprintParametrizedFeatureReference>? greaterSpecialization = null,
+        Blueprint<BlueprintParametrizedFeatureReference>? improvedCritical = null,
+        Blueprint<BlueprintParametrizedFeatureReference>? specialization = null,
+        Blueprint<BlueprintParametrizedFeatureReference>? weaponMastery = null)
     {
       var component = new FullWeaponMasterySkeletonParametrized();
       component.m_Focus = focus?.Reference ?? component.m_Focus;
@@ -980,11 +980,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddKensaiChosenWeapon(
-        Blueprint<BlueprintParametrizedFeature, BlueprintParametrizedFeatureReference>? focus = null)
+        Blueprint<BlueprintParametrizedFeatureReference>? focus = null)
     {
       var component = new KensaiChosenWeapon();
       component.m_Focus = focus?.Reference ?? component.m_Focus;
@@ -1018,7 +1018,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="spellList">
@@ -1030,15 +1030,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddLearnSpellParametrized(
         bool? specificSpellLevel = null,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? spellcasterClass = null,
+        Blueprint<BlueprintCharacterClassReference>? spellcasterClass = null,
         int? spellLevel = null,
         int? spellLevelPenalty = null,
-        Blueprint<BlueprintSpellList, BlueprintSpellListReference>? spellList = null)
+        Blueprint<BlueprintSpellListReference>? spellList = null)
     {
       var component = new LearnSpellParametrized();
       component.SpecificSpellLevel = specificSpellLevel ?? component.SpecificSpellLevel;
@@ -1112,7 +1112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="spellsOnly">
@@ -1123,7 +1123,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     public TBuilder AddSpellFocusParametrized(
         int? bonusDC = null,
         ModifierDescriptor? descriptor = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? mythicFocus = null,
+        Blueprint<BlueprintUnitFactReference>? mythicFocus = null,
         bool? spellsOnly = null)
     {
       var component = new SpellFocusParametrized();
@@ -1178,12 +1178,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddWeaponFocusParametrized(
         ModifierDescriptor? descriptor = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? mythicFocus = null)
+        Blueprint<BlueprintUnitFactReference>? mythicFocus = null)
     {
       var component = new WeaponFocusParametrized();
       component.Descriptor = descriptor ?? component.Descriptor;

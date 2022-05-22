@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     where T : Gate
     where TBuilder : BaseGateConfigurator<T, TBuilder>
   {
-    protected BaseGateConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseGateConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="Gate.Color"/>

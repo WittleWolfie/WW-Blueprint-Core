@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintLoadingScreenSpriteList
     where TBuilder : BaseLoadingScreenSpriteListConfigurator<T, TBuilder>
   {
-    protected BaseLoadingScreenSpriteListConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLoadingScreenSpriteListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>

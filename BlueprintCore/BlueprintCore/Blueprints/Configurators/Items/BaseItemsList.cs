@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     where T : BlueprintItemsList
     where TBuilder : BaseItemsListConfigurator<T, TBuilder>
   {
-    protected BaseItemsListConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemsListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemsList.m_Items"/>
@@ -33,10 +33,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] items)
+    public TBuilder SetItems(params Blueprint<BlueprintItemReference>[] items)
     {
       return OnConfigureInternal(
         bp =>
@@ -58,10 +58,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] items)
+    public TBuilder AddToItems(params Blueprint<BlueprintItemReference>[] items)
     {
       return OnConfigureInternal(
         bp =>
@@ -84,10 +84,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromItems(params Blueprint<BlueprintItem, BlueprintItemReference>[] items)
+    public TBuilder RemoveFromItems(params Blueprint<BlueprintItemReference>[] items)
     {
       return OnConfigureInternal(
         bp =>

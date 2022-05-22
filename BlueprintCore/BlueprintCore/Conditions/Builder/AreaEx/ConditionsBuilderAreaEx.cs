@@ -42,12 +42,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder AreaVisited(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintArea, BlueprintAreaReference>? area = null,
+        Blueprint<BlueprintAreaReference>? area = null,
         bool negate = false)
     {
       var element = ElementTool.Create<AreaVisited>();
@@ -83,12 +83,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CurrentAreaIs(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintArea, BlueprintAreaReference>? area = null,
+        Blueprint<BlueprintAreaReference>? area = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CurrentAreaIs>();
@@ -196,12 +196,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder LocationRevealed(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null,
         bool negate = false)
     {
       var element = ElementTool.Create<LocationRevealed>();
@@ -345,12 +345,12 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder UnitIsInAreaPart(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintAreaPart, BlueprintAreaPartReference>? areaPart = null,
+        Blueprint<BlueprintAreaPartReference>? areaPart = null,
         bool negate = false,
         UnitEvaluator? unit = null)
     {

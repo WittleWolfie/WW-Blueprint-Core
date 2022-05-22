@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where T : BlueprintAreaTransition
     where TBuilder : BaseAreaTransitionConfigurator<T, TBuilder>
   {
-    protected BaseAreaTransitionConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAreaTransitionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaTransition.m_Actions"/>

@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
   public class CookingRecipeConfigurator
     : BaseCookingRecipeConfigurator<BlueprintCookingRecipe, CookingRecipeConfigurator>
   {
-    private CookingRecipeConfigurator(Blueprint<BlueprintCookingRecipe, BlueprintReference<BlueprintCookingRecipe>> blueprint) : base(blueprint) { }
+    private CookingRecipeConfigurator(Blueprint<BlueprintReference<BlueprintCookingRecipe>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static CookingRecipeConfigurator For(Blueprint<BlueprintCookingRecipe, BlueprintReference<BlueprintCookingRecipe>> blueprint)
+    public static CookingRecipeConfigurator For(Blueprint<BlueprintReference<BlueprintCookingRecipe>> blueprint)
     {
       return new CookingRecipeConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static CookingRecipeConfigurator New(string name, string guid)

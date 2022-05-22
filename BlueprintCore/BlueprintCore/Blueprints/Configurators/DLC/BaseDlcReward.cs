@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     where T : BlueprintDlcReward
     where TBuilder : BaseDlcRewardConfigurator<T, TBuilder>
   {
-    protected BaseDlcRewardConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseDlcRewardConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcReward.Description"/>

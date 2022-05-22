@@ -66,12 +66,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CheckConditionsHolder(
         this ConditionsBuilder builder,
-        Blueprint<ConditionsHolder, ConditionsReference>? conditionsHolder = null,
+        Blueprint<ConditionsReference>? conditionsHolder = null,
         bool negate = false,
         ParametrizedContextSetter? parameters = null)
     {
@@ -110,7 +110,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="unitEvaluator">
@@ -122,7 +122,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         bool negate = false,
         CheckItemCondition.RequiredState? requiredState = null,
-        Blueprint<BlueprintItem, BlueprintItemReference>? targetItem = null,
+        Blueprint<BlueprintItemReference>? targetItem = null,
         UnitEvaluator? unitEvaluator = null)
     {
       var element = ElementTool.Create<CheckItemCondition>();
@@ -165,12 +165,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CompanionInParty(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
+        Blueprint<BlueprintUnitReference>? companion = null,
         bool? matchWhenActive = null,
         bool? matchWhenDead = null,
         bool? matchWhenDetached = null,
@@ -220,13 +220,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CompanionIsDead(
         this ConditionsBuilder builder,
         bool? anyCompanion = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
+        Blueprint<BlueprintUnitReference>? companion = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionIsDead>();
@@ -265,12 +265,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder CompanionIsLost(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
+        Blueprint<BlueprintUnitReference>? companion = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionIsLost>();
@@ -310,12 +310,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasBuff(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         bool negate = false,
         UnitEvaluator? target = null)
     {
@@ -354,12 +354,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder HasFact(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
+        Blueprint<BlueprintUnitFactReference>? fact = null,
         bool negate = false,
         UnitEvaluator? unit = null)
     {
@@ -649,12 +649,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder ItemBlueprint(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference>? blueprint = null,
+        Blueprint<BlueprintItemReference>? blueprint = null,
         ItemEvaluator? item = null,
         bool negate = false)
     {
@@ -702,7 +702,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="quantity">
@@ -714,7 +714,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         bool? checkInPlayerHubChest = null,
         bool? ignoreRemoteCompanions = null,
-        Blueprint<BlueprintItem, BlueprintItemReference>? itemToCheck = null,
+        Blueprint<BlueprintItemReference>? itemToCheck = null,
         bool? money = null,
         bool negate = false,
         int? quantity = null)
@@ -885,13 +885,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder SummonPoolExistsAndEmpty(
         this ConditionsBuilder builder,
         bool negate = false,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<SummonPoolExistsAndEmpty>();
       element.Not = negate;
@@ -990,12 +990,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder UnitBlueprint(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? blueprint = null,
+        Blueprint<BlueprintUnitReference>? blueprint = null,
         bool negate = false,
         UnitEvaluator? unit = null)
     {
@@ -1034,12 +1034,12 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder UnitClass(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
+        Blueprint<BlueprintCharacterClassReference>? clazz = null,
         bool? limitMaxLevel = null,
         bool? limitMinLevel = null,
         IntEvaluator? maxLevel = null,
@@ -1149,13 +1149,13 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder UnitFromSummonPool(
         this ConditionsBuilder builder,
         bool negate = false,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null,
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<UnitFromSummonPool>();

@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     where T : BlueprintMultiEntranceEntry
     where TBuilder : BaseMultiEntranceEntryConfigurator<T, TBuilder>
   {
-    protected BaseMultiEntranceEntryConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseMultiEntranceEntryConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintMultiEntranceEntry.Name"/>

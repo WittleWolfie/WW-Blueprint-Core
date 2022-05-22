@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where T : BlueprintAnswerBase
     where TBuilder : BaseAnswerBaseConfigurator<T, TBuilder>
   {
-    protected BaseAnswerBaseConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAnswerBaseConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswerBase.MythicRequirement"/>

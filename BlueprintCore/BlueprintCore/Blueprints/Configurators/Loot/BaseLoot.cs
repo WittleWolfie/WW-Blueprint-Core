@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     where T : BlueprintLoot
     where TBuilder : BaseLootConfigurator<T, TBuilder>
   {
-    protected BaseLootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseLootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoot.Type"/>
@@ -131,10 +131,10 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetArea(Blueprint<BlueprintArea, BlueprintAreaReference> area)
+    public TBuilder SetArea(Blueprint<BlueprintAreaReference> area)
     {
       return OnConfigureInternal(
         bp =>

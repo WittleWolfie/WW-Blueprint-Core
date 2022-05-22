@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     where T : BlueprintQuestGroups
     where TBuilder : BaseQuestGroupsConfigurator<T, TBuilder>
   {
-    protected BaseQuestGroupsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseQuestGroupsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuestGroups.Groups"/>

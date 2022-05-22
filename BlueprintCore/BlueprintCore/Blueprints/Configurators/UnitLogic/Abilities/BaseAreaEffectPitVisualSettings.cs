@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     where T : BlueprintAreaEffectPitVisualSettings
     where TBuilder : BaseAreaEffectPitVisualSettingsConfigurator<T, TBuilder>
   {
-    protected BaseAreaEffectPitVisualSettingsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAreaEffectPitVisualSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEffectPitVisualSettings.DepthMeters"/>

@@ -22,7 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where T : BlueprintAreaPart
     where TBuilder : BaseAreaPartConfigurator<T, TBuilder>
   {
-    protected BaseAreaPartConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAreaPartConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.m_DynamicScene"/>

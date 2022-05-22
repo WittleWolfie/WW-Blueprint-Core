@@ -35,7 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     where T : BlueprintItem
     where TBuilder : BaseItemConfigurator<T, TBuilder>
   {
-    protected BaseItemConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_DisplayNameText"/>
@@ -374,10 +374,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetShardItem(Blueprint<BlueprintItem, BlueprintItemReference> shardItem)
+    public TBuilder SetShardItem(Blueprint<BlueprintItemReference> shardItem)
     {
       return OnConfigureInternal(
         bp =>
@@ -738,11 +738,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddCopyRecipe(
-        Blueprint<BlueprintCookingRecipe, BlueprintCookingRecipeReference>? recipe = null)
+        Blueprint<BlueprintCookingRecipeReference>? recipe = null)
     {
       var component = new CopyRecipe();
       component.m_Recipe = recipe?.Reference ?? component.m_Recipe;
@@ -776,11 +776,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddCopyScroll(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? customSpell = null)
+        Blueprint<BlueprintAbilityReference>? customSpell = null)
     {
       var component = new CopyScroll();
       component.m_CustomSpell = customSpell?.Reference ?? component.m_CustomSpell;
@@ -814,12 +814,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddItemDialog(
         ConditionsBuilder? conditions = null,
-        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialogReference = null,
+        Blueprint<BlueprintDialogReference>? dialogReference = null,
         LocalizedString? itemName = null)
     {
       var component = new ItemDialog();
@@ -864,7 +864,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="dlcReward">
@@ -876,12 +876,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddItemDlcRestriction(
-        Blueprint<BlueprintItem, BlueprintItemReference>? changeTo = null,
-        Blueprint<BlueprintDlcReward, BlueprintDlcRewardReference>? dlcReward = null,
+        Blueprint<BlueprintItemReference>? changeTo = null,
+        Blueprint<BlueprintDlcRewardReference>? dlcReward = null,
         bool? hideInVendors = null)
     {
       var component = new ItemDlcRestriction();
@@ -921,7 +921,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -939,14 +939,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddItemPolymorph(
-        Blueprint<BlueprintUnlockableFlag, BlueprintUnlockableFlagReference>? flagToCheck = null,
+        Blueprint<BlueprintUnlockableFlagReference>? flagToCheck = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        List<Blueprint<BlueprintItem, BlueprintItemReference>>? polymorphItems = null)
+        List<Blueprint<BlueprintItemReference>>? polymorphItems = null)
     {
       var component = new ItemPolymorph();
       component.m_FlagToCheck = flagToCheck?.Reference ?? component.m_FlagToCheck;
@@ -1035,7 +1035,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddWeaponTypeAttackEnchant(
@@ -1043,7 +1043,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintWeaponType, BlueprintWeaponTypeReference>? type = null)
+        Blueprint<BlueprintWeaponTypeReference>? type = null)
     {
       var component = new WeaponTypeAttackEnchant();
       component.Bonus = bonus ?? component.Bonus;

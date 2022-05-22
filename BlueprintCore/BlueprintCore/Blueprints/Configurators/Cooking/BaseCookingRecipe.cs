@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     where T : BlueprintCookingRecipe
     where TBuilder : BaseCookingRecipeConfigurator<T, TBuilder>
   {
-    protected BaseCookingRecipeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCookingRecipeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCookingRecipe.Name"/>
@@ -189,10 +189,10 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPartyBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] partyBuffs)
+    public TBuilder SetPartyBuffs(params Blueprint<BlueprintBuffReference>[] partyBuffs)
     {
       return OnConfigureInternal(
         bp =>
@@ -214,10 +214,10 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToPartyBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] partyBuffs)
+    public TBuilder AddToPartyBuffs(params Blueprint<BlueprintBuffReference>[] partyBuffs)
     {
       return OnConfigureInternal(
         bp =>
@@ -240,10 +240,10 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromPartyBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] partyBuffs)
+    public TBuilder RemoveFromPartyBuffs(params Blueprint<BlueprintBuffReference>[] partyBuffs)
     {
       return OnConfigureInternal(
         bp =>

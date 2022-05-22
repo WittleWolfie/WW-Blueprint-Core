@@ -233,7 +233,7 @@ To implement a custom configurator use this as a template for your class:
 /// <inheritdoc/>
 public class TypeConfigurator : BaseTypeConfigurator<BlueprintType, TypeConfigurator>
 {
-  private TypeConfigurator(Blueprint<BlueprintType, BlueprintReference<BlueprintType>> blueprint) : base(blueprint) { }
+  private TypeConfigurator(Blueprint<BlueprintReference<BlueprintType>> blueprint) : base(blueprint) { }
 
   /// <summary>
   /// Returns a configurator to modify the specified blueprint.
@@ -246,7 +246,7 @@ public class TypeConfigurator : BaseTypeConfigurator<BlueprintType, TypeConfigur
   /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
   /// </para>
   /// </remarks>
-  public static TypeConfigurator For(Blueprint<BlueprintType, BlueprintReference<BlueprintType>> blueprint)
+  public static TypeConfigurator For(Blueprint<BlueprintReference<BlueprintType>> blueprint)
   {
     return new TypeConfigurator(blueprint);
   }
@@ -259,7 +259,7 @@ public class TypeConfigurator : BaseTypeConfigurator<BlueprintType, TypeConfigur
   /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
   /// </para>
   /// <para>
-  /// An implicit cast converts the string to <see cref="Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+  /// An implicit cast converts the string to <see cref="Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
   /// </para>
   /// </remarks>
   public static TypeConfigurator New(string name, string guid)
@@ -392,7 +392,7 @@ ConditionsBuilder has a special method, [UseOr()](xref:BlueprintCore.Conditions.
 
 ## Referencing Blueprints
 
-Many API calls require references to a blueprint. To simplify blueprint references BlueprintCore defines [Blueprint<T, TRef>](xref:BlueprintCore.Utils.Blueprint`2). This provides implicit constructors which allow referencing blueprints by:
+Many API calls require references to a blueprint. To simplify blueprint references BlueprintCore defines [Blueprint<TRef>](xref:BlueprintCore.Utils.Blueprint`1). This provides implicit constructors which allow referencing blueprints by:
 
 * GUID / Asset ID string
 ```C#
@@ -416,7 +416,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 * Blueprint reference
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid);
-var featReference = BlueprintTool.GetRef<BlueprintFeature, BlueprintFeatureReference>(FeatGuid);
+var featReference = BlueprintTool.GetRef<BlueprintFeatureReference>(FeatGuid);
 FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .AddToAllFeatures(featReference)
   .Configure();
@@ -433,6 +433,7 @@ FeatureSelectionConfigurator.For(basicFeatSelectionGuid);
 ```
 
 When passing in a list or array you can mix and match:
+
 ```C#
 var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
 var myOtherFeatGuid = "247a4068-296e-8be4-2890-143f451b4b46";
@@ -445,7 +446,7 @@ If you're declaring or storing a list or array you need to declare the correct t
 ```C#
 var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
 var myOtherFeatGuid = "247a4068-296e-8be4-2890-143f451b4b46";
-var newFeats = new Blueprint<BlueprintFeature, BlueprintFeatureReference>[] { feat, myOtherFeatGuid };
+var newFeats = new Blueprint<BlueprintFeatureReference>[] { feat, myOtherFeatGuid };
 FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .AddToAllFeatures(newFeats)
   .Configure();

@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     where T : BlueprintShieldType
     where TBuilder : BaseShieldTypeConfigurator<T, TBuilder>
   {
-    protected BaseShieldTypeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseShieldTypeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintShieldType.m_HandVisualParameters"/>

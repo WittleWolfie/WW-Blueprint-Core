@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : StatConsideration
     where TBuilder : BaseStatConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseStatConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseStatConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="StatConsideration.Stat"/>

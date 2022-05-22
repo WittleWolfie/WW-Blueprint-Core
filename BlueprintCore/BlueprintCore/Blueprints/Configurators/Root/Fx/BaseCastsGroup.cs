@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     where T : CastsGroup
     where TBuilder : BaseCastsGroupConfigurator<T, TBuilder>
   {
-    protected BaseCastsGroupConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCastsGroupConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="CastsGroup.m_ArcaneCasts"/>

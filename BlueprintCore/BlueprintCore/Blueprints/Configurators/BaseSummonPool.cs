@@ -15,7 +15,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintSummonPool
     where TBuilder : BaseSummonPoolConfigurator<T, TBuilder>
   {
-    protected BaseSummonPoolConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSummonPoolConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSummonPool.Limit"/>

@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where T : BlueprintCueBase
     where TBuilder : BaseCueBaseConfigurator<T, TBuilder>
   {
-    protected BaseCueBaseConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCueBaseConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCueBase.ShowOnce"/>

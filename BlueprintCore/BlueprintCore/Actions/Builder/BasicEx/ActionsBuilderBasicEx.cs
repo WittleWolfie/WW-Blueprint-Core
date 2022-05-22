@@ -59,12 +59,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddFact(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
+        Blueprint<BlueprintUnitFactReference> fact,
         UnitEvaluator unit)
     {
       var element = ElementTool.Create<AddFact>();
@@ -163,12 +163,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddItemsFromBlueprint(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnitLoot, BlueprintUnitLootReference> blueprintLoot,
+        Blueprint<BlueprintUnitLootReference> blueprintLoot,
         ItemsCollectionEvaluator items,
         bool? identify = null,
         bool? silent = null,
@@ -220,19 +220,19 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder GiveItemToPlayer(
         this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        Blueprint<BlueprintItemReference> itemToGive,
         bool? identify = null,
         int? quantity = null,
         bool? silent = null)
     {
       var element = ElementTool.Create<AddItemToPlayer>();
       element.m_ItemToGive = itemToGive?.Reference;
-      var bp = itemToGive.Instance;
+      var bp = itemToGive.Reference.Get();
       if (bp is BlueprintItemEquipmentHand)
       {
         throw new InvalidOperationException("Item fits in hand slot. Use GiveHandSlotItemToPlayer.");
@@ -283,12 +283,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder GiveEquipmentToPlayer(
         this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        Blueprint<BlueprintItemReference> itemToGive,
         bool? equip = null,
         UnitEvaluator? equipOn = null,
         bool? errorIfDidNotEquip = null,
@@ -298,7 +298,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       var element = ElementTool.Create<AddItemToPlayer>();
       element.m_ItemToGive = itemToGive?.Reference;
-      var bp = itemToGive.Instance;
+      var bp = itemToGive.Reference.Get();
       if (bp is BlueprintItemEquipmentHand)
       {
         throw new InvalidOperationException("Item fits in hand slot. Use GiveHandSlotItemToPlayer.");
@@ -353,7 +353,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="preferredWeaponSet">
@@ -363,7 +363,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </param>
     public static ActionsBuilder GiveHandSlotItemToPlayer(
         this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference> itemToGive,
+        Blueprint<BlueprintItemReference> itemToGive,
         bool? equip = null,
         UnitEvaluator? equipOn = null,
         bool? errorIfDidNotEquip = null,
@@ -374,7 +374,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     {
       var element = ElementTool.Create<AddItemToPlayer>();
       element.m_ItemToGive = itemToGive?.Reference;
-      var bp = itemToGive.Instance;
+      var bp = itemToGive.Reference.Get();
       if (bp is not BlueprintItemEquipmentHand)
       {
         if (bp is BlueprintItemEquipment)
@@ -424,12 +424,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddUnitToSummonPool(
         this ActionsBuilder builder,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
+        Blueprint<BlueprintSummonPoolReference> summonPool,
         UnitEvaluator unit)
     {
       var element = ElementTool.Create<AddUnitToSummonPool>();
@@ -466,12 +466,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AttachBuff(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference> buff,
+        Blueprint<BlueprintBuffReference> buff,
         IntEvaluator duration,
         UnitEvaluator target)
     {
@@ -769,12 +769,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder DeleteUnitFromSummonPool(
         this ActionsBuilder builder,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference> summonPool,
+        Blueprint<BlueprintSummonPoolReference> summonPool,
         UnitEvaluator unit)
     {
       var element = ElementTool.Create<DeleteUnitFromSummonPool>();
@@ -878,12 +878,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder DetachBuff(
         this ActionsBuilder builder,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<DetachBuff>();
@@ -1290,12 +1290,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RaiseDead(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
+        Blueprint<BlueprintUnitReference>? companion = null,
         bool? riseAllCompanions = null)
     {
       var element = ElementTool.Create<RaiseDead>();
@@ -1380,12 +1380,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveFact(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
+        Blueprint<BlueprintUnitFactReference>? fact = null,
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveFact>();
@@ -1523,13 +1523,13 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RunActionHolder(
         this ActionsBuilder builder,
         string? comment = null,
-        Blueprint<ActionsHolder, ActionsReference>? holder = null,
+        Blueprint<ActionsReference>? holder = null,
         ParametrizedContextSetter? parameters = null)
     {
       var element = ElementTool.Create<RunActionHolder>();
@@ -1604,14 +1604,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SpawnBySummonPool(
         this ActionsBuilder builder,
         ActionsBuilder? actionsOnSpawn = null,
         bool? ignoreSpawnerConditions = null,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? pool = null)
+        Blueprint<BlueprintSummonPoolReference>? pool = null)
     {
       var element = ElementTool.Create<SpawnBySummonPool>();
       element.ActionsOnSpawn = actionsOnSpawn?.Build() ?? element.ActionsOnSpawn;
@@ -1680,7 +1680,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="unit">
@@ -1692,7 +1692,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder Summon(
@@ -1700,9 +1700,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         bool? groupBySummonPool = null,
         Vector3? offset = null,
         ActionsBuilder? onSummmon = null,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null,
         TransformEvaluator? transform = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<Summon>();
       element.GroupBySummonPool = groupBySummonPool ?? element.GroupBySummonPool;
@@ -1754,14 +1754,14 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SummonPoolUnits(
         this ActionsBuilder builder,
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<SummonPoolUnits>();
       element.Actions = actions?.Build() ?? element.Actions;
@@ -1805,7 +1805,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="summonPool">
@@ -1817,17 +1817,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SummonUnitCopy(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? copyBlueprint = null,
+        Blueprint<BlueprintUnitReference>? copyBlueprint = null,
         UnitEvaluator? copyFrom = null,
         bool? doNotCreateItems = null,
         LocatorEvaluator? locator = null,
         ActionsBuilder? onSummon = null,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null)
     {
       var element = ElementTool.Create<SummonUnitCopy>();
       element.m_CopyBlueprint = copyBlueprint?.Reference ?? element.m_CopyBlueprint;
@@ -1876,12 +1876,12 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder SwitchActivatableAbility(
         this ActionsBuilder builder,
-        Blueprint<BlueprintActivatableAbility, BlueprintActivatableAbilityReference>? ability = null,
+        Blueprint<BlueprintActivatableAbilityReference>? ability = null,
         bool? isOn = null,
         UnitEvaluator? unit = null)
     {

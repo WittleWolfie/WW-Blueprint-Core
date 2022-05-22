@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   public class ArmyHealthConsiderationConfigurator
     : BaseArmyHealthConsiderationConfigurator<ArmyHealthConsideration, ArmyHealthConsiderationConfigurator>
   {
-    private ArmyHealthConsiderationConfigurator(Blueprint<ArmyHealthConsideration, BlueprintReference<ArmyHealthConsideration>> blueprint) : base(blueprint) { }
+    private ArmyHealthConsiderationConfigurator(Blueprint<BlueprintReference<ArmyHealthConsideration>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static ArmyHealthConsiderationConfigurator For(Blueprint<ArmyHealthConsideration, BlueprintReference<ArmyHealthConsideration>> blueprint)
+    public static ArmyHealthConsiderationConfigurator For(Blueprint<BlueprintReference<ArmyHealthConsideration>> blueprint)
     {
       return new ArmyHealthConsiderationConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static ArmyHealthConsiderationConfigurator New(string name, string guid)

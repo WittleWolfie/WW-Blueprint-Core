@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     where T : BlueprintUnitLoot
     where TBuilder : BaseUnitLootConfigurator<T, TBuilder>
   {
-    protected BaseUnitLootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUnitLootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitLoot.m_Dummy"/>

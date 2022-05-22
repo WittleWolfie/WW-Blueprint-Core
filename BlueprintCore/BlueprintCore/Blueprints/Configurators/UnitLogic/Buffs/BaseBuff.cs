@@ -57,7 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     where T : BlueprintBuff
     where TBuilder : BaseBuffConfigurator<T, TBuilder>
   {
-    protected BaseBuffConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseBuffConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.Stacking"/>
@@ -635,7 +635,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -645,7 +645,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddTemporaryFeat(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feat = null,
+        Blueprint<BlueprintFeatureReference>? feat = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -747,7 +747,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -757,7 +757,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddBuffEnchantAnyWeapon(
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentBlueprint = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         EquipSlotBase.SlotType? slot = null)
@@ -795,7 +795,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="weaponBlueprint">
@@ -807,12 +807,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddBuffEnchantSpecificWeaponWorn(
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentBlueprint = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weaponBlueprint = null)
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentBlueprint = null,
+        Blueprint<BlueprintItemWeaponReference>? weaponBlueprint = null)
     {
       var component = new BuffEnchantSpecificWeaponWorn();
       component.m_EnchantmentBlueprint = enchantmentBlueprint?.Reference ?? component.m_EnchantmentBlueprint;
@@ -851,7 +851,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -862,7 +862,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// </param>
     public TBuilder AddBuffEnchantWornItem(
         bool? allWeapons = null,
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantmentBlueprint = null,
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentBlueprint = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         EquipSlotBase.SlotType? slot = null)
@@ -1009,7 +1009,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddShroudOfWater(
@@ -1018,7 +1018,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? upgradeFeature = null)
+        Blueprint<BlueprintFeatureReference>? upgradeFeature = null)
     {
       var component = new ShroudOfWater();
       component.BaseValue = baseValue ?? component.BaseValue;
@@ -1077,11 +1077,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddKineticistBlade(
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? blade = null)
+        Blueprint<BlueprintItemWeaponReference>? blade = null)
     {
       var component = new AddKineticistBlade();
       component.m_Blade = blade?.Reference ?? component.m_Blade;
@@ -1115,7 +1115,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="facts">
@@ -1127,7 +1127,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="mainHand">
@@ -1139,7 +1139,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="offHand">
@@ -1151,7 +1151,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="portrait">
@@ -1163,7 +1163,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="race">
@@ -1175,7 +1175,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="replaceUnitForInspection">
@@ -1187,7 +1187,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="secondaryAdditionalLimbs">
@@ -1199,26 +1199,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddPolymorph(
-        List<Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>>? additionalLimbs = null,
+        List<Blueprint<BlueprintItemWeaponReference>>? additionalLimbs = null,
         int? constitutionBonus = null,
         int? dexterityBonus = null,
         Polymorph.VisualTransitionSettings? enterTransition = null,
         Polymorph.VisualTransitionSettings? exitTransition = null,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? facts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         bool? keepSlots = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? mainHand = null,
+        Blueprint<BlueprintItemWeaponReference>? mainHand = null,
         int? naturalArmor = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? offHand = null,
-        Blueprint<BlueprintPortrait, BlueprintPortraitReference>? portrait = null,
+        Blueprint<BlueprintItemWeaponReference>? offHand = null,
+        Blueprint<BlueprintPortraitReference>? portrait = null,
         UnitViewLink? prefab = null,
         UnitViewLink? prefabFemale = null,
-        Blueprint<BlueprintRace, BlueprintRaceReference>? race = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? replaceUnitForInspection = null,
-        List<Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>>? secondaryAdditionalLimbs = null,
+        Blueprint<BlueprintRaceReference>? race = null,
+        Blueprint<BlueprintUnitReference>? replaceUnitForInspection = null,
+        List<Blueprint<BlueprintItemWeaponReference>>? secondaryAdditionalLimbs = null,
         bool? silentCaster = null,
         Size? size = null,
         SpecialDollType? specialDollType = null,
@@ -1331,11 +1331,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAreaEffect(
-        Blueprint<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference>? areaEffect = null)
+        Blueprint<BlueprintAbilityAreaEffectReference>? areaEffect = null)
     {
       var component = new AddAreaEffect();
       component.m_AreaEffect = areaEffect?.Reference ?? component.m_AreaEffect;
@@ -1795,12 +1795,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParams(
         ContextValue? casterLevel = null,
-        Blueprint<BlueprintUnitProperty, BlueprintUnitPropertyReference>? customProperty = null,
+        Blueprint<BlueprintUnitPropertyReference>? customProperty = null,
         bool? replaceCasterLevel = null,
         bool? replaceSpellLevel = null,
         ContextValue? spellLevel = null,
@@ -1855,11 +1855,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null,
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
         StatType? statType = null,
         bool? useKineticistMainStat = null)
     {
@@ -2049,12 +2049,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddReplaceSquadAbilities(
         bool? forOneTurn = null,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? newAbilities = null)
+        List<Blueprint<BlueprintAbilityReference>>? newAbilities = null)
     {
       var component = new ReplaceSquadAbilities();
       component.m_ForOneTurn = forOneTurn ?? component.m_ForOneTurn;
@@ -2090,7 +2090,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="harmSelfAction">
@@ -2099,7 +2099,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// </para>
     /// </param>
     public TBuilder AddTacticalCombatConfusion(
-        Blueprint<BlueprintTacticalCombatAiAction, BlueprintTacticalCombatAiActionReference>? aiAttackNearestAction = null,
+        Blueprint<BlueprintTacticalCombatAiActionReference>? aiAttackNearestAction = null,
         ActionsBuilder? harmSelfAction = null)
     {
       var component = new TacticalCombatConfusion();
@@ -2203,7 +2203,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2213,7 +2213,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddBodyguardACBonus(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? checkBuff = null,
+        Blueprint<BlueprintBuffReference>? checkBuff = null,
         ModifierDescriptor? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -2261,7 +2261,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="exceptionFact">
@@ -2273,7 +2273,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="extraEffectBuff">
@@ -2285,7 +2285,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2295,9 +2295,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddBuffExtraEffects(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? checkedBuff = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? exceptionFact = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? extraEffectBuff = null,
+        Blueprint<BlueprintBuffReference>? checkedBuff = null,
+        Blueprint<BlueprintUnitFactReference>? exceptionFact = null,
+        Blueprint<BlueprintBuffReference>? extraEffectBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2345,7 +2345,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="cooldownBuff">
@@ -2357,7 +2357,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2367,8 +2367,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddInHarmsWay(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? checkBuff = null,
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? cooldownBuff = null,
+        Blueprint<BlueprintBuffReference>? checkBuff = null,
+        Blueprint<BlueprintBuffReference>? cooldownBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2411,7 +2411,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2421,7 +2421,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddIndomitableMount(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? cooldownBuff = null,
+        Blueprint<BlueprintBuffReference>? cooldownBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2488,7 +2488,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2506,16 +2506,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddMetamagicRodMechanics(
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? abilitiesWhiteList = null,
+        List<Blueprint<BlueprintAbilityReference>>? abilitiesWhiteList = null,
         int? maxSpellLevel = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Metamagic? metamagic = null,
-        Blueprint<BlueprintActivatableAbility, BlueprintActivatableAbilityReference>? rodAbility = null)
+        Blueprint<BlueprintActivatableAbilityReference>? rodAbility = null)
     {
       var component = new MetamagicRodMechanics();
       component.m_AbilitiesWhiteList = abilitiesWhiteList?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AbilitiesWhiteList;
@@ -2558,7 +2558,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2568,7 +2568,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddMountedCombat(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? cooldownBuff = null,
+        Blueprint<BlueprintBuffReference>? cooldownBuff = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2602,11 +2602,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddNeutralToFaction(
-        Blueprint<BlueprintFaction, BlueprintFactionReference>? faction = null)
+        Blueprint<BlueprintFactionReference>? faction = null)
     {
       var component = new NeutralToFaction();
       component.m_Faction = faction?.Reference ?? component.m_Faction;
@@ -2638,12 +2638,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddSpecificSpellDamageBonus(
         int? bonus = null,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spell = null)
+        List<Blueprint<BlueprintAbilityReference>>? spell = null)
     {
       var component = new SpecificSpellDamageBonus();
       component.Bonus = bonus ?? component.Bonus;
@@ -2676,11 +2676,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddUnwillingShield(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? masterAbility = null)
+        Blueprint<BlueprintAbilityReference>? masterAbility = null)
     {
       var component = new UnwillingShield();
       component.m_MasterAbility = masterAbility?.Reference ?? component.m_MasterAbility;
@@ -2712,11 +2712,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddUnwillingShieldTarget(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? masterAbility = null)
+        Blueprint<BlueprintAbilityReference>? masterAbility = null)
     {
       var component = new UnwillingShieldTarget();
       component.m_MasterAbility = masterAbility?.Reference ?? component.m_MasterAbility;
@@ -2804,7 +2804,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="weapon">
@@ -2816,12 +2816,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddAdditionalLimbIfHasFact(
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? checkedFact = null,
-        Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference>? weapon = null)
+        Blueprint<BlueprintFeatureReference>? checkedFact = null,
+        Blueprint<BlueprintItemWeaponReference>? weapon = null)
     {
       var component = new AddAdditionalLimbIfHasFact();
       component.m_CheckedFact = checkedFact?.Reference ?? component.m_CheckedFact;
@@ -2906,7 +2906,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2916,7 +2916,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddStatBonusIfHasFact(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? checkedFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? checkedFacts = null,
         ModifierDescriptor? descriptor = null,
         bool? invertCondition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -3313,11 +3313,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddHalfOfPairComponent(
-        Blueprint<BlueprintBuff, BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintBuffReference>? buff = null,
         int? distanceToActivateInFeet = null,
         float? sqrDistance = null)
     {

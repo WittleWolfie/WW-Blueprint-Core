@@ -45,7 +45,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="fact">
@@ -57,13 +57,13 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddFactIfEtudePlaying(
         this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
+        Blueprint<BlueprintEtudeReference> etude,
+        Blueprint<BlueprintUnitFactReference> fact,
         AddFactIfEtudePlaying.TargetType target)
     {
       var element = ElementTool.Create<AddFactIfEtudePlaying>();
@@ -96,7 +96,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="progression">
@@ -108,7 +108,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="archetype">
@@ -120,7 +120,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="exceptHasFeature">
@@ -132,7 +132,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="originalProgression">
@@ -144,7 +144,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="selection">
@@ -156,19 +156,19 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddFeatureFromProgression(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintFeatureReference> feature,
         int level,
-        Blueprint<BlueprintProgression, BlueprintProgressionReference> progression,
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? exceptHasFeature = null,
-        Blueprint<BlueprintProgression, BlueprintProgressionReference>? originalProgression = null,
+        Blueprint<BlueprintProgressionReference> progression,
+        Blueprint<BlueprintArchetypeReference>? archetype = null,
+        Blueprint<BlueprintFeatureReference>? exceptHasFeature = null,
+        Blueprint<BlueprintProgressionReference>? originalProgression = null,
         bool? rankUpOnly = null,
-        Blueprint<BlueprintFeatureSelection, BlueprintFeatureSelectionReference>? selection = null)
+        Blueprint<BlueprintFeatureSelectionReference>? selection = null)
     {
       var element = ElementTool.Create<AddFeatureFromProgression>();
       element.m_Feature = feature?.Reference;
@@ -221,12 +221,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RecheckEtude(
         this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude,
+        Blueprint<BlueprintEtudeReference> etude,
         bool? redoOnceTriggers = null)
     {
       var element = ElementTool.Create<RecheckEtude>();
@@ -279,7 +279,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="exceptHasFacts">
@@ -291,7 +291,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// <para>
     /// If the target has any of these facts then the fact is not removed.
@@ -299,8 +299,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// </param>
     public static ActionsBuilder RemoveFact(
         this ActionsBuilder builder,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference> fact,
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? exceptHasFacts = null,
+        Blueprint<BlueprintUnitFactReference> fact,
+        List<Blueprint<BlueprintUnitFactReference>>? exceptHasFacts = null,
         bool? excludeExCompanions = null)
     {
       var element = ElementTool.Create<RemoveFact>();
@@ -338,7 +338,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="progression">
@@ -350,7 +350,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="archetype">
@@ -362,7 +362,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="exceptHasFeature">
@@ -374,16 +374,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveFeatureFromProgression(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> feature,
+        Blueprint<BlueprintFeatureReference> feature,
         int level,
-        Blueprint<BlueprintProgression, BlueprintProgressionReference> progression,
-        Blueprint<BlueprintArchetype, BlueprintArchetypeReference>? archetype = null,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? exceptHasFeature = null)
+        Blueprint<BlueprintProgressionReference> progression,
+        Blueprint<BlueprintArchetypeReference>? archetype = null,
+        Blueprint<BlueprintFeatureReference>? exceptHasFeature = null)
     {
       var element = ElementTool.Create<RemoveFeatureFromProgression>();
       element.m_Feature = feature?.Reference;
@@ -424,7 +424,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="replacement">
@@ -436,7 +436,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="toReplace">
@@ -448,7 +448,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="exceptHasFeature">
@@ -460,7 +460,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="targetPartyUnit">
@@ -475,16 +475,16 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ReplaceFeature(
         this ActionsBuilder builder,
-        Blueprint<BlueprintProgression, BlueprintProgressionReference> fromProgression,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> replacement,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference> toReplace,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? exceptHasFeature = null,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? targetPartyUnit = null)
+        Blueprint<BlueprintProgressionReference> fromProgression,
+        Blueprint<BlueprintFeatureReference> replacement,
+        Blueprint<BlueprintFeatureReference> toReplace,
+        Blueprint<BlueprintFeatureReference>? exceptHasFeature = null,
+        Blueprint<BlueprintUnitReference>? targetPartyUnit = null)
     {
       var element = ElementTool.Create<ReplaceFeature>();
       element.m_FromProgression = fromProgression?.Reference;
@@ -526,12 +526,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder StartEtudeForced(
         this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude)
+        Blueprint<BlueprintEtudeReference> etude)
     {
       var element = ElementTool.Create<StartEtudeForced>();
       element.Etude = etude?.Reference;
@@ -561,12 +561,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UnStartEtude(
         this ActionsBuilder builder,
-        Blueprint<BlueprintEtude, BlueprintEtudeReference> etude)
+        Blueprint<BlueprintEtudeReference> etude)
     {
       var element = ElementTool.Create<UnStartEtude>();
       element.Etude = etude?.Reference;
@@ -594,7 +594,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="toRemove">
@@ -609,13 +609,13 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder FixItemInInventory(
         this ActionsBuilder builder,
-        Blueprint<BlueprintItem, BlueprintItemReference>? toAdd = null,
-        Blueprint<BlueprintItem, BlueprintItemReference>? toRemove = null,
+        Blueprint<BlueprintItemReference>? toAdd = null,
+        Blueprint<BlueprintItemReference>? toRemove = null,
         bool? tryEquip = null)
     {
       var element = ElementTool.Create<FixItemInInventory>();
@@ -786,7 +786,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="spellbook">
@@ -801,13 +801,13 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveSpell(
         this ActionsBuilder builder,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null,
-        Blueprint<BlueprintSpellbook, BlueprintSpellbookReference>? spellbook = null)
+        Blueprint<BlueprintAbilityReference>? spell = null,
+        Blueprint<BlueprintSpellbookReference>? spellbook = null)
     {
       var element = ElementTool.Create<RemoveSpell>();
       element.m_Spell = spell?.Reference ?? element.m_Spell;
@@ -909,12 +909,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RestoreClassFeature(
         this ActionsBuilder builder,
-        Blueprint<BlueprintFeature, BlueprintFeatureReference>? feature = null)
+        Blueprint<BlueprintFeatureReference>? feature = null)
     {
       var element = ElementTool.Create<RestoreClassFeature>();
       element.m_Feature = feature?.Reference ?? element.m_Feature;
@@ -980,12 +980,12 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UpdateProgression(
         this ActionsBuilder builder,
-        Blueprint<BlueprintProgression, BlueprintProgressionReference>? progression = null)
+        Blueprint<BlueprintProgressionReference>? progression = null)
     {
       var element = ElementTool.Create<UpdateProgression>();
       element.m_Progression = progression?.Reference ?? element.m_Progression;

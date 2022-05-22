@@ -16,6 +16,6 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     where T : SettlementBlueprintArea
     where TBuilder : BaseSettlementAreaConfigurator<T, TBuilder>
   {
-    protected BaseSettlementAreaConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSettlementAreaConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

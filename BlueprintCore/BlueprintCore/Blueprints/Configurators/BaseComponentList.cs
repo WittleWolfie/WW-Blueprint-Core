@@ -33,7 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintComponentList
     where TBuilder : BaseComponentListConfigurator<T, TBuilder>
   {
-    protected BaseComponentListConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseComponentListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Adds <see cref="EtudeBracketEnableTutorialSingle"/>
@@ -64,13 +64,13 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketEnableTutorialSingle(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>? tutorial = null)
+        Blueprint<BlueprintTutorial.Reference>? tutorial = null)
     {
       var component = new EtudeBracketEnableTutorialSingle();
       component.m_Tutorial = tutorial?.Reference ?? component.m_Tutorial;
@@ -110,13 +110,13 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketEnableTutorials(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        List<Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>>? tutorials = null)
+        List<Blueprint<BlueprintTutorial.Reference>>? tutorials = null)
     {
       var component = new EtudeBracketEnableTutorials();
       component.m_Tutorials = tutorials?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Tutorials;
@@ -320,7 +320,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -330,7 +330,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddDisableCompanionPartyChecks(
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? companions = null,
+        List<Blueprint<BlueprintUnitReference>>? companions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         DisableCompanionPartyChecks.ModeType? mode = null)
@@ -614,7 +614,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="globalMapSpell">
@@ -626,7 +626,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -636,8 +636,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEtudeBracketEnableAzataIsland(
-        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
-        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? globalMapSpell = null,
+        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null,
+        Blueprint<BlueprintGlobalMagicSpell.Reference>? globalMapSpell = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -676,7 +676,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -686,7 +686,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEtudeBracketEnableWarcamp(
-        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
+        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -733,7 +733,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketFollowUnit(
@@ -742,7 +742,7 @@ namespace BlueprintCore.Blueprints.Configurators
         UnitEvaluator? leader = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null,
         UnitEvaluator? unit = null,
         bool? useSummonPool = null)
     {
@@ -1025,7 +1025,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1035,7 +1035,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEtudeBracketOverrideDialog(
-        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialog = null,
+        Blueprint<BlueprintDialogReference>? dialog = null,
         float? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -1240,7 +1240,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="ignoreWhenEx">
@@ -1255,7 +1255,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEtudeBracketSetCompanionPosition(
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
+        Blueprint<BlueprintUnitReference>? companion = null,
         bool? ignoreWhenEx = null,
         EntityReference? locator = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -1298,7 +1298,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1316,15 +1316,15 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketSummonpoolOverrideDialog(
-        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialog = null,
+        Blueprint<BlueprintDialogReference>? dialog = null,
         float? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null)
     {
       var component = new EtudeBracketSummonpoolOverrideDialog();
       component.Dialog = dialog?.Reference ?? component.Dialog;

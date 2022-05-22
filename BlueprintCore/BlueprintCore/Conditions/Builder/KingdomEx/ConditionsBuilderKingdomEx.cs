@@ -63,12 +63,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder ArmyInLocationDefeated(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>? location = null,
+        Blueprint<BlueprintGlobalMapPointReference>? location = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ArmyInLocationDefeated>();
@@ -126,12 +126,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder GarrisonClear(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPointReference>? globalMapPoint = null,
+        Blueprint<BlueprintGlobalMapPointReference>? globalMapPoint = null,
         bool negate = false)
     {
       var element = ElementTool.Create<ContextConditionGarrisonClear>();
@@ -187,7 +187,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="region">
@@ -199,14 +199,14 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder KingdomBuffIsActive(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintKingdomBuff, BlueprintKingdomBuffReference>? blueprint = null,
+        Blueprint<BlueprintKingdomBuffReference>? blueprint = null,
         bool negate = false,
-        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
+        Blueprint<BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomBuffIsActive>();
       element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
@@ -274,12 +274,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder KingdomEventIsBeingResolved(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintKingdomEventBase, BlueprintKingdomEventBaseReference>? eventValue = null,
+        Blueprint<BlueprintKingdomEventBaseReference>? eventValue = null,
         bool negate = false)
     {
       var element = ElementTool.Create<KingdomEventIsBeingResolved>();
@@ -336,7 +336,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder KingdomLeaderIs(
@@ -344,7 +344,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool? allowCustomCompanions = null,
         LeaderType? leader = null,
         bool negate = false,
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? unit = null)
+        Blueprint<BlueprintUnitReference>? unit = null)
     {
       var element = ElementTool.Create<KingdomLeaderIs>();
       element.AllowCustomCompanions = allowCustomCompanions ?? element.AllowCustomCompanions;
@@ -380,12 +380,12 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder KingdomMoraleFlagCondition(
         this ConditionsBuilder builder,
-        Blueprint<BlueprintKingdomMoraleFlag, BlueprintKingdomMoraleFlag.Reference>? flag = null,
+        Blueprint<BlueprintKingdomMoraleFlag.Reference>? flag = null,
         bool negate = false,
         KingdomMoraleFlag.State? state = null)
     {
@@ -423,7 +423,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder KingdomProjectIsAvailable(
@@ -432,7 +432,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
         bool? checkResources = null,
         bool? finishableThisMonth = null,
         bool negate = false,
-        Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>? project = null)
+        Blueprint<BlueprintKingdomProjectReference>? project = null)
     {
       var element = ElementTool.Create<KingdomProjectIsAvailable>();
       element.CheckLeader = checkLeader ?? element.CheckLeader;
@@ -470,13 +470,13 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder KingdomProjectIsDone(
         this ConditionsBuilder builder,
         bool negate = false,
-        Blueprint<BlueprintKingdomProject, BlueprintKingdomProjectReference>? project = null)
+        Blueprint<BlueprintKingdomProjectReference>? project = null)
     {
       var element = ElementTool.Create<KingdomProjectIsDone>();
       element.Not = negate;
@@ -537,13 +537,13 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ConditionsBuilder KingdomRegionIsConquered(
         this ConditionsBuilder builder,
         bool negate = false,
-        Blueprint<BlueprintRegion, BlueprintRegionReference>? region = null)
+        Blueprint<BlueprintRegionReference>? region = null)
     {
       var element = ElementTool.Create<KingdomRegionIsConquered>();
       element.Not = negate;

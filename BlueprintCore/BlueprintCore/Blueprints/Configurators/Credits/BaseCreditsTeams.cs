@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     where T : BlueprintCreditsTeams
     where TBuilder : BaseCreditsTeamsConfigurator<T, TBuilder>
   {
-    protected BaseCreditsTeamsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCreditsTeamsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCreditsTeams.Teams"/>

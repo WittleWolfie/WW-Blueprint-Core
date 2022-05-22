@@ -15,6 +15,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     where T : BlueprintItemKey
     where TBuilder : BaseItemKeyConfigurator<T, TBuilder>
   {
-    protected BaseItemKeyConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemKeyConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
   }
 }

@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : BlueprintAiSwitchWeapon
     where TBuilder : BaseAiSwitchWeaponConfigurator<T, TBuilder>
   {
-    protected BaseAiSwitchWeaponConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseAiSwitchWeaponConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAiSwitchWeapon.SwitchTo"/>

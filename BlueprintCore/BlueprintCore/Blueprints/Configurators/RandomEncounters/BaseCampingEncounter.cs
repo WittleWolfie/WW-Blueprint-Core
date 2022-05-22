@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     where T : BlueprintCampingEncounter
     where TBuilder : BaseCampingEncounterConfigurator<T, TBuilder>
   {
-    protected BaseCampingEncounterConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCampingEncounterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampingEncounter.Chance"/>

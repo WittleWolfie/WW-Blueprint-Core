@@ -40,7 +40,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     where T : BlueprintEtude
     where TBuilder : BaseEtudeConfigurator<T, TBuilder>
   {
-    protected BaseEtudeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseEtudeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintEtude.m_Parent"/>
@@ -55,10 +55,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetParent(Blueprint<BlueprintEtude, BlueprintEtudeReference> parent)
+    public TBuilder SetParent(Blueprint<BlueprintEtudeReference> parent)
     {
       return OnConfigureInternal(
         bp =>
@@ -154,10 +154,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSynchronized(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] synchronized)
+    public TBuilder SetSynchronized(params Blueprint<BlueprintEtudeReference>[] synchronized)
     {
       return OnConfigureInternal(
         bp =>
@@ -182,10 +182,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToSynchronized(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] synchronized)
+    public TBuilder AddToSynchronized(params Blueprint<BlueprintEtudeReference>[] synchronized)
     {
       return OnConfigureInternal(
         bp =>
@@ -211,10 +211,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromSynchronized(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] synchronized)
+    public TBuilder RemoveFromSynchronized(params Blueprint<BlueprintEtudeReference>[] synchronized)
     {
       return OnConfigureInternal(
         bp =>
@@ -299,10 +299,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLinkedAreaPart(Blueprint<BlueprintAreaPart, BlueprintAreaPartReference> linkedAreaPart)
+    public TBuilder SetLinkedAreaPart(Blueprint<BlueprintAreaPartReference> linkedAreaPart)
     {
       return OnConfigureInternal(
         bp =>
@@ -337,10 +337,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLinkedCampaigns(params Blueprint<BlueprintCampaign, BlueprintCampaignReference>[] linkedCampaigns)
+    public TBuilder SetLinkedCampaigns(params Blueprint<BlueprintCampaignReference>[] linkedCampaigns)
     {
       return OnConfigureInternal(
         bp =>
@@ -362,10 +362,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToLinkedCampaigns(params Blueprint<BlueprintCampaign, BlueprintCampaignReference>[] linkedCampaigns)
+    public TBuilder AddToLinkedCampaigns(params Blueprint<BlueprintCampaignReference>[] linkedCampaigns)
     {
       return OnConfigureInternal(
         bp =>
@@ -388,10 +388,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromLinkedCampaigns(params Blueprint<BlueprintCampaign, BlueprintCampaignReference>[] linkedCampaigns)
+    public TBuilder RemoveFromLinkedCampaigns(params Blueprint<BlueprintCampaignReference>[] linkedCampaigns)
     {
       return OnConfigureInternal(
         bp =>
@@ -476,10 +476,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAddedAreaMechanics(params Blueprint<BlueprintAreaMechanics, BlueprintAreaMechanicsReference>[] addedAreaMechanics)
+    public TBuilder SetAddedAreaMechanics(params Blueprint<BlueprintAreaMechanicsReference>[] addedAreaMechanics)
     {
       return OnConfigureInternal(
         bp =>
@@ -501,10 +501,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAddedAreaMechanics(params Blueprint<BlueprintAreaMechanics, BlueprintAreaMechanicsReference>[] addedAreaMechanics)
+    public TBuilder AddToAddedAreaMechanics(params Blueprint<BlueprintAreaMechanicsReference>[] addedAreaMechanics)
     {
       return OnConfigureInternal(
         bp =>
@@ -527,10 +527,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAddedAreaMechanics(params Blueprint<BlueprintAreaMechanics, BlueprintAreaMechanicsReference>[] addedAreaMechanics)
+    public TBuilder RemoveFromAddedAreaMechanics(params Blueprint<BlueprintAreaMechanicsReference>[] addedAreaMechanics)
     {
       return OnConfigureInternal(
         bp =>
@@ -591,10 +591,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartsWith(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startsWith)
+    public TBuilder SetStartsWith(params Blueprint<BlueprintEtudeReference>[] startsWith)
     {
       return OnConfigureInternal(
         bp =>
@@ -616,10 +616,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToStartsWith(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startsWith)
+    public TBuilder AddToStartsWith(params Blueprint<BlueprintEtudeReference>[] startsWith)
     {
       return OnConfigureInternal(
         bp =>
@@ -642,10 +642,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromStartsWith(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startsWith)
+    public TBuilder RemoveFromStartsWith(params Blueprint<BlueprintEtudeReference>[] startsWith)
     {
       return OnConfigureInternal(
         bp =>
@@ -706,10 +706,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartsOnComplete(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startsOnComplete)
+    public TBuilder SetStartsOnComplete(params Blueprint<BlueprintEtudeReference>[] startsOnComplete)
     {
       return OnConfigureInternal(
         bp =>
@@ -731,10 +731,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToStartsOnComplete(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startsOnComplete)
+    public TBuilder AddToStartsOnComplete(params Blueprint<BlueprintEtudeReference>[] startsOnComplete)
     {
       return OnConfigureInternal(
         bp =>
@@ -757,10 +757,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromStartsOnComplete(params Blueprint<BlueprintEtude, BlueprintEtudeReference>[] startsOnComplete)
+    public TBuilder RemoveFromStartsOnComplete(params Blueprint<BlueprintEtudeReference>[] startsOnComplete)
     {
       return OnConfigureInternal(
         bp =>
@@ -875,10 +875,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetConflictingGroups(params Blueprint<BlueprintEtudeConflictingGroup, BlueprintEtudeConflictingGroupReference>[] conflictingGroups)
+    public TBuilder SetConflictingGroups(params Blueprint<BlueprintEtudeConflictingGroupReference>[] conflictingGroups)
     {
       return OnConfigureInternal(
         bp =>
@@ -900,10 +900,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToConflictingGroups(params Blueprint<BlueprintEtudeConflictingGroup, BlueprintEtudeConflictingGroupReference>[] conflictingGroups)
+    public TBuilder AddToConflictingGroups(params Blueprint<BlueprintEtudeConflictingGroupReference>[] conflictingGroups)
     {
       return OnConfigureInternal(
         bp =>
@@ -926,10 +926,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromConflictingGroups(params Blueprint<BlueprintEtudeConflictingGroup, BlueprintEtudeConflictingGroupReference>[] conflictingGroups)
+    public TBuilder RemoveFromConflictingGroups(params Blueprint<BlueprintEtudeConflictingGroupReference>[] conflictingGroups)
     {
       return OnConfigureInternal(
         bp =>
@@ -1030,13 +1030,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketEnableTutorialSingle(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>? tutorial = null)
+        Blueprint<BlueprintTutorial.Reference>? tutorial = null)
     {
       var component = new EtudeBracketEnableTutorialSingle();
       component.m_Tutorial = tutorial?.Reference ?? component.m_Tutorial;
@@ -1076,13 +1076,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketEnableTutorials(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        List<Blueprint<BlueprintTutorial, BlueprintTutorial.Reference>>? tutorials = null)
+        List<Blueprint<BlueprintTutorial.Reference>>? tutorials = null)
     {
       var component = new EtudeBracketEnableTutorials();
       component.m_Tutorials = tutorials?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Tutorials;
@@ -1418,7 +1418,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1428,7 +1428,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddDisableCompanionPartyChecks(
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? companions = null,
+        List<Blueprint<BlueprintUnitReference>>? companions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         DisableCompanionPartyChecks.ModeType? mode = null)
@@ -1730,7 +1730,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="globalMapSpell">
@@ -1742,7 +1742,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1752,8 +1752,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEtudeBracketEnableAzataIsland(
-        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
-        Blueprint<BlueprintGlobalMagicSpell, BlueprintGlobalMagicSpell.Reference>? globalMapSpell = null,
+        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null,
+        Blueprint<BlueprintGlobalMagicSpell.Reference>? globalMapSpell = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -1792,7 +1792,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1802,7 +1802,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEtudeBracketEnableWarcamp(
-        Blueprint<BlueprintGlobalMap, BlueprintGlobalMap.Reference>? globalMap = null,
+        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -1849,7 +1849,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketFollowUnit(
@@ -1858,7 +1858,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         UnitEvaluator? leader = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null,
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null,
         UnitEvaluator? unit = null,
         bool? useSummonPool = null)
     {
@@ -2141,7 +2141,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2151,7 +2151,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEtudeBracketOverrideDialog(
-        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialog = null,
+        Blueprint<BlueprintDialogReference>? dialog = null,
         float? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -2409,7 +2409,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="ignoreWhenEx">
@@ -2424,7 +2424,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEtudeBracketSetCompanionPosition(
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? companion = null,
+        Blueprint<BlueprintUnitReference>? companion = null,
         bool? ignoreWhenEx = null,
         EntityReference? locator = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -2467,7 +2467,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -2485,15 +2485,15 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketSummonpoolOverrideDialog(
-        Blueprint<BlueprintDialog, BlueprintDialogReference>? dialog = null,
+        Blueprint<BlueprintDialogReference>? dialog = null,
         float? distance = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintSummonPool, BlueprintSummonPoolReference>? summonPool = null)
+        Blueprint<BlueprintSummonPoolReference>? summonPool = null)
     {
       var component = new EtudeBracketSummonpoolOverrideDialog();
       component.Dialog = dialog?.Reference ?? component.Dialog;

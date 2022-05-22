@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     where T : BlueprintCampaign
     where TBuilder : BaseCampaignConfigurator<T, TBuilder>
   {
-    protected BaseCampaignConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCampaignConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.Title"/>
@@ -194,10 +194,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetStartGamePreset(Blueprint<BlueprintAreaPreset, BlueprintAreaPresetReference> startGamePreset)
+    public TBuilder SetStartGamePreset(Blueprint<BlueprintAreaPresetReference> startGamePreset)
     {
       return OnConfigureInternal(
         bp =>
@@ -232,10 +232,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPregens(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] pregens)
+    public TBuilder SetPregens(params Blueprint<BlueprintUnitReference>[] pregens)
     {
       return OnConfigureInternal(
         bp =>
@@ -257,10 +257,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToPregens(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] pregens)
+    public TBuilder AddToPregens(params Blueprint<BlueprintUnitReference>[] pregens)
     {
       return OnConfigureInternal(
         bp =>
@@ -283,10 +283,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromPregens(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] pregens)
+    public TBuilder RemoveFromPregens(params Blueprint<BlueprintUnitReference>[] pregens)
     {
       return OnConfigureInternal(
         bp =>
@@ -506,11 +506,11 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddBlueprintCampaignCustomCompanion(
-        Blueprint<BlueprintUnit, BlueprintUnitReference>? customCompanion = null)
+        Blueprint<BlueprintUnitReference>? customCompanion = null)
     {
       var component = new BlueprintCampaignCustomCompanion();
       component.m_CustomCompanion = customCompanion?.Reference ?? component.m_CustomCompanion;

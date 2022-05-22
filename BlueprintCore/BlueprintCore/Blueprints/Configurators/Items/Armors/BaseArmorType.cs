@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     where T : BlueprintArmorType
     where TBuilder : BaseArmorTypeConfigurator<T, TBuilder>
   {
-    protected BaseArmorTypeConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArmorTypeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_TypeNameText"/>
@@ -422,10 +422,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEquipmentEntity(Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference> equipmentEntity)
+    public TBuilder SetEquipmentEntity(Blueprint<KingmakerEquipmentEntityReference> equipmentEntity)
     {
       return OnConfigureInternal(
         bp =>
@@ -460,10 +460,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
+    public TBuilder SetEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
         bp =>
@@ -485,10 +485,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
+    public TBuilder AddToEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
         bp =>
@@ -511,10 +511,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
+    public TBuilder RemoveFromEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
         bp =>
@@ -575,10 +575,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEnchantments(params Blueprint<BlueprintArmorEnchantment, BlueprintArmorEnchantmentReference>[] enchantments)
+    public TBuilder SetEnchantments(params Blueprint<BlueprintArmorEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
@@ -600,10 +600,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToEnchantments(params Blueprint<BlueprintArmorEnchantment, BlueprintArmorEnchantmentReference>[] enchantments)
+    public TBuilder AddToEnchantments(params Blueprint<BlueprintArmorEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
@@ -626,10 +626,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromEnchantments(params Blueprint<BlueprintArmorEnchantment, BlueprintArmorEnchantmentReference>[] enchantments)
+    public TBuilder RemoveFromEnchantments(params Blueprint<BlueprintArmorEnchantmentReference>[] enchantments)
     {
       return OnConfigureInternal(
         bp =>
@@ -747,10 +747,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetShardItem(Blueprint<BlueprintItem, BlueprintItemReference> shardItem)
+    public TBuilder SetShardItem(Blueprint<BlueprintItemReference> shardItem)
     {
       return OnConfigureInternal(
         bp =>

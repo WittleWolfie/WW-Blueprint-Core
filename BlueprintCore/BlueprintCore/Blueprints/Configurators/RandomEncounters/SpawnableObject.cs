@@ -13,7 +13,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   public class SpawnableObjectConfigurator
     : BaseSpawnableObjectConfigurator<BlueprintSpawnableObject, SpawnableObjectConfigurator>
   {
-    private SpawnableObjectConfigurator(Blueprint<BlueprintSpawnableObject, BlueprintReference<BlueprintSpawnableObject>> blueprint) : base(blueprint) { }
+    private SpawnableObjectConfigurator(Blueprint<BlueprintReference<BlueprintSpawnableObject>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -26,7 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static SpawnableObjectConfigurator For(Blueprint<BlueprintSpawnableObject, BlueprintReference<BlueprintSpawnableObject>> blueprint)
+    public static SpawnableObjectConfigurator For(Blueprint<BlueprintReference<BlueprintSpawnableObject>> blueprint)
     {
       return new SpawnableObjectConfigurator(blueprint);
     }
@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static SpawnableObjectConfigurator New(string name, string guid)

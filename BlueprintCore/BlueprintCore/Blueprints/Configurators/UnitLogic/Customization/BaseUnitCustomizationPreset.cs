@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     where T : UnitCustomizationPreset
     where TBuilder : BaseUnitCustomizationPresetConfigurator<T, TBuilder>
   {
-    protected BaseUnitCustomizationPresetConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseUnitCustomizationPresetConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="UnitCustomizationPreset.PresetObjects"/>
@@ -135,10 +135,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetDistribution(Blueprint<RaceGenderDistribution, RaceGenderDistributionReference> distribution)
+    public TBuilder SetDistribution(Blueprint<RaceGenderDistributionReference> distribution)
     {
       return OnConfigureInternal(
         bp =>
@@ -173,10 +173,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUnits(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] units)
+    public TBuilder SetUnits(params Blueprint<BlueprintUnitReference>[] units)
     {
       return OnConfigureInternal(
         bp =>
@@ -198,10 +198,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToUnits(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] units)
+    public TBuilder AddToUnits(params Blueprint<BlueprintUnitReference>[] units)
     {
       return OnConfigureInternal(
         bp =>
@@ -224,10 +224,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromUnits(params Blueprint<BlueprintUnit, BlueprintUnitReference>[] units)
+    public TBuilder RemoveFromUnits(params Blueprint<BlueprintUnitReference>[] units)
     {
       return OnConfigureInternal(
         bp =>
@@ -442,10 +442,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetMaleVoices(params Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>[] maleVoices)
+    public TBuilder SetMaleVoices(params Blueprint<BlueprintUnitAsksListReference>[] maleVoices)
     {
       return OnConfigureInternal(
         bp =>
@@ -467,10 +467,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToMaleVoices(params Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>[] maleVoices)
+    public TBuilder AddToMaleVoices(params Blueprint<BlueprintUnitAsksListReference>[] maleVoices)
     {
       return OnConfigureInternal(
         bp =>
@@ -493,10 +493,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromMaleVoices(params Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>[] maleVoices)
+    public TBuilder RemoveFromMaleVoices(params Blueprint<BlueprintUnitAsksListReference>[] maleVoices)
     {
       return OnConfigureInternal(
         bp =>
@@ -557,10 +557,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFemaleVoices(params Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>[] femaleVoices)
+    public TBuilder SetFemaleVoices(params Blueprint<BlueprintUnitAsksListReference>[] femaleVoices)
     {
       return OnConfigureInternal(
         bp =>
@@ -582,10 +582,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToFemaleVoices(params Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>[] femaleVoices)
+    public TBuilder AddToFemaleVoices(params Blueprint<BlueprintUnitAsksListReference>[] femaleVoices)
     {
       return OnConfigureInternal(
         bp =>
@@ -608,10 +608,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromFemaleVoices(params Blueprint<BlueprintUnitAsksList, BlueprintUnitAsksListReference>[] femaleVoices)
+    public TBuilder RemoveFromFemaleVoices(params Blueprint<BlueprintUnitAsksListReference>[] femaleVoices)
     {
       return OnConfigureInternal(
         bp =>

@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : InRangeConsideration
     where TBuilder : BaseInRangeConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseInRangeConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseInRangeConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="InRangeConsideration.InRangeScore"/>

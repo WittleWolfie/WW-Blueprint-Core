@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     where T : BlueprintArmorEnchantment
     where TBuilder : BaseArmorEnchantmentConfigurator<T, TBuilder>
   {
-    protected BaseArmorEnchantmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArmorEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Adds <see cref="ArmorEnhancementBonus"/>

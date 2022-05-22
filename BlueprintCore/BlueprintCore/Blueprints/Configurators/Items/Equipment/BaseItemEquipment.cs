@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     where T : BlueprintItemEquipment
     where TBuilder : BaseItemEquipmentConfigurator<T, TBuilder>
   {
-    protected BaseItemEquipmentConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemEquipmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipment.CR"/>
@@ -67,10 +67,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAbility(Blueprint<BlueprintAbility, BlueprintAbilityReference> ability)
+    public TBuilder SetAbility(Blueprint<BlueprintAbilityReference> ability)
     {
       return OnConfigureInternal(
         bp =>
@@ -105,10 +105,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetActivatableAbility(Blueprint<BlueprintActivatableAbility, BlueprintActivatableAbilityReference> activatableAbility)
+    public TBuilder SetActivatableAbility(Blueprint<BlueprintActivatableAbilityReference> activatableAbility)
     {
       return OnConfigureInternal(
         bp =>
@@ -311,10 +311,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEquipmentEntity(Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference> equipmentEntity)
+    public TBuilder SetEquipmentEntity(Blueprint<KingmakerEquipmentEntityReference> equipmentEntity)
     {
       return OnConfigureInternal(
         bp =>
@@ -349,10 +349,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
+    public TBuilder SetEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
         bp =>
@@ -374,10 +374,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
+    public TBuilder AddToEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
         bp =>
@@ -400,10 +400,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
+    public TBuilder RemoveFromEquipmentEntityAlternatives(params Blueprint<KingmakerEquipmentEntityReference>[] equipmentEntityAlternatives)
     {
       return OnConfigureInternal(
         bp =>
@@ -498,7 +498,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -508,7 +508,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddFactToEquipmentWielder(
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? fact = null,
+        Blueprint<BlueprintUnitFactReference>? fact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -600,7 +600,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -610,7 +610,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEquipmentRestrictionClass(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? clazz = null,
+        Blueprint<BlueprintCharacterClassReference>? clazz = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
@@ -648,11 +648,11 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddEquipmentRestrictionHasAnyClassFromList(
-        List<Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>>? classes = null,
+        List<Blueprint<BlueprintCharacterClassReference>>? classes = null,
         bool? not = null)
     {
       var component = new EquipmentRestrictionHasAnyClassFromList();

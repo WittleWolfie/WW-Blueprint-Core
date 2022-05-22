@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : CommandCooldownConsideration
     where TBuilder : BaseCommandCooldownConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseCommandCooldownConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCommandCooldownConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="CommandCooldownConsideration.CommandType"/>

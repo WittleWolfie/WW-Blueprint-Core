@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
     where T : BlueprintRaceVisualPreset
     where TBuilder : BaseRaceVisualPresetConfigurator<T, TBuilder>
   {
-    protected BaseRaceVisualPresetConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseRaceVisualPresetConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintRaceVisualPreset.RaceId"/>
@@ -108,10 +108,10 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSkin(Blueprint<KingmakerEquipmentEntity, KingmakerEquipmentEntityReference> skin)
+    public TBuilder SetSkin(Blueprint<KingmakerEquipmentEntityReference> skin)
     {
       return OnConfigureInternal(
         bp =>

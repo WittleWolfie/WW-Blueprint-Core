@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     where T : BlueprintArmyLeader
     where TBuilder : BaseArmyLeaderConfigurator<T, TBuilder>
   {
-    protected BaseArmyLeaderConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArmyLeaderConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyLeader.m_LeaderName"/>
@@ -64,10 +64,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPortrait(Blueprint<BlueprintPortrait, BlueprintPortraitReference> portrait)
+    public TBuilder SetPortrait(Blueprint<BlueprintPortraitReference> portrait)
     {
       return OnConfigureInternal(
         bp =>
@@ -132,10 +132,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetLeaderProgression(Blueprint<BlueprintLeaderProgression, BlueprintLeaderProgression.Reference> leaderProgression)
+    public TBuilder SetLeaderProgression(Blueprint<BlueprintLeaderProgression.Reference> leaderProgression)
     {
       return OnConfigureInternal(
         bp =>
@@ -170,10 +170,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUnit(Blueprint<BlueprintUnit, BlueprintUnitReference> unit)
+    public TBuilder SetUnit(Blueprint<BlueprintUnitReference> unit)
     {
       return OnConfigureInternal(
         bp =>
@@ -208,10 +208,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBaseSkills(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] baseSkills)
+    public TBuilder SetBaseSkills(params Blueprint<BlueprintLeaderSkillReference>[] baseSkills)
     {
       return OnConfigureInternal(
         bp =>
@@ -233,10 +233,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToBaseSkills(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] baseSkills)
+    public TBuilder AddToBaseSkills(params Blueprint<BlueprintLeaderSkillReference>[] baseSkills)
     {
       return OnConfigureInternal(
         bp =>
@@ -259,10 +259,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromBaseSkills(params Blueprint<BlueprintLeaderSkill, BlueprintLeaderSkillReference>[] baseSkills)
+    public TBuilder RemoveFromBaseSkills(params Blueprint<BlueprintLeaderSkillReference>[] baseSkills)
     {
       return OnConfigureInternal(
         bp =>

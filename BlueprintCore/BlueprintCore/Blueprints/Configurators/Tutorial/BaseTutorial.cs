@@ -44,7 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     where T : BlueprintTutorial
     where TBuilder : BaseTutorialConfigurator<T, TBuilder>
   {
-    protected BaseTutorialConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTutorialConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_Picture"/>
@@ -448,10 +448,10 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetEncyclopediaReference(Blueprint<BlueprintEncyclopediaPage, BlueprintEncyclopediaPageReference> encyclopediaReference)
+    public TBuilder SetEncyclopediaReference(Blueprint<BlueprintEncyclopediaPageReference> encyclopediaReference)
     {
       return OnConfigureInternal(
         bp =>
@@ -628,7 +628,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="condition">
@@ -637,7 +637,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerAreaLoaded(
-        Blueprint<BlueprintArea, BlueprintAreaReference>? area = null,
+        Blueprint<BlueprintAreaReference>? area = null,
         ConditionsBuilder? condition = null)
     {
       var component = new TutorialTriggerAreaLoaded();
@@ -752,7 +752,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="needAllDescriptors">
@@ -761,7 +761,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerBuffAttached(
-        List<Blueprint<BlueprintBuff, BlueprintBuffReference>>? buffs = null,
+        List<Blueprint<BlueprintBuffReference>>? buffs = null,
         bool? fromList = null,
         bool? needAllDescriptors = null,
         SpellDescriptorWrapper? triggerDescriptors = null)
@@ -800,7 +800,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="checkTankStat">
@@ -817,14 +817,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerCanBuffAlly(
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? ability = null,
+        Blueprint<BlueprintAbilityReference>? ability = null,
         bool? allowItemsWithSpell = null,
         bool? checkTankStat = null,
-        List<Blueprint<BlueprintArea, BlueprintAreaReference>>? triggerAreas = null)
+        List<Blueprint<BlueprintAreaReference>>? triggerAreas = null)
     {
       var component = new TutorialTriggerCanBuffAlly();
       component.m_Ability = ability?.Reference ?? component.m_Ability;
@@ -863,11 +863,11 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerCanReadScrollByNPC(
-        List<Blueprint<BlueprintItemEquipmentUsable, BlueprintItemEquipmentUsableReference>>? scrolls = null)
+        List<Blueprint<BlueprintItemEquipmentUsableReference>>? scrolls = null)
     {
       var component = new TutorialTriggerCanReadScrollByNPC();
       component.m_Scrolls = scrolls?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Scrolls;
@@ -935,12 +935,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerDamageAllyWithSpell(
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
+        List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new TutorialTriggerDamageAllyWithSpell();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
@@ -1075,11 +1075,11 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerEnemyHasAnyFact(
-        List<Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>>? enemyFacts = null)
+        List<Blueprint<BlueprintUnitFactReference>>? enemyFacts = null)
     {
       var component = new TutorialTriggerEnemyHasAnyFact();
       component.m_EnemyFacts = enemyFacts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_EnemyFacts;
@@ -1111,11 +1111,11 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerEnemyHasBlindsight(
-        List<Blueprint<BlueprintBuff, BlueprintBuffReference>>? buffs = null,
+        List<Blueprint<BlueprintBuffReference>>? buffs = null,
         Buff? partyBuff = null,
         UnitEntityData? unit = null)
     {
@@ -1153,7 +1153,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -1171,15 +1171,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerEnemyHasFact(
         bool? allowItemsWithSpell = null,
-        Blueprint<BlueprintUnitFact, BlueprintUnitFactReference>? enemyFact = null,
+        Blueprint<BlueprintUnitFactReference>? enemyFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null,
+        List<Blueprint<BlueprintAbilityReference>>? spells = null,
         UnitEntityData? unit = null)
     {
       var component = new TutorialTriggerEnemyHasFact();
@@ -1371,12 +1371,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerHealEnemyWithSpell(
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
+        List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new TutorialTriggerHealEnemyWithSpell();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
@@ -1499,11 +1499,11 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerMemorizeSpontaneousSpell(
-        Blueprint<BlueprintCharacterClass, BlueprintCharacterClassReference>? characterClass = null)
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null)
     {
       var component = new TutorialTriggerMemorizeSpontaneousSpell();
       component.m_CharacterClass = characterClass?.Reference ?? component.m_CharacterClass;
@@ -1630,11 +1630,11 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerNewItemWithEnchantment(
-        Blueprint<BlueprintItemEnchantment, BlueprintItemEnchantmentReference>? enchantment = null)
+        Blueprint<BlueprintItemEnchantmentReference>? enchantment = null)
     {
       var component = new TutorialTriggerNewItemWithEnchantment();
       component.m_Enchantment = enchantment?.Reference ?? component.m_Enchantment;
@@ -1733,11 +1733,11 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerNewWand(
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
+        List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new TutorialTriggerNewWand();
       component.m_Spells = spells?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Spells;
@@ -1769,7 +1769,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="recommendedAbilities">
@@ -1781,12 +1781,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerNoAutocastSpell(
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? companions = null,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? recommendedAbilities = null)
+        List<Blueprint<BlueprintUnitReference>>? companions = null,
+        List<Blueprint<BlueprintAbilityReference>>? recommendedAbilities = null)
     {
       var component = new TutorialTriggerNoAutocastSpell();
       component.m_Companions = companions?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Companions;
@@ -2022,12 +2022,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerTacticalCombatStart(
         bool? enemyShouldHaveLeader = null,
-        List<Blueprint<BlueprintUnit, BlueprintUnitReference>>? enemyUnits = null,
+        List<Blueprint<BlueprintUnitReference>>? enemyUnits = null,
         bool? playerShouldHaveLeader = null,
         bool? specifyEnemyUnits = null)
     {
@@ -2181,11 +2181,11 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerUnitDiedWithoutBardPerformance(
-        List<Blueprint<BlueprintActivatableAbility, BlueprintActivatableAbilityReference>>? performances = null)
+        List<Blueprint<BlueprintActivatableAbilityReference>>? performances = null)
     {
       var component = new TutorialTriggerUnitDiedWithoutBardPerformance();
       component.m_Performances = performances?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Performances;
@@ -2273,13 +2273,13 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialSolverBestWeaponAgainstTarget(
         bool? checkEnchantment = null,
         bool? checkRegeneration = null,
-        List<Blueprint<BlueprintWeaponEnchantment, BlueprintWeaponEnchantmentReference>>? enchantments = null)
+        List<Blueprint<BlueprintWeaponEnchantmentReference>>? enchantments = null)
     {
       var component = new TutorialSolverBestWeaponAgainstTarget();
       component.CheckEnchantment = checkEnchantment ?? component.CheckEnchantment;
@@ -2315,12 +2315,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public TBuilder AddTutorialSolverSpellFromList(
         bool? allowItems = null,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? spells = null)
+        List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new TutorialSolverSpellFromList();
       component.AllowItems = allowItems ?? component.AllowItems;
@@ -2368,7 +2368,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="needAllDescriptors">
@@ -2381,7 +2381,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         AttackTypeFlag? attackType = null,
         bool? checkRegeneration = null,
         bool? checkVulnerability = null,
-        List<Blueprint<BlueprintAbility, BlueprintAbilityReference>>? ignoredSpells = null,
+        List<Blueprint<BlueprintAbilityReference>>? ignoredSpells = null,
         bool? needAllDescriptors = null,
         bool? onlyAoE = null,
         SpellDescriptorWrapper? spellDescriptor = null,

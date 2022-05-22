@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintControllableProjectile
     where TBuilder : BaseControllableProjectileConfigurator<T, TBuilder>
   {
-    protected BaseControllableProjectileConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseControllableProjectileConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintControllableProjectile.m_OnCreatureCastPrefab"/>

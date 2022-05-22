@@ -21,7 +21,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where T : BlueprintCheck
     where TBuilder : BaseCheckConfigurator<T, TBuilder>
   {
-    protected BaseCheckConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseCheckConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintCheck.Type"/>
@@ -185,10 +185,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSuccess(Blueprint<BlueprintCueBase, BlueprintCueBaseReference> success)
+    public TBuilder SetSuccess(Blueprint<BlueprintCueBaseReference> success)
     {
       return OnConfigureInternal(
         bp =>
@@ -223,10 +223,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetFail(Blueprint<BlueprintCueBase, BlueprintCueBaseReference> fail)
+    public TBuilder SetFail(Blueprint<BlueprintCueBaseReference> fail)
     {
       return OnConfigureInternal(
         bp =>

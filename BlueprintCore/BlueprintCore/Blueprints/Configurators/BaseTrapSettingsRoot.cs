@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators
     where T : BlueprintTrapSettingsRoot
     where TBuilder : BaseTrapSettingsRootConfigurator<T, TBuilder>
   {
-    protected BaseTrapSettingsRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTrapSettingsRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintTrapSettingsRoot.m_DefaultPerceptionRadius"/>
@@ -80,10 +80,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSettings(params Blueprint<BlueprintTrapSettings, BlueprintTrapSettingsReference>[] settings)
+    public TBuilder SetSettings(params Blueprint<BlueprintTrapSettingsReference>[] settings)
     {
       return OnConfigureInternal(
         bp =>
@@ -105,10 +105,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToSettings(params Blueprint<BlueprintTrapSettings, BlueprintTrapSettingsReference>[] settings)
+    public TBuilder AddToSettings(params Blueprint<BlueprintTrapSettingsReference>[] settings)
     {
       return OnConfigureInternal(
         bp =>
@@ -131,10 +131,10 @@ namespace BlueprintCore.Blueprints.Configurators
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromSettings(params Blueprint<BlueprintTrapSettings, BlueprintTrapSettingsReference>[] settings)
+    public TBuilder RemoveFromSettings(params Blueprint<BlueprintTrapSettingsReference>[] settings)
     {
       return OnConfigureInternal(
         bp =>

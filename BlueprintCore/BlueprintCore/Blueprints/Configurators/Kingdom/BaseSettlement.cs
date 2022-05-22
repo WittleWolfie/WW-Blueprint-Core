@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintSettlement
     where TBuilder : BaseSettlementConfigurator<T, TBuilder>
   {
-    protected BaseSettlementConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSettlementConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlement.m_StartLevel"/>
@@ -139,10 +139,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSettlementBuildArea(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> settlementBuildArea)
+    public TBuilder SetSettlementBuildArea(Blueprint<BlueprintAreaEnterPointReference> settlementBuildArea)
     {
       return OnConfigureInternal(
         bp =>
@@ -177,10 +177,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSettlementBuildAreaWithWater(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> settlementBuildAreaWithWater)
+    public TBuilder SetSettlementBuildAreaWithWater(Blueprint<BlueprintAreaEnterPointReference> settlementBuildAreaWithWater)
     {
       return OnConfigureInternal(
         bp =>
@@ -263,10 +263,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSettlementEntrance(Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference> settlementEntrance)
+    public TBuilder SetSettlementEntrance(Blueprint<BlueprintAreaEnterPointReference> settlementEntrance)
     {
       return OnConfigureInternal(
         bp =>
@@ -301,10 +301,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSettlementEntrances(Blueprint<BlueprintMultiEntrance, BlueprintMultiEntrance.Reference> settlementEntrances)
+    public TBuilder SetSettlementEntrances(Blueprint<BlueprintMultiEntrance.Reference> settlementEntrances)
     {
       return OnConfigureInternal(
         bp =>

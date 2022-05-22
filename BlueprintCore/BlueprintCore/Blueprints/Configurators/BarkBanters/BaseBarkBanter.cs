@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     where T : BlueprintBarkBanter
     where TBuilder : BaseBarkBanterConfigurator<T, TBuilder>
   {
-    protected BaseBarkBanterConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseBarkBanterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintBarkBanter.m_SpeakerType"/>
@@ -58,10 +58,10 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetUnit(Blueprint<BlueprintUnit, BlueprintUnitReference> unit)
+    public TBuilder SetUnit(Blueprint<BlueprintUnitReference> unit)
     {
       return OnConfigureInternal(
         bp =>

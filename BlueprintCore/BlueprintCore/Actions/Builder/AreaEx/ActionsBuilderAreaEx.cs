@@ -47,12 +47,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AddCampingEncounter(
         this ActionsBuilder builder,
-        Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference> encounter)
+        Blueprint<BlueprintCampingEncounterReference> encounter)
     {
       var element = ElementTool.Create<AddCampingEncounter>();
       element.m_Encounter = encounter?.Reference;
@@ -118,14 +118,14 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder AskPlayerForLocationName(
         this ActionsBuilder builder,
         LocalizedString? defaultValue = null,
         LocalizedString? hint = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null,
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null,
         bool? obligatory = null,
         LocalizedString? title = null)
     {
@@ -177,13 +177,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder CapitalExit(
         this ActionsBuilder builder,
         AutoSaveMode? autoSaveMode = null,
-        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? destination = null)
+        Blueprint<BlueprintAreaEnterPointReference>? destination = null)
     {
       var element = ElementTool.Create<CapitalExit>();
       element.AutoSaveMode = autoSaveMode ?? element.AutoSaveMode;
@@ -236,12 +236,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder EndAreaEffects(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintAbilityAreaEffect, BlueprintAbilityAreaEffectReference>>? areaEffects = null,
+        List<Blueprint<BlueprintAbilityAreaEffectReference>>? areaEffects = null,
         EndAreaEffects.FilterType? filter = null,
         AreaEffectTags? tags = null)
     {
@@ -440,13 +440,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder MarkLocationClosed(
         this ActionsBuilder builder,
         bool? closed = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<MarkLocationClosed>();
       element.Closed = closed ?? element.Closed;
@@ -481,13 +481,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder MarkLocationExplored(
         this ActionsBuilder builder,
         bool? explored = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<MarkLocationExplored>();
       element.Explored = explored ?? element.Explored;
@@ -623,7 +623,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="specificMechanic">
@@ -635,13 +635,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveAreaFromSave(
         this ActionsBuilder builder,
-        Blueprint<BlueprintArea, BlueprintAreaReference>? area = null,
-        Blueprint<BlueprintAreaMechanics, BlueprintAreaMechanicsReference>? specificMechanic = null)
+        Blueprint<BlueprintAreaReference>? area = null,
+        Blueprint<BlueprintAreaMechanicsReference>? specificMechanic = null)
     {
       var element = ElementTool.Create<RemoveAreaFromSave>();
       element.m_Area = area?.Reference ?? element.m_Area;
@@ -680,12 +680,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RemoveCampingEncounter(
         this ActionsBuilder builder,
-        Blueprint<BlueprintCampingEncounter, BlueprintCampingEncounterReference>? encounter = null)
+        Blueprint<BlueprintCampingEncounterReference>? encounter = null)
     {
       var element = ElementTool.Create<RemoveCampingEncounter>();
       element.m_Encounter = encounter?.Reference ?? element.m_Encounter;
@@ -719,12 +719,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder RevealGlobalMap(
         this ActionsBuilder builder,
-        List<Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>>? points = null,
+        List<Blueprint<BlueprintGlobalMapPoint.Reference>>? points = null,
         bool? revealEdges = null)
     {
       var element = ElementTool.Create<RevealGlobalMap>();
@@ -939,12 +939,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder ShowMultiEntrance(
         this ActionsBuilder builder,
-        Blueprint<BlueprintMultiEntrance, BlueprintMultiEntranceReference>? map = null)
+        Blueprint<BlueprintMultiEntranceReference>? map = null)
     {
       var element = ElementTool.Create<ShowMultiEntrance>();
       element.m_Map = map?.Reference ?? element.m_Map;
@@ -1034,14 +1034,14 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder TeleportParty(
         this ActionsBuilder builder,
         ActionsBuilder? afterTeleport = null,
         AutoSaveMode? autoSaveMode = null,
-        Blueprint<BlueprintAreaEnterPoint, BlueprintAreaEnterPointReference>? exitPositon = null,
+        Blueprint<BlueprintAreaEnterPointReference>? exitPositon = null,
         bool? forcePauseAfterTeleport = null)
     {
       var element = ElementTool.Create<TeleportParty>();
@@ -1164,7 +1164,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="targetPoint">
@@ -1184,7 +1184,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         bool? disableBattleLog = null,
         bool? overrideDC = null,
         bool? overrideSpellLevel = null,
-        Blueprint<BlueprintAbility, BlueprintAbilityReference>? spell = null,
+        Blueprint<BlueprintAbilityReference>? spell = null,
         int? spellLevel = null,
         PositionEvaluator? targetPoint = null,
         MapObjectEvaluator? trapObject = null,
@@ -1239,14 +1239,14 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     public static ActionsBuilder UnlockLocation(
         this ActionsBuilder builder,
         bool? fakeDescription = null,
         bool? hideInstead = null,
-        Blueprint<BlueprintGlobalMapPoint, BlueprintGlobalMapPoint.Reference>? location = null)
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null)
     {
       var element = ElementTool.Create<UnlockLocation>();
       element.FakeDescription = fakeDescription ?? element.FakeDescription;
@@ -1282,7 +1282,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
     /// <param name="openEdges">
@@ -1292,7 +1292,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </param>
     public static ActionsBuilder UnlockMapEdge(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapEdge, BlueprintGlobalMapEdge.Reference>? edge = null,
+        Blueprint<BlueprintGlobalMapEdge.Reference>? edge = null,
         bool? openEdges = null)
     {
       var element = ElementTool.Create<UnlockMapEdge>();

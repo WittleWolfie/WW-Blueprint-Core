@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : BlueprintArmyPresetList
     where TBuilder : BaseArmyPresetListConfigurator<T, TBuilder>
   {
-    protected BaseArmyPresetListConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArmyPresetListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyPresetList.m_Presets"/>
@@ -34,10 +34,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetPresets(params Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference>[] presets)
+    public TBuilder SetPresets(params Blueprint<BlueprintArmyPresetReference>[] presets)
     {
       return OnConfigureInternal(
         bp =>
@@ -59,10 +59,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToPresets(params Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference>[] presets)
+    public TBuilder AddToPresets(params Blueprint<BlueprintArmyPresetReference>[] presets)
     {
       return OnConfigureInternal(
         bp =>
@@ -85,10 +85,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromPresets(params Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference>[] presets)
+    public TBuilder RemoveFromPresets(params Blueprint<BlueprintArmyPresetReference>[] presets)
     {
       return OnConfigureInternal(
         bp =>

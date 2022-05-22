@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where T : ArmyHealthConsideration
     where TBuilder : BaseArmyHealthConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseArmyHealthConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArmyHealthConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="ArmyHealthConsideration.FullBorder"/>

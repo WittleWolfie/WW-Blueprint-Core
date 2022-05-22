@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where T : TacticalCombatCanAttackThisTurnConsideration
     where TBuilder : BaseTacticalCombatCanAttackThisTurnConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseTacticalCombatCanAttackThisTurnConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTacticalCombatCanAttackThisTurnConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="TacticalCombatCanAttackThisTurnConsideration.CanAttackScore"/>

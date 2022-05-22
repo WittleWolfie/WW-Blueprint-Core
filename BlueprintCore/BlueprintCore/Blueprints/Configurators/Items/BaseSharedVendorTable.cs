@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     where T : BlueprintSharedVendorTable
     where TBuilder : BaseSharedVendorTableConfigurator<T, TBuilder>
   {
-    protected BaseSharedVendorTableConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSharedVendorTableConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSharedVendorTable.AutoIdentifyAllItems"/>

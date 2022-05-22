@@ -16,7 +16,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : TargetSelfConsideration
     where TBuilder : BaseTargetSelfConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseTargetSelfConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTargetSelfConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="TargetSelfConsideration.SelfScore"/>

@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where T : BuffNotFromCasterConsideration
     where TBuilder : BaseBuffNotFromCasterConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseBuffNotFromCasterConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseBuffNotFromCasterConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BuffNotFromCasterConsideration.m_Buffs"/>
@@ -37,10 +37,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] buffs)
+    public TBuilder SetBuffs(params Blueprint<BlueprintBuffReference>[] buffs)
     {
       return OnConfigureInternal(
         bp =>
@@ -65,10 +65,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] buffs)
+    public TBuilder AddToBuffs(params Blueprint<BlueprintBuffReference>[] buffs)
     {
       return OnConfigureInternal(
         bp =>
@@ -94,10 +94,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromBuffs(params Blueprint<BlueprintBuff, BlueprintBuffReference>[] buffs)
+    public TBuilder RemoveFromBuffs(params Blueprint<BlueprintBuffReference>[] buffs)
     {
       return OnConfigureInternal(
         bp =>

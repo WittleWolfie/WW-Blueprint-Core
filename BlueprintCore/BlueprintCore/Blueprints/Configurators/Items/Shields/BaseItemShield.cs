@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     where T : BlueprintItemShield
     where TBuilder : BaseItemShieldConfigurator<T, TBuilder>
   {
-    protected BaseItemShieldConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseItemShieldConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemShield.m_WeaponComponent"/>
@@ -34,10 +34,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetWeaponComponent(Blueprint<BlueprintItemWeapon, BlueprintItemWeaponReference> weaponComponent)
+    public TBuilder SetWeaponComponent(Blueprint<BlueprintItemWeaponReference> weaponComponent)
     {
       return OnConfigureInternal(
         bp =>
@@ -72,10 +72,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetArmorComponent(Blueprint<BlueprintItemArmor, BlueprintItemArmorReference> armorComponent)
+    public TBuilder SetArmorComponent(Blueprint<BlueprintItemArmorReference> armorComponent)
     {
       return OnConfigureInternal(
         bp =>

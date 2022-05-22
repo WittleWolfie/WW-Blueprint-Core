@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     where T : BlueprintArbiterRoot
     where TBuilder : BaseArbiterRootConfigurator<T, TBuilder>
   {
-    protected BaseArbiterRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArbiterRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintArbiterRoot.ProjectId"/>

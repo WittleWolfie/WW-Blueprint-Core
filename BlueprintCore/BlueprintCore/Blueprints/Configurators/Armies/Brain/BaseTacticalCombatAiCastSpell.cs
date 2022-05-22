@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where T : BlueprintTacticalCombatAiCastSpell
     where TBuilder : BaseTacticalCombatAiCastSpellConfigurator<T, TBuilder>
   {
-    protected BaseTacticalCombatAiCastSpellConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTacticalCombatAiCastSpellConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatAiCastSpell.m_Ability"/>
@@ -32,10 +32,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAbility(Blueprint<BlueprintAbility, BlueprintAbilityReference> ability)
+    public TBuilder SetAbility(Blueprint<BlueprintAbilityReference> ability)
     {
       return OnConfigureInternal(
         bp =>

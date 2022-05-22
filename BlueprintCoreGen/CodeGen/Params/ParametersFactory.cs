@@ -183,9 +183,9 @@ namespace BlueprintCoreGen.CodeGen.Params
       {
         if (enumerableType is not null)
         {
-          return $"List<Blueprint<{TypeTool.GetName(blueprintType)}, {TypeTool.GetName(enumerableType)}>>";
+          return $"List<Blueprint<{TypeTool.GetName(enumerableType)}>>";
         }
-        return $"Blueprint<{TypeTool.GetName(blueprintType)}, {TypeTool.GetName(type)}>";
+        return $"Blueprint<{TypeTool.GetName(type)}>";
       }
 
       return TypeTool.GetName(type);
@@ -197,9 +197,9 @@ namespace BlueprintCoreGen.CodeGen.Params
       {
         if (enumerableType is not null)
         {
-          return $"Blueprint<{TypeTool.GetName(blueprintType)}, {TypeTool.GetName(enumerableType)}>";
+          return $"Blueprint<{TypeTool.GetName(enumerableType)}>";
         }
-        return $"Blueprint<{TypeTool.GetName(blueprintType)}, {TypeTool.GetName(type)}>";
+        return $"Blueprint<{TypeTool.GetName(type)}>";
       }
 
       if (enumerableType is not null)

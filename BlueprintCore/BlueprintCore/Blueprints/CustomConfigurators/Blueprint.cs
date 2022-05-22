@@ -12,7 +12,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     : BaseBlueprintConfigurator<T, BlueprintConfigurator<T>>
     where T : BlueprintScriptableObject, new()
   {
-    private BlueprintConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    private BlueprintConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static BlueprintConfigurator<T> For(Blueprint<T, BlueprintReference<T>> blueprint)
+    public static BlueprintConfigurator<T> For(Blueprint<BlueprintReference<T>> blueprint)
     {
       return new BlueprintConfigurator<T>(blueprint);
     }
@@ -37,7 +37,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
     /// </para>
     /// <para>
-    /// An implicit cast converts the string to <see cref="Utils.Blueprint{T, TRef}"/>, exposing the blueprint instance and its reference.
+    /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
     public static BlueprintConfigurator<T> New(string name, string guid)

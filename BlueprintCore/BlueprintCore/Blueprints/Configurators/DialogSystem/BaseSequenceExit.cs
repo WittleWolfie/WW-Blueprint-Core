@@ -19,7 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where T : BlueprintSequenceExit
     where TBuilder : BaseSequenceExitConfigurator<T, TBuilder>
   {
-    protected BaseSequenceExitConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseSequenceExitConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSequenceExit.Answers"/>
@@ -34,10 +34,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetAnswers(params Blueprint<BlueprintAnswerBase, BlueprintAnswerBaseReference>[] answers)
+    public TBuilder SetAnswers(params Blueprint<BlueprintAnswerBaseReference>[] answers)
     {
       return OnConfigureInternal(
         bp =>
@@ -59,10 +59,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddToAnswers(params Blueprint<BlueprintAnswerBase, BlueprintAnswerBaseReference>[] answers)
+    public TBuilder AddToAnswers(params Blueprint<BlueprintAnswerBaseReference>[] answers)
     {
       return OnConfigureInternal(
         bp =>
@@ -85,10 +85,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder RemoveFromAnswers(params Blueprint<BlueprintAnswerBase, BlueprintAnswerBaseReference>[] answers)
+    public TBuilder RemoveFromAnswers(params Blueprint<BlueprintAnswerBaseReference>[] answers)
     {
       return OnConfigureInternal(
         bp =>

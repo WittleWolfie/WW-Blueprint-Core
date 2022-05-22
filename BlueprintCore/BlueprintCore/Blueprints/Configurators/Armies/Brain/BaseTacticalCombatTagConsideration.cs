@@ -20,7 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where T : TacticalCombatTagConsideration
     where TBuilder : BaseTacticalCombatTagConsiderationConfigurator<T, TBuilder>
   {
-    protected BaseTacticalCombatTagConsiderationConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseTacticalCombatTagConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="TacticalCombatTagConsideration.HasTagScore"/>

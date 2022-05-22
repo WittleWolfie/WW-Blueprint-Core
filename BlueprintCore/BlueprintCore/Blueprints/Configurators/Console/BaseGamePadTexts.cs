@@ -18,7 +18,7 @@ namespace BlueprintCore.Blueprints.Configurators.Console
     where T : GamePadTexts
     where TBuilder : BaseGamePadTextsConfigurator<T, TBuilder>
   {
-    protected BaseGamePadTextsConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseGamePadTextsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="GamePadTexts.m_Layers"/>

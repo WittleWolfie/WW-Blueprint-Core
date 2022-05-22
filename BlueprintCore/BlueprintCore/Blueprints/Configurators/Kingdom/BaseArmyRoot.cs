@@ -23,7 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     where T : ArmyRoot
     where TBuilder : BaseArmyRootConfigurator<T, TBuilder>
   {
-    protected BaseArmyRootConfigurator(Blueprint<T, BlueprintReference<T>> blueprint) : base(blueprint) { }
+    protected BaseArmyRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_TravelingArmiesByChapter"/>
@@ -165,10 +165,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNobilitySettlementsProgression(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> nobilitySettlementsProgression)
+    public TBuilder SetNobilitySettlementsProgression(Blueprint<BlueprintStatProgressionReference> nobilitySettlementsProgression)
     {
       return OnConfigureInternal(
         bp =>
@@ -203,10 +203,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNobilityBuildingsProgression(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> nobilityBuildingsProgression)
+    public TBuilder SetNobilityBuildingsProgression(Blueprint<BlueprintStatProgressionReference> nobilityBuildingsProgression)
     {
       return OnConfigureInternal(
         bp =>
@@ -241,10 +241,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNobilityIncomeProgression(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> nobilityIncomeProgression)
+    public TBuilder SetNobilityIncomeProgression(Blueprint<BlueprintStatProgressionReference> nobilityIncomeProgression)
     {
       return OnConfigureInternal(
         bp =>
@@ -279,10 +279,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNobilityArmyStrengthProgression(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> nobilityArmyStrengthProgression)
+    public TBuilder SetNobilityArmyStrengthProgression(Blueprint<BlueprintStatProgressionReference> nobilityArmyStrengthProgression)
     {
       return OnConfigureInternal(
         bp =>
@@ -317,10 +317,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRoyalCourtLeadersProgression(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> royalCourtLeadersProgression)
+    public TBuilder SetRoyalCourtLeadersProgression(Blueprint<BlueprintStatProgressionReference> royalCourtLeadersProgression)
     {
       return OnConfigureInternal(
         bp =>
@@ -355,10 +355,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRoyalCourtRanksProgression(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> royalCourtRanksProgression)
+    public TBuilder SetRoyalCourtRanksProgression(Blueprint<BlueprintStatProgressionReference> royalCourtRanksProgression)
     {
       return OnConfigureInternal(
         bp =>
@@ -393,10 +393,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRoyalCourtMissionProgressionChapter2(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> royalCourtMissionProgressionChapter2)
+    public TBuilder SetRoyalCourtMissionProgressionChapter2(Blueprint<BlueprintStatProgressionReference> royalCourtMissionProgressionChapter2)
     {
       return OnConfigureInternal(
         bp =>
@@ -431,10 +431,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetRoyalCourtMissionProgressionChapter3(Blueprint<BlueprintStatProgression, BlueprintStatProgressionReference> royalCourtMissionProgressionChapter3)
+    public TBuilder SetRoyalCourtMissionProgressionChapter3(Blueprint<BlueprintStatProgressionReference> royalCourtMissionProgressionChapter3)
     {
       return OnConfigureInternal(
         bp =>
@@ -469,10 +469,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetNobilityPresetReward(Blueprint<BlueprintArmyPreset, BlueprintArmyPresetReference> nobilityPresetReward)
+    public TBuilder SetNobilityPresetReward(Blueprint<BlueprintArmyPresetReference> nobilityPresetReward)
     {
       return OnConfigureInternal(
         bp =>
@@ -507,10 +507,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
-    /// See <see cref="Blueprint{T, TRef}">Blueprint</see> for more details.
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder SetSummonArmiesMap(Blueprint<BlueprintGlobalMap, BlueprintGlobalMapReference> summonArmiesMap)
+    public TBuilder SetSummonArmiesMap(Blueprint<BlueprintGlobalMapReference> summonArmiesMap)
     {
       return OnConfigureInternal(
         bp =>
