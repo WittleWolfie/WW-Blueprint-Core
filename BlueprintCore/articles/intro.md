@@ -200,7 +200,7 @@ FeatureConfigurator.New(FeatName, FeatGuid)
   .AddComponent<MyCustomComponent>(c => c.Value = someValue)
   .Configure();
 ```
-* [AddUniqueComponent](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.AddComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent}))
+* [AddUniqueComponent](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.AddUniqueComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent}))
   * Similar to `AddComponent` but includes support for merging unique components
 * [EditComponent](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.EditComponent``1(System.Action{``0}))
   * Invokes the provided action on the first component matching the specified type
@@ -220,7 +220,7 @@ As with all changes to the blueprint, these functions are only applied once `Con
 
 If you want to extend a configurator to include your own logic you can do so with one limitation: you cannot extend concrete implementations.
 
-To support this the library implements almost all configurator functionality within abstract classes and only exposes `New()` and `For()` in concrete classes. For example, [UISoundConfigurator](xref:BlueprintCore.Blueprints.Configurators.UI.UISoundConfigurator) can be customized by extending [BaseUISoundConfigurator](xref:BlueprintCore.Blueprints.Configurators.UI.BaseUISoundConfigurator-2).
+To support this the library implements almost all configurator functionality within abstract classes and only exposes `New()` and `For()` in concrete classes. For example, [UISoundConfigurator](xref:BlueprintCore.Blueprints.Configurators.UI.UISoundConfigurator) can be customized by extending [BaseUISoundConfigurator](xref:BlueprintCore.Blueprints.Configurators.UI.BaseUISoundConfigurator`2).
 
 As the library is improved concrete implementations are hand written to include additional logic, e.g. [BuffConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs.BuffConfigurator). Any logic included here would be lost if you choose to create your own BuffConfigurator class.
 
@@ -364,7 +364,7 @@ public static ActionsBuilder AddMyCustomAction(this ActionsBuilder builder, int 
 }
 ```
 
-Note the usage of [ElementTool.Create](xref:BlueprintCore.Utils.ElementTool.Create`1). Use this when instantiating types inheriting from `Element` to ensure they are configured properly or it can cause your mod to fail.
+Note the usage of [ElementTool.Create<>()](xref:BlueprintCore.Utils.ElementTool.Create``1). Use this when instantiating types inheriting from `Element` to ensure they are configured properly or it can cause your mod to fail.
 
 #### Advanced Usage
 

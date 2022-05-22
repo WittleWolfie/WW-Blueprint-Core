@@ -286,7 +286,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .Configure();
 </code></pre>
 <ul>
-<li><a href="xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.AddComponent(Kingmaker.Blueprints.BlueprintComponent,BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Action%7BKingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent%7D)">AddUniqueComponent</a>
+<li><a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddUniqueComponent_Kingmaker_Blueprints_BlueprintComponent_BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__">AddUniqueComponent</a>
 <ul>
 <li>Similar to <code>AddComponent</code> but includes support for merging unique components</li>
 </ul>
@@ -316,7 +316,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <p>As with all changes to the blueprint, these functions are only applied once <code>Configure()</code> is called, and the action provided in <code>OnConfigure()</code> is invoked after everything else is done.</p>
 <h4 id="customizing-configurators">Customizing Configurators</h4>
 <p>If you want to extend a configurator to include your own logic you can do so with one limitation: you cannot extend concrete implementations.</p>
-<p>To support this the library implements almost all configurator functionality within abstract classes and only exposes <code>New()</code> and <code>For()</code> in concrete classes. For example, <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.UI.UISoundConfigurator.html">UISoundConfigurator</a> can be customized by extending <a href="xref:BlueprintCore.Blueprints.Configurators.UI.BaseUISoundConfigurator-2">BaseUISoundConfigurator</a>.</p>
+<p>To support this the library implements almost all configurator functionality within abstract classes and only exposes <code>New()</code> and <code>For()</code> in concrete classes. For example, <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.UI.UISoundConfigurator.html">UISoundConfigurator</a> can be customized by extending <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.UI.BaseUISoundConfigurator-2.html">BaseUISoundConfigurator</a>.</p>
 <p>As the library is improved concrete implementations are hand written to include additional logic, e.g. <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs.BuffConfigurator.html">BuffConfigurator</a>. Any logic included here would be lost if you choose to create your own BuffConfigurator class.</p>
 <p>To implement a custom configurator use this as a template for your class:</p>
 <pre><code class="lang-C#">/// &lt;summary&gt;
@@ -429,7 +429,7 @@ AbilityConfigurator.New(AbilityName, AbilityGuid)
   return builder.Add(ElementTool.Create&lt;MyCustomAction&gt;() { Value = someValue });
 }
 </code></pre>
-<p>Note the usage of <a href="xref:BlueprintCore.Utils.ElementTool.Create%601">ElementTool.Create</a>. Use this when instantiating types inheriting from <code>Element</code> to ensure they are configured properly or it can cause your mod to fail.</p>
+<p>Note the usage of <a class="xref" href="../api/BlueprintCore.Utils.ElementTool.html#BlueprintCore_Utils_ElementTool_Create__1">ElementTool.Create&lt;&gt;()</a>. Use this when instantiating types inheriting from <code>Element</code> to ensure they are configured properly or it can cause your mod to fail.</p>
 <h4 id="advanced-usage-1">Advanced Usage</h4>
 <p>Builders have an <code>Add()</code> method which can be used to add any relevant type:</p>
 <pre><code class="lang-C#">var actions = ActionsBuilder.New().Add(ElementTool.Create&lt;MyCustomAction&gt;());
@@ -516,7 +516,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <h2 id="understanding-the-api">Understanding the API</h2>
 <p>The configurator and builder APIs, with the exception of the builder base classes and configurators in the <code>BlueprintCore.Blueprints.CustomConfigurators</code> namespace, are generated code.</p>
 <p>Here are some examples to help understand the resulting API:</p>
-<p><img src="%7E%5Cimages%5Cprerequisite_character_class_method.PNG" alt="Prerequisite Character Class Method"></p>
+<p><img src="../images/prerequisite_character_class_method.png" alt="Prerequisite Character Class Method"></p>
 <ol>
 <li>This method adds a <code>PrerequisiteClassLevel</code> component to the blueprint</li>
 <li>Adding this component requires <code>characterClass</code> and <code>level</code></li>
@@ -543,7 +543,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <li>This indicates the component is unique: there should only be a single copy in any given blueprint</li>
 <li>These parameters grant control over interactions if there are multiple copies present</li>
 </ul>
-<p><img src="%7E%5Cimages%5Cadd_rest_trigger_method.PNG" alt="Rest Trigger Method"></p>
+<p><img src="../images/add_rest_trigger_method.png" alt="Rest Trigger Method"></p>
 <ol>
 <li>This method adds an <code>AddRestTrigger</code> component to the blueprint</li>
 </ol>
