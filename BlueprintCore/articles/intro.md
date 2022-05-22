@@ -94,7 +94,7 @@ For every blueprint type inheriting from `BlueprintScriptableObject` there is a 
 
 Blueprint types not used in the base game do not have configurators and should not be used.
 
-#### **Basic Usage**
+#### Basic Usage
 
 1. Creating a new Blueprint
 ```C#
@@ -123,7 +123,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .Configure();
 ```
 
-##### **Adding Components**
+#### Adding Components
 
 Every supported component has at least one AddX method where X is the component type, e.g. `AddBuffSkillBonus` in `FeatureConfigurator`. Through community contributions Some components have multiple methods based on usage. For example, `PrerequisiteParametrizedFeature` is implemented in three methods: AddPrerequisiteParametrizedSpellFeature, AddPrerequisiteParametrizedWeaponFeature, and AddPrerequisiteParametrizedWeaponFeature.
 
@@ -137,7 +137,7 @@ FeatureConfigurator.For(FeatGuid)
   .Configure();
 ```
 
-##### **Modifing Fields**
+#### Modifing Fields
 
 Fields are implemented through several methods. Note that for the purpose of naming, internal prefixes are removed so m_Spell is treated as Spell.
 
@@ -187,7 +187,7 @@ FeatureConfigurator.For(FeatName)
   .Configure();
 ```
 
-#### **Advanced Usage**
+#### Advanced Usage
 
 If you wrote your own component or want to use a component from another mod or mod library, you can add components directly through methods in [RootConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2):
 
@@ -216,7 +216,7 @@ FeatureConfigurator.For(FeatGuid)
 
 As with all changes to the blueprint, these functions are only applied once `Configure()` is called, and the action provided in `OnConfigure()` is invoked after everything else is done.
 
-#### **Customizing Configurators**
+#### Customizing Configurators
 
 If you want to extend a configurator to include your own logic you can do so with one limitation: you cannot extend concrete implementations.
 
@@ -292,7 +292,7 @@ public new TypeConfigurator SetField(int fieldValue)
 
 In the last example, the use of `new` ensures that the inherited method is hidden and calls will direct to your method instead.
 
-#### **New Blueprint Types**
+#### New Blueprint Types
 
 In the event that you need a configurator for a blueprint not in the base game you can use [BlueprintConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.BlueprintConfigurator`1).
 
@@ -313,7 +313,7 @@ If the blueprint is more complex it may be better to create your own configurato
 
 Actions and conditions in the game are (almost) always used in the form of `ActionList` and `ConditionsChecker`. [ActionsBuilder](xref:BlueprintCore.Actions.Builder.ActionsBuilder) and [ConditionsBuilder](xref:BlueprintCore.Conditions.Builder.ConditionsBuilder) provide builder APIs for constructing them. Both APIs behave the same.
 
-#### **Basic Usage**
+#### Basic Usage
 
 ```C#
 using BlueprintCore.Actions.Builder.ContextEx;
@@ -354,7 +354,7 @@ The full breakdown of extension classes is provided in [ActionsBuilder](xref:Blu
 
 Only actions or conditions in the extension classes imported will be available in auto-complete or compilation. Usually you only need a single extension class for a given blueprint.
 
-#### **Customizing Builders**
+#### Customizing Builders
 
 Builders are implemented almost entirely through extension classes and methods. To add your own methods just create a class and use the extension method syntax:
 
@@ -367,7 +367,7 @@ public static ActionsBuilder AddMyCustomAction(this ActionsBuilder builder, int 
 
 Note the usage of [ElementTool.Create<>()](xref:BlueprintCore.Utils.ElementTool.Create``1). Use this when instantiating types inheriting from `Element` to ensure they are configured properly or it can cause your mod to fail.
 
-#### **Advanced Usage**
+#### Advanced Usage
 
 Builders have an `Add()` method which can be used to add any relevant type:
 

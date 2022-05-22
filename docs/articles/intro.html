@@ -161,7 +161,7 @@
 <h3 id="blueprint-configurators">Blueprint Configurators</h3>
 <p>For every blueprint type inheriting from <code>BlueprintScriptableObject</code> there is a corresponding configurator. e.g. <a href="xref:BlueprintCore.Blueprints.Configurators.Buffs.BuffConfigurator">BuffConfigurator</a> is the configurator for <code>BlueprintBuff</code>.</p>
 <p>Blueprint types not used in the base game do not have configurators and should not be used.</p>
-<h4 id="basic-usage"><strong>Basic Usage</strong></h4>
+<h4 id="basic-usage">Basic Usage</h4>
 <ol>
 <li>Creating a new Blueprint</li>
 </ol>
@@ -190,7 +190,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   // logs a warning.
   .Configure();
 </code></pre>
-<h5 id="adding-components"><strong>Adding Components</strong></h5>
+<h4 id="adding-components">Adding Components</h4>
 <p>Every supported component has at least one AddX method where X is the component type, e.g. <code>AddBuffSkillBonus</code> in <code>FeatureConfigurator</code>. Through community contributions Some components have multiple methods based on usage. For example, <code>PrerequisiteParametrizedFeature</code> is implemented in three methods: AddPrerequisiteParametrizedSpellFeature, AddPrerequisiteParametrizedWeaponFeature, and AddPrerequisiteParametrizedWeaponFeature.</p>
 <p>Some component types are unique: only one component should exist in a given blueprint. By default adding a second unique component will result in a failure but you can override this to skip or provide a merging function to combine the two components. For more details see <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a>.</p>
 <pre><code class="lang-C#">FeatureConfigurator.For(FeatGuid)
@@ -199,7 +199,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .AddPrerequisiteIsPet(mergeBehavior: ComponentMerge.Skip)
   .Configure();
 </code></pre>
-<h5 id="modifing-fields"><strong>Modifing Fields</strong></h5>
+<h4 id="modifing-fields">Modifing Fields</h4>
 <p>Fields are implemented through several methods. Note that for the purpose of naming, internal prefixes are removed so m_Spell is treated as Spell.</p>
 <ul>
 <li>SetX - Sets the value of X
@@ -270,7 +270,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .ClearGroups()
   .Configure();
 </code></pre>
-<h4 id="advanced-usage"><strong>Advanced Usage</strong></h4>
+<h4 id="advanced-usage">Advanced Usage</h4>
 <p>If you wrote your own component or want to use a component from another mod or mod library, you can add components directly through methods in <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html">RootConfigurator</a>:</p>
 <ul>
 <li><a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_AddComponent_Kingmaker_Blueprints_BlueprintComponent_">AddComponent</a>
@@ -314,7 +314,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 </li>
 </ul>
 <p>As with all changes to the blueprint, these functions are only applied once <code>Configure()</code> is called, and the action provided in <code>OnConfigure()</code> is invoked after everything else is done.</p>
-<h4 id="customizing-configurators"><strong>Customizing Configurators</strong></h4>
+<h4 id="customizing-configurators">Customizing Configurators</h4>
 <p>If you want to extend a configurator to include your own logic you can do so with one limitation: you cannot extend concrete implementations.</p>
 <p>To support this the library implements almost all configurator functionality within abstract classes and only exposes <code>New()</code> and <code>For()</code> in concrete classes. For example, <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.UI.UISoundConfigurator.html">UISoundConfigurator</a> can be customized by extending <a class="xref" href="../api/BlueprintCore.Blueprints.Configurators.UI.BaseUISoundConfigurator-2.html">BaseUISoundConfigurator</a>.</p>
 <p>As the library is improved concrete implementations are hand written to include additional logic, e.g. <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs.BuffConfigurator.html">BuffConfigurator</a>. Any logic included here would be lost if you choose to create your own BuffConfigurator class.</p>
@@ -376,7 +376,7 @@ public class TypeConfigurator : BaseTypeConfigurator&lt;BlueprintType, TypeConfi
 }
 </code></pre>
 <p>In the last example, the use of <code>new</code> ensures that the inherited method is hidden and calls will direct to your method instead.</p>
-<h4 id="new-blueprint-types"><strong>New Blueprint Types</strong></h4>
+<h4 id="new-blueprint-types">New Blueprint Types</h4>
 <p>In the event that you need a configurator for a blueprint not in the base game you can use <a class="xref" href="../api/BlueprintCore.Blueprints.CustomConfigurators.BlueprintConfigurator-1.html">BlueprintConfigurator</a>.</p>
 <p>This will not expose all component types or fields, but it provides the method chain API, advanced component methods, and runs validation when configured.</p>
 <pre><code class="lang-C#">BlueprintConfigurator&lt;MyBlueprintType&gt;.New()
@@ -388,7 +388,7 @@ public class TypeConfigurator : BaseTypeConfigurator&lt;BlueprintType, TypeConfi
 <p>If the blueprint is more complex it may be better to create your own configurator as described above in Customizing Configurators.</p>
 <h3 id="actionsbuilder-and-conditionsbuilder">ActionsBuilder and ConditionsBuilder</h3>
 <p>Actions and conditions in the game are (almost) always used in the form of <code>ActionList</code> and <code>ConditionsChecker</code>. <a class="xref" href="../api/BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> and <a class="xref" href="../api/BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a> provide builder APIs for constructing them. Both APIs behave the same.</p>
-<h4 id="basic-usage-1"><strong>Basic Usage</strong></h4>
+<h4 id="basic-usage-1">Basic Usage</h4>
 <pre><code class="lang-C#">using BlueprintCore.Actions.Builder.ContextEx;
 
 // Creates an ActionsBuilder which grants a buff and triggers a melee attack
@@ -422,7 +422,7 @@ AbilityConfigurator.New(AbilityName, AbilityGuid)
 <li>UpgraderEx - UpgraderOnlyActions (does not exist for conditions)</li>
 </ul>
 <p>Only actions or conditions in the extension classes imported will be available in auto-complete or compilation. Usually you only need a single extension class for a given blueprint.</p>
-<h4 id="customizing-builders"><strong>Customizing Builders</strong></h4>
+<h4 id="customizing-builders">Customizing Builders</h4>
 <p>Builders are implemented almost entirely through extension classes and methods. To add your own methods just create a class and use the extension method syntax:</p>
 <pre><code class="lang-C#">public static ActionsBuilder AddMyCustomAction(this ActionsBuilder builder, int someValue)
 {
@@ -430,7 +430,7 @@ AbilityConfigurator.New(AbilityName, AbilityGuid)
 }
 </code></pre>
 <p>Note the usage of <a class="xref" href="../api/BlueprintCore.Utils.ElementTool.html#BlueprintCore_Utils_ElementTool_Create__1">ElementTool.Create&lt;&gt;()</a>. Use this when instantiating types inheriting from <code>Element</code> to ensure they are configured properly or it can cause your mod to fail.</p>
-<h4 id="advanced-usage-1"><strong>Advanced Usage</strong></h4>
+<h4 id="advanced-usage-1">Advanced Usage</h4>
 <p>Builders have an <code>Add()</code> method which can be used to add any relevant type:</p>
 <pre><code class="lang-C#">var actions = ActionsBuilder.New().Add(ElementTool.Create&lt;MyCustomAction&gt;());
 </code></pre>
