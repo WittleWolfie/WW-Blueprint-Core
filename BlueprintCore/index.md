@@ -55,7 +55,7 @@ Every effort is made to minimize boilerplate and enforce proper usage of fields 
 Component methods are regularly updated to ignore unused fields and require fields necessary for the component to function. Field types that should not be null are automatically populated with a default to prevent exceptions.
 
 For example, the `FeatureConfigurator` exposes a method `AddPrerequisiteCharacterLevel`:
-![AddPreRequisiteCharacterLevel VS Documentation](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/docs/images/configurator_method_example.png)
+![AddPreRequisiteCharacterLevel VS Documentation](https://wittlewolfie.github.io/WW-Blueprint-Core/images/configurator_method_example.png)
 
 ### ActionList and ConditionsChecker Builders
 
