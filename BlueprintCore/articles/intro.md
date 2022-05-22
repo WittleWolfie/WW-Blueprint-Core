@@ -461,25 +461,25 @@ Here are some examples to help understand the resulting API:
 
 ![Prerequisite Character Class Method](~/images/prerequisite_character_class_method.png)
 
-1. This method adds a `PrerequisiteClassLevel` component to the blueprint
-2. Adding this component requires `characterClass` and `level`
+* This method adds a `PrerequisiteClassLevel` component to the blueprint
+* Adding this component requires `characterClass` and `level`
     * By default APIs have no required parameters. This is because it is difficult if not impossible to judge whether a type needs a value for a field specified using static analysis.
     * Since these are required, it indicates this method has been overriden by a manual config indicating that you should always specify these values for a `PrerequisiteClassLevel` component.
-3. Every other parameter is null, excluding `mergeBehavior`
+* Every other parameter is null, excluding `mergeBehavior`
     * By default all parameters have a default value of null (primitives are handled using nullable types)
     * If you do not provide these parameters the default value of the corresponding field in `PrerequisiteClassLevel` is used
         * Essentially, the API will not set the value of fields that are not specified, barring some exceptions covered in the next example
-4. BlueprintCore specific parameters are present: `mergeBehavior` and `merge`
+* BlueprintCore specific parameters are present: `mergeBehavior` and `merge`
     * This indicates the component is unique: there should only be a single copy in any given blueprint
     * These parameters grant control over interactions if there are multiple copies present
   
 ![Rest Trigger Method](~/images/add_rest_trigger_method.png)
 
-1. This method adds an `AddRestTrigger` component to the blueprint
+* This method adds an `AddRestTrigger` component to the blueprint
     * The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.
-2. Adding this component doesn't require anything
+* Adding this component doesn't require anything
     * After using this example, it now requires an `ActionsBuilder`; I updated the config because this component obviously doesn't make sense without one
-3. Something special happens in the library if no argument is passed in
+* Something special happens in the library if no argument is passed in
     * `ActionsBuilder` is used to set an `ActionList` field value, but the game will throw an exception if an `ActionList` field is null
     * To ensure that the `ActionList` is not null, BlueprintCore checks the field value and if it detects a null field it sets it to [Constants.Empty.Actions](xref:BlueprintCore.Utils.Constants.Empty.Actions)
 

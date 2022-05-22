@@ -92,7 +92,7 @@ public TBuilder AddPrerequisiteClassLevel(
     ComponentMerge mergeBehavior = ComponentMerge.Fail, bool? not = null)
 ```
 
-`characterClass` and `level` are required while the rest of the parameters can be ignored. The remarks include three
+`characterClass` and `level` are required while the rest of the parameters are optional. The remarks include three
 blueprints which use the component for reference.
 
 ### ActionList and ConditionsChecker Builders

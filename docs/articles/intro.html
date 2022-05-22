@@ -517,7 +517,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <p>The configurator and builder APIs, with the exception of the builder base classes and configurators in the <code>BlueprintCore.Blueprints.CustomConfigurators</code> namespace, are generated code.</p>
 <p>Here are some examples to help understand the resulting API:</p>
 <p><img src="../images/prerequisite_character_class_method.png" alt="Prerequisite Character Class Method"></p>
-<ol>
+<ul>
 <li>This method adds a <code>PrerequisiteClassLevel</code> component to the blueprint</li>
 <li>Adding this component requires <code>characterClass</code> and <code>level</code>
 <ul>
@@ -541,9 +541,9 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <li>These parameters grant control over interactions if there are multiple copies present</li>
 </ul>
 </li>
-</ol>
+</ul>
 <p><img src="../images/add_rest_trigger_method.png" alt="Rest Trigger Method"></p>
-<ol>
+<ul>
 <li>This method adds an <code>AddRestTrigger</code> component to the blueprint
 <ul>
 <li>The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.</li>
@@ -560,7 +560,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <li>To ensure that the <code>ActionList</code> is not null, BlueprintCore checks the field value and if it detects a null field it sets it to <a class="xref" href="../api/BlueprintCore.Utils.Constants.Empty.html#BlueprintCore_Utils_Constants_Empty_Actions">Constants.Empty.Actions</a></li>
 </ul>
 </li>
-</ol>
+</ul>
 <p>The null handling case is an important one: there are several types in the game library that generally cause problems when null. As a result BlueprintCore APIs will automatically set fields with these types to &quot;empty&quot; defaults. As of writing these types include:</p>
 <ul>
 <li>ActionList</li>
