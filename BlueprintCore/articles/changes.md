@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+#v2.0.3 Release
+
+### Breaking Changes
+
+* The type `Blueprint<T,  TRef>` has been shortened to `Blueprint<TRef>`
+    * You can use a Regex find/replace to fix. In VS:
+        * Find: `Blueprint<\w*, `
+        * Replace With: `Blueprint<`
+
 #v2.0.2 Release
 
 * Update to 1.3.4e game patch
