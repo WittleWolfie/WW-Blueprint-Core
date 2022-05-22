@@ -324,19 +324,19 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_BuffRank_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_Kingmaker_UnitLogic_Mechanics_ContextValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.BuffRank(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff%2CKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean%2CKingmaker.UnitLogic.Mechanics.ContextValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_BuffRank_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_Kingmaker_UnitLogic_Mechanics_ContextValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.BuffRank(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean%2CKingmaker.UnitLogic.Mechanics.ContextValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L260">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_BuffRank_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.BuffRank*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_BuffRank_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_Kingmaker_UnitLogic_Mechanics_ContextValue_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.BuffRank(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff,Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean,Kingmaker.UnitLogic.Mechanics.ContextValue)">BuffRank(ConditionsBuilder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt;, Boolean, ContextValue)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_BuffRank_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_Kingmaker_UnitLogic_Mechanics_ContextValue_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.BuffRank(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean,Kingmaker.UnitLogic.Mechanics.ContextValue)">BuffRank(ConditionsBuilder, Blueprint&lt;BlueprintBuffReference&gt;, Boolean, ContextValue)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionBuffRank</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder BuffRank(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt; buff = null, bool negate = false, ContextValue rankValue = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder BuffRank(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuffReference&gt; buff = null, bool negate = false, ContextValue rankValue = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -354,12 +354,12 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span>, <span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
         <td><span class="parametername">buff</span></td>
         <td><p>
 Blueprint of type BlueprintBuff. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -390,7 +390,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_BuffRank_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_Kingmaker_UnitLogic_Mechanics_ContextValue__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_BuffRank_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_Kingmaker_UnitLogic_Mechanics_ContextValue__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>BearerOfSorrowEnchantment8a7d0e599fe6b8c4c9ee034eb6af1830</li><li>GowrowAquaticShortspearEnchantmentc845e1109500f9a4aaabf7a494c4068d</li><li>RangingShots2b558167862b05d47b8472d176257f82</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -456,19 +456,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CasterHasFact(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CasterHasFact(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L91">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CasterHasFact*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CasterHasFact(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference},System.Boolean)">CasterHasFact(ConditionsBuilder, Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;, Boolean)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CasterHasFact(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitFactReference},System.Boolean)">CasterHasFact(ConditionsBuilder, Blueprint&lt;BlueprintUnitFactReference&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasFact</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder CasterHasFact(this ConditionsBuilder builder, Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt; fact, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder CasterHasFact(this ConditionsBuilder builder, Blueprint&lt;BlueprintUnitFactReference&gt; fact, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -486,12 +486,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;</td>
         <td><span class="parametername">fact</span></td>
         <td><p>
 Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -517,7 +517,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CasterHasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AcidBombfd101fbc4aacf5d48b76a65e3aa5db6d</li><li>GreaterCognatogenWisdomCharismaBuff60eb20b9d1077ed4f8f8a9df5490a208</li><li>WrathOfAncestorEnchantment4dbc03bd6223b484d8cd9afc3e0369b0</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -578,19 +578,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CharacterClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CharacterClass(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintCharacterClass%2CKingmaker.Blueprints.BlueprintCharacterClassReference%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CharacterClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CharacterClass(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintCharacterClassReference%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L351">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CharacterClass_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CharacterClass*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CharacterClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Nullable_System_Int32__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CharacterClass(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.BlueprintCharacterClass,Kingmaker.Blueprints.BlueprintCharacterClassReference},System.Nullable{System.Int32},System.Boolean)">CharacterClass(ConditionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintCharacterClass, BlueprintCharacterClassReference&gt;, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CharacterClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Nullable_System_Int32__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.CharacterClass(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintCharacterClassReference},System.Nullable{System.Int32},System.Boolean)">CharacterClass(ConditionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintCharacterClassReference&gt;, Nullable&lt;Int32&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCharacterClass</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder CharacterClass(this ConditionsBuilder builder, bool? checkCaster = null, Blueprint&lt;BlueprintCharacterClass, BlueprintCharacterClassReference&gt; clazz = null, int? minLevel = null, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder CharacterClass(this ConditionsBuilder builder, bool? checkCaster = null, Blueprint&lt;BlueprintCharacterClassReference&gt; clazz = null, int? minLevel = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -613,12 +613,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Classes.BlueprintCharacterClass</span>, <span class="xref">Kingmaker.Blueprints.BlueprintCharacterClassReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintCharacterClassReference</span>&gt;</td>
         <td><span class="parametername">clazz</span></td>
         <td><p>
 Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -649,7 +649,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CharacterClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintCharacterClass_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Nullable_System_Int32__System_Boolean__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_CharacterClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Nullable_System_Int32__System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AasimarHaloToggleAbility248bbb747c273684d9fdf2ed38935def</li><li>HealingJudgmentAbility00b6d36e31548dc4ab0ac9d15e64a980</li><li>ViperFamiliarAbility52b0d34465ad50545836fddd437cf5c9</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -1091,19 +1091,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuff(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff%2CKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuff(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L535">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuff_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuff*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuff(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff,Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean)">HasBuff(ConditionsBuilder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt;, Boolean)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuff(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean)">HasBuff(ConditionsBuilder, Blueprint&lt;BlueprintBuffReference&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuff</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasBuff(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt; buff = null, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasBuff(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuffReference&gt; buff = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1121,12 +1121,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span>, <span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
         <td><span class="parametername">buff</span></td>
         <td><p>
 Blueprint of type BlueprintBuff. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1152,24 +1152,24 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AngelSwordEffectBufff5f500d6a2a39fc4181af32ad79af488</li><li>JoltingPortentBuff27fa15e9738aee1499aed308cdef7084</li><li>ZeorisDaggerRing_BetrayalFeature1f6fabee66d54992bc912236d36b50f8</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromCaster(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff%2CKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromCaster(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L54">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromCaster*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromCaster(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff,Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean)">HasBuffFromCaster(ConditionsBuilder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt;, Boolean)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromCaster(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean)">HasBuffFromCaster(ConditionsBuilder, Blueprint&lt;BlueprintBuffReference&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromCaster</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasBuffFromCaster(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt; buff, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasBuffFromCaster(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuffReference&gt; buff, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1187,12 +1187,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span>, <span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
         <td><span class="parametername">buff</span></td>
         <td><p>
 Blueprint of type BlueprintBuff. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1218,24 +1218,24 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromCaster_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AnomalyDistortionBuff599b46d94d454526bf5893a4724d4fbe</li><li>Gibrileth_StenchAreaEffectd7a38ef5bd1fffa4aa85a69ff6fe23d4</li><li>WoundWormsLair_BlackDragonFrightfulPresenceArea382910feb429e1449b3f8f2a633e3244</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromThisAreaEffect_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromThisAreaEffect(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff%2CKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromThisAreaEffect_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromThisAreaEffect(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L574">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromThisAreaEffect_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromThisAreaEffect*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromThisAreaEffect_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromThisAreaEffect(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff,Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean)">HasBuffFromThisAreaEffect(ConditionsBuilder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt;, Boolean)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromThisAreaEffect_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasBuffFromThisAreaEffect(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean)">HasBuffFromThisAreaEffect(ConditionsBuilder, Blueprint&lt;BlueprintBuffReference&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromThisAreaEffect</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasBuffFromThisAreaEffect(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt; buff = null, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasBuffFromThisAreaEffect(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuffReference&gt; buff = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1253,12 +1253,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span>, <span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
         <td><span class="parametername">buff</span></td>
         <td><p>
 Blueprint of type BlueprintBuff. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1284,7 +1284,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromThisAreaEffect_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasBuffFromThisAreaEffect_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PillarOfLifeaArea7d0cebd89884679469533be8b680d55c</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -1421,19 +1421,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasFact(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Facts.BlueprintUnitFact%2CKingmaker.Blueprints.BlueprintUnitFactReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasFact(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L128">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasFact*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasFact(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Facts.BlueprintUnitFact,Kingmaker.Blueprints.BlueprintUnitFactReference},System.Boolean)">HasFact(ConditionsBuilder, Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt;, Boolean)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasFact(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitFactReference},System.Boolean)">HasFact(ConditionsBuilder, Blueprint&lt;BlueprintUnitFactReference&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasFact</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasFact(this ConditionsBuilder builder, Blueprint&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt; fact, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasFact(this ConditionsBuilder builder, Blueprint&lt;BlueprintUnitFactReference&gt; fact, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1451,12 +1451,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;</td>
         <td><span class="parametername">fact</span></td>
         <td><p>
 Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1482,24 +1482,24 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Facts_BlueprintUnitFact_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasFact_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstDeathAbility4445d9d1c21141c6a0bb24baf373ef78</li><li>GreaterMutagenDexterityStrength78d953b296fb2154aa2c85e6e724ce56</li><li>ZeorisDaggerRing_GoverningAllyBuff02680be495534b629d543daa89b47079</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Boolean_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasItem(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Items.BlueprintItem%2CKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Boolean%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Boolean_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasItem(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Boolean%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L665">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasItem_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasItem*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Boolean_System_Nullable_System_Int32__" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasItem(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Items.BlueprintItem,Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean},System.Boolean,System.Nullable{System.Int32})">HasItem(ConditionsBuilder, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, Boolean, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Boolean_System_Nullable_System_Int32__" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasItem(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean},System.Boolean,System.Nullable{System.Int32})">HasItem(ConditionsBuilder, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, Boolean, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasItem</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasItem(this ConditionsBuilder builder, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt; itemToCheck = null, bool? money = null, bool negate = false, int? quantity = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasItem(this ConditionsBuilder builder, Blueprint&lt;BlueprintItemReference&gt; itemToCheck = null, bool? money = null, bool negate = false, int? quantity = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1517,12 +1517,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span>, <span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
         <td><span class="parametername">itemToCheck</span></td>
         <td><p>
 Blueprint of type BlueprintItem. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1558,7 +1558,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Boolean_System_Nullable_System_Int32___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasItem_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Boolean_System_Nullable_System_Int32___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>123535217378b8a4ca3ba5a45f0002de07c</li><li>DirtySquealerEtude073253b35c6147e28b603e7e4cfb2ddd</li><li>ZeorisDaggerEtudead64557f3ad74ff0b36fce6364df6ab2</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -1619,19 +1619,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasUniqueBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasUniqueBuff(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff%2CKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasUniqueBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasUniqueBuff(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L728">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasUniqueBuff_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasUniqueBuff*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasUniqueBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasUniqueBuff(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff,Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean)">HasUniqueBuff(ConditionsBuilder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt;, Boolean)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasUniqueBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.HasUniqueBuff(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference},System.Boolean)">HasUniqueBuff(ConditionsBuilder, Blueprint&lt;BlueprintBuffReference&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasUniqueBuff</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasUniqueBuff(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuff, BlueprintBuffReference&gt; buff = null, bool negate = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder HasUniqueBuff(this ConditionsBuilder builder, Blueprint&lt;BlueprintBuffReference&gt; buff = null, bool negate = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1649,12 +1649,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span>, <span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
         <td><span class="parametername">buff</span></td>
         <td><p>
 Blueprint of type BlueprintBuff. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1680,7 +1680,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasUniqueBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_UnitLogic_Buffs_Blueprints_BlueprintBuff_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_HasUniqueBuff_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Boolean__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DLC3_RageConfusionIsland6401e7d62cf6424a95a858bff65b2000</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -3348,19 +3348,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.TargetIsBlueprint(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnit%2CKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.TargetIsBlueprint(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/ContextEx/ConditionsBuilderContextEx.cs/#L1408">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsBlueprint_" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.TargetIsBlueprint*"></a>
-  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference__" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.TargetIsBlueprint(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnit,Kingmaker.Blueprints.BlueprintUnitReference})">TargetIsBlueprint(ConditionsBuilder, Boolean, Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt;)</h4>
+  <h4 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__" data-uid="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.TargetIsBlueprint(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitReference})">TargetIsBlueprint(ConditionsBuilder, Boolean, Blueprint&lt;BlueprintUnitReference&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsBlueprint</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ConditionsBuilder TargetIsBlueprint(this ConditionsBuilder builder, bool negate = false, Blueprint&lt;BlueprintUnit, BlueprintUnitReference&gt; unit = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder TargetIsBlueprint(this ConditionsBuilder builder, bool negate = false, Blueprint&lt;BlueprintUnitReference&gt; unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3383,12 +3383,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnit</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnitReference</span>&gt;</td>
         <td><span class="parametername">unit</span></td>
         <td><p>
 Blueprint of type BlueprintUnit. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -3409,7 +3409,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnit_Kingmaker_Blueprints_BlueprintUnitReference___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Conditions_Builder_ContextEx_ConditionsBuilderContextEx_TargetIsBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>EnhancementBonusWilloWisp012f72c2749c2e94eb3c389f3f077aac</li><li>ShamanBattleSpiritAbility7eda685d53423de4281d8bc0f1197442</li><li>ThunderingClawPete95c2acd75e1d964eaece4a9958d31d5</li></ul>
 </div>
   <span class="small pull-right mobile-hide">

@@ -69,6 +69,20 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<p>#v2.0.3 Release</p>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>The type <code>Blueprint&lt;T,  TRef&gt;</code> has been shortened to <code>Blueprint&lt;TRef&gt;</code>
+<ul>
+<li>You can use a Regex find/replace to fix. In VS:
+<ul>
+<li>Find: <code>Blueprint&lt;\w*, </code></li>
+<li>Replace With: <code>Blueprint&lt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p>#v2.0.2 Release</p>
 <ul>
 <li>Update to 1.3.4e game patch</li>
@@ -79,7 +93,7 @@
 <li>Fixed bug with Encyclopedia tagging causing exceptions</li>
 <li>Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail</li>
 </ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
+<h3 id="breaking-changes-1">Breaking Changes</h3>
 <ul>
 <li>Namespaces are changes to organize type specific util classes
 <ul>
@@ -135,7 +149,7 @@ their level editor</li>
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-1">Breaking Changes</h3>
+<h3 id="breaking-changes-2">Breaking Changes</h3>
 <ul>
 <li>Configurator namespaces may have changed to align w/ game code structure</li>
 <li>Method and parameter names changed for ActionsBuilder, ConditionsBuilder, and Configurators</li>

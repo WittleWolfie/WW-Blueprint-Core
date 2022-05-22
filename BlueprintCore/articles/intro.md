@@ -452,6 +452,14 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .Configure();
 ```
 
+Note that you can also cast stored collections:
+```C#
+List<BlueprintFeatureReference> features = new() { myNewFeature.ToReference(), myOtherNewFeature.ToReference() };
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(features.Cast<Blueprint<BlueprintFeatureReference>>().ToArray())
+  .Configure();
+```
+
 These examples use configurators but the same approach works for all BlueprintCore APIs.
 
 ## Understanding the API

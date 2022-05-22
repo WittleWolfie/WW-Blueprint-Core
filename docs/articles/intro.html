@@ -325,7 +325,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 /// &lt;inheritdoc/&gt;
 public class TypeConfigurator : BaseTypeConfigurator&lt;BlueprintType, TypeConfigurator&gt;
 {
-  private TypeConfigurator(Blueprint&lt;BlueprintType, BlueprintReference&lt;BlueprintType&gt;&gt; blueprint) : base(blueprint) { }
+  private TypeConfigurator(Blueprint&lt;BlueprintReference&lt;BlueprintType&gt;&gt; blueprint) : base(blueprint) { }
 
   /// &lt;summary&gt;
   /// Returns a configurator to modify the specified blueprint.
@@ -338,7 +338,7 @@ public class TypeConfigurator : BaseTypeConfigurator&lt;BlueprintType, TypeConfi
   /// If you're using &lt;see href=&quot;https://github.com/OwlcatOpenSource/WrathModificationTemplate&quot;&gt;WrathModificationTemplate&lt;/see&gt; blueprints defined in JSON already exist.
   /// &lt;/para&gt;
   /// &lt;/remarks&gt;
-  public static TypeConfigurator For(Blueprint&lt;BlueprintType, BlueprintReference&lt;BlueprintType&gt;&gt; blueprint)
+  public static TypeConfigurator For(Blueprint&lt;BlueprintReference&lt;BlueprintType&gt;&gt; blueprint)
   {
     return new TypeConfigurator(blueprint);
   }
@@ -351,7 +351,7 @@ public class TypeConfigurator : BaseTypeConfigurator&lt;BlueprintType, TypeConfi
   /// After creating a blueprint with this method you can use either name or GUID to reference the blueprint in BlueprintCore API calls.
   /// &lt;/para&gt;
   /// &lt;para&gt;
-  /// An implicit cast converts the string to &lt;see cref=&quot;Blueprint{T, TRef}&quot;/&gt;, exposing the blueprint instance and its reference.
+  /// An implicit cast converts the string to &lt;see cref=&quot;Blueprint{TRef}&quot;/&gt;, exposing the blueprint instance and its reference.
   /// &lt;/para&gt;
   /// &lt;/remarks&gt;
   public static TypeConfigurator New(string name, string guid)
@@ -453,7 +453,7 @@ AbilityConfigurator.New(AbilityName, AbilityGuid)
 </li>
 </ol>
 <h2 id="referencing-blueprints">Referencing Blueprints</h2>
-<p>Many API calls require references to a blueprint. To simplify blueprint references BlueprintCore defines <a class="xref" href="../api/BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a>. This provides implicit constructors which allow referencing blueprints by:</p>
+<p>Many API calls require references to a blueprint. To simplify blueprint references BlueprintCore defines <a class="xref" href="../api/BlueprintCore.Utils.Blueprint-1.html">Blueprint<tref></tref></a>. This provides implicit constructors which allow referencing blueprints by:</p>
 <ul>
 <li>GUID / Asset ID string</li>
 </ul>
@@ -480,7 +480,7 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <li>Blueprint reference</li>
 </ul>
 <pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid);
-var featReference = BlueprintTool.GetRef&lt;BlueprintFeature, BlueprintFeatureReference&gt;(FeatGuid);
+var featReference = BlueprintTool.GetRef&lt;BlueprintFeatureReference&gt;(FeatGuid);
 FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .AddToAllFeatures(featReference)
   .Configure();
@@ -507,9 +507,15 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
 <p>If you're declaring or storing a list or array you need to declare the correct type for the collection:</p>
 <pre><code class="lang-C#">var feat = FeatureConfigurator.New(FeatName, FeatGuid).Configure();
 var myOtherFeatGuid = &quot;247a4068-296e-8be4-2890-143f451b4b46&quot;;
-var newFeats = new Blueprint&lt;BlueprintFeature, BlueprintFeatureReference&gt;[] { feat, myOtherFeatGuid };
+var newFeats = new Blueprint&lt;BlueprintFeatureReference&gt;[] { feat, myOtherFeatGuid };
 FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .AddToAllFeatures(newFeats)
+  .Configure();
+</code></pre>
+<p>Note that you can also cast stored collections:</p>
+<pre><code class="lang-C#">List&lt;BlueprintFeatureReference&gt; features = new() { myNewFeature.ToReference(), myOtherNewFeature.ToReference() };
+FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+  .AddToAllFeatures(features.Cast&lt;Blueprint&lt;BlueprintFeatureReference&gt;&gt;().ToArray())
   .Configure();
 </code></pre>
 <p>These examples use configurators but the same approach works for all BlueprintCore APIs.</p>

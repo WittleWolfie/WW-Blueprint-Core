@@ -143,19 +143,19 @@ ActionsBuilder.New()
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AchievementUnlock_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Achievements_Blueprints_AchievementData_Kingmaker_Blueprints_AchievementDataReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AchievementUnlock(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Achievements.Blueprints.AchievementData%2CKingmaker.Blueprints.AchievementDataReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AchievementUnlock_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_AchievementDataReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AchievementUnlock(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.AchievementDataReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L56">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AchievementUnlock_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AchievementUnlock*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AchievementUnlock_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Achievements_Blueprints_AchievementData_Kingmaker_Blueprints_AchievementDataReference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AchievementUnlock(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Achievements.Blueprints.AchievementData,Kingmaker.Blueprints.AchievementDataReference})">AchievementUnlock(ActionsBuilder, Blueprint&lt;AchievementData, AchievementDataReference&gt;)</h4>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AchievementUnlock_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_AchievementDataReference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AchievementUnlock(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.AchievementDataReference})">AchievementUnlock(ActionsBuilder, Blueprint&lt;AchievementDataReference&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.Achievements.Actions.ActionAchievementUnlock</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder AchievementUnlock(this ActionsBuilder builder, Blueprint&lt;AchievementData, AchievementDataReference&gt; achievement)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AchievementUnlock(this ActionsBuilder builder, Blueprint&lt;AchievementDataReference&gt; achievement)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -173,12 +173,12 @@ ActionsBuilder.New()
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Achievements.Blueprints.AchievementData</span>, <span class="xref">Kingmaker.Blueprints.AchievementDataReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.AchievementDataReference</span>&gt;</td>
         <td><span class="parametername">achievement</span></td>
         <td><p>
 Blueprint of type AchievementData. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -199,24 +199,24 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AchievementUnlock_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Achievements_Blueprints_AchievementData_Kingmaker_Blueprints_AchievementDataReference___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AchievementUnlock_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_AchievementDataReference___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>01_DevouredByDarkness67d3321ed01a4e58a9ed3e13f94f1d04</li><li>60_Ascensionbf2f03321974495bbbcfc89781895757</li><li>SorcScroll_Actionc99f4c8c4cd44d7293ca5e73efff2a36</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_DLC_BlueprintDlcReward_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.DLC.BlueprintDlcReward%2CKingmaker.Blueprints.BlueprintDlcRewardReference%7D%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Items.BlueprintItem%2CKingmaker.Blueprints.BlueprintItemReference%7D%7D%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Classes.BlueprintFeature%2CKingmaker.Blueprints.BlueprintFeatureReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintDlcRewardReference%7D%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintItemReference%7D%7D%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintFeatureReference%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L113">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddPremiumReward*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_DLC_BlueprintDlcReward_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference___" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.DLC.BlueprintDlcReward,Kingmaker.Blueprints.BlueprintDlcRewardReference},System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Items.BlueprintItem,Kingmaker.Blueprints.BlueprintItemReference}},System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Classes.BlueprintFeature,Kingmaker.Blueprints.BlueprintFeatureReference}})">AddPremiumReward(ActionsBuilder, ActionsBuilder, Blueprint&lt;BlueprintDlcReward, BlueprintDlcRewardReference&gt;, List&lt;Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;&gt;, List&lt;Blueprint&lt;BlueprintFeature, BlueprintFeatureReference&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_DLC_BlueprintDlcReward_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference___">AddPremiumReward(ActionsBuilder, ActionsBuilder, Blueprint&lt;BlueprintDlcReward, BlueprintDlcRewardReference&gt;, List&lt;Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;&gt;, List&lt;Blueprint&lt;BlueprintFeature, BlueprintFeatureReference&gt;&gt;)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference___" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddPremiumReward(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintDlcRewardReference},System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintItemReference}},System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintFeatureReference}})">AddPremiumReward(ActionsBuilder, ActionsBuilder, Blueprint&lt;BlueprintDlcRewardReference&gt;, List&lt;Blueprint&lt;BlueprintItemReference&gt;&gt;, List&lt;Blueprint&lt;BlueprintFeatureReference&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference___">AddPremiumReward(ActionsBuilder, ActionsBuilder, Blueprint&lt;BlueprintDlcRewardReference&gt;, List&lt;Blueprint&lt;BlueprintItemReference&gt;&gt;, List&lt;Blueprint&lt;BlueprintFeatureReference&gt;&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddPremiumReward(this ActionsBuilder builder, ActionsBuilder additionalActions = null, Blueprint&lt;BlueprintDlcReward, BlueprintDlcRewardReference&gt; dlcReward = null, List&lt;Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;&gt; items = null, List&lt;Blueprint&lt;BlueprintFeature, BlueprintFeatureReference&gt;&gt; playerFeatures = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddPremiumReward(this ActionsBuilder builder, ActionsBuilder additionalActions = null, Blueprint&lt;BlueprintDlcRewardReference&gt; dlcReward = null, List&lt;Blueprint&lt;BlueprintItemReference&gt;&gt; items = null, List&lt;Blueprint&lt;BlueprintFeatureReference&gt;&gt; playerFeatures = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -239,32 +239,32 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.DLC.BlueprintDlcReward</span>, <span class="xref">Kingmaker.Blueprints.BlueprintDlcRewardReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintDlcRewardReference</span>&gt;</td>
         <td><span class="parametername">dlcReward</span></td>
         <td><p>
 Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span>, <span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;&gt;</td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;&gt;</td>
         <td><span class="parametername">items</span></td>
         <td><p>
 Blueprint of type BlueprintItem. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Classes.BlueprintFeature</span>, <span class="xref">Kingmaker.Blueprints.BlueprintFeatureReference</span>&gt;&gt;</td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintFeatureReference</span>&gt;&gt;</td>
         <td><span class="parametername">playerFeatures</span></td>
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -285,24 +285,24 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_DLC_BlueprintDlcReward_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Classes_BlueprintFeature_Kingmaker_Blueprints_BlueprintFeatureReference____remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddPremiumReward_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Chapter01_Extra318f49bf0efcfb4449d0973a3cb3bb73</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Loot_BlueprintUnitLoot_Kingmaker_Blueprints_BlueprintUnitLootReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.VendorEvaluator%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Loot.BlueprintUnitLoot%2CKingmaker.Blueprints.BlueprintUnitLootReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitLootReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.VendorEvaluator%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitLootReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L170">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddVendorItemsAction*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Loot_BlueprintUnitLoot_Kingmaker_Blueprints_BlueprintUnitLootReference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.VendorEvaluator,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Loot.BlueprintUnitLoot,Kingmaker.Blueprints.BlueprintUnitLootReference})">AddVendorItemsAction(ActionsBuilder, VendorEvaluator, Blueprint&lt;BlueprintUnitLoot, BlueprintUnitLootReference&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Loot_BlueprintUnitLoot_Kingmaker_Blueprints_BlueprintUnitLootReference__">AddVendorItemsAction(ActionsBuilder, VendorEvaluator, Blueprint&lt;BlueprintUnitLoot, BlueprintUnitLootReference&gt;)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitLootReference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.AddVendorItemsAction(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.VendorEvaluator,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitLootReference})">AddVendorItemsAction(ActionsBuilder, VendorEvaluator, Blueprint&lt;BlueprintUnitLootReference&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitLootReference__">AddVendorItemsAction(ActionsBuilder, VendorEvaluator, Blueprint&lt;BlueprintUnitLootReference&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddVendorItemsAction(this ActionsBuilder builder, VendorEvaluator vendorEvaluator = null, Blueprint&lt;BlueprintUnitLoot, BlueprintUnitLootReference&gt; vendorTable = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddVendorItemsAction(this ActionsBuilder builder, VendorEvaluator vendorEvaluator = null, Blueprint&lt;BlueprintUnitLootReference&gt; vendorTable = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -325,12 +325,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Loot.BlueprintUnitLoot</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitLootReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnitLootReference</span>&gt;</td>
         <td><span class="parametername">vendorTable</span></td>
         <td><p>
 Blueprint of type BlueprintUnitLoot. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -351,24 +351,24 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Loot_BlueprintUnitLoot_Kingmaker_Blueprints_BlueprintUnitLootReference___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_AddVendorItemsAction_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_VendorEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitLootReference___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Chapter020e20d73ea0da6a94d94a6b42035a1ce0</li><li>Chapter04637a57423a82b044f888677c92f5d6cb</li><li>Chapter055b01aa690202e584888dfc600a4aac0a</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintSharedVendorTable_Kingmaker_Blueprints_BlueprintSharedVendorTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Items.BlueprintSharedVendorTable%2CKingmaker.Blueprints.BlueprintSharedVendorTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSharedVendorTableReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSharedVendorTableReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L211">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ClearVendorTable*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintSharedVendorTable_Kingmaker_Blueprints_BlueprintSharedVendorTableReference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Items.BlueprintSharedVendorTable,Kingmaker.Blueprints.BlueprintSharedVendorTableReference})">ClearVendorTable(ActionsBuilder, Blueprint&lt;BlueprintSharedVendorTable, BlueprintSharedVendorTableReference&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintSharedVendorTable_Kingmaker_Blueprints_BlueprintSharedVendorTableReference__">ClearVendorTable(ActionsBuilder, Blueprint&lt;BlueprintSharedVendorTable, BlueprintSharedVendorTableReference&gt;)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSharedVendorTableReference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ClearVendorTable(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintSharedVendorTableReference})">ClearVendorTable(ActionsBuilder, Blueprint&lt;BlueprintSharedVendorTableReference&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSharedVendorTableReference__">ClearVendorTable(ActionsBuilder, Blueprint&lt;BlueprintSharedVendorTableReference&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder ClearVendorTable(this ActionsBuilder builder, Blueprint&lt;BlueprintSharedVendorTable, BlueprintSharedVendorTableReference&gt; table = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ClearVendorTable(this ActionsBuilder builder, Blueprint&lt;BlueprintSharedVendorTableReference&gt; table = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -386,12 +386,12 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Items.BlueprintSharedVendorTable</span>, <span class="xref">Kingmaker.Blueprints.BlueprintSharedVendorTableReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintSharedVendorTableReference</span>&gt;</td>
         <td><span class="parametername">table</span></td>
         <td><p>
 Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -412,7 +412,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintSharedVendorTable_Kingmaker_Blueprints_BlueprintSharedVendorTableReference___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ClearVendorTable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSharedVendorTableReference___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DHLost_Mechanice5961409f47c4d0f9c19e7af184a8eb6</li><li>Test_Bebilith Blueprint Camping Encounterf2f8355d4bc8aa34195eeb2f5cf66645</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -615,19 +615,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Root_BlueprintCampaign_Kingmaker_Blueprints_BlueprintCampaignReference__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ImportSave(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Root.BlueprintCampaign%2CKingmaker.Blueprints.BlueprintCampaignReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCampaignReference__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ImportSave(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintCampaignReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L342">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ImportSave*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Root_BlueprintCampaign_Kingmaker_Blueprints_BlueprintCampaignReference__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ImportSave(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Root.BlueprintCampaign,Kingmaker.Blueprints.BlueprintCampaignReference},System.Nullable{System.Boolean})">ImportSave(ActionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintCampaign, BlueprintCampaignReference&gt;, Nullable&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Root_BlueprintCampaign_Kingmaker_Blueprints_BlueprintCampaignReference__System_Nullable_System_Boolean__">ImportSave(ActionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintCampaign, BlueprintCampaignReference&gt;, Nullable&lt;Boolean&gt;)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCampaignReference__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ImportSave(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintCampaignReference},System.Nullable{System.Boolean})">ImportSave(ActionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintCampaignReference&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCampaignReference__System_Nullable_System_Boolean__">ImportSave(ActionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintCampaignReference&gt;, Nullable&lt;Boolean&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder ImportSave(this ActionsBuilder builder, bool? autoImportIfOnlyOneSave = null, Blueprint&lt;BlueprintCampaign, BlueprintCampaignReference&gt; campaign = null, bool? letPlayerChooseSave = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ImportSave(this ActionsBuilder builder, bool? autoImportIfOnlyOneSave = null, Blueprint&lt;BlueprintCampaignReference&gt; campaign = null, bool? letPlayerChooseSave = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -653,12 +653,12 @@ Tooltip: Import automatically if only one appropriate save file is presented.
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Root.BlueprintCampaign</span>, <span class="xref">Kingmaker.Blueprints.BlueprintCampaignReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintCampaignReference</span>&gt;</td>
         <td><span class="parametername">campaign</span></td>
         <td><p>
 Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -687,7 +687,7 @@ Tooltip: Display a prompt asking to choose a save from a list, if any. Otherwise
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Root_BlueprintCampaign_Kingmaker_Blueprints_BlueprintCampaignReference__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ImportSave_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCampaignReference__System_Nullable_System_Boolean___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Cue_00104e1fb44f339e88340b9daee8aca0c463</li><li>DLC1_SaveImport31417683088d40b8beb3691c393fb3d3</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -748,19 +748,19 @@ Tooltip: Display a prompt asking to choose a save from a list, if any. Otherwise
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeItemNonRemovable(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Items.BlueprintItem%2CKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeItemNonRemovable(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L407">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeItemNonRemovable*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeItemNonRemovable(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Items.BlueprintItem,Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean})">MakeItemNonRemovable(ActionsBuilder, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__">MakeItemNonRemovable(ActionsBuilder, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.MakeItemNonRemovable(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean})">MakeItemNonRemovable(ActionsBuilder, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__">MakeItemNonRemovable(ActionsBuilder, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder MakeItemNonRemovable(this ActionsBuilder builder, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt; item = null, bool? nonRemovable = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder MakeItemNonRemovable(this ActionsBuilder builder, Blueprint&lt;BlueprintItemReference&gt; item = null, bool? nonRemovable = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -778,12 +778,12 @@ Tooltip: Display a prompt asking to choose a save from a list, if any. Otherwise
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span>, <span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
         <td><span class="parametername">item</span></td>
         <td><p>
 Blueprint of type BlueprintItem. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -809,7 +809,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_MakeItemNonRemovable_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Answer_00666f7cdaa54e3176f4b8f55cb21faa606c</li><li>Cue_001373f984a6ecfe6d64f87f2045aa92fd84</li><li>Wardstone_BookEventb24b879dad653a74d8105f377f2ab1a1</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -958,19 +958,19 @@ Tooltip: If true, buttons Close, Back and Esc will be disable in chargen
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemFromPlayer(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Items.BlueprintItem%2CKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemFromPlayer(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L536">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemFromPlayer*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemFromPlayer(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Items.BlueprintItem,Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean},System.Nullable{System.Single},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">RemoveItemFromPlayer(ActionsBuilder, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Single&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__">RemoveItemFromPlayer(ActionsBuilder, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Single&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.RemoveItemFromPlayer(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean},System.Nullable{System.Single},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">RemoveItemFromPlayer(ActionsBuilder, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Single&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__">RemoveItemFromPlayer(ActionsBuilder, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Single&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder RemoveItemFromPlayer(this ActionsBuilder builder, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt; itemToRemove = null, bool? money = null, float? percentage = null, int? quantity = null, bool? removeAll = null, bool? silent = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder RemoveItemFromPlayer(this ActionsBuilder builder, Blueprint&lt;BlueprintItemReference&gt; itemToRemove = null, bool? money = null, float? percentage = null, int? quantity = null, bool? removeAll = null, bool? silent = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -988,12 +988,12 @@ Tooltip: If true, buttons Close, Back and Esc will be disable in chargen
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span>, <span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
         <td><span class="parametername">itemToRemove</span></td>
         <td><p>
 Blueprint of type BlueprintItem. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1039,7 +1039,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_RemoveItemFromPlayer_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/RemoveItemFromPlayer
 </p>
@@ -1108,19 +1108,19 @@ ComponentName: Actions/RemoveItemFromPlayer
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SellCollectibleItems(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Items.BlueprintItem%2CKingmaker.Blueprints.BlueprintItemReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SellCollectibleItems(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintItemReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L619">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SellCollectibleItems*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SellCollectibleItems(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Items.BlueprintItem,Kingmaker.Blueprints.BlueprintItemReference})">SellCollectibleItems(ActionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__">SellCollectibleItems(ActionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.SellCollectibleItems(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintItemReference})">SellCollectibleItems(ActionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintItemReference&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__">SellCollectibleItems(ActionsBuilder, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintItemReference&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder SellCollectibleItems(this ActionsBuilder builder, bool? halfPrice = null, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt; itemToSell = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder SellCollectibleItems(this ActionsBuilder builder, bool? halfPrice = null, Blueprint&lt;BlueprintItemReference&gt; itemToSell = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1143,12 +1143,12 @@ ComponentName: Actions/RemoveItemFromPlayer
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span>, <span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
         <td><span class="parametername">itemToSell</span></td>
         <td><p>
 Blueprint of type BlueprintItem. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1169,7 +1169,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_SellCollectibleItems_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/SellCollectibleItems
 </p>
@@ -1238,19 +1238,19 @@ ComponentName: Actions/SellCollectibleItems
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Tutorial.Actions.TutorialContextDataEvaluator%5B%5D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Tutorial.BlueprintTutorial%2CKingmaker.Tutorial.BlueprintTutorial.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Tutorial.Actions.TutorialContextDataEvaluator%5B%5D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Tutorial.BlueprintTutorial.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L690">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowNewTutorial*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator[],BlueprintCore.Utils.Blueprint{Kingmaker.Tutorial.BlueprintTutorial,Kingmaker.Tutorial.BlueprintTutorial.Reference})">ShowNewTutorial(ActionsBuilder, TutorialContextDataEvaluator[], Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt;)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference__">ShowNewTutorial(ActionsBuilder, TutorialContextDataEvaluator[], Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt;)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Reference__" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.ShowNewTutorial(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Tutorial.Actions.TutorialContextDataEvaluator[],BlueprintCore.Utils.Blueprint{Kingmaker.Tutorial.BlueprintTutorial.Reference})">ShowNewTutorial(ActionsBuilder, TutorialContextDataEvaluator[], Blueprint&lt;BlueprintTutorial.Reference&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Reference__">ShowNewTutorial(ActionsBuilder, TutorialContextDataEvaluator[], Blueprint&lt;BlueprintTutorial.Reference&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder ShowNewTutorial(this ActionsBuilder builder, TutorialContextDataEvaluator[] evaluators = null, Blueprint&lt;BlueprintTutorial, BlueprintTutorial.Reference&gt; tutorial = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ShowNewTutorial(this ActionsBuilder builder, TutorialContextDataEvaluator[] evaluators = null, Blueprint&lt;BlueprintTutorial.Reference&gt; tutorial = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1273,12 +1273,12 @@ ComponentName: Actions/SellCollectibleItems
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Tutorial.BlueprintTutorial</span>, <span class="xref">Kingmaker.Tutorial.BlueprintTutorial.Reference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Tutorial.BlueprintTutorial.Reference</span>&gt;</td>
         <td><span class="parametername">tutorial</span></td>
         <td><p>
 Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1299,7 +1299,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Kingmaker_Tutorial_BlueprintTutorial_Reference___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_ShowNewTutorial_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Tutorial_Actions_TutorialContextDataEvaluator___BlueprintCore_Utils_Blueprint_Kingmaker_Tutorial_BlueprintTutorial_Reference___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Alushinyrra_FlyingIsles_HigherCityTutorial703a58daf08849d9bb67e328064866ea</li><li>Cue_0062bb89e76de056adf4c984110340b738ff</li><li>TutorInspect8edce8ffe87051a4eb32293277f7b4be</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -1498,19 +1498,19 @@ InfoBox: If not specified, items will be moved to unit&amp;apos;s inventory
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipItem(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.Items.BlueprintItem%2CKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipItem(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.ElementsSystem.ItemsCollectionEvaluator%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/MiscEx/ActionsBuilderMiscEx.cs/#L838">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipItem*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipItem(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},Kingmaker.ElementsSystem.ItemsCollectionEvaluator,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.Items.BlueprintItem,Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean},Kingmaker.ElementsSystem.UnitEvaluator)">UnequipItem(ActionsBuilder, Nullable&lt;Boolean&gt;, ItemsCollectionEvaluator, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, UnitEvaluator)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_">UnequipItem(ActionsBuilder, Nullable&lt;Boolean&gt;, ItemsCollectionEvaluator, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, UnitEvaluator)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.UnequipItem(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},Kingmaker.ElementsSystem.ItemsCollectionEvaluator,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean},Kingmaker.ElementsSystem.UnitEvaluator)">UnequipItem(ActionsBuilder, Nullable&lt;Boolean&gt;, ItemsCollectionEvaluator, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, UnitEvaluator)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html#BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_">UnequipItem(ActionsBuilder, Nullable&lt;Boolean&gt;, ItemsCollectionEvaluator, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, UnitEvaluator)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder UnequipItem(this ActionsBuilder builder, bool? all = null, ItemsCollectionEvaluator destinationContainer = null, Blueprint&lt;BlueprintItem, BlueprintItemReference&gt; item = null, bool? silent = null, UnitEvaluator unit = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder UnequipItem(this ActionsBuilder builder, bool? all = null, ItemsCollectionEvaluator destinationContainer = null, Blueprint&lt;BlueprintItemReference&gt; item = null, bool? silent = null, UnitEvaluator unit = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1541,12 +1541,12 @@ InfoBox: If not specified, item will be moved to unit&amp;apos;s inventory
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.Items.BlueprintItem</span>, <span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintItemReference</span>&gt;</td>
         <td><span class="parametername">item</span></td>
         <td><p>
 Blueprint of type BlueprintItem. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
 </p>
 </td>
       </tr>
@@ -1577,7 +1577,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-2.html">Blueprint&lt;T, 
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_Items_BlueprintItem_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_MiscEx_ActionsBuilderMiscEx_UnequipItem_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_ItemsCollectionEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CommandActionbacc9e60f4554ddf9aff4aa5f7dd61ef</li><li>Cue_00513df7adbce79f77f41a2830ac44b85591</li><li>Cue_0052728a93278c0029648ab10295221af126</li></ul>
 </div>
 </article>
