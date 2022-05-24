@@ -17,9 +17,19 @@ namespace BlueprintCoreGen
     private static readonly bool RunTypeUsageAnalysis = false;
 
     public static readonly string AnalysisDir = "Analysis";
+    private static readonly string ActionsDir = "Actions";
+    private static readonly string ConditionsDir = "Conditions";
+    private static readonly string ConfiguratorsDir = "Configurators";
+
 
     static void Main()
     {
+      // Clean output directories
+      if (Directory.Exists(AnalysisDir)) { Directory.Delete(AnalysisDir, true); }
+      if (Directory.Exists(ActionsDir)) { Directory.Delete(ActionsDir, true); }
+      if (Directory.Exists(ConditionsDir)) { Directory.Delete(ConditionsDir, true); }
+      if (Directory.Exists(ConfiguratorsDir)) { Directory.Delete(ConfiguratorsDir, true); }
+
       // Since the code doesn't reference assemblies, force load them for reflection
       var gameTypes = AccessTools.GetTypesFromAssembly(Assembly.Load("Assembly-CSharp"));
       var blueprintCoreTypes = AccessTools.GetTypesFromAssembly(Assembly.Load("BlueprintCore"));
