@@ -84,6 +84,8 @@ If you have a very good reason for including a harmony patch let me know and we 
 
 **Note**: It is recommended to build using the Debug configuration. The Release configuration generates documentation which takes several minutes.
 
+## Testing Changes
+
 # Pull Request Requirements
 
 1. Change Description
@@ -99,21 +101,20 @@ If you have a very good reason for including a harmony patch let me know and we 
     * Stay consistent with existing code and prefer common C# styling otherwise
     * Remove unused and sort usings
 4. Documentation
-    * Use XML style comments
-    * For utilities consider including brief examples (you can use the `<example>` tag)
+    * Use XML style comments to document classes and public methods
+        * Explain what it's for, how to use it, and any constraints on inputs
+        * Consider including examples using the `<example>` tag
 5. No Patches
     * Harmony patches are not allowed since the library may be included in multiple mods.
     * If you really want to add a patch, contact me to explain why. Note that it will have to be idempotent, i.e. function correctly if applied multiple times
 6. Before Committing
-    * Rebuild the solution using the Release configuration to ensure documentation is updated
+    * Rebuild the solution using the **Release** configuration to update documentation
     * Run all unit tests
         * Note: If tests throw exceptions when adding blueprints from TestData just re-run them. There is an issue with static data sticking around that I have not been able to resolve.
 
 # Using BlueprintCoreGen
 
 BlueprintCoreGen is the tool responsible for generating the ActionsBuilder, ConditionsBuilder, and Blueprint Configurator classes. It can execute in one of two modes: Analysis and Code Generation. In both modes be sure to run it in Debug configuration.
-
-Before running BlueprintCoreGen it is recommended to clear the build output directories. Note that Clean won't be sufficient since classes are generated and output in that directory.
 
 ## Analysis
 
