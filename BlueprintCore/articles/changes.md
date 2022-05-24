@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-#v2.0.3 Release
+## v2.0.3 Release
 
 ### Breaking Changes
 
@@ -9,7 +9,7 @@
         * Find: `Blueprint<\w*, `
         * Replace With: `Blueprint<`
 
-#v2.0.2 Release
+## v2.0.2 Release
 
 * Update to 1.3.4e game patch
 * Handles GUIDs with uppercase letters
@@ -30,11 +30,11 @@
 * Removed support for `AddStatBonusScaled`
     * This is a legacy type and can be replaced with `AddContextStatBonus`
 
-#v2.0.1 Release
+## v2.0.1 Release
 
 * Reverts `Configurator.Build()` to return the blueprint directly
 
-#v2.0.0 Release
+## v2.0.0 Release
 
 * This is a significant release which is all but guaranteed to require changes to your code when updating.*
 
