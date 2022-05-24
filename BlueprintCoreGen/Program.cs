@@ -21,7 +21,6 @@ namespace BlueprintCoreGen
     private static readonly string ConditionsDir = "Conditions";
     private static readonly string ConfiguratorsDir = "Configurators";
 
-
     static void Main()
     {
       // Clean output directories
