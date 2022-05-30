@@ -463,13 +463,72 @@ This ensure even if the type's default field value is null it will be set to `Ut
 
 ### Hardcoded Overrides
 
+There are a few hardcoded overrides:
+
+* [GlobalOverrides](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/GlobalOverrides.cs)
+    * `CustomBlueprintConfigurators` used in conjunection with [Custom Configurators](#custom-configurators)
+    * `TypeNameOverrides` overrides the type name used for field types; useful when you run into type name conflicts in a file
+    * `ParamNameOverrides` overrides the name of a field as a parameter; useful for field names such as `m_Default` which generate a C# keyword for their parameter name
+* [Examples](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Examples/Examples.cs)
+    * `ManualExamples` defines manual examples
+* [Ignored](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Ignored/Ignored.cs)
+    * `IgnoredFields` defines fields to ignore by type (checked with inheritance)
+    * `IgnoredTypes` defines types to ignore entirely when generating code
+
 ### Validation
+
+Validation code is defined in the `BlueprintCore.Utils.Validation` package.
+
+* `AttributeValidator` checks fields annotated using Owlcat's attributes for conformance
+    * This should not need changes unless Owlcat implements a new attribute
+* `BlueprintValidator` checks blueprints for configuration problems
+    * Use this to check for required or illegal configurations in a blueprint
+        * For example `BlueprintAbility` usage of `Ability` components is validated
+    * Add type specific logic to an override of the `Check` method, e.g. `Check(BlueprintAbility, ValidationContext)`
+* `ComponentValidator` checks blueprint components for configuration problems
+    * Add type specific logic to an override of the `Check` method
+* `ElementValidator` checks element types for configuration problems
+    * This should not need changes
 
 ### Custom Configurators
 
+Blueprint configurators are implemented using a tree inheritance structure and the curiously recurring template pattern. A limitation of this pattern is that concrete configurator implementations cannot inherit from another concrete configurator, since it breaks the return type for the methods.
+
+To implement a custom configurator (i.e. replace an existing concrete configurator) you need to:
+
+1. Create your configurator class and add it to `BlueprintCore.Blueprints.CustomConfigurators`
+    * Use the same class declaration as the generated configurator
+2. Update [GlobalOverrides](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/GlobalOverrides.cs)
+    * Add the type of blueprint configurator to `CustomBlueprintConfigurators`
+
+When creating a custom configurator:
+
+* Keep the same relative namespace as the generated configurator
+* Provide static constructors
+    * All configurators should have the `For(blueprint)` constructor for creating based on existing blueprints
+    * Unless your configurator enforces specific inputs for creating a new blueprint, implement the `New(name, guid)` constructor
+        * New blueprint constructors must call `BlueprintTool.Create<>(name, guid)`
+* Return the configurator in every method to support method chaining
+* Do not modify the blueprint directly; use `OnConfigureInternal()`
+* Use `<inheritdoc/>` where possible
+
+Look at [Ability.cs](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/UnitLogic/Abilities/Ability.cs) as an example.
+
+Notice the declaration of `SetCustomRange()`:
+
+```C#
+public new AbilityConfigurator SetCustomRange(Feet rangeInFeet)
+```
+
+The use of `new` is intentional because it overrides the generated method for `SetCustomRange()` defined in the base configurator for `BlueprintAbility`.
+
 ## Actions, Conditions, and Components
 
+TODO
+
 ## Utilities
+
+Add utility classes to the `BlueprintCore.Utils` package or a subpackage. Be sure to update [intro.md](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/intro.md) to include a brief description of the utility.
 
 # What Not to Contribute
 
