@@ -79,9 +79,9 @@ For actions and conditions find the corresponding entry in one of the config fil
 },
 ```
 
-`Remarks` are defined as a list of strings, each of which is wrapped in paragraph tags. The result in Visual Studio:
+`Remarks` is defined as a list of strings, each of which is wrapped in paragraph tags. The result:
 
-~[ContextActionArmorEnchantPool Remarks](~/images/contributing/action_remarks.png)
+![ContextActionArmorEnchantPool Remarks](~/images/contributing/action_remarks.png)
 
 For a component either find an existing entry in [Components.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Components.json)
 or add a new one:
@@ -115,11 +115,51 @@ or add a new one:
 
 #### Marking Fields Required or Ignored
 
+Fields can be marked as required or ignored for actions, conditions, and blueprint components.
+
+For actions and conditions find the corresponding entry in one of the config files, e.g. [ContextConditions.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Conditions/ContextConditions.json):
+
+```json
+{
+  "TypeName": "ContextConditionHasFact",
+  "RequiredFields": [ "m_Fact" ]
+},
+```
+
+`RequiredFields` is a list of field names which will be required parameters in the generated method. The result:
+
+![ContextConditionHasFact Required Field](~/images/contributing/condition_required_field.png)
+
+Example of ignoring a field in [ContextActions.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Actions/ContextActions.json):
+
+```json
+{
+  "TypeName": "ContextActionOnRandomAreaTarget",
+  "Remarks": [ "Only works inside of AbilityAreaEffectRunAction and only effects enemies." ],
+  "RequiredFields": [ "Actions" ],
+  "IgnoredFields": [ "OnEnemies" ]
+},
+```
+
+`IgnoredFields` is a list of field names which will not be exposed as parameters in the generated method. The result:
+
+![ContextConditionHasFact Required Field](~/images/contributing/action_ignored_field.png)
+
+For components find an existing entry in [Components.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Components.json)
+or add a new one:
+
+```json
+{
+  "TypeName": "AbilityCasterAlignment",
+  "RequiredFields": [ "alignment" ]
+},
+```
+
 #### Splitting Methods
 
 #### Marking Fields Constant
 
-#### Marking Related Fields
+#### Handling Related Fields
 
 #### Further Customizing Methods
 
