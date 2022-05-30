@@ -7,6 +7,8 @@ Contributions are welcome!
 3. Make your changes in the forked repo
 4. Submit a [Pull Request](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-a-pull-request)
     * Keep in mind the [Pull Request Requirements](#pull-request-requirements)
+    
+If you're confused by the configuration overrides don't want to contribute directly, feel free to file a [GitHub Issue](https://github.com/WittleWolfie/WW-Blueprint-Core/issues). Share what game type you're working with and whatever information you have on its usage, as well as any difficulties you had working with it.
 
 # What to Contribute
 
@@ -65,7 +67,7 @@ The sections below demonstrate how to use the configuration overrides for specif
 
 #### Adding Remarks
 
-Remarks can be added to actions, conditions, blueprint component methods, and blueprint fields.
+*Works On*: Actions, Blueprint Components, Conditions, Blueprint Fields
 
 For actions and conditions find the corresponding entry in one of the config files, e.g. [ContextActions.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Actions/ContextActions.json):
 
@@ -115,7 +117,7 @@ or add a new one:
 
 #### Marking Fields Required or Ignored
 
-Fields can be marked as required or ignored for actions, conditions, and blueprint components.
+*Works On*: Actions, Blueprint Components, Conditions
 
 For actions and conditions find the corresponding entry in one of the config files, e.g. [ContextConditions.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Conditions/ContextConditions.json):
 
@@ -155,15 +157,309 @@ or add a new one:
 },
 ```
 
+#### Handling Related Fields
+
+*Works On*: Actions, Blueprint Components, Conditions
+
+A common pattern in game types is a boolean field which indicates whether to use another field. This can be handled by using ignored fields and custom fields, e.g. in [Components.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Components.json):
+
+```json
+{
+  "TypeName": "AddContextStatBonus",
+  "RequiredFields": [ "Stat", "Value" ],
+  "IgnoredFields": [ "HasMinimal" ],
+  "CustomFields": [
+    {
+      "FieldName": "Minimal",
+      "ExtraAssignmentFmtLines": [ "{0}.HasMinimal = {1} is null;" ]
+    }
+  ]
+},
+```
+
+The resulting method accepts a parameter for `Minimal` but not `HasMinimal`. Internally `HasMinimal` will be set based on whether `Minimal` is specified. Here is the resulting method:
+
+```C#
+public TBuilder AddContextStatBonus(
+  StatType stat,
+  ContextValue value,
+  ModifierDescriptor? descriptor = null,
+  Action<BlueprintComponent, BlueprintComponent>? merge = null,
+  ComponentMerge mergeBehavior = ComponentMerge.Fail,
+  int? minimal = null,
+  int? multiplier = null)
+{
+  var component = new AddContextStatBonus();
+  component.Stat = stat;
+  component.Value = value;
+  component.Descriptor = descriptor ?? component.Descriptor;
+  component.Minimal = minimal ?? component.Minimal;
+  component.HasMinimal = minimal is null;
+  component.Multiplier = multiplier ?? component.Multiplier;
+  return AddUniqueComponent(component, mergeBehavior, merge);
+}
+```
+
+The `CustomFields` config is a list of fields by name customized using the `CustomField` class in [ParameterOverrides](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Params/ParameterOverrides.cs).
+
+`ExtraAssignmentFmtLines` is a list of format strings inserted after the field operation in the generated method. See `CustomField` for full documentation.
+
 #### Splitting Methods
 
-#### Marking Fields Constant
+*Works On*: Actions, Blueprint Components, Conditions
 
-#### Handling Related Fields
+Some game types implement several distinct uses, each requiring different configurations. For example, `ContextActionApplyBuff` can be used to apply a value with different durations. The resulting override generates three distinct methods:
+
+```json
+{
+  "TypeName": "ContextActionApplyBuff",
+  "RequiredFields": [ "m_Buff" ],
+  "Methods": [
+    {
+      "MethodName": "ApplyBuffPermanent",
+      "IgnoredFields": [ "DurationSeconds", "DurationValue" ],
+      "ConstantFields": [
+        {
+          "FieldName": "UseDurationSeconds",
+          "Value": "false"
+        },
+        {
+          "FieldName": "Permanent",
+          "Value": "true"
+        }
+      ]
+    },
+    {
+      "MethodName": "ApplyBuffWithDurationSeconds",
+      "RequiredFields": [ "DurationSeconds" ],
+      "IgnoredFields": [ "DurationValue" ],
+      "ConstantFields": [
+        {
+          "FieldName": "UseDurationSeconds",
+          "Value": "true"
+        },
+        {
+          "FieldName": "Permanent",
+          "Value": "false"
+        }
+      ]
+    },
+    {
+      "MethodName": "ApplyBuff",
+      "RequiredFields": [ "DurationValue" ],
+      "IgnoredFields": [ "DurationSeconds" ],
+      "ConstantFields": [
+        {
+          "FieldName": "UseDurationSeconds",
+          "Value": "false"
+        },
+        {
+          "FieldName": "Permanent",
+          "Value": "false"
+        }
+      ]
+    }
+  ]
+},
+```
+
+`Methods` is a list of method overrides, each of which generates a single method. Notice that `RequiredFields` is defined in the root override; anything defined in the root applies to all methods. In this case, `m_Buff` is a required parameter for all generated methods.
+
+The resulting code:
+
+```C#
+public static ActionsBuilder ApplyBuffPermanent(
+    this ActionsBuilder builder,
+    Blueprint<BlueprintBuffReference> buff,
+    bool? asChild = null,
+    bool? isFromSpell = null,
+    bool? isNotDispelable = null,
+    bool? sameDuration = null,
+    bool? toCaster = null)
+{
+  var element = ElementTool.Create<ContextActionApplyBuff>();
+  element.m_Buff = buff?.Reference;
+  element.AsChild = asChild ?? element.AsChild;
+  element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+  element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+  element.SameDuration = sameDuration ?? element.SameDuration;
+  element.ToCaster = toCaster ?? element.ToCaster;
+  element.Permanent = true;
+  element.UseDurationSeconds = false;
+  return builder.Add(element);
+}
+
+public static ActionsBuilder ApplyBuffWithDurationSeconds(
+    this ActionsBuilder builder,
+    Blueprint<BlueprintBuffReference> buff,
+    float durationSeconds,
+    bool? asChild = null,
+    bool? isFromSpell = null,
+    bool? isNotDispelable = null,
+    bool? sameDuration = null,
+    bool? toCaster = null)
+{
+  var element = ElementTool.Create<ContextActionApplyBuff>();
+  element.m_Buff = buff?.Reference;
+  element.DurationSeconds = durationSeconds;
+  element.AsChild = asChild ?? element.AsChild;
+  element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+  element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+  element.SameDuration = sameDuration ?? element.SameDuration;
+  element.ToCaster = toCaster ?? element.ToCaster;
+  element.Permanent = false;
+  element.UseDurationSeconds = true;
+  return builder.Add(element);
+}
+
+public static ActionsBuilder ApplyBuff(
+    this ActionsBuilder builder,
+    Blueprint<BlueprintBuffReference> buff,
+    ContextDurationValue durationValue,
+    bool? asChild = null,
+    bool? isFromSpell = null,
+    bool? isNotDispelable = null,
+    bool? sameDuration = null,
+    bool? toCaster = null)
+{
+  var element = ElementTool.Create<ContextActionApplyBuff>();
+  element.m_Buff = buff?.Reference;
+  builder.Validate(durationValue);
+  element.DurationValue = durationValue;
+  element.AsChild = asChild ?? element.AsChild;
+  element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+  element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+  element.SameDuration = sameDuration ?? element.SameDuration;
+  element.ToCaster = toCaster ?? element.ToCaster;
+  element.Permanent = false;
+  element.UseDurationSeconds = false;
+  return builder.Add(element);
+}
+```
+
+These methods ensure `ContextActionApplyBuff` is properly configured for the duration desired.
+
+Note the usage of `ConstantFields` to mark fields such as `Permanent` to a constant value based on the method.
 
 #### Further Customizing Methods
 
+The extent of configuration is defined in the various override classes. Supported customization includes:
+
+* Adding required imports
+* Adding extra method parameters
+* Specifying defualt values
+* Specifying field nullability
+* Specifying parameter comments
+* Customizing the assignment statement
+* Adding additional lines of code
+* Overriding blueprint field methods
+* Renaming parameters or methods (use sparingly)
+
+Here's a complex example from [ContextActions.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Actions/ContextActions.json):
+
+```json
+{
+  "TypeName": "ContextActionArmorEnchantPool",
+  "Remarks": [
+    "The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
+  ],
+  "Imports": [
+    "BlueprintTool",
+    "BlueprintItemEnchantment",
+    "BlueprintItemEnchantmentReference",
+    "ItemEnchantments"
+  ],
+  "RequiredFields": [ "EnchantPool", "DurationValue" ],
+  "IgnoredFields": [ "m_DefaultEnchantments" ],
+  "ExtraParams": [
+    {
+      "ParamName": "enchantmentPlus1",
+      "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+      "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
+      "DefaultValue": "null",
+      "OperationFmt": [
+        "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"
+      ]
+    },
+    {
+      "ParamName": "enchantmentPlus2",
+      "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+      "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
+      "DefaultValue": "null",
+      "OperationFmt": [
+        "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"
+      ]
+    },
+    {
+      "ParamName": "enchantmentPlus3",
+      "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+      "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
+      "DefaultValue": "null",
+      "OperationFmt": [
+        "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"
+      ]
+    },
+    {
+      "ParamName": "enchantmentPlus4",
+      "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+      "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
+      "DefaultValue": "null",
+      "OperationFmt": [
+        "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"
+      ]
+    },
+    {
+      "ParamName": "enchantmentPlus5",
+      "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+      "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
+      "DefaultValue": "null",
+      "OperationFmt": [
+        "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;"
+      ]
+    }
+  ]
+},
+```
+
+Internally `ContextActionArmorEnchantPool` has an array for enchantments but in practice only 5 entries are usable. To represent this five extra parameters are included with defaults chosen based on existing game blueprints.
+
 #### Field Type Behavior
+
+Some field types need global handling overrides. In that case you can edit [FieldTypes.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/FieldTypes.json).
+
+You can apply a variety of changes:
+
+* Replace with an alternate type
+    * Useful if you have a utility or wrapper class such as `ActionsBuilder` in place of `ActionList`
+* Control whether the field is validated
+* Change the assignment syntax
+* Change the null handling behavior
+* Add imports
+
+Here is the override for `ActionList`:
+
+```json
+{
+  "TypeName": "ActionList",
+  "TypeNameOverride": "ActionsBuilder",
+  "Imports": [ "ActionsBuilder" ],
+  "AssignmentFmtRhs": "{0}?.Build()",
+  "AssignmentIfNullRhs": "Utils.Constants.Empty.Actions"
+},
+```
+
+This results in every method requiring an `ActionList` requesting an `ActionsBuilder`. If nothing is provided `Utils.Constants.Empty.Actions` is assigned to prevent NPEs.
+
+Most commonly these overrides are useful for types which should never be null such as `PrefabLink`:
+
+```json
+{
+  "TypeName": "PrefabLink",
+  "AssignmentIfNullRhs": "Utils.Constants.Empty.PrefabLink"
+}
+```
+
+This ensure even if the type's default field value is null it will be set to `Utils.Constants.Empty.PrefabLink`.
 
 ### Hardcoded Overrides
 
