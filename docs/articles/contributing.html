@@ -69,14 +69,544 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="how-to-contribute">How to Contribute</h1>
 
-<p><strong>Disclaimer</strong>: These docs haven't been updated since 2.0 release. For now, disregard them. I will update them soon.</p>
 <p>Contributions are welcome!</p>
 <ol>
 <li><a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Fork</a> the <a href="https://github.com/WittleWolfie/WW-Blueprint-Core">Project Repo</a></li>
+<li><a href="#local-project-setup">Setup the project</a></li>
 <li>Make your changes in the forked repo</li>
-<li>Submit a <a href="https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-a-pull-request">Pull Request</a></li>
+<li>Submit a <a href="https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-a-pull-request">Pull Request</a>
+<ul>
+<li>Keep in mind the <a href="#pull-request-requirements">Pull Request Requirements</a></li>
+</ul>
+</li>
 </ol>
-<h2 id="local-project-setup">Local Project Setup</h2>
+<p>If you're confused by the configuration overrides don't want to contribute directly, feel free to file a <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/issues">GitHub Issue</a>. Share what game type you're working with and whatever information you have on its usage, as well as any difficulties you had working with it.</p>
+<h1 id="what-to-contribute">What to Contribute</h1>
+<h2 id="knowledge-of-game-types">Knowledge of Game Types</h2>
+<p>Possibly the most helpful contribution you could provide! If you are familiar with the usage of game types, specifically any <code>Condition</code>, <code>GameAction</code>, <code>BlueprintComponent</code>, or <code>BlueprintScriptableObject</code>, you can improve the Builder and Configurator APIs and documentation.</p>
+<p>Examples contributions:</p>
+<ul>
+<li>Remarks on behavior of game types or the relationship between field values
+<ul>
+<li><code>AbilityEffectMiss</code> needs to be added after another <code>AbilityApplyEffect</code> or it will always trigger.</li>
+</ul>
+</li>
+<li>Indicating which fields for a game type are required or can be ignored
+<ul>
+<li>The <code>AddFacts</code> component must set <code>m_Facts</code>.</li>
+</ul>
+</li>
+<li>Customizing the API to reflect more complex interactions such as constant fields or related fields
+<ul>
+<li>The <code>AddContextStatBonus</code> field <code>HasMinimal</code> should be true when <code>Minimal</code> is set and false otherwise.</li>
+</ul>
+</li>
+<li>Adding validation of blueprint or component configuration
+<ul>
+<li><code>BlueprintAbility</code> can only have one <code>AbilityDeliverEffect</code> component</li>
+</ul>
+</li>
+</ul>
+<p>Most of these are accomplished through configuration overrides or hardcoded overrides. Validation is handled by classes within the <code>BlueprintCore.Utils.Validation</code> namespace. Some configurator API changes require implementing a custom configurator class.</p>
+<p>The sections below explain how to make these changes and provide examples already in use.</p>
+<h3 id="using-configuration-overrides">Using Configuration Overrides</h3>
+<p>The Blueprint configurator, ActionsBuilder, and ConditionsBuilder APIs are automatically by iterating over types in the game assembly generating methods and classes to construct those types. This is handled by the BlueprintCoreGen and customized through JSON config files and static rules in the <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides">Overrides</a> package:</p>
+<ul>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Actions">Actions</a>
+<ul>
+<li>Each file supports an ActionsBuilder extension class, e.g. <code>AreaActions.json</code></li>
+<li>The config determine which actions belong in that extension class as well as custom handling for those actions</li>
+<li>Each is a <code>ConstructorMethod</code>, defined in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Methods/MethodOverrides.cs">MethodOverrides</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints">Blueprints</a>
+<ul>
+<li><code>Blueprints.json</code> supports overrides for handling blueprint fields in configurator classes
+<ul>
+<li>Each entry is a <code>BlueprintOverride</code>, defined in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Class/Configurators.cs">Configurators</a></li>
+</ul>
+</li>
+<li><code>Components.json</code> supports overrides for handling BlueprintComponent methods
+<ul>
+<li>Each entry is a <code>ConstructorMethod</code>, defined in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Methods/MethodOverrides.cs">MethodOverrides</a></li>
+</ul>
+</li>
+<li><code>ComponentsAllowedOn.json</code> overrides which Blueprint types a given component can be used on
+<ul>
+<li>Each entry is a <code>ComponentsAllowedOnOverride</code>, defined in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Class/Configurators.cs">Configurators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Conditions">Conditions</a>
+<ul>
+<li>Each file supports a ConditionsBuilder extension class, e.g. <code>AreaConditions.json</code></li>
+<li>The config determine which conditions belong in that extension class as well as custom handling for those conditions</li>
+<li>Each entry is a <code>ConstructorMethod</code>, defined in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Methods/MethodOverrides.cs">MethodOverrides</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Examples">Examples</a>
+<ul>
+<li>Each file is a generated list of usage examples for game types</li>
+<li><code>Examples.cs</code> is not automatically generated; it contains hand selected examples</li>
+</ul>
+</li>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Ignored">Ignored</a>
+<ul>
+<li>Each file is a generated list of types to ignore</li>
+<li><code>Ignored.cs</code> is not automatically generated; it contains hand selected fields and game types to ignore</li>
+</ul>
+</li>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Fields.json">Fields.json</a>
+<ul>
+<li>Overrides for specific fields which apply to all inherited types</li>
+<li>Each entry is a <code>FieldOverride</code>, defined in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Params/ParameterOverrides.cs">ParameterOverrides</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/FieldTypes.json">FieldTypes.json</a>
+<ul>
+<li>Overrides for handling specific game types</li>
+<li>Each entry is a <code>FieldTypeOverride</code>, defined in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Params/ParameterOverrides.cs">ParameterOverrides</a></li>
+</ul>
+</li>
+</ul>
+<p>The sections below demonstrate how to use the configuration overrides for specific changes. Once you have your configuration override ready to test see <a href="#using-blueprintcoregen">Using BlueprintCoreGen</a>.</p>
+<h4 id="adding-remarks">Adding Remarks</h4>
+<p><em>Works On</em>: Actions, Blueprint Components, Conditions, Blueprint Fields</p>
+<p>For actions and conditions find the corresponding entry in one of the config files, e.g. <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Actions/ContextActions.json">ContextActions.json</a>:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;ContextActionArmorEnchantPool&quot;,
+  &quot;Remarks&quot;: [
+    &quot;The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.&quot;
+  ],
+  ...
+},
+</code></pre>
+<p><code>Remarks</code> is defined as a list of strings, each of which is wrapped in paragraph tags. The result:</p>
+<p><img src="../images/contributing/action_remarks.png" alt="ContextActionArmorEnchantPool Remarks"></p>
+<p>For a component either find an existing entry in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Components.json">Components.json</a>
+or add a new one:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;AbilityVariants&quot;,
+  &quot;Remarks&quot;: [
+    &quot;This ability should be the parent as defined in &lt;see cref=\&quot;BlueprintAbility.m_Parent\&quot;/&gt; for each variant.&quot;,
+    &quot;If you remove a variant be sure to clear &lt;see cref=\&quot;BlueprintAbility.m_Parent\&quot;/&gt; for that ability. You can set it to &lt;c&gt;BlueprintTool.GetRef&amp;lt;BlueprintAbilityReference&amp;gt;(null)&lt;/c&gt;.&quot;
+  ]
+}
+</code></pre>
+<p>For a blueprint field find an existing entry in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Blueprints.json">Blueprints.json</a>
+or add a new one:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;BlueprintBuff&quot;,
+  &quot;Fields&quot;: [
+    {
+      &quot;FieldName&quot;: &quot;Stacking&quot;,
+      &quot;Remarks&quot;: [
+        &quot;Use &lt;see cref=\&quot;SetRanks(int)\&quot;/&gt; for StackingType.Rank.&quot;
+      ]
+    }
+  ]
+}
+</code></pre>
+<h4 id="marking-fields-required-or-ignored">Marking Fields Required or Ignored</h4>
+<p><em>Works On</em>: Actions, Blueprint Components, Conditions</p>
+<p>For actions and conditions find the corresponding entry in one of the config files, e.g. <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Conditions/ContextConditions.json">ContextConditions.json</a>:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;ContextConditionHasFact&quot;,
+  &quot;RequiredFields&quot;: [ &quot;m_Fact&quot; ]
+},
+</code></pre>
+<p><code>RequiredFields</code> is a list of field names which will be required parameters in the generated method. The result:</p>
+<p><img src="../images/contributing/condition_required_field.png" alt="ContextConditionHasFact Required Field"></p>
+<p>Example of ignoring a field in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Actions/ContextActions.json">ContextActions.json</a>:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;ContextActionOnRandomAreaTarget&quot;,
+  &quot;Remarks&quot;: [ &quot;Only works inside of AbilityAreaEffectRunAction and only effects enemies.&quot; ],
+  &quot;RequiredFields&quot;: [ &quot;Actions&quot; ],
+  &quot;IgnoredFields&quot;: [ &quot;OnEnemies&quot; ]
+},
+</code></pre>
+<p><code>IgnoredFields</code> is a list of field names which will not be exposed as parameters in the generated method. The result:</p>
+<p><img src="../images/contributing/action_ignored_field.png" alt="ContextConditionHasFact Required Field"></p>
+<p>For components find an existing entry in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Components.json">Components.json</a>
+or add a new one:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;AbilityCasterAlignment&quot;,
+  &quot;RequiredFields&quot;: [ &quot;alignment&quot; ]
+},
+</code></pre>
+<h4 id="handling-related-fields">Handling Related Fields</h4>
+<p><em>Works On</em>: Actions, Blueprint Components, Conditions</p>
+<p>A common pattern in game types is a boolean field which indicates whether to use another field. This can be handled by using ignored fields and custom fields, e.g. in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Components.json">Components.json</a>:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;AddContextStatBonus&quot;,
+  &quot;RequiredFields&quot;: [ &quot;Stat&quot;, &quot;Value&quot; ],
+  &quot;IgnoredFields&quot;: [ &quot;HasMinimal&quot; ],
+  &quot;CustomFields&quot;: [
+    {
+      &quot;FieldName&quot;: &quot;Minimal&quot;,
+      &quot;ExtraAssignmentFmtLines&quot;: [ &quot;{0}.HasMinimal = {1} is null;&quot; ]
+    }
+  ]
+},
+</code></pre>
+<p>The resulting method accepts a parameter for <code>Minimal</code> but not <code>HasMinimal</code>. Internally <code>HasMinimal</code> will be set based on whether <code>Minimal</code> is specified. Here is the resulting method:</p>
+<pre><code class="lang-C#">public TBuilder AddContextStatBonus(
+  StatType stat,
+  ContextValue value,
+  ModifierDescriptor? descriptor = null,
+  Action&lt;BlueprintComponent, BlueprintComponent&gt;? merge = null,
+  ComponentMerge mergeBehavior = ComponentMerge.Fail,
+  int? minimal = null,
+  int? multiplier = null)
+{
+  var component = new AddContextStatBonus();
+  component.Stat = stat;
+  component.Value = value;
+  component.Descriptor = descriptor ?? component.Descriptor;
+  component.Minimal = minimal ?? component.Minimal;
+  component.HasMinimal = minimal is null;
+  component.Multiplier = multiplier ?? component.Multiplier;
+  return AddUniqueComponent(component, mergeBehavior, merge);
+}
+</code></pre>
+<p>The <code>CustomFields</code> config is a list of fields by name customized using the <code>CustomField</code> class in <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Params/ParameterOverrides.cs">ParameterOverrides</a>.</p>
+<p><code>ExtraAssignmentFmtLines</code> is a list of format strings inserted after the field operation in the generated method. See <code>CustomField</code> for full documentation.</p>
+<h4 id="splitting-methods">Splitting Methods</h4>
+<p><em>Works On</em>: Actions, Blueprint Components, Conditions</p>
+<p>Some game types implement several distinct uses, each requiring different configurations. For example, <code>ContextActionApplyBuff</code> can be used to apply a value with different durations. The resulting override generates three distinct methods:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;ContextActionApplyBuff&quot;,
+  &quot;RequiredFields&quot;: [ &quot;m_Buff&quot; ],
+  &quot;Methods&quot;: [
+    {
+      &quot;MethodName&quot;: &quot;ApplyBuffPermanent&quot;,
+      &quot;IgnoredFields&quot;: [ &quot;DurationSeconds&quot;, &quot;DurationValue&quot; ],
+      &quot;ConstantFields&quot;: [
+        {
+          &quot;FieldName&quot;: &quot;UseDurationSeconds&quot;,
+          &quot;Value&quot;: &quot;false&quot;
+        },
+        {
+          &quot;FieldName&quot;: &quot;Permanent&quot;,
+          &quot;Value&quot;: &quot;true&quot;
+        }
+      ]
+    },
+    {
+      &quot;MethodName&quot;: &quot;ApplyBuffWithDurationSeconds&quot;,
+      &quot;RequiredFields&quot;: [ &quot;DurationSeconds&quot; ],
+      &quot;IgnoredFields&quot;: [ &quot;DurationValue&quot; ],
+      &quot;ConstantFields&quot;: [
+        {
+          &quot;FieldName&quot;: &quot;UseDurationSeconds&quot;,
+          &quot;Value&quot;: &quot;true&quot;
+        },
+        {
+          &quot;FieldName&quot;: &quot;Permanent&quot;,
+          &quot;Value&quot;: &quot;false&quot;
+        }
+      ]
+    },
+    {
+      &quot;MethodName&quot;: &quot;ApplyBuff&quot;,
+      &quot;RequiredFields&quot;: [ &quot;DurationValue&quot; ],
+      &quot;IgnoredFields&quot;: [ &quot;DurationSeconds&quot; ],
+      &quot;ConstantFields&quot;: [
+        {
+          &quot;FieldName&quot;: &quot;UseDurationSeconds&quot;,
+          &quot;Value&quot;: &quot;false&quot;
+        },
+        {
+          &quot;FieldName&quot;: &quot;Permanent&quot;,
+          &quot;Value&quot;: &quot;false&quot;
+        }
+      ]
+    }
+  ]
+},
+</code></pre>
+<p><code>Methods</code> is a list of method overrides, each of which generates a single method. Notice that <code>RequiredFields</code> is defined in the root override; anything defined in the root applies to all methods. In this case, <code>m_Buff</code> is a required parameter for all generated methods.</p>
+<p>The resulting code:</p>
+<pre><code class="lang-C#">public static ActionsBuilder ApplyBuffPermanent(
+    this ActionsBuilder builder,
+    Blueprint&lt;BlueprintBuffReference&gt; buff,
+    bool? asChild = null,
+    bool? isFromSpell = null,
+    bool? isNotDispelable = null,
+    bool? sameDuration = null,
+    bool? toCaster = null)
+{
+  var element = ElementTool.Create&lt;ContextActionApplyBuff&gt;();
+  element.m_Buff = buff?.Reference;
+  element.AsChild = asChild ?? element.AsChild;
+  element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+  element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+  element.SameDuration = sameDuration ?? element.SameDuration;
+  element.ToCaster = toCaster ?? element.ToCaster;
+  element.Permanent = true;
+  element.UseDurationSeconds = false;
+  return builder.Add(element);
+}
+
+public static ActionsBuilder ApplyBuffWithDurationSeconds(
+    this ActionsBuilder builder,
+    Blueprint&lt;BlueprintBuffReference&gt; buff,
+    float durationSeconds,
+    bool? asChild = null,
+    bool? isFromSpell = null,
+    bool? isNotDispelable = null,
+    bool? sameDuration = null,
+    bool? toCaster = null)
+{
+  var element = ElementTool.Create&lt;ContextActionApplyBuff&gt;();
+  element.m_Buff = buff?.Reference;
+  element.DurationSeconds = durationSeconds;
+  element.AsChild = asChild ?? element.AsChild;
+  element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+  element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+  element.SameDuration = sameDuration ?? element.SameDuration;
+  element.ToCaster = toCaster ?? element.ToCaster;
+  element.Permanent = false;
+  element.UseDurationSeconds = true;
+  return builder.Add(element);
+}
+
+public static ActionsBuilder ApplyBuff(
+    this ActionsBuilder builder,
+    Blueprint&lt;BlueprintBuffReference&gt; buff,
+    ContextDurationValue durationValue,
+    bool? asChild = null,
+    bool? isFromSpell = null,
+    bool? isNotDispelable = null,
+    bool? sameDuration = null,
+    bool? toCaster = null)
+{
+  var element = ElementTool.Create&lt;ContextActionApplyBuff&gt;();
+  element.m_Buff = buff?.Reference;
+  builder.Validate(durationValue);
+  element.DurationValue = durationValue;
+  element.AsChild = asChild ?? element.AsChild;
+  element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+  element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+  element.SameDuration = sameDuration ?? element.SameDuration;
+  element.ToCaster = toCaster ?? element.ToCaster;
+  element.Permanent = false;
+  element.UseDurationSeconds = false;
+  return builder.Add(element);
+}
+</code></pre>
+<p>These methods ensure <code>ContextActionApplyBuff</code> is properly configured for the duration desired.</p>
+<p>Note the usage of <code>ConstantFields</code> to mark fields such as <code>Permanent</code> to a constant value based on the method.</p>
+<h4 id="further-customizing-methods">Further Customizing Methods</h4>
+<p>The extent of configuration is defined in the various override classes. Supported customization includes:</p>
+<ul>
+<li>Adding required imports</li>
+<li>Adding extra method parameters</li>
+<li>Specifying defualt values</li>
+<li>Specifying field nullability</li>
+<li>Specifying parameter comments</li>
+<li>Customizing the assignment statement</li>
+<li>Adding additional lines of code</li>
+<li>Overriding blueprint field methods</li>
+<li>Renaming parameters or methods (use sparingly)</li>
+</ul>
+<p>Here's a complex example from <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Actions/ContextActions.json">ContextActions.json</a>:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;ContextActionArmorEnchantPool&quot;,
+  &quot;Remarks&quot;: [
+    &quot;The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied.&quot;
+  ],
+  &quot;Imports&quot;: [
+    &quot;BlueprintTool&quot;,
+    &quot;BlueprintItemEnchantment&quot;,
+    &quot;BlueprintItemEnchantmentReference&quot;,
+    &quot;ItemEnchantments&quot;
+  ],
+  &quot;RequiredFields&quot;: [ &quot;EnchantPool&quot;, &quot;DurationValue&quot; ],
+  &quot;IgnoredFields&quot;: [ &quot;m_DefaultEnchantments&quot; ],
+  &quot;ExtraParams&quot;: [
+    {
+      &quot;ParamName&quot;: &quot;enchantmentPlus1&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus1&quot;,
+      &quot;DefaultValue&quot;: &quot;null&quot;,
+      &quot;OperationFmt&quot;: [
+        &quot;{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;&quot;
+      ]
+    },
+    {
+      &quot;ParamName&quot;: &quot;enchantmentPlus2&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus2&quot;,
+      &quot;DefaultValue&quot;: &quot;null&quot;,
+      &quot;OperationFmt&quot;: [
+        &quot;{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;&quot;
+      ]
+    },
+    {
+      &quot;ParamName&quot;: &quot;enchantmentPlus3&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus3&quot;,
+      &quot;DefaultValue&quot;: &quot;null&quot;,
+      &quot;OperationFmt&quot;: [
+        &quot;{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;&quot;
+      ]
+    },
+    {
+      &quot;ParamName&quot;: &quot;enchantmentPlus4&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus4&quot;,
+      &quot;DefaultValue&quot;: &quot;null&quot;,
+      &quot;OperationFmt&quot;: [
+        &quot;{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;&quot;
+      ]
+    },
+    {
+      &quot;ParamName&quot;: &quot;enchantmentPlus5&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus5&quot;,
+      &quot;DefaultValue&quot;: &quot;null&quot;,
+      &quot;OperationFmt&quot;: [
+        &quot;{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;&quot;
+      ]
+    }
+  ]
+},
+</code></pre>
+<p>Internally <code>ContextActionArmorEnchantPool</code> has an array for enchantments but in practice only 5 entries are usable. To represent this five extra parameters are included with defaults chosen based on existing game blueprints.</p>
+<h4 id="field-type-behavior">Field Type Behavior</h4>
+<p>Some field types need global handling overrides. In that case you can edit <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/FieldTypes.json">FieldTypes.json</a>.</p>
+<p>You can apply a variety of changes:</p>
+<ul>
+<li>Replace with an alternate type
+<ul>
+<li>Useful if you have a utility or wrapper class such as <code>ActionsBuilder</code> in place of <code>ActionList</code></li>
+</ul>
+</li>
+<li>Control whether the field is validated</li>
+<li>Change the assignment syntax</li>
+<li>Change the null handling behavior</li>
+<li>Add imports</li>
+</ul>
+<p>Here is the override for <code>ActionList</code>:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;ActionList&quot;,
+  &quot;TypeNameOverride&quot;: &quot;ActionsBuilder&quot;,
+  &quot;Imports&quot;: [ &quot;ActionsBuilder&quot; ],
+  &quot;AssignmentFmtRhs&quot;: &quot;{0}?.Build()&quot;,
+  &quot;AssignmentIfNullRhs&quot;: &quot;Utils.Constants.Empty.Actions&quot;
+},
+</code></pre>
+<p>This results in every method requiring an <code>ActionList</code> requesting an <code>ActionsBuilder</code>. If nothing is provided <code>Utils.Constants.Empty.Actions</code> is assigned to prevent NPEs.</p>
+<p>Most commonly these overrides are useful for types which should never be null such as <code>PrefabLink</code>:</p>
+<pre><code class="lang-json">{
+  &quot;TypeName&quot;: &quot;PrefabLink&quot;,
+  &quot;AssignmentIfNullRhs&quot;: &quot;Utils.Constants.Empty.PrefabLink&quot;
+}
+</code></pre>
+<p>This ensure even if the type's default field value is null it will be set to <code>Utils.Constants.Empty.PrefabLink</code>.</p>
+<h3 id="hardcoded-overrides">Hardcoded Overrides</h3>
+<p>There are a few hardcoded overrides:</p>
+<ul>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/GlobalOverrides.cs">GlobalOverrides</a>
+<ul>
+<li><code>CustomBlueprintConfigurators</code> used in conjunection with <a href="#custom-configurators">Custom Configurators</a></li>
+<li><code>TypeNameOverrides</code> overrides the type name used for field types; useful when you run into type name conflicts in a file</li>
+<li><code>ParamNameOverrides</code> overrides the name of a field as a parameter; useful for field names such as <code>m_Default</code> which generate a C# keyword for their parameter name</li>
+</ul>
+</li>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Examples/Examples.cs">Examples</a>
+<ul>
+<li><code>ManualExamples</code> defines manual examples</li>
+</ul>
+</li>
+<li><a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Ignored/Ignored.cs">Ignored</a>
+<ul>
+<li><code>IgnoredFields</code> defines fields to ignore by type (checked with inheritance)</li>
+<li><code>IgnoredTypes</code> defines types to ignore entirely when generating code</li>
+</ul>
+</li>
+</ul>
+<h3 id="validation">Validation</h3>
+<p>Validation code is defined in the <code>BlueprintCore.Utils.Validation</code> package.</p>
+<ul>
+<li><code>AttributeValidator</code> checks fields annotated using Owlcat's attributes for conformance
+<ul>
+<li>This should not need changes unless Owlcat implements a new attribute</li>
+</ul>
+</li>
+<li><code>BlueprintValidator</code> checks blueprints for configuration problems
+<ul>
+<li>Use this to check for required or illegal configurations in a blueprint
+<ul>
+<li>For example <code>BlueprintAbility</code> usage of <code>Ability</code> components is validated</li>
+</ul>
+</li>
+<li>Add type specific logic to an override of the <code>Check</code> method, e.g. <code>Check(BlueprintAbility, ValidationContext)</code></li>
+</ul>
+</li>
+<li><code>ComponentValidator</code> checks blueprint components for configuration problems
+<ul>
+<li>Add type specific logic to an override of the <code>Check</code> method</li>
+</ul>
+</li>
+<li><code>ElementValidator</code> checks element types for configuration problems
+<ul>
+<li>This should not need changes</li>
+</ul>
+</li>
+</ul>
+<h3 id="custom-configurators">Custom Configurators</h3>
+<p>Blueprint configurators are implemented using a tree inheritance structure and the curiously recurring template pattern. A limitation of this pattern is that concrete configurator implementations cannot inherit from another concrete configurator, since it breaks the return type for the methods.</p>
+<p>To implement a custom configurator (i.e. replace an existing concrete configurator) you need to:</p>
+<ol>
+<li>Create your configurator class and add it to <code>BlueprintCore.Blueprints.CustomConfigurators</code>
+<ul>
+<li>Use the same class declaration as the generated configurator</li>
+</ul>
+</li>
+<li>Update <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/GlobalOverrides.cs">GlobalOverrides</a>
+<ul>
+<li>Add the type of blueprint configurator to <code>CustomBlueprintConfigurators</code></li>
+</ul>
+</li>
+</ol>
+<p>When creating a custom configurator:</p>
+<ul>
+<li>Keep the same relative namespace as the generated configurator</li>
+<li>Provide static constructors
+<ul>
+<li>All configurators should have the <code>For(blueprint)</code> constructor for creating based on existing blueprints</li>
+<li>Unless your configurator enforces specific inputs for creating a new blueprint, implement the <code>New(name, guid)</code> constructor
+<ul>
+<li>New blueprint constructors must call <code>BlueprintTool.Create&lt;&gt;(name, guid)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return the configurator in every method to support method chaining</li>
+<li>Do not modify the blueprint directly; use <code>OnConfigureInternal()</code></li>
+<li>Use <code>&lt;inheritdoc/&gt;</code> where possible</li>
+</ul>
+<p>Look at <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/UnitLogic/Abilities/Ability.cs">Ability.cs</a> as an example.</p>
+<p>Notice the declaration of <code>SetCustomRange()</code>:</p>
+<pre><code class="lang-C#">public new AbilityConfigurator SetCustomRange(Feet rangeInFeet)
+</code></pre>
+<p>The use of <code>new</code> is intentional because it overrides the generated method for <code>SetCustomRange()</code> defined in the base configurator for <code>BlueprintAbility</code>.</p>
+<h2 id="actions-conditions-and-components">Actions, Conditions, and Components</h2>
+<p>TODO</p>
+<h2 id="utilities">Utilities</h2>
+<p>Add utility classes to the <code>BlueprintCore.Utils</code> package or a subpackage. Be sure to update <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/intro.md">intro.md</a> to include a brief description of the utility.</p>
+<h1 id="what-not-to-contribute">What Not to Contribute</h1>
+<p>BlueprintCore is not the appropriate library for:</p>
+<ul>
+<li>Game content or behavior changes</li>
+<li>Bugfixes</li>
+<li>Anything requiring a harmony patch</li>
+</ul>
+<p>If you have a very good reason for including a harmony patch let me know and we can discuss. The problem with patching is that multiple copies of the patch will be installed if multiple mods use BlueprintCore. As a result patches must be carefully implemented to function properly.</p>
+<h1 id="local-project-setup">Local Project Setup</h1>
 <ol>
 <li>Install NuGet Packages
 <ul>
@@ -96,15 +626,14 @@
 <li>Clean the project
 <ul>
 <li>This copies the dependent assemblies to the project directory and publicizes Assembly-CSharp</li>
-<li>If you don't have Unity Mod Manager installed you need to add a reference to a Harmony assembly</li>
+<li>Note that you should already have Unity Mod Manager installed</li>
 </ul>
 </li>
 <li>Configure Hard Links
 <ul>
-<li>Delete the <code>docs</code> folder in the root directory and <code>index.md</code> in the root of the BlueprintCore project</li>
+<li>Delete the <code>docs</code> folder in the root directory</li>
 <li>Open an admin command promt, navigate to the solution's directory, and run the following commands:
 <ul>
-<li><code>mklink /h BlueprintCore\index.md README.md</code></li>
 <li><code>mklink /j docs BlueprintCore\_site</code></li>
 </ul>
 </li>
@@ -113,7 +642,8 @@
 </li>
 </ol>
 <p><strong>Note</strong>: It is recommended to build using the Debug configuration. The Release configuration generates documentation which takes several minutes.</p>
-<h2 id="pull-request-requirements">Pull Request Requirements</h2>
+<h2 id="testing-changes">Testing Changes</h2>
+<h1 id="pull-request-requirements">Pull Request Requirements</h1>
 <ol>
 <li>Change Description
 <ul>
@@ -121,7 +651,11 @@
 <li>Why is the change needed?</li>
 </ul>
 </li>
-<li>Add/Update Unit Tests</li>
+<li>Add/Update Unit Tests <strong>Ignore this currently, Unit Test project needs to be fixed.</strong>
+<ul>
+<li>Generated code does not need unit tests</li>
+</ul>
+</li>
 <li>Code Style
 <ul>
 <li>Limit lines to 120 characters
@@ -129,7 +663,7 @@
 <li>Relaxed for comments, especially comments with long links</li>
 </ul>
 </li>
-<li>2 Space Indent, 4 Space Indent for wrapped lines</li>
+<li>2 Space Indents</li>
 <li>Always use braces, even for one line statements</li>
 <li>Stay consistent with existing code and prefer common C# styling otherwise</li>
 <li>Remove unused and sort usings</li>
@@ -137,19 +671,23 @@
 </li>
 <li>Documentation
 <ul>
-<li>Use XML style comments</li>
-<li>Builder and configurator methods that modify or create game types or fields must declare the type or field in their comment summary</li>
-<li>String arguments that are used to reference blueprints must declare the type of blueprint they represent</li>
+<li>Use XML style comments to document classes and public methods
+<ul>
+<li>Explain what it's for, how to use it, and any constraints on inputs</li>
+<li>Consider including examples using the <code>&lt;example&gt;</code> tag</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>No Patches
 <ul>
 <li>Harmony patches are not allowed since the library may be included in multiple mods.</li>
+<li>If you really want to add a patch, contact me to explain why. Note that it will have to be idempotent, i.e. function correctly if applied multiple times</li>
 </ul>
 </li>
 <li>Before Committing
 <ul>
-<li>Rebuild the solution using the Release configuration to ensure documentation is updated</li>
+<li>Rebuild the solution using the <strong>Release</strong> configuration to update documentation</li>
 <li>Run all unit tests
 <ul>
 <li>Note: If tests throw exceptions when adding blueprints from TestData just re-run them. There is an issue with static data sticking around that I have not been able to resolve.</li>
@@ -158,66 +696,43 @@
 </ul>
 </li>
 </ol>
-<h2 id="using-blueprintcoregen">Using BlueprintCoreGen</h2>
-<p>After making updates you can run the code generation directly in visual studio. Once it completes the output is in <code>bin/&lt;Release|Debug&gt;/net5.0/</code>:</p>
+<h1 id="using-blueprintcoregen">Using BlueprintCoreGen</h1>
+<p>BlueprintCoreGen is the tool responsible for generating the ActionsBuilder, ConditionsBuilder, and Blueprint configurator classes. It can execute in one of two modes: Analysis and Code Generation. In both modes be sure to run it in Debug configuration.</p>
+<h2 id="analysis">Analysis</h2>
+<p>Analysis is usually only needed to be run after the game patches so you probably don't need to use it. If you want to anyways:</p>
 <ol>
-<li>Run the powershell script <code>UpdateCodeGen.ps1</code> in the output to propagate changes to the <code>BlueprintCore</code> project</li>
-<li>Remove unused usings from the updated code in <code>BlueprintCore</code>
+<li>Set <code>RunTypeUsageAnalysis</code> to <code>true</code> in Program.cs</li>
+<li>Run the program</li>
+</ol>
+<p>Once it is completed check the output directory (<code>bin/debug/net5.0</code>). There should be a folder titled <code>Analysis</code> which contains eight files:</p>
 <ul>
-<li>In Visual Studio find an unused using, hit <code>Alt + Enter</code>, and select <code>Fix all occurrences in Solution</code>
-<img src="../images/remove_usings.png" alt="Remove unused usings"></li>
+<li>ExampleBlueprintComponents.cs</li>
+<li>ExampleBlueprintScriptableObjects.cs</li>
+<li>ExampleConditions.cs</li>
+<li>ExampleGameActions.cs</li>
+<li>IgnoredBlueprintComponents.cs</li>
+<li>IgnoredBlueprintScriptableObjects.cs</li>
+<li>IgnoredConditions.cs</li>
+<li>IgnoredGameActions.cs</li>
+</ul>
+<ol>
+<li>Copy the four <code>Example*.cs</code> files into the project folder <code>CodeGen/Overrides/Example</code></li>
+<li>Copy the four <code>Ignored*.cs</code> files into the project folder <code>CodeGen/Overrides/Ignored</code></li>
+</ol>
+<p>Known Issue: You may have to replace a few type references with fully qualified type names due to naming conflicts.</p>
+<h2 id="code-generation">Code Generation</h2>
+<p>If you make changes to how code is generated or modify one of the <code>*.json</code> config files in the <code>Overrides</code> directory, you'll need to run Code Generation.</p>
+<ol>
+<li>Set <code>RunTypeUsageAnalysis</code> to <code>false</code> in Program.cs</li>
+<li>Run the program</li>
+<li>Once it completes, navigate to the output directory (<code>bin/debug/net5.0</code>) and execute <code>UpdateCodeGen.ps1</code>
+<ul>
+<li>This must be executed from the output directory</li>
 </ul>
 </li>
 </ol>
-<h2 id="what-to-contribute">What to Contribute</h2>
-<h3 id="documentation">Documentation</h3>
-<p>This is likely the most helpful thing you can contribute. One of the biggest challenges to modding the game is understanding the behavior of game classes such as actions, conditions, and blueprint components.</p>
-<p>If you use and understand the in game classes, update the corresponding configurator or builder method to explain the in-game effect and proper usage.</p>
-<h3 id="template-blueprint-configurators">Template Blueprint Configurators</h3>
-<p>For blueprints with complex fields or field relationships, hand-written templates are preferable. They can also be used for custom validation code. When defining a new configurator:</p>
-<ul>
-<li>Implement configurators following the blueprint's type inheritance
-<ul>
-<li>You <em>must</em> provide templates for all configurators in the inheritance tree up to <a href="xref:BlueprintCore.Blueprints.Configurators.BlueprintConfigurator%601">BlueprintConfigurator</a>. This is a limitation of code generation.</li>
-</ul>
-</li>
-<li>Add a <a href="xref:BlueprintCore.Utils.GeneratedAttribute">Generated attribute</a> indicating which blueprint type is implemented</li>
-<li>Provide the appropriate <code>New()</code> and <code>For()</code> methods</li>
-<li>Add methods for all fields defined in the blueprint, but not inherited fields</li>
-<li>Do not include component methods</li>
-</ul>
-<h3 id="configurator-and-builder-methods">Configurator and Builder Methods</h3>
-<p>For components, actions, and conditions with complex parameters or parameter relationships, hand-written templates are preferable.</p>
-<p>Configurator method templates are defined in the <code>BlueprintComponents</code> folder and grouped logically into classes. Only the method definition is used, the class declaration is used to group templates.</p>
-<p>Builder method templates are defined in the <code>ActionsBuilder</code> and <code>ConditionsBuilder</code> folders. They are defined directly in the output class.</p>
-<ul>
-<li>Add a <a href="xref:BlueprintCore.Utils.ImplementsAttribute">Implements attribute</a> to each method indicating which type is implemented
-<ul>
-<li>Multiple methods can have the same implements attribute; they will be copied together into the relevant output class</li>
-</ul>
-</li>
-<li>Method declarations should enforce required and optional parameters while providing sensible defaults
-<ul>
-<li>Parameters with an object type defined in game library should be checked with the validator</li>
-<li>Use multiple methods for a type if there are distinct valid configurations
-<ul>
-<li>Example: <a href="xref:BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DealDamage(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription,Kingmaker.UnitLogic.Mechanics.ContextDiceValue,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Nullable%7BSystem.Int32%7D,System.Nullable%7BKingmaker.UnitLogic.Abilities.AbilitySharedValue%7D,System.Nullable%7BKingmaker.UnitLogic.Abilities.AbilitySharedValue%7D)">DealDamage</a> and related methods</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>When adding a builder method, remove the auto-generated comment attribute for types already represented</li>
-<li>Document the implemented game type in the method comment, as well as any usage restrictions</li>
-<li>Document the blueprint type of any string arguments used to reference blueprints</li>
-<li>Document parameters with value or usage restrictions</li>
-</ul>
-<h3 id="new-actions-conditions-and-components">New Actions, Conditions, and Components</h3>
-<p>If you create new actions, conditions, or blueprint components that can be re-used, feel free to add them to the library.</p>
-<ul>
-<li>Implement the necessary configurator and builder methods to support them</li>
-</ul>
-<h3 id="new-utilities">New Utilities</h3>
-<p>If you have utilities that would help other modders, feel free to add them to the library.</p>
+<p>Make sure that BlueprintCore builds, then remove unused using statements. <a href="https://www.redbitdev.com/post/quick-tip-remove-unused-using-references-in-visual-studio">Here is a quick guide to doing this in Visual Studio</a>.</p>
+<p>After making updates you can run the code generation directly in visual studio. Once it completes the output is in <code>bin/&lt;Release|Debug&gt;/net5.0/</code>:</p>
 </article>
           </div>
           
