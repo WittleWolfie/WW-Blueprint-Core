@@ -15,7 +15,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using System;
 using Kingmaker.UnitLogic.Mechanics.Components;
 
-namespace BlueprintCore.BlueprintCore.Validation
+namespace BlueprintCore.Utils.Validation
 {
   /// <summary>
   /// Validates blueprint objects
