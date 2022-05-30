@@ -1,20 +1,20 @@
 ﻿# How to Contribute
 
-**Disclaimer**: These docs haven't been updated since 2.0 release. For now, disregard them. I will update them soon.
-
 Contributions are welcome!
 
 1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the [Project Repo](https://github.com/WittleWolfie/WW-Blueprint-Core)
-2. Make your changes in the forked repo
-3. Submit a [Pull Request](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-a-pull-request)
+2. [Setup the project](#local-project-setup)
+3. Make your changes in the forked repo
+4. Submit a [Pull Request](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#making-a-pull-request)
+    * Keep in mind the [Pull Request Requirements](#pull-request-requirements)
 
 # What to Contribute
 
 ## Knowledge of Game Types
 
-Possibly the most helpful contribution you could provide! If you are familiar with the usage of game types, specifically any `Condition`, `GameAction`, `BlueprintComponent`, or `BlueprintScriptableObject`, you can improve the Builder and Configurator APIs.
+Possibly the most helpful contribution you could provide! If you are familiar with the usage of game types, specifically any `Condition`, `GameAction`, `BlueprintComponent`, or `BlueprintScriptableObject`, you can improve the Builder and Configurator APIs and documentation.
 
-Examples of useful contributions:
+Examples contributions:
 
 * Remarks on behavior of game types or the relationship between field values
     * `AbilityEffectMiss` needs to be added after another `AbilityApplyEffect` or it will always trigger.
@@ -31,7 +31,87 @@ The sections below explain how to make these changes and provide examples alread
 
 ### Using Configuration Overrides
 
+The Blueprint configurator, ActionsBuilder, and ConditionsBuilder APIs are automatically by iterating over types in the game assembly generating methods and classes to construct those types. This is handled by the BlueprintCoreGen and customized through JSON config files and static rules in the [Overrides](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides) package:
+
+* [Actions](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Actions)
+    * Each file supports an ActionsBuilder extension class, e.g. `AreaActions.json`
+    * The config determine which actions belong in that extension class as well as custom handling for those actions
+    * Each is a `ConstructorMethod`, defined in [MethodOverrides](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Methods/MethodOverrides.cs)
+* [Blueprints](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints)
+    * `Blueprints.json` supports overrides for handling blueprint fields in configurator classes
+        * Each entry is a `BlueprintOverride`, defined in [Configurators](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Class/Configurators.cs)
+    * `Components.json` supports overrides for handling BlueprintComponent methods
+        * Each entry is a `ConstructorMethod`, defined in [MethodOverrides](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Methods/MethodOverrides.cs)
+    * `ComponentsAllowedOn.json` overrides which Blueprint types a given component can be used on
+        * Each entry is a `ComponentsAllowedOnOverride`, defined in [Configurators](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Class/Configurators.cs)
+* [Conditions](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Conditions)
+    * Each file supports a ConditionsBuilder extension class, e.g. `AreaConditions.json`
+    * The config determine which conditions belong in that extension class as well as custom handling for those conditions
+    * Each entry is a `ConstructorMethod`, defined in [MethodOverrides](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Methods/MethodOverrides.cs)
+* [Examples](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Examples)
+    * Each file is a generated list of usage examples for game types
+    * `Examples.cs` is not automatically generated; it contains hand selected examples
+* [Ignored](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Ignored)
+    * Each file is a generated list of types to ignore
+    * `Ignored.cs` is not automatically generated; it contains hand selected fields and game types to ignore
+* [Fields.json](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/Fields.json)
+    * Overrides for specific fields which apply to all inherited types
+    * Each entry is a `FieldOverride`, defined in [ParameterOverrides](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Params/ParameterOverrides.cs)
+* [FieldTypes.json](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreGen/CodeGen/Overrides/FieldTypes.json)
+    * Overrides for handling specific game types
+    * Each entry is a `FieldTypeOverride`, defined in [ParameterOverrides](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Params/ParameterOverrides.cs)
+
+The sections below demonstrate how to use the configuration overrides for specific changes. Once you have your configuration override ready to test see [Using BlueprintCoreGen](#using-blueprintcoregen).
+
 #### Adding Remarks
+
+Remarks can be added to actions, conditions, blueprint component methods, and blueprint fields.
+
+For actions and conditions find the corresponding entry in one of the config files, e.g. [ContextActions.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Actions/ContextActions.json):
+
+```json
+{
+  "TypeName": "ContextActionArmorEnchantPool",
+  "Remarks": [
+    "The caster's armor is enchanted based on its available enhancement bonus. e.g. If the armor can be enchanted to +4 and has a +1 enchantment, enchantmentPlus3 is applied."
+  ],
+  ...
+},
+```
+
+`Remarks` are defined as a list of strings, each of which is wrapped in paragraph tags. The result in Visual Studio:
+
+~[ContextActionArmorEnchantPool Remarks](~/images/contributing/action_remarks.png)
+
+For a component either find an existing entry in [Components.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Components.json)
+or add a new one:
+
+```json
+{
+  "TypeName": "AbilityVariants",
+  "Remarks": [
+    "This ability should be the parent as defined in <see cref=\"BlueprintAbility.m_Parent\"/> for each variant.",
+    "If you remove a variant be sure to clear <see cref=\"BlueprintAbility.m_Parent\"/> for that ability. You can set it to <c>BlueprintTool.GetRef&lt;BlueprintAbilityReference&gt;(null)</c>."
+  ]
+}
+```
+
+For a blueprint field find an existing entry in [Blueprints.json](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreGen/CodeGen/Overrides/Blueprints/Blueprints.json)
+or add a new one:
+
+```json
+{
+  "TypeName": "BlueprintBuff",
+  "Fields": [
+    {
+      "FieldName": "Stacking",
+      "Remarks": [
+        "Use <see cref=\"SetRanks(int)\"/> for StackingType.Rank."
+      ]
+    }
+  ]
+}
+```
 
 #### Marking Fields Required or Ignored
 
@@ -112,9 +192,9 @@ If you have a very good reason for including a harmony patch let me know and we 
     * Run all unit tests
         * Note: If tests throw exceptions when adding blueprints from TestData just re-run them. There is an issue with static data sticking around that I have not been able to resolve.
 
-# Using BlueprintCoreGen
+# Using BlueprintCoreGen 
 
-BlueprintCoreGen is the tool responsible for generating the ActionsBuilder, ConditionsBuilder, and Blueprint Configurator classes. It can execute in one of two modes: Analysis and Code Generation. In both modes be sure to run it in Debug configuration.
+BlueprintCoreGen is the tool responsible for generating the ActionsBuilder, ConditionsBuilder, and Blueprint configurator classes. It can execute in one of two modes: Analysis and Code Generation. In both modes be sure to run it in Debug configuration.
 
 ## Analysis
 
