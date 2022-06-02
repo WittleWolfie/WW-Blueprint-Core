@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## v2.0.4 Release
+
+* Fixed an NPE resulting from not specifying optional List or Array parameters
+
+### Breaking Changes
+
+* Fixed a bug incorrectly identifying unique and non-unique components
+    * This removes merge handling parameters from non-unique components; you'll need to remove any you have specified
+
 ## v2.0.3 Release
 
 ### Breaking Changes
