@@ -69,8 +69,20 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
-<h2 id="v203-release">v2.0.3 Release</h2>
+<h2 id="v204-release">v2.0.4 Release</h2>
+<ul>
+<li>Fixed an NPE resulting from not specifying optional List or Array parameters</li>
+</ul>
 <h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>Fixed a bug incorrectly identifying unique and non-unique components
+<ul>
+<li>This removes merge handling parameters from non-unique components; you'll need to remove any you have specified</li>
+</ul>
+</li>
+</ul>
+<h2 id="v203-release">v2.0.3 Release</h2>
+<h3 id="breaking-changes-1">Breaking Changes</h3>
 <ul>
 <li>The type <code>Blueprint&lt;T,  TRef&gt;</code> has been shortened to <code>Blueprint&lt;TRef&gt;</code>
 <ul>
@@ -93,7 +105,7 @@
 <li>Fixed bug with Encyclopedia tagging causing exceptions</li>
 <li>Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail</li>
 </ul>
-<h3 id="breaking-changes-1">Breaking Changes</h3>
+<h3 id="breaking-changes-2">Breaking Changes</h3>
 <ul>
 <li>Namespaces are changes to organize type specific util classes
 <ul>
@@ -149,7 +161,7 @@ their level editor</li>
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-2">Breaking Changes</h3>
+<h3 id="breaking-changes-3">Breaking Changes</h3>
 <ul>
 <li>Configurator namespaces may have changed to align w/ game code structure</li>
 <li>Method and parameter names changed for ActionsBuilder, ConditionsBuilder, and Configurators</li>
