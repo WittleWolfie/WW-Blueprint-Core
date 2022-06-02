@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Owlcat.QA.Validation;
+using System.Collections;
 using System.Linq;
 using System.Text;
 
@@ -66,6 +67,15 @@ namespace BlueprintCore.Utils
     public void Check(object? obj)
     {
       if (obj == null) { return; }
+
+      if (obj is IEnumerable enumerable)
+      {
+        foreach (var item in enumerable)
+        {
+          Check(item);
+        }
+        return;
+      }
 
       if (obj is IValidated validated)
       {

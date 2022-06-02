@@ -301,11 +301,6 @@ namespace BlueprintCoreGen.CodeGen.Params
         return "";
       }
 
-      if (enumerableType is not null)
-      {
-        return "foreach (var item in {1}) {{ {0}(item); }}";
-      }
-
       return "{0}({1});";
     }
 
