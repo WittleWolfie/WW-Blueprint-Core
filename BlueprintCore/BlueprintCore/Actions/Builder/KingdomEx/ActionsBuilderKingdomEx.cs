@@ -9,9 +9,6 @@ using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.GameActions;
 using Kingmaker.Armies.TacticalCombat.Grid;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Crusade.GlobalMagic.Actions;
@@ -24,16 +21,13 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Globalmap.State;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
-using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Armies.Actions;
-using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System.Collections.Generic;
@@ -1281,7 +1275,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         SummonRandomGroup.RandomGroup[] randomGroups)
     {
       var element = ElementTool.Create<SummonRandomGroup>();
-      foreach (var item in randomGroups) { builder.Validate(item); }
+      builder.Validate(randomGroups);
       element.m_RandomGroups = randomGroups;
       return builder.Add(element);
     }
@@ -2025,7 +2019,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
         LootEntry[]? loot = null)
     {
       var element = ElementTool.Create<KingdomActionGiveLoot>();
-      foreach (var item in loot) { builder.Validate(item); }
+      builder.Validate(loot);
       element.Loot = loot ?? element.Loot;
       if (element.Loot is null)
       {

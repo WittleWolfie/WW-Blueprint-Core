@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in damageTypes) { Validate(item); }
+          Validate(damageTypes);
           bp.DamageTypes = damageTypes;
         });
     }
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in energyTypes) { Validate(item); }
+          Validate(energyTypes);
           bp.EnergyTypes = energyTypes;
         });
     }
@@ -183,7 +183,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in bloodTypes) { Validate(item); }
+          Validate(bloodTypes);
           bp.BloodTypes = bloodTypes;
         });
     }
@@ -312,7 +312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in overrideHitDirectionPrefabFromAnimationStyle) { Validate(item); }
+          Validate(overrideHitDirectionPrefabFromAnimationStyle);
           bp.OverrideHitDirectionPrefabFromAnimationStyle = overrideHitDirectionPrefabFromAnimationStyle;
         });
     }
@@ -535,7 +535,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedDamageTypes) { Validate(item); }
+          Validate(cachedDamageTypes);
           bp.m_CachedDamageTypes = cachedDamageTypes;
         });
     }
@@ -612,7 +612,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedEnergyTypes) { Validate(item); }
+          Validate(cachedEnergyTypes);
           bp.m_CachedEnergyTypes = cachedEnergyTypes;
         });
     }
@@ -689,7 +689,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedBillboardBloodTypes) { Validate(item); }
+          Validate(cachedBillboardBloodTypes);
           bp.m_CachedBillboardBloodTypes = cachedBillboardBloodTypes;
         });
     }
@@ -766,7 +766,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedDirectionalBloodTypes) { Validate(item); }
+          Validate(cachedDirectionalBloodTypes);
           bp.m_CachedDirectionalBloodTypes = cachedDirectionalBloodTypes;
         });
     }
@@ -843,7 +843,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedBillboardAdditiveBloodTypes) { Validate(item); }
+          Validate(cachedBillboardAdditiveBloodTypes);
           bp.m_CachedBillboardAdditiveBloodTypes = cachedBillboardAdditiveBloodTypes;
         });
     }
@@ -920,7 +920,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedDirectionalAdditiveBloodTypes) { Validate(item); }
+          Validate(cachedDirectionalAdditiveBloodTypes);
           bp.m_CachedDirectionalAdditiveBloodTypes = cachedDirectionalAdditiveBloodTypes;
         });
     }
@@ -997,7 +997,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedBloodPrefabsFromWeaponAnimationStyleEntries) { Validate(item); }
+          Validate(cachedBloodPrefabsFromWeaponAnimationStyleEntries);
           bp.m_CachedBloodPrefabsFromWeaponAnimationStyleEntries = cachedBloodPrefabsFromWeaponAnimationStyleEntries;
         });
     }

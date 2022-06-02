@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in genericSpritesLink) { Validate(item); }
+          Validate(genericSpritesLink);
           bp.m_GenericSpritesLink = genericSpritesLink.ToList();
         });
     }
@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in settingTypeScreensList) { Validate(item); }
+          Validate(settingTypeScreensList);
           bp.m_SettingTypeScreensList = settingTypeScreensList.ToList();
         });
     }

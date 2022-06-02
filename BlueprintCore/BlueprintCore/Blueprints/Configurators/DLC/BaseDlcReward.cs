@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in includeObjects) { Validate(item); }
+          Validate(includeObjects);
           bp.m_IncludeObjects = includeObjects;
         });
     }
@@ -211,7 +211,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in dlcs) { Validate(item); }
+          Validate(dlcs);
           bp.m_Dlcs = dlcs.ToList();
         });
     }

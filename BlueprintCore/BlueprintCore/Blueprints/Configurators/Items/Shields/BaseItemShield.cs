@@ -3,9 +3,7 @@
 using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Shields;
-using Kingmaker.Blueprints.Items.Weapons;
 using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Shields

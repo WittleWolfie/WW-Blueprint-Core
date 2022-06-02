@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Craft;
 using Kingmaker.Utility;
 using System;
@@ -125,7 +124,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in potionRequirements) { Validate(item); }
+          Validate(potionRequirements);
           bp.m_PotionRequirements = potionRequirements;
         });
     }
@@ -202,7 +201,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in scrollsRequirements) { Validate(item); }
+          Validate(scrollsRequirements);
           bp.m_ScrollsRequirements = scrollsRequirements;
         });
     }

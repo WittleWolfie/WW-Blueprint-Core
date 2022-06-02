@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Customization;
 using Kingmaker.Utility;
-using Kingmaker.Visual.Sound;
 using System;
 using System.Linq;
 
@@ -29,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in presetObjects) { Validate(item); }
+          Validate(presetObjects);
           bp.PresetObjects = presetObjects.ToList();
         });
     }
@@ -283,7 +282,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in clothesSelections) { Validate(item); }
+          Validate(clothesSelections);
           bp.ClothesSelections = clothesSelections;
         });
     }
@@ -360,7 +359,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in unitVariations) { Validate(item); }
+          Validate(unitVariations);
           bp.UnitVariations = unitVariations.ToList();
         });
     }

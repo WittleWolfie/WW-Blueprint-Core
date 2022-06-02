@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
 using Kingmaker.Utility;

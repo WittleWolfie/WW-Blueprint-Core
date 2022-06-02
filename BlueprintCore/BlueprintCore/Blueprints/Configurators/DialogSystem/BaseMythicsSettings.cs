@@ -144,7 +144,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in mythicAlignments) { Validate(item); }
+          Validate(mythicAlignments);
           bp.m_MythicAlignments = mythicAlignments;
         });
     }

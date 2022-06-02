@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in blocks) { Validate(item); }
+          Validate(blocks);
           bp.Blocks = blocks.ToList();
         });
     }

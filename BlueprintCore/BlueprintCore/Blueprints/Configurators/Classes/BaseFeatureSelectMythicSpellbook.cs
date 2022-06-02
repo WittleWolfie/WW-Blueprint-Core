@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
@@ -30,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedItems) { Validate(item); }
+          Validate(cachedItems);
           bp.m_CachedItems = cachedItems.ToList();
         });
     }

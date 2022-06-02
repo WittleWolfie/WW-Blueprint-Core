@@ -292,7 +292,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in persones) { Validate(item); }
+          Validate(persones);
           bp.Persones = persones.ToList();
         });
     }

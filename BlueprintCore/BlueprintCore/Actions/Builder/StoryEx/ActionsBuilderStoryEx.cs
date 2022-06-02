@@ -2,18 +2,14 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
-using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.Designers.Quests.Common;
-using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
-using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UI;
 using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
@@ -677,7 +673,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       {
         element.AfterDetach = Utils.Constants.Empty.Actions;
       }
-      foreach (var item in detachThese) { builder.Validate(item); }
+      builder.Validate(detachThese);
       element.DetachThese = detachThese ?? element.DetachThese;
       if (element.DetachThese is null)
       {
@@ -744,7 +740,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       {
         element.OnRecruitImmediate = Utils.Constants.Empty.Actions;
       }
-      foreach (var item in recruited) { builder.Validate(item); }
+      builder.Validate(recruited);
       element.Recruited = recruited ?? element.Recruited;
       if (element.Recruited is null)
       {

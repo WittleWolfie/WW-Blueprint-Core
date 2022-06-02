@@ -82,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in levels) { Validate(item); }
+          Validate(levels);
           bp.m_Levels = levels;
         });
     }

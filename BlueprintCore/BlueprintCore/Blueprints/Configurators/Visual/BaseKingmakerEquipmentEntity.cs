@@ -29,7 +29,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in maleArray) { Validate(item); }
+          Validate(maleArray);
           bp.m_MaleArray = maleArray;
         });
     }
@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in femaleArray) { Validate(item); }
+          Validate(femaleArray);
           bp.m_FemaleArray = femaleArray;
         });
     }
@@ -207,7 +207,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in raceDependentArrays) { Validate(item); }
+          Validate(raceDependentArrays);
           bp.m_RaceDependentArrays = raceDependentArrays;
         });
     }

@@ -1,6 +1,5 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
-using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
@@ -58,25 +57,16 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <item><term>RogueLike_NPCVendorTable</term><description>a6bae621a7bd96b4fb3c1511cd2f9fac</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddDungeonVendorItemsComponent(
         bool? bigTable = null,
         int? count = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minCR = null)
     {
       var component = new DungeonVendorItemsComponent();
       component.BigTable = bigTable ?? component.BigTable;
       component.Count = count ?? component.Count;
       component.MinCR = minCR ?? component.MinCR;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -92,24 +82,15 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <item><term>WyvernMeatLoot</term><description>abe034c3a49a1854496fa6fe1f439114</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddLootItemsPackFixed(
         int? count = null,
-        LootItem? item = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        LootItem? item = null)
     {
       var component = new LootItemsPackFixed();
       component.m_Count = count ?? component.m_Count;
       Validate(item);
       component.m_Item = item ?? component.m_Item;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -125,24 +106,15 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <item><term>Tailor_DLC1VendorTable</term><description>76560f48b5d24c70bb228db6f3f1c099</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddLootItemsPackFixedAndNotInPlayerInitialInventory(
         int? count = null,
-        LootItem? item = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        LootItem? item = null)
     {
       var component = new LootItemsPackFixedAndNotInPlayerInitialInventory();
       component.m_Count = count ?? component.m_Count;
       Validate(item);
       component.m_Item = item ?? component.m_Item;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -158,26 +130,17 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <item><term>HydraEyeLoot</term><description>66496a2143a9bce468d3fffce09f3587</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddLootItemsPackVariable(
         int? countFrom = null,
         int? countTo = null,
-        LootItem? item = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        LootItem? item = null)
     {
       var component = new LootItemsPackVariable();
       component.m_CountFrom = countFrom ?? component.m_CountFrom;
       component.m_CountTo = countTo ?? component.m_CountTo;
       Validate(item);
       component.m_Item = item ?? component.m_Item;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -193,26 +156,17 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <item><term>TrashLootStandardWeaponsAndArmor</term><description>6414d0eccbb66364bb1ef9f57599fc5c</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddLootRandomItem(
-        LootItemAndWeight[]? items = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        LootItemAndWeight[]? items = null)
     {
       var component = new LootRandomItem();
-      foreach (var item in items) { Validate(item); }
+      Validate(items);
       component.m_Items = items ?? component.m_Items;
       if (component.m_Items is null)
       {
         component.m_Items = new LootItemAndWeight[0];
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
   }
 }

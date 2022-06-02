@@ -136,7 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in audioTimeOfDayVariants) { Validate(item); }
+          Validate(audioTimeOfDayVariants);
           bp.m_AudioTimeOfDayVariants = audioTimeOfDayVariants;
         });
     }

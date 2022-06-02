@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in firstPhrase) { Validate(item); }
+          Validate(firstPhrase);
           bp.FirstPhrase = firstPhrase;
         });
     }
@@ -218,7 +218,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in responses) { Validate(item); }
+          Validate(responses);
           bp.Responses = responses;
         });
     }

@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -423,17 +424,26 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <item><term>WenduagKTC_WenduagComeNeathholm</term><description>b0281d9068d670845927a1827be6e7bb</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEventFinalResults(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         EventResult[]? results = null)
     {
       var component = new EventFinalResults();
-      foreach (var item in results) { Validate(item); }
+      Validate(results);
       component.Results = results ?? component.Results;
       if (component.Results is null)
       {
         component.Results = new EventResult[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

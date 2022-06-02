@@ -2,16 +2,10 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
-using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.AreaLogic.QuestSystem;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
-using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Quests;
-using Kingmaker.Blueprints.Root;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
-using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Alignments;
 using System;

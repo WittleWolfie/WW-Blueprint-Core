@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Loot;
 using Kingmaker.Globalmap.View;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.Utility;
@@ -54,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in chapters) { Validate(item); }
+          Validate(chapters);
           bp.m_Chapters = chapters;
         });
     }
@@ -243,7 +242,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in zoneSettings) { Validate(item); }
+          Validate(zoneSettings);
           bp.ZoneSettings = zoneSettings;
         });
     }
@@ -435,7 +434,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in armies) { Validate(item); }
+          Validate(armies);
           bp.Armies = armies;
         });
     }

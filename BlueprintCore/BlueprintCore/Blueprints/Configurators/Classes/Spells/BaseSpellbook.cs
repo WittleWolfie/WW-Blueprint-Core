@@ -3,7 +3,6 @@
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
@@ -625,12 +624,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="spellList">
     /// <para>
     /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
@@ -647,8 +640,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         int? casterLevel = null,
         int? count = null,
         int? maxSpellLevel = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSpellListReference>? spellList = null)
     {
       var component = new AddCustomSpells();
@@ -660,7 +651,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
       {
         component.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -674,9 +665,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <item><term>AlchemistSpellbook</term><description>027d37761f3804042afa96fe3e9086cc</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddIsAlchemistSpellbook()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddIsAlchemistSpellbook(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new IsAlchemistSpellbook());
+      var component = new IsAlchemistSpellbook();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -692,9 +693,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <item><term>ThassilonianTransmutationSpellbook</term><description>5785f40e7b1bfc94ea078e7156aa9711</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddIsSinMagicSpecialistSpellbook()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddIsSinMagicSpecialistSpellbook(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new IsSinMagicSpecialistSpellbook());
+      var component = new IsSinMagicSpecialistSpellbook();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

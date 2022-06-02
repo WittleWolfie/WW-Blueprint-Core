@@ -1,17 +1,10 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
-using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items;
 using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Collections.Generic;
 using System.Linq;
 

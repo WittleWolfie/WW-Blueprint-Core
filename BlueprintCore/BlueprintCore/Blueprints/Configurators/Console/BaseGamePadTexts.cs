@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Console
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in layers) { Validate(item); }
+          Validate(layers);
           bp.m_Layers = layers.ToList();
         });
     }

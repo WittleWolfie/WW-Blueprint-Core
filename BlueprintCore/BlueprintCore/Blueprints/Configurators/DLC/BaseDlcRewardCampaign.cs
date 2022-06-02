@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Root;
 using Kingmaker.DLC;
 using System;
 using UnityEngine;

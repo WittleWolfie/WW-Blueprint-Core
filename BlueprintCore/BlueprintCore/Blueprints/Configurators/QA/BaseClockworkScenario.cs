@@ -4,9 +4,6 @@ using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Items;
-using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.QA.Clockwork;
 using Kingmaker.Settings.Difficulty;
@@ -742,7 +739,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in retrySkillChecks) { Validate(item); }
+          Validate(retrySkillChecks);
           bp.RetrySkillChecks = retrySkillChecks.ToList();
         });
     }
@@ -1049,7 +1046,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in doNotInterract) { Validate(item); }
+          Validate(doNotInterract);
           bp.DoNotInterract = doNotInterract.ToList();
         });
     }
@@ -1471,7 +1468,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in onTickCheckers) { Validate(item); }
+          Validate(onTickCheckers);
           bp.m_OnTickCheckers = onTickCheckers.ToList();
         });
     }
@@ -1574,7 +1571,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in conditionalCommandLists) { Validate(item); }
+          Validate(conditionalCommandLists);
           bp.m_ConditionalCommandLists = conditionalCommandLists.ToList();
         });
     }
@@ -1711,20 +1708,12 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddAreaTest(
         Blueprint<BlueprintAreaReference>? area = null,
         Blueprint<BlueprintAreaPartReference>? areaPart = null,
         ClockworkCommandList? commandList = null,
         Condition? condition = null,
-        bool? everyVisit = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? everyVisit = null)
     {
       var component = new AreaTest();
       component.Area = area?.Reference ?? component.Area;
@@ -1742,7 +1731,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       Validate(condition);
       component.Condition = condition ?? component.Condition;
       component.EveryVisit = everyVisit ?? component.EveryVisit;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1762,25 +1751,16 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <item><term>WoljifQ</term><description>d79f05dbd35b468fa16312f30d61a5e1</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddConditionalCommandList(
         ClockworkCommandList? commandList = null,
-        Condition? condition = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        Condition? condition = null)
     {
       var component = new ConditionalCommandList();
       Validate(commandList);
       component.CommandList = commandList ?? component.CommandList;
       Validate(condition);
       component.Condition = condition ?? component.Condition;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1811,17 +1791,9 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddExploreFlyingIsles(
         List<Blueprint<BlueprintAreaReference>>? areas = null,
         bool? justIgnoreWalls = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? waitTimeAfterCamRotation = null)
     {
       var component = new ExploreFlyingIsles();
@@ -1832,7 +1804,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       }
       component.JustIgnoreWalls = justIgnoreWalls ?? component.JustIgnoreWalls;
       component.WaitTimeAfterCamRotation = waitTimeAfterCamRotation ?? component.WaitTimeAfterCamRotation;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1898,10 +1870,18 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddMythicLevelUpPlan(
         Blueprint<BlueprintFeatureReference>? beginnerMythic = null,
         Blueprint<BlueprintFeatureReference>? earlyMythic = null,
-        Blueprint<BlueprintFeatureReference>? lateMythic = null)
+        Blueprint<BlueprintFeatureReference>? lateMythic = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new MythicLevelUpPlan();
       component.BeginnerMythic = beginnerMythic?.Reference ?? component.BeginnerMythic;
@@ -1919,7 +1899,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       {
         component.LateMythic = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1937,16 +1917,25 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// <item><term>Aeon_Fighter</term><description>de62074c6cc24ce89073a349aebefef6</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddNavmeshHolesChecker(
         bool? isInit = null,
         float? lastHeight = null,
-        float? maxDeltaHeightPerFrame = null)
+        float? maxDeltaHeightPerFrame = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new NavmeshHolesChecker();
       component.m_IsInit = isInit ?? component.m_IsInit;
       component.m_LastHeight = lastHeight ?? component.m_LastHeight;
       component.MaxDeltaHeightPerFrame = maxDeltaHeightPerFrame ?? component.MaxDeltaHeightPerFrame;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

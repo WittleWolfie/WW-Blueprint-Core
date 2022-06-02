@@ -3,7 +3,6 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Quests;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;

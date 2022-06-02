@@ -1,7 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
-using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
@@ -59,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in squads) { Validate(item); }
+          Validate(squads);
           bp.Squads = squads;
         });
     }

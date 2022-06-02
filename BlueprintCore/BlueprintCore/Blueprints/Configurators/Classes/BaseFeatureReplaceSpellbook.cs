@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Spells;
 using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes

@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;

@@ -2,14 +2,10 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Conditions;
 
 namespace BlueprintCore.Conditions.Builder.BasicEx

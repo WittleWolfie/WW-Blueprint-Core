@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in actions) { Validate(item); }
+          Validate(actions);
           bp.m_Actions = actions;
         });
     }

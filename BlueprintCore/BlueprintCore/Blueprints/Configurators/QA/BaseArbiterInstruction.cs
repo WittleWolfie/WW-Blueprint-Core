@@ -1,12 +1,9 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
-using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.QA.Arbiter;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.QA
 {
@@ -51,12 +48,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="overrideAreaPreset">
     /// <para>
     /// Blueprint of type BlueprintAreaPreset. You can pass in the blueprint using:
@@ -73,8 +64,6 @@ namespace BlueprintCore.Blueprints.Configurators.QA
         Blueprint<BlueprintAreaReference>? area = null,
         ArbiterElementList? areaParts = null,
         bool? makeMapScreenshot = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAreaPresetReference>? overrideAreaPreset = null,
         bool? overrideTimeOfDay = null,
         TimeOfDay? timeOfDay = null)
@@ -95,7 +84,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       }
       component.OverrideTimeOfDay = overrideTimeOfDay ?? component.OverrideTimeOfDay;
       component.TimeOfDay = timeOfDay ?? component.TimeOfDay;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
   }
 }

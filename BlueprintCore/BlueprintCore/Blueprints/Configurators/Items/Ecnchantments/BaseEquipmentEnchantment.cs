@@ -39,23 +39,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <item><term>WhiteKnightCloakEnchantment</term><description>6a37e931c20406e488be6250b5d79a44</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddAllSavesBonusEquipment(
         ModifierDescriptor? descriptor = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? value = null)
     {
       var component = new AllSavesBonusEquipment();
       component.Descriptor = descriptor ?? component.Descriptor;
       component.Value = value ?? component.Value;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -73,9 +64,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <item><term>UnarmedAgileEnchantment</term><description>90316f5801dbe4748a66816a7c00380c</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEquipmentWeaponTypeDamageStatReplacement(
         bool? allNaturalAndUnarmed = null,
         WeaponCategory? category = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? requiresFinesse = null,
         StatType? stat = null)
     {
@@ -84,7 +84,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.Category = category ?? component.Category;
       component.RequiresFinesse = requiresFinesse ?? component.RequiresFinesse;
       component.Stat = stat ?? component.Stat;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -104,16 +104,25 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <item><term>UnarmedEnhancement6</term><description>c21b5879e8a7497408980ca0427c7f52</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEquipmentWeaponTypeEnhancement(
         bool? allNaturalAndUnarmed = null,
         WeaponCategory? category = null,
-        int? enhancement = null)
+        int? enhancement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EquipmentWeaponTypeEnhancement();
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed ?? component.AllNaturalAndUnarmed;
       component.Category = category ?? component.Category;
       component.Enhancement = enhancement ?? component.Enhancement;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -129,16 +138,25 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <item><term>RingOfFirmTouchEnchantment</term><description>78e1932653b0d5e4db01cbe87a55eb91</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddWeaponRangeTypeAttackBonusEquipment(
         int? attackBonus = null,
         ModifierDescriptor? descriptor = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeaponRangeType? rangeType = null)
     {
       var component = new WeaponRangeTypeAttackBonusEquipment();
       component.AttackBonus = attackBonus ?? component.AttackBonus;
       component.Descriptor = descriptor ?? component.Descriptor;
       component.RangeType = rangeType ?? component.RangeType;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

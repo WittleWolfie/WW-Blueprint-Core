@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Enums;
 using Kingmaker.Utility;
@@ -189,7 +188,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in items) { Validate(item); }
+          Validate(items);
           bp.Items = items;
         });
     }

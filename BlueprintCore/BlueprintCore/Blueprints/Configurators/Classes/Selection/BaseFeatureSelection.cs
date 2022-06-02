@@ -304,12 +304,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="thisFeature">
     /// <para>
     /// Blueprint of type BlueprintFeatureSelection. You can pass in the blueprint using:
@@ -326,8 +320,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintFeatureSelectionReference>? thisFeature = null)
     {
       var component = new PrerequisiteSelectionPossible();
@@ -339,7 +331,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       {
         component.m_ThisFeature = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -368,9 +360,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddNoSelectionIfAlreadyHasFeature(
         bool? anyFeatureFromSelection = null,
-        List<Blueprint<BlueprintFeatureReference>>? features = null)
+        List<Blueprint<BlueprintFeatureReference>>? features = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new NoSelectionIfAlreadyHasFeature();
       component.AnyFeatureFromSelection = anyFeatureFromSelection ?? component.AnyFeatureFromSelection;
@@ -379,7 +379,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       {
         component.m_Features = new BlueprintFeatureReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

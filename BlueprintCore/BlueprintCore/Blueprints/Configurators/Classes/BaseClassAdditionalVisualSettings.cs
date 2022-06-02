@@ -1,7 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
-using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Enums;
@@ -68,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in colorRamps) { Validate(item); }
+          Validate(colorRamps);
           bp.ColorRamps = colorRamps;
         });
     }

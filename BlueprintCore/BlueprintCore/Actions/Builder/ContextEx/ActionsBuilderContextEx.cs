@@ -6,12 +6,7 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.Blueprints.Items.Equipment;
-using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -22,11 +17,9 @@ using Kingmaker.Settings;
 using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Actions;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Class.Kineticist.Actions;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -2066,7 +2059,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         params (ActionsBuilder actions, int weight)[] weightedActions)
     {
       var element = ElementTool.Create<ContextActionRandomize>();
-      foreach (var item in weightedActions) { builder.Validate(item); }
+      builder.Validate(weightedActions);
       element.m_Actions = weightedActions.Select(action => new ContextActionRandomize.ActionWrapper { Action = action.actions.Build(), Weight = action.weight }).ToArray();
       return builder.Add(element);
     }

@@ -2,9 +2,7 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
-using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
@@ -293,7 +291,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in upgradeEvents) { Validate(item); }
+          Validate(upgradeEvents);
           bp.UpgradeEvents = upgradeEvents.ToList();
         });
     }

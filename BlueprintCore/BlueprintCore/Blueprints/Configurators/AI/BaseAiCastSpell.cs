@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
@@ -403,7 +402,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in locators) { Validate(item); }
+          Validate(locators);
           bp.Locators = locators;
         });
     }

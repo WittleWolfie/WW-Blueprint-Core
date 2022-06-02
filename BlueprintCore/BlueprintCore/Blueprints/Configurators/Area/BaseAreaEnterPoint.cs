@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
@@ -108,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in tooltipList) { Validate(item); }
+          Validate(tooltipList);
           bp.m_TooltipList = tooltipList.ToList();
         });
     }
@@ -301,8 +302,17 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <item><term>Trader_Winter</term><description>ac97038913a452d4789e11f4c3eedc66</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddAllowOnZoneSettings(
-        GlobalMapZone[]? allowedNaturalSettings = null)
+        GlobalMapZone[]? allowedNaturalSettings = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AllowOnZoneSettings();
       component.m_AllowedNaturalSettings = allowedNaturalSettings ?? component.m_AllowedNaturalSettings;
@@ -310,7 +320,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       {
         component.m_AllowedNaturalSettings = new GlobalMapZone[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

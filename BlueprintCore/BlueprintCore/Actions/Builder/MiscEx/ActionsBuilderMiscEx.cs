@@ -3,14 +3,9 @@
 using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Achievements.Actions;
-using Kingmaker.Achievements.Blueprints;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Loot;
-using Kingmaker.Blueprints.Root;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.DLC;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Actions;
@@ -577,7 +572,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       var element = ElementTool.Create<RemoveItemsFromCollection>();
       builder.Validate(collection);
       element.Collection = collection ?? element.Collection;
-      foreach (var item in loot) { builder.Validate(item); }
+      builder.Validate(loot);
       element.Loot = loot ?? element.Loot;
       if (element.Loot is null)
       {
@@ -650,7 +645,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         UnitEvaluator? vendorUnit = null)
     {
       var element = ElementTool.Create<SetVendorPriceModifier>();
-      foreach (var item in entries) { builder.Validate(item); }
+      builder.Validate(entries);
       element.m_Entries = entries ?? element.m_Entries;
       if (element.m_Entries is null)
       {
@@ -693,7 +688,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         Blueprint<BlueprintTutorial.Reference>? tutorial = null)
     {
       var element = ElementTool.Create<ShowNewTutorial>();
-      foreach (var item in evaluators) { builder.Validate(item); }
+      builder.Validate(evaluators);
       element.Evaluators = evaluators ?? element.Evaluators;
       if (element.Evaluators is null)
       {

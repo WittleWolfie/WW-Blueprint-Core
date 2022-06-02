@@ -64,7 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in leaderboardRecordValues) { Validate(item); }
+          Validate(leaderboardRecordValues);
           bp.LeaderboardRecordValues = leaderboardRecordValues;
         });
     }
@@ -141,7 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in leaderboardCharacterValues) { Validate(item); }
+          Validate(leaderboardCharacterValues);
           bp.LeaderboardCharacterValues = leaderboardCharacterValues;
         });
     }

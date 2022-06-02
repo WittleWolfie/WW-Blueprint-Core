@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in chapters) { Validate(item); }
+          Validate(chapters);
           bp.Chapters = chapters;
         });
     }

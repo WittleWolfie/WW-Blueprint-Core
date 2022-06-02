@@ -2,13 +2,11 @@
 
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
-using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
 using Kingmaker.Enums.Damage;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -40,20 +38,11 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <item><term>TestDamagedMapobject</term><description>149d05c335f0cd24ca4a8866e968bb1d</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddDamageToMapObjectTrigger(
         ActionsBuilder? actions = null,
         bool? checkEnergyType = null,
         bool? checkPhysicalDamageForm = null,
         DamageEnergyType? energyType = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PhysicalDamageForm? physicalDamageForm = null)
     {
       var component = new DamageToMapObjectTrigger();
@@ -66,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.CheckPhysicalDamageForm = checkPhysicalDamageForm ?? component.CheckPhysicalDamageForm;
       component.EnergyType = energyType ?? component.EnergyType;
       component.PhysicalDamageForm = physicalDamageForm ?? component.PhysicalDamageForm;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
   }
 }

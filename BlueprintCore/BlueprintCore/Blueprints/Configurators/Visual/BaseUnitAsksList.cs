@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
@@ -62,6 +63,13 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <item><term>Zombie_Barks</term><description>5b77c4c031391294b920f5a1e119b959</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddUnitAsksComponent(
         UnitAsksComponent.Bark? aggro = null,
         UnitAsksComponent.AnimationBark[]? animationBarks = null,
@@ -73,6 +81,8 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         UnitAsksComponent.Bark? discovery = null,
         UnitAsksComponent.Bark? fatigue = null,
         UnitAsksComponent.Bark? lowHealth = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitAsksComponent.Bark? order = null,
         UnitAsksComponent.Bark? orderMove = null,
         UnitAsksComponent.Bark? pain = null,
@@ -91,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       var component = new UnitAsksComponent();
       Validate(aggro);
       component.Aggro = aggro ?? component.Aggro;
-      foreach (var item in animationBarks) { Validate(item); }
+      Validate(animationBarks);
       component.AnimationBarks = animationBarks ?? component.AnimationBarks;
       if (component.AnimationBarks is null)
       {
@@ -143,7 +153,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       component.Unconscious = unconscious ?? component.Unconscious;
       Validate(unit);
       component.m_Unit = unit ?? component.m_Unit;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

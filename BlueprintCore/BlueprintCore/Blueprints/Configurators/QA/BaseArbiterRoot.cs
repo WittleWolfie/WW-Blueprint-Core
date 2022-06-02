@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in ignoreScenesInReport) { Validate(item); }
+          Validate(ignoreScenesInReport);
           bp.IgnoreScenesInReport = ignoreScenesInReport;
         });
     }

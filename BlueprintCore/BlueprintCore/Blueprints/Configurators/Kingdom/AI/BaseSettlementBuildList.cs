@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Kingdom.AI;
 using Kingmaker.UI.Settlement;
 using Kingmaker.Utility;
@@ -94,7 +93,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in list) { Validate(item); }
+          Validate(list);
           bp.List = list.ToList();
         });
     }

@@ -432,7 +432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in loadingScreenSprites) { Validate(item); }
+          Validate(loadingScreenSprites);
           bp.LoadingScreenSprites = loadingScreenSprites.ToList();
         });
     }
@@ -771,14 +771,23 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <item><term>DLC2_RichQuarter</term><description>caf98d57bafa456d9a0afc98f25fe720</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddCampingEncounterIncreaseDifficulty(
         float? increaseChance = null,
-        int? increaseDifficulty = null)
+        int? increaseDifficulty = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new CampingEncounterIncreaseDifficulty();
       component.m_IncreaseChance = increaseChance ?? component.m_IncreaseChance;
       component.m_IncreaseDifficulty = increaseDifficulty ?? component.m_IncreaseDifficulty;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -819,11 +828,19 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddCombatRandomEncounterAreaSettings(
         GlobalMapZone[]? allowedNaturalSettings = null,
         Blueprint<BlueprintAreaEnterPointReference>? defaultEnterPoint = null,
         CombatRandomEncounterAreaSettings.Formation[]? formations = null,
-        Blueprint<BlueprintAreaEnterPointReference>? goodAvoidanceEnterPoint = null)
+        Blueprint<BlueprintAreaEnterPointReference>? goodAvoidanceEnterPoint = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new CombatRandomEncounterAreaSettings();
       component.AllowedNaturalSettings = allowedNaturalSettings ?? component.AllowedNaturalSettings;
@@ -836,7 +853,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       {
         component.m_DefaultEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
       }
-      foreach (var item in formations) { Validate(item); }
+      Validate(formations);
       component.Formations = formations ?? component.Formations;
       if (component.Formations is null)
       {
@@ -847,7 +864,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       {
         component.m_GoodAvoidanceEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -863,7 +880,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <item><term>WarCamp</term><description>7a25c101fe6f7aa46b192db13373d03b</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddOverrideCampingAction(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onRestActions = null,
         bool? skipRest = null)
     {
@@ -874,7 +900,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         component.OnRestActions = Utils.Constants.Empty.Actions;
       }
       component.SkipRest = skipRest ?? component.SkipRest;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -890,18 +916,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <item><term>SettlementsTracker_buff</term><description>71dd611cd70443fcb04f0dce3bda76ef</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEveryDayTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipDays = null)
     {
       var component = new EveryDayTrigger();
@@ -916,7 +933,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         component.Condition = Utils.Constants.Empty.Conditions;
       }
       component.SkipDays = skipDays ?? component.SkipDays;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -930,18 +947,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <item><term>FlagTrickster1Money</term><description>6c97784129e5492fa08496f2d4139f22</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEveryWeekTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipWeeks = null)
     {
       var component = new EveryWeekTrigger();
@@ -956,7 +964,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         component.Condition = Utils.Constants.Empty.Conditions;
       }
       component.SkipWeeks = skipWeeks ?? component.SkipWeeks;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1009,10 +1017,18 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddSettlementAISettings(
         Blueprint<SettlementBuildListReference>? aIBuildListCity = null,
         Blueprint<SettlementBuildListReference>? aIBuildListTown = null,
-        Blueprint<SettlementBuildListReference>? aIBuildListVillage = null)
+        Blueprint<SettlementBuildListReference>? aIBuildListVillage = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SettlementAISettings();
       component.m_AIBuildListCity = aIBuildListCity?.Reference ?? component.m_AIBuildListCity;
@@ -1030,7 +1046,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       {
         component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

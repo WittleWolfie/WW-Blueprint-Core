@@ -1,9 +1,8 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items;
-using Kingmaker.Blueprints.Quests;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
@@ -277,9 +276,17 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddEventItemCost(
         int? amount = null,
-        List<Blueprint<BlueprintItemReference>>? items = null)
+        List<Blueprint<BlueprintItemReference>>? items = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new EventItemCost();
       component.Amount = amount ?? component.Amount;
@@ -288,7 +295,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       {
         component.m_Items = new BlueprintItemReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -304,6 +311,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="objective">
     /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
@@ -317,6 +330,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// </para>
     /// </param>
     public TBuilder AddFinishObjectiveOnTrigger(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintQuestObjectiveReference>? objective = null)
     {
       var component = new FinishObjectiveOnTrigger();
@@ -325,7 +340,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       {
         component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

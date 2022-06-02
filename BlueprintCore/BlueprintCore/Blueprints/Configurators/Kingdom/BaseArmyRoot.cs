@@ -1,10 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
-using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.RuleSystem;
@@ -33,7 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in travelingArmiesByChapter) { Validate(item); }
+          Validate(travelingArmiesByChapter);
           bp.m_TravelingArmiesByChapter = travelingArmiesByChapter;
         });
     }

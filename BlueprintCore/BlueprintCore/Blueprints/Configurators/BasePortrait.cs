@@ -1,8 +1,8 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using System;
 
 namespace BlueprintCore.Blueprints.Configurators
@@ -96,6 +96,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="race">
     /// <para>
     /// Blueprint of type BlueprintRace. You can pass in the blueprint using:
@@ -110,6 +116,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddPortraitDollSettings(
         Gender? gender = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintRaceReference>? race = null)
     {
       var component = new PortraitDollSettings();
@@ -119,7 +127,7 @@ namespace BlueprintCore.Blueprints.Configurators
       {
         component.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -133,9 +141,19 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <item><term>SepalLorentus_Portrait</term><description>41db134e53a1908469a2efc6d55cc8f8</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddPortraitPremiumSetting()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddPortraitPremiumSetting(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new PortraitPremiumSetting());
+      var component = new PortraitPremiumSetting();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

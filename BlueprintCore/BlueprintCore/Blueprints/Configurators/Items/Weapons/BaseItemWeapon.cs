@@ -1,14 +1,13 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Blueprints.Configurators.Items.Equipment;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Class.Kineticist;
 using Kingmaker.Utility;
 using System;
@@ -510,9 +509,17 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddWeaponKineticBlade(
         Blueprint<BlueprintAbilityReference>? activationAbility = null,
-        Blueprint<BlueprintAbilityReference>? blast = null)
+        Blueprint<BlueprintAbilityReference>? blast = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new WeaponKineticBlade();
       component.m_ActivationAbility = activationAbility?.Reference ?? component.m_ActivationAbility;
@@ -525,7 +532,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
       {
         component.m_Blast = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

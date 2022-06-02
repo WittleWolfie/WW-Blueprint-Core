@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
-using Kingmaker.DLC;
 using Kingmaker.ElementsSystem;
 using Kingmaker.GameModes;
 using Kingmaker.Settings.Difficulty;

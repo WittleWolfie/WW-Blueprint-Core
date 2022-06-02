@@ -6,18 +6,14 @@ using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Quests;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
-using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.Kingdom.Settlements.BuildingComponents;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -412,8 +408,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLocationRadiusBuff(
         Blueprint<BlueprintBuffReference>? buff = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? radius = null)
     {
       var component = new LocationRadiusBuff();
@@ -423,7 +427,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       component.Radius = radius ?? component.Radius;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -450,12 +454,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="noSuchBuildings">
     /// <para>
     /// InfoBox: If true, looking for opposite: there should be no building in distance to get bonus
@@ -466,8 +464,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         List<Blueprint<BlueprintSettlementBuildingReference>>? buildings = null,
         BuildingAdjacencyBonus.CalculationType? calculation = null,
         BuildingAdjacencyBonus.DistanceRequirementType? distance = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noSuchBuildings = null,
         KingdomStats.Changes? stats = null)
     {
@@ -483,7 +479,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.NoSuchBuildings = noSuchBuildings ?? component.NoSuchBuildings;
       Validate(stats);
       component.Stats = stats ?? component.Stats;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -512,16 +508,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBuildingAttachedBuff(
         Blueprint<BlueprintKingdomBuffReference>? buff = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyInRegion = null)
     {
       var component = new BuildingAttachedBuff();
@@ -531,7 +519,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         component.m_Buff = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(null);
       }
       component.m_OnlyInRegion = onlyInRegion ?? component.m_OnlyInRegion;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -558,12 +546,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="objective">
     /// <para>
     /// Blueprint of type BlueprintQuestObjective. You can pass in the blueprint using:
@@ -578,8 +560,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </param>
     public TBuilder AddBuildingPartOfQuestObjective(
         List<Blueprint<BlueprintSettlementBuildingReference>>? buildings = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintQuestObjectiveReference>? objective = null)
     {
       var component = new BuildingPartOfQuestObjective();
@@ -593,7 +573,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       {
         component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -607,19 +587,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <item><term>Palace</term><description>4ed3e1448ec844b9832ecb8705bb7ccf</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBuildingResourceGrowthGlobalIncrease(
         int? basicsModifier = null,
         int? favorsModifier = null,
         int? financeModifier = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? modifier = null)
     {
       var component = new BuildingResourceGrowthGlobalIncrease();
@@ -627,7 +598,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       component.FavorsModifier = favorsModifier ?? component.FavorsModifier;
       component.FinanceModifier = financeModifier ?? component.FinanceModifier;
       component.Modifier = modifier ?? component.Modifier;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -643,21 +614,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <item><term>Shrine</term><description>c48d088575c044b991564d338d21205c</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBuildingResourceGrowthIncrease(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         KingdomResourcesAmount? resourcesAmount = null)
     {
       var component = new BuildingResourceGrowthIncrease();
       component.ResourcesAmount = resourcesAmount ?? component.ResourcesAmount;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -689,17 +651,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// InfoBox: Also increases morale flag neutral state duration
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBuildingSiegeDurationIncrease(
         List<Blueprint<BlueprintKingdomMoraleFlag.Reference>>? affectedFlags = null,
-        int? durationDeltaInDays = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        int? durationDeltaInDays = null)
     {
       var component = new BuildingSiegeDurationIncrease();
       component.m_AffectedFlags = affectedFlags?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AffectedFlags;
@@ -708,7 +662,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         component.m_AffectedFlags = new BlueprintKingdomMoraleFlag.Reference[0];
       }
       component.DurationDeltaInDays = durationDeltaInDays ?? component.DurationDeltaInDays;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -737,17 +691,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBuildingTacticalUnitFactBonus(
         BuildingTacticalUnitFactBonus.DistanceType? distance = null,
         List<Blueprint<BlueprintFeatureReference>>? features = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyForCurrentRegion = null)
     {
       var component = new BuildingTacticalUnitFactBonus();
@@ -758,7 +704,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         component.m_Features = new BlueprintFeatureReference[0];
       }
       component.m_OnlyForCurrentRegion = onlyForCurrentRegion ?? component.m_OnlyForCurrentRegion;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -775,12 +721,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="unit">
     /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -795,8 +735,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </param>
     public TBuilder AddBuildingUnitGrowthIncrease(
         int? count = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintUnitReference>? unit = null)
     {
       var component = new BuildingUnitGrowthIncrease();
@@ -806,7 +744,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       {
         component.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -822,19 +760,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <item><term>Warehouse</term><description>ab509bc1202e3044ab58653230d66c1f</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddOncePerSettlementRestriction(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddOncePerSettlementRestriction()
     {
-      var component = new OncePerSettlementRestriction();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new OncePerSettlementRestriction());
     }
 
     /// <summary>
@@ -862,17 +790,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddOtherBuildingRestriction(
         List<Blueprint<BlueprintSettlementBuildingReference>>? buildings = null,
         bool? invert = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? requireAll = null)
     {
       var component = new OtherBuildingRestriction();
@@ -883,7 +803,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       }
       component.Invert = invert ?? component.Invert;
       component.RequireAll = requireAll ?? component.RequireAll;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -900,12 +820,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="not">
     /// <para>
     /// InfoBox: If true, allows to build in any settlement except specified
@@ -924,8 +838,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// </para>
     /// </param>
     public TBuilder AddSpecificSettlementRestriction(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null,
         Blueprint<BlueprintSettlement.Reference>? settlement = null)
     {
@@ -936,7 +848,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       {
         component.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -950,9 +862,19 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <item><term>TeleportationCircle</term><description>ea277e5efe3d4f459e74ea83d7a73d2f</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTeleportationCircle()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTeleportationCircle(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TeleportationCircle());
+      var component = new TeleportationCircle();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -981,16 +903,8 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddUnlockRestriction(
         Blueprint<BlueprintUnlockableFlagReference>? flag = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? mustBeLocked = null)
     {
       var component = new UnlockRestriction();
@@ -1000,7 +914,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         component.m_Flag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
       }
       component.MustBeLocked = mustBeLocked ?? component.MustBeLocked;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1016,18 +930,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <item><term>SettlementsTracker_buff</term><description>71dd611cd70443fcb04f0dce3bda76ef</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEveryDayTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipDays = null)
     {
       var component = new EveryDayTrigger();
@@ -1042,7 +947,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         component.Condition = Utils.Constants.Empty.Conditions;
       }
       component.SkipDays = skipDays ?? component.SkipDays;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1056,18 +961,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <item><term>FlagTrickster1Money</term><description>6c97784129e5492fa08496f2d4139f22</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEveryWeekTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipWeeks = null)
     {
       var component = new EveryWeekTrigger();
@@ -1082,7 +978,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         component.Condition = Utils.Constants.Empty.Conditions;
       }
       component.SkipWeeks = skipWeeks ?? component.SkipWeeks;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1098,12 +994,21 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <item><term>CrusadeStoryMode</term><description>cd708fd765d74299a32c5438ed67d642</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddKingdomAddMercenaryReroll(
-        int? freeRerollsToAdd = null)
+        int? freeRerollsToAdd = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new KingdomAddMercenaryReroll();
       component.m_FreeRerollsToAdd = freeRerollsToAdd ?? component.m_FreeRerollsToAdd;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1119,12 +1024,21 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <item><term>MercenaryGuild</term><description>d615938461996b945810e3fbc989c460</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddKingdomAddMercenarySlot(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? slotsToAdd = null)
     {
       var component = new KingdomAddMercenarySlot();
       component.m_SlotsToAdd = slotsToAdd ?? component.m_SlotsToAdd;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

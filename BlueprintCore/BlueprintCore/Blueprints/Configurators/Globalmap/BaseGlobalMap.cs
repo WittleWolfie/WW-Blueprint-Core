@@ -3,7 +3,6 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom.Blueprints;

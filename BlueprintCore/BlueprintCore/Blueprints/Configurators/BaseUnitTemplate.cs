@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
@@ -258,7 +257,7 @@ namespace BlueprintCore.Blueprints.Configurators
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in statAdjustments) { Validate(item); }
+          Validate(statAdjustments);
           bp.StatAdjustments = statAdjustments;
         });
     }

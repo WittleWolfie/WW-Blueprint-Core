@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Blueprints;
@@ -253,7 +254,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in anchors) { Validate(item); }
+          Validate(anchors);
           bp.Anchors = anchors;
         });
     }
@@ -418,9 +419,19 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <item><term>RestCutscene</term><description>e45b17a590873794ebf427e00f5462fa</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddStopCutsceneWhenExitingArea()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddStopCutsceneWhenExitingArea(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new StopCutsceneWhenExitingArea());
+      var component = new StopCutsceneWhenExitingArea();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

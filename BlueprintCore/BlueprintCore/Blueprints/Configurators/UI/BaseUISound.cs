@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in sounds) { Validate(item); }
+          Validate(sounds);
           bp.Sounds = sounds.ToList();
         });
     }
@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in armyManagement) { Validate(item); }
+          Validate(armyManagement);
           bp.ArmyManagement = armyManagement.ToList();
         });
     }
@@ -182,7 +182,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in tooltip) { Validate(item); }
+          Validate(tooltip);
           bp.Tooltip = tooltip.ToList();
         });
     }

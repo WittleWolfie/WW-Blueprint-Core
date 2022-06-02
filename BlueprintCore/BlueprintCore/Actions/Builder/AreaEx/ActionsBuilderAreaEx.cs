@@ -10,7 +10,6 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Localization;
-using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Collections.Generic;
 using System.Linq;

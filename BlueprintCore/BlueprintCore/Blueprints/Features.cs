@@ -1,6 +1,5 @@
 ﻿using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 
 namespace BlueprintCore.Blueprints
 {

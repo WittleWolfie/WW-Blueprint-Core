@@ -5,13 +5,7 @@ using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Encyclopedia;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
@@ -25,10 +19,7 @@ using Kingmaker.Tutorial.Triggers;
 using Kingmaker.UI.Kingdom;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -486,17 +477,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>TestTutorialSC</term><description>2e48c8330634d544489e1fc14ccf5eaa</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddTutorialPage(
         LocalizedString? descriptionText = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SpriteLink? picture = null,
         LocalizedString? solutionFoundText = null,
         LocalizedString? solutionNotFoundText = null,
@@ -534,7 +516,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       }
       Validate(video);
       component.m_Video = video ?? component.m_Video;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -549,14 +531,23 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_AbilityDrain</term><description>7563689f6640b8d40a085fa47c3e375d</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerAbilityDamage(
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
-        bool? drain = null)
+        bool? drain = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerAbilityDamage();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
       component.Drain = drain ?? component.Drain;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -571,19 +562,27 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="needAllDescriptors">
     /// <para>
     /// InfoBox: If NeedAllDescriptors is true, only buff that has all listed flags will trigger
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerAffectedByAreaEffect(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? needAllDescriptors = null,
         SpellDescriptorWrapper? spellDescriptors = null)
     {
       var component = new TutorialTriggerAffectedByAreaEffect();
       component.NeedAllDescriptors = needAllDescriptors ?? component.NeedAllDescriptors;
       component.SpellDescriptors = spellDescriptors ?? component.SpellDescriptors;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -597,12 +596,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_ArcaneSpellFailure</term><description>0e7a6a6eb3147db49b4002b612eae140</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerArcaneSpellFailure(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null)
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerArcaneSpellFailure();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -636,9 +644,17 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// InfoBox: Always true if empty
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerAreaLoaded(
         Blueprint<BlueprintAreaReference>? area = null,
-        ConditionsBuilder? condition = null)
+        ConditionsBuilder? condition = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerAreaLoaded();
       component.m_Area = area?.Reference ?? component.m_Area;
@@ -651,7 +667,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Condition = Utils.Constants.Empty.Conditions;
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -665,14 +681,23 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_ArmorCheckPenalty</term><description>dc7226dcd63977d42b861d73ad022a3f</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerArmorCheckPenalty(
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? penaltyTriggerPercent = null)
     {
       var component = new TutorialTriggerArmorCheckPenalty();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
       component.PenaltyTriggerPercent = penaltyTriggerPercent ?? component.PenaltyTriggerPercent;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -686,9 +711,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_ArmorDexMax</term><description>c18bccb5f78f1f746b08228a4595fa51</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerArmorDexBonusLimiter()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerArmorDexBonusLimiter(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerArmorDexBonusLimiter());
+      var component = new TutorialTriggerArmorDexBonusLimiter();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -702,12 +737,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_Flatfooted</term><description>cb7d9217140d86e48a1dbfba3ec3aca0</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerAttackFlatFootedTarget(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null)
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerAttackFlatFootedTarget();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -721,12 +765,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_AttackOfOpportunity</term><description>56d0021901fa25f438471cccf846cf4a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerAttackOfOpportunity(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null)
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerAttackOfOpportunity();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -755,6 +808,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="needAllDescriptors">
     /// <para>
     /// InfoBox: If NeedAllDescriptors is true, only buff that has all listed flags will trigger
@@ -763,6 +822,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TBuilder AddTutorialTriggerBuffAttached(
         List<Blueprint<BlueprintBuffReference>>? buffs = null,
         bool? fromList = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? needAllDescriptors = null,
         SpellDescriptorWrapper? triggerDescriptors = null)
     {
@@ -775,7 +836,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.FromList = fromList ?? component.FromList;
       component.NeedAllDescriptors = needAllDescriptors ?? component.NeedAllDescriptors;
       component.TriggerDescriptors = triggerDescriptors ?? component.TriggerDescriptors;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -808,6 +869,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// InfoBox: Check if stat modificator from abilityBuff is greater than current modificator on top-AC unit (Tank) Designed for Barkskin buff. Could work badly with some specific stat modifiers. Contact Dev, if not sure
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="triggerAreas">
     /// <para>
     /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
@@ -824,6 +891,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         Blueprint<BlueprintAbilityReference>? ability = null,
         bool? allowItemsWithSpell = null,
         bool? checkTankStat = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAreaReference>>? triggerAreas = null)
     {
       var component = new TutorialTriggerCanBuffAlly();
@@ -839,7 +908,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_TriggerAreas = new BlueprintAreaReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -854,6 +923,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="scrolls">
     /// <para>
     /// Blueprint of type BlueprintItemEquipmentUsable. You can pass in the blueprint using:
@@ -867,6 +942,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerCanReadScrollByNPC(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintItemEquipmentUsableReference>>? scrolls = null)
     {
       var component = new TutorialTriggerCanReadScrollByNPC();
@@ -875,7 +952,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Scrolls = new BlueprintItemEquipmentUsableReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -889,9 +966,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_ConditionImmunity</term><description>2970e3a83ece7214fb13c72dbdf9e911</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerConditionImmunity()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerConditionImmunity(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerConditionImmunity());
+      var component = new TutorialTriggerConditionImmunity();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -906,12 +993,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_CriticalOutgoing</term><description>9f6888c45c055c44c93ae943c9cfd195</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerCriticalHit(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null)
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerCriticalHit();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -926,6 +1022,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="spells">
     /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
@@ -940,6 +1042,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </param>
     public TBuilder AddTutorialTriggerDamageAllyWithSpell(
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new TutorialTriggerDamageAllyWithSpell();
@@ -949,7 +1053,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Spells = new BlueprintAbilityReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -965,10 +1069,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>TestTutorialDRSmall</term><description>9b1b19c27c8bf9b40a05e72c07134092</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerDamageFromWeapon(
         bool? allowACTouchAttack = null,
         bool? allowFlatfootedTarget = null,
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         TutorialContext? savedContext = null,
         bool? showAfterCombat = null)
     {
@@ -979,7 +1092,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       Validate(savedContext);
       component.m_SavedContext = savedContext ?? component.m_SavedContext;
       component.m_ShowAfterCombat = showAfterCombat ?? component.m_ShowAfterCombat;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -995,14 +1108,23 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>NewTutorial_24_DamageReduction</term><description>4c0eedee0a882c84388e104ee3f0c67a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerDamageReduction(
         bool? absoluteDR = null,
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null)
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerDamageReduction();
       component.AbsoluteDR = absoluteDR ?? component.AbsoluteDR;
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1016,9 +1138,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_DeathDoor</term><description>b8ad3ad7d1ff88f47a387668437b9542</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerDeathDoor()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerDeathDoor(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerDeathDoor());
+      var component = new TutorialTriggerDeathDoor();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1032,9 +1164,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_MythicReinforce</term><description>e199599b43f94de88e20deeac7eb08bc</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerDialogMythicAnswer()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerDialogMythicAnswer(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerDialogMythicAnswer());
+      var component = new TutorialTriggerDialogMythicAnswer();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1048,9 +1190,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_MemorizedSpells</term><description>1cdde4a89945fd34993b7db7036d50ee</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerEmptySkillSlotOnRest()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerEmptySkillSlotOnRest(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerEmptySkillSlotOnRest());
+      var component = new TutorialTriggerEmptySkillSlotOnRest();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1078,8 +1230,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerEnemyHasAnyFact(
-        List<Blueprint<BlueprintUnitFactReference>>? enemyFacts = null)
+        List<Blueprint<BlueprintUnitFactReference>>? enemyFacts = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerEnemyHasAnyFact();
       component.m_EnemyFacts = enemyFacts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_EnemyFacts;
@@ -1087,7 +1247,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_EnemyFacts = new BlueprintUnitFactReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1114,8 +1274,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerEnemyHasBlindsight(
         List<Blueprint<BlueprintBuffReference>>? buffs = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Buff? partyBuff = null,
         UnitEntityData? unit = null)
     {
@@ -1129,7 +1297,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.m_PartyBuff = partyBuff ?? component.m_PartyBuff;
       Validate(unit);
       component.m_Unit = unit ?? component.m_Unit;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1156,6 +1324,267 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="spells">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddTutorialTriggerEnemyHasFact(
+        bool? allowItemsWithSpell = null,
+        Blueprint<BlueprintUnitFactReference>? enemyFact = null,
+        List<Blueprint<BlueprintAbilityReference>>? spells = null,
+        UnitEntityData? unit = null)
+    {
+      var component = new TutorialTriggerEnemyHasFact();
+      component.m_AllowItemsWithSpell = allowItemsWithSpell ?? component.m_AllowItemsWithSpell;
+      component.m_EnemyFact = enemyFact?.Reference ?? component.m_EnemyFact;
+      if (component.m_EnemyFact is null)
+      {
+        component.m_EnemyFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.m_Spells = spells?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Spells;
+      if (component.m_Spells is null)
+      {
+        component.m_Spells = new BlueprintAbilityReference[0];
+      }
+      Validate(unit);
+      component.m_Unit = unit ?? component.m_Unit;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TutorialTriggerEnemyHasRegeneration"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ContextTutor_Regeneration</term><description>8019e7508a1b94f4ebc2f0999f9b7770</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerEnemyHasRegeneration(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TutorialTriggerEnemyHasRegeneration();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TutorialTriggerEnergyDrain"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ContextTutor_EnergyDrain</term><description>6d422a0bb5f5d084a9b176afd1a27ed2</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerEnergyDrain(
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TutorialTriggerEnergyDrain();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TutorialTriggerEnergyImmunity"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ContextTutor_EnergyImmunity</term><description>b2e229e75abf2d04186ba4dc1c145bad</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerEnergyImmunity(
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        bool? fromSpell = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TutorialTriggerEnergyImmunity();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
+      component.FromSpell = fromSpell ?? component.FromSpell;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TutorialTriggerEnergyResistance"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ContextTutor_EnergyResistance</term><description>1bbb43c5acb33b04dba30bdb52b0f3dd</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerEnergyResistance(
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        bool? fromSpell = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TutorialTriggerEnergyResistance();
+      component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
+      component.FromSpell = fromSpell ?? component.FromSpell;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TutorialTriggerExtraAttackAfterLevelUp"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ContextTutor_BaseAttackBonus</term><description>941b40cfded225e4099ec5a0646e8efd</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerExtraAttackAfterLevelUp(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? startPrimaryAttackCount = null,
+        int? startSecondaryAttackCount = null,
+        UnitEntityData? triggerUnit = null)
+    {
+      var component = new TutorialTriggerExtraAttackAfterLevelUp();
+      component.m_StartPrimaryAttackCount = startPrimaryAttackCount ?? component.m_StartPrimaryAttackCount;
+      component.m_StartSecondaryAttackCount = startSecondaryAttackCount ?? component.m_StartSecondaryAttackCount;
+      Validate(triggerUnit);
+      component.m_TriggerUnit = triggerUnit ?? component.m_TriggerUnit;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TutorialTriggerFormationChangedBadly"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ContextTutor_Formation</term><description>e2a328adc266f9b499490d4528761e79</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="minTankDistance">
+    /// <para>
+    /// InfoBox: Minimum distance from tank to the rest of party (in UI formation grid cells)
+    /// </para>
+    /// </param>
+    public TBuilder AddTutorialTriggerFormationChangedBadly(
+        GameDifficultyOption? maxGameDifficulty = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        float? minTankDistance = null,
+        bool? partyWasChanged = null,
+        int? tanksCount = null)
+    {
+      var component = new TutorialTriggerFormationChangedBadly();
+      component.MaxGameDifficulty = maxGameDifficulty ?? component.MaxGameDifficulty;
+      component.MinTankDistance = minTankDistance ?? component.MinTankDistance;
+      component.m_PartyWasChanged = partyWasChanged ?? component.m_PartyWasChanged;
+      component.TanksCount = tanksCount ?? component.TanksCount;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TutorialTriggerHaveBetterEquipment"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ContextTutor_ItemUpgrade</term><description>4284c23456ccafb42bdaff2d987e74a6</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerHaveBetterEquipment(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? minGradeDiff = null)
+    {
+      var component = new TutorialTriggerHaveBetterEquipment();
+      component.MinGradeDiff = minGradeDiff ?? component.MinGradeDiff;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TutorialTriggerHealEnemyWithSpell"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ContextTutor_ChannelHealEnemy</term><description>cd82af44b4343194b9b74587eaa2e7be</description></item>
+    /// </list>
+    /// </remarks>
+    ///
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -1174,208 +1603,10 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddTutorialTriggerEnemyHasFact(
-        bool? allowItemsWithSpell = null,
-        Blueprint<BlueprintUnitFactReference>? enemyFact = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        List<Blueprint<BlueprintAbilityReference>>? spells = null,
-        UnitEntityData? unit = null)
-    {
-      var component = new TutorialTriggerEnemyHasFact();
-      component.m_AllowItemsWithSpell = allowItemsWithSpell ?? component.m_AllowItemsWithSpell;
-      component.m_EnemyFact = enemyFact?.Reference ?? component.m_EnemyFact;
-      if (component.m_EnemyFact is null)
-      {
-        component.m_EnemyFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.m_Spells = spells?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Spells;
-      if (component.m_Spells is null)
-      {
-        component.m_Spells = new BlueprintAbilityReference[0];
-      }
-      Validate(unit);
-      component.m_Unit = unit ?? component.m_Unit;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TutorialTriggerEnemyHasRegeneration"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ContextTutor_Regeneration</term><description>8019e7508a1b94f4ebc2f0999f9b7770</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTutorialTriggerEnemyHasRegeneration()
-    {
-      return AddComponent(new TutorialTriggerEnemyHasRegeneration());
-    }
-
-    /// <summary>
-    /// Adds <see cref="TutorialTriggerEnergyDrain"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ContextTutor_EnergyDrain</term><description>6d422a0bb5f5d084a9b176afd1a27ed2</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTutorialTriggerEnergyDrain(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null)
-    {
-      var component = new TutorialTriggerEnergyDrain();
-      component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TutorialTriggerEnergyImmunity"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ContextTutor_EnergyImmunity</term><description>b2e229e75abf2d04186ba4dc1c145bad</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTutorialTriggerEnergyImmunity(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
-        bool? fromSpell = null)
-    {
-      var component = new TutorialTriggerEnergyImmunity();
-      component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      component.FromSpell = fromSpell ?? component.FromSpell;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TutorialTriggerEnergyResistance"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ContextTutor_EnergyResistance</term><description>1bbb43c5acb33b04dba30bdb52b0f3dd</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTutorialTriggerEnergyResistance(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
-        bool? fromSpell = null)
-    {
-      var component = new TutorialTriggerEnergyResistance();
-      component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      component.FromSpell = fromSpell ?? component.FromSpell;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TutorialTriggerExtraAttackAfterLevelUp"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ContextTutor_BaseAttackBonus</term><description>941b40cfded225e4099ec5a0646e8efd</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTutorialTriggerExtraAttackAfterLevelUp(
-        int? startPrimaryAttackCount = null,
-        int? startSecondaryAttackCount = null,
-        UnitEntityData? triggerUnit = null)
-    {
-      var component = new TutorialTriggerExtraAttackAfterLevelUp();
-      component.m_StartPrimaryAttackCount = startPrimaryAttackCount ?? component.m_StartPrimaryAttackCount;
-      component.m_StartSecondaryAttackCount = startSecondaryAttackCount ?? component.m_StartSecondaryAttackCount;
-      Validate(triggerUnit);
-      component.m_TriggerUnit = triggerUnit ?? component.m_TriggerUnit;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TutorialTriggerFormationChangedBadly"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ContextTutor_Formation</term><description>e2a328adc266f9b499490d4528761e79</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="minTankDistance">
-    /// <para>
-    /// InfoBox: Minimum distance from tank to the rest of party (in UI formation grid cells)
-    /// </para>
-    /// </param>
-    public TBuilder AddTutorialTriggerFormationChangedBadly(
-        GameDifficultyOption? maxGameDifficulty = null,
-        float? minTankDistance = null,
-        bool? partyWasChanged = null,
-        int? tanksCount = null)
-    {
-      var component = new TutorialTriggerFormationChangedBadly();
-      component.MaxGameDifficulty = maxGameDifficulty ?? component.MaxGameDifficulty;
-      component.MinTankDistance = minTankDistance ?? component.MinTankDistance;
-      component.m_PartyWasChanged = partyWasChanged ?? component.m_PartyWasChanged;
-      component.TanksCount = tanksCount ?? component.TanksCount;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TutorialTriggerHaveBetterEquipment"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ContextTutor_ItemUpgrade</term><description>4284c23456ccafb42bdaff2d987e74a6</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTutorialTriggerHaveBetterEquipment(
-        int? minGradeDiff = null)
-    {
-      var component = new TutorialTriggerHaveBetterEquipment();
-      component.MinGradeDiff = minGradeDiff ?? component.MinGradeDiff;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TutorialTriggerHealEnemyWithSpell"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ContextTutor_ChannelHealEnemy</term><description>cd82af44b4343194b9b74587eaa2e7be</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="spells">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder AddTutorialTriggerHealEnemyWithSpell(
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new TutorialTriggerHealEnemyWithSpell();
@@ -1385,7 +1616,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Spells = new BlueprintAbilityReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1399,12 +1630,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_Scrolls</term><description>1a0413784e253384bb0927fefb79cdb4</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerHealingScroll(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? unitLeftHealthPercent = null)
     {
       var component = new TutorialTriggerHealingScroll();
       component.UnitLeftHealthPercent = unitLeftHealthPercent ?? component.UnitLeftHealthPercent;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1418,9 +1658,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_Identification</term><description>b7f2e9c71d3c4c6282d9d4b2b178b063</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerItemIdentificationFailed()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerItemIdentificationFailed(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerItemIdentificationFailed());
+      var component = new TutorialTriggerItemIdentificationFailed();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1434,9 +1684,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>CrusadeTutorial_09_Kingdom</term><description>3b3eef7a42c54323a471a02e9a439a4a</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerKingdomManagementOpened()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerKingdomManagementOpened(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerKingdomManagementOpened());
+      var component = new TutorialTriggerKingdomManagementOpened();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1450,12 +1710,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>CrusadeTutorial_10_Edicts</term><description>b2b0cc9d575a40f6a12ab30c95f0b267</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerKingdomTabSelected(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         KingdomNavigationType? type = null)
     {
       var component = new TutorialTriggerKingdomTabSelected();
       component.m_Type = type ?? component.m_Type;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1469,12 +1738,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_LowHPHeal</term><description>62e42f2bf35ff1e4daa63b2a68c0b264</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerLowHitPoints(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? threshold = null)
     {
       var component = new TutorialTriggerLowHitPoints();
       component.Threshold = threshold ?? component.Threshold;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1502,8 +1780,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerMemorizeSpontaneousSpell(
-        Blueprint<BlueprintCharacterClassReference>? characterClass = null)
+        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerMemorizeSpontaneousSpell();
       component.m_CharacterClass = characterClass?.Reference ?? component.m_CharacterClass;
@@ -1511,7 +1797,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1525,12 +1811,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_MeleeShooting</term><description>e5074d54cea27e74497254551b02739e</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerMissingPreciseShot(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null)
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerMissingPreciseShot();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1544,9 +1839,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_DualWielding</term><description>9cc716c6e1a054141bc70b3ba9835bf1</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerMissingTwoWeaponFighting()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerMissingTwoWeaponFighting(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerMissingTwoWeaponFighting());
+      var component = new TutorialTriggerMissingTwoWeaponFighting();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1560,9 +1865,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_MountCombat</term><description>4e2014b8629e426984f273d2c09885f9</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerMountAnimal()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerMountAnimal(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerMountAnimal());
+      var component = new TutorialTriggerMountAnimal();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1576,8 +1891,17 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_Exhausted</term><description>62e661dce03f8614190ea795ff5ab512</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerMultipleUnitsCondition(
         bool? allowOnGlobalMap = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimumUnitsCount = null,
         UnitCondition? triggerCondition = null)
     {
@@ -1585,7 +1909,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.AllowOnGlobalMap = allowOnGlobalMap ?? component.AllowOnGlobalMap;
       component.MinimumUnitsCount = minimumUnitsCount ?? component.MinimumUnitsCount;
       component.TriggerCondition = triggerCondition ?? component.TriggerCondition;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1599,12 +1923,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>CrusadeTutorial_06_ArmyManagement</term><description>ff4852b301114006b9407e2ad54df475</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerNewCrusaderArmy(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimumNumberOfArmies = null)
     {
       var component = new TutorialTriggerNewCrusaderArmy();
       component.m_MinimumNumberOfArmies = minimumNumberOfArmies ?? component.m_MinimumNumberOfArmies;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1633,8 +1966,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerNewItemWithEnchantment(
-        Blueprint<BlueprintItemEnchantmentReference>? enchantment = null)
+        Blueprint<BlueprintItemEnchantmentReference>? enchantment = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerNewItemWithEnchantment();
       component.m_Enchantment = enchantment?.Reference ?? component.m_Enchantment;
@@ -1642,7 +1983,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1656,9 +1997,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_ScrollsMemorizing</term><description>283a2b24e3187bb4c91f6034ed090afc</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerNewNotLearnedScroll()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerNewNotLearnedScroll(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerNewNotLearnedScroll());
+      var component = new TutorialTriggerNewNotLearnedScroll();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1672,9 +2023,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_NewRecipe</term><description>91a99dbe207e4c14bf58365d64e0eada</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerNewRecipe()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerNewRecipe(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerNewRecipe());
+      var component = new TutorialTriggerNewRecipe();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1688,12 +2049,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_MagicRod</term><description>14ec930dfe4b4394193e2d3a943738fa</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerNewRodItem(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Metamagic? triggerMetamagic = null)
     {
       var component = new TutorialTriggerNewRodItem();
       component.TriggerMetamagic = triggerMetamagic ?? component.TriggerMetamagic;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1707,9 +2077,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_MaterialComponent</term><description>a4105ffe1bcd14c4582a6ac83615d007</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerNewSpellWithoutRequiredMaterial()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerNewSpellWithoutRequiredMaterial(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerNewSpellWithoutRequiredMaterial());
+      var component = new TutorialTriggerNewSpellWithoutRequiredMaterial();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1724,6 +2104,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="spells">
     /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
@@ -1737,6 +2123,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerNewWand(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new TutorialTriggerNewWand();
@@ -1745,7 +2133,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Spells = new BlueprintAbilityReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1772,6 +2160,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="recommendedAbilities">
     /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
@@ -1786,6 +2180,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </param>
     public TBuilder AddTutorialTriggerNoAutocastSpell(
         List<Blueprint<BlueprintUnitReference>>? companions = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbilityReference>>? recommendedAbilities = null)
     {
       var component = new TutorialTriggerNoAutocastSpell();
@@ -1799,7 +2195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_RecommendedAbilities = new BlueprintAbilityReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1813,9 +2209,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_NonStackBonus</term><description>37e769643d701604d8f5003bfc651cbb</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerNonStackBonus()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerNonStackBonus(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerNonStackBonus());
+      var component = new TutorialTriggerNonStackBonus();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1829,9 +2235,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>CrusadeTutorial_11_Mercs</term><description>368fcc42afa94552b1a67acfd3748bff</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerOpenArmyRecruit()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerOpenArmyRecruit(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerOpenArmyRecruit());
+      var component = new TutorialTriggerOpenArmyRecruit();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1845,9 +2261,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>NewTutorial_25_Camping_2</term><description>05fd974a864e04248b9d503793324419</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerOpenRestUI()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerOpenRestUI(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerOpenRestUI());
+      var component = new TutorialTriggerOpenRestUI();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1861,12 +2287,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_EncumbranceParty</term><description>981dd3fa202a85641a0200c245ecb503</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerPartyEncumbrance(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Encumbrance? minTriggerEncumbrance = null)
     {
       var component = new TutorialTriggerPartyEncumbrance();
       component.MinTriggerEncumbrance = minTriggerEncumbrance ?? component.MinTriggerEncumbrance;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1880,9 +2315,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_SavingThrow</term><description>a6cba74c40f75494784ca9b22e5e36e8</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerSavingThrow()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerSavingThrow(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerSavingThrow());
+      var component = new TutorialTriggerSavingThrow();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1897,8 +2342,17 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>TestTutorialSC</term><description>2e48c8330634d544489e1fc14ccf5eaa</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerSkillCheck(
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? skill = null,
         bool? skillRestriction = null,
         TutorialTriggerSkillCheck.ResultType? triggerOnResult = null)
@@ -1908,7 +2362,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.Skill = skill ?? component.Skill;
       component.SkillRestriction = skillRestriction ?? component.SkillRestriction;
       component.m_TriggerOnResult = triggerOnResult ?? component.m_TriggerOnResult;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1922,12 +2376,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_SneakAttack</term><description>29aaa47d3c4415945afe877066b1422a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerSneakAttack(
-        DirectlyControllableUnitRequirement? directlyControllableRequirement = null)
+        DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerSneakAttack();
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1944,6 +2407,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="needAllDescriptors">
     /// <para>
     /// InfoBox: If NeedAllDescriptors is true, only resisted spell with all listed flags will trigger
@@ -1952,6 +2421,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TBuilder AddTutorialTriggerSpellResistance(
         SpellDescriptorWrapper? descriptor = null,
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? needAllDescriptors = null,
         TutorialTriggerSpellResistance.Target? triggerTarget = null)
     {
@@ -1960,7 +2431,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
       component.NeedAllDescriptors = needAllDescriptors ?? component.NeedAllDescriptors;
       component.TriggerTarget = triggerTarget ?? component.TriggerTarget;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1982,6 +2453,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// InfoBox: If true triggers on demon&amp;apos;s victory, otherwise on crusaders&amp;apos;
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="onlyGarrison">
     /// <para>
     /// InfoBox: If true triggers only on garrison capture
@@ -1989,12 +2466,14 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </param>
     public TBuilder AddTutorialTriggerTacticalCombatEnd(
         bool? demonsWon = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyGarrison = null)
     {
       var component = new TutorialTriggerTacticalCombatEnd();
       component.m_DemonsWon = demonsWon ?? component.m_DemonsWon;
       component.m_OnlyGarrison = onlyGarrison ?? component.m_OnlyGarrison;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2025,9 +2504,17 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerTacticalCombatStart(
         bool? enemyShouldHaveLeader = null,
         List<Blueprint<BlueprintUnitReference>>? enemyUnits = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? playerShouldHaveLeader = null,
         bool? specifyEnemyUnits = null)
     {
@@ -2040,7 +2527,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       }
       component.m_PlayerShouldHaveLeader = playerShouldHaveLeader ?? component.m_PlayerShouldHaveLeader;
       component.m_SpecifyEnemyUnits = specifyEnemyUnits ?? component.m_SpecifyEnemyUnits;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2054,9 +2541,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_TargetType</term><description>77ce529f3d142a14e92b772c3c8d49ce</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerTargetRestriction()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerTargetRestriction(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerTargetRestriction());
+      var component = new TutorialTriggerTargetRestriction();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2070,8 +2567,17 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_TouchAC</term><description>9c02f4f3f76d005449f84aefb9c7c086</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerTouchAC(
         DirectlyControllableUnitRequirement? directlyControllableRequirement = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? missesInRow = null,
         int? touchACDifference = null)
     {
@@ -2079,7 +2585,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.m_DirectlyControllableRequirement = directlyControllableRequirement ?? component.m_DirectlyControllableRequirement;
       component.MissesInRow = missesInRow ?? component.MissesInRow;
       component.TouchACDifference = touchACDifference ?? component.TouchACDifference;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2093,9 +2599,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>NewTutorial_TBM</term><description>5149409ec9a7457592b1e444d562ff7e</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerTurnBaseModeActivated()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerTurnBaseModeActivated(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerTurnBaseModeActivated());
+      var component = new TutorialTriggerTurnBaseModeActivated();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2111,12 +2627,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>RestTutorial_CraftingScrolls</term><description>1d1ede439814c4d478a8322ad0af3711</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerUIEvent(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UIEventType? uIEvent = null)
     {
       var component = new TutorialTriggerUIEvent();
       component.UIEvent = uIEvent ?? component.UIEvent;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2132,12 +2657,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_Petrification</term><description>c733a40a8e9a3ef4d86978eb8294e344</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerUnitCondition(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitCondition? triggerCondition = null)
     {
       var component = new TutorialTriggerUnitCondition();
       component.TriggerCondition = triggerCondition ?? component.TriggerCondition;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2152,12 +2686,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_PetDeath</term><description>3e6ff2fea653bb34395eab8f32d993a8</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerUnitDeath(
-        bool? isPet = null)
+        bool? isPet = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialTriggerUnitDeath();
       component.IsPet = isPet ?? component.IsPet;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2172,6 +2715,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="performances">
     /// <para>
     /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
@@ -2185,6 +2734,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </para>
     /// </param>
     public TBuilder AddTutorialTriggerUnitDiedWithoutBardPerformance(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintActivatableAbilityReference>>? performances = null)
     {
       var component = new TutorialTriggerUnitDiedWithoutBardPerformance();
@@ -2193,7 +2744,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Performances = new BlueprintActivatableAbilityReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2207,12 +2758,21 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_EncumbranceUnit</term><description>e53ac21db7f4b5846b1bdec97e75820a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialTriggerUnitEncumbrance(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Encumbrance? minTriggerEncumbrance = null)
     {
       var component = new TutorialTriggerUnitEncumbrance();
       component.MinTriggerEncumbrance = minTriggerEncumbrance ?? component.MinTriggerEncumbrance;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2226,9 +2786,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_ClassAlignment</term><description>3e2d134a46f0abe4b9c966963e3ced2b</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerUnitLostAlignmentFeature()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerUnitLostAlignmentFeature(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerUnitLostAlignmentFeature());
+      var component = new TutorialTriggerUnitLostAlignmentFeature();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2242,9 +2812,19 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>ContextTutor_SneakAttackRecruit</term><description>7b4c7f77a63911b43a6d007bdea3a35e</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTutorialTriggerUnitWithSneakAttackJoinParty()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerUnitWithSneakAttackJoinParty(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TutorialTriggerUnitWithSneakAttackJoinParty());
+      var component = new TutorialTriggerUnitWithSneakAttackJoinParty();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2276,10 +2856,18 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddTutorialSolverBestWeaponAgainstTarget(
         bool? checkEnchantment = null,
         bool? checkRegeneration = null,
-        List<Blueprint<BlueprintWeaponEnchantmentReference>>? enchantments = null)
+        List<Blueprint<BlueprintWeaponEnchantmentReference>>? enchantments = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TutorialSolverBestWeaponAgainstTarget();
       component.CheckEnchantment = checkEnchantment ?? component.CheckEnchantment;
@@ -2289,7 +2877,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Enchantments = new BlueprintWeaponEnchantmentReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2306,6 +2894,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="spells">
     /// <para>
     /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
@@ -2320,6 +2914,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </param>
     public TBuilder AddTutorialSolverSpellFromList(
         bool? allowItems = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new TutorialSolverSpellFromList();
@@ -2329,7 +2925,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_Spells = new BlueprintAbilityReference[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2371,6 +2967,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="needAllDescriptors">
     /// <para>
     /// InfoBox: If NeedAllDescriptors is true, only resisted spell with all listed flags will trigger
@@ -2382,6 +2984,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bool? checkRegeneration = null,
         bool? checkVulnerability = null,
         List<Blueprint<BlueprintAbilityReference>>? ignoredSpells = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? needAllDescriptors = null,
         bool? onlyAoE = null,
         SpellDescriptorWrapper? spellDescriptor = null,
@@ -2401,7 +3005,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.OnlyAoE = onlyAoE ?? component.OnlyAoE;
       component.SpellDescriptor = spellDescriptor ?? component.SpellDescriptor;
       component.UseDescriptor = useDescriptor ?? component.UseDescriptor;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2421,6 +3025,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// InfoBox: To prevent including self healing spells or buffs
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="needAllDescriptors">
     /// <para>
     /// InfoBox: If NeedAllDescriptors is true, only buff that has all listed flags will trigger
@@ -2429,6 +3039,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     public TBuilder AddTutorialSolverSpellWithDescriptor(
         bool? allowItems = null,
         bool? excludeOnlySelfTarget = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? needAllDescriptors = null,
         SpellDescriptorWrapper? spellDescriptors = null)
     {
@@ -2437,7 +3049,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.ExcludeOnlySelfTarget = excludeOnlySelfTarget ?? component.ExcludeOnlySelfTarget;
       component.NeedAllDescriptors = needAllDescriptors ?? component.NeedAllDescriptors;
       component.SpellDescriptors = spellDescriptors ?? component.SpellDescriptors;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

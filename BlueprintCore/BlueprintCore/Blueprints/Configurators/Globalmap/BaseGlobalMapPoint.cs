@@ -1,14 +1,12 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
-using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Loot;
-using Kingmaker.Blueprints.Quests;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
@@ -16,7 +14,6 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -341,7 +338,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in dCModifiers) { Validate(item); }
+          Validate(dCModifiers);
           bp.DCModifiers = dCModifiers;
         });
     }
@@ -827,7 +824,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in ingredients) { Validate(item); }
+          Validate(ingredients);
           bp.Ingredients = ingredients;
         });
     }
@@ -928,7 +925,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in loot) { Validate(item); }
+          Validate(loot);
           bp.Loot = loot;
         });
     }
@@ -1421,8 +1418,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLocationRadiusBuff(
         Blueprint<BlueprintBuffReference>? buff = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? radius = null)
     {
       var component = new LocationRadiusBuff();
@@ -1432,7 +1437,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       component.Radius = radius ?? component.Radius;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1449,6 +1454,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="requiredCompanions">
     /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -1465,6 +1476,8 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         ConditionsBuilder? allowedCondition = null,
         LocalizedString? description = null,
         ConditionsBuilder? ignoreCondition = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintUnitReference>>? requiredCompanions = null)
     {
       var component = new LocationRestriction();
@@ -1488,7 +1501,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       {
         component.RequiredCompanions = new();
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

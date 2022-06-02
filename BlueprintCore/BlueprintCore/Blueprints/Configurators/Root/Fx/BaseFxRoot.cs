@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Footrprints;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.Blueprints.Root.Fx;
 using Kingmaker.Utility;
@@ -285,7 +284,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in poolEntries) { Validate(item); }
+          Validate(poolEntries);
           bp.PoolEntries = poolEntries;
         });
     }
@@ -362,7 +361,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in overrideDeathPrefabsFromEnergy) { Validate(item); }
+          Validate(overrideDeathPrefabsFromEnergy);
           bp.OverrideDeathPrefabsFromEnergy = overrideDeathPrefabsFromEnergy;
         });
     }
@@ -920,7 +919,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in footprintsLocators) { Validate(item); }
+          Validate(footprintsLocators);
           bp.FootprintsLocators = footprintsLocators;
         });
     }
@@ -1021,7 +1020,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in cachedOverrideDeathPrefabsFromEnergy) { Validate(item); }
+          Validate(cachedOverrideDeathPrefabsFromEnergy);
           bp.m_CachedOverrideDeathPrefabsFromEnergy = cachedOverrideDeathPrefabsFromEnergy;
         });
     }

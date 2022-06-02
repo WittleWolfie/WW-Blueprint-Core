@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in stats) { Validate(item); }
+          Validate(stats);
           bp.Stats = stats.ToList();
         });
     }
@@ -158,7 +158,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in resources) { Validate(item); }
+          Validate(resources);
           bp.Resources = resources.ToList();
         });
     }
@@ -261,7 +261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in leaderDescriptions) { Validate(item); }
+          Validate(leaderDescriptions);
           bp.LeaderDescriptions = leaderDescriptions.ToList();
         });
     }
@@ -364,7 +364,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in eventResultMarginDescriptions) { Validate(item); }
+          Validate(eventResultMarginDescriptions);
           bp.EventResultMarginDescriptions = eventResultMarginDescriptions.ToList();
         });
     }
@@ -519,7 +519,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in kingdomStatusChangeReasons) { Validate(item); }
+          Validate(kingdomStatusChangeReasons);
           bp.KingdomStatusChangeReasons = kingdomStatusChangeReasons.ToList();
         });
     }
@@ -646,7 +646,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in kingdomStautsDesriptions) { Validate(item); }
+          Validate(kingdomStautsDesriptions);
           bp.KingdomStautsDesriptions = kingdomStautsDesriptions.ToList();
         });
     }

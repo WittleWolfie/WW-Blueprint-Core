@@ -7,7 +7,6 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.QuestSystem;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.ObjectiveEvents;
@@ -860,6 +859,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="playerGainsNoExp">
     /// <para>
     /// InfoBox: When true, Exp will be used in encounter CR calculation, but player will not gained it
@@ -870,6 +875,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         int? cR = null,
         bool? dummy = null,
         EncounterType? encounter = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? modifier = null,
         bool? playerGainsNoExp = null)
     {
@@ -881,7 +888,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       component.Encounter = encounter ?? component.Encounter;
       component.Modifier = modifier ?? component.Modifier;
       component.PlayerGainsNoExp = playerGainsNoExp ?? component.PlayerGainsNoExp;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -901,18 +908,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <item><term>SosielQ1_HiddenFail</term><description>19b7d800c358c104280ddf5ade6a7b55</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddObjectiveStatusTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         QuestObjectiveState? objectiveState = null)
     {
       var component = new ObjectiveStatusTrigger();
@@ -927,7 +925,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         component.Conditions = Utils.Constants.Empty.Conditions;
       }
       component.objectiveState = objectiveState ?? component.objectiveState;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
   }
 }

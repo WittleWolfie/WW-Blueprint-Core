@@ -9,12 +9,10 @@ using Kingmaker.AreaLogic.Capital;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Root;
 using Kingmaker.Controllers.Rest;
 using Kingmaker.Corruption;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
-using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
@@ -1015,12 +1013,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="tutorial">
     /// <para>
     /// Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
@@ -1034,8 +1026,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketEnableTutorialSingle(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintTutorial.Reference>? tutorial = null)
     {
       var component = new EtudeBracketEnableTutorialSingle();
@@ -1044,7 +1034,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       {
         component.m_Tutorial = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1061,12 +1051,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="tutorials">
     /// <para>
     /// Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
@@ -1080,8 +1064,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </para>
     /// </param>
     public TBuilder AddEtudeBracketEnableTutorials(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintTutorial.Reference>>? tutorials = null)
     {
       var component = new EtudeBracketEnableTutorials();
@@ -1090,7 +1072,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       {
         component.m_Tutorials = new BlueprintTutorial.Reference[0];
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1106,21 +1088,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeCorruptionFreeZone(
-        bool? clearAllCorruption = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? clearAllCorruption = null)
     {
       var component = new EtudeCorruptionFreeZone();
       component.m_ClearAllCorruption = clearAllCorruption ?? component.m_ClearAllCorruption;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1136,19 +1109,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>Neathholm</term><description>1ec30c09b7ccabb4f856365af7d57a49</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudeDisableCraft(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudeDisableCraft()
     {
-      var component = new EtudeDisableCraft();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudeDisableCraft());
     }
 
     /// <summary>
@@ -1162,21 +1125,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>Kenabres_CorruptionFree</term><description>24671efbec02423b923a32d471c3e0d1</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeOverrideCorruptionGrowth(
-        int? corruptionGrowth = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        int? corruptionGrowth = null)
     {
       var component = new EtudeOverrideCorruptionGrowth();
       component.m_CorruptionGrowth = corruptionGrowth ?? component.m_CorruptionGrowth;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1192,18 +1146,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>SettlementsTracker_buff</term><description>71dd611cd70443fcb04f0dce3bda76ef</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEveryDayTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipDays = null)
     {
       var component = new EveryDayTrigger();
@@ -1218,7 +1163,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         component.Condition = Utils.Constants.Empty.Conditions;
       }
       component.SkipDays = skipDays ?? component.SkipDays;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1232,18 +1177,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>FlagTrickster1Money</term><description>6c97784129e5492fa08496f2d4139f22</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEveryWeekTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? condition = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? skipWeeks = null)
     {
       var component = new EveryWeekTrigger();
@@ -1258,7 +1194,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         component.Condition = Utils.Constants.Empty.Conditions;
       }
       component.SkipWeeks = skipWeeks ?? component.SkipWeeks;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1278,17 +1214,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeCompleteTrigger(
-        ActionsBuilder? actions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        ActionsBuilder? actions = null)
     {
       var component = new EtudeCompleteTrigger();
       component.Actions = actions?.Build() ?? component.Actions;
@@ -1296,7 +1223,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       {
         component.Actions = Utils.Constants.Empty.Actions;
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1327,17 +1254,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Tooltip: How much in-game days should pass for ActionList to be invoked
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeInvokeActionsDelayed(
         ActionsBuilder? actionList = null,
-        int? days = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        int? days = null)
     {
       var component = new EtudeInvokeActionsDelayed();
       component.m_ActionList = actionList?.Build() ?? component.m_ActionList;
@@ -1346,7 +1265,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         component.m_ActionList = Utils.Constants.Empty.Actions;
       }
       component.m_Days = days ?? component.m_Days;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1366,18 +1285,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudePlayTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? once = null)
     {
       var component = new EtudePlayTrigger();
@@ -1392,7 +1302,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         component.Conditions = Utils.Constants.Empty.Conditions;
       }
       component.m_Once = once ?? component.m_Once;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1421,16 +1331,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddDisableCompanionPartyChecks(
         List<Blueprint<BlueprintUnitReference>>? companions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         DisableCompanionPartyChecks.ModeType? mode = null)
     {
       var component = new DisableCompanionPartyChecks();
@@ -1440,7 +1342,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         component.m_Companions = new BlueprintUnitReference[0];
       }
       component.m_Mode = mode ?? component.m_Mode;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1456,9 +1358,19 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>Woljif_AbandonedMansion_CutScenePat</term><description>1bbf7d9eff0f47ea9bc50f2d88ae39fc</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddDisableMountRiding()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDisableMountRiding(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new DisableMountRiding());
+      var component = new DisableMountRiding();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1473,19 +1385,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>DLC1_Megaepic</term><description>99622b80d692457890f58f73ed864f30</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudeBracketAllowMythicPortrait(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudeBracketAllowMythicPortrait()
     {
-      var component = new EtudeBracketAllowMythicPortrait();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudeBracketAllowMythicPortrait());
     }
 
     /// <summary>
@@ -1501,33 +1403,24 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>WarCamp_Peaceful_Audio</term><description>aa31ae323e6e54341bc59ce6fba7c08e</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketAudioEvents(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AkEventReference[]? onEtudeStart = null,
         AkEventReference[]? onEtudeStop = null)
     {
       var component = new EtudeBracketAudioEvents();
-      foreach (var item in onEtudeStart) { Validate(item); }
+      Validate(onEtudeStart);
       component.OnEtudeStart = onEtudeStart ?? component.OnEtudeStart;
       if (component.OnEtudeStart is null)
       {
         component.OnEtudeStart = new AkEventReference[0];
       }
-      foreach (var item in onEtudeStop) { Validate(item); }
+      Validate(onEtudeStop);
       component.OnEtudeStop = onEtudeStop ?? component.OnEtudeStop;
       if (component.OnEtudeStop is null)
       {
         component.OnEtudeStop = new AkEventReference[0];
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1543,21 +1436,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>ZigguratSound</term><description>f2035ebb6d074f33aaa1ec362d0f1929</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketAudioObjects(
-        string? connectedObjectName = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        string? connectedObjectName = null)
     {
       var component = new EtudeBracketAudioObjects();
       component.ConnectedObjectName = connectedObjectName ?? component.ConnectedObjectName;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1573,17 +1457,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>Threshold</term><description>207fad718f41237449b0acf414cc991a</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketCampingAction(
         ActionsBuilder? actions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? skipRest = null)
     {
       var component = new EtudeBracketCampingAction();
@@ -1593,7 +1468,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         component.Actions = Utils.Constants.Empty.Actions;
       }
       component.SkipRest = skipRest ?? component.SkipRest;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1609,24 +1484,15 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>TricksterCouncilDefault</term><description>d3306da844810c74984e37a41d6d6f99</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketDetachPet(
         UnitEvaluator? master = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         PetType? petType = null)
     {
       var component = new EtudeBracketDetachPet();
       Validate(master);
       component.Master = master ?? component.Master;
       component.PetType = petType ?? component.PetType;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1641,19 +1507,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>DLC2_Stop_RE</term><description>8b91b3737c444cf2a1cfb2177a6af2f0</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudeBracketDisableCampingEncounters(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudeBracketDisableCampingEncounters()
     {
-      var component = new EtudeBracketDisableCampingEncounters();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudeBracketDisableCampingEncounters());
     }
 
     /// <summary>
@@ -1667,19 +1523,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>NoDragon</term><description>39008f5a372a6dc42bddfcf4f334bd95</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudeBracketDisablePlayerRespec(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudeBracketDisablePlayerRespec()
     {
-      var component = new EtudeBracketDisablePlayerRespec();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudeBracketDisablePlayerRespec());
     }
 
     /// <summary>
@@ -1694,19 +1540,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>LegendGarrisonGM_NoRE</term><description>1b60bc29f8a24d08a8af2c276aee38eb</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudeBracketDisableRandomEncounters(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudeBracketDisableRandomEncounters()
     {
-      var component = new EtudeBracketDisableRandomEncounters();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudeBracketDisableRandomEncounters());
     }
 
     /// <summary>
@@ -1745,17 +1581,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketEnableAzataIsland(
         Blueprint<BlueprintGlobalMap.Reference>? globalMap = null,
-        Blueprint<BlueprintGlobalMagicSpell.Reference>? globalMapSpell = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        Blueprint<BlueprintGlobalMagicSpell.Reference>? globalMapSpell = null)
     {
       var component = new EtudeBracketEnableAzataIsland();
       component.m_GlobalMap = globalMap?.Reference ?? component.m_GlobalMap;
@@ -1768,7 +1596,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       {
         component.m_GlobalMapSpell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1795,16 +1623,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketEnableWarcamp(
-        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        Blueprint<BlueprintGlobalMap.Reference>? globalMap = null)
     {
       var component = new EtudeBracketEnableWarcamp();
       component.m_GlobalMap = globalMap?.Reference ?? component.m_GlobalMap;
@@ -1812,7 +1632,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       {
         component.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1834,12 +1654,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Tooltip: Main character if not specified
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="summonPool">
     /// <para>
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
@@ -1856,8 +1670,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bool? alwaysRun = null,
         bool? canBeSlowerThanLeader = null,
         UnitEvaluator? leader = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSummonPoolReference>? summonPool = null,
         UnitEvaluator? unit = null,
         bool? useSummonPool = null)
@@ -1875,7 +1687,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       Validate(unit);
       component.Unit = unit ?? component.Unit;
       component.UseSummonPool = useSummonPool ?? component.UseSummonPool;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1889,19 +1701,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>XCOM_Battle</term><description>f830cff9020aa434c8b8a49980af4035</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudeBracketForceCombatMode(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudeBracketForceCombatMode()
     {
-      var component = new EtudeBracketForceCombatMode();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudeBracketForceCombatMode());
     }
 
     /// <summary>
@@ -1916,18 +1718,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>ThresholdCamp_Attack</term><description>2598fbc6c16e7ec4abc5ec50f484fd4f</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketIgnoreGameover(
         ActionsBuilder? actionList = null,
-        EtudeBracketGameModeWaiter? gameModeWaiter = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        EtudeBracketGameModeWaiter? gameModeWaiter = null)
     {
       var component = new EtudeBracketIgnoreGameover();
       component.ActionList = actionList?.Build() ?? component.ActionList;
@@ -1937,7 +1730,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       }
       Validate(gameModeWaiter);
       component.m_GameModeWaiter = gameModeWaiter ?? component.m_GameModeWaiter;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1953,22 +1746,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>Woljif_Nexus_EXRemotePassive</term><description>e6055ae3cde11e9418628e1d446ac193</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketMakePassive(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketMakePassive();
       Validate(unit);
       component.Unit = unit ?? component.Unit;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1984,22 +1768,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>ZosielQ0</term><description>6d1bb3f8743892a4aaf498f7fc5212f0</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketMarkUnitEssential(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? target = null)
     {
       var component = new EtudeBracketMarkUnitEssential();
       Validate(target);
       component.Target = target ?? component.Target;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2015,16 +1790,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketMusic(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         AkEventReference? startTheme = null,
         AkEventReference? stopTheme = null)
     {
@@ -2033,7 +1799,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       component.StartTheme = startTheme ?? component.StartTheme;
       Validate(stopTheme);
       component.StopTheme = stopTheme ?? component.StopTheme;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2049,18 +1815,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>WarCamp_DefaultPeaceful_Outdoor</term><description>27d07416c620e0e48865bd88d74cbb82</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketOverrideActionsOnClick(
         ActionsBuilder? actions = null,
         float? distance = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketOverrideActionsOnClick();
@@ -2072,7 +1829,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       component.m_Distance = distance ?? component.m_Distance;
       Validate(unit);
       component.Unit = unit ?? component.Unit;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2094,17 +1851,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// Tooltip: Bark duration depends on text length
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketOverrideBark(
         bool? barkDurationByText = null,
         float? distance = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null,
         SharedStringAsset? whatToBarkShared = null)
     {
@@ -2115,7 +1864,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       component.Unit = unit ?? component.Unit;
       Validate(whatToBarkShared);
       component.WhatToBarkShared = whatToBarkShared ?? component.WhatToBarkShared;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2144,17 +1893,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketOverrideDialog(
         Blueprint<BlueprintDialogReference>? dialog = null,
         float? distance = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketOverrideDialog();
@@ -2166,7 +1907,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       component.m_Distance = distance ?? component.m_Distance;
       Validate(unit);
       component.Unit = unit ?? component.Unit;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2182,26 +1923,17 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>Prologue_Kenabres_Weather</term><description>f7fa92f20aa04f1f8d3a33575bbf3c67</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketOverrideWeatherInclemency(
         EtudeBracketGameModeWaiter? gameModeWaiter = null,
         InclemencyType? inclemency = null,
-        bool? instantly = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? instantly = null)
     {
       var component = new EtudeBracketOverrideWeatherInclemency();
       Validate(gameModeWaiter);
       component.m_GameModeWaiter = gameModeWaiter ?? component.m_GameModeWaiter;
       component.Inclemency = inclemency ?? component.Inclemency;
       component.m_Instantly = instantly ?? component.m_Instantly;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2217,17 +1949,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>SarkorianWedding_Ghost_Mechanics</term><description>ba17c86a4c334cefab1e0a4ea6cef63c</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketOverrideWeatherProfile(
         EtudeBracketGameModeWaiter? gameModeWaiter = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeatherProfileExtended? weatherProfile = null)
     {
       var component = new EtudeBracketOverrideWeatherProfile();
@@ -2235,7 +1958,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       component.m_GameModeWaiter = gameModeWaiter ?? component.m_GameModeWaiter;
       Validate(weatherProfile);
       component.m_WeatherProfile = weatherProfile ?? component.m_WeatherProfile;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2250,22 +1973,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>RegillLockedInParty</term><description>9079a2dd777d415d869d4b58665d200c</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketPinCompanionInParty(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketPinCompanionInParty();
       Validate(unit);
       component.Unit = unit ?? component.Unit;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2281,22 +1995,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>PetDragonAzata_ThroneRoom</term><description>e4a1eb7ccc927bb41afbe8b20f00861f</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketPreventDirectControl(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         UnitEvaluator? unit = null)
     {
       var component = new EtudeBracketPreventDirectControl();
       Validate(unit);
       component.Unit = unit ?? component.Unit;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2310,17 +2015,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>DH_ProgressBar</term><description>4d82ae4995764612a08163fe14ab36b5</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketProgressBar(
         int? maxProgress = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         LocalizedString? title = null)
     {
       var component = new EtudeBracketProgressBar();
@@ -2330,7 +2026,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       {
         component.Title = Utils.Constants.Empty.String;
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2345,12 +2041,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="multiplePhases">
     /// <para>
     /// Tooltip: Использовать разные фазы реста для начальных экшенов и для конечных.
@@ -2360,8 +2050,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         RestPhase? firstPhase = null,
         bool? hasStarted = null,
         RestPhase? lastPhase = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? multiplePhases = null,
         ActionsBuilder? onStart = null,
         ActionsBuilder? onStop = null,
@@ -2383,7 +2071,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         component.OnStop = Utils.Constants.Empty.Actions;
       }
       component.Phase = phase ?? component.Phase;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2417,18 +2105,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// InfoBox: Don&amp;apos;t do anything if companion is Ex
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketSetCompanionPosition(
         Blueprint<BlueprintUnitReference>? companion = null,
         bool? ignoreWhenEx = null,
         EntityReference? locator = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? shouldRelease = null)
     {
       var component = new EtudeBracketSetCompanionPosition();
@@ -2441,7 +2121,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       Validate(locator);
       component.m_Locator = locator ?? component.m_Locator;
       component.m_ShouldRelease = shouldRelease ?? component.m_ShouldRelease;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2470,12 +2150,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="summonPool">
     /// <para>
     /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
@@ -2491,8 +2165,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     public TBuilder AddEtudeBracketSummonpoolOverrideDialog(
         Blueprint<BlueprintDialogReference>? dialog = null,
         float? distance = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSummonPoolReference>? summonPool = null)
     {
       var component = new EtudeBracketSummonpoolOverrideDialog();
@@ -2507,7 +2179,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       {
         component.m_SummonPool = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2523,16 +2195,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>Woljif_Q2_VoetielMeeting</term><description>70707ba408d17784e8cbf59d3fe25e18</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddEtudeBracketTriggerAction(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? onActivated = null,
         ActionsBuilder? onDeactivated = null)
     {
@@ -2547,7 +2210,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       {
         component.OnDeactivated = Utils.Constants.Empty.Actions;
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2563,19 +2226,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudeIgnorePartyEncumbrance(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudeIgnorePartyEncumbrance()
     {
-      var component = new EtudeIgnorePartyEncumbrance();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudeIgnorePartyEncumbrance());
     }
 
     /// <summary>
@@ -2591,19 +2244,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudeIgnorePersonalEncumbrance(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudeIgnorePersonalEncumbrance()
     {
-      var component = new EtudeIgnorePersonalEncumbrance();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudeIgnorePersonalEncumbrance());
     }
 
     /// <summary>
@@ -2619,19 +2262,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEtudePeacefulZone(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddEtudePeacefulZone()
     {
-      var component = new EtudePeacefulZone();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new EtudePeacefulZone());
     }
 
     /// <summary>
@@ -2653,14 +2286,22 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// InfoBox: Should we hide also pets from remote companions (in hub for example) and from ex companions for duels
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddHideAllPets(
         bool? hideOnRemoteAndEx = null,
-        bool? leaveAzataDragon = null)
+        bool? leaveAzataDragon = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new HideAllPets();
       component.HideOnRemoteAndEx = hideOnRemoteAndEx ?? component.HideOnRemoteAndEx;
       component.LeaveAzataDragon = leaveAzataDragon ?? component.LeaveAzataDragon;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2677,25 +2318,17 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="restAllRemoteCompanions">
     /// <para>
     /// InfoBox: Use rest on all remote companions for every days from last rest (party was away fighting and they were resting)
     /// </para>
     /// </param>
     public TBuilder AddCapitalCompanionLogic(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? restAllRemoteCompanions = null)
     {
       var component = new CapitalCompanionLogic();
       component.m_RestAllRemoteCompanions = restAllRemoteCompanions ?? component.m_RestAllRemoteCompanions;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
   }
 }

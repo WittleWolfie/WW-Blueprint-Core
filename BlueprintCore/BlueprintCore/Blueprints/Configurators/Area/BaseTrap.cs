@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -359,6 +360,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="playerGainsNoExp">
     /// <para>
     /// InfoBox: When true, Exp will be used in encounter CR calculation, but player will not gained it
@@ -369,6 +376,8 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         int? cR = null,
         bool? dummy = null,
         EncounterType? encounter = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? modifier = null,
         bool? playerGainsNoExp = null)
     {
@@ -380,7 +389,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.Encounter = encounter ?? component.Encounter;
       component.Modifier = modifier ?? component.Modifier;
       component.PlayerGainsNoExp = playerGainsNoExp ?? component.PlayerGainsNoExp;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

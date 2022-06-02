@@ -4,14 +4,12 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
-using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Crusade.GlobalMagic.Actions;
@@ -23,15 +21,12 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Alignments;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -58,7 +53,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in nameModifiersCache) { Validate(item); }
+          Validate(nameModifiersCache);
           bp.m_NameModifiersCache = nameModifiersCache;
         });
     }
@@ -135,7 +130,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in descriptionModifiersCache) { Validate(item); }
+          Validate(descriptionModifiersCache);
           bp.m_DescriptionModifiersCache = descriptionModifiersCache;
         });
     }
@@ -484,19 +479,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddContextStatBonus(
         StatType stat,
         ContextValue value,
         ModifierDescriptor? descriptor = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimal = null,
         int? multiplier = null)
     {
@@ -507,7 +493,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Minimal = minimal ?? component.Minimal;
       component.HasMinimal = minimal is null;
       component.Multiplier = multiplier ?? component.Multiplier;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -544,18 +530,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPrerequisiteAlignment(
         AlignmentMaskType alignment,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteAlignment();
       component.Alignment = alignment;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -596,21 +591,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteArchetypeLevel(
         Blueprint<BlueprintArchetypeReference> archetype,
         Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        int? level = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        int? level = null)
     {
       var component = new PrerequisiteArchetypeLevel();
       component.m_Archetype = archetype?.Reference;
@@ -619,7 +606,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.Level = level ?? component.Level;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -633,18 +620,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPrerequisiteCasterType(
         bool isArcane,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteCasterType();
       component.IsArcane = isArcane;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -666,21 +662,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// InfoBox: Mythic &amp; Alchemist Spellbooks don&amp;apos;t cound
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteCasterTypeSpellLevel(
         bool isArcane,
         bool onlySpontaneous,
         int requiredSpellLevel,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteCasterTypeSpellLevel();
       component.IsArcane = isArcane;
@@ -689,7 +677,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -705,18 +693,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>MurmursOfEarth</term><description>94be54cd152d1c94396754de7bf0105f</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPrerequisiteCharacterLevel(
         int level,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteCharacterLevel();
       component.Level = level;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -745,20 +742,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteClassLevel(
         Blueprint<BlueprintCharacterClassReference> characterClass,
         int level,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new PrerequisiteClassLevel();
@@ -768,7 +757,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.Not = not ?? component.Not;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -797,11 +786,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPrerequisiteClassSpellLevel(
         Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? requiredSpellLevel = null)
     {
       var component = new PrerequisiteClassSpellLevel();
@@ -810,7 +807,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.RequiredSpellLevel = requiredSpellLevel ?? component.RequiredSpellLevel;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -839,19 +836,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteEtude(
         Blueprint<BlueprintEtudeReference> etude,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notPlaying = null,
         LocalizedString? uIText = null)
     {
@@ -866,7 +855,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.UIText = Utils.Constants.Empty.String;
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -895,26 +884,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteFeature(
         Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteFeature();
       component.m_Feature = feature?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -943,20 +924,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteFeaturesFromList(
         List<Blueprint<BlueprintFeatureReference>> features,
         int? amount = null,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteFeaturesFromList();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
@@ -964,7 +937,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -980,18 +953,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPrerequisiteMythicLevel(
         int level,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteMythicLevel();
       component.Level = level;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1032,20 +1014,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteNoArchetype(
         Blueprint<BlueprintArchetypeReference> archetype,
         Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteNoArchetype();
       component.m_Archetype = archetype?.Reference;
@@ -1053,7 +1027,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1082,26 +1056,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteNoClassLevel(
         Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteNoClassLevel();
       component.m_CharacterClass = characterClass?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1130,26 +1096,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteNoFeature(
         Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteNoFeature();
       component.m_Feature = feature?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1165,12 +1123,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>UrgroshProficiency</term><description>d24f7545b1aa3b34e8216f8cb3140563</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPrerequisiteNotProficient(
         ArmorProficiencyGroup[] armorProficiencies,
         WeaponCategory[] weaponProficiencies,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteNotProficient();
       component.ArmorProficiencies = armorProficiencies;
@@ -1178,7 +1145,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1219,20 +1186,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteParametrizedSpellFeature(
         Blueprint<BlueprintFeatureReference> feature,
         Blueprint<BlueprintAbilityReference> spell,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1241,7 +1200,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.ParameterType = FeatureParameterType.LearnSpell;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1270,20 +1229,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteParametrizedWeaponFeature(
         Blueprint<BlueprintFeatureReference> feature,
         WeaponCategory weaponCategory,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1292,7 +1243,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.ParameterType = FeatureParameterType.WeaponCategory;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1321,20 +1272,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteParametrizedSpellSchoolFeature(
         Blueprint<BlueprintFeatureReference> feature,
         SpellSchool spellSchool,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1343,7 +1286,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.ParameterType = FeatureParameterType.SpellSchool;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1372,20 +1315,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteParametrizedWeaponSubcategory(
         Blueprint<BlueprintFeatureReference> feature,
         WeaponSubCategory subCategory,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteParametrizedWeaponSubcategory();
       component.m_Feature = feature?.Reference;
@@ -1393,7 +1328,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1409,19 +1344,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WizardClass</term><description>ba34257984f4c41408ce1dc2004e342e</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteIsPet(
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null)
     {
       var component = new PrerequisiteIsPet();
@@ -1429,7 +1355,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.Not = not ?? component.Not;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1458,26 +1384,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisitePlayerHasFeature(
         Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisitePlayerHasFeature();
       component.m_Feature = feature?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1493,12 +1411,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>SwordlordClass</term><description>90e4d7da3ccd1a8478411e07e91d5750</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPrerequisiteProficiency(
         ArmorProficiencyGroup[] armorProficiencies,
         WeaponCategory[] weaponProficiencies,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteProficiency();
       component.ArmorProficiencies = armorProficiencies;
@@ -1506,7 +1433,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1522,21 +1449,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WinterWitchClass</term><description>eb24ca44debf6714aabe1af1fd905a07</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteStatValue(
         StatType stat,
         int value,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? hideInUI = null)
     {
       var component = new PrerequisiteStatValue();
       component.Stat = stat;
@@ -1544,7 +1462,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1560,12 +1478,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddSpellDescriptorComponent(
-        SpellDescriptorWrapper descriptor)
+        SpellDescriptorWrapper descriptor,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SpellDescriptorComponent();
       component.Descriptor = descriptor;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1582,6 +1509,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="spell">
     /// <para>
     /// Blueprint of type BlueprintGlobalMagicSpell. You can pass in the blueprint using:
@@ -1595,6 +1528,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </para>
     /// </param>
     public TBuilder AddGlobalMapSpellFeature(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintGlobalMagicSpell.Reference>? spell = null)
     {
       var component = new AddGlobalMapSpellFeature();
@@ -1603,7 +1538,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_Spell = BlueprintTool.GetRef<BlueprintGlobalMagicSpell.Reference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1617,9 +1552,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>LateMythicRespecFeature</term><description>67e436d11f5e4e40919bc84d425d8c37</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddFeatureSurvivesRespec()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddFeatureSurvivesRespec(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new FeatureSurvivesRespec());
+      var component = new FeatureSurvivesRespec();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1633,17 +1578,26 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>SpellPenetration</term><description>ee7dc126939e4d9438357fbd5980d459</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLevelUpRecommendation(
-        ClassesPriority[]? classPriorities = null)
+        ClassesPriority[]? classPriorities = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new LevelUpRecommendation();
-      foreach (var item in classPriorities) { Validate(item); }
+      Validate(classPriorities);
       component.ClassPriorities = classPriorities ?? component.ClassPriorities;
       if (component.ClassPriorities is null)
       {
         component.ClassPriorities = new ClassesPriority[0];
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1659,20 +1613,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteCondition(
         bool? checkInProgression = null,
         Condition? condition = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         LocalizedString? uIText = null)
     {
       var component = new PrerequisiteCondition();
@@ -1686,7 +1631,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.UIText = Utils.Constants.Empty.String;
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1702,18 +1647,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>TricksterMythicClass</term><description>8df873a8c6e48294abdb78c45834aa0a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPrerequisiteMainCharacter(
         bool? checkInProgression = null,
         bool? companion = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteMainCharacter();
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Companion = companion ?? component.Companion;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1729,19 +1683,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>MythicalBeastMaster</term><description>89096871a6fdadd43ad31f5046696727</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisitePet(
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? noCompanion = null,
         PetType? type = null)
     {
@@ -1751,7 +1696,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.NoCompanion = noCompanion ?? component.NoCompanion;
       component.Type = type ?? component.Type;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1780,17 +1725,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddFeaturesFromSelectionToDescription(
         Blueprint<BlueprintFeatureSelectionReference>? featureSelection = null,
         LocalizedString? introduction = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyIfRequiresThisFeature = null)
     {
       var component = new AddFeaturesFromSelectionToDescription();
@@ -1805,7 +1742,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         component.Introduction = Utils.Constants.Empty.String;
       }
       component.OnlyIfRequiresThisFeature = onlyIfRequiresThisFeature ?? component.OnlyIfRequiresThisFeature;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1819,12 +1756,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>HostFeature</term><description>4cb605c6099397d41ab91ad6dd43a5e7</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddLocustSwarmMechanicPart(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? swarmStartStrength = null)
     {
       var component = new AddLocustSwarmMechanicPart();
       component.m_SwarmStartStrength = swarmStartStrength ?? component.m_SwarmStartStrength;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1840,21 +1786,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WandWielder</term><description>5826562b74d529e41af2d60feeca093d</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddMagusMechanicPart(
-        AddMagusMechanicPart.Feature? feature = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        AddMagusMechanicPart.Feature? feature = null)
     {
       var component = new AddMagusMechanicPart();
       component.m_Feature = feature ?? component.m_Feature;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1872,19 +1809,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>ProfaneAscensionFeature</term><description>656e71ec777e495abc6845ff80204d96</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddNocticulaBonus(
         ModifierDescriptor? descriptor = null,
         StatType? highestStat = null,
         ContextValue? highestStatBonus = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? secondHighestStat = null,
         ContextValue? secondHighestStatBonus = null)
     {
@@ -1902,7 +1830,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.SecondHighestStatBonus = ContextValues.Constant(0);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1918,8 +1846,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>TricksterLoreNature3Feature</term><description>b88ca3a5476ebcc4ea63d5c1e92ce222</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddRestTrigger(
-        ActionsBuilder? action = null)
+        ActionsBuilder? action = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddRestTrigger();
       component.Action = action?.Build() ?? component.Action;
@@ -1927,7 +1864,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.Action = Utils.Constants.Empty.Actions;
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -1944,12 +1881,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="spellLists">
     /// <para>
     /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
@@ -1976,8 +1907,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddSpellsToDescription(
         LocalizedString? introduction = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintSpellListReference>>? spellLists = null,
         List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
@@ -1997,7 +1926,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_Spells = new BlueprintAbilityReference[0];
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2015,23 +1944,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>TricksterAthleticsTier3Feature</term><description>e45bf795c4f84c3b8a83c011f8580491</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddTricksterAthleticBonus(
         ModifierDescriptor? descriptor = null,
-        bool? isAdded = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? isAdded = null)
     {
       var component = new AddTricksterAthleticBonus();
       component.Descriptor = descriptor ?? component.Descriptor;
       component.m_IsAdded = isAdded ?? component.m_IsAdded;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2045,17 +1965,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>PerfectStormFeature</term><description>f93deb8fb11e06743b6941626cd6f2e0</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddWeaponEnhancementBonusToStat(
         ModifierDescriptor? descriptor = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? multiplier = null,
         StatType? stat = null)
     {
@@ -2063,7 +1974,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Descriptor = descriptor ?? component.Descriptor;
       component.Multiplier = multiplier ?? component.Multiplier;
       component.Stat = stat ?? component.Stat;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2081,14 +1992,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>MountedShieldBuff</term><description>7514ebdb264362544a4fe104cd4637de</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddMountedShield(
         ModifierDescriptor? descriptor = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null)
     {
       var component = new MountedShield();
       component.Descriptor = descriptor ?? component.Descriptor;
       component.Stat = stat ?? component.Stat;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2108,12 +2028,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="upgradeFeature">
     /// <para>
     /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
@@ -2129,8 +2043,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddShroudOfWater(
         ContextValue? baseValue = null,
         ModifierDescriptor? descriptor = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null,
         Blueprint<BlueprintFeatureReference>? upgradeFeature = null)
     {
@@ -2147,7 +2059,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2163,6 +2075,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="triggerOnAreaEffectsDispell">
     /// <para>
     /// InfoBox: Use this bool if you want to trigger action on a caster of an AOE effect. Eg: Ember cast Grease, Nenio dispells it -&amp;gt; Ember is target, hence received 1d6 damage 
@@ -2170,6 +2088,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddDispelMagicSuccessTrigger(
         ActionsBuilder? actionOnTarget = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? triggerOnAreaEffectsDispell = null)
     {
       var component = new AddDispelMagicSuccessTrigger();
@@ -2179,7 +2099,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         component.ActionOnTarget = Utils.Constants.Empty.Actions;
       }
       component.TriggerOnAreaEffectsDispell = triggerOnAreaEffectsDispell ?? component.TriggerOnAreaEffectsDispell;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2208,9 +2128,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddContextCalculateAbilityParams(
         ContextValue? casterLevel = null,
         Blueprint<BlueprintUnitPropertyReference>? customProperty = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? replaceCasterLevel = null,
         bool? replaceSpellLevel = null,
         ContextValue? spellLevel = null,
@@ -2239,7 +2167,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.StatType = statType ?? component.StatType;
       component.StatTypeFromCustomProperty = statTypeFromCustomProperty ?? component.StatTypeFromCustomProperty;
       component.UseKineticistMainStat = useKineticistMainStat ?? component.UseKineticistMainStat;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2268,8 +2196,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddContextCalculateAbilityParamsBasedOnClass(
         Blueprint<BlueprintCharacterClassReference>? characterClass = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? statType = null,
         bool? useKineticistMainStat = null)
     {
@@ -2281,7 +2217,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       }
       component.StatType = statType ?? component.StatType;
       component.UseKineticistMainStat = useKineticistMainStat ?? component.UseKineticistMainStat;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2297,16 +2233,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddContextCalculateSharedValue(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         double? modifier = null,
         ContextDiceValue? value = null,
         AbilitySharedValue? valueType = null)
@@ -2319,7 +2246,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         component.Value = Utils.Constants.Empty.DiceValue;
       }
       component.ValueType = valueType ?? component.ValueType;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2351,6 +2278,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// InfoBox: If set to negative value, will be calculated by default mechanic. Positive or zero value will be set as is (plus bonuses)
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="spellLevel">
     /// <para>
     /// InfoBox: If set to negative value, will be calculated by default mechanic. Positive or zero value will be set as is
@@ -2361,6 +2294,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue? casterLevel = null,
         ContextValue? concentration = null,
         ContextValue? dC = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? spellLevel = null)
     {
       var component = new ContextSetAbilityParams();
@@ -2385,7 +2320,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.SpellLevel = ContextValues.Constant(0);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2401,9 +2336,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WildHunt_ScoutCrystalAbility</term><description>c470c62b38db74e4fb6b84b331beda30</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddAbilityDifficultyLimitDC()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddAbilityDifficultyLimitDC(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new AbilityDifficultyLimitDC());
+      var component = new AbilityDifficultyLimitDC();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2420,6 +2365,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="negativeMoraleChancePercentDelta">
     /// <para>
     /// InfoBox: Negative Morale chance formula: Chance = -Morale / NegativeMoraleModifier + NegativeMoraleChance
@@ -2433,6 +2384,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     public TBuilder AddTacticalMoraleChanceModifier(
         bool? changeNegativeMorale = null,
         bool? changePositiveMorale = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ContextValue? negativeMoraleChancePercentDelta = null,
         ContextValue? positiveMoraleChancePercentDelta = null)
     {
@@ -2449,7 +2402,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_PositiveMoraleChancePercentDelta = ContextValues.Constant(0);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2465,12 +2418,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>TwoWeaponFightingImproved</term><description>9af88f3ed8a017b45a6837eab7437629</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddPureRecommendation(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         RecommendationPriority? priority = null)
     {
       var component = new PureRecommendation();
       component.Priority = priority ?? component.Priority;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2484,19 +2446,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddRecommendationAccomplishedSneakAttacker(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddRecommendationAccomplishedSneakAttacker()
     {
-      var component = new RecommendationAccomplishedSneakAttacker();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new RecommendationAccomplishedSneakAttacker());
     }
 
     /// <summary>
@@ -2512,14 +2464,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddRecommendationBaseAttackPart(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         float? minPart = null,
         bool? notRecommendIfHigher = null)
     {
       var component = new RecommendationBaseAttackPart();
       component.MinPart = minPart ?? component.MinPart;
       component.NotRecommendIfHigher = notRecommendIfHigher ?? component.NotRecommendIfHigher;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2546,16 +2507,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddRecommendationCompanionBoon(
-        Blueprint<BlueprintFeatureReference>? companionRank = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        Blueprint<BlueprintFeatureReference>? companionRank = null)
     {
       var component = new RecommendationCompanionBoon();
       component.m_CompanionRank = companionRank?.Reference ?? component.m_CompanionRank;
@@ -2563,7 +2516,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_CompanionRank = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2592,17 +2545,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddRecommendationHasFeature(
         Blueprint<BlueprintUnitFactReference>? feature = null,
-        bool? mandatory = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? mandatory = null)
     {
       var component = new RecommendationHasFeature();
       component.m_Feature = feature?.Reference ?? component.m_Feature;
@@ -2611,7 +2556,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
       component.Mandatory = mandatory ?? component.Mandatory;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2640,17 +2585,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddRecommendationNoFeatFromGroup(
         List<Blueprint<BlueprintUnitFactReference>>? features = null,
-        bool? goodIfNoFeature = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        bool? goodIfNoFeature = null)
     {
       var component = new RecommendationNoFeatFromGroup();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
@@ -2659,7 +2596,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         component.m_Features = new BlueprintUnitFactReference[0];
       }
       component.GoodIfNoFeature = goodIfNoFeature ?? component.GoodIfNoFeature;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2675,9 +2612,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>SpellPenetration</term><description>ee7dc126939e4d9438357fbd5980d459</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddRecommendationRequiresSpellbook()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddRecommendationRequiresSpellbook(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new RecommendationRequiresSpellbook());
+      var component = new RecommendationRequiresSpellbook();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2692,16 +2639,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>ArcaneArmorTraining</term><description>1a0298abacb6e0f45b7e28553e99e76c</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddRecommendationRequiresSpellbookSource(
         bool? alchemist = null,
         bool? arcane = null,
-        bool? divine = null)
+        bool? divine = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationRequiresSpellbookSource();
       component.Alchemist = alchemist ?? component.Alchemist;
       component.Arcane = arcane ?? component.Arcane;
       component.Divine = divine ?? component.Divine;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2717,16 +2673,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddRecommendationStatComparison(
         int? diff = null,
         StatType? higherStat = null,
-        StatType? lowerStat = null)
+        StatType? lowerStat = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationStatComparison();
       component.Diff = diff ?? component.Diff;
       component.HigherStat = higherStat ?? component.HigherStat;
       component.LowerStat = lowerStat ?? component.LowerStat;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2742,17 +2707,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddRecommendationStatMiminum(
         bool? goodIfHigher = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minimalValue = null,
         StatType? stat = null)
     {
@@ -2760,7 +2716,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.GoodIfHigher = goodIfHigher ?? component.GoodIfHigher;
       component.MinimalValue = minimalValue ?? component.MinimalValue;
       component.Stat = stat ?? component.Stat;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2776,25 +2732,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>TwoWeaponFighting</term><description>ac8aaf29054f5b74eb18f2af950e752d</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddRecommendationWeaponSubcategoryFocus(
         bool? badIfNoFocus = null,
         bool? hasFocus = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeaponSubCategory? subcategory = null)
     {
       var component = new RecommendationWeaponSubcategoryFocus();
       component.BadIfNoFocus = badIfNoFocus ?? component.BadIfNoFocus;
       component.HasFocus = hasFocus ?? component.HasFocus;
       component.Subcategory = subcategory ?? component.Subcategory;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2810,14 +2757,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddRecommendationWeaponTypeFocus(
         bool? hasFocus = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         WeaponRangeType? weaponRangeType = null)
     {
       var component = new RecommendationWeaponTypeFocus();
       component.HasFocus = hasFocus ?? component.HasFocus;
       component.WeaponRangeType = weaponRangeType ?? component.WeaponRangeType;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2832,23 +2788,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>CameliaPregenFeatureList</term><description>e88190db18af8d54f99ea9e649632957</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddStatRecommendationChange(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? recommended = null,
         StatType? stat = null)
     {
       var component = new StatRecommendationChange();
       component.Recommended = recommended ?? component.Recommended;
       component.Stat = stat ?? component.Stat;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2864,19 +2811,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>VulpinePounce</term><description>cd258f1bce80ef54580f6b236c82608c</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddPrerequisiteFullStatValue(
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         StatType? stat = null,
         int? value = null)
     {
@@ -2886,7 +2824,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.Stat = stat ?? component.Stat;
       component.Value = value ?? component.Value;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2903,12 +2841,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="spellbook">
     /// <para>
     /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
@@ -2923,8 +2855,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddSpellbookFeature(
         int? casterLevel = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSpellbookReference>? spellbook = null)
     {
       var component = new AddSpellbookFeature();
@@ -2934,7 +2864,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2951,12 +2881,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="spellbook">
     /// <para>
     /// Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
@@ -2970,8 +2894,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </para>
     /// </param>
     public TBuilder AddSpellbookLevel(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintSpellbookReference>? spellbook = null)
     {
       var component = new AddSpellbookLevel();
@@ -2980,7 +2902,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -2996,18 +2918,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>OldGrimoireFeature</term><description>686897b0be1b481bad6570a2b95d4d1a</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddSpellsPerDay(
         int? amount = null,
-        int[]? levels = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        int[]? levels = null)
     {
       var component = new AddSpellsPerDay();
       component.Amount = amount ?? component.Amount;
@@ -3016,7 +2929,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.Levels = new int[0];
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -3032,19 +2945,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>WarpriestAspectOfWarBuff</term><description>27d14b07b52c2df42a4dcd6bfb840425</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddArmorSpeedPenaltyRemoval(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    public TBuilder AddArmorSpeedPenaltyRemoval()
     {
-      var component = new ArmorSpeedPenaltyRemoval();
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(new ArmorSpeedPenaltyRemoval());
     }
 
     /// <summary>
@@ -3101,18 +3004,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBuffExtraEffects(
         Blueprint<BlueprintBuffReference>? checkedBuff = null,
         Blueprint<BlueprintUnitFactReference>? exceptionFact = null,
-        Blueprint<BlueprintBuffReference>? extraEffectBuff = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        Blueprint<BlueprintBuffReference>? extraEffectBuff = null)
     {
       var component = new BuffExtraEffects();
       component.m_CheckedBuff = checkedBuff?.Reference ?? component.m_CheckedBuff;
@@ -3130,7 +3025,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_ExtraEffectBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -3147,25 +3042,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     /// <param name="version">
     /// <para>
     /// InfoBox: If component just added then Version must be equals 1. Increase Version by 1 if component already exists and you need to reapply feature.
     /// </para>
     /// </param>
     public TBuilder AddSavesFixerRecalculate(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? version = null)
     {
       var component = new SavesFixerRecalculate();
       component.Version = version ?? component.Version;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
   }
 }

@@ -2,12 +2,9 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Items;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
-using Kingmaker.Kingdom.Settlements;
 using Kingmaker.Localization;
 using Kingmaker.UI.Kingdom;
 using Kingmaker.Utility;
@@ -735,7 +732,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in leaderSlots) { Validate(item); }
+          Validate(leaderSlots);
           bp.LeaderSlots = leaderSlots;
         });
     }
@@ -1834,7 +1831,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in stats) { Validate(item); }
+          Validate(stats);
           bp.Stats = stats;
         });
     }

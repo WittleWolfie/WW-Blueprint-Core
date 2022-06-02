@@ -54,7 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in tracks) { Validate(item); }
+          Validate(tracks);
           bp.m_Tracks = tracks.ToList();
         });
     }

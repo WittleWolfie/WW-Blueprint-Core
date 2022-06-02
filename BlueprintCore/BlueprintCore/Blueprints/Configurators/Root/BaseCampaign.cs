@@ -1,8 +1,8 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
@@ -416,7 +416,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in importSettings) { Validate(item); }
+          Validate(importSettings);
           bp.ImportSettings = importSettings;
         });
     }
@@ -509,8 +509,16 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddBlueprintCampaignCustomCompanion(
-        Blueprint<BlueprintUnitReference>? customCompanion = null)
+        Blueprint<BlueprintUnitReference>? customCompanion = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new BlueprintCampaignCustomCompanion();
       component.m_CustomCompanion = customCompanion?.Reference ?? component.m_CustomCompanion;
@@ -518,7 +526,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       {
         component.m_CustomCompanion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -532,14 +540,23 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <item><term>Dlc2Campaign</term><description>e6fdda2539274c1e89d236be69f5a984</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddBlueprintCampaignRestBehaviour(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? removeDeathDoor = null,
         GameDifficultyOption? removeDeathDoorDifficultyMax = null)
     {
       var component = new BlueprintCampaignRestBehaviour();
       component.m_RemoveDeathDoor = removeDeathDoor ?? component.m_RemoveDeathDoor;
       component.m_RemoveDeathDoorDifficultyMax = removeDeathDoorDifficultyMax ?? component.m_RemoveDeathDoorDifficultyMax;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

@@ -2,17 +2,12 @@
 
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
-using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Quests;
-using Kingmaker.Blueprints.Root;
-using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
-using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.Utility;
 using System;
@@ -840,7 +835,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in unlockedFlags) { Validate(item); }
+          Validate(unlockedFlags);
           bp.UnlockedFlags = unlockedFlags.ToList();
         });
     }
@@ -2146,7 +2141,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in regions) { Validate(item); }
+          Validate(regions);
           bp.m_Regions = regions;
         });
     }
@@ -2223,7 +2218,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in history) { Validate(item); }
+          Validate(history);
           bp.m_History = history;
         });
     }

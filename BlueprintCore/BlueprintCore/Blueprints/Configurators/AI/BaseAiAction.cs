@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
-using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.RuleSystem;
 using Kingmaker.Settings;

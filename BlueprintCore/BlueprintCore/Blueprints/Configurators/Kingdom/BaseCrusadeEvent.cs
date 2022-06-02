@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in eventSolutions) { Validate(item); }
+          Validate(eventSolutions);
           bp.m_EventSolutions = eventSolutions;
         });
     }

@@ -1,13 +1,11 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {
@@ -48,16 +46,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddComponentsList(
-        Blueprint<BlueprintComponentListReference>? list = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        Blueprint<BlueprintComponentListReference>? list = null)
     {
       var component = new ComponentsList();
       component.m_List = list?.Reference ?? component.m_List;
@@ -65,7 +55,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.m_List = BlueprintTool.GetRef<BlueprintComponentListReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -80,18 +70,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>DLC3_HasteIslandBuff</term><description>5ebf1f33e08f47f89d83bb951248fffa</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBuffActions(
         ActionsBuilder? activated = null,
         ActionsBuilder? deactivated = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? newRound = null)
     {
       var component = new AddBuffActions();
@@ -110,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.NewRound = Utils.Constants.Empty.Actions;
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -126,18 +107,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddFactContextActions(
         ActionsBuilder? activated = null,
         ActionsBuilder? deactivated = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ActionsBuilder? newRound = null)
     {
       var component = new AddFactContextActions();
@@ -156,7 +128,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.NewRound = Utils.Constants.Empty.Actions;
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
   }
 }

@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in levels) { Validate(item); }
+          Validate(levels);
           bp.Levels = levels;
         });
     }

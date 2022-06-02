@@ -4,7 +4,6 @@ using BlueprintCore.Blueprints.Configurators.Items.Equipment;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Enums;
 using Kingmaker.Utility;
 using System;

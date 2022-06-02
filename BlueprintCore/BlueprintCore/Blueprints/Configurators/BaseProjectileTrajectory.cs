@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in planeOffset) { Validate(item); }
+          Validate(planeOffset);
           bp.PlaneOffset = planeOffset;
         });
     }
@@ -129,7 +129,7 @@ namespace BlueprintCore.Blueprints.Configurators
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in upOffset) { Validate(item); }
+          Validate(upOffset);
           bp.UpOffset = upOffset;
         });
     }

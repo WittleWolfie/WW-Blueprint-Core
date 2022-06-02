@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in races) { Validate(item); }
+          Validate(races);
           bp.Races = races;
         });
     }

@@ -2,12 +2,9 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
-using Kingmaker.Visual.CharacterSystem;
 using System;
 using System.Linq;
 using UnityEngine;

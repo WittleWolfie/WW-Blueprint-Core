@@ -4,8 +4,6 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
-using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.View;
 using Kingmaker.Localization;

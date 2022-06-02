@@ -1,9 +1,11 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers.Mechanics.Facts;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
@@ -31,12 +33,21 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <item><term>TemporaryArmorEnhancementBonus5</term><description>15d7d6cbbf56bd744b37bbf9225ea83b</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddArmorEnhancementBonus(
-        int? enhancementValue = null)
+        int? enhancementValue = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new ArmorEnhancementBonus();
       component.EnhancementValue = enhancementValue ?? component.EnhancementValue;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -52,16 +63,25 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <item><term>TrailblazersArmorEnchantment</term><description>18a2cf7f9c3aac84681ee728197c6a2a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddAdvanceArmorStats(
         int? arcaneSpellFailureShift = null,
         int? armorCheckPenaltyShift = null,
-        int? maxDexBonusShift = null)
+        int? maxDexBonusShift = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AdvanceArmorStats();
       component.ArcaneSpellFailureShift = arcaneSpellFailureShift ?? component.ArcaneSpellFailureShift;
       component.ArmorCheckPenaltyShift = armorCheckPenaltyShift ?? component.ArmorCheckPenaltyShift;
       component.MaxDexBonusShift = maxDexBonusShift ?? component.MaxDexBonusShift;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

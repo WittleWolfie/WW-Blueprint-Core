@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in teams) { Validate(item); }
+          Validate(teams);
           bp.Teams = teams.ToList();
         });
     }

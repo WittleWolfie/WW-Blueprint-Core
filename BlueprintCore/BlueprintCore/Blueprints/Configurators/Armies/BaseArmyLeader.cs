@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
-using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;

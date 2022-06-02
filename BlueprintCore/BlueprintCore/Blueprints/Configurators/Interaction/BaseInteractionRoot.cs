@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items;
 using Kingmaker.Interaction;
 using Kingmaker.ResourceLinks;
 using System;

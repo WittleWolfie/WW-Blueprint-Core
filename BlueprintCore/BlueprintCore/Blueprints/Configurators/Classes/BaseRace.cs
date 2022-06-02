@@ -489,7 +489,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in specialDollTypes) { Validate(item); }
+          Validate(specialDollTypes);
           bp.SpecialDollTypes = specialDollTypes;
         });
     }

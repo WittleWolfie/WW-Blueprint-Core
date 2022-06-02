@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Utility;
 using System;
 using System.Linq;

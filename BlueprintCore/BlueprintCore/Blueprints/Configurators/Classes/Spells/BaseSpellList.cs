@@ -52,7 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in spellsByLevel) { Validate(item); }
+          Validate(spellsByLevel);
           bp.SpellsByLevel = spellsByLevel;
         });
     }

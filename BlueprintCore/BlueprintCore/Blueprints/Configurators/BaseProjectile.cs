@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -642,9 +643,19 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <item><term>MagicMissile04</term><description>43295b5988021f741a28b8bf0424a412</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddCannotSneakAttack()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddCannotSneakAttack(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new CannotSneakAttack());
+      var component = new CannotSneakAttack();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Rest.Cooking;
 using Kingmaker.Localization;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
@@ -59,7 +58,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in ingredients) { Validate(item); }
+          Validate(ingredients);
           bp.Ingredients = ingredients;
         });
     }
@@ -299,7 +298,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in unitBuffs) { Validate(item); }
+          Validate(unitBuffs);
           bp.UnitBuffs = unitBuffs;
         });
     }

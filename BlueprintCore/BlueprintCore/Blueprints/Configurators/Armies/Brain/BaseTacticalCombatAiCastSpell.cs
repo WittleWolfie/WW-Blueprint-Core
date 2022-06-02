@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain

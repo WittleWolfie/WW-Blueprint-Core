@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Achievements;
 using Kingmaker.Achievements.Blueprints;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Root;
 using Kingmaker.Settings;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.Utility;
@@ -482,7 +481,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in flags) { Validate(item); }
+          Validate(flags);
           bp.Flags = flags;
         });
     }
@@ -559,7 +558,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in etudes) { Validate(item); }
+          Validate(etudes);
           bp.Etudes = etudes;
         });
     }

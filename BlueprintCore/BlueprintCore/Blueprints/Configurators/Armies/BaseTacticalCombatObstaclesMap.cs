@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in obstacles) { Validate(item); }
+          Validate(obstacles);
           bp.Obstacles = obstacles;
         });
     }

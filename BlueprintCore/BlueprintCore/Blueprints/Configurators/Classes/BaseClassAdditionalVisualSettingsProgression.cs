@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in entries) { Validate(item); }
+          Validate(entries);
           bp.Entries = entries;
         });
     }

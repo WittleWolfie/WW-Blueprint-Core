@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
@@ -189,14 +190,22 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Tooltip: Is the DLC available in editor playmode
     /// </para>
     /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddDlcStoreCheat(
         bool? isAvailableInDevBuild = null,
-        bool? isAvailableInEditor = null)
+        bool? isAvailableInEditor = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DlcStoreCheat();
       component.m_IsAvailableInDevBuild = isAvailableInDevBuild ?? component.m_IsAvailableInDevBuild;
       component.m_IsAvailableInEditor = isAvailableInEditor ?? component.m_IsAvailableInEditor;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -212,12 +221,21 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddDlcStoreEpic(
-        string? epicId = null)
+        string? epicId = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DlcStoreEpic();
       component.m_EpicId = epicId ?? component.m_EpicId;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -233,12 +251,21 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddDlcStoreGog(
-        ulong? gogId = null)
+        ulong? gogId = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DlcStoreGog();
       component.m_GogId = gogId ?? component.m_GogId;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -254,12 +281,21 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     public TBuilder AddDlcStoreSteam(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         uint? steamId = null)
     {
       var component = new DlcStoreSteam();
       component.m_SteamId = steamId ?? component.m_SteamId;
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

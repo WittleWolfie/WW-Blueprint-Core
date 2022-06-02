@@ -1,11 +1,9 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
-using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
@@ -779,7 +777,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in zoneSettings) { Validate(item); }
+          Validate(zoneSettings);
           bp.m_ZoneSettings = zoneSettings.ToList();
         });
     }

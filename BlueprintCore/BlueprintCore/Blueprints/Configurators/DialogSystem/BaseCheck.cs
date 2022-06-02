@@ -103,7 +103,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in dCModifiers) { Validate(item); }
+          Validate(dCModifiers);
           bp.DCModifiers = dCModifiers;
         });
     }

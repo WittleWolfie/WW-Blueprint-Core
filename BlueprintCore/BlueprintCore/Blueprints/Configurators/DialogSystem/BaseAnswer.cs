@@ -384,7 +384,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in fakeChecks) { Validate(item); }
+          Validate(fakeChecks);
           bp.FakeChecks = fakeChecks;
         });
     }

@@ -5,8 +5,6 @@ using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Experience;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Corruption;
@@ -20,8 +18,6 @@ using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -129,7 +125,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(items);
       element.ItemsCollection = items;
       element.Identify = identify ?? element.Identify;
-      foreach (var item in loot) { builder.Validate(item); }
+      builder.Validate(loot);
       element.Loot = loot ?? element.Loot;
       if (element.Loot is null)
       {
@@ -1572,7 +1568,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       {
         element.ActionsOnSpawn = Utils.Constants.Empty.Actions;
       }
-      foreach (var item in spawners) { builder.Validate(item); }
+      builder.Validate(spawners);
       element.Spawners = spawners ?? element.Spawners;
       if (element.Spawners is null)
       {

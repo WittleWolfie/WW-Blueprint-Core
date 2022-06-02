@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in groups) { Validate(item); }
+          Validate(groups);
           bp.Groups = groups;
         });
     }

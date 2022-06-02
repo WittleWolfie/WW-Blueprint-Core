@@ -1,10 +1,9 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Area;
-using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
@@ -337,6 +336,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </list>
     /// </remarks>
     ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
     /// <param name="requiredCompanions">
     /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -353,6 +358,8 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         ConditionsBuilder? allowedCondition = null,
         LocalizedString? description = null,
         ConditionsBuilder? ignoreCondition = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         List<Blueprint<BlueprintUnitReference>>? requiredCompanions = null)
     {
       var component = new LocationRestriction();
@@ -376,7 +383,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       {
         component.RequiredCompanions = new();
       }
-      return AddComponent(component);
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
   }
 }

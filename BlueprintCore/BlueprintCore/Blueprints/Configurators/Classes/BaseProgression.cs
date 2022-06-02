@@ -28,7 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in classes) { Validate(item); }
+          Validate(classes);
           bp.m_Classes = classes;
         });
     }
@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in archetypes) { Validate(item); }
+          Validate(archetypes);
           bp.m_Archetypes = archetypes;
         });
     }
@@ -206,7 +206,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in alternateProgressionClasses) { Validate(item); }
+          Validate(alternateProgressionClasses);
           bp.m_AlternateProgressionClasses = alternateProgressionClasses;
         });
     }
@@ -307,7 +307,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in levelEntries) { Validate(item); }
+          Validate(levelEntries);
           bp.LevelEntries = levelEntries;
         });
     }
@@ -390,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in uIGroups) { Validate(item); }
+          Validate(uIGroups);
           bp.UIGroups = uIGroups;
         });
     }

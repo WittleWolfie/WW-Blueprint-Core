@@ -3,8 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;

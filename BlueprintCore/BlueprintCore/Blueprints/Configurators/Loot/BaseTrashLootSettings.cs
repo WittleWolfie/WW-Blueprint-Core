@@ -180,7 +180,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in types) { Validate(item); }
+          Validate(types);
           bp.Types = types.ToList();
         });
     }
@@ -257,7 +257,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in table) { Validate(item); }
+          Validate(table);
           bp.Table = table;
         });
     }
@@ -334,7 +334,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       return OnConfigureInternal(
         bp =>
         {
-          foreach (var item in superTrashLoot) { Validate(item); }
+          Validate(superTrashLoot);
           bp.SuperTrashLoot = superTrashLoot;
         });
     }
