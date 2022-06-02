@@ -288,7 +288,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
     {
       var method = new MethodImpl();
       var componentTypeName = TypeTool.GetName(componentType);
-      var isUnique = componentType.GetCustomAttribute<AllowMultipleComponentsAttribute>() is not null;
+      var isUnique = componentType.GetCustomAttribute<AllowMultipleComponentsAttribute>() is null;
       var parameters =
         isUnique
           ? ParametersFactory.CreateForConstructor(componentType, methodOverride, ComponentMergeParam, MergeParam)
