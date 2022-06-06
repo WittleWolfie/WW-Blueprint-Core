@@ -22,8 +22,8 @@ Before going through any of these tutorials you should work through the [OwlcatM
 * [Optional] Download [RemoteConsole](https://github.com/OwlcatOpenSource/RemoteConsole/releases)
     * This will show game log events making it easier to debug issues
 
-Once that's done, complete the BlueprintCore [Project Setup](~/articles/issues.md).
+Once that's done, complete the BlueprintCore [Project Setup](~/articles/intro.md).
 
-Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials).
+Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials.
 
 Be sure to check [known issues](~/articles/issues.md) if you run into any problems.
