@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
 
 namespace BlueprintCoreTutorial.Feats
 {
@@ -30,8 +31,8 @@ namespace BlueprintCoreTutorial.Feats
           .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
           .AddFeatureTagsComponent(FeatureTag.Skills)
           .AddToGroups(FeatureGroup.Feat)
-          .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2)
-          .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2)
+          .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.Feat)
+          .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.Feat)
           .Configure();
 
       FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToAllFeatures(FeatName).Configure();
