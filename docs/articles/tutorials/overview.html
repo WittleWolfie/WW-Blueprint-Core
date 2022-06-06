@@ -69,7 +69,6 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="blueprintcore-tutorials">BlueprintCore Tutorials</h1>
 
-<p><strong>Disclaimer</strong>: These docs haven't been updated since 2.0 release and have errors as a result. The tutorial project still works, but expect a revamp of the tutorial docs soon.</p>
 <p>Tutorials explain how to modify the game using this library. They are a work in progress and more will be added.</p>
 <p>Tutorial names indicate what type of modification to the game they explain. For example, <a href="feat.html">Adding a Feat</a> explains how to use the library to create a new feat.</p>
 <p>You can do them in any order but the recommended order is:</p>
@@ -78,7 +77,7 @@
 <li><a href="feat.html">Adding a Feat</a></li>
 <li>WIP</li>
 </ol>
-<p>All tutorial code is <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials">available on GitHub</a>. Each tutorial has a challenge not covered in the tutorial. One possible solution to each challenge is available in the <code>Solutions</code> folder.</p>
+<p>All tutorial code is <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCore%20Tutorial">available on GitHub</a>. Each tutorial has a challenge not covered in the tutorial. One possible solution to each challenge is available in the <code>Solutions</code> folder.</p>
 <h3 id="pre-work">Pre-work</h3>
 <p>Before going through any of these tutorials you should work through the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">OwlcatModdingWiki Beginner Guide</a>. The tutorials require:</p>
 <ul>
@@ -94,69 +93,7 @@
 </ul>
 </li>
 </ul>
-<p>Once that's done, install the <a href="https://www.nuget.org/packages/WW-Blueprint-Core">BlueprintCore NuGet package</a>. In Visual Studio you can use the built-in NuGet Package Manager:</p>
-<ol>
-<li>Open the package manager
-<ul>
-<li><strong>Tools &gt; NuGet Package Manager &gt; Manage NuGet Packages</strong></li>
-</ul>
-</li>
-<li>Select <strong>Browse</strong> and search for &quot;WW-BlueprintCore&quot;</li>
-<li>Select and install the latest version
-<ul>
-<li>If you have multipe projects in your solution, make sure it is installed to the correct project
-<img src="../../images/install_with_nuget.png" alt="Search and install NuGet package"></li>
-</ul>
-</li>
-</ol>
-<p>Now you need to add a few references:</p>
-<ul>
-<li><code>Owlcat.Runtime.Core.dll</code></li>
-<li><code>Owlcat.Runtime.Visual.dll</code></li>
-<li><code>Owlcat.Runtime.UI.dll</code></li>
-<li><code>UnityEngine.dll</code></li>
-<li><code>UnityEngine.CoreModule.dll</code></li>
-</ul>
-<p>If you have defined the <code>WrathPath</code> environment variable add the following lines to your *.csproj file:</p>
-<pre><code class="lang-xml">&lt;ItemGroup&gt;
-  &lt;Reference Include=&quot;Owlcat.Runtime.Core&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Core.dll&lt;/HintPath&gt;
-  &lt;/Reference&gt;
-  &lt;Reference Include=&quot;Owlcat.Runtime.UI&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll&lt;/HintPath&gt;
-  &lt;/Reference&gt;
-  &lt;Reference Include=&quot;Owlcat.Runtime.Visual&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll&lt;/HintPath&gt;
-  &lt;/Reference&gt;
-  &lt;Reference Include=&quot;UnityEngine&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\UnityEngine.dll&lt;/HintPath&gt;
-  &lt;/Reference&gt;
-  &lt;Reference Include=&quot;UnityEngine.CoreModule&quot;&gt;
-    &lt;HintPath&gt;$(WrathPath)\Wrath_Data\Managed\UnityEngine.CoreModule.dll&lt;/HintPath&gt;
-  &lt;/Reference&gt;
-&lt;/ItemGroup&gt;
-</code></pre>
-<p>Otherwise right-click <strong>References &gt; Add Reference</strong>, navigate to <code>&lt;WrathInstallDir&gt;/Wrath_Data/Managed/</code>, and select the files.</p>
-<p>Next install <a href="https://www.nuget.org/packages/ILRepack.MSBuild.Task/">ILRepack.MSBuild.Task</a> using NuGet and add the following to your *.csproj file, using your mod's assembly name in place of <code>BlueprintCoreTutorial</code>:</p>
-<pre><code class="lang-xml">&lt;!-- DLL Merging --&gt;
-&lt;Target Name=&quot;ILRepack&quot; AfterTargets=&quot;Build&quot;&gt;
-  &lt;ItemGroup&gt;
-    &lt;InputAssemblies Include=&quot;BlueprintCore.dll&quot; /&gt;
-    &lt;InputAssemblies Include=&quot;BlueprintCoreTutorial.dll&quot; /&gt;
-    &lt;OutputAssembly Include=&quot;BlueprintCoreTutorial.dll&quot; /&gt;
-  &lt;/ItemGroup&gt;
-    
-  &lt;Message Text=&quot;Merging: @(InputAssemblies) into @(OutputAssembly)&quot; Importance=&quot;High&quot; /&gt;
-
-  &lt;ILRepack
-      OutputType=&quot;Dll&quot;
-      MainAssembly=&quot;@(OutputAssembly)&quot;
-      OutputAssembly=&quot;@(OutputAssembly)&quot;
-      InputAssemblies=&quot;@(InputAssemblies)&quot;
-      WorkingDirectory=&quot;$(OutputPath)&quot; /&gt;
-&lt;/Target&gt;
-</code></pre>
-<p>This will merge all the assemblies you add to <code>InputAssemblies</code> into your mod's assembly, preventing conflicts from different mods using different assembly versions, and allowing you to release your mod as a single assembly. If you are using other assemblies such as <a href="https://github.com/cabarius/ToyBox/tree/master/ModKit">ModKit</a> it is recommended to merge them as well.</p>
+<p>Once that's done, complete the BlueprintCore <a href="../issues.html">Project Setup</a>.</p>
 <p>Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials. All of the code for the tutorial is <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/Tutorials">available on GitHub</a>.</p>
 <p>Be sure to check <a href="../issues.html">known issues</a> if you run into any problems.</p>
 </article>
