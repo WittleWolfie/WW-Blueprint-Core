@@ -1,7 +1,6 @@
 ﻿using Kingmaker.Localization;
 using Kingmaker.Localization.Shared;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 
 namespace BlueprintCore.Utils.Localization
