@@ -14,6 +14,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Designers.Mechanics.Facts;
 using System;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 
 namespace BlueprintCore.Utils.Validation
 {
@@ -203,6 +204,24 @@ namespace BlueprintCore.Utils.Validation
     private static void Check(BlueprintFeature feature, ValidationContext context)
     {
       CheckSingleComponent<FeatureTagsComponent>(feature, context);
+    }
+
+    /// <summary>
+    /// Custom validation for BlueprintUnitProperty.
+    /// </summary>
+    private static void Check(BlueprintUnitProperty unitProperty, ValidationContext context)
+    {
+      if (unitProperty.BaseValue == 0
+        && unitProperty.OperationOnComponents == BlueprintUnitProperty.MathOperation.Multiply)
+      {
+        context.AddError("BaseValue is 0 with MathOperation.Multiply. Resulting value will always be 0.");
+      }
+
+      if (unitProperty.GetComponent<PropertyValueGetter>() is null)
+      {
+        context.AddError(
+          $"No properties specified. Resulting value will always be {unitProperty.BaseValue} (BaseValue).");
+      }
     }
   }
 }
