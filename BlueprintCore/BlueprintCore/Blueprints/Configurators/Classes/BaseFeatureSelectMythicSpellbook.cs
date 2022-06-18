@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
@@ -20,83 +19,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     where TBuilder : BaseFeatureSelectMythicSpellbookConfigurator<T, TBuilder>
   {
     protected BaseFeatureSelectMythicSpellbookConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/>
-    /// </summary>
-    public TBuilder SetCachedItems(params IFeatureSelectionItem[] cachedItems)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(cachedItems);
-          bp.m_CachedItems = cachedItems.ToList();
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/>
-    /// </summary>
-    public TBuilder AddToCachedItems(params IFeatureSelectionItem[] cachedItems)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_CachedItems = bp.m_CachedItems ?? new();
-          bp.m_CachedItems.AddRange(cachedItems);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/>
-    /// </summary>
-    public TBuilder RemoveFromCachedItems(params IFeatureSelectionItem[] cachedItems)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedItems is null) { return; }
-          bp.m_CachedItems = bp.m_CachedItems.Where(val => !cachedItems.Contains(val)).ToList();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromCachedItems(Func<IFeatureSelectionItem, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedItems is null) { return; }
-          bp.m_CachedItems = bp.m_CachedItems.Where(predicate).ToList();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/>
-    /// </summary>
-    public TBuilder ClearCachedItems()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_CachedItems = new();
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelectMythicSpellbook.m_CachedItems"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyCachedItems(Action<IFeatureSelectionItem> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedItems is null) { return; }
-          bp.m_CachedItems.ForEach(action);
-        });
-    }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/>
@@ -296,10 +218,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       base.SetDefaults();
     
-      if (Blueprint.m_CachedItems is null)
-      {
-        Blueprint.m_CachedItems = new();
-      }
       if (Blueprint.m_AllowedSpellbooks is null)
       {
         Blueprint.m_AllowedSpellbooks = new BlueprintSpellbookReference[0];

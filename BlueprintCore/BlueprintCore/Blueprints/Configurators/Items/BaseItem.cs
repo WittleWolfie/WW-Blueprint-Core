@@ -8,7 +8,6 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Components;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -550,83 +549,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintItem.m_CachedEnchantments"/>
-    /// </summary>
-    public TBuilder SetCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(cachedEnchantments);
-          bp.m_CachedEnchantments = cachedEnchantments.ToList();
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintItem.m_CachedEnchantments"/>
-    /// </summary>
-    public TBuilder AddToCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_CachedEnchantments = bp.m_CachedEnchantments ?? new();
-          bp.m_CachedEnchantments.AddRange(cachedEnchantments);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintItem.m_CachedEnchantments"/>
-    /// </summary>
-    public TBuilder RemoveFromCachedEnchantments(params BlueprintItemEnchantment[] cachedEnchantments)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedEnchantments is null) { return; }
-          bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(val => !cachedEnchantments.Contains(val)).ToList();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintItem.m_CachedEnchantments"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromCachedEnchantments(Func<BlueprintItemEnchantment, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedEnchantments is null) { return; }
-          bp.m_CachedEnchantments = bp.m_CachedEnchantments.Where(predicate).ToList();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintItem.m_CachedEnchantments"/>
-    /// </summary>
-    public TBuilder ClearCachedEnchantments()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_CachedEnchantments = new();
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_CachedEnchantments"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyCachedEnchantments(Action<BlueprintItemEnchantment> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedEnchantments is null) { return; }
-          bp.m_CachedEnchantments.ForEach(action);
-        });
-    }
-
-    /// <summary>
     /// Adds <see cref="AddItemShowInfoCallback"/>
     /// </summary>
     ///
@@ -1124,10 +1046,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       if (Blueprint.TrashLootTypes is null)
       {
         Blueprint.TrashLootTypes = new TrashLootType[0];
-      }
-      if (Blueprint.m_CachedEnchantments is null)
-      {
-        Blueprint.m_CachedEnchantments = new();
       }
     }
   }

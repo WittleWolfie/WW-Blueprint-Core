@@ -1012,83 +1012,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         });
     }
 
-    /// <summary>
-    /// Sets the value of <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/>
-    /// </summary>
-    public TBuilder SetCachedOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] cachedOverrideDeathPrefabsFromEnergy)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(cachedOverrideDeathPrefabsFromEnergy);
-          bp.m_CachedOverrideDeathPrefabsFromEnergy = cachedOverrideDeathPrefabsFromEnergy;
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/>
-    /// </summary>
-    public TBuilder AddToCachedOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] cachedOverrideDeathPrefabsFromEnergy)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_CachedOverrideDeathPrefabsFromEnergy = bp.m_CachedOverrideDeathPrefabsFromEnergy ?? new DeathFxFromEnergyEntry[0];
-          bp.m_CachedOverrideDeathPrefabsFromEnergy = CommonTool.Append(bp.m_CachedOverrideDeathPrefabsFromEnergy, cachedOverrideDeathPrefabsFromEnergy);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/>
-    /// </summary>
-    public TBuilder RemoveFromCachedOverrideDeathPrefabsFromEnergy(params DeathFxFromEnergyEntry[] cachedOverrideDeathPrefabsFromEnergy)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedOverrideDeathPrefabsFromEnergy is null) { return; }
-          bp.m_CachedOverrideDeathPrefabsFromEnergy = bp.m_CachedOverrideDeathPrefabsFromEnergy.Where(val => !cachedOverrideDeathPrefabsFromEnergy.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromCachedOverrideDeathPrefabsFromEnergy(Func<DeathFxFromEnergyEntry, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedOverrideDeathPrefabsFromEnergy is null) { return; }
-          bp.m_CachedOverrideDeathPrefabsFromEnergy = bp.m_CachedOverrideDeathPrefabsFromEnergy.Where(predicate).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/>
-    /// </summary>
-    public TBuilder ClearCachedOverrideDeathPrefabsFromEnergy()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_CachedOverrideDeathPrefabsFromEnergy = new DeathFxFromEnergyEntry[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FxRoot.m_CachedOverrideDeathPrefabsFromEnergy"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyCachedOverrideDeathPrefabsFromEnergy(Action<DeathFxFromEnergyEntry> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedOverrideDeathPrefabsFromEnergy is null) { return; }
-          bp.m_CachedOverrideDeathPrefabsFromEnergy.ForEach(action);
-        });
-    }
-
     protected override void SetDefaults()
     {
       base.SetDefaults();
@@ -1128,10 +1051,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
       if (Blueprint.FootprintsLocators is null)
       {
         Blueprint.FootprintsLocators = new FxRoot.FootprintLocators[0];
-      }
-      if (Blueprint.m_CachedOverrideDeathPrefabsFromEnergy is null)
-      {
-        Blueprint.m_CachedOverrideDeathPrefabsFromEnergy = new DeathFxFromEnergyEntry[0];
       }
     }
   }

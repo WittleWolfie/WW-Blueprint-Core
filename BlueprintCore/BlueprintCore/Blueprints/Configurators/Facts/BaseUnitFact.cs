@@ -6037,7 +6037,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </para>
     /// </param>
     public TBuilder AddHideFactsWhileEtudePlaying(
-        HashSet<BlueprintUnitFact>? cachedFacts = null,
         Blueprint<BlueprintEtudeReference>? etude = null,
         List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -6045,12 +6044,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintRaceReference>? replaceRace = null)
     {
       var component = new HideFactsWhileEtudePlaying();
-      Validate(cachedFacts);
-      component.m_CachedFacts = cachedFacts ?? component.m_CachedFacts;
-      if (component.m_CachedFacts is null)
-      {
-        component.m_CachedFacts = new();
-      }
       component.m_Etude = etude?.Reference ?? component.m_Etude;
       if (component.m_Etude is null)
       {

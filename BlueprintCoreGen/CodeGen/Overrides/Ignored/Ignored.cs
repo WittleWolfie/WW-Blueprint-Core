@@ -57,6 +57,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         });
 
       return ignoreField
+        || info.Name.Contains("_Cached")        // Name used by Owlcat for cache fields
         || info.Name.Contains("__BackingField") // Compiler generated field
                                                 // Skip constant, static, and read-only
         || info.IsLiteral

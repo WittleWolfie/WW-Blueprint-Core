@@ -609,83 +609,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
-    /// </summary>
-    public TBuilder SetCachedItems(params FeatureUIData[] cachedItems)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(cachedItems);
-          bp.m_CachedItems = cachedItems;
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
-    /// </summary>
-    public TBuilder AddToCachedItems(params FeatureUIData[] cachedItems)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_CachedItems = bp.m_CachedItems ?? new FeatureUIData[0];
-          bp.m_CachedItems = CommonTool.Append(bp.m_CachedItems, cachedItems);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
-    /// </summary>
-    public TBuilder RemoveFromCachedItems(params FeatureUIData[] cachedItems)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedItems is null) { return; }
-          bp.m_CachedItems = bp.m_CachedItems.Where(val => !cachedItems.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintParametrizedFeature.m_CachedItems"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromCachedItems(Func<FeatureUIData, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedItems is null) { return; }
-          bp.m_CachedItems = bp.m_CachedItems.Where(predicate).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintParametrizedFeature.m_CachedItems"/>
-    /// </summary>
-    public TBuilder ClearCachedItems()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_CachedItems = new FeatureUIData[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.m_CachedItems"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyCachedItems(Action<FeatureUIData> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedItems is null) { return; }
-          bp.m_CachedItems.ForEach(action);
-        });
-    }
-
-    /// <summary>
     /// Adds <see cref="AbilityFocusParametrized"/>
     /// </summary>
     ///
@@ -1410,10 +1333,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       if (Blueprint.BlueprintParameterVariants is null)
       {
         Blueprint.BlueprintParameterVariants = new AnyBlueprintReference[0];
-      }
-      if (Blueprint.m_CachedItems is null)
-      {
-        Blueprint.m_CachedItems = new FeatureUIData[0];
       }
     }
   }

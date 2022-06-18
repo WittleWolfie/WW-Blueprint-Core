@@ -1333,32 +1333,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintUnit.m_CachedTags"/>
-    /// </summary>
-    public TBuilder SetCachedTags(AddTags cachedTags)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(cachedTags);
-          bp.m_CachedTags = cachedTags;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.m_CachedTags"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCachedTags(Action<AddTags> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_CachedTags is null) { return; }
-          action.Invoke(bp.m_CachedTags);
-        });
-    }
-
-    /// <summary>
     /// Adds <see cref="UnitUpgraderComponent"/>
     /// </summary>
     ///
