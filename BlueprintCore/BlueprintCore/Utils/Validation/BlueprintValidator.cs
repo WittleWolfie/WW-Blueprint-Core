@@ -39,6 +39,10 @@ namespace BlueprintCore.Utils.Validation
       {
         Check(feature, context);
       }
+      else if (blueprint is BlueprintUnitProperty unitProperty)
+      {
+        Check(unitProperty, context);
+      }
     }
 
     private static HashSet<Type> AllowMultipleComponents = new() { typeof(RecalculateOnStatChange) };
