@@ -119,4 +119,32 @@ namespace BlueprintCore.Utils
       return new() { m_Key = key };
     }
   }
+
+  /// <summary>
+  /// Wrapper around <see cref="LocalizedString"/> for implicit casts.
+  /// </summary>
+  public class LocalString
+  {
+    public readonly LocalizedString LocalizedString;
+
+    private LocalString(string key)
+    {
+      LocalizedString = new LocalizedString() { m_Key = key };
+    }
+
+    private LocalString(LocalizedString localizedString)
+    {
+      LocalizedString = localizedString;
+    }
+
+    public static implicit operator LocalString(string key)
+    {
+      return new(key);
+    }
+
+    public static implicit operator LocalString(LocalizedString localizedString)
+    {
+      return new(localizedString);
+    }
+  }
 }
