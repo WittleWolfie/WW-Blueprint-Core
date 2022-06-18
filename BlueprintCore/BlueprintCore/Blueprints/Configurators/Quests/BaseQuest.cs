@@ -35,10 +35,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -64,10 +60,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.Title = title;
-          if (bp.Title is null)
-          {
-            bp.Title = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -93,10 +85,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.CompletionText = completionText;
-          if (bp.CompletionText is null)
-          {
-            bp.CompletionText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -368,6 +356,28 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       component.Modifier = modifier ?? component.Modifier;
       component.PlayerGainsNoExp = playerGainsNoExp ?? component.PlayerGainsNoExp;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Title is null)
+      {
+        Blueprint.Title = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.CompletionText is null)
+      {
+        Blueprint.CompletionText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Objectives is null)
+      {
+        Blueprint.m_Objectives = new();
+      }
     }
   }
 }

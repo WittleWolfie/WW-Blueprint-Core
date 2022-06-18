@@ -95,5 +95,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           bp.Bonuses.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Bonuses is null)
+      {
+        Blueprint.Bonuses = new int[0];
+      }
+    }
   }
 }

@@ -3054,5 +3054,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Version = version ?? component.Version;
       return AddComponent(component);
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_NameModifiersCache is null)
+      {
+        Blueprint.m_NameModifiersCache = new NameModifier[0];
+      }
+      if (Blueprint.m_DescriptionModifiersCache is null)
+      {
+        Blueprint.m_DescriptionModifiersCache = new DescriptionModifier[0];
+      }
+      if (Blueprint.Groups is null)
+      {
+        Blueprint.Groups = new FeatureGroup[0];
+      }
+      if (Blueprint.IsPrerequisiteFor is null)
+      {
+        Blueprint.IsPrerequisiteFor = new();
+      }
+    }
   }
 }

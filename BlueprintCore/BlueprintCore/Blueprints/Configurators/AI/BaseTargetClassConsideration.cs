@@ -321,5 +321,19 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           action.Invoke(bp.NoPriorityScore);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_FirstPriorityClasses is null)
+      {
+        Blueprint.m_FirstPriorityClasses = new BlueprintCharacterClassReference[0];
+      }
+      if (Blueprint.m_SecondPriorityClasses is null)
+      {
+        Blueprint.m_SecondPriorityClasses = new BlueprintCharacterClassReference[0];
+      }
+    }
   }
 }

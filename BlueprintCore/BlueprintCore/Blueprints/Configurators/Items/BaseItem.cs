@@ -42,10 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_DisplayNameText = displayNameText;
-          if (bp.m_DisplayNameText is null)
-          {
-            bp.m_DisplayNameText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -71,10 +67,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_DescriptionText = descriptionText;
-          if (bp.m_DescriptionText is null)
-          {
-            bp.m_DescriptionText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -100,10 +92,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_FlavorText = flavorText;
-          if (bp.m_FlavorText is null)
-          {
-            bp.m_FlavorText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -129,10 +117,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_NonIdentifiedNameText = nonIdentifiedNameText;
-          if (bp.m_NonIdentifiedNameText is null)
-          {
-            bp.m_NonIdentifiedNameText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -158,10 +142,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_NonIdentifiedDescriptionText = nonIdentifiedDescriptionText;
-          if (bp.m_NonIdentifiedDescriptionText is null)
-          {
-            bp.m_NonIdentifiedDescriptionText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -1111,6 +1091,44 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
       }
       return AddComponent(component);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_DisplayNameText is null)
+      {
+        Blueprint.m_DisplayNameText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_DescriptionText is null)
+      {
+        Blueprint.m_DescriptionText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_FlavorText is null)
+      {
+        Blueprint.m_FlavorText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_NonIdentifiedNameText is null)
+      {
+        Blueprint.m_NonIdentifiedNameText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_NonIdentifiedDescriptionText is null)
+      {
+        Blueprint.m_NonIdentifiedDescriptionText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_ShardItem is null)
+      {
+        Blueprint.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      if (Blueprint.TrashLootTypes is null)
+      {
+        Blueprint.TrashLootTypes = new TrashLootType[0];
+      }
+      if (Blueprint.m_CachedEnchantments is null)
+      {
+        Blueprint.m_CachedEnchantments = new();
+      }
     }
   }
 }

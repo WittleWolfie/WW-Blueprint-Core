@@ -103,5 +103,15 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
           action.Invoke(bp.m_ForceTargetEnemy);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Ability is null)
+      {
+        Blueprint.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+    }
   }
 }

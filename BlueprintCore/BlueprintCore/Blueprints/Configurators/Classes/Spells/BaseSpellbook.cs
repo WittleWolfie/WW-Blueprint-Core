@@ -30,10 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -590,10 +586,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.SpecialSpellListName = specialSpellListName;
-          if (bp.SpecialSpellListName is null)
-          {
-            bp.SpecialSpellListName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -706,6 +698,44 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     {
       var component = new IsSinMagicSpecialistSpellbook();
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_SpellsPerDay is null)
+      {
+        Blueprint.m_SpellsPerDay = BlueprintTool.GetRef<BlueprintSpellsTableReference>(null);
+      }
+      if (Blueprint.m_SpellsKnown is null)
+      {
+        Blueprint.m_SpellsKnown = BlueprintTool.GetRef<BlueprintSpellsTableReference>(null);
+      }
+      if (Blueprint.m_SpellSlots is null)
+      {
+        Blueprint.m_SpellSlots = BlueprintTool.GetRef<BlueprintSpellsTableReference>(null);
+      }
+      if (Blueprint.m_SpellList is null)
+      {
+        Blueprint.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(null);
+      }
+      if (Blueprint.m_MythicSpellList is null)
+      {
+        Blueprint.m_MythicSpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(null);
+      }
+      if (Blueprint.m_CharacterClass is null)
+      {
+        Blueprint.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      if (Blueprint.SpecialSpellListName is null)
+      {
+        Blueprint.SpecialSpellListName = Utils.Constants.Empty.String;
+      }
     }
   }
 }

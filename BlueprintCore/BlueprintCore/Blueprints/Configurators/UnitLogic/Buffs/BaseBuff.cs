@@ -234,10 +234,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         bp =>
         {
           bp.FxOnStart = fxOnStart;
-          if (bp.FxOnStart is null)
-          {
-            bp.FxOnStart = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -263,10 +259,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         bp =>
         {
           bp.FxOnRemove = fxOnRemove;
-          if (bp.FxOnRemove is null)
-          {
-            bp.FxOnRemove = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -3691,6 +3683,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       component.m_DistanceToActivateInFeet = distanceToActivateInFeet ?? component.m_DistanceToActivateInFeet;
       component.m_SqrDistance = sqrDistance ?? component.m_SqrDistance;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.FxOnStart is null)
+      {
+        Blueprint.FxOnStart = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.FxOnRemove is null)
+      {
+        Blueprint.FxOnRemove = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.ResourceAssetIds is null)
+      {
+        Blueprint.ResourceAssetIds = new string[0];
+      }
     }
   }
 }

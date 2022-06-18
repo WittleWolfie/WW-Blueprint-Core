@@ -30,10 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           bp.DisplayName = displayName;
-          if (bp.DisplayName is null)
-          {
-            bp.DisplayName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -154,6 +150,16 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       Validate(unit);
       component.m_Unit = unit ?? component.m_Unit;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.DisplayName is null)
+      {
+        Blueprint.DisplayName = Utils.Constants.Empty.String;
+      }
     }
   }
 }

@@ -134,5 +134,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           bp.m_Presets.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Presets is null)
+      {
+        Blueprint.m_Presets = new BlueprintArmyPresetReference[0];
+      }
+    }
   }
 }

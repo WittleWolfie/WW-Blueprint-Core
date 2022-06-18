@@ -114,5 +114,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
           bp.Levels.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Levels is null)
+      {
+        Blueprint.Levels = new SpellsLevelEntry[0];
+      }
+    }
   }
 }

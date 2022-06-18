@@ -108,5 +108,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           action.Invoke(bp.AdditionalDataBank);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Area is null)
+      {
+        Blueprint.Area = BlueprintTool.GetRef<BlueprintAreaReference>(null);
+      }
+    }
   }
 }

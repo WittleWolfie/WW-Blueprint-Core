@@ -269,10 +269,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.Title = title;
-          if (bp.Title is null)
-          {
-            bp.Title = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -528,10 +524,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -926,6 +918,44 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       }
       component.objectiveState = objectiveState ?? component.objectiveState;
       return AddComponent(component);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Addendums is null)
+      {
+        Blueprint.m_Addendums = new();
+      }
+      if (Blueprint.m_Areas is null)
+      {
+        Blueprint.m_Areas = new();
+      }
+      if (Blueprint.Title is null)
+      {
+        Blueprint.Title = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Locations is null)
+      {
+        Blueprint.Locations = new();
+      }
+      if (Blueprint.MultiEntranceEntries is null)
+      {
+        Blueprint.MultiEntranceEntries = new();
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_NextObjectives is null)
+      {
+        Blueprint.m_NextObjectives = new();
+      }
+      if (Blueprint.m_Quest is null)
+      {
+        Blueprint.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(null);
+      }
     }
   }
 }

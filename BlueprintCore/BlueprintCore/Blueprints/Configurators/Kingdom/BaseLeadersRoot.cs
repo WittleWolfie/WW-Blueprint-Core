@@ -531,10 +531,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.SkillsListName = skillsListName;
-          if (bp.SkillsListName is null)
-          {
-            bp.SkillsListName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -560,10 +556,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.ManaName = manaName;
-          if (bp.ManaName is null)
-          {
-            bp.ManaName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -589,10 +581,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.AttackBonusName = attackBonusName;
-          if (bp.AttackBonusName is null)
-          {
-            bp.AttackBonusName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -618,10 +606,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.DeffBonusName = deffBonusName;
-          if (bp.DeffBonusName is null)
-          {
-            bp.DeffBonusName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -647,10 +631,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.SpellStrengthName = spellStrengthName;
-          if (bp.SpellStrengthName is null)
-          {
-            bp.SpellStrengthName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -676,10 +656,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.LeaderHireText = leaderHireText;
-          if (bp.LeaderHireText is null)
-          {
-            bp.LeaderHireText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -694,6 +670,68 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           if (bp.LeaderHireText is null) { return; }
           action.Invoke(bp.LeaderHireText);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_ExpTable is null)
+      {
+        Blueprint.m_ExpTable = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_Leaders is null)
+      {
+        Blueprint.m_Leaders = new BlueprintArmyLeaderReference[0];
+      }
+      if (Blueprint.m_AttackLeaderFeature is null)
+      {
+        Blueprint.m_AttackLeaderFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      if (Blueprint.m_DeffenceLeaderFeature is null)
+      {
+        Blueprint.m_DeffenceLeaderFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      if (Blueprint.m_CheaperLeadersProject is null)
+      {
+        Blueprint.m_CheaperLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
+      }
+      if (Blueprint.m_TalentedLeadersProject is null)
+      {
+        Blueprint.m_TalentedLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
+      }
+      if (Blueprint.m_ExperiencedLeadersProject is null)
+      {
+        Blueprint.m_ExperiencedLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
+      }
+      if (Blueprint.m_ExcellentLeadersProject is null)
+      {
+        Blueprint.m_ExcellentLeadersProject = BlueprintTool.GetRef<BlueprintKingdomProjectReference>(null);
+      }
+      if (Blueprint.SkillsListName is null)
+      {
+        Blueprint.SkillsListName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.ManaName is null)
+      {
+        Blueprint.ManaName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.AttackBonusName is null)
+      {
+        Blueprint.AttackBonusName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.DeffBonusName is null)
+      {
+        Blueprint.DeffBonusName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.SpellStrengthName is null)
+      {
+        Blueprint.SpellStrengthName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LeaderHireText is null)
+      {
+        Blueprint.LeaderHireText = Utils.Constants.Empty.String;
+      }
     }
   }
 }

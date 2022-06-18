@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           bp.Entries.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Entries is null)
+      {
+        Blueprint.Entries = new BlueprintClassAdditionalVisualSettingsProgression.Entry[0];
+      }
+    }
   }
 }

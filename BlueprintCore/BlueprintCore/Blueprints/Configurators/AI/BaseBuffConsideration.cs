@@ -206,5 +206,15 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           action.Invoke(bp.FromCaster);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Buffs is null)
+      {
+        Blueprint.m_Buffs = new BlueprintBuffReference[0];
+      }
+    }
   }
 }

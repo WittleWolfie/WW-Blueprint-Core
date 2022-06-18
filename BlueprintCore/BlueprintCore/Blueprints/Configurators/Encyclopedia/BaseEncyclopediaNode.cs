@@ -30,10 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
         bp =>
         {
           bp.Title = title;
-          if (bp.Title is null)
-          {
-            bp.Title = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -187,6 +183,20 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
           if (bp.ChildPages is null) { return; }
           bp.ChildPages.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Title is null)
+      {
+        Blueprint.Title = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.ChildPages is null)
+      {
+        Blueprint.ChildPages = new();
+      }
     }
   }
 }

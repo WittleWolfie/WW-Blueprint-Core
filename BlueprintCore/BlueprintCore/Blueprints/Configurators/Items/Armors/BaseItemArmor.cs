@@ -284,5 +284,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
           action.Invoke(bp.m_OverrideDestructible);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Type is null)
+      {
+        Blueprint.m_Type = BlueprintTool.GetRef<BlueprintArmorTypeReference>(null);
+      }
+      if (Blueprint.m_Enchantments is null)
+      {
+        Blueprint.m_Enchantments = new BlueprintEquipmentEnchantmentReference[0];
+      }
+    }
   }
 }

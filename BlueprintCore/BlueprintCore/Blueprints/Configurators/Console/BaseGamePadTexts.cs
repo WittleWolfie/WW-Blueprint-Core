@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Console
           bp.m_Layers.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Layers is null)
+      {
+        Blueprint.m_Layers = new();
+      }
+    }
   }
 }

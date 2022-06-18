@@ -780,5 +780,43 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           bp.m_FeaturesRankIncrease.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Classes is null)
+      {
+        Blueprint.m_Classes = new BlueprintProgression.ClassWithLevel[0];
+      }
+      if (Blueprint.m_Archetypes is null)
+      {
+        Blueprint.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[0];
+      }
+      if (Blueprint.m_AlternateProgressionClasses is null)
+      {
+        Blueprint.m_AlternateProgressionClasses = new BlueprintProgression.ClassWithLevel[0];
+      }
+      if (Blueprint.LevelEntries is null)
+      {
+        Blueprint.LevelEntries = new LevelEntry[0];
+      }
+      if (Blueprint.UIGroups is null)
+      {
+        Blueprint.UIGroups = new UIGroup[0];
+      }
+      if (Blueprint.m_UIDeterminatorsGroup is null)
+      {
+        Blueprint.m_UIDeterminatorsGroup = new BlueprintFeatureBaseReference[0];
+      }
+      if (Blueprint.m_ExclusiveProgression is null)
+      {
+        Blueprint.m_ExclusiveProgression = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      if (Blueprint.m_FeaturesRankIncrease is null)
+      {
+        Blueprint.m_FeaturesRankIncrease = new();
+      }
+    }
   }
 }

@@ -98,10 +98,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.m_TitleText = titleText;
-          if (bp.m_TitleText is null)
-          {
-            bp.m_TitleText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -127,10 +123,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.m_TriggerText = triggerText;
-          if (bp.m_TriggerText is null)
-          {
-            bp.m_TriggerText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -156,10 +148,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.m_DescriptionText = descriptionText;
-          if (bp.m_DescriptionText is null)
-          {
-            bp.m_DescriptionText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -185,10 +173,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.m_SolutionFoundText = solutionFoundText;
-          if (bp.m_SolutionFoundText is null)
-          {
-            bp.m_SolutionFoundText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -214,10 +198,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.m_SolutionNotFoundText = solutionNotFoundText;
-          if (bp.m_SolutionNotFoundText is null)
-          {
-            bp.m_SolutionNotFoundText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -3050,6 +3030,36 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       component.NeedAllDescriptors = needAllDescriptors ?? component.NeedAllDescriptors;
       component.SpellDescriptors = spellDescriptors ?? component.SpellDescriptors;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_TitleText is null)
+      {
+        Blueprint.m_TitleText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_TriggerText is null)
+      {
+        Blueprint.m_TriggerText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_DescriptionText is null)
+      {
+        Blueprint.m_DescriptionText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_SolutionFoundText is null)
+      {
+        Blueprint.m_SolutionFoundText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_SolutionNotFoundText is null)
+      {
+        Blueprint.m_SolutionNotFoundText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.EncyclopediaReference is null)
+      {
+        Blueprint.EncyclopediaReference = BlueprintTool.GetRef<BlueprintEncyclopediaPageReference>(null);
+      }
     }
   }
 }

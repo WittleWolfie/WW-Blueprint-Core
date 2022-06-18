@@ -135,5 +135,15 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
           bp.m_TacticalActions.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_TacticalActions is null)
+      {
+        Blueprint.m_TacticalActions = new BlueprintTacticalCombatAiActionReference[0];
+      }
+    }
   }
 }

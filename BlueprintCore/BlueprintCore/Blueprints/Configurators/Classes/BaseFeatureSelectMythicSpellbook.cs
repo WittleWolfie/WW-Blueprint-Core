@@ -291,5 +291,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           action.Invoke(bp.m_SpellKnownForSpontaneous);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_CachedItems is null)
+      {
+        Blueprint.m_CachedItems = new();
+      }
+      if (Blueprint.m_AllowedSpellbooks is null)
+      {
+        Blueprint.m_AllowedSpellbooks = new BlueprintSpellbookReference[0];
+      }
+      if (Blueprint.m_MythicSpellList is null)
+      {
+        Blueprint.m_MythicSpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(null);
+      }
+      if (Blueprint.m_SpellKnownForSpontaneous is null)
+      {
+        Blueprint.m_SpellKnownForSpontaneous = BlueprintTool.GetRef<BlueprintSpellsTableReference>(null);
+      }
+    }
   }
 }

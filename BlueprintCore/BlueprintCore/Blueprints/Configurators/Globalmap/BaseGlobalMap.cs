@@ -556,10 +556,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.EnterWarCampAction = enterWarCampAction?.Build();
-          if (bp.EnterWarCampAction is null)
-          {
-            bp.EnterWarCampAction = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -585,10 +581,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.EnterAzataIslandAction = enterAzataIslandAction?.Build();
-          if (bp.EnterAzataIslandAction is null)
-          {
-            bp.EnterAzataIslandAction = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -665,6 +657,40 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
           if (bp.CampLocation is null) { return; }
           action.Invoke(bp.CampLocation);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_StartLocation is null)
+      {
+        Blueprint.m_StartLocation = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
+      }
+      if (Blueprint.m_GlobalMapEnterPoint is null)
+      {
+        Blueprint.m_GlobalMapEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.Points is null)
+      {
+        Blueprint.Points = new BlueprintGlobalMapPoint.Reference[0];
+      }
+      if (Blueprint.Edges is null)
+      {
+        Blueprint.Edges = new();
+      }
+      if (Blueprint.EnterWarCampAction is null)
+      {
+        Blueprint.EnterWarCampAction = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.EnterAzataIslandAction is null)
+      {
+        Blueprint.EnterAzataIslandAction = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.CampLocation is null)
+      {
+        Blueprint.CampLocation = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
+      }
     }
   }
 }

@@ -769,10 +769,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.StartGameActions = startGameActions?.Build();
-          if (bp.StartGameActions is null)
-          {
-            bp.StartGameActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -2285,6 +2281,100 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           if (bp.m_History is null) { return; }
           bp.m_History.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Area is null)
+      {
+        Blueprint.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(null);
+      }
+      if (Blueprint.m_EnterPoint is null)
+      {
+        Blueprint.m_EnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_GlobalMapLocation is null)
+      {
+        Blueprint.m_GlobalMapLocation = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
+      }
+      if (Blueprint.AlsoLoadMechanics is null)
+      {
+        Blueprint.AlsoLoadMechanics = new();
+      }
+      if (Blueprint.m_PlayerCharacter is null)
+      {
+        Blueprint.m_PlayerCharacter = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.Companions is null)
+      {
+        Blueprint.Companions = new();
+      }
+      if (Blueprint.CompanionsRemote is null)
+      {
+        Blueprint.CompanionsRemote = new();
+      }
+      if (Blueprint.ExCompanions is null)
+      {
+        Blueprint.ExCompanions = new();
+      }
+      if (Blueprint.StartGameActions is null)
+      {
+        Blueprint.StartGameActions = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.m_Campaign is null)
+      {
+        Blueprint.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
+      }
+      if (Blueprint.UnlockedFlags is null)
+      {
+        Blueprint.UnlockedFlags = new();
+      }
+      if (Blueprint.StartedQuests is null)
+      {
+        Blueprint.StartedQuests = new();
+      }
+      if (Blueprint.FinishedQuests is null)
+      {
+        Blueprint.FinishedQuests = new();
+      }
+      if (Blueprint.FailedQuests is null)
+      {
+        Blueprint.FailedQuests = new();
+      }
+      if (Blueprint.StartEtudesNonRecursively is null)
+      {
+        Blueprint.StartEtudesNonRecursively = new();
+      }
+      if (Blueprint.StartEtudes is null)
+      {
+        Blueprint.StartEtudes = new();
+      }
+      if (Blueprint.ForceCompleteEtudes is null)
+      {
+        Blueprint.ForceCompleteEtudes = new();
+      }
+      if (Blueprint.CuesSeen is null)
+      {
+        Blueprint.CuesSeen = new();
+      }
+      if (Blueprint.AnswersSelected is null)
+      {
+        Blueprint.AnswersSelected = new();
+      }
+      if (Blueprint.ActiveEvents is null)
+      {
+        Blueprint.ActiveEvents = new();
+      }
+      if (Blueprint.m_Regions is null)
+      {
+        Blueprint.m_Regions = new BlueprintAreaPreset.KingdomsRegionPreset[0];
+      }
+      if (Blueprint.m_History is null)
+      {
+        Blueprint.m_History = new BlueprintAreaPreset.KingdomsEventHistoryPreset[0];
+      }
     }
   }
 }

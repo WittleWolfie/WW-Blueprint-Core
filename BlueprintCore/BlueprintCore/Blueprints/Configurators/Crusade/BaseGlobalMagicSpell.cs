@@ -32,10 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
         bp =>
         {
           bp.m_SpellName = spellName;
-          if (bp.m_SpellName is null)
-          {
-            bp.m_SpellName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -61,10 +57,6 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
         bp =>
         {
           bp.m_Description = description;
-          if (bp.m_Description is null)
-          {
-            bp.m_Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -116,10 +108,6 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
         bp =>
         {
           bp.m_VFX = vFX;
-          if (bp.m_VFX is null)
-          {
-            bp.m_VFX = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -197,10 +185,6 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
         bp =>
         {
           bp.m_SpellActions = spellActions?.Build();
-          if (bp.m_SpellActions is null)
-          {
-            bp.m_SpellActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -245,6 +229,28 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
         {
           action.Invoke(bp.m_SetCooldownManually);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_SpellName is null)
+      {
+        Blueprint.m_SpellName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Description is null)
+      {
+        Blueprint.m_Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_VFX is null)
+      {
+        Blueprint.m_VFX = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.m_SpellActions is null)
+      {
+        Blueprint.m_SpellActions = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

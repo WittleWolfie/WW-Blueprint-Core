@@ -134,5 +134,15 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           bp.m_Skills.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Skills is null)
+      {
+        Blueprint.m_Skills = new BlueprintLeaderSkillReference[0];
+      }
+    }
   }
 }

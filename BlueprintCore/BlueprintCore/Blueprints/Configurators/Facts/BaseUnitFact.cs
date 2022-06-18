@@ -105,10 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bp =>
         {
           bp.m_DisplayName = displayName;
-          if (bp.m_DisplayName is null)
-          {
-            bp.m_DisplayName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -134,10 +130,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bp =>
         {
           bp.m_Description = description;
-          if (bp.m_Description is null)
-          {
-            bp.m_Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -163,10 +155,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bp =>
         {
           bp.m_DescriptionShort = descriptionShort;
-          if (bp.m_DescriptionShort is null)
-          {
-            bp.m_DescriptionShort = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -24119,6 +24107,24 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.MultiplierIfHasAnyFact = multiplierIfHasAnyFact ?? component.MultiplierIfHasAnyFact;
       component.MultiplierIfHasNoFacts = multiplierIfHasNoFacts ?? component.MultiplierIfHasNoFacts;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_DisplayName is null)
+      {
+        Blueprint.m_DisplayName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Description is null)
+      {
+        Blueprint.m_Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_DescriptionShort is null)
+      {
+        Blueprint.m_DescriptionShort = Utils.Constants.Empty.String;
+      }
     }
   }
 }

@@ -297,5 +297,23 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           action.Invoke(bp.Experience);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.DCModifiers is null)
+      {
+        Blueprint.DCModifiers = new DCModifier[0];
+      }
+      if (Blueprint.m_Success is null)
+      {
+        Blueprint.m_Success = BlueprintTool.GetRef<BlueprintCueBaseReference>(null);
+      }
+      if (Blueprint.m_Fail is null)
+      {
+        Blueprint.m_Fail = BlueprintTool.GetRef<BlueprintCueBaseReference>(null);
+      }
+    }
   }
 }

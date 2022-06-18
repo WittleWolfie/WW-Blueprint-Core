@@ -34,10 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Conditions = conditions?.Build();
-          if (bp.Conditions is null)
-          {
-            bp.Conditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -63,10 +59,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -130,10 +122,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -159,10 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.FakeName = fakeName;
-          if (bp.FakeName is null)
-          {
-            bp.FakeName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -188,10 +172,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.FakeDescription = fakeDescription;
-          if (bp.FakeDescription is null)
-          {
-            bp.FakeDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -384,6 +364,48 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         component.RequiredCompanions = new();
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Conditions is null)
+      {
+        Blueprint.Conditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.NameFromSettlement is null)
+      {
+        Blueprint.NameFromSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.FakeName is null)
+      {
+        Blueprint.FakeName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.FakeDescription is null)
+      {
+        Blueprint.FakeDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_AreaEntrance is null)
+      {
+        Blueprint.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_Entrances is null)
+      {
+        Blueprint.m_Entrances = BlueprintTool.GetRef<BlueprintMultiEntranceReference>(null);
+      }
+      if (Blueprint.m_BookEvent is null)
+      {
+        Blueprint.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(null);
+      }
     }
   }
 }

@@ -28,10 +28,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.m_OnCreatureCastPrefab = onCreatureCastPrefab;
-          if (bp.m_OnCreatureCastPrefab is null)
-          {
-            bp.m_OnCreatureCastPrefab = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -57,10 +53,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.m_OnCreaturePrefab = onCreaturePrefab;
-          if (bp.m_OnCreaturePrefab is null)
-          {
-            bp.m_OnCreaturePrefab = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -199,6 +191,20 @@ namespace BlueprintCore.Blueprints.Configurators
           if (bp.m_PreparationEndSound is null) { return; }
           action.Invoke(bp.m_PreparationEndSound);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_OnCreatureCastPrefab is null)
+      {
+        Blueprint.m_OnCreatureCastPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.m_OnCreaturePrefab is null)
+      {
+        Blueprint.m_OnCreaturePrefab = Utils.Constants.Empty.PrefabLink;
+      }
     }
   }
 }

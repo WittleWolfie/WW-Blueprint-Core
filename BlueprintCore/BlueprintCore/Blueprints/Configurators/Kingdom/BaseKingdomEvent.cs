@@ -168,10 +168,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.OnTrigger = onTrigger?.Build();
-          if (bp.OnTrigger is null)
-          {
-            bp.OnTrigger = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -236,6 +232,20 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         {
           action.Invoke(bp.UnapplyTriggerOnResolve);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_DependsOnQuest is null)
+      {
+        Blueprint.m_DependsOnQuest = BlueprintTool.GetRef<BlueprintQuestReference>(null);
+      }
+      if (Blueprint.OnTrigger is null)
+      {
+        Blueprint.OnTrigger = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

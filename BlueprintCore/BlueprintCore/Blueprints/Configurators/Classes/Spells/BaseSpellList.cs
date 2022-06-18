@@ -356,5 +356,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
           action.Invoke(bp.m_MaxLevel);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.SpellsByLevel is null)
+      {
+        Blueprint.SpellsByLevel = new SpellLevelList[0];
+      }
+      if (Blueprint.m_FilteredList is null)
+      {
+        Blueprint.m_FilteredList = BlueprintTool.GetRef<BlueprintSpellListReference>(null);
+      }
+    }
   }
 }

@@ -130,5 +130,23 @@ namespace BlueprintCore.Blueprints.Configurators
           action.Invoke(bp.m_MaxValueFlag);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_CounterFlag is null)
+      {
+        Blueprint.m_CounterFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
+      if (Blueprint.m_MinValueFlag is null)
+      {
+        Blueprint.m_MinValueFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
+      if (Blueprint.m_MaxValueFlag is null)
+      {
+        Blueprint.m_MaxValueFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
+    }
   }
 }

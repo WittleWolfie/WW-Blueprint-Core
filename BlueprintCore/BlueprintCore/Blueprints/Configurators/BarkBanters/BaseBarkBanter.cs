@@ -286,5 +286,23 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
           bp.Responses.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Unit is null)
+      {
+        Blueprint.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.FirstPhrase is null)
+      {
+        Blueprint.FirstPhrase = new LocalizedString[0];
+      }
+      if (Blueprint.Responses is null)
+      {
+        Blueprint.Responses = new BlueprintBarkBanter.BanterResponseEntry[0];
+      }
+    }
   }
 }

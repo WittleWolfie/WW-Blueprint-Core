@@ -325,5 +325,23 @@ namespace BlueprintCore.Blueprints.Configurators
           bp.StatAdjustments.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_RemoveFacts is null)
+      {
+        Blueprint.m_RemoveFacts = new BlueprintUnitFactReference[0];
+      }
+      if (Blueprint.m_AddFacts is null)
+      {
+        Blueprint.m_AddFacts = new BlueprintUnitFactReference[0];
+      }
+      if (Blueprint.StatAdjustments is null)
+      {
+        Blueprint.StatAdjustments = new BlueprintUnitTemplate.StatAdjustment[0];
+      }
+    }
   }
 }

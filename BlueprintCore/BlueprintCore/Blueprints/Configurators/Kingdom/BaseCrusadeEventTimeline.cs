@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           bp.Chapters.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Chapters is null)
+      {
+        Blueprint.Chapters = new BlueprintCrusadeEventTimeline.ChapterInfo[0];
+      }
+    }
   }
 }

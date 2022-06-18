@@ -173,5 +173,19 @@ namespace BlueprintCore.Blueprints.Configurators
           bp.m_SettingTypeScreensList.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_GenericSpritesLink is null)
+      {
+        Blueprint.m_GenericSpritesLink = new();
+      }
+      if (Blueprint.m_SettingTypeScreensList is null)
+      {
+        Blueprint.m_SettingTypeScreensList = new();
+      }
+    }
   }
 }

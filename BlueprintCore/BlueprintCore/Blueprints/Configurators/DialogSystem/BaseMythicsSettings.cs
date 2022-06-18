@@ -326,5 +326,27 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           bp.CharcaterLevelRestrictions.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_MythicsInfos is null)
+      {
+        Blueprint.m_MythicsInfos = new BlueprintMythicInfoReference[0];
+      }
+      if (Blueprint.m_MythicAlignments is null)
+      {
+        Blueprint.m_MythicAlignments = new MythicAlignment[0];
+      }
+      if (Blueprint.m_TutorialChooseMythic is null)
+      {
+        Blueprint.m_TutorialChooseMythic = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
+      }
+      if (Blueprint.CharcaterLevelRestrictions is null)
+      {
+        Blueprint.CharcaterLevelRestrictions = new();
+      }
+    }
   }
 }

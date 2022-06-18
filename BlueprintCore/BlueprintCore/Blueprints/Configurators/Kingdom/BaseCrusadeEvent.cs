@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           bp.m_EventSolutions.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_EventSolutions is null)
+      {
+        Blueprint.m_EventSolutions = new EventSolution[0];
+      }
+    }
   }
 }

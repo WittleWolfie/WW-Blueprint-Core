@@ -57,10 +57,6 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
         bp =>
         {
           bp.HeaderText = headerText;
-          if (bp.HeaderText is null)
-          {
-            bp.HeaderText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -112,10 +108,6 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
         bp =>
         {
           bp.LeftPageText = leftPageText;
-          if (bp.LeftPageText is null)
-          {
-            bp.LeftPageText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -359,6 +351,36 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
           if (bp.Persones is null) { return; }
           bp.Persones.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.HeaderText is null)
+      {
+        Blueprint.HeaderText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LeftPageText is null)
+      {
+        Blueprint.LeftPageText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_RolesData is null)
+      {
+        Blueprint.m_RolesData = BlueprintTool.GetRef<BlueprintCreditsRolesReference>(null);
+      }
+      if (Blueprint.m_TeamsData is null)
+      {
+        Blueprint.m_TeamsData = BlueprintTool.GetRef<BlueprintCreditsTeamsReference>(null);
+      }
+      if (Blueprint.OrderTeams is null)
+      {
+        Blueprint.OrderTeams = new();
+      }
+      if (Blueprint.Persones is null)
+      {
+        Blueprint.Persones = new();
+      }
     }
   }
 }

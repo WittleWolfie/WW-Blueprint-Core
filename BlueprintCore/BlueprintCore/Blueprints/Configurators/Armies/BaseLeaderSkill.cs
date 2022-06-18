@@ -65,10 +65,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.LocalizedName = localizedName;
-          if (bp.LocalizedName is null)
-          {
-            bp.LocalizedName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -94,10 +90,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.LocalizedDescription = localizedDescription;
-          if (bp.LocalizedDescription is null)
-          {
-            bp.LocalizedDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -847,6 +839,24 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       component.DailyMovementPoints = dailyMovementPoints ?? component.DailyMovementPoints;
       component.MaxMovementPoints = maxMovementPoints ?? component.MaxMovementPoints;
       return AddComponent(component);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.LocalizedName is null)
+      {
+        Blueprint.LocalizedName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LocalizedDescription is null)
+      {
+        Blueprint.LocalizedDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Prerequisites is null)
+      {
+        Blueprint.m_Prerequisites = new BlueprintLeaderSkillReference[0];
+      }
     }
   }
 }

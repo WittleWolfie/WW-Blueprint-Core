@@ -978,5 +978,39 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       component.MaxDeltaHeightPerFrame = maxDeltaHeightPerFrame ?? component.MaxDeltaHeightPerFrame;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.RetrySkillChecks is null)
+      {
+        Blueprint.RetrySkillChecks = new();
+      }
+      if (Blueprint.HighPriorityAnswers is null)
+      {
+        Blueprint.HighPriorityAnswers = new();
+      }
+      if (Blueprint.DoNotSellItems is null)
+      {
+        Blueprint.DoNotSellItems = new();
+      }
+      if (Blueprint.DoNotInterract is null)
+      {
+        Blueprint.DoNotInterract = new();
+      }
+      if (Blueprint.DoNotInterractUnits is null)
+      {
+        Blueprint.DoNotInterractUnits = new();
+      }
+      if (Blueprint.DoNotUseAnswer is null)
+      {
+        Blueprint.DoNotUseAnswer = new();
+      }
+      if (Blueprint.DoNotEnterAreas is null)
+      {
+        Blueprint.DoNotEnterAreas = new();
+      }
+    }
   }
 }

@@ -42,10 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.LocalizedName = localizedName;
-          if (bp.LocalizedName is null)
-          {
-            bp.LocalizedName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -71,10 +67,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.LocalizedDescription = localizedDescription;
-          if (bp.LocalizedDescription is null)
-          {
-            bp.LocalizedDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -100,10 +92,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.LocalizedDescriptionShort = localizedDescriptionShort;
-          if (bp.LocalizedDescriptionShort is null)
-          {
-            bp.LocalizedDescriptionShort = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -2354,6 +2342,72 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Stat = stat ?? component.Stat;
       component.Value = value ?? component.Value;
       return AddComponent(component);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.LocalizedName is null)
+      {
+        Blueprint.LocalizedName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LocalizedDescription is null)
+      {
+        Blueprint.LocalizedDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LocalizedDescriptionShort is null)
+      {
+        Blueprint.LocalizedDescriptionShort = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_ReplaceSpellbook is null)
+      {
+        Blueprint.m_ReplaceSpellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(null);
+      }
+      if (Blueprint.AddFeatures is null)
+      {
+        Blueprint.AddFeatures = new LevelEntry[0];
+      }
+      if (Blueprint.RemoveFeatures is null)
+      {
+        Blueprint.RemoveFeatures = new LevelEntry[0];
+      }
+      if (Blueprint.m_StartingItems is null)
+      {
+        Blueprint.m_StartingItems = new BlueprintItemReference[0];
+      }
+      if (Blueprint.ClassSkills is null)
+      {
+        Blueprint.ClassSkills = new StatType[0];
+      }
+      if (Blueprint.RecommendedAttributes is null)
+      {
+        Blueprint.RecommendedAttributes = new StatType[0];
+      }
+      if (Blueprint.NotRecommendedAttributes is null)
+      {
+        Blueprint.NotRecommendedAttributes = new StatType[0];
+      }
+      if (Blueprint.m_SignatureAbilities is null)
+      {
+        Blueprint.m_SignatureAbilities = new BlueprintFeatureReference[0];
+      }
+      if (Blueprint.m_BaseAttackBonus is null)
+      {
+        Blueprint.m_BaseAttackBonus = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_FortitudeSave is null)
+      {
+        Blueprint.m_FortitudeSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_ReflexSave is null)
+      {
+        Blueprint.m_ReflexSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_WillSave is null)
+      {
+        Blueprint.m_WillSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
     }
   }
 }

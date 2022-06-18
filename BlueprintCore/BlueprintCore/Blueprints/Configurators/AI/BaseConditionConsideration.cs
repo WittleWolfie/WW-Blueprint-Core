@@ -144,5 +144,15 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           action.Invoke(bp.NoCondition);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Conditions is null)
+      {
+        Blueprint.Conditions = new UnitCondition[0];
+      }
+    }
   }
 }

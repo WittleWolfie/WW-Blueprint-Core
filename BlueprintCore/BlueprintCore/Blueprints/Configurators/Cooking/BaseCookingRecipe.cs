@@ -30,10 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -365,6 +361,28 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
           if (bp.UnitBuffs is null) { return; }
           bp.UnitBuffs.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Ingredients is null)
+      {
+        Blueprint.Ingredients = new BlueprintCookingRecipe.ItemEntry[0];
+      }
+      if (Blueprint.m_PartyBuffs is null)
+      {
+        Blueprint.m_PartyBuffs = new BlueprintBuffReference[0];
+      }
+      if (Blueprint.UnitBuffs is null)
+      {
+        Blueprint.UnitBuffs = new BlueprintCookingRecipe.UnitBuffEntry[0];
+      }
     }
   }
 }

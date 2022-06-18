@@ -182,5 +182,15 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           action.Invoke(bp.NoFactScore);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Fact is null)
+      {
+        Blueprint.m_Fact = new BlueprintUnitFactReference[0];
+      }
+    }
   }
 }

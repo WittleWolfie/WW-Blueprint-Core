@@ -31,10 +31,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -60,10 +56,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.m_Condition = condition?.Build();
-          if (bp.m_Condition is null)
-          {
-            bp.m_Condition = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -89,10 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.m_Actions = actions?.Build();
-          if (bp.m_Actions is null)
-          {
-            bp.m_Actions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -107,6 +95,24 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
           if (bp.m_Actions is null) { return; }
           action.Invoke(bp.m_Actions);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Condition is null)
+      {
+        Blueprint.m_Condition = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.m_Actions is null)
+      {
+        Blueprint.m_Actions = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

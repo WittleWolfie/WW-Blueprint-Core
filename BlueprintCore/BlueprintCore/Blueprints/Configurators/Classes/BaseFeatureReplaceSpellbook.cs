@@ -55,5 +55,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           action.Invoke(bp.m_Spellbook);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Spellbook is null)
+      {
+        Blueprint.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(null);
+      }
+    }
   }
 }

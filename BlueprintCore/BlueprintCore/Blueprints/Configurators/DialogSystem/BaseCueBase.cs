@@ -77,10 +77,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Conditions = conditions?.Build();
-          if (bp.Conditions is null)
-          {
-            bp.Conditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -95,6 +91,16 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           if (bp.Conditions is null) { return; }
           action.Invoke(bp.Conditions);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Conditions is null)
+      {
+        Blueprint.Conditions = Utils.Constants.Empty.Conditions;
+      }
     }
   }
 }

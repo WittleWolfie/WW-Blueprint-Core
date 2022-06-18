@@ -94,5 +94,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
           action.Invoke(bp.m_ArmorComponent);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_WeaponComponent is null)
+      {
+        Blueprint.m_WeaponComponent = BlueprintTool.GetRef<BlueprintItemWeaponReference>(null);
+      }
+      if (Blueprint.m_ArmorComponent is null)
+      {
+        Blueprint.m_ArmorComponent = BlueprintTool.GetRef<BlueprintItemArmorReference>(null);
+      }
+    }
   }
 }

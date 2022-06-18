@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
           bp.Groups.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Groups is null)
+      {
+        Blueprint.Groups = new QuestGroup[0];
+      }
+    }
   }
 }

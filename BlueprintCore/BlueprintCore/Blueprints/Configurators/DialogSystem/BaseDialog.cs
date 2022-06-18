@@ -83,10 +83,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Conditions = conditions?.Build();
-          if (bp.Conditions is null)
-          {
-            bp.Conditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -112,10 +108,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.StartActions = startActions?.Build();
-          if (bp.StartActions is null)
-          {
-            bp.StartActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -141,10 +133,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.FinishActions = finishActions?.Build();
-          if (bp.FinishActions is null)
-          {
-            bp.FinishActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -170,10 +158,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.ReplaceActions = replaceActions?.Build();
-          if (bp.ReplaceActions is null)
-          {
-            bp.ReplaceActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -322,6 +306,28 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           if (bp.m_OverrideAreaCR is null) { return; }
           action.Invoke(bp.m_OverrideAreaCR);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Conditions is null)
+      {
+        Blueprint.Conditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.StartActions is null)
+      {
+        Blueprint.StartActions = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.FinishActions is null)
+      {
+        Blueprint.FinishActions = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.ReplaceActions is null)
+      {
+        Blueprint.ReplaceActions = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

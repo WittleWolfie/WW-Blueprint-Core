@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
           bp.Roles.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Roles is null)
+      {
+        Blueprint.Roles = new();
+      }
+    }
   }
 }

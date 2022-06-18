@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
           bp.Entries.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Entries is null)
+      {
+        Blueprint.Entries = new BlueprintCategoryDefaults.CategoryDefaultEntry[0];
+      }
+    }
   }
 }

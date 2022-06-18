@@ -53,10 +53,6 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
         bp =>
         {
           bp.Actions = actions?.Build();
-          if (bp.Actions is null)
-          {
-            bp.Actions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -71,6 +67,16 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
           if (bp.Actions is null) { return; }
           action.Invoke(bp.Actions);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Actions is null)
+      {
+        Blueprint.Actions = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

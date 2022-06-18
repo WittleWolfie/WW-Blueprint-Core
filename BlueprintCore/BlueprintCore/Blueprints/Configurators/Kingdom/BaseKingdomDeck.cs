@@ -158,5 +158,15 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           action.Invoke(bp.IsPriority);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Events is null)
+      {
+        Blueprint.Events = new();
+      }
+    }
   }
 }

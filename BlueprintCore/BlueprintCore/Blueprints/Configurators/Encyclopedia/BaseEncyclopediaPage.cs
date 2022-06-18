@@ -135,5 +135,19 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
           bp.Blocks.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_ParentAsset is null)
+      {
+        Blueprint.m_ParentAsset = BlueprintTool.GetRef<BlueprintEncyclopediaNodeReference>(null);
+      }
+      if (Blueprint.Blocks is null)
+      {
+        Blueprint.Blocks = new();
+      }
+    }
   }
 }

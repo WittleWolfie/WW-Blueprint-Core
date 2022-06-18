@@ -30,10 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -302,6 +298,28 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         {
           action.Invoke(bp.m_IsAvailable);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_IncludeAssetPaths is null)
+      {
+        Blueprint.m_IncludeAssetPaths = new BlueprintDlcReward.AssetPath[0];
+      }
+      if (Blueprint.m_IncludeObjects is null)
+      {
+        Blueprint.m_IncludeObjects = new UnityEngine.Object[0];
+      }
+      if (Blueprint.m_Dlcs is null)
+      {
+        Blueprint.m_Dlcs = new();
+      }
     }
   }
 }

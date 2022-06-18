@@ -45,10 +45,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.LocalizedName = localizedName;
-          if (bp.LocalizedName is null)
-          {
-            bp.LocalizedName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -74,10 +70,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.LocalizedDescription = localizedDescription;
-          if (bp.LocalizedDescription is null)
-          {
-            bp.LocalizedDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -103,10 +95,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.LocalizedDescriptionShort = localizedDescriptionShort;
-          if (bp.LocalizedDescriptionShort is null)
-          {
-            bp.LocalizedDescriptionShort = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -2893,6 +2881,92 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Stat = stat ?? component.Stat;
       component.Value = value ?? component.Value;
       return AddComponent(component);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.LocalizedName is null)
+      {
+        Blueprint.LocalizedName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LocalizedDescription is null)
+      {
+        Blueprint.LocalizedDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LocalizedDescriptionShort is null)
+      {
+        Blueprint.LocalizedDescriptionShort = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_BaseAttackBonus is null)
+      {
+        Blueprint.m_BaseAttackBonus = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_FortitudeSave is null)
+      {
+        Blueprint.m_FortitudeSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_ReflexSave is null)
+      {
+        Blueprint.m_ReflexSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_WillSave is null)
+      {
+        Blueprint.m_WillSave = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_Progression is null)
+      {
+        Blueprint.m_Progression = BlueprintTool.GetRef<BlueprintProgressionReference>(null);
+      }
+      if (Blueprint.m_Spellbook is null)
+      {
+        Blueprint.m_Spellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(null);
+      }
+      if (Blueprint.ClassSkills is null)
+      {
+        Blueprint.ClassSkills = new StatType[0];
+      }
+      if (Blueprint.m_Archetypes is null)
+      {
+        Blueprint.m_Archetypes = new BlueprintArchetypeReference[0];
+      }
+      if (Blueprint.m_StartingItems is null)
+      {
+        Blueprint.m_StartingItems = new BlueprintItemReference[0];
+      }
+      if (Blueprint.m_EquipmentEntities is null)
+      {
+        Blueprint.m_EquipmentEntities = new KingmakerEquipmentEntityReference[0];
+      }
+      if (Blueprint.MaleEquipmentEntities is null)
+      {
+        Blueprint.MaleEquipmentEntities = new EquipmentEntityLink[0];
+      }
+      if (Blueprint.FemaleEquipmentEntities is null)
+      {
+        Blueprint.FemaleEquipmentEntities = new EquipmentEntityLink[0];
+      }
+      if (Blueprint.RecommendedAttributes is null)
+      {
+        Blueprint.RecommendedAttributes = new StatType[0];
+      }
+      if (Blueprint.NotRecommendedAttributes is null)
+      {
+        Blueprint.NotRecommendedAttributes = new StatType[0];
+      }
+      if (Blueprint.m_SignatureAbilities is null)
+      {
+        Blueprint.m_SignatureAbilities = new BlueprintFeatureReference[0];
+      }
+      if (Blueprint.m_DefaultBuild is null)
+      {
+        Blueprint.m_DefaultBuild = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      if (Blueprint.m_AdditionalVisualSettings is null)
+      {
+        Blueprint.m_AdditionalVisualSettings = BlueprintTool.GetRef<BlueprintClassAdditionalVisualSettingsProgression.Reference>(null);
+      }
     }
   }
 }

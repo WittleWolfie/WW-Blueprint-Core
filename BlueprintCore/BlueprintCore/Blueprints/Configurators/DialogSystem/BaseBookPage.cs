@@ -263,10 +263,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.OnShow = onShow?.Build();
-          if (bp.OnShow is null)
-          {
-            bp.OnShow = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -344,10 +340,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Title = title;
-          if (bp.Title is null)
-          {
-            bp.Title = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -362,6 +354,28 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           if (bp.Title is null) { return; }
           action.Invoke(bp.Title);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Cues is null)
+      {
+        Blueprint.Cues = new();
+      }
+      if (Blueprint.Answers is null)
+      {
+        Blueprint.Answers = new();
+      }
+      if (Blueprint.OnShow is null)
+      {
+        Blueprint.OnShow = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.Title is null)
+      {
+        Blueprint.Title = Utils.Constants.Empty.String;
+      }
     }
   }
 }

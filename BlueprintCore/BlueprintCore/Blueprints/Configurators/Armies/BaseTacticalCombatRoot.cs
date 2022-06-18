@@ -416,10 +416,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_BuffPrefix = buffPrefix;
-          if (bp.m_BuffPrefix is null)
-          {
-            bp.m_BuffPrefix = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -931,10 +927,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_PositiveMoraleFx = positiveMoraleFx;
-          if (bp.m_PositiveMoraleFx is null)
-          {
-            bp.m_PositiveMoraleFx = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -960,10 +952,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_NegativeMoraleFx = negativeMoraleFx;
-          if (bp.m_NegativeMoraleFx is null)
-          {
-            bp.m_NegativeMoraleFx = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -1002,6 +990,56 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         {
           action.Invoke(bp.m_AudioScalingFactor);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_CrusadersFaction is null)
+      {
+        Blueprint.m_CrusadersFaction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
+      }
+      if (Blueprint.m_DemonsFaction is null)
+      {
+        Blueprint.m_DemonsFaction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
+      }
+      if (Blueprint.m_DefaultBrain is null)
+      {
+        Blueprint.m_DefaultBrain = BlueprintTool.GetRef<BlueprintTacticalCombatBrain.Reference>(null);
+      }
+      if (Blueprint.m_DefaultLeaderBrain is null)
+      {
+        Blueprint.m_DefaultLeaderBrain = BlueprintTool.GetRef<BlueprintTacticalCombatBrain.Reference>(null);
+      }
+      if (Blueprint.m_BuffPrefix is null)
+      {
+        Blueprint.m_BuffPrefix = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_BannedUnitFacts is null)
+      {
+        Blueprint.m_BannedUnitFacts = new();
+      }
+      if (Blueprint.m_ZoneSettings is null)
+      {
+        Blueprint.m_ZoneSettings = new();
+      }
+      if (Blueprint.m_LeaderManaResource is null)
+      {
+        Blueprint.m_LeaderManaResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      if (Blueprint.m_WinnerCutscene is null)
+      {
+        Blueprint.m_WinnerCutscene = BlueprintTool.GetRef<CutsceneReference>(null);
+      }
+      if (Blueprint.m_PositiveMoraleFx is null)
+      {
+        Blueprint.m_PositiveMoraleFx = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.m_NegativeMoraleFx is null)
+      {
+        Blueprint.m_NegativeMoraleFx = Utils.Constants.Empty.PrefabLink;
+      }
     }
   }
 }

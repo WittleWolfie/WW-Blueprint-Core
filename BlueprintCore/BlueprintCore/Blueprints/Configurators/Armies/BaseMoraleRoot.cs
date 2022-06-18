@@ -268,10 +268,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.BaseMoraleValue = baseMoraleValue;
-          if (bp.BaseMoraleValue is null)
-          {
-            bp.BaseMoraleValue = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -297,10 +293,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.ArmyEffectOnSquad = armyEffectOnSquad;
-          if (bp.ArmyEffectOnSquad is null)
-          {
-            bp.ArmyEffectOnSquad = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -326,10 +318,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.UnitNotHaveMorale = unitNotHaveMorale;
-          if (bp.UnitNotHaveMorale is null)
-          {
-            bp.UnitNotHaveMorale = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -344,6 +332,32 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           if (bp.UnitNotHaveMorale is null) { return; }
           action.Invoke(bp.UnitNotHaveMorale);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_NegativeFacts is null)
+      {
+        Blueprint.m_NegativeFacts = new BlueprintUnitFactReference[0];
+      }
+      if (Blueprint.m_GlobalArmiesMoraleBuff is null)
+      {
+        Blueprint.m_GlobalArmiesMoraleBuff = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(null);
+      }
+      if (Blueprint.BaseMoraleValue is null)
+      {
+        Blueprint.BaseMoraleValue = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.ArmyEffectOnSquad is null)
+      {
+        Blueprint.ArmyEffectOnSquad = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.UnitNotHaveMorale is null)
+      {
+        Blueprint.UnitNotHaveMorale = Utils.Constants.Empty.String;
+      }
     }
   }
 }

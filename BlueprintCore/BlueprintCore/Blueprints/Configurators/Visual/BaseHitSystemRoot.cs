@@ -1065,5 +1065,55 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
           bp.m_CachedBloodPrefabsFromWeaponAnimationStyleEntries.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.DamageTypes is null)
+      {
+        Blueprint.DamageTypes = new DamageEntry[0];
+      }
+      if (Blueprint.EnergyTypes is null)
+      {
+        Blueprint.EnergyTypes = new EnergyEntry[0];
+      }
+      if (Blueprint.BloodTypes is null)
+      {
+        Blueprint.BloodTypes = new BloodEntry[0];
+      }
+      if (Blueprint.OverrideHitDirectionPrefabFromAnimationStyle is null)
+      {
+        Blueprint.OverrideHitDirectionPrefabFromAnimationStyle = new BloodPrefabsFromWeaponAnimationStyleEntry[0];
+      }
+      if (Blueprint.m_CachedDamageTypes is null)
+      {
+        Blueprint.m_CachedDamageTypes = new HitCollection[0];
+      }
+      if (Blueprint.m_CachedEnergyTypes is null)
+      {
+        Blueprint.m_CachedEnergyTypes = new HitCollection[0];
+      }
+      if (Blueprint.m_CachedBillboardBloodTypes is null)
+      {
+        Blueprint.m_CachedBillboardBloodTypes = new HitCollection[0];
+      }
+      if (Blueprint.m_CachedDirectionalBloodTypes is null)
+      {
+        Blueprint.m_CachedDirectionalBloodTypes = new HitCollection[0];
+      }
+      if (Blueprint.m_CachedBillboardAdditiveBloodTypes is null)
+      {
+        Blueprint.m_CachedBillboardAdditiveBloodTypes = new HitCollection[0];
+      }
+      if (Blueprint.m_CachedDirectionalAdditiveBloodTypes is null)
+      {
+        Blueprint.m_CachedDirectionalAdditiveBloodTypes = new HitCollection[0];
+      }
+      if (Blueprint.m_CachedBloodPrefabsFromWeaponAnimationStyleEntries is null)
+      {
+        Blueprint.m_CachedBloodPrefabsFromWeaponAnimationStyleEntries = new BloodPrefabsFromWeaponAnimationStyleEntry[0];
+      }
+    }
   }
 }

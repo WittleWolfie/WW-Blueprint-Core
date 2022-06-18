@@ -155,5 +155,15 @@ namespace BlueprintCore.Blueprints.Configurators
       var component = new PortraitPremiumSetting();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_BackupPortrait is null)
+      {
+        Blueprint.m_BackupPortrait = BlueprintTool.GetRef<BlueprintPortraitReference>(null);
+      }
+    }
   }
 }

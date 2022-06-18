@@ -150,5 +150,15 @@ namespace BlueprintCore.Blueprints.Configurators
           action.Invoke(bp.PerceptionDC);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.TrapActor is null)
+      {
+        Blueprint.TrapActor = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+    }
   }
 }

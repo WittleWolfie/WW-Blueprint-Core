@@ -539,5 +539,19 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           bp.m_TargetConsiderations.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_ActorConsiderations is null)
+      {
+        Blueprint.m_ActorConsiderations = new ConsiderationReference[0];
+      }
+      if (Blueprint.m_TargetConsiderations is null)
+      {
+        Blueprint.m_TargetConsiderations = new ConsiderationReference[0];
+      }
+    }
   }
 }

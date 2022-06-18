@@ -134,5 +134,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items
           bp.m_Items.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Items is null)
+      {
+        Blueprint.m_Items = new BlueprintItemReference[0];
+      }
+    }
   }
 }

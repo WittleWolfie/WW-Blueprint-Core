@@ -80,10 +80,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -109,10 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -216,10 +208,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.Conditions = conditions?.Build();
-          if (bp.Conditions is null)
-          {
-            bp.Conditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -319,10 +307,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.OnEnter = onEnter?.Build();
-          if (bp.OnEnter is null)
-          {
-            bp.OnEnter = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -437,6 +421,36 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
           if (bp.m_BookEvent is null) { return; }
           action.Invoke(bp.m_BookEvent);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Conditions is null)
+      {
+        Blueprint.Conditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.OnEnter is null)
+      {
+        Blueprint.OnEnter = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.m_AreaEntrance is null)
+      {
+        Blueprint.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_BookEvent is null)
+      {
+        Blueprint.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(null);
+      }
     }
   }
 }

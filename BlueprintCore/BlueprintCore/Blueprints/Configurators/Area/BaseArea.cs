@@ -350,10 +350,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.AreaName = areaName;
-          if (bp.AreaName is null)
-          {
-            bp.AreaName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -1047,6 +1043,32 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         component.m_AIBuildListVillage = BlueprintTool.GetRef<SettlementBuildListReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Parts is null)
+      {
+        Blueprint.m_Parts = new();
+      }
+      if (Blueprint.AreaName is null)
+      {
+        Blueprint.AreaName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LoadingScreenSprites is null)
+      {
+        Blueprint.LoadingScreenSprites = new();
+      }
+      if (Blueprint.m_DefaultPreset is null)
+      {
+        Blueprint.m_DefaultPreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(null);
+      }
+      if (Blueprint.m_HotAreas is null)
+      {
+        Blueprint.m_HotAreas = new BlueprintAreaReference[0];
+      }
     }
   }
 }

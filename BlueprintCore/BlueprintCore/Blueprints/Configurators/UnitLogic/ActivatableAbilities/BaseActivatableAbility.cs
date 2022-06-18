@@ -1098,5 +1098,23 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     {
       return AddComponent(new HideFeatureInInspect());
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Buff is null)
+      {
+        Blueprint.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      if (Blueprint.m_SelectTargetAbility is null)
+      {
+        Blueprint.m_SelectTargetAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+      if (Blueprint.ResourceAssetIds is null)
+      {
+        Blueprint.ResourceAssetIds = new string[0];
+      }
+    }
   }
 }

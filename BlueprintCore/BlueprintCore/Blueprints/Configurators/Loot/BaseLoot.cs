@@ -256,5 +256,19 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
           bp.Items.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Area is null)
+      {
+        Blueprint.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(null);
+      }
+      if (Blueprint.Items is null)
+      {
+        Blueprint.Items = new LootEntry[0];
+      }
+    }
   }
 }

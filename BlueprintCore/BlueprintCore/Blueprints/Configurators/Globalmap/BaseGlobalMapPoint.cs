@@ -199,10 +199,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -228,10 +224,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -257,10 +249,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.FakeName = fakeName;
-          if (bp.FakeName is null)
-          {
-            bp.FakeName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -286,10 +274,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.FakeDescription = fakeDescription;
-          if (bp.FakeDescription is null)
-          {
-            bp.FakeDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -578,10 +562,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.PossibleToRevealCondition = possibleToRevealCondition?.Build();
-          if (bp.PossibleToRevealCondition is null)
-          {
-            bp.PossibleToRevealCondition = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -772,10 +752,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.ResourceName = resourceName;
-          if (bp.ResourceName is null)
-          {
-            bp.ResourceName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -1027,10 +1003,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.ResourceFoundDescription = resourceFoundDescription;
-          if (bp.ResourceFoundDescription is null)
-          {
-            bp.ResourceFoundDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -1166,10 +1138,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.CustomEnterConfirmationText = customEnterConfirmationText;
-          if (bp.CustomEnterConfirmationText is null)
-          {
-            bp.CustomEnterConfirmationText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -1195,10 +1163,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.OnEnterActions = onEnterActions?.Build();
-          if (bp.OnEnterActions is null)
-          {
-            bp.OnEnterActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -1350,10 +1314,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.CustomClosedText = customClosedText;
-          if (bp.CustomClosedText is null)
-          {
-            bp.CustomClosedText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -1502,6 +1462,96 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         component.RequiredCompanions = new();
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_GlobalMap is null)
+      {
+        Blueprint.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMap.Reference>(null);
+      }
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.FakeName is null)
+      {
+        Blueprint.FakeName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.FakeDescription is null)
+      {
+        Blueprint.FakeDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.DCModifiers is null)
+      {
+        Blueprint.DCModifiers = new DCModifier[0];
+      }
+      if (Blueprint.m_AreaEntrance is null)
+      {
+        Blueprint.m_AreaEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_Entrances is null)
+      {
+        Blueprint.m_Entrances = BlueprintTool.GetRef<BlueprintMultiEntrance.Reference>(null);
+      }
+      if (Blueprint.m_BookEvent is null)
+      {
+        Blueprint.m_BookEvent = BlueprintTool.GetRef<BlueprintDialogReference>(null);
+      }
+      if (Blueprint.PossibleToRevealCondition is null)
+      {
+        Blueprint.PossibleToRevealCondition = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.LocationVariations is null)
+      {
+        Blueprint.LocationVariations = new BlueprintGlobalMapPointVariation.Reference[0];
+      }
+      if (Blueprint.ResourceName is null)
+      {
+        Blueprint.ResourceName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Ingredients is null)
+      {
+        Blueprint.Ingredients = new IngredientPair[0];
+      }
+      if (Blueprint.Loot is null)
+      {
+        Blueprint.Loot = new LootEntry[0];
+      }
+      if (Blueprint.ResourceFoundDescription is null)
+      {
+        Blueprint.ResourceFoundDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_ArmyObjective is null)
+      {
+        Blueprint.m_ArmyObjective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
+      }
+      if (Blueprint.CustomEnterConfirmationText is null)
+      {
+        Blueprint.CustomEnterConfirmationText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.OnEnterActions is null)
+      {
+        Blueprint.OnEnterActions = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.DemonGarrison is null)
+      {
+        Blueprint.DemonGarrison = BlueprintTool.GetRef<BlueprintArmyPreset.Reference>(null);
+      }
+      if (Blueprint.GarrisonLeader is null)
+      {
+        Blueprint.GarrisonLeader = BlueprintTool.GetRef<BlueprintArmyLeaderReference>(null);
+      }
+      if (Blueprint.CustomClosedText is null)
+      {
+        Blueprint.CustomClosedText = Utils.Constants.Empty.String;
+      }
     }
   }
 }

@@ -87,10 +87,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           bp.ActivationCondition = activationCondition?.Build();
-          if (bp.ActivationCondition is null)
-          {
-            bp.ActivationCondition = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -116,10 +112,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           bp.CompletionCondition = completionCondition?.Build();
-          if (bp.CompletionCondition is null)
-          {
-            bp.CompletionCondition = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -2329,6 +2321,52 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       var component = new CapitalCompanionLogic();
       component.m_RestAllRemoteCompanions = restAllRemoteCompanions ?? component.m_RestAllRemoteCompanions;
       return AddComponent(component);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Parent is null)
+      {
+        Blueprint.m_Parent = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
+      }
+      if (Blueprint.ActivationCondition is null)
+      {
+        Blueprint.ActivationCondition = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.CompletionCondition is null)
+      {
+        Blueprint.CompletionCondition = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.m_Synchronized is null)
+      {
+        Blueprint.m_Synchronized = new();
+      }
+      if (Blueprint.m_LinkedAreaPart is null)
+      {
+        Blueprint.m_LinkedAreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(null);
+      }
+      if (Blueprint.m_LinkedCampaigns is null)
+      {
+        Blueprint.m_LinkedCampaigns = new();
+      }
+      if (Blueprint.m_AddedAreaMechanics is null)
+      {
+        Blueprint.m_AddedAreaMechanics = new();
+      }
+      if (Blueprint.m_StartsWith is null)
+      {
+        Blueprint.m_StartsWith = new();
+      }
+      if (Blueprint.m_StartsOnComplete is null)
+      {
+        Blueprint.m_StartsOnComplete = new();
+      }
+      if (Blueprint.m_ConflictingGroups is null)
+      {
+        Blueprint.m_ConflictingGroups = new();
+      }
     }
   }
 }

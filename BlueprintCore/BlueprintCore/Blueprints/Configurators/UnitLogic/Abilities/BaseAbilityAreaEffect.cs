@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
 {
   /// <summary>
@@ -317,10 +318,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.Fx = fx;
-          if (bp.Fx is null)
-          {
-            bp.Fx = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -1222,6 +1219,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     {
       var component = new TacticalCombatResurrection();
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Fx is null)
+      {
+        Blueprint.Fx = Utils.Constants.Empty.PrefabLink;
+      }
     }
   }
 }

@@ -54,10 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -187,6 +183,20 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
           if (bp.m_Entries is null) { return; }
           bp.m_Entries.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Entries is null)
+      {
+        Blueprint.m_Entries = new BlueprintMultiEntranceEntryReference[0];
+      }
     }
   }
 }

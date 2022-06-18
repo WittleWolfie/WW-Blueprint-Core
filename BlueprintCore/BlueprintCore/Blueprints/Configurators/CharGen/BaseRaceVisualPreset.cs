@@ -132,5 +132,15 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
           action.Invoke(bp.m_Skin);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Skin is null)
+      {
+        Blueprint.m_Skin = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(null);
+      }
+    }
   }
 }

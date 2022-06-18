@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           bp.m_Actions.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Actions is null)
+      {
+        Blueprint.m_Actions = new ConditionAction[0];
+      }
+    }
   }
 }

@@ -119,5 +119,19 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           action.Invoke(bp.m_StartSettlementLevel);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_StartSettlement is null)
+      {
+        Blueprint.m_StartSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
+      }
+      if (Blueprint.m_StartSettlementPoint is null)
+      {
+        Blueprint.m_StartSettlementPoint = BlueprintTool.GetRef<BlueprintGlobalMapPointReference>(null);
+      }
+    }
   }
 }

@@ -755,10 +755,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.LocalizedDuration = localizedDuration;
-          if (bp.LocalizedDuration is null)
-          {
-            bp.LocalizedDuration = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -784,10 +780,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.LocalizedSavingThrow = localizedSavingThrow;
-          if (bp.LocalizedSavingThrow is null)
-          {
-            bp.LocalizedSavingThrow = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -7125,6 +7117,44 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddHideFeatureInInspect()
     {
       return AddComponent(new HideFeatureInInspect());
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_DefaultAiAction is null)
+      {
+        Blueprint.m_DefaultAiAction = BlueprintTool.GetRef<BlueprintAiCastSpell.Reference>(null);
+      }
+      if (Blueprint.m_Parent is null)
+      {
+        Blueprint.m_Parent = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+      if (Blueprint.LocalizedDuration is null)
+      {
+        Blueprint.LocalizedDuration = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LocalizedSavingThrow is null)
+      {
+        Blueprint.LocalizedSavingThrow = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.ResourceAssetIds is null)
+      {
+        Blueprint.ResourceAssetIds = new string[0];
+      }
+      if (Blueprint.m_CachedRestrictions is null)
+      {
+        Blueprint.m_CachedRestrictions = new IAbilityRestriction[0];
+      }
+      if (Blueprint.m_CachedTargetRestrictions is null)
+      {
+        Blueprint.m_CachedTargetRestrictions = new IAbilityTargetRestriction[0];
+      }
+      if (Blueprint.m_CachedCasterRestrictions is null)
+      {
+        Blueprint.m_CachedCasterRestrictions = new IAbilityCasterRestriction[0];
+      }
     }
   }
 }

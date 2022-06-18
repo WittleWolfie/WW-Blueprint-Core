@@ -197,5 +197,15 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           action.Invoke(bp.ElseScore);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Buffs is null)
+      {
+        Blueprint.m_Buffs = new BlueprintBuffReference[0];
+      }
+    }
   }
 }

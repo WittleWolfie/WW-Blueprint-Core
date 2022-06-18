@@ -66,10 +66,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bp =>
         {
           bp.m_EnchantName = enchantName;
-          if (bp.m_EnchantName is null)
-          {
-            bp.m_EnchantName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -95,10 +91,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bp =>
         {
           bp.m_Description = description;
-          if (bp.m_Description is null)
-          {
-            bp.m_Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -124,10 +116,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bp =>
         {
           bp.m_Prefix = prefix;
-          if (bp.m_Prefix is null)
-          {
-            bp.m_Prefix = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -153,10 +141,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bp =>
         {
           bp.m_Suffix = suffix;
-          if (bp.m_Suffix is null)
-          {
-            bp.m_Suffix = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -1101,6 +1085,28 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         component.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
       }
       return AddComponent(component);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_EnchantName is null)
+      {
+        Blueprint.m_EnchantName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Description is null)
+      {
+        Blueprint.m_Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Prefix is null)
+      {
+        Blueprint.m_Prefix = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Suffix is null)
+      {
+        Blueprint.m_Suffix = Utils.Constants.Empty.String;
+      }
     }
   }
 }

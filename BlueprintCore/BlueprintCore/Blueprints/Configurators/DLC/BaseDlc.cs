@@ -31,10 +31,6 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -296,6 +292,20 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       var component = new DlcStoreSteam();
       component.m_SteamId = steamId ?? component.m_SteamId;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.RewardReferences is null)
+      {
+        Blueprint.RewardReferences = new BlueprintDlcRewardReference[0];
+      }
     }
   }
 }

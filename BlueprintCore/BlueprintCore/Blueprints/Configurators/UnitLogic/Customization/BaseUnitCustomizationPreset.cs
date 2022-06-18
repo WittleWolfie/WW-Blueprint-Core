@@ -657,5 +657,39 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
           bp.FemaleVoices.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.PresetObjects is null)
+      {
+        Blueprint.PresetObjects = new();
+      }
+      if (Blueprint.m_Distribution is null)
+      {
+        Blueprint.m_Distribution = BlueprintTool.GetRef<RaceGenderDistributionReference>(null);
+      }
+      if (Blueprint.m_Units is null)
+      {
+        Blueprint.m_Units = new BlueprintUnitReference[0];
+      }
+      if (Blueprint.ClothesSelections is null)
+      {
+        Blueprint.ClothesSelections = new ClothesSelection[0];
+      }
+      if (Blueprint.UnitVariations is null)
+      {
+        Blueprint.UnitVariations = new();
+      }
+      if (Blueprint.MaleVoices is null)
+      {
+        Blueprint.MaleVoices = new();
+      }
+      if (Blueprint.FemaleVoices is null)
+      {
+        Blueprint.FemaleVoices = new();
+      }
+    }
   }
 }

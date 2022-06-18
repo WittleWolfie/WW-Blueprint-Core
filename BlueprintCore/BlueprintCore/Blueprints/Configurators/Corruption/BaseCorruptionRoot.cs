@@ -249,5 +249,15 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
           action.Invoke(bp.m_SpeedModifierDCIncrement);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_GlobalMapBuff is null)
+      {
+        Blueprint.m_GlobalMapBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+    }
   }
 }

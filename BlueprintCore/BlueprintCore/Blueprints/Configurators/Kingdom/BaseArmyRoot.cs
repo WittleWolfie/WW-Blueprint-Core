@@ -938,5 +938,55 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           action.Invoke(bp.m_ArmyStrings);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_TravelingArmiesByChapter is null)
+      {
+        Blueprint.m_TravelingArmiesByChapter = new ArmyRoot.ChapterSpawnInfo[0];
+      }
+      if (Blueprint.m_NobilitySettlementsProgression is null)
+      {
+        Blueprint.m_NobilitySettlementsProgression = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_NobilityBuildingsProgression is null)
+      {
+        Blueprint.m_NobilityBuildingsProgression = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_NobilityIncomeProgression is null)
+      {
+        Blueprint.m_NobilityIncomeProgression = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_NobilityArmyStrengthProgression is null)
+      {
+        Blueprint.m_NobilityArmyStrengthProgression = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_RoyalCourtLeadersProgression is null)
+      {
+        Blueprint.m_RoyalCourtLeadersProgression = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_RoyalCourtRanksProgression is null)
+      {
+        Blueprint.m_RoyalCourtRanksProgression = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_RoyalCourtMissionProgressionChapter2 is null)
+      {
+        Blueprint.m_RoyalCourtMissionProgressionChapter2 = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_RoyalCourtMissionProgressionChapter3 is null)
+      {
+        Blueprint.m_RoyalCourtMissionProgressionChapter3 = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
+      if (Blueprint.m_NobilityPresetReward is null)
+      {
+        Blueprint.m_NobilityPresetReward = BlueprintTool.GetRef<BlueprintArmyPresetReference>(null);
+      }
+      if (Blueprint.m_SummonArmiesMap is null)
+      {
+        Blueprint.m_SummonArmiesMap = BlueprintTool.GetRef<BlueprintGlobalMapReference>(null);
+      }
+    }
   }
 }

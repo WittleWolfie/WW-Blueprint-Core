@@ -153,10 +153,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.LockCondition = lockCondition?.Build();
-          if (bp.LockCondition is null)
-          {
-            bp.LockCondition = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -195,6 +191,24 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         {
           action.Invoke(bp.Length);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Point1 is null)
+      {
+        Blueprint.m_Point1 = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
+      }
+      if (Blueprint.m_Point2 is null)
+      {
+        Blueprint.m_Point2 = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
+      }
+      if (Blueprint.LockCondition is null)
+      {
+        Blueprint.LockCondition = Utils.Constants.Empty.Conditions;
+      }
     }
   }
 }

@@ -246,5 +246,19 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           action.Invoke(bp.AutoFormation);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_PredefinedFormations is null)
+      {
+        Blueprint.m_PredefinedFormations = new BlueprintPartyFormationReference[0];
+      }
+      if (Blueprint.m_FollowersFormation is null)
+      {
+        Blueprint.m_FollowersFormation = BlueprintTool.GetRef<BlueprintFollowersFormationReference>(null);
+      }
+    }
   }
 }

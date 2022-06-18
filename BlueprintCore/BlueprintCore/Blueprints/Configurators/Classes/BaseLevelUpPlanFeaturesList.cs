@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           bp.Features.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Features is null)
+      {
+        Blueprint.Features = new BlueprintLevelUpPlanFeaturesList.FeatureWrapper[0];
+      }
+    }
   }
 }

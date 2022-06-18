@@ -123,10 +123,6 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
         bp =>
         {
           bp.m_DestructionFx = destructionFx;
-          if (bp.m_DestructionFx is null)
-          {
-            bp.m_DestructionFx = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -321,6 +317,20 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
           if (bp.m_LockpickCriticalFailSound is null) { return; }
           action.Invoke(bp.m_LockpickCriticalFailSound);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_MagicPowerItem is null)
+      {
+        Blueprint.m_MagicPowerItem = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      if (Blueprint.m_DestructionFx is null)
+      {
+        Blueprint.m_DestructionFx = Utils.Constants.Empty.PrefabLink;
+      }
     }
   }
 }

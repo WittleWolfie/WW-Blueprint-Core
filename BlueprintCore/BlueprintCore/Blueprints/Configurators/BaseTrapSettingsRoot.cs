@@ -229,5 +229,15 @@ namespace BlueprintCore.Blueprints.Configurators
           action.Invoke(bp.HardDisableDCDelta);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Settings is null)
+      {
+        Blueprint.m_Settings = new BlueprintTrapSettingsReference[0];
+      }
+    }
   }
 }

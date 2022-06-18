@@ -402,5 +402,31 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
           bp.SuperTrashLoot.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.CRToCost is null)
+      {
+        Blueprint.CRToCost = new int[0];
+      }
+      if (Blueprint.ChanceToIncreaseItemsCount is null)
+      {
+        Blueprint.ChanceToIncreaseItemsCount = new int[0];
+      }
+      if (Blueprint.Types is null)
+      {
+        Blueprint.Types = new();
+      }
+      if (Blueprint.Table is null)
+      {
+        Blueprint.Table = new TrashLootSettings.TypeChance[0];
+      }
+      if (Blueprint.SuperTrashLoot is null)
+      {
+        Blueprint.SuperTrashLoot = new TrashLootSettings.SettingAndItems[0];
+      }
+    }
   }
 }

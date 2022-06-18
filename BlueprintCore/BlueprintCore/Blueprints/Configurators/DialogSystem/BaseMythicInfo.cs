@@ -90,10 +90,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp._mythicName = _mythicName;
-          if (bp._mythicName is null)
-          {
-            bp._mythicName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -108,6 +104,20 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           if (bp._mythicName is null) { return; }
           action.Invoke(bp._mythicName);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint._etudeReference is null)
+      {
+        Blueprint._etudeReference = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
+      }
+      if (Blueprint._mythicName is null)
+      {
+        Blueprint._mythicName = Utils.Constants.Empty.String;
+      }
     }
   }
 }

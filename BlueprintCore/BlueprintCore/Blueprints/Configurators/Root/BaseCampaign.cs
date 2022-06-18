@@ -34,10 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.Title = title;
-          if (bp.Title is null)
-          {
-            bp.Title = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -63,10 +59,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -557,6 +549,32 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       component.m_RemoveDeathDoor = removeDeathDoor ?? component.m_RemoveDeathDoor;
       component.m_RemoveDeathDoorDifficultyMax = removeDeathDoorDifficultyMax ?? component.m_RemoveDeathDoorDifficultyMax;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Title is null)
+      {
+        Blueprint.Title = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_StartGamePreset is null)
+      {
+        Blueprint.m_StartGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(null);
+      }
+      if (Blueprint.m_Pregens is null)
+      {
+        Blueprint.m_Pregens = new BlueprintUnitReference[0];
+      }
+      if (Blueprint.ImportSettings is null)
+      {
+        Blueprint.ImportSettings = new SaveImportSettings[0];
+      }
     }
   }
 }

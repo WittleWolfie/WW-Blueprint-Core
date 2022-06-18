@@ -239,10 +239,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.TriggerConditions = triggerConditions?.Build();
-          if (bp.TriggerConditions is null)
-          {
-            bp.TriggerConditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -268,10 +264,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.DisableConditions = disableConditions?.Build();
-          if (bp.DisableConditions is null)
-          {
-            bp.DisableConditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -297,10 +289,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.TrapActions = trapActions?.Build();
-          if (bp.TrapActions is null)
-          {
-            bp.TrapActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -326,10 +314,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.DisableActions = disableActions?.Build();
-          if (bp.DisableActions is null)
-          {
-            bp.DisableActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -390,6 +374,32 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       component.Modifier = modifier ?? component.Modifier;
       component.PlayerGainsNoExp = playerGainsNoExp ?? component.PlayerGainsNoExp;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Actor is null)
+      {
+        Blueprint.m_Actor = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.TriggerConditions is null)
+      {
+        Blueprint.TriggerConditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.DisableConditions is null)
+      {
+        Blueprint.DisableConditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.TrapActions is null)
+      {
+        Blueprint.TrapActions = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.DisableActions is null)
+      {
+        Blueprint.DisableActions = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

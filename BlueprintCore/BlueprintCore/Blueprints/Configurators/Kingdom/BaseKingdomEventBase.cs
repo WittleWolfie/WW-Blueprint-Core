@@ -56,10 +56,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.LocalizedName = localizedName;
-          if (bp.LocalizedName is null)
-          {
-            bp.LocalizedName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -85,10 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.LocalizedDescription = localizedDescription;
-          if (bp.LocalizedDescription is null)
-          {
-            bp.LocalizedDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -114,10 +106,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.TriggerCondition = triggerCondition?.Build();
-          if (bp.TriggerCondition is null)
-          {
-            bp.TriggerCondition = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -361,10 +349,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.DefaultResolutionDescription = defaultResolutionDescription;
-          if (bp.DefaultResolutionDescription is null)
-          {
-            bp.DefaultResolutionDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -444,6 +428,28 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         component.Results = new EventResult[0];
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.LocalizedName is null)
+      {
+        Blueprint.LocalizedName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LocalizedDescription is null)
+      {
+        Blueprint.LocalizedDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.TriggerCondition is null)
+      {
+        Blueprint.TriggerCondition = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.DefaultResolutionDescription is null)
+      {
+        Blueprint.DefaultResolutionDescription = Utils.Constants.Empty.String;
+      }
     }
   }
 }

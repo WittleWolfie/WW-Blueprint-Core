@@ -187,10 +187,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.m_Tooltip = tooltip;
-          if (bp.m_Tooltip is null)
-          {
-            bp.m_Tooltip = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -321,6 +317,28 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         component.m_AllowedNaturalSettings = new GlobalMapZone[0];
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Area is null)
+      {
+        Blueprint.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(null);
+      }
+      if (Blueprint.m_AreaPart is null)
+      {
+        Blueprint.m_AreaPart = BlueprintTool.GetRef<BlueprintAreaPartReference>(null);
+      }
+      if (Blueprint.m_TooltipList is null)
+      {
+        Blueprint.m_TooltipList = new();
+      }
+      if (Blueprint.m_Tooltip is null)
+      {
+        Blueprint.m_Tooltip = Utils.Constants.Empty.String;
+      }
     }
   }
 }

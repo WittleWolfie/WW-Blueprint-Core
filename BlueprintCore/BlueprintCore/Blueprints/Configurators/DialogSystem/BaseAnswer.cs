@@ -35,10 +35,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Text = text;
-          if (bp.Text is null)
-          {
-            bp.Text = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -238,10 +234,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.ShowConditions = showConditions?.Build();
-          if (bp.ShowConditions is null)
-          {
-            bp.ShowConditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -267,10 +259,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.SelectConditions = selectConditions?.Build();
-          if (bp.SelectConditions is null)
-          {
-            bp.SelectConditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -350,10 +338,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.OnSelect = onSelect?.Build();
-          if (bp.OnSelect is null)
-          {
-            bp.OnSelect = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -489,6 +473,32 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           if (bp.AlignmentShift is null) { return; }
           action.Invoke(bp.AlignmentShift);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Text is null)
+      {
+        Blueprint.Text = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.ShowConditions is null)
+      {
+        Blueprint.ShowConditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.SelectConditions is null)
+      {
+        Blueprint.SelectConditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.OnSelect is null)
+      {
+        Blueprint.OnSelect = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.FakeChecks is null)
+      {
+        Blueprint.FakeChecks = new CheckData[0];
+      }
     }
   }
 }

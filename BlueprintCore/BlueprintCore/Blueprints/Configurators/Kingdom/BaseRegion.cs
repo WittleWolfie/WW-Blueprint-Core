@@ -55,10 +55,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.LocalizedName = localizedName;
-          if (bp.LocalizedName is null)
-          {
-            bp.LocalizedName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -84,10 +80,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.ClaimedDescription = claimedDescription;
-          if (bp.ClaimedDescription is null)
-          {
-            bp.ClaimedDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -607,6 +599,40 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           if (bp.m_GlobalMap is null) { return; }
           action.Invoke(bp.m_GlobalMap);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.LocalizedName is null)
+      {
+        Blueprint.LocalizedName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.ClaimedDescription is null)
+      {
+        Blueprint.ClaimedDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Adjacent is null)
+      {
+        Blueprint.m_Adjacent = new();
+      }
+      if (Blueprint.m_ClaimEvent is null)
+      {
+        Blueprint.m_ClaimEvent = BlueprintTool.GetRef<BlueprintKingdomClaimReference>(null);
+      }
+      if (Blueprint.UpgradeEvents is null)
+      {
+        Blueprint.UpgradeEvents = new();
+      }
+      if (Blueprint.Artisans is null)
+      {
+        Blueprint.Artisans = new();
+      }
+      if (Blueprint.m_GlobalMap is null)
+      {
+        Blueprint.m_GlobalMap = BlueprintTool.GetRef<BlueprintGlobalMapReference>(null);
+      }
     }
   }
 }

@@ -28,10 +28,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.LocalizedName = localizedName;
-          if (bp.LocalizedName is null)
-          {
-            bp.LocalizedName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -57,10 +53,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.LocalizedDescription = localizedDescription;
-          if (bp.LocalizedDescription is null)
-          {
-            bp.LocalizedDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -203,6 +195,20 @@ namespace BlueprintCore.Blueprints.Configurators
         {
           action.Invoke(bp.m_Min);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.LocalizedName is null)
+      {
+        Blueprint.LocalizedName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LocalizedDescription is null)
+      {
+        Blueprint.LocalizedDescription = Utils.Constants.Empty.String;
+      }
     }
   }
 }

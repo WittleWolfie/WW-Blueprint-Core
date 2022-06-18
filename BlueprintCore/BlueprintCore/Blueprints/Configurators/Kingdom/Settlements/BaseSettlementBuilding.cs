@@ -40,10 +40,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -69,10 +65,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -98,10 +90,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bp =>
         {
           bp.MechanicalDescription = mechanicalDescription;
-          if (bp.MechanicalDescription is null)
-          {
-            bp.MechanicalDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -127,10 +115,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bp =>
         {
           bp.CompletedPrefab = completedPrefab;
-          if (bp.CompletedPrefab is null)
-          {
-            bp.CompletedPrefab = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -156,10 +140,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bp =>
         {
           bp.UnfinishedPrefab = unfinishedPrefab;
-          if (bp.UnfinishedPrefab is null)
-          {
-            bp.UnfinishedPrefab = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -1039,6 +1019,36 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
       var component = new KingdomAddMercenarySlot();
       component.m_SlotsToAdd = slotsToAdd ?? component.m_SlotsToAdd;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.MechanicalDescription is null)
+      {
+        Blueprint.MechanicalDescription = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.CompletedPrefab is null)
+      {
+        Blueprint.CompletedPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.UnfinishedPrefab is null)
+      {
+        Blueprint.UnfinishedPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.m_UpgradesTo is null)
+      {
+        Blueprint.m_UpgradesTo = BlueprintTool.GetRef<BlueprintSettlementBuildingReference>(null);
+      }
     }
   }
 }

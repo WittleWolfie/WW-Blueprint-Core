@@ -279,5 +279,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           action.Invoke(bp.DollRoomSettings);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Prerequisite is null)
+      {
+        Blueprint.m_Prerequisite = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
+      }
+      if (Blueprint.ColorRamps is null)
+      {
+        Blueprint.ColorRamps = new BlueprintClassAdditionalVisualSettings.ColorRamp[0];
+      }
+    }
   }
 }

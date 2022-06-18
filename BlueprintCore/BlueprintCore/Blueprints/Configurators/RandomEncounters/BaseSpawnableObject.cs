@@ -28,10 +28,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.Prefab = prefab;
-          if (bp.Prefab is null)
-          {
-            bp.Prefab = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -46,6 +42,16 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
           if (bp.Prefab is null) { return; }
           action.Invoke(bp.Prefab);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Prefab is null)
+      {
+        Blueprint.Prefab = Utils.Constants.Empty.PrefabLink;
+      }
     }
   }
 }

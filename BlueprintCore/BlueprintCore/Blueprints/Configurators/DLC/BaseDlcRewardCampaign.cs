@@ -82,5 +82,15 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
           action.Invoke(bp.m_Campaign);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Campaign is null)
+      {
+        Blueprint.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
+      }
+    }
   }
 }

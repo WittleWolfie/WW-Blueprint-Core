@@ -194,5 +194,19 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           action.Invoke(bp.m_ArmyType);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Squads is null)
+      {
+        Blueprint.Squads = new BlueprintArmyPreset.UnitAndCount[0];
+      }
+      if (Blueprint.m_Leader is null)
+      {
+        Blueprint.m_Leader = BlueprintTool.GetRef<BlueprintArmyLeaderReference>(null);
+      }
+    }
   }
 }

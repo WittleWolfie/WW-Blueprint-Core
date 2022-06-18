@@ -620,5 +620,27 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           action.Invoke(bp.MaxPartyDistanceToLocator);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Ability is null)
+      {
+        Blueprint.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+      if (Blueprint.m_Variant is null)
+      {
+        Blueprint.m_Variant = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+      if (Blueprint.m_VariantsSet is null)
+      {
+        Blueprint.m_VariantsSet = new BlueprintAbilityReference[0];
+      }
+      if (Blueprint.Locators is null)
+      {
+        Blueprint.Locators = new EntityReference[0];
+      }
+    }
   }
 }

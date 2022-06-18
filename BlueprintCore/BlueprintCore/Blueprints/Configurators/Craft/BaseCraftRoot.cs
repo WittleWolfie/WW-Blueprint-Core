@@ -551,5 +551,27 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
           action.Invoke(bp.m_CollectingRoot);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_PotionRequirements is null)
+      {
+        Blueprint.m_PotionRequirements = new CraftRequirements[0];
+      }
+      if (Blueprint.m_ScrollsRequirements is null)
+      {
+        Blueprint.m_ScrollsRequirements = new CraftRequirements[0];
+      }
+      if (Blueprint.m_PotionsItems is null)
+      {
+        Blueprint.m_PotionsItems = new();
+      }
+      if (Blueprint.m_ScrollsItems is null)
+      {
+        Blueprint.m_ScrollsItems = new();
+      }
+    }
   }
 }

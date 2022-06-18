@@ -109,5 +109,15 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           action.Invoke(bp.InGameMenuIcons);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Texts is null)
+      {
+        Blueprint.Texts = BlueprintTool.GetRef<GamePadTexts.Reference>(null);
+      }
+    }
   }
 }

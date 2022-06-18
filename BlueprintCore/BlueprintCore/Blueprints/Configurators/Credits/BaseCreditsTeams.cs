@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
           bp.Teams.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Teams is null)
+      {
+        Blueprint.Teams = new();
+      }
+    }
   }
 }

@@ -34,10 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Text = text;
-          if (bp.Text is null)
-          {
-            bp.Text = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -202,10 +198,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.OnShow = onShow?.Build();
-          if (bp.OnShow is null)
-          {
-            bp.OnShow = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -231,10 +223,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.OnStop = onStop?.Build();
-          if (bp.OnStop is null)
-          {
-            bp.OnStop = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -416,6 +404,32 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           if (bp.Continue is null) { return; }
           action.Invoke(bp.Continue);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Text is null)
+      {
+        Blueprint.Text = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Listener is null)
+      {
+        Blueprint.m_Listener = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.OnShow is null)
+      {
+        Blueprint.OnShow = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.OnStop is null)
+      {
+        Blueprint.OnStop = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.Answers is null)
+      {
+        Blueprint.Answers = new();
+      }
     }
   }
 }

@@ -102,10 +102,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_DefaultSettlementName = defaultSettlementName;
-          if (bp.m_DefaultSettlementName is null)
-          {
-            bp.m_DefaultSettlementName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -383,6 +379,32 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         {
           action.Invoke(bp.m_NeedOwnMarker);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_DefaultSettlementName is null)
+      {
+        Blueprint.m_DefaultSettlementName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_SettlementBuildArea is null)
+      {
+        Blueprint.m_SettlementBuildArea = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_SettlementBuildAreaWithWater is null)
+      {
+        Blueprint.m_SettlementBuildAreaWithWater = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_SettlementEntrance is null)
+      {
+        Blueprint.m_SettlementEntrance = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_SettlementEntrances is null)
+      {
+        Blueprint.m_SettlementEntrances = BlueprintTool.GetRef<BlueprintMultiEntrance.Reference>(null);
+      }
     }
   }
 }

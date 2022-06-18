@@ -234,5 +234,15 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
           action.Invoke(bp.m_LookAngleRandomSpread);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Formation is null)
+      {
+        Blueprint.m_Formation = new Vector2[0];
+      }
+    }
   }
 }

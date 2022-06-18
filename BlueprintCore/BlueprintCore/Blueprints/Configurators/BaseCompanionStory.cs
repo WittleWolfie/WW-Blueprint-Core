@@ -66,10 +66,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Title = title;
-          if (bp.Title is null)
-          {
-            bp.Title = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -95,10 +91,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -163,6 +155,24 @@ namespace BlueprintCore.Blueprints.Configurators
         {
           action.Invoke(bp.Gender);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Companion is null)
+      {
+        Blueprint.m_Companion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.Title is null)
+      {
+        Blueprint.Title = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
     }
   }
 }

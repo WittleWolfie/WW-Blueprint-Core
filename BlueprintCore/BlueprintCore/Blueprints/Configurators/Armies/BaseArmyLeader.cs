@@ -30,10 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_LeaderName = leaderName;
-          if (bp.m_LeaderName is null)
-          {
-            bp.m_LeaderName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -307,6 +303,32 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           if (bp.m_baseSkills is null) { return; }
           bp.m_baseSkills.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_LeaderName is null)
+      {
+        Blueprint.m_LeaderName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Portrait is null)
+      {
+        Blueprint.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(null);
+      }
+      if (Blueprint.m_LeaderProgression is null)
+      {
+        Blueprint.m_LeaderProgression = BlueprintTool.GetRef<BlueprintLeaderProgression.Reference>(null);
+      }
+      if (Blueprint.m_Unit is null)
+      {
+        Blueprint.m_Unit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.m_baseSkills is null)
+      {
+        Blueprint.m_baseSkills = new BlueprintLeaderSkillReference[0];
+      }
     }
   }
 }

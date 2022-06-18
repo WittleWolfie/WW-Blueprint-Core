@@ -249,5 +249,19 @@ namespace BlueprintCore.Blueprints.Configurators
           action.Invoke(bp.AmplitudeScaleByFullDistance);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.PlaneOffset is null)
+      {
+        Blueprint.PlaneOffset = new TrajectoryOffset[0];
+      }
+      if (Blueprint.UpOffset is null)
+      {
+        Blueprint.UpOffset = new TrajectoryOffset[0];
+      }
+    }
   }
 }

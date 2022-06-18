@@ -81,10 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -110,10 +106,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -243,6 +235,24 @@ namespace BlueprintCore.Blueprints.Configurators
           if (bp.m_SignatureAbilities is null) { return; }
           bp.m_SignatureAbilities.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_SignatureAbilities is null)
+      {
+        Blueprint.m_SignatureAbilities = new BlueprintUnitFactReference[0];
+      }
     }
   }
 }

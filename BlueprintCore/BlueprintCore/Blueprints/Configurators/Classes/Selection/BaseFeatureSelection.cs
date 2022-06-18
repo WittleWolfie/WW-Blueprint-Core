@@ -381,5 +381,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_AllFeatures is null)
+      {
+        Blueprint.m_AllFeatures = new BlueprintFeatureReference[0];
+      }
+    }
   }
 }

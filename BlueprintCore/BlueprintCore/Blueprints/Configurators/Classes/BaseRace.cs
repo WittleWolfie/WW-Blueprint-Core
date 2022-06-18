@@ -557,5 +557,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           bp.SpecialDollTypes.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Features is null)
+      {
+        Blueprint.m_Features = new BlueprintFeatureBaseReference[0];
+      }
+      if (Blueprint.m_Presets is null)
+      {
+        Blueprint.m_Presets = new BlueprintRaceVisualPresetReference[0];
+      }
+      if (Blueprint.SpecialDollTypes is null)
+      {
+        Blueprint.SpecialDollTypes = new BlueprintRace.SpecialDollTypeEntry[0];
+      }
+    }
   }
 }

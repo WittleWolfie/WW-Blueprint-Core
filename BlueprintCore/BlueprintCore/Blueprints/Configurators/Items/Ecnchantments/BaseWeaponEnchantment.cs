@@ -45,10 +45,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bp =>
         {
           bp.WeaponFxPrefab = weaponFxPrefab;
-          if (bp.WeaponFxPrefab is null)
-          {
-            bp.WeaponFxPrefab = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -1209,6 +1205,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       var component = new WeaponReality();
       component.Reality = reality ?? component.Reality;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.WeaponFxPrefab is null)
+      {
+        Blueprint.WeaponFxPrefab = Utils.Constants.Empty.PrefabLink;
+      }
     }
   }
 }

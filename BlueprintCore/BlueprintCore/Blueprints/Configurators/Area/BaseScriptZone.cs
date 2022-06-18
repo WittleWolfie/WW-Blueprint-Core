@@ -30,10 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.TriggerConditions = triggerConditions?.Build();
-          if (bp.TriggerConditions is null)
-          {
-            bp.TriggerConditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -59,10 +55,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.EnterActions = enterActions?.Build();
-          if (bp.EnterActions is null)
-          {
-            bp.EnterActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -88,10 +80,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.ExitActions = exitActions?.Build();
-          if (bp.ExitActions is null)
-          {
-            bp.ExitActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -106,6 +94,24 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           if (bp.ExitActions is null) { return; }
           action.Invoke(bp.ExitActions);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.TriggerConditions is null)
+      {
+        Blueprint.TriggerConditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.EnterActions is null)
+      {
+        Blueprint.EnterActions = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.ExitActions is null)
+      {
+        Blueprint.ExitActions = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

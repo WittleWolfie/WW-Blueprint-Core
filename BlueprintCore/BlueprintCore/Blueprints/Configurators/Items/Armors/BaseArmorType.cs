@@ -31,10 +31,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_TypeNameText = typeNameText;
-          if (bp.m_TypeNameText is null)
-          {
-            bp.m_TypeNameText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -60,10 +56,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_DefaultNameText = defaultNameText;
-          if (bp.m_DefaultNameText is null)
-          {
-            bp.m_DefaultNameText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -89,10 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_DescriptionText = descriptionText;
-          if (bp.m_DescriptionText is null)
-          {
-            bp.m_DescriptionText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -118,10 +106,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_MagicDescriptionText = magicDescriptionText;
-          if (bp.m_MagicDescriptionText is null)
-          {
-            bp.m_MagicDescriptionText = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -767,6 +751,44 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
           if (bp.m_ShardItem is null) { return; }
           action.Invoke(bp.m_ShardItem);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_TypeNameText is null)
+      {
+        Blueprint.m_TypeNameText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_DefaultNameText is null)
+      {
+        Blueprint.m_DefaultNameText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_DescriptionText is null)
+      {
+        Blueprint.m_DescriptionText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_MagicDescriptionText is null)
+      {
+        Blueprint.m_MagicDescriptionText = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_EquipmentEntity is null)
+      {
+        Blueprint.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(null);
+      }
+      if (Blueprint.m_EquipmentEntityAlternatives is null)
+      {
+        Blueprint.m_EquipmentEntityAlternatives = new KingmakerEquipmentEntityReference[0];
+      }
+      if (Blueprint.m_Enchantments is null)
+      {
+        Blueprint.m_Enchantments = new BlueprintArmorEnchantmentReference[0];
+      }
+      if (Blueprint.m_ShardItem is null)
+      {
+        Blueprint.m_ShardItem = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
     }
   }
 }

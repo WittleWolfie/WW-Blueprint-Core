@@ -54,10 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_ProgressionName = progressionName;
-          if (bp.m_ProgressionName is null)
-          {
-            bp.m_ProgressionName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -149,6 +145,20 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           if (bp.m_Levels is null) { return; }
           bp.m_Levels.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_ProgressionName is null)
+      {
+        Blueprint.m_ProgressionName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Levels is null)
+      {
+        Blueprint.m_Levels = new LeaderLevel[0];
+      }
     }
   }
 }

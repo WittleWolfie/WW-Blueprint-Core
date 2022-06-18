@@ -411,10 +411,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.StartGameActions = startGameActions?.Build();
-          if (bp.StartGameActions is null)
-          {
-            bp.StartGameActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -958,10 +954,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.OptimizationDummyUnit = optimizationDummyUnit;
-          if (bp.OptimizationDummyUnit is null)
-          {
-            bp.OptimizationDummyUnit = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -2427,6 +2419,136 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           if (bp.m_BlueprintBugReportTutorialReference is null) { return; }
           action.Invoke(bp.m_BlueprintBugReportTutorialReference);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_DefaultPlayerCharacter is null)
+      {
+        Blueprint.m_DefaultPlayerCharacter = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.m_SelectablePlayerCharacters is null)
+      {
+        Blueprint.m_SelectablePlayerCharacters = new BlueprintUnitReference[0];
+      }
+      if (Blueprint.m_PlayerFaction is null)
+      {
+        Blueprint.m_PlayerFaction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
+      }
+      if (Blueprint.m_KingFlag is null)
+      {
+        Blueprint.m_KingFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
+      if (Blueprint.m_NewGamePreset is null)
+      {
+        Blueprint.m_NewGamePreset = BlueprintTool.GetRef<BlueprintAreaPresetReference>(null);
+      }
+      if (Blueprint.StartGameActions is null)
+      {
+        Blueprint.StartGameActions = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.m_RE is null)
+      {
+        Blueprint.m_RE = BlueprintTool.GetRef<RandomEncountersRootReference>(null);
+      }
+      if (Blueprint.m_InvisibleKittenUnit is null)
+      {
+        Blueprint.m_InvisibleKittenUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.OptimizationDummyUnit is null)
+      {
+        Blueprint.OptimizationDummyUnit = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.m_CoinItem is null)
+      {
+        Blueprint.m_CoinItem = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      if (Blueprint.m_CutscenesRoot is null)
+      {
+        Blueprint.m_CutscenesRoot = BlueprintTool.GetRef<CutscenesRoot.Reference>(null);
+      }
+      if (Blueprint.m_Kingdom is null)
+      {
+        Blueprint.m_Kingdom = BlueprintTool.GetRef<KingdomRootReference>(null);
+      }
+      if (Blueprint.m_CorruptionRoot is null)
+      {
+        Blueprint.m_CorruptionRoot = BlueprintTool.GetRef<BlueprintCorruptionRoot.Reference>(null);
+      }
+      if (Blueprint.m_ArmyRoot is null)
+      {
+        Blueprint.m_ArmyRoot = BlueprintTool.GetRef<ArmyRootReference>(null);
+      }
+      if (Blueprint.m_CraftRoot is null)
+      {
+        Blueprint.m_CraftRoot = BlueprintTool.GetRef<CraftRoot.Reference>(null);
+      }
+      if (Blueprint.m_LeadersRoot is null)
+      {
+        Blueprint.m_LeadersRoot = BlueprintTool.GetRef<LeadersRootReference>(null);
+      }
+      if (Blueprint.m_MoraleRoot is null)
+      {
+        Blueprint.m_MoraleRoot = BlueprintTool.GetRef<MoraleRoot.Reference>(null);
+      }
+      if (Blueprint.m_TacticalCombat is null)
+      {
+        Blueprint.m_TacticalCombat = BlueprintTool.GetRef<BlueprintTacticalCombatRoot.Reference>(null);
+      }
+      if (Blueprint.m_Formations is null)
+      {
+        Blueprint.m_Formations = BlueprintTool.GetRef<FormationsRootReference>(null);
+      }
+      if (Blueprint.m_FxRoot is null)
+      {
+        Blueprint.m_FxRoot = BlueprintTool.GetRef<FxRootReference>(null);
+      }
+      if (Blueprint.m_HitSystemRoot is null)
+      {
+        Blueprint.m_HitSystemRoot = BlueprintTool.GetRef<HitSystemRootReference>(null);
+      }
+      if (Blueprint.m_PlayerUpgradeActions is null)
+      {
+        Blueprint.m_PlayerUpgradeActions = BlueprintTool.GetRef<PlayerUpgradeActionsRoot.Reference>(null);
+      }
+      if (Blueprint.m_CustomCompanion is null)
+      {
+        Blueprint.m_CustomCompanion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.m_UnitTypes is null)
+      {
+        Blueprint.m_UnitTypes = new BlueprintUnitTypeReference[0];
+      }
+      if (Blueprint.m_Dungeon is null)
+      {
+        Blueprint.m_Dungeon = BlueprintTool.GetRef<BlueprintDungeonRootReference>(null);
+      }
+      if (Blueprint.m_ConsoleRoot is null)
+      {
+        Blueprint.m_ConsoleRoot = BlueprintTool.GetRef<ConsoleRootReference>(null);
+      }
+      if (Blueprint.m_BlueprintTrapSettingsRoot is null)
+      {
+        Blueprint.m_BlueprintTrapSettingsRoot = BlueprintTool.GetRef<BlueprintTrapSettingsRootReference>(null);
+      }
+      if (Blueprint.m_InteractionRoot is null)
+      {
+        Blueprint.m_InteractionRoot = BlueprintTool.GetRef<BlueprintInteractionRoot.Referense>(null);
+      }
+      if (Blueprint.m_BlueprintMythicsSettingsReference is null)
+      {
+        Blueprint.m_BlueprintMythicsSettingsReference = BlueprintTool.GetRef<BlueprintMythicsSettingsReference>(null);
+      }
+      if (Blueprint.m_CustomAiConsiderations is null)
+      {
+        Blueprint.m_CustomAiConsiderations = BlueprintTool.GetRef<CustomAiConsiderationsRoot.Reference>(null);
+      }
+      if (Blueprint.m_BlueprintBugReportTutorialReference is null)
+      {
+        Blueprint.m_BlueprintBugReportTutorialReference = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
+      }
     }
   }
 }

@@ -172,5 +172,19 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           action.Invoke(bp.m_Exit);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Cues is null)
+      {
+        Blueprint.Cues = new();
+      }
+      if (Blueprint.m_Exit is null)
+      {
+        Blueprint.m_Exit = BlueprintTool.GetRef<BlueprintSequenceExitReference>(null);
+      }
+    }
   }
 }

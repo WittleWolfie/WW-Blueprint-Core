@@ -600,5 +600,31 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
           action.Invoke(bp.MaxTargetExperienceDivisor);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Chapters is null)
+      {
+        Blueprint.m_Chapters = new RandomEncounterChapterSettings[0];
+      }
+      if (Blueprint.m_TrashLootSettings is null)
+      {
+        Blueprint.m_TrashLootSettings = BlueprintTool.GetRef<TrashLootSettingsReference>(null);
+      }
+      if (Blueprint.ZoneSettings is null)
+      {
+        Blueprint.ZoneSettings = new ZoneCombatRandomEncounterSettings[0];
+      }
+      if (Blueprint.m_Encounters is null)
+      {
+        Blueprint.m_Encounters = new();
+      }
+      if (Blueprint.Armies is null)
+      {
+        Blueprint.Armies = new ArmySettings[0];
+      }
+    }
   }
 }

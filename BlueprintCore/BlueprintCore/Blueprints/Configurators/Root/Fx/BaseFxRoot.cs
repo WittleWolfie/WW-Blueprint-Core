@@ -1088,5 +1088,51 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
           bp.m_CachedOverrideDeathPrefabsFromEnergy.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_SingleHandCasts is null)
+      {
+        Blueprint.m_SingleHandCasts = BlueprintTool.GetRef<CastsGroup.Reference>(null);
+      }
+      if (Blueprint.m_DoubleHandCasts is null)
+      {
+        Blueprint.m_DoubleHandCasts = BlueprintTool.GetRef<CastsGroup.Reference>(null);
+      }
+      if (Blueprint.m_HeadCasts is null)
+      {
+        Blueprint.m_HeadCasts = BlueprintTool.GetRef<CastsGroup.Reference>(null);
+      }
+      if (Blueprint.m_TorsoCasts is null)
+      {
+        Blueprint.m_TorsoCasts = BlueprintTool.GetRef<CastsGroup.Reference>(null);
+      }
+      if (Blueprint.FallEventStrings is null)
+      {
+        Blueprint.FallEventStrings = new string[0];
+      }
+      if (Blueprint.PoolEntries is null)
+      {
+        Blueprint.PoolEntries = new PoolEntry[0];
+      }
+      if (Blueprint.OverrideDeathPrefabsFromEnergy is null)
+      {
+        Blueprint.OverrideDeathPrefabsFromEnergy = new DeathFxFromEnergyEntry[0];
+      }
+      if (Blueprint.FootprintsReferences is null)
+      {
+        Blueprint.FootprintsReferences = new BlueprintFootprintTypeReference[0];
+      }
+      if (Blueprint.FootprintsLocators is null)
+      {
+        Blueprint.FootprintsLocators = new FxRoot.FootprintLocators[0];
+      }
+      if (Blueprint.m_CachedOverrideDeathPrefabsFromEnergy is null)
+      {
+        Blueprint.m_CachedOverrideDeathPrefabsFromEnergy = new DeathFxFromEnergyEntry[0];
+      }
+    }
   }
 }

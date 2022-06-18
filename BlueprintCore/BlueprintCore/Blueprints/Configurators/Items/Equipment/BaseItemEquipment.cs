@@ -681,5 +681,27 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
       component.Stat = stat ?? component.Stat;
       return AddComponent(component);
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Ability is null)
+      {
+        Blueprint.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+      if (Blueprint.m_ActivatableAbility is null)
+      {
+        Blueprint.m_ActivatableAbility = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(null);
+      }
+      if (Blueprint.m_EquipmentEntity is null)
+      {
+        Blueprint.m_EquipmentEntity = BlueprintTool.GetRef<KingmakerEquipmentEntityReference>(null);
+      }
+      if (Blueprint.m_EquipmentEntityAlternatives is null)
+      {
+        Blueprint.m_EquipmentEntityAlternatives = new KingmakerEquipmentEntityReference[0];
+      }
+    }
   }
 }

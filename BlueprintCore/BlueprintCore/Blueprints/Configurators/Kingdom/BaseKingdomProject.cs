@@ -80,10 +80,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_MechanicalDescription = mechanicalDescription;
-          if (bp.m_MechanicalDescription is null)
-          {
-            bp.m_MechanicalDescription = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -341,6 +337,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         component.m_Objective = BlueprintTool.GetRef<BlueprintQuestObjectiveReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_MechanicalDescription is null)
+      {
+        Blueprint.m_MechanicalDescription = Utils.Constants.Empty.String;
+      }
     }
   }
 }

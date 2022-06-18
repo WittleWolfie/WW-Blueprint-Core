@@ -77,10 +77,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.UnitDisappearFx = unitDisappearFx;
-          if (bp.UnitDisappearFx is null)
-          {
-            bp.UnitDisappearFx = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -106,10 +102,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.UnitAppearFx = unitAppearFx;
-          if (bp.UnitAppearFx is null)
-          {
-            bp.UnitAppearFx = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -228,6 +220,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
           if (bp.ClimbYCurve is null) { return; }
           action.Invoke(bp.ClimbYCurve);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.UnitDisappearFx is null)
+      {
+        Blueprint.UnitDisappearFx = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.UnitAppearFx is null)
+      {
+        Blueprint.UnitAppearFx = Utils.Constants.Empty.PrefabLink;
+      }
     }
   }
 }

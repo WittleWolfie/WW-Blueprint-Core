@@ -96,5 +96,15 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           bp.Obstacles.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Obstacles is null)
+      {
+        Blueprint.Obstacles = new BlueprintTacticalCombatObstaclesMap.MapObstacle[0];
+      }
+    }
   }
 }

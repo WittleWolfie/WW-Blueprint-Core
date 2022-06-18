@@ -224,5 +224,15 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
           action.Invoke(bp.PauseForOneFrame);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Tracks is null)
+      {
+        Blueprint.m_Tracks = new();
+      }
+    }
   }
 }

@@ -131,10 +131,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
         bp =>
         {
           bp.Name = name;
-          if (bp.Name is null)
-          {
-            bp.Name = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -149,6 +145,20 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
           if (bp.Name is null) { return; }
           action.Invoke(bp.Name);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Positions is null)
+      {
+        Blueprint.Positions = new Vector2[0];
+      }
+      if (Blueprint.Name is null)
+      {
+        Blueprint.Name = Utils.Constants.Empty.String;
+      }
     }
   }
 }

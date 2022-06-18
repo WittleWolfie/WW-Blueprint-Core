@@ -134,5 +134,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           bp.m_CharacterClasses.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_CharacterClasses is null)
+      {
+        Blueprint.m_CharacterClasses = new BlueprintCharacterClassReference[0];
+      }
+    }
   }
 }

@@ -223,5 +223,19 @@ namespace BlueprintCore.Blueprints.Configurators.QA
           bp.IgnoreScenesInReportByFilter.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.IgnoreScenesInReport is null)
+      {
+        Blueprint.IgnoreScenesInReport = new SceneReference[0];
+      }
+      if (Blueprint.IgnoreScenesInReportByFilter is null)
+      {
+        Blueprint.IgnoreScenesInReportByFilter = new string[0];
+      }
+    }
   }
 }

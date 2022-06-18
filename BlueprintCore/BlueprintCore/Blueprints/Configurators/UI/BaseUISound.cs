@@ -250,5 +250,23 @@ namespace BlueprintCore.Blueprints.Configurators.UI
           bp.Tooltip.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Sounds is null)
+      {
+        Blueprint.Sounds = new();
+      }
+      if (Blueprint.ArmyManagement is null)
+      {
+        Blueprint.ArmyManagement = new();
+      }
+      if (Blueprint.Tooltip is null)
+      {
+        Blueprint.Tooltip = new();
+      }
+    }
   }
 }

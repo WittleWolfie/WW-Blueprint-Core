@@ -159,5 +159,15 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
           action.Invoke(bp.m_InventoryEquipSound);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Enchantments is null)
+      {
+        Blueprint.m_Enchantments = new BlueprintEquipmentEnchantmentReference[0];
+      }
+    }
   }
 }

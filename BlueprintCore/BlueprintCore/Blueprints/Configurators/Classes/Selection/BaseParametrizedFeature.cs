@@ -1386,5 +1386,35 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       component.Mythic = mythic ?? component.Mythic;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_SpellList is null)
+      {
+        Blueprint.m_SpellList = BlueprintTool.GetRef<BlueprintSpellListReference>(null);
+      }
+      if (Blueprint.m_SpellcasterClass is null)
+      {
+        Blueprint.m_SpellcasterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      if (Blueprint.m_Prerequisite is null)
+      {
+        Blueprint.m_Prerequisite = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
+      }
+      if (Blueprint.CustomParameterVariants is null)
+      {
+        Blueprint.CustomParameterVariants = new AnyBlueprintReference[0];
+      }
+      if (Blueprint.BlueprintParameterVariants is null)
+      {
+        Blueprint.BlueprintParameterVariants = new AnyBlueprintReference[0];
+      }
+      if (Blueprint.m_CachedItems is null)
+      {
+        Blueprint.m_CachedItems = new FeatureUIData[0];
+      }
+    }
   }
 }

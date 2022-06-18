@@ -42,10 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.DisplayName = displayName;
-          if (bp.DisplayName is null)
-          {
-            bp.DisplayName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -71,10 +67,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.Description = description;
-          if (bp.Description is null)
-          {
-            bp.Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -182,10 +174,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.OnApply = onApply?.Build();
-          if (bp.OnApply is null)
-          {
-            bp.OnApply = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -211,10 +199,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.OnRemove = onRemove?.Build();
-          if (bp.OnRemove is null)
-          {
-            bp.OnRemove = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -949,6 +933,28 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       component.DailyMovementPoints = dailyMovementPoints ?? component.DailyMovementPoints;
       component.MaxMovementPoints = maxMovementPoints ?? component.MaxMovementPoints;
       return AddComponent(component);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.DisplayName is null)
+      {
+        Blueprint.DisplayName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.Description is null)
+      {
+        Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.OnApply is null)
+      {
+        Blueprint.OnApply = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.OnRemove is null)
+      {
+        Blueprint.OnRemove = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

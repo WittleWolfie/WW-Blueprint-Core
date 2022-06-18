@@ -168,5 +168,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
           action.Invoke(bp.FemaleBaseWeight);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Races is null)
+      {
+        Blueprint.Races = new RaceEntry[0];
+      }
+    }
   }
 }

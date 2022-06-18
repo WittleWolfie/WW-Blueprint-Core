@@ -714,5 +714,35 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           bp.KingdomStautsDesriptions.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Stats is null)
+      {
+        Blueprint.Stats = new();
+      }
+      if (Blueprint.Resources is null)
+      {
+        Blueprint.Resources = new();
+      }
+      if (Blueprint.LeaderDescriptions is null)
+      {
+        Blueprint.LeaderDescriptions = new();
+      }
+      if (Blueprint.EventResultMarginDescriptions is null)
+      {
+        Blueprint.EventResultMarginDescriptions = new();
+      }
+      if (Blueprint.KingdomStatusChangeReasons is null)
+      {
+        Blueprint.KingdomStatusChangeReasons = new();
+      }
+      if (Blueprint.KingdomStautsDesriptions is null)
+      {
+        Blueprint.KingdomStautsDesriptions = new();
+      }
+    }
   }
 }

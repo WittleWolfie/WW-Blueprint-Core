@@ -250,5 +250,19 @@ namespace BlueprintCore.Blueprints.Configurators.AI
           bp.m_ActorConsiderations.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_TargetConsiderations is null)
+      {
+        Blueprint.m_TargetConsiderations = new ConsiderationCustom.Reference[0];
+      }
+      if (Blueprint.m_ActorConsiderations is null)
+      {
+        Blueprint.m_ActorConsiderations = new ConsiderationCustom.Reference[0];
+      }
+    }
   }
 }

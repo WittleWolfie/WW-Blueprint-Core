@@ -54,10 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.Conditions = conditions?.Build();
-          if (bp.Conditions is null)
-          {
-            bp.Conditions = Utils.Constants.Empty.Conditions;
-          }
         });
     }
 
@@ -83,10 +79,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.EncounterActions = encounterActions?.Build();
-          if (bp.EncounterActions is null)
-          {
-            bp.EncounterActions = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -215,6 +207,20 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         {
           action.Invoke(bp.NotOnGlobalMap);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Conditions is null)
+      {
+        Blueprint.Conditions = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.EncounterActions is null)
+      {
+        Blueprint.EncounterActions = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

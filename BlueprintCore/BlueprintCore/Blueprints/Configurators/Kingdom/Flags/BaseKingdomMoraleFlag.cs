@@ -29,10 +29,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
         bp =>
         {
           bp.m_DisplayName = displayName;
-          if (bp.m_DisplayName is null)
-          {
-            bp.m_DisplayName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -58,10 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
         bp =>
         {
           bp.m_Description = description;
-          if (bp.m_Description is null)
-          {
-            bp.m_Description = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -220,6 +212,20 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
         {
           action.Invoke(bp.m_CounterDecrementPerDay);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_DisplayName is null)
+      {
+        Blueprint.m_DisplayName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_Description is null)
+      {
+        Blueprint.m_Description = Utils.Constants.Empty.String;
+      }
     }
   }
 }

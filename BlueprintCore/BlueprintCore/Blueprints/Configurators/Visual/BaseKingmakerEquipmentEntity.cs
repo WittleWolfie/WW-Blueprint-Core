@@ -275,5 +275,23 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
           bp.m_RaceDependentArrays.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_MaleArray is null)
+      {
+        Blueprint.m_MaleArray = new EquipmentEntityLink[0];
+      }
+      if (Blueprint.m_FemaleArray is null)
+      {
+        Blueprint.m_FemaleArray = new EquipmentEntityLink[0];
+      }
+      if (Blueprint.m_RaceDependentArrays is null)
+      {
+        Blueprint.m_RaceDependentArrays = new KingmakerEquipmentEntity.TwoLists[0];
+      }
+    }
   }
 }

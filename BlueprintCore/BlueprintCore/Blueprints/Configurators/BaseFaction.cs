@@ -452,5 +452,19 @@ namespace BlueprintCore.Blueprints.Configurators
           action.Invoke(bp.NeverJoinCombat);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_AttackFactions is null)
+      {
+        Blueprint.m_AttackFactions = new BlueprintFactionReference[0];
+      }
+      if (Blueprint.m_AllyFactions is null)
+      {
+        Blueprint.m_AllyFactions = new BlueprintFactionReference[0];
+      }
+    }
   }
 }

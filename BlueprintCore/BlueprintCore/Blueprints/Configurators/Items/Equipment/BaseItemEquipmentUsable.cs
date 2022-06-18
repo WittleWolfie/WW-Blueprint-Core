@@ -103,10 +103,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         bp =>
         {
           bp.m_BeltItemPrefab = beltItemPrefab;
-          if (bp.m_BeltItemPrefab is null)
-          {
-            bp.m_BeltItemPrefab = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -236,6 +232,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
           if (bp.m_Enchantments is null) { return; }
           bp.m_Enchantments.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_BeltItemPrefab is null)
+      {
+        Blueprint.m_BeltItemPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.m_Enchantments is null)
+      {
+        Blueprint.m_Enchantments = new BlueprintEquipmentEnchantmentReference[0];
+      }
     }
   }
 }

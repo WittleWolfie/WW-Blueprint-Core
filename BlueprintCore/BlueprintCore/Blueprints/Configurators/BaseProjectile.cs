@@ -105,10 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.CastFx = castFx;
-          if (bp.CastFx is null)
-          {
-            bp.CastFx = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -656,6 +652,20 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       var component = new CannotSneakAttack();
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.CastFx is null)
+      {
+        Blueprint.CastFx = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.m_Trajectory is null)
+      {
+        Blueprint.m_Trajectory = BlueprintTool.GetRef<BlueprintProjectileTrajectoryReference>(null);
+      }
     }
   }
 }

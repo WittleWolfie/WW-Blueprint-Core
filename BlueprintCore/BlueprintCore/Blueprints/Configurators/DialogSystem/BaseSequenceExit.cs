@@ -161,5 +161,15 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           action.Invoke(bp.Continue);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Answers is null)
+      {
+        Blueprint.Answers = new();
+      }
+    }
   }
 }

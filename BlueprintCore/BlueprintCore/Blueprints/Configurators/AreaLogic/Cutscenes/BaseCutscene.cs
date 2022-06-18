@@ -388,10 +388,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           bp.OnStopped = onStopped?.Build();
-          if (bp.OnStopped is null)
-          {
-            bp.OnStopped = Utils.Constants.Empty.Actions;
-          }
         });
     }
 
@@ -432,6 +428,20 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     {
       var component = new StopCutsceneWhenExitingArea();
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.Anchors is null)
+      {
+        Blueprint.Anchors = new EntityReference[0];
+      }
+      if (Blueprint.OnStopped is null)
+      {
+        Blueprint.OnStopped = Utils.Constants.Empty.Actions;
+      }
     }
   }
 }

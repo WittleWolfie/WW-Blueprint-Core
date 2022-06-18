@@ -626,5 +626,27 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
           bp.Etudes.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.SpecificCampaign is null)
+      {
+        Blueprint.SpecificCampaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
+      }
+      if (Blueprint.m_FinishGameFlag is null)
+      {
+        Blueprint.m_FinishGameFlag = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
+      if (Blueprint.Flags is null)
+      {
+        Blueprint.Flags = new AchievementData.UnlockableFlagsPack[0];
+      }
+      if (Blueprint.Etudes is null)
+      {
+        Blueprint.Etudes = new AchievementData.EtudesPack[0];
+      }
+    }
   }
 }

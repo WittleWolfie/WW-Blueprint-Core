@@ -36,10 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         bp =>
         {
           bp.StageNameParameterized = stageNameParameterized;
-          if (bp.StageNameParameterized is null)
-          {
-            bp.StageNameParameterized = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -208,6 +204,24 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
           if (bp.LeaderboardCharacterValues is null) { return; }
           bp.LeaderboardCharacterValues.ForEach(action);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.StageNameParameterized is null)
+      {
+        Blueprint.StageNameParameterized = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.LeaderboardRecordValues is null)
+      {
+        Blueprint.LeaderboardRecordValues = new BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[0];
+      }
+      if (Blueprint.LeaderboardCharacterValues is null)
+      {
+        Blueprint.LeaderboardCharacterValues = new BlueprintDungeonLocalizedStrings.LeaderboardCharacterValue[0];
+      }
     }
   }
 }

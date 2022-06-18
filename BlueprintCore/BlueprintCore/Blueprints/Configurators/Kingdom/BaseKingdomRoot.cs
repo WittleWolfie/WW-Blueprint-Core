@@ -1499,10 +1499,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.DefaultName = defaultName;
-          if (bp.DefaultName is null)
-          {
-            bp.DefaultName = Utils.Constants.Empty.String;
-          }
         });
     }
 
@@ -2564,6 +2560,116 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         {
           action.Invoke(bp.SiegeCooldownHours);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_BlueprintRegionCapital is null)
+      {
+        Blueprint.m_BlueprintRegionCapital = BlueprintTool.GetRef<BlueprintRegionReference>(null);
+      }
+      if (Blueprint.m_CapitalSettlement is null)
+      {
+        Blueprint.m_CapitalSettlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
+      }
+      if (Blueprint.m_ThroneRoom is null)
+      {
+        Blueprint.m_ThroneRoom = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_StartingEventDecks is null)
+      {
+        Blueprint.m_StartingEventDecks = new BlueprintKingdomDeckReference[0];
+      }
+      if (Blueprint.m_KingdomProjectEvents is null)
+      {
+        Blueprint.m_KingdomProjectEvents = new();
+      }
+      if (Blueprint.m_Buildings is null)
+      {
+        Blueprint.m_Buildings = new BlueprintSettlementBuildingReference[0];
+      }
+      if (Blueprint.m_UnrestPriorityDeck is null)
+      {
+        Blueprint.m_UnrestPriorityDeck = BlueprintTool.GetRef<BlueprintKingdomDeckReference>(null);
+      }
+      if (Blueprint.m_UnrestMitigationEvents is null)
+      {
+        Blueprint.m_UnrestMitigationEvents = new BlueprintKingdomProjectReference[0];
+      }
+      if (Blueprint.m_UIRoot is null)
+      {
+        Blueprint.m_UIRoot = BlueprintTool.GetRef<KingdomUIRootReference>(null);
+      }
+      if (Blueprint.LeaderSlots is null)
+      {
+        Blueprint.LeaderSlots = new LeaderSlot[0];
+      }
+      if (Blueprint.m_StartingNPCLeaders is null)
+      {
+        Blueprint.m_StartingNPCLeaders = new BlueprintUnitReference[0];
+      }
+      if (Blueprint.m_Timeline is null)
+      {
+        Blueprint.m_Timeline = BlueprintTool.GetRef<BlueprintKingdomEventTimelineReference>(null);
+      }
+      if (Blueprint.m_CrusadeEventsTimeline is null)
+      {
+        Blueprint.m_CrusadeEventsTimeline = BlueprintTool.GetRef<BlueprintCrusadeEventTimeline.Reference>(null);
+      }
+      if (Blueprint.m_RegionUpgradesAvailable is null)
+      {
+        Blueprint.m_RegionUpgradesAvailable = BlueprintTool.GetRef<BlueprintUnlockableFlagReference>(null);
+      }
+      if (Blueprint.m_BpVendorItem is null)
+      {
+        Blueprint.m_BpVendorItem = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      if (Blueprint.m_ConsumableEventBonusVendorItem is null)
+      {
+        Blueprint.m_ConsumableEventBonusVendorItem = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      if (Blueprint.DefaultName is null)
+      {
+        Blueprint.DefaultName = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.m_StoryModeBuff is null)
+      {
+        Blueprint.m_StoryModeBuff = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(null);
+      }
+      if (Blueprint.m_CasualModeBuff is null)
+      {
+        Blueprint.m_CasualModeBuff = BlueprintTool.GetRef<BlueprintKingdomBuffReference>(null);
+      }
+      if (Blueprint.Stats is null)
+      {
+        Blueprint.Stats = new KingdomRoot.StatData[0];
+      }
+      if (Blueprint.m_EntryPoint is null)
+      {
+        Blueprint.m_EntryPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_Regions is null)
+      {
+        Blueprint.m_Regions = new BlueprintRegionReference[0];
+      }
+      if (Blueprint.m_Locations is null)
+      {
+        Blueprint.m_Locations = new BlueprintGlobalMapPoint.Reference[0];
+      }
+      if (Blueprint.ArtisanTierChances is null)
+      {
+        Blueprint.ArtisanTierChances = new int[0];
+      }
+      if (Blueprint.ArtisanTierChancesRequest is null)
+      {
+        Blueprint.ArtisanTierChancesRequest = new int[0];
+      }
+      if (Blueprint.DifficultyDCMod is null)
+      {
+        Blueprint.DifficultyDCMod = new int[0];
+      }
     }
   }
 }

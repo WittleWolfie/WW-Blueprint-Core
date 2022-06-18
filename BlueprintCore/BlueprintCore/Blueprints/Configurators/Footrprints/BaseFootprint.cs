@@ -28,10 +28,6 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
         bp =>
         {
           bp.LeftFootPrint = leftFootPrint;
-          if (bp.LeftFootPrint is null)
-          {
-            bp.LeftFootPrint = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -57,10 +53,6 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
         bp =>
         {
           bp.RightFootPrint = rightFootPrint;
-          if (bp.RightFootPrint is null)
-          {
-            bp.RightFootPrint = Utils.Constants.Empty.PrefabLink;
-          }
         });
     }
 
@@ -75,6 +67,20 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
           if (bp.RightFootPrint is null) { return; }
           action.Invoke(bp.RightFootPrint);
         });
+    }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.LeftFootPrint is null)
+      {
+        Blueprint.LeftFootPrint = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.RightFootPrint is null)
+      {
+        Blueprint.RightFootPrint = Utils.Constants.Empty.PrefabLink;
+      }
     }
   }
 }

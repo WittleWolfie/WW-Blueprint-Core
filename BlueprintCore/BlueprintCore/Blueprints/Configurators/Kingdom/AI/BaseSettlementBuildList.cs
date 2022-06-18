@@ -161,5 +161,19 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
           bp.List.ForEach(action);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_BuildArea is null)
+      {
+        Blueprint.m_BuildArea = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.List is null)
+      {
+        Blueprint.List = new();
+      }
+    }
   }
 }

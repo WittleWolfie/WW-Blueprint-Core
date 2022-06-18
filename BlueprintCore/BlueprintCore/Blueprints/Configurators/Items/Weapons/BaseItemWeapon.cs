@@ -534,5 +534,23 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Type is null)
+      {
+        Blueprint.m_Type = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
+      }
+      if (Blueprint.m_Enchantments is null)
+      {
+        Blueprint.m_Enchantments = new BlueprintWeaponEnchantmentReference[0];
+      }
+      if (Blueprint.m_SecondWeapon is null)
+      {
+        Blueprint.m_SecondWeapon = BlueprintTool.GetRef<BlueprintItemWeaponReference>(null);
+      }
+    }
   }
 }

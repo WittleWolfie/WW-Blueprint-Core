@@ -586,5 +586,19 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           action.Invoke(bp.GraphCache);
         });
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_AudioTimeOfDayVariants is null)
+      {
+        Blueprint.m_AudioTimeOfDayVariants = new SceneReference[0];
+      }
+      if (Blueprint.m_SoundBankNames is null)
+      {
+        Blueprint.m_SoundBankNames = new string[0];
+      }
+    }
   }
 }

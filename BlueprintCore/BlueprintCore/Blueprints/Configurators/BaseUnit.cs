@@ -2833,5 +2833,51 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       return AddComponent(new MobCaster());
     }
+
+    protected override void SetDefaults()
+    {
+      base.SetDefaults();
+    
+      if (Blueprint.m_Type is null)
+      {
+        Blueprint.m_Type = BlueprintTool.GetRef<BlueprintUnitTypeReference>(null);
+      }
+      if (Blueprint.m_Race is null)
+      {
+        Blueprint.m_Race = BlueprintTool.GetRef<BlueprintRaceReference>(null);
+      }
+      if (Blueprint.m_Portrait is null)
+      {
+        Blueprint.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(null);
+      }
+      if (Blueprint.m_CustomizationPreset is null)
+      {
+        Blueprint.m_CustomizationPreset = BlueprintTool.GetRef<UnitCustomizationPresetReference>(null);
+      }
+      if (Blueprint.m_Faction is null)
+      {
+        Blueprint.m_Faction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
+      }
+      if (Blueprint.m_StartingInventory is null)
+      {
+        Blueprint.m_StartingInventory = new BlueprintItemReference[0];
+      }
+      if (Blueprint.m_Brain is null)
+      {
+        Blueprint.m_Brain = BlueprintTool.GetRef<BlueprintBrainReference>(null);
+      }
+      if (Blueprint.AlternativeBrains is null)
+      {
+        Blueprint.AlternativeBrains = new BlueprintBrainReference[0];
+      }
+      if (Blueprint.m_AdditionalTemplates is null)
+      {
+        Blueprint.m_AdditionalTemplates = new BlueprintUnitTemplateReference[0];
+      }
+      if (Blueprint.m_AddFacts is null)
+      {
+        Blueprint.m_AddFacts = new BlueprintUnitFactReference[0];
+      }
+    }
   }
 }
