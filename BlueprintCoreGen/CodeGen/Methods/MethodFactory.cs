@@ -66,6 +66,32 @@ namespace BlueprintCoreGen.CodeGen.Methods
       return new() { forBp, newBp };
     }
 
+    public static IMethod CreateConfiguratorSetDefaults(Type blueprintType, List<FieldMethod> fields)
+    {
+      var method = new MethodImpl();
+      var body =
+        fields.Select(field => blueprintType.GetField(field.FieldName))
+          .Select(fieldInfo => ParametersFactory.CreateForBlueprintField(blueprintType, fieldInfo!))
+          .Where(parameter => parameter is not null && parameter.AssignmentIfNull.Any())
+          .Cast<IBlueprintParameter>()
+          .SelectMany(parameter => parameter.AssignmentIfNull)
+          .ToList();
+
+      if (!body.Any())
+      {
+        return method;
+      }
+
+      method.AddLine($"protected override void SetDefaults()");
+      method.AddLine($"{{");
+      method.AddLine($"  base.SetDefaults();");
+      method.AddLine($"");
+      body.ForEach(line => method.AddLine($"  {line}"));
+      method.AddLine($"}}");
+
+      return method;
+    }
+
     private static readonly string OnConfigureObjName = "bp";
     private static readonly string BlueprintValidateFunction = "Validate";
     public static List<IMethod> CreateForField(

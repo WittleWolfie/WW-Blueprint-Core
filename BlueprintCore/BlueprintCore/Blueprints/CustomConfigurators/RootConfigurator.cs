@@ -109,6 +109,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
       Logger.Verbose($"Configuring {Blueprint.name}.");
       ConfigureComponents();
       OnConfigurePrivate();
+
+      SetDefaults();
       Blueprint.OnEnable();
 
       Validator.Check(Blueprint);
@@ -217,6 +219,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     }
 
     //----- Start: Configure & Validate
+
+    // Child classes can set sane defaults here.
+    protected virtual void SetDefaults() {}
 
     protected void Validate(object? obj)
     {

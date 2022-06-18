@@ -60,6 +60,11 @@ namespace BlueprintCoreGen.CodeGen.Params
     string ParamsDeclaration { get; }
 
     /// <summary>
+    /// Assignment statement if the field is null
+    /// </summary>
+    List<string> AssignmentIfNull { get; }
+
+    /// <summary>
     /// Comment summary for the set operation.
     /// </summary>
     string SetComment { get; }
@@ -236,7 +241,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       AssignmentFmtRhs = assignmentFmtRhs;
     }
 
-    public void SetAssignmentIfNullRhs(string assignmentIfNullRhs)
+    public virtual void SetAssignmentIfNullRhs(string assignmentIfNullRhs)
     {
       AssignmentIfNullRhs = assignmentIfNullRhs;
     }
@@ -322,7 +327,12 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private List<string> GetAssignmentIfNull(string objectName)
     {
-      if (string.IsNullOrEmpty(AssignmentIfNullRhs))
+      return GetAssignmentIfNull(objectName, AssignmentIfNullRhs);
+    }
+
+    protected List<string> GetAssignmentIfNull(string objectName, string? assignmentIfNullRhs)
+    {
+      if (string.IsNullOrEmpty(assignmentIfNullRhs))
       {
         return new();
       }
@@ -330,7 +340,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       List<string> assignmentIfNull = new();
       assignmentIfNull.Add($"if ({objectName}.{FieldName} is null)");
       assignmentIfNull.Add($"{{");
-      assignmentIfNull.Add($"  {objectName}.{FieldName} = {AssignmentIfNullRhs};");
+      assignmentIfNull.Add($"  {objectName}.{FieldName} = {assignmentIfNullRhs};");
       assignmentIfNull.Add($"}}");
       return assignmentIfNull;
     }
@@ -346,6 +356,8 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// </summary>
     private string ParamsTypeName { get; }
     public string ParamsDeclaration => GetParamsDeclaration();
+
+    public List<string> AssignmentIfNull { get; private set; }
 
     public string SetComment { get; }
 
@@ -408,7 +420,8 @@ namespace BlueprintCoreGen.CodeGen.Params
         string clearComment,
         List<string> clearOperationFmt,
         string modifyComment,
-        List<string> modifyOperationFmt)
+        List<string> modifyOperationFmt,
+        string assignmentIfNullRhs)
       : base(
         fieldName,
         paramName,
@@ -418,7 +431,7 @@ namespace BlueprintCoreGen.CodeGen.Params
         defaultValue,
         validationFmt,
         assignmentRhsFmt,
-        /* assignmentIfNullRhs= */string.Empty)
+        /* assignmentIfNullRhs= */ string.Empty)
     {
       ParamsTypeName = paramsTypeName;
       SetComment = setComment;
@@ -433,6 +446,8 @@ namespace BlueprintCoreGen.CodeGen.Params
       ModifyComment = modifyComment;
       ModifyOperationFmt = modifyOperationFmt;
       SetIsNullable(false);
+
+      AssignmentIfNull = GetAssignmentIfNull("Blueprint", assignmentIfNullRhs);
     }
 
     private string GetParamsDeclaration()
@@ -463,6 +478,11 @@ namespace BlueprintCoreGen.CodeGen.Params
     public List<string> GetModifyOperation(string objectName, string actionName)
     {
       return ModifyOperationFmt.Select(line => string.Format(line, objectName, actionName)).ToList();
+    }
+
+    public override void SetAssignmentIfNullRhs(string assignmentIfNullRhs)
+    {
+      AssignmentIfNull = GetAssignmentIfNull("Blueprint", assignmentIfNullRhs);
     }
   }
 }

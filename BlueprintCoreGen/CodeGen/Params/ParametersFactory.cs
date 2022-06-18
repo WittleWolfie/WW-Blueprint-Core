@@ -117,7 +117,8 @@ namespace BlueprintCoreGen.CodeGen.Params
           GetClearComment(info),
           GetClearOperationFmt(info, enumerableType),
           GetModifyComment(info, enumerableType),
-          GetModifyOperationFmt(info, enumerableType));
+          GetModifyOperationFmt(info, enumerableType),
+          GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
 
       GetTypeOverride(info.FieldType)?.ApplyTo(param);
       return param;
