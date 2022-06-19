@@ -1,0 +1,15 @@
+﻿[
+  {
+    "Key": "MagicalAptitude.Name",
+    // Don't process this since it is just a name. Without this it might create strange artifacts by trying to create
+    // links to encycolpedia pages.
+    "ProcessTemplates": false,
+    "enGB": "Magical Aptitude",
+    "deDE": "Magische Begabung"
+  },
+
+  {
+    "Key": "MagicalAptitude.Description",
+    "enGB": "You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+  }
+]
