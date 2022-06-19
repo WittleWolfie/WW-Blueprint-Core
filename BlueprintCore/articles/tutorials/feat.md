@@ -170,10 +170,12 @@ Open up your project file (<Name>.csproj) and add the following block, using you
   <ItemGroup>
     <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
     <ModConfig Include="$(OutputPath)\Info.json" />
+    <Strings Include="$(OutputPath)\LocalizedStrings.json" />
   </ItemGroup>
 
   <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
   <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
+  <Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
 </Target>
 ```
 
@@ -181,30 +183,41 @@ Now whenever you want to test changes just build and start the game.
 
 ### Fixing the UI
 
-If you click on it nothing works and you probably wante a name other than <c>null</c>. To do that populate the `m_DisplayName` and `m_Description` fields of the blueprint:
+If you click on it nothing works and you probably wante a name other than <c>null</c>. Open up your `LocalizedStrings.json` file and add new entries for the name and description:
+
+```json
+[
+  {
+    "Key": "MagicalAptitude.Name",
+    // Don't process this since it is just a name. Without this it might create strange artifacts by trying to create
+    // links to encycolpedia pages.
+    "ProcessTemplates": false,
+    "enGB": "Magical Aptitude",
+    "deDE": "Magische Begabung"
+  },
+
+  {
+    "Key": "MagicalAptitude.Description",
+    "enGB": "You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+  }
+]
+```
+
+Now populate the `m_DisplayName` and `m_Description` fields of the blueprint:
 
 ```C#
-private static readonly string DisplayName = "Magical Aptitude";
-private static readonly string DisplayNameKey = "MagicalAptitudeName";
-private static readonly string Description =
-  "You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of"
-  + " these skills, the bonus increases to +4 for that skill.";
-private static readonly string DescriptionKey = "MagicalAptitudeDescription";
-
 public static void Configure()
 {
   FeatureConfigurator.New(FeatName, FeatGuid)
-      .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
-      .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
+      .SetDisplayName("MagicalAptitude.Name")
+      .SetDescription("MagicalAptitude.Description")
       .Configure();
 
   FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToFeatures(FeatName).Configure();
 }
 ```
 
-Game strings are represented using the class `LocalizedString`. A LocalizedString has a key used to lookup the value by language. [LocalizationTool](xref:BlueprintCore.Utils.LocalizationTool) creates the string, but only for the current language. Support for better localization is on the roadmap.
-
-Test again and the feat should have a name and description!
+Test again and the feat should have a name and description! If you change the language to German you should see the name of the feat update, though the description will stay the same.
 
 You may have noticed the feat icon was the stylized letters "MAF". If you don't provide an icon the game generates one using the name, in this case **M**agical**A**ptitude**F**eat. Since abilities often require multiple blueprints it is recommended to append the mechanical type, i.e. Feat, to blueprint names.
 
@@ -224,8 +237,8 @@ Everything looks good but there is no mechanical effect. There are several ways 
 
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid)
-    .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
-    .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
+    .SetDisplayName("MagicalAptitude.Name")
+    .SetDescription("MagicalAptitude.Description")
     .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.Feat)
     .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.Feat)
     .Configure();
@@ -277,8 +290,8 @@ For Magical Aptitude use `FeatureGroup.Feat` and `FeatureTag.Skills`.
 
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid)
-    .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
-    .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
+    .SetDisplayName("MagicalAptitude.Name")
+    .SetDescription("MagicalAptitude.Description")
     .AddFeatureTagsComponent(FeatureTag.Skills)
     .AddToGroups(FeatureGroup.Feat)
     .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2)

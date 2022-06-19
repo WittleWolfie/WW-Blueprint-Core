@@ -42,7 +42,7 @@ By default `ProcessTemplates` is true. When set to true:
     * Converts placeholder strings into output, e.g. `{name}` is replaced by the character's name
 
 > [!TIP]
-> Set `ProcessTemplates` to true for most feature names to ensure there are no UI bugs. Features like encyclopedia links don't work propertly for feature names.
+> Set `ProcessTemplates` to false for most feature names to ensure there are no UI bugs. Features like encyclopedia links don't work propertly for feature names.
 
 Below is a list of template placeholders as of writing this doc, but the source of truth is the game's code in `TextTemplateEngine`.
 

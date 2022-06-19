@@ -67,7 +67,10 @@
       <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(RenamedAssembly)" />
     </Target>
     ```
-7. You're ready to go!
+7. (Optional) Create a new text file called `LocalizedStrings.json`
+    * Use this to define text used in your mod, see [Text, Logging, and Utils Usage](usage/utils.md) for more details
+    * Be sure to distribute this file with your mod assembly
+8. You're ready to go!
 
 If you already have a project or are having trouble, take a look at [BlueprintCore Tutorial.csproj](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore%20Tutorial/BlueprintCore%20Tutorial/BlueprintCore%20Tutorial.csproj).
 
