@@ -4,11 +4,21 @@
   href: contributing.md
 - name: Changelog
   href: changes.md
+- name: Usage
+  items:
+  - name: Blueprints
+    href: usage/blueprints.md
+  - name: Actions and Conditions
+    href: usage/builders.md
+  - name: Text, Logging, and Utils
+    href: usage/utils.md
+  - name: Understanding the API
+    href: usage/api.md
+  - name: Known Issues
+    href: usage/issues.md
 - name: Tutorials
   items:
   - name: Overview
     href: tutorials/overview.md
   - name: Adding a Feat
     href: tutorials/feat.md
-- name: Known Issues
-  href: issues.md
