@@ -49,10 +49,18 @@ namespace BlueprintCore.Utils
     /// <param name="localizedStringsFile">JSON file with an array of <see cref="MultiLocaleString"/> values</param>
     public static void LoadLocalizationPack(string localizedStringsFile)
     {
-      JArray array = JArray.Parse(localizedStringsFile);
+      if (!File.Exists(localizedStringsFile))
+      {
+        Logger.Warn($"No localized strings found at {localizedStringsFile}");
+        localizationPack = new(new());
+        return;
+      }
+
+      JArray array = JArray.Parse(File.ReadAllText(localizedStringsFile));
       localizationPack = new(array.ToObject<List<MultiLocaleString>>());
       // This registers the strings with the game library.
       LocalizationManager.CurrentPack.AddStrings(localizationPack.GetCurrentPack());
+      Logger.Info($"Localized strings loaded from {localizedStringsFile}");
     }
 
     /// <summary>
@@ -126,7 +134,14 @@ namespace BlueprintCore.Utils
       [HarmonyPatch(nameof(LocalizationManager.OnLocaleChanged)), HarmonyPostfix]
       static void Postfix()
       {
-        LocalizationManager.CurrentPack.AddStrings(LocalizationPack.GetCurrentPack());
+        try
+        {
+          LocalizationManager.CurrentPack.AddStrings(LocalizationPack.GetCurrentPack());
+        }
+        catch (Exception e)
+        {
+          Logger.Error("Failed handle locale change.", e);
+        }
       }
     }
   }

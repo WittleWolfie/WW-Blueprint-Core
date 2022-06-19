@@ -113,7 +113,7 @@ namespace BlueprintCore.Utils.Localization
         return m_LocalizedString;
       }
     }
-    private LocalizedString m_LocalizedString;
+    private LocalizedString? m_LocalizedString;
 
     /// <summary>
     /// Generates a new StringEntry of the supplied locale.
