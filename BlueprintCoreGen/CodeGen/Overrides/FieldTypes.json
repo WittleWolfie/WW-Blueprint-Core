@@ -30,6 +30,9 @@
     "TypeName": "LocalizedString",
     "TypeNameOverride": "LocalString",
     "Imports": [ "LocalizationTool" ],
+    "Comment": [
+      "You can pass in the string using a LocalizedString or the Key to a LocalizedString."
+    ],
     "AssignmentFmtRhs":  "{0}?.LocalizedString",
     "AssignmentIfNullRhs": "Utils.Constants.Empty.String"
   },

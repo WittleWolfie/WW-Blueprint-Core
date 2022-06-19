@@ -170,6 +170,11 @@ namespace BlueprintCoreGen.CodeGen.Params
     public List<string> Imports { get; } = new();
 
     /// <summary>
+    /// Parameter comment lines explaining usage of the type.
+    /// </summary>
+    public List<string> Comment { get; } = new();
+
+    /// <summary>
     /// Overrides the right hand side of the assignment format statement.
     /// </summary>
     [JsonProperty]
@@ -186,6 +191,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (!string.IsNullOrEmpty(TypeNameOverride)) { param.SetTypeName(TypeNameOverride); }
       if (SkipValidation) { param.SkipValidation(); }
       param.Imports.AddRange(Imports.Select(type => TypeTool.TypeByName(type)!));
+      if (Comment.Any()) { param.AddCommentFmt(Comment); }
       if (!string.IsNullOrEmpty(AssignmentFmtRhs)) { param.SetAssignmentFmtRhs(AssignmentFmtRhs); }
       if (!string.IsNullOrEmpty(AssignmentIfNullRhs)) { param.SetAssignmentIfNullRhs(AssignmentIfNullRhs); }
     }
