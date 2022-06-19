@@ -1,4 +1,5 @@
 ﻿using BlueprintCore.Utils.Localization;
+using HarmonyLib;
 using Kingmaker.Localization;
 using Newtonsoft.Json.Linq;
 using System;
@@ -117,6 +118,16 @@ namespace BlueprintCore.Utils
         throw new InvalidOperationException($"No string exists with key {key}");
       }
       return new() { m_Key = key };
+    }
+
+    [HarmonyPatch(typeof(LocalizationManager))]
+    static class LocalizationManager_Patch
+    {
+      [HarmonyPatch(nameof(LocalizationManager.OnLocaleChanged)), HarmonyPostfix]
+      static void Postfix()
+      {
+        LocalizationManager.CurrentPack.AddStrings(LocalizationPack.GetCurrentPack());
+      }
     }
   }
 
