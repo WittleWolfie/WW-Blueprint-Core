@@ -147,7 +147,7 @@ namespace BlueprintCore.Utils
   }
 
   /// <summary>
-  /// Wrapper around <see cref="LocalizedString"/> for implicit casts.
+  /// Wrapper around <see cref="Kingmaker.Localization.LocalizedString"/> for implicit casts.
   /// </summary>
   public class LocalString
   {
