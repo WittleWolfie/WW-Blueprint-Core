@@ -28,6 +28,9 @@
 
   {
     "TypeName": "LocalizedString",
+    "TypeNameOverride": "LocalString",
+    "Imports": [ "LocalizationTool" ],
+    "AssignmentFmtRhs":  "{0}?.LocalizedString",
     "AssignmentIfNullRhs": "Utils.Constants.Empty.String"
   },
 
