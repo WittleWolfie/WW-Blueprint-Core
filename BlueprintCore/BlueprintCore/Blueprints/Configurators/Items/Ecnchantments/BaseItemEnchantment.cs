@@ -60,12 +60,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_EnchantName"/>
     /// </summary>
-    public TBuilder SetEnchantName(LocalizedString enchantName)
+    ///
+    /// <param name="enchantName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetEnchantName(LocalString enchantName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_EnchantName = enchantName;
+          bp.m_EnchantName = enchantName?.LocalizedString;
         });
     }
 
@@ -85,12 +89,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Description = description;
+          bp.m_Description = description?.LocalizedString;
         });
     }
 
@@ -110,12 +118,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_Prefix"/>
     /// </summary>
-    public TBuilder SetPrefix(LocalizedString prefix)
+    ///
+    /// <param name="prefix">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetPrefix(LocalString prefix)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Prefix = prefix;
+          bp.m_Prefix = prefix?.LocalizedString;
         });
     }
 
@@ -135,12 +147,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_Suffix"/>
     /// </summary>
-    public TBuilder SetSuffix(LocalizedString suffix)
+    ///
+    /// <param name="suffix">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetSuffix(LocalString suffix)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Suffix = suffix;
+          bp.m_Suffix = suffix?.LocalizedString;
         });
     }
 

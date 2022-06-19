@@ -14,7 +14,6 @@ using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -1029,11 +1028,15 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <item><term>WatchPoint_SZHouse_Camera</term><description>782f3b6f96c840f99b785c32bdfb5e98</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="customBattlelogMessage">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder GainExp(
         this ActionsBuilder builder,
         IntEvaluator? count = null,
         int? cR = null,
-        LocalizedString? customBattlelogMessage = null,
+        LocalString? customBattlelogMessage = null,
         bool? dummy = null,
         EncounterType? encounter = null,
         float? modifier = null,
@@ -1043,7 +1046,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(count);
       element.Count = count ?? element.Count;
       element.CR = cR ?? element.CR;
-      element.CustomBattlelogMessage = customBattlelogMessage ?? element.CustomBattlelogMessage;
+      element.CustomBattlelogMessage = customBattlelogMessage?.LocalizedString ?? element.CustomBattlelogMessage;
       if (element.CustomBattlelogMessage is null)
       {
         element.CustomBattlelogMessage = Utils.Constants.Empty.String;

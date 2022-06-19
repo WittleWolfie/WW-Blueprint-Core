@@ -51,12 +51,16 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets the value of <see cref="BlueprintCreditsGroup.HeaderText"/>
     /// </summary>
-    public TBuilder SetHeaderText(LocalizedString headerText)
+    ///
+    /// <param name="headerText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetHeaderText(LocalString headerText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.HeaderText = headerText;
+          bp.HeaderText = headerText?.LocalizedString;
         });
     }
 
@@ -102,12 +106,16 @@ namespace BlueprintCore.Blueprints.Configurators.Credits
     /// <summary>
     /// Sets the value of <see cref="BlueprintCreditsGroup.LeftPageText"/>
     /// </summary>
-    public TBuilder SetLeftPageText(LocalizedString leftPageText)
+    ///
+    /// <param name="leftPageText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLeftPageText(LocalString leftPageText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LeftPageText = leftPageText;
+          bp.LeftPageText = leftPageText?.LocalizedString;
         });
     }
 

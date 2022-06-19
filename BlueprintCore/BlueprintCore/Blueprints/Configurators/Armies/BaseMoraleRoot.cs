@@ -262,12 +262,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="MoraleRoot.BaseMoraleValue"/>
     /// </summary>
-    public TBuilder SetBaseMoraleValue(LocalizedString baseMoraleValue)
+    ///
+    /// <param name="baseMoraleValue">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetBaseMoraleValue(LocalString baseMoraleValue)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.BaseMoraleValue = baseMoraleValue;
+          bp.BaseMoraleValue = baseMoraleValue?.LocalizedString;
         });
     }
 
@@ -287,12 +291,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="MoraleRoot.ArmyEffectOnSquad"/>
     /// </summary>
-    public TBuilder SetArmyEffectOnSquad(LocalizedString armyEffectOnSquad)
+    ///
+    /// <param name="armyEffectOnSquad">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetArmyEffectOnSquad(LocalString armyEffectOnSquad)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ArmyEffectOnSquad = armyEffectOnSquad;
+          bp.ArmyEffectOnSquad = armyEffectOnSquad?.LocalizedString;
         });
     }
 
@@ -312,12 +320,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="MoraleRoot.UnitNotHaveMorale"/>
     /// </summary>
-    public TBuilder SetUnitNotHaveMorale(LocalizedString unitNotHaveMorale)
+    ///
+    /// <param name="unitNotHaveMorale">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetUnitNotHaveMorale(LocalString unitNotHaveMorale)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.UnitNotHaveMorale = unitNotHaveMorale;
+          bp.UnitNotHaveMorale = unitNotHaveMorale?.LocalizedString;
         });
     }
 

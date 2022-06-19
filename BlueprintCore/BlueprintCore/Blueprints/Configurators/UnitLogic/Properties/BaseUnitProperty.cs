@@ -519,6 +519,156 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Adds <see cref="CompanionsCountGetter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="archetypesExclude">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="archetypesInclude">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="classesExclude">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="classesInclude">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="racesExclude">
+    /// <para>
+    /// Blueprint of type BlueprintRace. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="racesInclude">
+    /// <para>
+    /// Blueprint of type BlueprintRace. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddCompanionsCountGetter(
+        int[]? acceptableCounts = null,
+        List<Blueprint<BlueprintArchetypeReference>>? archetypesExclude = null,
+        List<Blueprint<BlueprintArchetypeReference>>? archetypesInclude = null,
+        bool? checkActive = null,
+        bool? checkCompanionArchetype = null,
+        bool? checkCompanionClass = null,
+        bool? checkCompanionRace = null,
+        bool? checkDead = null,
+        bool? checkDetached = null,
+        bool? checkEx = null,
+        bool? checkRemote = null,
+        List<Blueprint<BlueprintCharacterClassReference>>? classesExclude = null,
+        List<Blueprint<BlueprintCharacterClassReference>>? classesInclude = null,
+        List<Blueprint<BlueprintRaceReference>>? racesExclude = null,
+        List<Blueprint<BlueprintRaceReference>>? racesInclude = null,
+        PropertySettings? settings = null)
+    {
+      var component = new CompanionsCountGetter();
+      component.AcceptableCounts = acceptableCounts ?? component.AcceptableCounts;
+      if (component.AcceptableCounts is null)
+      {
+        component.AcceptableCounts = new int[0];
+      }
+      component.m_ArchetypesExclude = archetypesExclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ArchetypesExclude;
+      if (component.m_ArchetypesExclude is null)
+      {
+        component.m_ArchetypesExclude = new BlueprintArchetypeReference[0];
+      }
+      component.m_ArchetypesInclude = archetypesInclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ArchetypesInclude;
+      if (component.m_ArchetypesInclude is null)
+      {
+        component.m_ArchetypesInclude = new BlueprintArchetypeReference[0];
+      }
+      component.CheckActive = checkActive ?? component.CheckActive;
+      component.CheckCompanionArchetype = checkCompanionArchetype ?? component.CheckCompanionArchetype;
+      component.CheckCompanionClass = checkCompanionClass ?? component.CheckCompanionClass;
+      component.CheckCompanionRace = checkCompanionRace ?? component.CheckCompanionRace;
+      component.CheckDead = checkDead ?? component.CheckDead;
+      component.CheckDetached = checkDetached ?? component.CheckDetached;
+      component.CheckEx = checkEx ?? component.CheckEx;
+      component.CheckRemote = checkRemote ?? component.CheckRemote;
+      component.m_ClassesExclude = classesExclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ClassesExclude;
+      if (component.m_ClassesExclude is null)
+      {
+        component.m_ClassesExclude = new BlueprintCharacterClassReference[0];
+      }
+      component.m_ClassesInclude = classesInclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ClassesInclude;
+      if (component.m_ClassesInclude is null)
+      {
+        component.m_ClassesInclude = new BlueprintCharacterClassReference[0];
+      }
+      component.m_RacesExclude = racesExclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_RacesExclude;
+      if (component.m_RacesExclude is null)
+      {
+        component.m_RacesExclude = new BlueprintRaceReference[0];
+      }
+      component.m_RacesInclude = racesInclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_RacesInclude;
+      if (component.m_RacesInclude is null)
+      {
+        component.m_RacesInclude = new BlueprintRaceReference[0];
+      }
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="FactRankGetter"/>
     /// </summary>
     ///

@@ -36,12 +36,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomBuff.DisplayName"/>
     /// </summary>
-    public TBuilder SetDisplayName(LocalizedString displayName)
+    ///
+    /// <param name="displayName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDisplayName(LocalString displayName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DisplayName = displayName;
+          bp.DisplayName = displayName?.LocalizedString;
         });
     }
 
@@ -61,12 +65,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomBuff.Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Description = description;
+          bp.Description = description?.LocalizedString;
         });
     }
 

@@ -9,7 +9,6 @@ using Kingmaker.Designers.Quests.Common;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Localization;
 using Kingmaker.UI;
 using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
@@ -76,14 +75,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>ThresholdCamp_Scripts03</term><description>21cfdbf1fe184c7e9325ec071d06fbd2</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="newName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ChangeUnitName(
         this ActionsBuilder builder,
-        LocalizedString newName,
+        LocalString newName,
         UnitEvaluator unit,
         bool? addToTheName = null)
     {
       var element = ElementTool.Create<ChangeUnitName>();
-      element.NewName = newName;
+      element.NewName = newName?.LocalizedString;
       builder.Validate(unit);
       element.Unit = unit;
       element.AddToTheName = addToTheName ?? element.AddToTheName;
@@ -1136,12 +1139,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>Supplies_Actions_RemoveDathDoor</term><description>784b72fb34265604080c985eef646c2a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="text">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ShowDialogBox(
         this ActionsBuilder builder,
         ActionsBuilder? onAccept = null,
         ActionsBuilder? onCancel = null,
         ParametrizedContextSetter? parameters = null,
-        LocalizedString? text = null)
+        LocalString? text = null)
     {
       var element = ElementTool.Create<ShowDialogBox>();
       element.OnAccept = onAccept?.Build() ?? element.OnAccept;
@@ -1156,7 +1163,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       }
       builder.Validate(parameters);
       element.Parameters = parameters ?? element.Parameters;
-      element.Text = text ?? element.Text;
+      element.Text = text?.LocalizedString ?? element.Text;
       if (element.Text is null)
       {
         element.Text = Utils.Constants.Empty.String;
@@ -1177,10 +1184,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>XCOM_Battle</term><description>f830cff9020aa434c8b8a49980af4035</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="text">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ShowMessageBox(
         this ActionsBuilder builder,
         ActionsBuilder? onClose = null,
-        LocalizedString? text = null,
+        LocalString? text = null,
         int? waitTime = null)
     {
       var element = ElementTool.Create<ShowMessageBox>();
@@ -1189,7 +1200,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       {
         element.OnClose = Utils.Constants.Empty.Actions;
       }
-      element.Text = text ?? element.Text;
+      element.Text = text?.LocalizedString ?? element.Text;
       if (element.Text is null)
       {
         element.Text = Utils.Constants.Empty.String;
@@ -1211,13 +1222,17 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>Threshold</term><description>207fad718f41237449b0acf414cc991a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="stringValue">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ShowUIWarning(
         this ActionsBuilder builder,
-        LocalizedString? stringValue = null,
+        LocalString? stringValue = null,
         WarningNotificationType? type = null)
     {
       var element = ElementTool.Create<ShowUIWarning>();
-      element.String = stringValue ?? element.String;
+      element.String = stringValue?.LocalizedString ?? element.String;
       if (element.String is null)
       {
         element.String = Utils.Constants.Empty.String;
@@ -1328,13 +1343,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <para>
     /// Tooltip: Interlocutor name. Uses only if &amp;apos;Dialogue Owner&amp;apos; is Null
     /// </para>
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
     public static ActionsBuilder StartDialog(
         this ActionsBuilder builder,
         BlueprintEvaluator? dialogEvaluator = null,
         Blueprint<BlueprintDialogReference>? dialogue = null,
         UnitEvaluator? dialogueOwner = null,
-        LocalizedString? speakerName = null)
+        LocalString? speakerName = null)
     {
       var element = ElementTool.Create<StartDialog>();
       builder.Validate(dialogEvaluator);
@@ -1346,7 +1362,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       }
       builder.Validate(dialogueOwner);
       element.DialogueOwner = dialogueOwner ?? element.DialogueOwner;
-      element.SpeakerName = speakerName ?? element.SpeakerName;
+      element.SpeakerName = speakerName?.LocalizedString ?? element.SpeakerName;
       if (element.SpeakerName is null)
       {
         element.SpeakerName = Utils.Constants.Empty.String;

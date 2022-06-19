@@ -525,12 +525,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="LeadersRoot.SkillsListName"/>
     /// </summary>
-    public TBuilder SetSkillsListName(LocalizedString skillsListName)
+    ///
+    /// <param name="skillsListName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetSkillsListName(LocalString skillsListName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.SkillsListName = skillsListName;
+          bp.SkillsListName = skillsListName?.LocalizedString;
         });
     }
 
@@ -550,12 +554,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="LeadersRoot.ManaName"/>
     /// </summary>
-    public TBuilder SetManaName(LocalizedString manaName)
+    ///
+    /// <param name="manaName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetManaName(LocalString manaName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ManaName = manaName;
+          bp.ManaName = manaName?.LocalizedString;
         });
     }
 
@@ -575,12 +583,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="LeadersRoot.AttackBonusName"/>
     /// </summary>
-    public TBuilder SetAttackBonusName(LocalizedString attackBonusName)
+    ///
+    /// <param name="attackBonusName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetAttackBonusName(LocalString attackBonusName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.AttackBonusName = attackBonusName;
+          bp.AttackBonusName = attackBonusName?.LocalizedString;
         });
     }
 
@@ -600,12 +612,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="LeadersRoot.DeffBonusName"/>
     /// </summary>
-    public TBuilder SetDeffBonusName(LocalizedString deffBonusName)
+    ///
+    /// <param name="deffBonusName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDeffBonusName(LocalString deffBonusName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DeffBonusName = deffBonusName;
+          bp.DeffBonusName = deffBonusName?.LocalizedString;
         });
     }
 
@@ -625,12 +641,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="LeadersRoot.SpellStrengthName"/>
     /// </summary>
-    public TBuilder SetSpellStrengthName(LocalizedString spellStrengthName)
+    ///
+    /// <param name="spellStrengthName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetSpellStrengthName(LocalString spellStrengthName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.SpellStrengthName = spellStrengthName;
+          bp.SpellStrengthName = spellStrengthName?.LocalizedString;
         });
     }
 
@@ -650,12 +670,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="LeadersRoot.LeaderHireText"/>
     /// </summary>
-    public TBuilder SetLeaderHireText(LocalizedString leaderHireText)
+    ///
+    /// <param name="leaderHireText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLeaderHireText(LocalString leaderHireText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LeaderHireText = leaderHireText;
+          bp.LeaderHireText = leaderHireText?.LocalizedString;
         });
     }
 

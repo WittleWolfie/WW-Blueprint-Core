@@ -410,12 +410,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_BuffPrefix"/>
     /// </summary>
-    public TBuilder SetBuffPrefix(LocalizedString buffPrefix)
+    ///
+    /// <param name="buffPrefix">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetBuffPrefix(LocalString buffPrefix)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_BuffPrefix = buffPrefix;
+          bp.m_BuffPrefix = buffPrefix?.LocalizedString;
         });
     }
 

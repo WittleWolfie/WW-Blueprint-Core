@@ -26,12 +26,16 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMagicSpell.m_SpellName"/>
     /// </summary>
-    public TBuilder SetSpellName(LocalizedString spellName)
+    ///
+    /// <param name="spellName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetSpellName(LocalString spellName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_SpellName = spellName;
+          bp.m_SpellName = spellName?.LocalizedString;
         });
     }
 
@@ -51,12 +55,16 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMagicSpell.m_Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Description = description;
+          bp.m_Description = description?.LocalizedString;
         });
     }
 

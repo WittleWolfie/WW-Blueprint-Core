@@ -25,12 +25,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintMultiEntranceEntry.Name"/>
     /// </summary>
-    public TBuilder SetName(LocalizedString name)
+    ///
+    /// <param name="name">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetName(LocalString name)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Name = name;
+          bp.Name = name?.LocalizedString;
         });
     }
 

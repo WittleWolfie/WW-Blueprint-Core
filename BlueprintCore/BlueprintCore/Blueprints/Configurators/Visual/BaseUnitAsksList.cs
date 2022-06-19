@@ -24,12 +24,16 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitAsksList.DisplayName"/>
     /// </summary>
-    public TBuilder SetDisplayName(LocalizedString displayName)
+    ///
+    /// <param name="displayName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDisplayName(LocalString displayName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DisplayName = displayName;
+          bp.DisplayName = displayName?.LocalizedString;
         });
     }
 

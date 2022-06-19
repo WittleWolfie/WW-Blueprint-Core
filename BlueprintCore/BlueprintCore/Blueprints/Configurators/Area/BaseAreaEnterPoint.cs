@@ -181,12 +181,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.m_Tooltip"/>
     /// </summary>
-    public TBuilder SetTooltip(LocalizedString tooltip)
+    ///
+    /// <param name="tooltip">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetTooltip(LocalString tooltip)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Tooltip = tooltip;
+          bp.m_Tooltip = tooltip?.LocalizedString;
         });
     }
 

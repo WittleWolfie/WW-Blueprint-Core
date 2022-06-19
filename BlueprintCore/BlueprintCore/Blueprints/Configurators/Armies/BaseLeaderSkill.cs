@@ -59,12 +59,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderSkill.LocalizedName"/>
     /// </summary>
-    public TBuilder SetLocalizedName(LocalizedString localizedName)
+    ///
+    /// <param name="localizedName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedName(LocalString localizedName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedName = localizedName;
+          bp.LocalizedName = localizedName?.LocalizedString;
         });
     }
 
@@ -84,12 +88,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderSkill.LocalizedDescription"/>
     /// </summary>
-    public TBuilder SetLocalizedDescription(LocalizedString localizedDescription)
+    ///
+    /// <param name="localizedDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedDescription(LocalString localizedDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedDescription = localizedDescription;
+          bp.LocalizedDescription = localizedDescription?.LocalizedString;
         });
     }
 

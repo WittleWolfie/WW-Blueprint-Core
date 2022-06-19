@@ -2007,13 +2007,17 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <item><term>DH_ProgressBar</term><description>4d82ae4995764612a08163fe14ab36b5</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="title">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public TBuilder AddEtudeBracketProgressBar(
         int? maxProgress = null,
-        LocalizedString? title = null)
+        LocalString? title = null)
     {
       var component = new EtudeBracketProgressBar();
       component.MaxProgress = maxProgress ?? component.MaxProgress;
-      component.Title = title ?? component.Title;
+      component.Title = title?.LocalizedString ?? component.Title;
       if (component.Title is null)
       {
         component.Title = Utils.Constants.Empty.String;

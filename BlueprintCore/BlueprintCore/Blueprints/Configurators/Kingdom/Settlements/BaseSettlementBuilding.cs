@@ -34,12 +34,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.Name"/>
     /// </summary>
-    public TBuilder SetName(LocalizedString name)
+    ///
+    /// <param name="name">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetName(LocalString name)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Name = name;
+          bp.Name = name?.LocalizedString;
         });
     }
 
@@ -59,12 +63,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Description = description;
+          bp.Description = description?.LocalizedString;
         });
     }
 
@@ -84,12 +92,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.MechanicalDescription"/>
     /// </summary>
-    public TBuilder SetMechanicalDescription(LocalizedString mechanicalDescription)
+    ///
+    /// <param name="mechanicalDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetMechanicalDescription(LocalString mechanicalDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.MechanicalDescription = mechanicalDescription;
+          bp.MechanicalDescription = mechanicalDescription?.LocalizedString;
         });
     }
 

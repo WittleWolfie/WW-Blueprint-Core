@@ -48,12 +48,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderProgression.m_ProgressionName"/>
     /// </summary>
-    public TBuilder SetProgressionName(LocalizedString progressionName)
+    ///
+    /// <param name="progressionName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetProgressionName(LocalString progressionName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_ProgressionName = progressionName;
+          bp.m_ProgressionName = progressionName?.LocalizedString;
         });
     }
 

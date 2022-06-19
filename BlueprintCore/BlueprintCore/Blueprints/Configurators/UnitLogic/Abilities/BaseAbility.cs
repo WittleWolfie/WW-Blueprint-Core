@@ -749,12 +749,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.LocalizedDuration"/>
     /// </summary>
-    public TBuilder SetLocalizedDuration(LocalizedString localizedDuration)
+    ///
+    /// <param name="localizedDuration">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedDuration(LocalString localizedDuration)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedDuration = localizedDuration;
+          bp.LocalizedDuration = localizedDuration?.LocalizedString;
         });
     }
 
@@ -774,12 +778,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.LocalizedSavingThrow"/>
     /// </summary>
-    public TBuilder SetLocalizedSavingThrow(LocalizedString localizedSavingThrow)
+    ///
+    /// <param name="localizedSavingThrow">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedSavingThrow(LocalString localizedSavingThrow)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedSavingThrow = localizedSavingThrow;
+          bp.LocalizedSavingThrow = localizedSavingThrow?.LocalizedString;
         });
     }
 

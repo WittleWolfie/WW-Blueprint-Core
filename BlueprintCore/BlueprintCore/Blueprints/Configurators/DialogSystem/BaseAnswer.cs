@@ -29,12 +29,16 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswer.Text"/>
     /// </summary>
-    public TBuilder SetText(LocalizedString text)
+    ///
+    /// <param name="text">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetText(LocalString text)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Text = text;
+          bp.Text = text?.LocalizedString;
         });
     }
 

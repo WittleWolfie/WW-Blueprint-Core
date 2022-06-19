@@ -84,12 +84,16 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintMythicInfo._mythicName"/>
     /// </summary>
-    public TBuilder Set_mythicName(LocalizedString _mythicName)
+    ///
+    /// <param name="_mythicName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder Set_mythicName(LocalString _mythicName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp._mythicName = _mythicName;
+          bp._mythicName = _mythicName?.LocalizedString;
         });
     }
 

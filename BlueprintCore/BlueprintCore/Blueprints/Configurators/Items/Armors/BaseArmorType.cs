@@ -25,12 +25,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_TypeNameText"/>
     /// </summary>
-    public TBuilder SetTypeNameText(LocalizedString typeNameText)
+    ///
+    /// <param name="typeNameText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetTypeNameText(LocalString typeNameText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_TypeNameText = typeNameText;
+          bp.m_TypeNameText = typeNameText?.LocalizedString;
         });
     }
 
@@ -50,12 +54,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_DefaultNameText"/>
     /// </summary>
-    public TBuilder SetDefaultNameText(LocalizedString defaultNameText)
+    ///
+    /// <param name="defaultNameText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDefaultNameText(LocalString defaultNameText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DefaultNameText = defaultNameText;
+          bp.m_DefaultNameText = defaultNameText?.LocalizedString;
         });
     }
 
@@ -75,12 +83,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_DescriptionText"/>
     /// </summary>
-    public TBuilder SetDescriptionText(LocalizedString descriptionText)
+    ///
+    /// <param name="descriptionText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescriptionText(LocalString descriptionText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DescriptionText = descriptionText;
+          bp.m_DescriptionText = descriptionText?.LocalizedString;
         });
     }
 
@@ -100,12 +112,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_MagicDescriptionText"/>
     /// </summary>
-    public TBuilder SetMagicDescriptionText(LocalizedString magicDescriptionText)
+    ///
+    /// <param name="magicDescriptionText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetMagicDescriptionText(LocalString magicDescriptionText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_MagicDescriptionText = magicDescriptionText;
+          bp.m_MagicDescriptionText = magicDescriptionText?.LocalizedString;
         });
     }
 

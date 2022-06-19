@@ -19,7 +19,6 @@ using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Alignments;
@@ -836,13 +835,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="uIText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public TBuilder AddPrerequisiteEtude(
         Blueprint<BlueprintEtudeReference> etude,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         bool? notPlaying = null,
-        LocalizedString? uIText = null)
+        LocalString? uIText = null)
     {
       var component = new PrerequisiteEtude();
       component.Etude = etude?.Reference;
@@ -850,7 +852,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.NotPlaying = notPlaying ?? component.NotPlaying;
-      component.UIText = uIText ?? component.UIText;
+      component.UIText = uIText?.LocalizedString ?? component.UIText;
       if (component.UIText is null)
       {
         component.UIText = Utils.Constants.Empty.String;
@@ -1613,12 +1615,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="uIText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public TBuilder AddPrerequisiteCondition(
         bool? checkInProgression = null,
         Condition? condition = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        LocalizedString? uIText = null)
+        LocalString? uIText = null)
     {
       var component = new PrerequisiteCondition();
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
@@ -1626,7 +1632,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Condition = condition ?? component.Condition;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.UIText = uIText ?? component.UIText;
+      component.UIText = uIText?.LocalizedString ?? component.UIText;
       if (component.UIText is null)
       {
         component.UIText = Utils.Constants.Empty.String;
@@ -1725,9 +1731,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="introduction">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public TBuilder AddFeaturesFromSelectionToDescription(
         Blueprint<BlueprintFeatureSelectionReference>? featureSelection = null,
-        LocalizedString? introduction = null,
+        LocalString? introduction = null,
         bool? onlyIfRequiresThisFeature = null)
     {
       var component = new AddFeaturesFromSelectionToDescription();
@@ -1736,7 +1745,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         component.m_FeatureSelection = BlueprintTool.GetRef<BlueprintFeatureSelectionReference>(null);
       }
-      component.Introduction = introduction ?? component.Introduction;
+      component.Introduction = introduction?.LocalizedString ?? component.Introduction;
       if (component.Introduction is null)
       {
         component.Introduction = Utils.Constants.Empty.String;
@@ -1881,6 +1890,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="introduction">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="spellLists">
     /// <para>
     /// Blueprint of type BlueprintSpellList. You can pass in the blueprint using:
@@ -1906,12 +1918,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </para>
     /// </param>
     public TBuilder AddSpellsToDescription(
-        LocalizedString? introduction = null,
+        LocalString? introduction = null,
         List<Blueprint<BlueprintSpellListReference>>? spellLists = null,
         List<Blueprint<BlueprintAbilityReference>>? spells = null)
     {
       var component = new AddSpellsToDescription();
-      component.Introduction = introduction ?? component.Introduction;
+      component.Introduction = introduction?.LocalizedString ?? component.Introduction;
       if (component.Introduction is null)
       {
         component.Introduction = Utils.Constants.Empty.String;

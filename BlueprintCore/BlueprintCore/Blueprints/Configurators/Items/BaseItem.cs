@@ -35,12 +35,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_DisplayNameText"/>
     /// </summary>
-    public TBuilder SetDisplayNameText(LocalizedString displayNameText)
+    ///
+    /// <param name="displayNameText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDisplayNameText(LocalString displayNameText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DisplayNameText = displayNameText;
+          bp.m_DisplayNameText = displayNameText?.LocalizedString;
         });
     }
 
@@ -60,12 +64,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_DescriptionText"/>
     /// </summary>
-    public TBuilder SetDescriptionText(LocalizedString descriptionText)
+    ///
+    /// <param name="descriptionText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescriptionText(LocalString descriptionText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DescriptionText = descriptionText;
+          bp.m_DescriptionText = descriptionText?.LocalizedString;
         });
     }
 
@@ -85,12 +93,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_FlavorText"/>
     /// </summary>
-    public TBuilder SetFlavorText(LocalizedString flavorText)
+    ///
+    /// <param name="flavorText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetFlavorText(LocalString flavorText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_FlavorText = flavorText;
+          bp.m_FlavorText = flavorText?.LocalizedString;
         });
     }
 
@@ -110,12 +122,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_NonIdentifiedNameText"/>
     /// </summary>
-    public TBuilder SetNonIdentifiedNameText(LocalizedString nonIdentifiedNameText)
+    ///
+    /// <param name="nonIdentifiedNameText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetNonIdentifiedNameText(LocalString nonIdentifiedNameText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_NonIdentifiedNameText = nonIdentifiedNameText;
+          bp.m_NonIdentifiedNameText = nonIdentifiedNameText?.LocalizedString;
         });
     }
 
@@ -135,12 +151,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_NonIdentifiedDescriptionText"/>
     /// </summary>
-    public TBuilder SetNonIdentifiedDescriptionText(LocalizedString nonIdentifiedDescriptionText)
+    ///
+    /// <param name="nonIdentifiedDescriptionText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetNonIdentifiedDescriptionText(LocalString nonIdentifiedDescriptionText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_NonIdentifiedDescriptionText = nonIdentifiedDescriptionText;
+          bp.m_NonIdentifiedDescriptionText = nonIdentifiedDescriptionText?.LocalizedString;
         });
     }
 
@@ -758,6 +778,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="itemName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -767,7 +790,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     public TBuilder AddItemDialog(
         ConditionsBuilder? conditions = null,
         Blueprint<BlueprintDialogReference>? dialogReference = null,
-        LocalizedString? itemName = null,
+        LocalString? itemName = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -782,7 +805,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       {
         component.m_DialogReference = BlueprintTool.GetRef<BlueprintDialogReference>(null);
       }
-      component.m_ItemName = itemName ?? component.m_ItemName;
+      component.m_ItemName = itemName?.LocalizedString ?? component.m_ItemName;
       if (component.m_ItemName is null)
       {
         component.m_ItemName = Utils.Constants.Empty.String;

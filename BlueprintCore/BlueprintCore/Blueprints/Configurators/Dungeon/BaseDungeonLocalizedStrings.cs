@@ -29,13 +29,14 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <para>
     /// Tooltip: {text} will be with stage number
     /// </para>
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
-    public TBuilder SetStageNameParameterized(LocalizedString stageNameParameterized)
+    public TBuilder SetStageNameParameterized(LocalString stageNameParameterized)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.StageNameParameterized = stageNameParameterized;
+          bp.StageNameParameterized = stageNameParameterized?.LocalizedString;
         });
     }
 

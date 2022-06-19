@@ -334,12 +334,16 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintBookPage.Title"/>
     /// </summary>
-    public TBuilder SetTitle(LocalizedString title)
+    ///
+    /// <param name="title">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetTitle(LocalString title)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Title = title;
+          bp.Title = title?.LocalizedString;
         });
     }
 

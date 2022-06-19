@@ -99,12 +99,16 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitFact.m_DisplayName"/>
     /// </summary>
-    public TBuilder SetDisplayName(LocalizedString displayName)
+    ///
+    /// <param name="displayName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDisplayName(LocalString displayName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DisplayName = displayName;
+          bp.m_DisplayName = displayName?.LocalizedString;
         });
     }
 
@@ -124,12 +128,16 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitFact.m_Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Description = description;
+          bp.m_Description = description?.LocalizedString;
         });
     }
 
@@ -149,12 +157,16 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitFact.m_DescriptionShort"/>
     /// </summary>
-    public TBuilder SetDescriptionShort(LocalizedString descriptionShort)
+    ///
+    /// <param name="descriptionShort">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescriptionShort(LocalString descriptionShort)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DescriptionShort = descriptionShort;
+          bp.m_DescriptionShort = descriptionShort?.LocalizedString;
         });
     }
 
@@ -5066,6 +5078,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="fakeDeathMessage">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -5076,7 +5091,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? actions = null,
         float? disappearDelay = null,
         PrefabLink? disappearFx = null,
-        LocalizedString? fakeDeathMessage = null,
+        LocalString? fakeDeathMessage = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -5092,7 +5107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.DisappearFx = Utils.Constants.Empty.PrefabLink;
       }
-      component.FakeDeathMessage = fakeDeathMessage ?? component.FakeDeathMessage;
+      component.FakeDeathMessage = fakeDeathMessage?.LocalizedString ?? component.FakeDeathMessage;
       if (component.FakeDeathMessage is null)
       {
         component.FakeDeathMessage = Utils.Constants.Empty.String;
@@ -8409,14 +8424,18 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ActionsBuilder? actions = null,
         bool? actionsOnInitiator = null,
         AttackTypeFlag? attackType = null,
+        bool? checkAoE = null,
         bool? checkDamageDealt = null,
         bool? checkDamagePhysicalTypeNot = null,
         bool? checkEnergyDamageType = null,
+        bool? checkSpellSchool = null,
         bool? checkWeaponAttackType = null,
         CompareOperation.Type? compareType = null,
         PhysicalDamageForm? damagePhysicalTypeNot = null,
         DamageEnergyType? energyType = null,
         bool? ignoreDamageFromThisFact = null,
+        bool? isAoE = null,
+        SpellSchool? isSpellSchool = null,
         bool? reduceBelowZero = null,
         ContextValue? targetValue = null,
         bool? triggerOnStatDamageOrEnergyDrain = null)
@@ -8429,14 +8448,18 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       }
       component.ActionsOnInitiator = actionsOnInitiator ?? component.ActionsOnInitiator;
       component.AttackType = attackType ?? component.AttackType;
+      component.CheckAoE = checkAoE ?? component.CheckAoE;
       component.CheckDamageDealt = checkDamageDealt ?? component.CheckDamageDealt;
       component.CheckDamagePhysicalTypeNot = checkDamagePhysicalTypeNot ?? component.CheckDamagePhysicalTypeNot;
       component.CheckEnergyDamageType = checkEnergyDamageType ?? component.CheckEnergyDamageType;
+      component.CheckSpellSchool = checkSpellSchool ?? component.CheckSpellSchool;
       component.CheckWeaponAttackType = checkWeaponAttackType ?? component.CheckWeaponAttackType;
       component.CompareType = compareType ?? component.CompareType;
       component.DamagePhysicalTypeNot = damagePhysicalTypeNot ?? component.DamagePhysicalTypeNot;
       component.EnergyType = energyType ?? component.EnergyType;
       component.IgnoreDamageFromThisFact = ignoreDamageFromThisFact ?? component.IgnoreDamageFromThisFact;
+      component.IsAoE = isAoE ?? component.IsAoE;
+      component.IsSpellSchool = isSpellSchool ?? component.IsSpellSchool;
       component.ReduceBelowZero = reduceBelowZero ?? component.ReduceBelowZero;
       component.TargetValue = targetValue ?? component.TargetValue;
       if (component.TargetValue is null)

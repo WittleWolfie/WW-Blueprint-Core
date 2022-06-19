@@ -24,12 +24,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyLeader.m_LeaderName"/>
     /// </summary>
-    public TBuilder SetLeaderName(LocalizedString leaderName)
+    ///
+    /// <param name="leaderName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLeaderName(LocalString leaderName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_LeaderName = leaderName;
+          bp.m_LeaderName = leaderName?.LocalizedString;
         });
     }
 

@@ -28,12 +28,16 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.Title"/>
     /// </summary>
-    public TBuilder SetTitle(LocalizedString title)
+    ///
+    /// <param name="title">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetTitle(LocalString title)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Title = title;
+          bp.Title = title?.LocalizedString;
         });
     }
 
@@ -53,12 +57,16 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Description = description;
+          bp.Description = description?.LocalizedString;
         });
     }
 

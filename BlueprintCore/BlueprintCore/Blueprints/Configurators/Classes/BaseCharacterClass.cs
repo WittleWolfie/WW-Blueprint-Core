@@ -39,12 +39,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.LocalizedName"/>
     /// </summary>
-    public TBuilder SetLocalizedName(LocalizedString localizedName)
+    ///
+    /// <param name="localizedName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedName(LocalString localizedName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedName = localizedName;
+          bp.LocalizedName = localizedName?.LocalizedString;
         });
     }
 
@@ -64,12 +68,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.LocalizedDescription"/>
     /// </summary>
-    public TBuilder SetLocalizedDescription(LocalizedString localizedDescription)
+    ///
+    /// <param name="localizedDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedDescription(LocalString localizedDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedDescription = localizedDescription;
+          bp.LocalizedDescription = localizedDescription?.LocalizedString;
         });
     }
 
@@ -89,12 +97,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.LocalizedDescriptionShort"/>
     /// </summary>
-    public TBuilder SetLocalizedDescriptionShort(LocalizedString localizedDescriptionShort)
+    ///
+    /// <param name="localizedDescriptionShort">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedDescriptionShort(LocalString localizedDescriptionShort)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedDescriptionShort = localizedDescriptionShort;
+          bp.LocalizedDescriptionShort = localizedDescriptionShort?.LocalizedString;
         });
     }
 
@@ -1932,13 +1944,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="uIText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public TBuilder AddPrerequisiteEtude(
         Blueprint<BlueprintEtudeReference> etude,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         bool? notPlaying = null,
-        LocalizedString? uIText = null)
+        LocalString? uIText = null)
     {
       var component = new PrerequisiteEtude();
       component.Etude = etude?.Reference;
@@ -1946,7 +1961,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.NotPlaying = notPlaying ?? component.NotPlaying;
-      component.UIText = uIText ?? component.UIText;
+      component.UIText = uIText?.LocalizedString ?? component.UIText;
       if (component.UIText is null)
       {
         component.UIText = Utils.Constants.Empty.String;
@@ -2768,12 +2783,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="uIText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public TBuilder AddPrerequisiteCondition(
         bool? checkInProgression = null,
         Condition? condition = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
-        LocalizedString? uIText = null)
+        LocalString? uIText = null)
     {
       var component = new PrerequisiteCondition();
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
@@ -2781,7 +2800,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Condition = condition ?? component.Condition;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
-      component.UIText = uIText ?? component.UIText;
+      component.UIText = uIText?.LocalizedString ?? component.UIText;
       if (component.UIText is null)
       {
         component.UIText = Utils.Constants.Empty.String;

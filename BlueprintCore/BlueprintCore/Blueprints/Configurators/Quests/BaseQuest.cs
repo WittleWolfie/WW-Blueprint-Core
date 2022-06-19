@@ -29,12 +29,16 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuest.Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Description = description;
+          bp.Description = description?.LocalizedString;
         });
     }
 
@@ -54,12 +58,16 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuest.Title"/>
     /// </summary>
-    public TBuilder SetTitle(LocalizedString title)
+    ///
+    /// <param name="title">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetTitle(LocalString title)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Title = title;
+          bp.Title = title?.LocalizedString;
         });
     }
 
@@ -79,12 +87,16 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuest.CompletionText"/>
     /// </summary>
-    public TBuilder SetCompletionText(LocalizedString completionText)
+    ///
+    /// <param name="completionText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetCompletionText(LocalString completionText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CompletionText = completionText;
+          bp.CompletionText = completionText?.LocalizedString;
         });
     }
 

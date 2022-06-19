@@ -96,12 +96,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlement.m_DefaultSettlementName"/>
     /// </summary>
-    public TBuilder SetDefaultSettlementName(LocalizedString defaultSettlementName)
+    ///
+    /// <param name="defaultSettlementName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDefaultSettlementName(LocalString defaultSettlementName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DefaultSettlementName = defaultSettlementName;
+          bp.m_DefaultSettlementName = defaultSettlementName?.LocalizedString;
         });
     }
 

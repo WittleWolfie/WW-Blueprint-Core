@@ -23,12 +23,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomMoraleFlag.m_DisplayName"/>
     /// </summary>
-    public TBuilder SetDisplayName(LocalizedString displayName)
+    ///
+    /// <param name="displayName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDisplayName(LocalString displayName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DisplayName = displayName;
+          bp.m_DisplayName = displayName?.LocalizedString;
         });
     }
 
@@ -48,12 +52,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomMoraleFlag.m_Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Description = description;
+          bp.m_Description = description?.LocalizedString;
         });
     }
 

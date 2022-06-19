@@ -344,12 +344,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintArea.AreaName"/>
     /// </summary>
-    public TBuilder SetAreaName(LocalizedString areaName)
+    ///
+    /// <param name="areaName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetAreaName(LocalString areaName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.AreaName = areaName;
+          bp.AreaName = areaName?.LocalizedString;
         });
     }
 

@@ -49,12 +49,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintRegion.LocalizedName"/>
     /// </summary>
-    public TBuilder SetLocalizedName(LocalizedString localizedName)
+    ///
+    /// <param name="localizedName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedName(LocalString localizedName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedName = localizedName;
+          bp.LocalizedName = localizedName?.LocalizedString;
         });
     }
 
@@ -74,12 +78,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintRegion.ClaimedDescription"/>
     /// </summary>
-    public TBuilder SetClaimedDescription(LocalizedString claimedDescription)
+    ///
+    /// <param name="claimedDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetClaimedDescription(LocalString claimedDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ClaimedDescription = claimedDescription;
+          bp.ClaimedDescription = claimedDescription?.LocalizedString;
         });
     }
 

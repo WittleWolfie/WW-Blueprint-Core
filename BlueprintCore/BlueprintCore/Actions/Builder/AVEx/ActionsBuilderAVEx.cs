@@ -115,6 +115,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="whatToBark">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="barkDurationByText">
     /// <para>
     /// Tooltip: Bark duration depends on text length
@@ -122,13 +125,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </param>
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
-        LocalizedString whatToBark,
+        LocalString whatToBark,
         bool? barkDurationByText = null,
         bool? showWhileUnconscious = null,
         SharedStringAsset? whatToBarkShared = null)
     {
       var element = ElementTool.Create<ContextActionShowBark>();
-      element.WhatToBark = whatToBark;
+      element.WhatToBark = whatToBark?.LocalizedString;
       element.BarkDurationByText = barkDurationByText ?? element.BarkDurationByText;
       element.ShowWhileUnconscious = showWhileUnconscious ?? element.ShowWhileUnconscious;
       builder.Validate(whatToBarkShared);
@@ -469,12 +472,15 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// Tooltip: Bark duration depends on text length
     /// </para>
     /// </param>
+    /// <param name="whatToBark">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
         bool? barkDurationByText = null,
         MapObjectEvaluator? targetMapObject = null,
         UnitEvaluator? targetUnit = null,
-        LocalizedString? whatToBark = null,
+        LocalString? whatToBark = null,
         SharedStringAsset? whatToBarkShared = null)
     {
       var element = ElementTool.Create<ShowBark>();
@@ -483,7 +489,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
       element.TargetMapObject = targetMapObject ?? element.TargetMapObject;
       builder.Validate(targetUnit);
       element.TargetUnit = targetUnit ?? element.TargetUnit;
-      element.WhatToBark = whatToBark ?? element.WhatToBark;
+      element.WhatToBark = whatToBark?.LocalizedString ?? element.WhatToBark;
       if (element.WhatToBark is null)
       {
         element.WhatToBark = Utils.Constants.Empty.String;

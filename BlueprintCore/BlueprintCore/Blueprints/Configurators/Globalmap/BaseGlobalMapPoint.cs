@@ -193,12 +193,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.Name"/>
     /// </summary>
-    public TBuilder SetName(LocalizedString name)
+    ///
+    /// <param name="name">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetName(LocalString name)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Name = name;
+          bp.Name = name?.LocalizedString;
         });
     }
 
@@ -218,12 +222,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.Description"/>
     /// </summary>
-    public TBuilder SetDescription(LocalizedString description)
+    ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescription(LocalString description)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Description = description;
+          bp.Description = description?.LocalizedString;
         });
     }
 
@@ -243,12 +251,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.FakeName"/>
     /// </summary>
-    public TBuilder SetFakeName(LocalizedString fakeName)
+    ///
+    /// <param name="fakeName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetFakeName(LocalString fakeName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.FakeName = fakeName;
+          bp.FakeName = fakeName?.LocalizedString;
         });
     }
 
@@ -268,12 +280,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.FakeDescription"/>
     /// </summary>
-    public TBuilder SetFakeDescription(LocalizedString fakeDescription)
+    ///
+    /// <param name="fakeDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetFakeDescription(LocalString fakeDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.FakeDescription = fakeDescription;
+          bp.FakeDescription = fakeDescription?.LocalizedString;
         });
     }
 
@@ -746,12 +762,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.ResourceName"/>
     /// </summary>
-    public TBuilder SetResourceName(LocalizedString resourceName)
+    ///
+    /// <param name="resourceName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetResourceName(LocalString resourceName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ResourceName = resourceName;
+          bp.ResourceName = resourceName?.LocalizedString;
         });
     }
 
@@ -997,12 +1017,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.ResourceFoundDescription"/>
     /// </summary>
-    public TBuilder SetResourceFoundDescription(LocalizedString resourceFoundDescription)
+    ///
+    /// <param name="resourceFoundDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetResourceFoundDescription(LocalString resourceFoundDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.ResourceFoundDescription = resourceFoundDescription;
+          bp.ResourceFoundDescription = resourceFoundDescription?.LocalizedString;
         });
     }
 
@@ -1132,12 +1156,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.CustomEnterConfirmationText"/>
     /// </summary>
-    public TBuilder SetCustomEnterConfirmationText(LocalizedString customEnterConfirmationText)
+    ///
+    /// <param name="customEnterConfirmationText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetCustomEnterConfirmationText(LocalString customEnterConfirmationText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CustomEnterConfirmationText = customEnterConfirmationText;
+          bp.CustomEnterConfirmationText = customEnterConfirmationText?.LocalizedString;
         });
     }
 
@@ -1308,12 +1336,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.CustomClosedText"/>
     /// </summary>
-    public TBuilder SetCustomClosedText(LocalizedString customClosedText)
+    ///
+    /// <param name="customClosedText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetCustomClosedText(LocalString customClosedText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CustomClosedText = customClosedText;
+          bp.CustomClosedText = customClosedText?.LocalizedString;
         });
     }
 
@@ -1414,6 +1446,9 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </list>
     /// </remarks>
     ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -1434,7 +1469,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     /// </param>
     public TBuilder AddLocationRestriction(
         ConditionsBuilder? allowedCondition = null,
-        LocalizedString? description = null,
+        LocalString? description = null,
         ConditionsBuilder? ignoreCondition = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -1446,7 +1481,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       {
         component.AllowedCondition = Utils.Constants.Empty.Conditions;
       }
-      component.Description = description ?? component.Description;
+      component.Description = description?.LocalizedString ?? component.Description;
       if (component.Description is null)
       {
         component.Description = Utils.Constants.Empty.String;

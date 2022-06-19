@@ -50,12 +50,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.LocalizedName"/>
     /// </summary>
-    public TBuilder SetLocalizedName(LocalizedString localizedName)
+    ///
+    /// <param name="localizedName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedName(LocalString localizedName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedName = localizedName;
+          bp.LocalizedName = localizedName?.LocalizedString;
         });
     }
 
@@ -75,12 +79,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.LocalizedDescription"/>
     /// </summary>
-    public TBuilder SetLocalizedDescription(LocalizedString localizedDescription)
+    ///
+    /// <param name="localizedDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetLocalizedDescription(LocalString localizedDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LocalizedDescription = localizedDescription;
+          bp.LocalizedDescription = localizedDescription?.LocalizedString;
         });
     }
 
@@ -343,12 +351,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.DefaultResolutionDescription"/>
     /// </summary>
-    public TBuilder SetDefaultResolutionDescription(LocalizedString defaultResolutionDescription)
+    ///
+    /// <param name="defaultResolutionDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDefaultResolutionDescription(LocalString defaultResolutionDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DefaultResolutionDescription = defaultResolutionDescription;
+          bp.DefaultResolutionDescription = defaultResolutionDescription?.LocalizedString;
         });
     }
 

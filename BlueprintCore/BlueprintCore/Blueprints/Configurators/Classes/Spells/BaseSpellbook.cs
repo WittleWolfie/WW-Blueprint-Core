@@ -24,12 +24,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.Name"/>
     /// </summary>
-    public TBuilder SetName(LocalizedString name)
+    ///
+    /// <param name="name">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetName(LocalString name)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Name = name;
+          bp.Name = name?.LocalizedString;
         });
     }
 
@@ -580,12 +584,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.SpecialSpellListName"/>
     /// </summary>
-    public TBuilder SetSpecialSpellListName(LocalizedString specialSpellListName)
+    ///
+    /// <param name="specialSpellListName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetSpecialSpellListName(LocalString specialSpellListName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.SpecialSpellListName = specialSpellListName;
+          bp.SpecialSpellListName = specialSpellListName?.LocalizedString;
         });
     }
 

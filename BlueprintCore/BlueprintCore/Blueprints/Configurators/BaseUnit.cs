@@ -1404,6 +1404,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="dlcReward">
     /// <para>
     /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
@@ -1433,6 +1436,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="name">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
     /// <param name="partyBuff">
     /// <para>
@@ -1498,7 +1504,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Blueprint<CutsceneReference>? campCutscene = null,
         CampPositionType? campPositionType = null,
         CampingSpecialCustomMechanics? customMechanics = null,
-        LocalizedString? description = null,
+        LocalString? description = null,
         Blueprint<BlueprintDlcRewardReference>? dlcReward = null,
         Blueprint<BlueprintBuffReference>? enemiesBuffOnRandomEncounter = null,
         int? extraRations = null,
@@ -1506,7 +1512,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? minEnemyRandomEncounterBuffs = null,
-        LocalizedString? name = null,
+        LocalString? name = null,
         Blueprint<BlueprintBuffReference>? partyBuff = null,
         Blueprint<BlueprintBuffReference>? partyBuffDuringCamp = null,
         Blueprint<BlueprintBuffReference>? partyBuffOnRandomEncounter = null,
@@ -1522,7 +1528,7 @@ namespace BlueprintCore.Blueprints.Configurators
       }
       component.CampPositionType = campPositionType ?? component.CampPositionType;
       component.CustomMechanics = customMechanics ?? component.CustomMechanics;
-      component.Description = description ?? component.Description;
+      component.Description = description?.LocalizedString ?? component.Description;
       if (component.Description is null)
       {
         component.Description = Utils.Constants.Empty.String;
@@ -1540,7 +1546,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.ExtraRations = extraRations ?? component.ExtraRations;
       component.MaxEnemyRandomEncounterBuffs = maxEnemyRandomEncounterBuffs ?? component.MaxEnemyRandomEncounterBuffs;
       component.MinEnemyRandomEncounterBuffs = minEnemyRandomEncounterBuffs ?? component.MinEnemyRandomEncounterBuffs;
-      component.Name = name ?? component.Name;
+      component.Name = name?.LocalizedString ?? component.Name;
       if (component.Name is null)
       {
         component.Name = Utils.Constants.Empty.String;
@@ -1917,29 +1923,42 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <item><term>StartGameSorcererPregenUnitLevel8</term><description>f373e1221fc89d9419109e23cf1a7048</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="pregenClass">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="pregenDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="pregenName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="pregenRole">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public TBuilder AddPregenUnitComponent(
-        LocalizedString? pregenClass = null,
-        LocalizedString? pregenDescription = null,
-        LocalizedString? pregenName = null,
-        LocalizedString? pregenRole = null)
+        LocalString? pregenClass = null,
+        LocalString? pregenDescription = null,
+        LocalString? pregenName = null,
+        LocalString? pregenRole = null)
     {
       var component = new PregenUnitComponent();
-      component.PregenClass = pregenClass ?? component.PregenClass;
+      component.PregenClass = pregenClass?.LocalizedString ?? component.PregenClass;
       if (component.PregenClass is null)
       {
         component.PregenClass = Utils.Constants.Empty.String;
       }
-      component.PregenDescription = pregenDescription ?? component.PregenDescription;
+      component.PregenDescription = pregenDescription?.LocalizedString ?? component.PregenDescription;
       if (component.PregenDescription is null)
       {
         component.PregenDescription = Utils.Constants.Empty.String;
       }
-      component.PregenName = pregenName ?? component.PregenName;
+      component.PregenName = pregenName?.LocalizedString ?? component.PregenName;
       if (component.PregenName is null)
       {
         component.PregenName = Utils.Constants.Empty.String;
       }
-      component.PregenRole = pregenRole ?? component.PregenRole;
+      component.PregenRole = pregenRole?.LocalizedString ?? component.PregenRole;
       if (component.PregenRole is null)
       {
         component.PregenRole = Utils.Constants.Empty.String;
@@ -2672,6 +2691,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="description">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="maxExtraActions">
     /// <para>
     /// InfoBox: Base turn and bonus morale turn have separate counters
@@ -2684,7 +2706,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddArmyUnitComponent(
-        LocalizedString? description = null,
+        LocalString? description = null,
         Sprite? icon = null,
         bool? isHaveMorale = null,
         int? maxExtraActions = null,
@@ -2697,7 +2719,7 @@ namespace BlueprintCore.Blueprints.Configurators
         KingdomResourcesAmount? supportPrice = null)
     {
       var component = new ArmyUnitComponent();
-      component.Description = description ?? component.Description;
+      component.Description = description?.LocalizedString ?? component.Description;
       if (component.Description is null)
       {
         component.Description = Utils.Constants.Empty.String;

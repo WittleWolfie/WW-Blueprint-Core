@@ -92,12 +92,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_TitleText"/>
     /// </summary>
-    public TBuilder SetTitleText(LocalizedString titleText)
+    ///
+    /// <param name="titleText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetTitleText(LocalString titleText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_TitleText = titleText;
+          bp.m_TitleText = titleText?.LocalizedString;
         });
     }
 
@@ -117,12 +121,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_TriggerText"/>
     /// </summary>
-    public TBuilder SetTriggerText(LocalizedString triggerText)
+    ///
+    /// <param name="triggerText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetTriggerText(LocalString triggerText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_TriggerText = triggerText;
+          bp.m_TriggerText = triggerText?.LocalizedString;
         });
     }
 
@@ -142,12 +150,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_DescriptionText"/>
     /// </summary>
-    public TBuilder SetDescriptionText(LocalizedString descriptionText)
+    ///
+    /// <param name="descriptionText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDescriptionText(LocalString descriptionText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DescriptionText = descriptionText;
+          bp.m_DescriptionText = descriptionText?.LocalizedString;
         });
     }
 
@@ -167,12 +179,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_SolutionFoundText"/>
     /// </summary>
-    public TBuilder SetSolutionFoundText(LocalizedString solutionFoundText)
+    ///
+    /// <param name="solutionFoundText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetSolutionFoundText(LocalString solutionFoundText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_SolutionFoundText = solutionFoundText;
+          bp.m_SolutionFoundText = solutionFoundText?.LocalizedString;
         });
     }
 
@@ -192,12 +208,16 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_SolutionNotFoundText"/>
     /// </summary>
-    public TBuilder SetSolutionNotFoundText(LocalizedString solutionNotFoundText)
+    ///
+    /// <param name="solutionNotFoundText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetSolutionNotFoundText(LocalString solutionNotFoundText)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_SolutionNotFoundText = solutionNotFoundText;
+          bp.m_SolutionNotFoundText = solutionNotFoundText?.LocalizedString;
         });
     }
 
@@ -457,39 +477,55 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <item><term>TestTutorialSC</term><description>2e48c8330634d544489e1fc14ccf5eaa</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="descriptionText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="solutionFoundText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="solutionNotFoundText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="titleText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="triggerText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public TBuilder AddTutorialPage(
-        LocalizedString? descriptionText = null,
+        LocalString? descriptionText = null,
         SpriteLink? picture = null,
-        LocalizedString? solutionFoundText = null,
-        LocalizedString? solutionNotFoundText = null,
-        LocalizedString? titleText = null,
-        LocalizedString? triggerText = null,
+        LocalString? solutionFoundText = null,
+        LocalString? solutionNotFoundText = null,
+        LocalString? titleText = null,
+        LocalString? triggerText = null,
         VideoLink? video = null)
     {
       var component = new TutorialPage();
-      component.m_DescriptionText = descriptionText ?? component.m_DescriptionText;
+      component.m_DescriptionText = descriptionText?.LocalizedString ?? component.m_DescriptionText;
       if (component.m_DescriptionText is null)
       {
         component.m_DescriptionText = Utils.Constants.Empty.String;
       }
       Validate(picture);
       component.m_Picture = picture ?? component.m_Picture;
-      component.m_SolutionFoundText = solutionFoundText ?? component.m_SolutionFoundText;
+      component.m_SolutionFoundText = solutionFoundText?.LocalizedString ?? component.m_SolutionFoundText;
       if (component.m_SolutionFoundText is null)
       {
         component.m_SolutionFoundText = Utils.Constants.Empty.String;
       }
-      component.m_SolutionNotFoundText = solutionNotFoundText ?? component.m_SolutionNotFoundText;
+      component.m_SolutionNotFoundText = solutionNotFoundText?.LocalizedString ?? component.m_SolutionNotFoundText;
       if (component.m_SolutionNotFoundText is null)
       {
         component.m_SolutionNotFoundText = Utils.Constants.Empty.String;
       }
-      component.m_TitleText = titleText ?? component.m_TitleText;
+      component.m_TitleText = titleText?.LocalizedString ?? component.m_TitleText;
       if (component.m_TitleText is null)
       {
         component.m_TitleText = Utils.Constants.Empty.String;
       }
-      component.m_TriggerText = triggerText ?? component.m_TriggerText;
+      component.m_TriggerText = triggerText?.LocalizedString ?? component.m_TriggerText;
       if (component.m_TriggerText is null)
       {
         component.m_TriggerText = Utils.Constants.Empty.String;

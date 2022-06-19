@@ -74,12 +74,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomProject.m_MechanicalDescription"/>
     /// </summary>
-    public TBuilder SetMechanicalDescription(LocalizedString mechanicalDescription)
+    ///
+    /// <param name="mechanicalDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetMechanicalDescription(LocalString mechanicalDescription)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_MechanicalDescription = mechanicalDescription;
+          bp.m_MechanicalDescription = mechanicalDescription?.LocalizedString;
         });
     }
 

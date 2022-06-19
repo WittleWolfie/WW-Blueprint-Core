@@ -9,7 +9,6 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,12 +68,16 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <item><term>AreeluLabFalseName</term><description>2bbe2729cac14033a4aa094f2df60fdc</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="newName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ChangeCurrentAreaName(
         this ActionsBuilder builder,
-        LocalizedString newName)
+        LocalString newName)
     {
       var element = ElementTool.Create<ChangeCurrentAreaName>();
-      element.NewName = newName;
+      element.NewName = newName?.LocalizedString;
       return builder.Add(element);
     }
 
@@ -108,6 +111,12 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="defaultValue">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="hint">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="location">
     /// <para>
     /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
@@ -120,21 +129,24 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="title">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder AskPlayerForLocationName(
         this ActionsBuilder builder,
-        LocalizedString? defaultValue = null,
-        LocalizedString? hint = null,
+        LocalString? defaultValue = null,
+        LocalString? hint = null,
         Blueprint<BlueprintGlobalMapPoint.Reference>? location = null,
         bool? obligatory = null,
-        LocalizedString? title = null)
+        LocalString? title = null)
     {
       var element = ElementTool.Create<AskPlayerForLocationName>();
-      element.Default = defaultValue ?? element.Default;
+      element.Default = defaultValue?.LocalizedString ?? element.Default;
       if (element.Default is null)
       {
         element.Default = Utils.Constants.Empty.String;
       }
-      element.Hint = hint ?? element.Hint;
+      element.Hint = hint?.LocalizedString ?? element.Hint;
       if (element.Hint is null)
       {
         element.Hint = Utils.Constants.Empty.String;
@@ -145,7 +157,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
       element.Obligatory = obligatory ?? element.Obligatory;
-      element.Title = title ?? element.Title;
+      element.Title = title?.LocalizedString ?? element.Title;
       if (element.Title is null)
       {
         element.Title = Utils.Constants.Empty.String;

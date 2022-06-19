@@ -1493,12 +1493,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <summary>
     /// Sets the value of <see cref="KingdomRoot.DefaultName"/>
     /// </summary>
-    public TBuilder SetDefaultName(LocalizedString defaultName)
+    ///
+    /// <param name="defaultName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDefaultName(LocalString defaultName)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.DefaultName = defaultName;
+          bp.DefaultName = defaultName?.LocalizedString;
         });
     }
 
