@@ -126,11 +126,13 @@ namespace BlueprintCore.Utils.Localization
     /// </returns>
     internal LocalizationPack.StringEntry StringEntry(Locale locale = Locale.enGB)
     {
+      bool tagEntries = false;
       string result;
       switch (locale)
       {
         case Locale.enGB:
           result = enGB;
+          tagEntries = ProcessTemplates;
           break;
         case Locale.ruRU:
           result = ruRU;
@@ -158,7 +160,7 @@ namespace BlueprintCore.Utils.Localization
 
       return new LocalizationPack.StringEntry
       {
-        Text = ProcessTemplates ? EncyclopediaTool.TagEncyclopediaEntries(result) : result
+        Text = tagEntries ? EncyclopediaTool.TagEncyclopediaEntries(result) : result
       };
     }
 
