@@ -84,7 +84,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       method.AddLine($"protected override void OnConfigureCompleted()");
       method.AddLine($"{{");
-      method.AddLine($"  base.SetDefaults();");
+      method.AddLine($"  base.OnConfigureCompleted();");
       method.AddLine($"");
       body.ForEach(line => method.AddLine($"  {line}"));
       method.AddLine($"}}");
