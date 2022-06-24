@@ -250,9 +250,9 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_GlobalMapBuff is null)
       {

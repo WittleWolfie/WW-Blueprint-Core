@@ -1221,9 +1221,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.Fx is null)
       {

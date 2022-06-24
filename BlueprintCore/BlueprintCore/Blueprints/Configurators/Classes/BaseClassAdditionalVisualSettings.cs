@@ -280,9 +280,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Prerequisite is null)
       {

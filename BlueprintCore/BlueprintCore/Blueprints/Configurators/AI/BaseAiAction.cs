@@ -540,9 +540,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_ActorConsiderations is null)
       {

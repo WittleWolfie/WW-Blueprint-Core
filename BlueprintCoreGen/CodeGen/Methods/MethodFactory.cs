@@ -66,7 +66,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       return new() { forBp, newBp };
     }
 
-    public static IMethod CreateConfiguratorSetDefaults(Type blueprintType, List<FieldMethod> fields)
+    public static IMethod CreateConfiguratorOnConfigureCompleted(Type blueprintType, List<FieldMethod> fields)
     {
       var method = new MethodImpl();
       var body =
@@ -82,7 +82,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
         return method;
       }
 
-      method.AddLine($"protected override void SetDefaults()");
+      method.AddLine($"protected override void OnConfigureCompleted()");
       method.AddLine($"{{");
       method.AddLine($"  base.SetDefaults();");
       method.AddLine($"");

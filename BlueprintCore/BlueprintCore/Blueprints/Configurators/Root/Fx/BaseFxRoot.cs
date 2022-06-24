@@ -1012,9 +1012,9 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_SingleHandCasts is null)
       {

@@ -3068,9 +3068,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_TitleText is null)
       {

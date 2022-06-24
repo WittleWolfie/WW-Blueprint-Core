@@ -207,9 +207,9 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.StageNameParameterized is null)
       {

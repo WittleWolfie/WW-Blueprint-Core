@@ -587,9 +587,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_AudioTimeOfDayVariants is null)
       {

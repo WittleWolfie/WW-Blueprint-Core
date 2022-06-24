@@ -1099,9 +1099,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
       return AddComponent(new HideFeatureInInspect());
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Buff is null)
       {

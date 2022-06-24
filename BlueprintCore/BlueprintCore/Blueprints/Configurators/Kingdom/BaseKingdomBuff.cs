@@ -943,9 +943,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       return AddComponent(component);
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.DisplayName is null)
       {

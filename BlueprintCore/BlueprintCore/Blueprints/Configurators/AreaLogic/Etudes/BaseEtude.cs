@@ -2327,9 +2327,9 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       return AddComponent(component);
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Parent is null)
       {

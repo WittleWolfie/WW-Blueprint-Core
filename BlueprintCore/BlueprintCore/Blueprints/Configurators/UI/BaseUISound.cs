@@ -251,9 +251,9 @@ namespace BlueprintCore.Blueprints.Configurators.UI
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.Sounds is null)
       {

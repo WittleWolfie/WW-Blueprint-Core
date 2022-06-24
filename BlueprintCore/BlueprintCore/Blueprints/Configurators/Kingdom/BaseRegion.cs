@@ -609,9 +609,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.LocalizedName is null)
       {

@@ -115,9 +115,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.Levels is null)
       {

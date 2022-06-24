@@ -304,9 +304,9 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.Description is null)
       {

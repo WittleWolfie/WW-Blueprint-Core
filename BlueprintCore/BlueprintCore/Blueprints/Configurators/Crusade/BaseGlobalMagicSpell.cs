@@ -239,9 +239,9 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_SpellName is null)
       {

@@ -6896,9 +6896,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       return AddComponent(new HideFeatureInInspect());
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_DefaultAiAction is null)
       {

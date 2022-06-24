@@ -3067,9 +3067,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return AddComponent(component);
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_NameModifiersCache is null)
       {

@@ -928,9 +928,9 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       return AddComponent(component);
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Addendums is null)
       {

@@ -168,7 +168,7 @@ namespace BlueprintCoreGen.CodeGen.Class
 
       // Default field values
       var setDefaults =
-        MethodFactory.CreateConfiguratorSetDefaults(configurator.BlueprintType, configurator.FieldMethods);
+        MethodFactory.CreateConfiguratorOnConfigureCompleted(configurator.BlueprintType, configurator.FieldMethods);
       if (setDefaults.GetLines().Any())
       {
         configuratorClass.AddLine("");

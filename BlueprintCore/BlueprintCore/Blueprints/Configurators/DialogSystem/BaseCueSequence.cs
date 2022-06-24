@@ -173,9 +173,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.Cues is null)
       {

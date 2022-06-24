@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
       ConfigureComponents();
       OnConfigurePrivate();
 
-      SetDefaults();
+      OnConfigureCompleted();
       Blueprint.OnEnable();
 
       Validator.Check(Blueprint);
@@ -220,8 +220,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
 
     //----- Start: Configure & Validate
 
-    // Child classes can set sane defaults here.
-    protected virtual void SetDefaults() {}
+    // Child classes can take action after the blueprint is configured, e.g. set sane defaults for blueprint fields.
+    protected virtual void OnConfigureCompleted() {}
 
     protected void Validate(object? obj)
     {

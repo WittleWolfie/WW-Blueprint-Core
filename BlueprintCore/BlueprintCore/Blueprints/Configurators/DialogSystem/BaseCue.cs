@@ -410,9 +410,9 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.Text is null)
       {

@@ -97,9 +97,9 @@ namespace BlueprintCore.Blueprints.Configurators.Console
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Layers is null)
       {

@@ -160,9 +160,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Enchantments is null)
       {

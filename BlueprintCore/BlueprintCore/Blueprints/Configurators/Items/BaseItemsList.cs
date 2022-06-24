@@ -135,9 +135,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Items is null)
       {

@@ -209,9 +209,9 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.Conditions is null)
       {

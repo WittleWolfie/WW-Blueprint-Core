@@ -376,9 +376,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Actor is null)
       {

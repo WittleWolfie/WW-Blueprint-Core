@@ -97,9 +97,9 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.m_Actions is null)
       {

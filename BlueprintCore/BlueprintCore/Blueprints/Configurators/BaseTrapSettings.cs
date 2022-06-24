@@ -151,9 +151,9 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.TrapActor is null)
       {

@@ -1938,9 +1938,9 @@ namespace BlueprintCore.Blueprints.Configurators.QA
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
-    protected override void SetDefaults()
+    protected override void OnConfigureCompleted()
     {
-      base.SetDefaults();
+      base.OnConfigureCompleted();
     
       if (Blueprint.Preset is null)
       {
