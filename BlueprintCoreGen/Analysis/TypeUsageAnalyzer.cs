@@ -1,13 +1,12 @@
-﻿using AK.Wwise;
-using BlueprintCoreGen.CodeGen;
+﻿using BlueprintCoreGen.CodeGen;
 using BlueprintCoreGen.CodeGen.Methods;
-using BlueprintCoreGen.CodeGen.Overrides.Examples;
+using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Blueprints.Loot;
+using Kingmaker.Blueprints.Quests;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -18,359 +17,415 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace BlueprintCoreGen.Analysis
 {
   public static class TypeUsageAnalyzer
-  {
-    // When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
-    private static readonly int DebugLimit = -1;
-    // How many blueprints to process before reporting on progress & speed
-    private static readonly int ReportThreshold = 1500;
+	{
+		// When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
+		private static readonly int DebugLimit = -1;
+		// How many blueprints to process before reporting on progress & speed
+		private static readonly int ReportThreshold = 1500;
 
-    private static readonly Dictionary<string, Type> TypesById = new();
-    private static readonly Dictionary<string, Type> TypesByName = new();
-    private static readonly HashSet<string> DuplicateTypeIds = new();
+		private static readonly Dictionary<string, Type> TypesById = new();
+		private static readonly Dictionary<string, Type> TypesByName = new();
+		private static readonly HashSet<string> DuplicateTypeIds = new();
 
-    private static readonly Dictionary<string, Blueprint> BlueprintsByGuid = new();
-    private static readonly Dictionary<Type, HashSet<Blueprint>> BlueprintsByType = new();
-    private static readonly Dictionary<Type, HashSet<Blueprint>> ExamplesByType = new();
+		private static readonly Dictionary<string, Blueprint> BlueprintsByGuid = new();
+		private static readonly Dictionary<Type, HashSet<Blueprint>> BlueprintsByType = new();
+		private static readonly Dictionary<Type, HashSet<Blueprint>> ExamplesByType = new();
 
-    public static void Analyze(Type[] gameTypes)
+		public static void Analyze(Type[] gameTypes)
+		{
+			ProcessGameTypes(gameTypes);
+
+			ProcessDB();
+
+			ProcessUnusedTypes(typeof(GameAction), gameTypes);
+			ProcessUnusedTypes(typeof(Condition), gameTypes);
+			ProcessUnusedTypes(typeof(BlueprintScriptableObject), gameTypes);
+			ProcessUnusedTypes(typeof(BlueprintComponent), gameTypes);
+
+			ProcessExamples(typeof(GameAction));
+			ProcessExamples(typeof(Condition));
+			ProcessExamples(typeof(BlueprintScriptableObject));
+			ProcessExamples(typeof(BlueprintComponent));
+
+			ProcessBlueprintReferences(gameTypes);
+		}
+
+		// Generates a Type ID (or name if Type ID is not available) > Type mapping. This is safer since some blueprints
+		// refer to old class names, and it is faster than using AccessTools to lookup type by name.
+		private static void ProcessGameTypes(Type[] gameTypes)
+		{
+			foreach (var type in gameTypes)
+			{
+				// Filter to only types relevant to processing
+				if (
+					!type.IsAbstract &&
+					(type.IsSubclassOf(typeof(GameAction))
+					|| type.IsSubclassOf(typeof(Condition))
+					|| type.IsSubclassOf(typeof(BlueprintComponent))
+					|| type.IsSubclassOf(typeof(SimpleBlueprint))))
+				{
+					var typeId =
+						type.GetCustomAttributes(typeof(TypeIdAttribute), inherit: false).Cast<TypeIdAttribute>().FirstOrDefault();
+					if (typeId is not null)
+					{
+						if (TypesById.ContainsKey(typeId.GuidString))
+						{
+							// There are some types that have duplicate TypeID. Technically this shouldn't be functional but they
+							// seem to occur only for unused types.
+							Console.WriteLine(
+								$"Found duplicate types for TypeID: {typeId.GuidString} - {type.Name} and {TypesById[typeId.GuidString]}");
+							TypesById.Remove(typeId.GuidString);
+							DuplicateTypeIds.Add(typeId.GuidString);
+						}
+						else
+						{
+							TypesById.Add(typeId.GuidString, type);
+						}
+					}
+					else
+					{
+						TypesByName.Add(type.Name, type);
+					}
+				}
+			}
+		}
+
+		private static void ProcessUnusedTypes(Type baseType, Type[] gameTypes)
+		{
+			HashSet<string> imports = new();
+			StringBuilder unusedTypes = new();
+			gameTypes.Where(t => !t.IsAbstract && t.IsSubclassOf(baseType) && !ExamplesByType.ContainsKey(t))
+				.ToList()
+				.ForEach(
+					t =>
+					{
+						imports.Add(TypeTool.GetImport(t)!);
+						unusedTypes.AppendLine($"        typeof({GetTypeName(t)}),");
+					});
+
+			var fileText = new StringBuilder();
+			fileText.AppendLine("using System;");
+			fileText.AppendLine("using System.Collections.Generic;");
+			fileText.AppendJoin('\n', imports).AppendLine().AppendLine();
+			fileText.AppendLine(@"namespace BlueprintCoreGen.CodeGen.Overrides.Ignored");
+			fileText.AppendLine(@"{");
+			fileText.AppendLine($"  // Examples generated by TypeUsageAnalyzer");
+			fileText.AppendLine($"  internal static class Ignored{baseType.Name}s");
+			fileText.AppendLine(@"  {");
+			fileText.AppendLine($"    public static readonly List<Type> Types =");
+			fileText.AppendLine($"      new()");
+			fileText.AppendLine(@"      {");
+			fileText.Append(unusedTypes);
+			fileText.AppendLine(@"      };");
+			fileText.AppendLine(@"  }");
+			fileText.AppendLine(@"}");
+			Directory.CreateDirectory(Program.AnalysisDir);
+			File.WriteAllText($"{Program.AnalysisDir}/Ignored{baseType.Name}s.cs", fileText.ToString());
+		}
+
+		// Handles type name for generics. Note that TypeTool.GetTypeName() doesn't work because it generates a name for a
+		// type with defined generic arguments. i.e. TypeTool produces "GenericType<A,B>", this produces "GenericType<,>".
+		private static string GetTypeName(Type type)
+		{
+			if (!type.IsGenericType)
+			{
+				return type.Name;
+			}
+
+			var rawTypeName = type.GetGenericTypeDefinition().Name;
+			StringBuilder typeName = new(rawTypeName[..rawTypeName.IndexOf('`')]);
+			typeName.Append('<');
+			for (int i = 1; i < type.GenericTypeArguments.Length; i++)
+			{
+				typeName.Append(',');
+			}
+			typeName.Append('>');
+			return typeName.ToString();
+		}
+
+		// Some types are not useful because of excessive duplicate names or simply having too many blueprints.
+		private static List<Type> SkipBlueprintReferences =
+			new()
+			{
+				typeof(BlueprintAnswer),
+				typeof(BlueprintAnswersList),
+				typeof(BlueprintBookPage),
+				typeof(BlueprintCheck),
+				typeof(BlueprintCue),
+				typeof(BlueprintCueSequence),
+        typeof(Gate),
+				typeof(BlueprintLoot),
+        typeof(BlueprintQuestObjective),
+				typeof(BlueprintSequenceExit)
+			};
+		// Generates constant reference classes for blueprints
+		private static void ProcessBlueprintReferences(Type[] gameTypes)
+		{
+			var bpTypes = gameTypes.Where(t => !t.IsAbstract && t.IsSubclassOf(typeof(BlueprintScriptableObject)));
+			foreach (var bpType in bpTypes)
+			{
+				if (SkipBlueprintReferences.Contains(bpType) || !BlueprintsByType.ContainsKey(bpType))
+				{
+					continue;
+				}
+
+				var blueprints = BlueprintsByType[bpType].OrderBy(bp => bp.BlueprintName).ToList();
+				var className = TypeTool.GetName(bpType).Replace("Blueprint", "");
+
+				if (blueprints.Count > 10000)
+        {
+					Console.WriteLine($"Skipping {className}, too many: {blueprints.Count}");
+					continue;
+        }
+
+				var bpNames = new HashSet<string>();
+				var fileText = new StringBuilder();
+				fileText.AppendLine("using BlueprintCore.Utils;").AppendLine();
+				fileText.AppendLine(@"namespace BlueprintCore.Blueprints.References");
+				fileText.AppendLine(@"{");
+				fileText.AppendLine($"  /// <summary>");
+				fileText.AppendLine($"  /// Constant references to {TypeTool.GetName(bpType)} blueprints");
+				fileText.AppendLine($"  /// </summary>");
+				fileText.AppendLine($"  public static class {className}");
+				fileText.AppendLine(@"  {");
+				blueprints.ForEach(
+					bp =>
+					{
+						string sanitizedName;
+						if (BlueprintReferenceOverrides.BlueprintNameByGuid.ContainsKey(bp.BlueprintGuid))
+						{
+							sanitizedName = BlueprintReferenceOverrides.BlueprintNameByGuid[bp.BlueprintGuid];
+						}
+						else
+						{
+							sanitizedName = SanitizeBlueprintName(bp.BlueprintName, className, bpNames);
+						}
+						bpNames.Add(sanitizedName);
+						fileText.AppendLine($"    public const string {sanitizedName} = \"{bp.BlueprintGuid}\";");
+					});
+				fileText.AppendLine(@"  }");
+				fileText.AppendLine(@"}");
+
+				Directory.CreateDirectory($"{Program.AnalysisDir}/References");
+				File.WriteAllText($"{Program.AnalysisDir}/References/{className}.cs", fileText.ToString());
+			}
+		}
+
+		// Ensures there are no name collisions or invalid characters.
+		private static string SanitizeBlueprintName(string bpName, string className, HashSet<string> bpNames)
     {
-      ProcessGameTypes(gameTypes);
-
-      ProcessDB();
-
-      ProcessUnusedTypes(typeof(GameAction), gameTypes);
-      ProcessUnusedTypes(typeof(Condition), gameTypes);
-      ProcessUnusedTypes(typeof(BlueprintScriptableObject), gameTypes);
-      ProcessUnusedTypes(typeof(BlueprintComponent), gameTypes);
-
-      ProcessExamples(typeof(GameAction));
-      ProcessExamples(typeof(Condition));
-      ProcessExamples(typeof(BlueprintScriptableObject));
-      ProcessExamples(typeof(BlueprintComponent));
-
-      ProcessBlueprints(
-        (typeof(BlueprintBuff), "Buffs"),
-        (typeof(BlueprintFeature), "Features"),
-        (typeof(BlueprintWeaponEnchantment), "WeaponEnchants"),
-        (typeof(BlueprintArmorEnchantment), "ArmorEnchants"));
-    }
-
-    // Generates a Type ID (or name if Type ID is not available) > Type mapping. This is safer since some blueprints
-    // refer to old class names, and it is faster than using AccessTools to lookup type by name.
-    private static void ProcessGameTypes(Type[] gameTypes)
-    {
-      foreach (var type in gameTypes)
+			var baseSanitizedName = Regex.Replace(bpName, "[^A-Za-z0-9]", "_");
+			if (char.IsDigit(baseSanitizedName[0]) || baseSanitizedName.Equals(className))
+			{
+				baseSanitizedName = $"_{baseSanitizedName}";
+			}
+			int dupeCount = 0;
+			string sanitizedName = baseSanitizedName;
+			while (bpNames.Contains(sanitizedName))
+			{
+				sanitizedName = $"{baseSanitizedName}_{dupeCount}";
+				dupeCount++;
+			}
+			if (dupeCount > 1)
       {
-        // Filter to only types relevant to processing
-        if (
-          !type.IsAbstract &&
-          (type.IsSubclassOf(typeof(GameAction))
-          || type.IsSubclassOf(typeof(Condition))
-          || type.IsSubclassOf(typeof(BlueprintComponent))
-          || type.IsSubclassOf(typeof(SimpleBlueprint))))
-        {
-          var typeId =
-            type.GetCustomAttributes(typeof(TypeIdAttribute), inherit: false).Cast<TypeIdAttribute>().FirstOrDefault();
-          if (typeId is not null)
-          {
-            if (TypesById.ContainsKey(typeId.GuidString))
-            {
-              // There are some types that have duplicate TypeID. Technically this shouldn't be functional but they
-              // seem to occur only for unused types.
-              Console.WriteLine(
-                $"Found duplicate types for TypeID: {typeId.GuidString} - {type.Name} and {TypesById[typeId.GuidString]}");
-              TypesById.Remove(typeId.GuidString);
-              DuplicateTypeIds.Add(typeId.GuidString);
-            }
-            else
-            {
-              TypesById.Add(typeId.GuidString, type);
-            }
-          }
-          else
-          {
-            TypesByName.Add(type.Name, type);
-          }
-        }
+				Console.WriteLine($"{className} {bpName} has too many dupes: {dupeCount}");
       }
+			return sanitizedName;
     }
 
-    private static void ProcessUnusedTypes(Type baseType, Type[] gameTypes)
-    {
-      HashSet<string> imports = new();
-      StringBuilder unusedTypes = new();
-      gameTypes.Where(t => !t.IsAbstract && t.IsSubclassOf(baseType) && !ExamplesByType.ContainsKey(t))
-        .ToList()
-        .ForEach(
-          t =>
-          {
-            imports.Add(TypeTool.GetImport(t)!);
-            unusedTypes.AppendLine($"        typeof({GetTypeName(t)}),");
-          });
+		private static void ProcessExamples(Type baseType)
+		{
+			HashSet<string> imports = new();
+			StringBuilder examples = new();
+			var entries = ExamplesByType.Where(entry => entry.Key.IsSubclassOf(baseType));
+			foreach (var entry in entries)
+			{
+				imports.Add(TypeTool.GetImport(entry.Key)!);
 
-      var fileText = new StringBuilder();
-      fileText.AppendLine("using System;");
-      fileText.AppendLine("using System.Collections.Generic;");
-      fileText.AppendJoin('\n', imports).AppendLine().AppendLine();
-      fileText.AppendLine(@"namespace BlueprintCoreGen.CodeGen.Overrides.Ignored");
-      fileText.AppendLine(@"{");
-      fileText.AppendLine($"  // Examples generated by TypeUsageAnalyzer");
-      fileText.AppendLine($"  internal static class Ignored{baseType.Name}s");
-      fileText.AppendLine(@"  {");
-      fileText.AppendLine($"    public static readonly List<Type> Types =");
-      fileText.AppendLine($"      new()");
-      fileText.AppendLine(@"      {");
-      fileText.Append(unusedTypes);
-      fileText.AppendLine(@"      };");
-      fileText.AppendLine(@"  }");
-      fileText.AppendLine(@"}");
-      Directory.CreateDirectory(Program.AnalysisDir);
-      File.WriteAllText($"{Program.AnalysisDir}/Ignored{baseType.Name}s.cs", fileText.ToString());
-    }
+				var sortedExamples = entry.Value.OrderBy(ex => ex.BlueprintName).ToList();
+				List<Blueprint> exampleBlueprints = new();
+				if (sortedExamples.Count > 3)
+				{
+					// Use the first, last, and middle blueprints as examples. This should keep things relatively stable between
+					// game patches and avoid biasing towards the first three entries alphabetically.
+					exampleBlueprints.Add(sortedExamples.First());
+					exampleBlueprints.Add(sortedExamples[sortedExamples.Count / 2]);
+					exampleBlueprints.Add(sortedExamples.Last());
+				}
+				else
+				{
+					exampleBlueprints.AddRange(sortedExamples);
+				}
 
-    // Handles type name for generics. Note that TypeTool.GetTypeName() doesn't work because it generates a name for a
-    // type with defined generic arguments. i.e. TypeTool produces "GenericType<A,B>", this produces "GenericType<,>".
-    private static string GetTypeName(Type type)
-    {
-      if (!type.IsGenericType)
-      {
-        return type.Name;
-      }
+				examples.AppendLine("");
+				examples.AppendLine(@"        {");
+				examples.AppendLine($"          typeof({entry.Key.Name}),");
+				examples.AppendLine($"          new()");
+				examples.AppendLine(@"          {");
+				exampleBlueprints.ForEach(
+					ex => examples.AppendLine($"            new Blueprint(\"{ex.BlueprintName}\", \"{ex.BlueprintGuid}\"),"));
+				examples.AppendLine(@"          }");
+				examples.AppendLine(@"        },");
+			}
 
-      var rawTypeName = type.GetGenericTypeDefinition().Name;
-      StringBuilder typeName = new(rawTypeName[..rawTypeName.IndexOf('`')]);
-      typeName.Append('<');
-      for (int i = 1; i < type.GenericTypeArguments.Length; i++)
-      {
-        typeName.Append(',');
-      }
-      typeName.Append('>');
-      return typeName.ToString();
-    }
+			var fileText = new StringBuilder();
+			fileText.AppendLine("using BlueprintCoreGen.CodeGen.Methods;");
+			fileText.AppendLine("using System;");
+			fileText.AppendLine("using System.Collections.Generic;");
+			fileText.AppendJoin('\n', imports).AppendLine().AppendLine();
+			fileText.AppendLine(@"namespace BlueprintCoreGen.CodeGen.Overrides.Examples");
+			fileText.AppendLine(@"{");
+			fileText.AppendLine($"  // Examples generated by TypeUsageAnalyzer");
+			fileText.AppendLine($"  internal static class Example{baseType.Name}s");
+			fileText.AppendLine(@"  {");
+			fileText.AppendLine($"    public static readonly Dictionary<Type, List<Blueprint>> Examples =");
+			fileText.AppendLine($"      new()");
+			fileText.AppendLine(@"      {");
+			fileText.Append(examples);
+			fileText.AppendLine(@"      };");
+			fileText.AppendLine(@"  }");
+			fileText.AppendLine(@"}");
+			File.WriteAllText($"{Program.AnalysisDir}/Example{baseType.Name}s.cs", fileText.ToString());
+		}
 
-    // Generates Blueprint<TRef> constant classes for the given types.
-    private static void ProcessBlueprints(params (Type type, string className)[] bpTypes)
-    {
-      foreach (var bpType in bpTypes)
-      {
-        if (!BlueprintsByType.ContainsKey(bpType.type))
-        {
-          continue;
-        }
+		// Populates BlueprintsByGuid and ExamplesByType
+		private static void ProcessDB()
+		{
+			Stopwatch sw = Stopwatch.StartNew();
+			ProcessBpZip();
+			sw.Stop();
+			Console.WriteLine($"Elapsed time: {sw.Elapsed}");
+		}
 
-        var blueprints = BlueprintsByType[bpType.type].OrderBy(bp => bp.BlueprintName).ToList();
-        var bpTypeName = TypeTool.GetBlueprintType(bpType.type);
+		private static void ProcessBpZip()
+		{
+			using var bpDump = ZipFile.OpenRead(Environment.ExpandEnvironmentVariables("%WrathPath%/blueprints.zip"));
+			var processed = 0;
+			foreach (var entry in bpDump.Entries)
+			{
+				if (!entry.Name.EndsWith(".jbp")) { continue; }
 
-        var fileText = new StringBuilder();
-        fileText.AppendLine("using BlueprintCore.Utils;");
-        fileText.AppendLine(TypeTool.GetImport(bpType.type)).AppendLine().AppendLine();
-        fileText.AppendLine(@"namespace BlueprintCore.Blueprints");
-        fileText.AppendLine(@"{");
-        fileText.AppendLine($"  // Examples generated by TypeUsageAnalyzer");
-        fileText.AppendLine($"  public static class {bpType.className}");
-        fileText.AppendLine(@"  {");
-        blueprints.ForEach(
-          bp => fileText.AppendLine(
-            $"    public static readonly Blueprint<BlueprintReference<{bpTypeName}>> {bp.BlueprintName} = \"{bp.BlueprintGuid}\";"));
-        fileText.AppendLine(@"  }");
-        fileText.AppendLine(@"}");
+				var stream =
+					entry
+						.GetType()
+						.GetMethod("OpenInReadMode", BindingFlags.NonPublic | BindingFlags.Instance)!
+						.Invoke(entry, new object[] { false }) as Stream;
+				var bp = JsonConvert.DeserializeObject<JObject>(new StreamReader(stream!).ReadToEnd());
 
-        File.WriteAllText($"{Program.AnalysisDir}/{bpType.className}.cs", fileText.ToString());
-      }
-    }
+				var guid = bp.Value<string>("AssetId");
+				var data = bp.GetValue("Data");
+				var bpType = GetType(data)!;
 
-    private static void ProcessExamples(Type baseType)
-    {
-      HashSet<string> imports = new();
-      StringBuilder examples = new();
-      var entries = ExamplesByType.Where(entry => entry.Key.IsSubclassOf(baseType));
-      foreach (var entry in entries)
-      {
-        imports.Add(TypeTool.GetImport(entry.Key)!);
+				// Fetch / create the Blueprint
+				if (!BlueprintsByGuid.TryGetValue(guid, out Blueprint blueprint))
+				{
+					var name = entry.Name[0..^4];
+					blueprint = new Blueprint(name, guid);
+					BlueprintsByGuid.Add(guid, blueprint);
+				}
 
-        var sortedExamples = entry.Value.OrderBy(ex => ex.BlueprintName).ToList();
-        List<Blueprint> exampleBlueprints = new();
-        if (sortedExamples.Count > 3)
-        {
-          // Use the first, last, and middle blueprints as examples. This should keep things relatively stable between
-          // game patches and avoid biasing towards the first three entries alphabetically.
-          exampleBlueprints.Add(sortedExamples.First());
-          exampleBlueprints.Add(sortedExamples[sortedExamples.Count / 2]);
-          exampleBlueprints.Add(sortedExamples.Last());
-        }
-        else
-        {
-          exampleBlueprints.AddRange(sortedExamples);
-        }
+				if (!BlueprintsByType.TryGetValue(bpType, out HashSet<Blueprint> blueprints))
+				{
+					blueprints = new();
+					BlueprintsByType.Add(bpType, blueprints);
+				}
+				blueprints.Add(blueprint);
 
-        examples.AppendLine("");
-        examples.AppendLine(@"        {");
-        examples.AppendLine($"          typeof({entry.Key.Name}),");
-        examples.AppendLine($"          new()");
-        examples.AppendLine(@"          {");
-        exampleBlueprints.ForEach(
-          ex => examples.AppendLine($"            new Blueprint(\"{ex.BlueprintName}\", \"{ex.BlueprintGuid}\"),"));
-        examples.AppendLine(@"          }");
-        examples.AppendLine(@"        },");
-      }
+				// Add as an example blueprint type
+				if (!ExamplesByType.TryGetValue(bpType, out HashSet<Blueprint> blueprintExamples))
+				{
+					blueprintExamples = new();
+					ExamplesByType.Add(bpType, blueprintExamples);
+				}
+				blueprintExamples.Add(blueprint);
 
-      var fileText = new StringBuilder();
-      fileText.AppendLine("using BlueprintCoreGen.CodeGen.Methods;");
-      fileText.AppendLine("using System;");
-      fileText.AppendLine("using System.Collections.Generic;");
-      fileText.AppendJoin('\n', imports).AppendLine().AppendLine();
-      fileText.AppendLine(@"namespace BlueprintCoreGen.CodeGen.Overrides.Examples");
-      fileText.AppendLine(@"{");
-      fileText.AppendLine($"  // Examples generated by TypeUsageAnalyzer");
-      fileText.AppendLine($"  internal static class Example{baseType.Name}s");
-      fileText.AppendLine(@"  {");
-      fileText.AppendLine($"    public static readonly Dictionary<Type, List<Blueprint>> Examples =");
-      fileText.AppendLine($"      new()");
-      fileText.AppendLine(@"      {");
-      fileText.Append(examples);
-      fileText.AppendLine(@"      };");
-      fileText.AppendLine(@"  }");
-      fileText.AppendLine(@"}");
-      File.WriteAllText($"{Program.AnalysisDir}/Example{baseType.Name}s.cs", fileText.ToString());
-    }
+				List<Type> referencedTypes = new();
+				GetTypes(data, referencedTypes);
 
-    // Populates BlueprintsByGuid and ExamplesByType
-    private static void ProcessDB()
-    {
-      Stopwatch sw = Stopwatch.StartNew();
-      ProcessBpZip();
-      sw.Stop();
-      Console.WriteLine($"Elapsed time: {sw.Elapsed}");
-    }
+				// Add as an example for the referenced action types
+				var actionTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(GameAction)));
+				foreach (var actionType in actionTypes)
+				{
+					if (!ExamplesByType.TryGetValue(actionType, out HashSet<Blueprint> actionExamples))
+					{
+						actionExamples = new();
+						ExamplesByType.Add(actionType, actionExamples);
+					}
+					actionExamples.Add(blueprint);
+				}
 
-    private static void ProcessBpZip()
-    {
-      using var bpDump = ZipFile.OpenRead(Environment.ExpandEnvironmentVariables("%WrathPath%/blueprints.zip"));
-      var processed = 0;
-      foreach (var entry in bpDump.Entries)
-      {
-        if (!entry.Name.EndsWith(".jbp")) { continue; }
+				// Add as an example for the referenced condition types
+				var conditionTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(Condition)));
+				foreach (var conditionType in conditionTypes)
+				{
+					if (!ExamplesByType.TryGetValue(conditionType, out HashSet<Blueprint> conditionExamples))
+					{
+						conditionExamples = new();
+						ExamplesByType.Add(conditionType, conditionExamples);
+					}
+					conditionExamples.Add(blueprint);
+				}
 
-        var stream =
-          entry
-            .GetType()
-            .GetMethod("OpenInReadMode", BindingFlags.NonPublic | BindingFlags.Instance)!
-            .Invoke(entry, new object[] { false }) as Stream;
-        var bp = JsonConvert.DeserializeObject<JObject>(new StreamReader(stream!).ReadToEnd());
+				// Add as an example for the referenced components types
+				var componentTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(BlueprintComponent)));
+				foreach (var componentType in componentTypes)
+				{
+					if (!ExamplesByType.TryGetValue(componentType, out HashSet<Blueprint> componentExamples))
+					{
+						componentExamples = new();
+						ExamplesByType.Add(componentType, componentExamples);
+					}
+					componentExamples.Add(blueprint);
+				}
 
-        var guid = bp.Value<string>("AssetId");
-        var data = bp.GetValue("Data");
-        var bpType = GetType(data)!;
+				processed++;
+				if (DebugLimit > 0 && processed > DebugLimit) { return; }
+				if (processed % ReportThreshold == 0)
+				{
+					float progress = processed / (float)bpDump.Entries.Count;
+					Console.WriteLine(string.Format("Progress: {0:P2}", progress));
+				}
+			}
+		}
+		private static Type? GetType(JToken data)
+		{
+			var typeString = data.Value<string>("$type");
+			if (typeString is not null)
+			{
+				var typeId = typeString[0..typeString.IndexOf(",")];
+				if (TypesById.ContainsKey(typeId)) { return TypesById[typeId]; }
 
-        // Fetch / create the Blueprint
-        if (!BlueprintsByGuid.TryGetValue(guid, out Blueprint blueprint))
-        {
-          var name = entry.Name[0..^4];
-          blueprint = new Blueprint(name, guid);
-          BlueprintsByGuid.Add(guid, blueprint);
-        }
+				var typeName = typeString[typeString.IndexOf(" ")..].Trim();
+				if (TypesByName.ContainsKey(typeName)) { return TypesByName[typeName]; }
 
-        if (!BlueprintsByType.TryGetValue(bpType, out HashSet<Blueprint> blueprints))
-        {
-          blueprints = new();
-          BlueprintsByType.Add(bpType, blueprints);
-        }
-        blueprints.Add(blueprint);
+				if (DuplicateTypeIds.Contains(typeId))
+				{
+					Console.WriteLine($"Found reference to duplicate Type ID: {typeString}");
+				}
+			}
+			return null;
+		}
 
-        // Add as an example blueprint type
-        if (!ExamplesByType.TryGetValue(bpType, out HashSet<Blueprint> blueprintExamples))
-        {
-          blueprintExamples = new();
-          ExamplesByType.Add(bpType, blueprintExamples);
-        }
-        blueprintExamples.Add(blueprint);
+		// Recursively search the JToken to find all referenced types
+		private static void GetTypes(JToken data, List<Type> types)
+		{
+			if (data.Type == JTokenType.Object)
+			{
+				// Only object types can have a property
+				var type = GetType(data);
+				if (type is not null) { types.Add(type); }
+			}
 
-        List<Type> referencedTypes = new();
-        GetTypes(data, referencedTypes);
-
-        // Add as an example for the referenced action types
-        var actionTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(GameAction)));
-        foreach (var actionType in actionTypes)
-        {
-          if (!ExamplesByType.TryGetValue(actionType, out HashSet<Blueprint> actionExamples))
-          {
-            actionExamples = new();
-            ExamplesByType.Add(actionType, actionExamples);
-          }
-          actionExamples.Add(blueprint);
-        }
-
-        // Add as an example for the referenced condition types
-        var conditionTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(Condition)));
-        foreach (var conditionType in conditionTypes)
-        {
-          if (!ExamplesByType.TryGetValue(conditionType, out HashSet<Blueprint> conditionExamples))
-          {
-            conditionExamples = new();
-            ExamplesByType.Add(conditionType, conditionExamples);
-          }
-          conditionExamples.Add(blueprint);
-        }
-
-        // Add as an example for the referenced components types
-        var componentTypes = referencedTypes.Where(type => type.IsSubclassOf(typeof(BlueprintComponent)));
-        foreach (var componentType in componentTypes)
-        {
-          if (!ExamplesByType.TryGetValue(componentType, out HashSet<Blueprint> componentExamples))
-          {
-            componentExamples = new();
-            ExamplesByType.Add(componentType, componentExamples);
-          }
-          componentExamples.Add(blueprint);
-        }
-
-        processed++;
-        if (DebugLimit > 0 && processed > DebugLimit) { return; }
-        if (processed % ReportThreshold == 0)
-        {
-          float progress = processed / (float)bpDump.Entries.Count;
-          Console.WriteLine(string.Format("Progress: {0:P2}", progress));
-        }
-      }
-    }
-    private static Type? GetType(JToken data)
-    {
-      var typeString = data.Value<string>("$type");
-      if (typeString is not null)
-      {
-        var typeId = typeString[0..typeString.IndexOf(",")];
-        if (TypesById.ContainsKey(typeId)) { return TypesById[typeId]; }
-
-        var typeName = typeString[typeString.IndexOf(" ")..].Trim();
-        if (TypesByName.ContainsKey(typeName)) { return TypesByName[typeName]; }
-
-        if (DuplicateTypeIds.Contains(typeId))
-        {
-          Console.WriteLine($"Found reference to duplicate Type ID: {typeString}");
-        }
-      }
-      return null;
-    }
-
-    // Recursively search the JToken to find all referenced types
-    private static void GetTypes(JToken data, List<Type> types)
-    {
-      if (data.Type == JTokenType.Object)
-      {
-        // Only object types can have a property
-        var type = GetType(data);
-        if (type is not null) { types.Add(type); }
-      }
-
-      // No matter what kind of token, foreach loop will get all children
-      foreach (var token in data)
-      {
-        GetTypes(token, types);
-      }
-    }
-  }
+			// No matter what kind of token, foreach loop will get all children
+			foreach (var token in data)
+			{
+				GetTypes(token, types);
+			}
+		}
+	}
 }
