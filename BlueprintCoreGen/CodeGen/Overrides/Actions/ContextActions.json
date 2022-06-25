@@ -72,56 +72,56 @@
     ],
     "Imports": [
       "BlueprintTool",
-      "BlueprintItemEnchantment",
+      "BlueprintArmorEnchantmentReference",
       "BlueprintItemEnchantmentReference",
-      "ItemEnchantments"
+      "ArmorEnchantmentRefs"
     ],
     "RequiredFields": [ "EnchantPool", "DurationValue" ],
     "IgnoredFields": [ "m_DefaultEnchantments" ],
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"
+          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus1.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"
+          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus2.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"
+          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus3.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"
+          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus4.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;"
+          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus5.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       }
     ]
@@ -134,56 +134,56 @@
     ],
     "Imports": [
       "BlueprintTool",
-      "BlueprintItemEnchantment",
+      "BlueprintArmorEnchantmentReference",
       "BlueprintItemEnchantmentReference",
-      "ItemEnchantments"
+      "ArmorEnchantmentRefs"
     ],
     "RequiredFields": [ "EnchantPool", "DurationValue" ],
     "IgnoredFields": [ "m_DefaultEnchantments" ],
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus1",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;"
+          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus1.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus2",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;"
+          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus2.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus3",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;"
+          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus3.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus4",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;"
+          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus4.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
+        "TypeName": "Blueprint<BlueprintArmorEnchantmentReference>?",
         "CommentFmt": "Defaults to TemporaryArmorEnhancementBonus5",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;"
+          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus5.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       }
     ]
@@ -191,11 +191,15 @@
 
   {
     "TypeName": "Demoralize",
-    "Imports": [ "Buffs" ],
+    "Imports": [
+      "BuffRefs",
+      "BlueprintBuffReference",
+      "BlueprintFeatureReference"
+    ],
     "ConstantFields": [
       {
         "FieldName": "m_SwordlordProwessFeature",
-        "Value": "Features.DisplayWeaponProwess.Reference"
+        "Value": "(BlueprintFeatureReference)FeatureRefs.DisplayWeaponProwess.Reference"
       }
     ],
     "CustomFields": [
@@ -203,27 +207,27 @@
         "FieldName": "m_Buff",
         "CommentFmt": "Applied on success. Defaults to Shaken.",
         "IsNullable": "false",
-        "AssignmentFmtRhs": "{0}?.Reference ?? Buffs.Shaken.Reference"
+        "AssignmentFmtRhs": "(BlueprintBuffReference)({0}?.Reference ?? BuffRefs.Shaken.Reference)"
       },
       {
         "FieldName": "m_GreaterBuff",
         "CommentFmt": "Applied on success when the caster has a feature that adds a greater effect. Defaults to Frightened.",
         "IsNullable": "false",
-        "AssignmentFmtRhs": "{0}?.Reference ?? Buffs.Frightened.Reference"
+        "AssignmentFmtRhs": "(BlueprintBuffReference)({0}?.Reference ?? BuffRefs.Frightened.Reference)"
       },
       {
         "FieldName": "m_ShatterConfidenceFeature",
         "ParamName": "extraEffectFeature",
         "CommentFmt": "Unit feature which determines whether to apply extraEffect on success. Defaults to ShatterConfidence.",
         "IsNullable": "false",
-        "AssignmentFmtRhs": "{0}?.Reference ?? Features.ShatterConfidence.Reference"
+        "AssignmentFmtRhs": "(BlueprintFeatureReference)({0}?.Reference ?? FeatureRefs.ShatterConfidence.Reference)"
       },
       {
         "FieldName": "m_ShatterConfidenceBuff",
         "ParamName": "extraEffect",
         "CommentFmt": "Applied on success when the caster has the extraEffectFeature. Defaults to ShatterConfidence.",
         "IsNullable": "false",
-        "AssignmentFmtRhs": "{0}?.Reference ?? Buffs.ShatterConfidence.Reference"
+        "AssignmentFmtRhs": "(BlueprintBuffReference)({0}?.Reference ?? BuffRefs.ShatterConfidenceBuff.Reference)"
       }
     ]
   },
@@ -235,56 +239,56 @@
     ],
     "Imports": [
       "BlueprintTool",
-      "BlueprintItemEnchantment",
+      "BlueprintWeaponEnchantmentReference",
       "BlueprintItemEnchantmentReference",
-      "ItemEnchantments"
+      "WeaponEnchantmentRefs"
     ],
     "RequiredFields": [ "EnchantPool", "DurationValue" ],
     "IgnoredFields": [ "m_DefaultEnchantments" ],
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus1",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement1",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus1.Reference;"
+          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement1.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus2",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement2",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus2.Reference;"
+          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement2.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus3",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement3",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus3.Reference;"
+          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement3.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus4",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement4",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus4.Reference;"
+          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement4.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus5",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement5",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;"
+          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement5.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       }
     ]
@@ -297,56 +301,56 @@
     ],
     "Imports": [
       "BlueprintTool",
-      "BlueprintItemEnchantment",
+      "BlueprintWeaponEnchantmentReference",
       "BlueprintItemEnchantmentReference",
-      "ItemEnchantments"
+      "WeaponEnchantmentRefs"
     ],
     "RequiredFields": [ "EnchantPool", "DurationValue" ],
     "IgnoredFields": [ "m_DefaultEnchantments" ],
     "ExtraParams": [
       {
         "ParamName": "enchantmentPlus1",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus1",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement1",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus1.Reference;"
+          "{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement1.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus2",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus2",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement2",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus2.Reference;"
+          "{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement2.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus3",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus3",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement3",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus3.Reference;"
+          "{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement3.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus4",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus4",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement4",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus4.Reference;"
+          "{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement4.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       },
       {
         "ParamName": "enchantmentPlus5",
-        "TypeName": "Blueprint<BlueprintItemEnchantmentReference>?",
-        "CommentFmt": "Defaults to TemporaryEnhancementBonus5",
+        "TypeName": "Blueprint<BlueprintWeaponEnchantmentReference>?",
+        "CommentFmt": "Defaults to TemporaryEnhancement5",
         "DefaultValue": "null",
         "OperationFmt": [
-          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;"
+          "{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement5.Cast<BlueprintItemEnchantmentReference>().Reference;"
         ]
       }
     ]
