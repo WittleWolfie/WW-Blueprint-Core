@@ -1703,7 +1703,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
-          typeof(RemoveFact),
+          typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveFact),
           new()
           {
             new Blueprint("AutoAggroBuff_SpawnActions", "68073f3e7d394c56961c6143b20ff8d8"),
