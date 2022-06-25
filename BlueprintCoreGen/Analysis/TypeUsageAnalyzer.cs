@@ -1,12 +1,33 @@
 ﻿using BlueprintCoreGen.CodeGen;
 using BlueprintCoreGen.CodeGen.Methods;
+using BlueprintCoreGen.CodeGen.Overrides.Ignored;
+using Kingmaker.AI.Blueprints;
+using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.AreaLogic.Cutscenes;
+using Kingmaker.AreaLogic.Etudes;
+using Kingmaker.Armies.Blueprints;
+using Kingmaker.Armies.TacticalCombat.Blueprints;
+using Kingmaker.Armies.TacticalCombat.Brain;
+using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
+using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Blueprints.Quests;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Formations;
+using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Kingdom;
+using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.QA.Arbiter;
+using Kingmaker.UI;
+using Kingmaker.UnitLogic.Customization;
+using Kingmaker.Visual.CharacterSystem;
+using Kingmaker.Visual.Sound;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -148,20 +169,96 @@ namespace BlueprintCoreGen.Analysis
 			return typeName.ToString();
 		}
 
-		// Some types are not useful because of excessive duplicate names or simply having too many blueprints.
+		// Types ignored because they have too many blueprints or referencing by name is not very helpful.
 		private static List<Type> SkipBlueprintReferences =
 			new()
 			{
+				typeof(ActiveCommandConsideration),
+				typeof(AlignmentConsideration),
+				typeof(BlueprintAiAttack),
+				typeof(BlueprintAiCastSpell),
+				typeof(BlueprintAiFollow),
+				typeof(BlueprintAiTouch),
+				typeof(BlueprintAiSwitchWeapon),
 				typeof(BlueprintAnswer),
 				typeof(BlueprintAnswersList),
+				typeof(BlueprintArbiterInstruction),
+				typeof(BlueprintArea),
+				typeof(BlueprintAreaMechanics),
+				typeof(BlueprintAreaPart),
+				typeof(BlueprintAreaPreset),
+				typeof(ArmorTypeConsideration),
+				typeof(ArmyHealthConsideration),
+				typeof(BlueprintArmyPreset),
+				typeof(BlueprintAreaTransition),
+				typeof(BlueprintBarkBanter),
 				typeof(BlueprintBookPage),
+				typeof(BlueprintBrain),
+				typeof(BuffsAroundConsideration),
+				typeof(BuffConsideration),
+				typeof(BuffNotFromCasterConsideration),
+				typeof(CanMakeFullAttackConsideration),
+				typeof(CanUseSpellCombatConsideration),
+				typeof(CasterClassConsideration),
 				typeof(BlueprintCheck),
+				typeof(CommandCooldownConsideration),
+				typeof(ConditionConsideration),
+				typeof(BlueprintCrusadeEvent),
 				typeof(BlueprintCue),
 				typeof(BlueprintCueSequence),
-        typeof(Gate),
+				typeof(Cutscene),
+				typeof(BlueprintDialog),
+				typeof(DistanceConsideration),
+				typeof(DistanceRangeConsideration),
+				typeof(BlueprintDungeonLocalizedStrings),
+				typeof(BlueprintEtude),
+				typeof(BlueprintEtudeConflictingGroup),
+				typeof(FactConsideration),
+				typeof(FollowersFormation),
+				typeof(Gate),
+				typeof(BlueprintGlobalMap),
+				typeof(BlueprintGlobalMapEdge),
+				typeof(BlueprintGlobalMapPoint),
+				typeof(BlueprintGlobalMapPointVariation),
+				typeof(HasAutoCastConsideraion),
+				typeof(HasManualTargetConsideration),
+				typeof(HealthConsideration),
+				typeof(HitThisRoundConsideration),
+				typeof(InRangeConsideration),
+				typeof(KingmakerEquipmentEntity),
+				typeof(LastTargetConsideration),
+				typeof(LifeStateConsideration),
+				typeof(LineOfSightConsideration),
 				typeof(BlueprintLoot),
-        typeof(BlueprintQuestObjective),
-				typeof(BlueprintSequenceExit)
+				typeof(ManualTargetConsideration),
+				typeof(BlueprintMultiEntrance),
+				typeof(BlueprintMultiEntranceEntry),
+				typeof(NotImpatientConsideration),
+				typeof(BlueprintPortrait),
+				typeof(BlueprintQuest),
+				typeof(BlueprintQuestGroups),
+				typeof(BlueprintQuestObjective),
+				typeof(RaceGenderDistribution),
+				typeof(BlueprintScriptZone),
+				typeof(BlueprintSequenceExit),
+				typeof(StatConsideration),
+				typeof(BlueprintSummonPool),
+				typeof(SwarmTargetsConsideration),
+				typeof(BlueprintTacticalCombatAiAttack),
+				typeof(BlueprintTacticalCombatAiCastSpell),
+				typeof(BlueprintTacticalCombatBrain),
+				typeof(TacticalCombatCanAttackThisTurnConsideration),
+				typeof(BlueprintTacticalCombatObstaclesMap),
+				typeof(TacticalCombatTagConsideration),
+				typeof(TargetClassConsideration),
+				typeof(TargetMainCharacter),
+				typeof(ThreatedByConsideration),
+				typeof(BlueprintUIInteractionTypeSprites),
+				typeof(BlueprintUISound),
+				typeof(BlueprintUnlockableFlag),
+				typeof(BlueprintUnitAsksList),
+				typeof(UnitsAroundConsideration),
+				typeof(UnitsThreateningConsideration),
 			};
 		// Generates constant reference classes for blueprints
 		private static void ProcessBlueprintReferences(Type[] gameTypes)
@@ -169,7 +266,9 @@ namespace BlueprintCoreGen.Analysis
 			var bpTypes = gameTypes.Where(t => !t.IsAbstract && t.IsSubclassOf(typeof(BlueprintScriptableObject)));
 			foreach (var bpType in bpTypes)
 			{
-				if (SkipBlueprintReferences.Contains(bpType) || !BlueprintsByType.ContainsKey(bpType))
+				if (Ignored.ShouldIgnore(bpType)
+					|| SkipBlueprintReferences.Contains(bpType)
+					|| !BlueprintsByType.ContainsKey(bpType))
 				{
 					continue;
 				}
