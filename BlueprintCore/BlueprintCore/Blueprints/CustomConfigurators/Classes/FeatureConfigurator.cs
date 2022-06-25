@@ -51,6 +51,10 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     ///   .Configure();
     /// </code>
     /// </example>
+    /// 
+    /// <para>
+    /// If FeatureGroup.Feat is specified then <see cref="BlueprintFeature.IsClassFeature"/> is set to true.
+    /// </para>
     /// </remarks>
     /// 
     /// <param name="groups">
@@ -60,7 +64,12 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     public static FeatureConfigurator New(string name, string guid, params FeatureGroup[] groups)
     {
       BlueprintTool.Create<BlueprintFeature>(name, guid);
-      return For(name).SetGroups(groups);
+      var configurator = For(name).SetGroups(groups);
+      if (groups.Contains(FeatureGroup.Feat))
+      {
+        configurator.SetIsClassFeature();
+      }
+      return configurator;
     }
 
     private static readonly IEnumerable<BlueprintFeatureSelection> FeatureSelections =

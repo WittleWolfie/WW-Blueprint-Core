@@ -22,9 +22,6 @@ namespace BlueprintCoreTutorial.Feats
     public static void Configure()
     {
       FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat)
-          // Most of the time you want to set this to true. It is used during respec to determine whether a feature
-          // should be removed.
-          .SetIsClassFeature()
           // If you don't set this the context rank configs may not update properly and the bonus may not change.
           .SetReapplyOnLevelUp()
           .SetDisplayName("MagicalAptitude.Name")
