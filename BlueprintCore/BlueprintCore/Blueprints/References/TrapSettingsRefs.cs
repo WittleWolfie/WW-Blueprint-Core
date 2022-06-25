@@ -1,11 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintTrapSettings blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class TrapSettingsRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintTrapSettings>> TrapSettings_CR0 = "0bd985f084223d5419b9c0e004782a2b";
@@ -39,5 +46,41 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTrapSettings>> TrapSettings_CR7 = "ba2a90c4c97eeff45a41e8e1fa6f89ba";
     public static readonly Blueprint<BlueprintReference<BlueprintTrapSettings>> TrapSettings_CR8 = "c601f2a2a2965a342bc404d71518a5ac";
     public static readonly Blueprint<BlueprintReference<BlueprintTrapSettings>> TrapSettings_CR9 = "4e1d3a94b2f42874784858461492e1f6";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintTrapSettings>>> All =
+      new()
+      {
+          TrapSettings_CR0,
+          TrapSettings_CR1,
+          TrapSettings_CR10,
+          TrapSettings_CR11,
+          TrapSettings_CR12,
+          TrapSettings_CR13,
+          TrapSettings_CR14,
+          TrapSettings_CR15,
+          TrapSettings_CR16,
+          TrapSettings_CR17,
+          TrapSettings_CR18,
+          TrapSettings_CR19,
+          TrapSettings_CR2,
+          TrapSettings_CR20,
+          TrapSettings_CR21,
+          TrapSettings_CR22,
+          TrapSettings_CR23,
+          TrapSettings_CR24,
+          TrapSettings_CR25,
+          TrapSettings_CR26,
+          TrapSettings_CR27,
+          TrapSettings_CR28,
+          TrapSettings_CR29,
+          TrapSettings_CR3,
+          TrapSettings_CR30,
+          TrapSettings_CR4,
+          TrapSettings_CR5,
+          TrapSettings_CR6,
+          TrapSettings_CR7,
+          TrapSettings_CR8,
+          TrapSettings_CR9,
+      };
   }
 }

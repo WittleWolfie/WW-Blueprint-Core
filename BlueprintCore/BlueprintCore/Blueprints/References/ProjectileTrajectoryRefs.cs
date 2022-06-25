@@ -1,11 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintProjectileTrajectory blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ProjectileTrajectoryRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> AcidArrow00_Trajectory = "e4e54f0158d01ea4ea1e8f888ac4dc0c";
@@ -99,5 +106,101 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Vinetrap00_Projectile_Trajectory = "3b48da227cc761c439ceb055f76c8718";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Vinetrap00_Projectile_Trajectory_1 = "fa2730dcc93c7e94f8af81829defa642";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> WindProjectile00_Trajectory = "9fe2223c200bab9418294130b29b0e08";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintProjectileTrajectory>>> All =
+      new()
+      {
+          AcidArrow00_Trajectory,
+          AcidCommonProjectile00_Trajectory,
+          AlchemistFireBomb00_Trajectory,
+          ArcanistDancingElectricity00_Projectile_Trajectory,
+          Arrow_Trajectory,
+          Arrow_Trajectory_0,
+          AshGiantCatapult01_Trajectory,
+          AshGiantCatapult02_Trajectory,
+          BatteringBlast00_Trajectory,
+          BuffRay00_Trajectory,
+          ChannelEnergyCone30Feet00_Trajectory,
+          ChannelNegativeEnergyCone30Feet00_Trajectory,
+          ColdCommonProjectile00_Trajectory,
+          ColumnProjectile_Trajectory,
+          Creature_PainajaiSpear00_Trajectory,
+          Creature_PainajaiSpear01_Trajectory,
+          Creature_PainajaiSpear02_Trajectory,
+          Cutscene_ShadowSpawn00_Trajectory,
+          DeathCurse00_Trajectory,
+          DimensionDoor00_Trajectory,
+          DisruptUndead00_Trajectory,
+          ElectroBallProjectile00_Trajectory,
+          ElectroCommonProjectile00_Trajectory,
+          Enervation00_Trajectory,
+          Enervation00_Trajectory_BackGlow,
+          Enervation00_Trajectory_Projectile,
+          Enervation00_Trajectory_Ray1,
+          Enervation00_Trajectory_Ray2,
+          Enervation00_Trajectory_Ray3,
+          Enervation00_Trajectory_Ray4,
+          Enervation00_Trajectory_Ray5,
+          Enervation00_Trajectory_Ray6,
+          Fear00_Trajectory,
+          Fireball00_Trajectory,
+          FireCommonProjectile00_Trajectory,
+          ForceMissile00_Trajectory,
+          ForceMissile00_Trajectory_Up,
+          FrostWizard_VampiricSpell_FailFinishProjectile_Trajectory,
+          FrostWizard_VampiricSpell_StartProjectile_Trajectory,
+          FrostWizard_VampiricSpell_SuccessfulFinishProjectile_Trajectory,
+          HandOfTheApprenticeProjectile_Trajectory,
+          Kinetic_Blizzard00_Projectile_Trajectory,
+          Kinetic_BlueFlame00_Projectile_Trajectory,
+          Kinetic_BlueFlame00_Projectile_Trajectory_Up,
+          Kinetic_Sphere00_Trajectory,
+          LightningBolt00_Trajectory,
+          LineProjectile00_Trajectory,
+          MagicMissile00_Trajectory,
+          MagicMissile01_Trajectory,
+          MagicMissile02_Trajectory,
+          MagicMissile03_Trajectory,
+          MagicMissile04_Trajectory,
+          Mythic4lvlDemon_AbyssalChains00_Trajectory1,
+          Mythic4lvlDemon_AbyssalChains00_Trajectory2,
+          Mythic4lvlDemon_AbyssalChains00_Trajectory3,
+          Mythic7lvlAzata_RainbowArrows00_Trajectory,
+          Mythic7lvlLich_BoneLance00_Chain_Trajectory,
+          Mythic7lvlLich_BoneLance00_Tentacle1_Trajectory,
+          Mythic7lvlLich_BoneLance00_Tentacle2_Trajectory,
+          Mythic9lvlLich_CorruptMagic00_Trajectory,
+          Mythic9lvlLich_CorruptMagic01_Trajectory,
+          NegativeCommonProjectile00_Trajectory,
+          NyrissaRay00_Trajectory,
+          NyrissaRay01_Trajectory,
+          NyrissaRay02_Trajectory,
+          NyrissaRay03_Trajectory,
+          PoisonCommonProjectile00_Trajectory,
+          ProjectileSpawner_AlchemistFireBomb00_Trajectory,
+          ProjectileSpawner_ArrowFire00_Trajectory,
+          ProjectileSpawner_Mud00_Trajectory,
+          ProjectileSpawner_StoneThrow00_Trajectory,
+          RayOfEnfeeblement00_Trajectory,
+          RayOfExhaustion00_Trajectory,
+          RayOfFrost00_Trajectory,
+          RockThrow00_Trajectory,
+          Scorching_Ray00_Trajectory,
+          SnowBall00_Trajectory,
+          TelekineticFist_Trajectory,
+          TelekineticThrow00_Trajectory,
+          TeleportationShift00_Trajectory,
+          Test_projectile_Trajectory,
+          TricksterFishMissile_Trajectory,
+          UmbralStrike00_Trajectory,
+          UmbralStrike00_Trajectory_Main,
+          UmbralStrike01_Trajectory,
+          UmbralStrike02_Trajectory,
+          UmbralStrike04_Trajectory,
+          VampiricTouch00_Trajectory,
+          Vinetrap00_Projectile_Trajectory,
+          Vinetrap00_Projectile_Trajectory_1,
+          WindProjectile00_Trajectory,
+      };
   }
 }

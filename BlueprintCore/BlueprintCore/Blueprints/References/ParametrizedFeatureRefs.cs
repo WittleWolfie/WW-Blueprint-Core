@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Selection;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintParametrizedFeature blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ParametrizedFeatureRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> AbilityFocus = "b689c0b78297dda40a6ae2ff3b8adb5c";
@@ -123,5 +129,124 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> WeaponSpecialization = "31470b17e8446ae4ea0dacd6c5817d86";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> WeaponSpecializationGreater = "7cf5edc65e785a24f9cf93af987d66b3";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> WeaponSpecializationMythicFeat = "d84ac5b1931bc504a98bfefaa419e34f";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintParametrizedFeature>>> All =
+      new()
+      {
+          AbilityFocus,
+          BloodlineArcaneNewArcanaFeature,
+          BloodlineArcaneNewArcanaFeatureMagus,
+          BloodlineArcaneSchoolPowerFeature,
+          ExpandedArsenalSchool,
+          FencingGrace,
+          FeyspeakerMagicFeature,
+          ImprovedCritical,
+          ImprovedCriticalMythicFeat,
+          LichSkeletalCombatParametrized,
+          LichSkeletalRageParametrized,
+          LichSkeletalTeamworkParametrized,
+          LichSkeletalWeaponParametrized,
+          LoremasterClericSecretArcanist,
+          LoremasterClericSecretBard,
+          LoremasterClericSecretBloodrager,
+          LoremasterClericSecretDruid,
+          LoremasterClericSecretHunter,
+          LoremasterClericSecretInquisitor,
+          LoremasterClericSecretMagus,
+          LoremasterClericSecretOracle,
+          LoremasterClericSecretPaladin,
+          LoremasterClericSecretRanger,
+          LoremasterClericSecretRogue,
+          LoremasterClericSecretShaman,
+          LoremasterClericSecretSorcerer,
+          LoremasterClericSecretWitch,
+          LoremasterClericSecretWizard,
+          LoremasterDruidSecretArcanist,
+          LoremasterDruidSecretBard,
+          LoremasterDruidSecretBloodrager,
+          LoremasterDruidSecretCleric,
+          LoremasterDruidSecretHunter,
+          LoremasterDruidSecretInquisitor,
+          LoremasterDruidSecretMagus,
+          LoremasterDruidSecretOracle,
+          LoremasterDruidSecretPaladin,
+          LoremasterDruidSecretRanger,
+          LoremasterDruidSecretRogue,
+          LoremasterDruidSecretShaman,
+          LoremasterDruidSecretSorcerer,
+          LoremasterDruidSecretWitch,
+          LoremasterDruidSecretWizard,
+          LoremasterWizardSecretArcanist,
+          LoremasterWizardSecretBard,
+          LoremasterWizardSecretBloodrager,
+          LoremasterWizardSecretCleric,
+          LoremasterWizardSecretDruid,
+          LoremasterWizardSecretHunter,
+          LoremasterWizardSecretInquisitor,
+          LoremasterWizardSecretMagus,
+          LoremasterWizardSecretOracle,
+          LoremasterWizardSecretPaladin,
+          LoremasterWizardSecretRanger,
+          LoremasterWizardSecretRogue,
+          LoremasterWizardSecretShaman,
+          LoremasterWizardSecretSorcerer,
+          LoremasterWizardSecretWitch,
+          LoremasterWizardSecretWizard,
+          MysticTheurgeInquisitorLevelParametrized1,
+          MysticTheurgeInquisitorLevelParametrized2,
+          MysticTheurgeInquisitorLevelParametrized3,
+          MysticTheurgeInquisitorLevelParametrized4,
+          MysticTheurgeInquisitorLevelParametrized5,
+          MysticTheurgeInquisitorLevelParametrized6,
+          MysticTheurgeOracleLevelParametrized1,
+          MysticTheurgeOracleLevelParametrized2,
+          MysticTheurgeOracleLevelParametrized3,
+          MysticTheurgeOracleLevelParametrized4,
+          MysticTheurgeOracleLevelParametrized5,
+          MysticTheurgeOracleLevelParametrized6,
+          MysticTheurgeOracleLevelParametrized7,
+          MysticTheurgeOracleLevelParametrized8,
+          MysticTheurgeOracleLevelParametrized9,
+          PointBlankMaster,
+          SchoolMasteryMythicFeat,
+          SlashingGrace,
+          SpellFocus,
+          SpellFocusGreater,
+          SpellFocusMythicFeat,
+          SpellSpecialization1,
+          SpellSpecialization10,
+          SpellSpecialization11,
+          SpellSpecialization12,
+          SpellSpecialization13,
+          SpellSpecialization14,
+          SpellSpecialization15,
+          SpellSpecialization16,
+          SpellSpecialization17,
+          SpellSpecialization18,
+          SpellSpecialization19,
+          SpellSpecialization2,
+          SpellSpecialization20,
+          SpellSpecialization3,
+          SpellSpecialization4,
+          SpellSpecialization5,
+          SpellSpecialization6,
+          SpellSpecialization7,
+          SpellSpecialization8,
+          SpellSpecialization9,
+          SpellSpecializationFirst,
+          SwordSaintChosenWeaponFeature,
+          TricksterImprovedImprovedCritical,
+          TricksterImprovedImprovedImprovedCritical,
+          TricksterImprovedImprovedImprovedCriticalImproved,
+          TricksterLoreReligionTier2Parametrized,
+          TricksterLoreReligionTier3Parametrized,
+          WeaponFocus,
+          WeaponFocusGreater,
+          WeaponFocusMythicFeat,
+          WeaponMasteryParametrized,
+          WeaponSpecialization,
+          WeaponSpecializationGreater,
+          WeaponSpecializationMythicFeat,
+      };
   }
 }

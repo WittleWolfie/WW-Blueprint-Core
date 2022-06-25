@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemEquipmentWrist blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemEquipmentWristRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> ArmExtendersItem = "7e4432d76a824571b3965c6bda73f763";
@@ -57,5 +63,58 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> Set3_Bracers = "0c3dacfec6354a1ba200603ebb059a7b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> StormlordsResolveItem = "28c18f4bdd1321e41aa96dad4732336a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> VeteranMarksmansBracersItem = "ddc7f55ecbc1b6d45a0dd1840217e07c";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>>> All =
+      new()
+      {
+          ArmExtendersItem,
+          Artifact_HermitKnightBracersItem,
+          BracersOfAbruptOnslaughtItem,
+          BracersOfAnimalFuryItem,
+          BracersOfArchery,
+          BracersOfArcheryLesser,
+          BracersOfArmor1,
+          BracersOfArmor2,
+          BracersOfArmor3,
+          BracersOfArmor4,
+          BracersOfArmor5,
+          BracersOfArmor6,
+          BracersOfArmor7,
+          BracersOfArmor8,
+          BracersOfArmor9,
+          BracersOfArmor9Extra,
+          BracersOfBalanceItem,
+          BracersOfBreachingItem,
+          BracersOfDeflection,
+          BracersOfDominanceItem,
+          BracersOfEldritchScholarItem,
+          BracersOfHarmfulConversionItem,
+          BracersOfHeavyHandItem,
+          BracersOfMindBreakItem,
+          BracersOfOverwhelmingVigorItem,
+          BracersOfRoughLandingItem,
+          BracersOfWizardItem,
+          ChaosScourgeItem,
+          CharonsTouch,
+          ClearPurposeItem,
+          EnergyBlastBracersItem,
+          EngravedBracelet,
+          GearsRuleItem,
+          GearsRuleItem_1,
+          GoldenHallucinationBracersItem,
+          LegendaryBracersItem,
+          NegotiatorsBracersItem,
+          PhantomSlayersBracersItem,
+          PlayersPhylacteryBracersItem,
+          PlayersStartingBracersItem,
+          RepellingBracersItem,
+          RighteousExorcistsBracersItem,
+          RubyPhoenixItem,
+          RubyPhoenixItem_1,
+          Set2_Bracers,
+          Set3_Bracers,
+          StormlordsResolveItem,
+          VeteranMarksmansBracersItem,
+      };
   }
 }

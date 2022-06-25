@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemEquipmentFeet blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemEquipmentFeetRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> AbyssWalkersItem = "9d93b46898e710544bf125ba7b227cee";
@@ -40,5 +46,41 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> SpiritTrackersItem = "c5aeb081a0dd85a47b3190a187cad9a0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> StabilityStanceItem = "1efbe2ef6e22cf34eaa24ab7b6c061ad";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> SureFootingItem = "2e367ed3db88c714cb35612a7d82f713";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>>> All =
+      new()
+      {
+          AbyssWalkersItem,
+          AcrobatsFootwearItem,
+          Artifact_FeetItem,
+          BonethreaderBootsItem,
+          BootsOfArcanePersistanceItem,
+          BootsOfCompleteEarthingItem,
+          BootsOfElvenKind,
+          BootsOfForestTrackerItem,
+          BootsOfFreereinItem,
+          BootsOfFreestReinItem,
+          BootsOfMagicalWhirlItem,
+          BootsOfManticoreItem,
+          BootsOfOutbreakItem,
+          BootsOfStampedeItem,
+          BootsOfSwiftFoot,
+          BootsOfTheCreepingDeath,
+          BootsOfTheLightStepItem,
+          BootsOfTheSwampItem,
+          BootsOfWaryStepsItem,
+          ConnectiontoEarthBoostItem,
+          DevilsBootsItem,
+          EvadingStepsItem,
+          ExpeditionBootsItem,
+          FluffyBootsItem,
+          FreeDancersBootsItem,
+          OpportunistsBoots,
+          PerfectedManeuverItem,
+          PermanentFreedomItem,
+          SpiritTrackersItem,
+          StabilityStanceItem,
+          SureFootingItem,
+      };
   }
 }

@@ -1,11 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintComponentList blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ComponentListRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintComponentList>> GargoyleAttack_ComponentList = "973e83220db9f474289a572f1d953987";
@@ -17,5 +24,19 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintComponentList>> Puzzle = "34a3dfdf62077474293446264a5ff489";
     public static readonly Blueprint<BlueprintReference<BlueprintComponentList>> Seelah_Q1_Warcamp_List = "e2f307d57087862478939bbf1099b8d6";
     public static readonly Blueprint<BlueprintReference<BlueprintComponentList>> WoundWormsLair_ComponentList = "b6820bb2462fd2d4f8a9f87dc013c262";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintComponentList>>> All =
+      new()
+      {
+          GargoyleAttack_ComponentList,
+          GhostCounter_ComponentList,
+          GS_Canyon,
+          GS_Cave,
+          LC_Outdoor,
+          LC_Story,
+          Puzzle,
+          Seelah_Q1_Warcamp_List,
+          WoundWormsLair_ComponentList,
+      };
   }
 }

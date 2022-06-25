@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintRace blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class RaceRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> AasimarRace = "b7f02ba92b363064fb873963bec275ee";
@@ -40,5 +46,41 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> TieflingRace = "5c4e42124dc2b4647af6e36cf2590500";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> WildHuntRace_Fake = "f414c5b12f2296c41901e71b889ef436";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> ZombiesRace = "b9668860eed943eca2419fd8c371f481";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintRace>>> All =
+      new()
+      {
+          AasimarRace,
+          AscendingSuccubus,
+          BralaniRace,
+          CambionRace,
+          ColoxusRace,
+          DhampirRace,
+          DuergarRace,
+          DuergarTyrantRace,
+          DwarfRace,
+          ElfRace,
+          ErinyesRace,
+          GhoulRace,
+          GhoulRaceSmall,
+          GnomeRace,
+          GoblinRace,
+          HalfElfRace,
+          HalflingRace,
+          HalfOrcRace,
+          HumanRace,
+          HumanThinRace,
+          KitsuneRace,
+          MongrelmanRace,
+          OreadRace,
+          SarcorianChildRace,
+          SarcorianRace,
+          SkeletonRace,
+          SuccubusIncubusRace,
+          SuccubusRace,
+          TieflingRace,
+          WildHuntRace_Fake,
+          ZombiesRace,
+      };
   }
 }

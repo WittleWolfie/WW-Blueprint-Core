@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Armies;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintArmyLeader blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ArmyLeaderRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintArmyLeader>> ArmyLeader_GeneralTest = "efcdfea53c72a2c47b3193e64e7cfea5";
@@ -46,5 +52,47 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmyLeader>> WarlordLeaderWarrior2 = "0de7b88084ec473793a1870e378e9b7b";
     public static readonly Blueprint<BlueprintReference<BlueprintArmyLeader>> WarlordLeaderWarrior3 = "16670966ec49427a849157ec3a89cf77";
     public static readonly Blueprint<BlueprintReference<BlueprintArmyLeader>> WarlordLeaderWarrior4 = "c2f459f7de4a463bb9673030bd8443b8";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintArmyLeader>>> All =
+      new()
+      {
+          ArmyLeader_GeneralTest,
+          AshGiantLeader,
+          BabauLeader,
+          BrimorakLeader,
+          CultistLeaderDefense,
+          CultistLeaderFearChapter3,
+          CultistLeaderIntimidate,
+          CultistLeaderIntimidateChapter3,
+          CultistLeaderMarksman,
+          GargoyleLeader,
+          GlabrezuLeader,
+          IncubiLeader,
+          IncubiLeaderChapter3,
+          KorramzaddehLeader,
+          MinotaurLeader,
+          SuccubusLeader,
+          VrockLeaderChapter3,
+          Warlord_Odan,
+          Warlord_SwarmOmnipresent,
+          WarlordLeaderEvent26_4,
+          WarlordLeaderEvent4_4,
+          WarlordLeaderEvent47_2,
+          WarlordLeaderEvent66_2,
+          WarlordLeaderEvent81,
+          WarlordLeaderLegend4_2,
+          WarlordLeaderMage1,
+          WarlordLeaderMage2,
+          WarlordLeaderMage3,
+          WarlordLeaderMage4,
+          WarlordLeaderRanger1,
+          WarlordLeaderRanger2,
+          WarlordLeaderRanger3,
+          WarlordLeaderRanger4,
+          WarlordLeaderWarrior1,
+          WarlordLeaderWarrior2,
+          WarlordLeaderWarrior3,
+          WarlordLeaderWarrior4,
+      };
   }
 }

@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Armors;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintArmorType blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ArmorTypeRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> BandedType = "da1b160cd13f16a429499b96636f6ed9";
@@ -29,5 +35,30 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> ScaleBardingType = "abefac7d8f98aeb40a167e0f5978d9c7";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> ScalemailType = "f95c21c70a5677346b75e447c7225ba6";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> StuddedType = "aae2cb63162d6334b9a9150398124d46";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintArmorType>>> All =
+      new()
+      {
+          BandedType,
+          BreastplateType,
+          ChainmailBardingType,
+          ChainmailType,
+          ChainshirtBardingType,
+          ChainshirtType,
+          ClothType,
+          FullBardingType,
+          FullplateType,
+          HalfplateType,
+          HaramakiType,
+          HideBardingType,
+          HideType,
+          LeatherBardingType,
+          LeatherType,
+          OakLeathersType,
+          PaddedType,
+          ScaleBardingType,
+          ScalemailType,
+          StuddedType,
+      };
   }
 }

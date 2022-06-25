@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintRaceVisualPreset blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class RaceVisualPresetRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintRaceVisualPreset>> Aasimar_Standard_VisualPreset = "640e57f7890fa044ea78914930ddac5b";
@@ -58,5 +64,59 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintRaceVisualPreset>> Tiefling_Standard_VisualPreset_fat = "8b485a757f883734585da9b8b816d1d6";
     public static readonly Blueprint<BlueprintReference<BlueprintRaceVisualPreset>> Tiefling_Standard_VisualPreset_thin = "4d9124908caec8145b733ecbd2896b23";
     public static readonly Blueprint<BlueprintReference<BlueprintRaceVisualPreset>> Zombie_VisualPreset = "f3f89ebfcb8e4dbdbb70837c97c4bcbb";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintRaceVisualPreset>>> All =
+      new()
+      {
+          Aasimar_Standard_VisualPreset,
+          Aasimar_Standard_VisualPreset_fat,
+          Aasimar_Standard_VisualPreset_thin,
+          Cambion_VisualPreset,
+          Cavalier_HalfElf_Pregen_VisualPreset,
+          Coloxus_VisualPreset,
+          Dhampir_Standard_VisualPreset,
+          Dhampir_Standard_VisualPreset_fat,
+          Dhampir_Standard_VisualPreset_thin,
+          Dwarf_VisualPreset,
+          Dwarf_VisualPreset_fat,
+          Dwarf_VisualPreset_thin,
+          Elf_VisualPreset,
+          Elf_VisualPreset_fat,
+          Elf_VisualPreset_thin,
+          Erinyes_VisualPreset,
+          GhoulBig_VisualPreset,
+          GhoulMedium_VisualPreset,
+          Gnome_VisualPreset,
+          Gnome_VisualPreset_fat,
+          Gnome_VisualPreset_thin,
+          HalfElf_VisualPreset,
+          HalfElf_VisualPreset_fat,
+          HalfElf_VisualPreset_thin,
+          Halfling_VisualPreset,
+          Halfling_VisualPreset_fat,
+          Halfling_VisualPreset_thin,
+          HalfOrc_Slim_VisualPreset,
+          HalfOrc_Standard_VisualPreset,
+          HalfOrc_Standard_VisualPreset_fat,
+          HalfOrc_Standard_VisualPreset_thin,
+          Human_Fat_VisualPreset,
+          Human_Standard_VisualPreset,
+          Human_Standard_VisualPreset_fat,
+          Human_Standard_VisualPreset_thin,
+          Human_Tall_VisualPreset,
+          Kitsune_Standard_VisualPreset,
+          Kitsune_Standard_VisualPreset_fat,
+          Kitsune_Standard_VisualPreset_thin,
+          Oread_Standard_VisualPreset,
+          Oread_Standard_VisualPreset_fat,
+          Oread_Standard_VisualPreset_thin,
+          Skeleton_VisualPreset,
+          SuccubusIncubus_VisualPreset,
+          SuccubusIncubus_VisualPreset2,
+          Tiefling_Standard_VisualPreset,
+          Tiefling_Standard_VisualPreset_fat,
+          Tiefling_Standard_VisualPreset_thin,
+          Zombie_VisualPreset,
+      };
   }
 }

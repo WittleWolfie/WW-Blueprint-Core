@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintSpellList blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class SpellListRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> AeonSpellList = "24b0c796f723a144e9891b6c4794c595";
@@ -99,5 +105,100 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> WizardNecromancySpellList = "5fe3acb6f439db9438db7d396f02c75c";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> WizardSpellList = "ba0401fdeb4062f40a7aa95b6f07fe89";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> WizardTransmutationSpellList = "becbcfeca9624b6469319209c2a6b7f1";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintSpellList>>> All =
+      new()
+      {
+          AeonSpellList,
+          AeonSpellMythicList,
+          AirDomainSpellList,
+          AlchemistSpellList,
+          AngelClericSpelllist,
+          AngelMythicSpelllist,
+          AnimalDomainSpellList,
+          AnomalyTemplateAnomalySpellSpellList,
+          ArmagsBladeSpellList,
+          ArtificeDomainSpellList,
+          AzataMythicSpelllist,
+          AzataMythicSpellsSpelllist,
+          BardSpellList,
+          BattleSpiritSpellList,
+          BloodragerSpellList,
+          BonesSpiritSpellList,
+          ChaosDomainSpellList,
+          CharmDomainSpellList,
+          ClericSpellList,
+          CommunityDomainSpellList,
+          DarknessDomainSpellList,
+          DeathDomainSpellList,
+          DemonSpelllist,
+          DemonUsualSpelllist,
+          DestructionDomainSpellList,
+          DruidSpellList,
+          EarthDomainSpellList,
+          EvilDomainSpellList,
+          FeyspeakerSpelllist,
+          FireDomainSpellList,
+          FlamesSpiritSpellList,
+          FrostSpiritSpellList,
+          GloryDomainSpellList,
+          GoodDomainSpellList,
+          HealingDomainSpellList,
+          HunterSpelllist,
+          InquisitorSpellList,
+          KnowledgeDomainSpellList,
+          LawDomainSpellList,
+          LiberationDomainSpellList,
+          LichMythicSpelllist,
+          LichSkeletalIBardMinorSpelllist,
+          LichSkeletalInquisitorMinorSpelllist,
+          LichWizardSpelllist,
+          LifeSpiritSpellList,
+          LuckDomainSpellList,
+          MadnessDomainSpellList,
+          MagicDomainSpellList,
+          MagusSpellList,
+          MonsterEmptySpellllist,
+          NatureSpiritSpellList,
+          NobilityDomainSpellList,
+          PaladinSpellList,
+          PlantDomainSpellList,
+          ProtectionDomainSpellList,
+          RangerSpellList,
+          ReposeDomainSpellList,
+          RuneDomainSpellList,
+          ShamanSpelllist,
+          SpiritWardenSpellList,
+          StoneSpiritSpellList,
+          StrengthDomainSpellList,
+          SunDomainSpellList,
+          ThassilonianAbjurationSpellList,
+          ThassilonianConjurationSpellList,
+          ThassilonianEnchantmentSpellList,
+          ThassilonianEvocationSpellList,
+          ThassilonianIllusionSpellList,
+          ThassilonianNecromancySpellList,
+          ThassilonianTransmutationSpellList,
+          TravelDomainSpellList,
+          TrickeryDomainSpellList,
+          TricksterSpelllist,
+          TricksterSpelllistMythic,
+          WarDomainSpellList,
+          WarpriestSpelllist,
+          WaterDomainSpellList,
+          WavesSpiritSpellList,
+          WeatherDomainSpellList,
+          WindSpiritSpellList,
+          WitchSpellList,
+          WizardAbjurationSpellList,
+          WizardConjurationSpellList,
+          WizardDivinationSpellList,
+          WizardEnchantmentSpellList,
+          WizardEvocationSpellList,
+          WizardIllusionSpellList,
+          WizardNecromancySpellList,
+          WizardSpellList,
+          WizardTransmutationSpellList,
+      };
   }
 }

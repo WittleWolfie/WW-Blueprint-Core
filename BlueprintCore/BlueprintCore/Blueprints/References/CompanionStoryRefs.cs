@@ -1,11 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintCompanionStory blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class CompanionStoryRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Arueshalae_Evil = "7faca0a0dfa6eac4ca7fa04c2200b52e";
@@ -71,5 +78,73 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Woljif_q2 = "64c73c1ef5239614a8174adcf6b56d6d";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Woljif_q3_DemonEnding = "94db04fad2d242947a7faedf09844d75";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Woljif_q3_HumanEnding = "b3b6105959e0c0541b0b16cb85c012dc";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintCompanionStory>>> All =
+      new()
+      {
+          Arueshalae_Evil,
+          Arueshalae_Q0,
+          Arueshalae_Q1,
+          Arueshalae_Q2,
+          Arueshalae_Q3,
+          Camellia_Q0,
+          Camellia_Q1,
+          Camellia_Q2,
+          Camellia_Q3,
+          Ciar_Q0,
+          Daeran_Q0,
+          Daeran_Q2,
+          Daeran_Q3Evil,
+          Daeran_Q3Sad,
+          Delamere_Q0,
+          DLC2_CompanionStory_Scout,
+          DLC2_CompanionStory_Sorcerer,
+          Ember_Broken,
+          Ember_Q0,
+          Ember_Q1,
+          Ember_Q2,
+          Ember_Q3,
+          Galfery_Q0,
+          Galfrey_Q0,
+          Greybor_Q0,
+          Greybor_Q1,
+          Greybor_Q2,
+          Greybor_Q3_Loyal,
+          Greybor_Q3_Unloyal,
+          Kestoglyr_Q0,
+          Lann_Q0,
+          Lann_Q1,
+          Lann_Q2,
+          Lann_Q3,
+          MercenaryStoryFemale,
+          MercenaryStoryMale,
+          Nenio_Q0,
+          Nenio_Q1,
+          Nenio_Q2,
+          Regill_Q0,
+          Regill_Q2,
+          Regill_Q3,
+          Seelah_Q0,
+          Seelah_Q1,
+          Seelah_Q2,
+          Seelah_Q3,
+          Seelah_Q3Lawful,
+          Seelah_Q3Sad,
+          Sosiel_Q0,
+          Sosiel_Q1,
+          Sosiel_Q2,
+          Sosiel_Q3,
+          Staunton_Q0,
+          Trever_Q0,
+          Wenduag_Q0,
+          Wenduag_Q1,
+          Wenduag_Q2,
+          Wenduag_Q3,
+          Woljif_q0,
+          Woljif_q1,
+          Woljif_q2,
+          Woljif_q3_DemonEnding,
+          Woljif_q3_HumanEnding,
+      };
   }
 }

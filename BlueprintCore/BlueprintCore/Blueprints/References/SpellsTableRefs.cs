@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintSpellsTable blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class SpellsTableRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> AeonSpellKnownTable = "7f2e1369e05a9ab4982fa1f05c8f95bd";
@@ -50,5 +56,51 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> WarpriestSpellSlotsTable = "c73a394ec54adc243aef8ac967e39324";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> WitchSpellLevels = "ecc94555638dcb942a51a1c0ffb60341";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> WizardSpellLevels = "78bb94ed2e75122428232950bb09e97b";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintSpellsTable>>> All =
+      new()
+      {
+          AeonSpellKnownTable,
+          AeonSpellPerDayTable,
+          AlchemistSpellLevels,
+          AngelfireApostleSpellLevels,
+          AngeSpellsPerDay,
+          ArcanistSpellSlots,
+          ArcanistSpellsPerDayTable,
+          AzataSpellKnownTable,
+          AzataSpellPerDayTable,
+          BardSpellsKnownTable,
+          BardSpellSlotsTable,
+          BloodragerSpellKnownTable,
+          BloodragerSpellPerDayTable,
+          ClericSpellLevels,
+          CrossbloodedSpellsKnownTable,
+          CrusaderSpellLevels,
+          DemonSpellKnownTable,
+          DemonSpellPerDayTable,
+          DragonAzataSpellsDailyTable,
+          DragonAzataSpellsKnownTable,
+          DruidSpellLevels,
+          EldritchFontSpellSlots,
+          InquisitorSpellsKnownTable,
+          InquisitorSpellSlotsTable,
+          LichSpellsPerDay,
+          MagusSpellLevels,
+          MonsterMythicSpellTablePerDay,
+          MythicSpontaneousSpellsKnownTable,
+          PaladinSpellLevels,
+          RangerSpellLevels,
+          ShamanSpellLevels,
+          SkaldSpellsKnownTable,
+          SkaldSpellSlotsTable,
+          SorcererSpellsDailyTable,
+          SorcererSpellsKnownTable,
+          SwordSaintSpellLevels,
+          TricksterSpellKnownTable,
+          TricksterSpellPerDayTable,
+          WarpriestSpellSlotsTable,
+          WitchSpellLevels,
+          WizardSpellLevels,
+      };
   }
 }

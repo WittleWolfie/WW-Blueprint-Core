@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemEquipmentShirt blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemEquipmentShirtRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> AlchemistsClothItem = "004e05369fd13e2428bf7eb84bcd38ec";
@@ -49,5 +55,50 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> TrueSerenityItem = "2625cd306722421d860b958845774cbc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> TunicOfArdentWarpriestItem = "10b4e06e151d35d4783ee9dada7c6df4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> WanderingConmanItem = "fdc89dbe3502c7843ac5685099aac211";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>>> All =
+      new()
+      {
+          AlchemistsClothItem,
+          ApprenticeRobeItem,
+          BaphometFireCloth_AnimalisticFireItem,
+          BaphometFireCloth_BurningCunningItem,
+          BaphometFireCloth_IntermediateItem,
+          BlackenedRagsItem,
+          CalmingWardenItem,
+          ClaspOfDeathRobeItem,
+          ClothOfBlazingFighterItem,
+          ClothOfHeavyFortificationItem,
+          DemonicAltarAgilityClothItem,
+          DemonicAltarCloth_IntermediateItem,
+          DemonicAltarMasochisticClothItem,
+          DemonicAltarTrypophobiaClothItem,
+          EarthenEmbraceItem,
+          GorgeousGlowingGarnetGarmentItem,
+          HagsDemiseItem,
+          JoCat_ShirtItem,
+          LoremastersRobeItem,
+          PilgrimClothItem,
+          Robe2ST2DC_CorrectItem,
+          RobeElementalImbuementItem,
+          RobeOfAir_CorrectItem,
+          RobeOfAngelicPrudenceItem,
+          RobeOfDeterminationItem,
+          RobeOfFire_CorrectItem,
+          RobeOfMaliceItem,
+          RobeOfMephistophelesItem,
+          RobeOfOrderItem,
+          RobeOfTrampleItem,
+          RobeOfVirtueItem,
+          RobeOfWater_CorrectItem,
+          RobeOnTheBrinkOfDeathItem,
+          RobeSourceOfDividingPowerItem,
+          Set2_Robe,
+          SilkyVeilItem,
+          SilverRobeItem,
+          TrueSerenityItem,
+          TunicOfArdentWarpriestItem,
+          WanderingConmanItem,
+      };
   }
 }

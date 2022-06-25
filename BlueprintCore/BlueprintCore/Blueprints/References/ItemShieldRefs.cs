@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Shields;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemShield blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemShieldRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AncestralDwarwenShieldItem = "c62344a8b887b1f4d98d85b7c5b975b5";
@@ -127,5 +133,128 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> WallsOfTheSanctuaryShieldItem = "26440b63b13c71344a91559da15acf59";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> WildGuardianShieldItem = "05d8f2e20b09a3d43871d76424c195c6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> WyrmwallShieldItem = "a3c44b8d08b634d479fd1ff01ab5fc08";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemShield>>> All =
+      new()
+      {
+          AncestralDwarwenShieldItem,
+          AncientWoodShieldItem,
+          ArrowguardBucklerItem,
+          AssertionOfDominanceShieldItem,
+          BaphometCultistHeavyShield,
+          BaphometCultistHeavyShieldItemPlus1,
+          BaphometCultistLightShield,
+          BaphometCultistLightShieldItemPlus1,
+          BashingShield,
+          BastionOfLionHeartShieldItem,
+          BladeguardBucklerItem,
+          BlazingCavalierShieldItem,
+          Buckler,
+          BucklerItem4ACagainstVerminPlus2,
+          BucklerItemPlus1,
+          BucklerItemPlus2,
+          BucklerItemPlus3,
+          BucklerItemPlus4,
+          BucklerItemPlus5,
+          BucklerOfElementalGuardItem,
+          BucklerOfRayNegationShieldItem,
+          CharredBulwarkShieldItem,
+          ColdironMasterworkSpikedHeavyShieldCorrect,
+          DawnOfLifeItem,
+          DeceivingFacadeItem,
+          DefendersBulwarkShieldItem,
+          DeskariCultistHeavyShield,
+          DeskariCultistHeavyShieldItemPlus1,
+          DeskariCultistLightShield,
+          DeskariCultistLightShieldItemPlus1,
+          DiskOfUnbalanceShieldItem,
+          DivineProtectorShieldItem,
+          EludingTargetItem,
+          FallenShield,
+          FlameguardShieldItem,
+          FleshTearerShieldItem,
+          ForewarningShieldItem,
+          GowrowAquaticLightShield_IntermediateItem,
+          GowrowAquaticSpikedLightShieldItem,
+          GowrowSonicSpikedLightShieldItem,
+          GrimBarrierShieldItem,
+          HeartOfThunderShieldItem,
+          HeavyShield,
+          HeavyShieldHellknight,
+          HeavyShieldIomedae,
+          HeavyShieldItemFiendishPlus3,
+          HeavyShieldItemLesserColdResistPlus1,
+          HeavyShieldItemPlus1,
+          HeavyShieldItemPlus1IHellknight,
+          HeavyShieldItemPlus1Iomedae,
+          HeavyShieldItemPlus1LivingArmor,
+          HeavyShieldItemPlus1Mendev,
+          HeavyShieldItemPlus1RedWhite,
+          HeavyShieldItemPlus2,
+          HeavyShieldItemPlus2AcidFire,
+          HeavyShieldItemPlus3,
+          HeavyShieldItemPlus4,
+          HeavyShieldItemPlus5,
+          HeavyShieldItemPlusCultist3,
+          HeavyShieldMendev,
+          HeavyShieldOfInnateTrustShieldItem,
+          HeavyShieldRedWhite,
+          HeavyShieldRusty,
+          HeavyWoodenShieldItemPlus3,
+          HolemakerShieldItem,
+          ImpassableGuardShieldItem,
+          IncorruptibleHeartShieldtem,
+          KabririCultistHeavyShield,
+          KabririCultistHeavyShieldItemPlus1,
+          KabririCultistLightShield,
+          KabririCultistLightShieldItemPlus1,
+          LightShield,
+          LightShieldFrostCorrosivePlus4,
+          LightShieldFuryPlus5,
+          LightShieldItemLesserNegativeResistPlus1,
+          LightShieldItemPlus1,
+          LightShieldItemPlus2,
+          LightShieldItemPlus3,
+          LightShieldItemPlus3againstEvocation,
+          LightShieldItemPlus4,
+          LightShieldItemPlus5,
+          LightShieldOfCursedAllegianceShieldItem,
+          LightShieldShockPlus4,
+          MasterworkSpikedHeavyShieldCorrect,
+          MithralHeavyShieldPlus2Item,
+          MithralLightShieldItem,
+          MithralLightShieldPlus2Item,
+          NorthLightShieldItem,
+          ProtectorOfUnjustShieldItem,
+          SarenraeLifeSourceLightShieldItem,
+          SarenraeLightShield_IntermediateItem,
+          SarenraeObliteratingLightLightShieldItem,
+          ShieldOfChastiseShieldItem,
+          ShieldofDivinePower,
+          ShieldOfMagicalRetributionShieldItem,
+          ShieldOfPainfulRemorseShieldItem,
+          ShieldofWill,
+          SosielQuestHeavyShieldItemPlus1,
+          SosielQuestHeavyShieldItemPlus4,
+          SpellbreakerShieldItem,
+          SpikedShieldOfHolyThornArmorItem,
+          SpikedShieldOfHolyThornShieldItem,
+          TalionKeeperItem,
+          TheUndyingLoveOfTheHopebringerShieldItem,
+          TowerShield,
+          TowerShieldItemPlus1,
+          TowerShieldItemPlus2,
+          TowerShieldItemPlus2ElectricityCold,
+          TowerShieldItemPlus3,
+          TowerShieldItemPlus4,
+          TowerShieldItemPlus5,
+          TowerShieldItemSavThrAgainstBlindPlus1,
+          TowerShieldWardenOfDarknessShieldItem,
+          UnbreakableBastionShieldItem,
+          VenomousLimbShieldItem,
+          WallsOfTheSanctuaryShieldItem,
+          WildGuardianShieldItem,
+          WyrmwallShieldItem,
+      };
   }
 }

@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintTrap blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class TrapRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintTrap>> DLC1_StorytellerFlavorTrap = "e5272fddd95945bba815df56d56a7a19";
@@ -21,5 +27,22 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTrap>> Tesla_Trap4 = "0347ff16257c478c8b15b20b4bcfa37c";
     public static readonly Blueprint<BlueprintReference<BlueprintTrap>> TestAreaTrap = "65424b306ab8049439f2ee0090b790c7";
     public static readonly Blueprint<BlueprintReference<BlueprintTrap>> TestTrap = "42e2e9b03f91f824eb1ff8200a6b17de";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintTrap>>> All =
+      new()
+      {
+          DLC1_StorytellerFlavorTrap,
+          FakeBannerTrap,
+          FinneanlabFlavorTrap,
+          GGTrap,
+          GiantTrap,
+          Lvl7_DraftFireballTrap,
+          Tesla_Trap,
+          Tesla_Trap2,
+          Tesla_Trap3,
+          Tesla_Trap4,
+          TestAreaTrap,
+          TestTrap,
+      };
   }
 }

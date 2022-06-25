@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Achievements.Blueprints;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to AchievementData blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class AchievementDataRefs
   {
     public static readonly Blueprint<BlueprintReference<AchievementData>> _00_Platinum = "d40b3502bfdf4d6cbb02c90111eb3a31";
@@ -99,5 +105,100 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC2_Knock_achiv = "ae15532c6c4d4d3ba295a3ffe5f26a48";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC2_Puzzle_achiv = "bef5f09474f542d28e8280c206b28d66";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC2_Vandal_achiv = "a7805a22938346a1a08666427847a5b0";
+
+    public static readonly List<Blueprint<BlueprintReference<AchievementData>>> All =
+      new()
+      {
+          _00_Platinum,
+          _01_DevouredByDarkness,
+          _02_BurningCity,
+          _03_BannerOverCitadel,
+          _04_FithCrusade,
+          _05_EmbraceOfAbyss,
+          _06_HeartOfFallenLand,
+          _07_FinalThreshold,
+          _08_PathOfAngel,
+          _09_PathOfDemon,
+          _10_PathOfAzata,
+          _11_PathOfAeon,
+          _12_PathOfTrickster,
+          _13_PathOfLich,
+          _14_PathOfSwarm,
+          _15_PathOfDragon,
+          _16_PathOfLegend,
+          _17_Transformation,
+          _18_MythicChoices,
+          _19_EqualToAroden,
+          _20_SpiritOfAdventures,
+          _21_TestOfStarstone,
+          _22_MasterfulCraftsmanship,
+          _23_MasterfulCharge,
+          _24_Legacy,
+          _25_MasterfulDispell,
+          _26_SadisticGameDesign,
+          _27_VictorySeige_,
+          _28_GreatUpstart,
+          _29_StrategicVictory,
+          _30_BattlefieldVictory,
+          _31_DivideAndRule,
+          _32_MythicReinforcements,
+          _33_DefendersHeart,
+          _34_CapitulationIsNowMoot,
+          _35_AbyssalConspiracy,
+          _36_CoreOfRiddle,
+          _37_FirstBigEnemy,
+          _38_PrelatesNemesis,
+          _39_Blight_of_Drezen,
+          _40_EndOfEternalGuard,
+          _41_PlayfulMood,
+          _42_JustPathetic,
+          _43_DreadfulDragon,
+          _44_AshesToAshes,
+          _45_VoiceFromDreams,
+          _46_AllPathsOpen,
+          _47__MemoriesFrozenInTime,
+          _48_Spark,
+          _49_Flame,
+          _50_HeyIKnowYou,
+          _51_DemonicAndDivine,
+          _52_TrulyImportantDeed,
+          _53_TrulyProfaneGift,
+          _54_DeathByColumn,
+          _55_NextDoorPlay,
+          _56_GetToad,
+          _57_PathOfDevil,
+          _58_Midnight_Aim,
+          _59_SoMuchOfMe,
+          _60_Ascension,
+          _61_GrainOfSand,
+          _62_StoryWorthMillenia,
+          _63_SecretOfSecrets,
+          _64_Radiance,
+          _65_SubtleHints,
+          DLC1_01_InevitableOutcome,
+          DLC1_02_GlimpseOfTruth,
+          DLC1_03_Detective_at_Work,
+          DLC1_04_SilverTongue,
+          DLC1_05_Disillusioned,
+          DLC1_06_Paradox,
+          DLC2_01_Provoker,
+          DLC2_02_GraveRobber,
+          DLC2_03_CarefulSteps,
+          DLC2_04_Deadweight,
+          DLC2_05_AMomentOfPeace,
+          DLC2_06_GuardianAngel,
+          DLC2_07_BookWorm,
+          DLC2_08_NoPainNoGain,
+          DLC2_09_ComeInHandy,
+          DLC2_10_Carelessness,
+          DLC2_18_RunFools,
+          DLC2_19_FriendInNeed,
+          DLC2_Bully_achiv,
+          DLC2_Bureaucrat_achiv,
+          DLC2_Healer_achiv,
+          DLC2_Knock_achiv,
+          DLC2_Puzzle_achiv,
+          DLC2_Vandal_achiv,
+      };
   }
 }

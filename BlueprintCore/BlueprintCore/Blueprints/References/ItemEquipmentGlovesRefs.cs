@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemEquipmentGloves blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemEquipmentGlovesRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> ALR_GlovesItem = "cb9ba081b011453597a4f4dd25bad2e6";
@@ -79,5 +85,80 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> UltimatePredatorsGauntletsItem = "c8ad87f3fc49ccd43a5560acb271e968";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> UnholyKneePadsItem = "d657c55461344f748d76a8a03e6bdbd9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> ViciousStompersItem = "efe72fa3d5164cdc93135c9e3cd91a22";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>>> All =
+      new()
+      {
+          ALR_GlovesItem,
+          AmberGloves_IntermediateItem,
+          AmberLoveGlovesItem,
+          AmberLustGlovesItem,
+          Artifact_SpikedGauntletItem,
+          Artifact_StarGauntletItem,
+          BaphometFire_IntermediateItem,
+          BaphometFireGloves_AnimalisticFireItem,
+          BaphometFireGloves_BurningCunningItem,
+          BigGameGlovesItem,
+          BlessedHandsGlovesItem,
+          BloodDrenchedGlovesItem,
+          BombThrowingGlovesItem,
+          BracersSpikedHodagItem,
+          ButterflyWingsGlovesItem,
+          CheatSheetGlovesItem,
+          ClawsOfAMonsterItem,
+          CobraPadsItem,
+          CrazyScientistsGlovesItem,
+          DashingCavaliersGlovesItem,
+          DeliquescentGlovesItem,
+          EvisceratorsGlovesItem,
+          FencersGiftItem,
+          GauntletOfPunching,
+          GauntletsOfMightySwipeItem,
+          GlovesNumerianItem,
+          GlovesOfArcaneEradicationItem,
+          GlovesOfCollidingElementsItem,
+          GlovesOfDeathDealer,
+          GlovesOfDexterityItem,
+          GlovesOfDuelingLesserItem,
+          GlovesOfDuelingNormalItem,
+          GlovesOfElvenkindItem,
+          GlovesOfEnduringWizardItem,
+          GlovesOfEntropyItem,
+          GlovesOfFirmGripItem,
+          GlovesOfHeavyImpactItem,
+          GlovesOfLighterTouch,
+          GlovesOfMartialExcellenceItem,
+          GlovesOfMonstersProtectionItem,
+          GlovesOfNeophyteItem,
+          GlovesOfPreciseShotItem,
+          GlovesOfProtectionFromUndeadItem,
+          GlovesOfRendingItem,
+          GlovesOfResourcefulMagusItem,
+          GlovesOfTheAmbassadorItem,
+          GlovesOfTheScribeItem,
+          GlovesOfUnfriendlyFireItem,
+          GlovesOfUseMagiDevicesItem,
+          GlovesStaglordItem,
+          HarmPreventersItem,
+          HeavyPawsItem,
+          HolyKneePadsItem,
+          JawsOfTheJackalItem,
+          ManticoresClawsGlovesItem,
+          MarksmansSteadyHandItem,
+          OppressorsGlovesItem,
+          RabidRippersItem,
+          RoyalGlovesOfValorItem,
+          SavageUnityItem,
+          StarEmbroideredGlovesItem,
+          SteadyHandGlovesItem,
+          SurefireGlovesItem,
+          TrapspringerGloves,
+          TrickstersGloves,
+          TwistedTemptationItem,
+          UltimateGripGlovesItem,
+          UltimatePredatorsGauntletsItem,
+          UnholyKneePadsItem,
+          ViciousStompersItem,
+      };
   }
 }

@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintDlc blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class DlcRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> Dlc1 = "8576a633c8fe4ce78530b55c1f0d14e5";
@@ -22,5 +28,23 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> FreeDlc2 = "470dbced885b41488aa619ce58adec42";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> FreeDlc3 = "aa65dbd3c0bb44b49343b020c9a4c8a3";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> FreeDlc4 = "a9262dad08654d3dbad64476978c0f95";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintDlc>>> All =
+      new()
+      {
+          Dlc1,
+          Dlc2,
+          Dlc3,
+          DlcCommanderPack,
+          DlcKickstarter,
+          DlcKickstarterPremium,
+          DlcPreorder,
+          DlcPreorderAndCommanderPack,
+          DlcSeasonPass,
+          FreeDlc1,
+          FreeDlc2,
+          FreeDlc3,
+          FreeDlc4,
+      };
   }
 }

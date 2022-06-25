@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Persistence.Versioning;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintUnitUpgrader blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class UnitUpgraderRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_229479_RecreateAreshkagalOnLoad = "c048cb6cb12c4c578c312cf1ea5ebdce";
@@ -24,5 +30,25 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> UpgradeUnitPrimarySecondaryWeapons = "9bb96c963f0f47f48e51aabb6c8ac4ff";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> UpgradeUnitRace = "bf93ee9fb7f34b17a9a25e50ada648e4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> UpgradeUnitRobe2ST2DC = "0da99f59dbfc45b49864819a5ad0c3ec";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintUnitUpgrader>>> All =
+      new()
+      {
+          PF_229479_RecreateAreshkagalOnLoad,
+          PF_232061_RecreateUnitOnLoad,
+          PF_273507_CohhDungeonRecreateUnitOnLoad,
+          PF_296210_RecreateSvendackOnLoad,
+          PF_296345_RecreateHalDragonOnLoad,
+          PF_307745_RecreateUnitOnLoad,
+          PF_339174_Aivu,
+          PF_340663_RecreateUnitOnLoad,
+          PF_359232_RemoveBrokenSummonOnLoad,
+          PF_365247_EvilArueshalae_Companion,
+          PF_418068_RecreateVissariyRatimus,
+          UpgradeUnitAlignment,
+          UpgradeUnitPrimarySecondaryWeapons,
+          UpgradeUnitRace,
+          UpgradeUnitRobe2ST2DC,
+      };
   }
 }

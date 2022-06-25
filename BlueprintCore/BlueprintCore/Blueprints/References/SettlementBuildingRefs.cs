@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Settlements;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintSettlementBuilding blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class SettlementBuildingRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintSettlementBuilding>> AlchemistLaboratory = "6ecb3570375b4ff899731851bc6eb676";
@@ -68,5 +74,69 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSettlementBuilding>> TrainingGroundsCapital = "74e53dc8c8824430af8921967a5f1e4f";
     public static readonly Blueprint<BlueprintReference<BlueprintSettlementBuilding>> Warehouse = "ab509bc1202e3044ab58653230d66c1f";
     public static readonly Blueprint<BlueprintReference<BlueprintSettlementBuilding>> Watchtower = "6cd75d70e2024eb699ad44fa2b7c942b";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintSettlementBuilding>>> All =
+      new()
+      {
+          AlchemistLaboratory,
+          Apothecary,
+          ApothecaryCapital,
+          ArcheryRangeGarrison,
+          ArcheryRangeMain,
+          Arsenal,
+          ArsenalCapital,
+          Asylum,
+          BarracksGarrison,
+          BarracksMain,
+          BlackMarket,
+          BlackMarketImproved,
+          BreweryClerics,
+          BrewerySoldiers,
+          BreweryWizards,
+          BulletingBoard,
+          Cathedral,
+          Citadel,
+          EngineersWorkshop,
+          FightersPit,
+          FightersPitCapital,
+          Gallows,
+          HallOfChampionsGarrison,
+          HallOfChampionsMain,
+          HallOfGlory,
+          HallOfStrategy,
+          Hospital,
+          InfernalForge,
+          InfernalForgeImproved,
+          Inn,
+          InnImproved,
+          Market,
+          MercenaryGuild,
+          MilitaryAcademy,
+          Monument,
+          Palace,
+          PathfinderSocietyLodge,
+          Reliquary,
+          SaboteursHeadquarters,
+          SalvagersPost,
+          Sanctuary,
+          SanctuaryImproved,
+          ScoutsHeadquarters,
+          Shrine,
+          Smithy,
+          SmithyCapital,
+          SpellcasterLodgeGarrison,
+          SpellcasterLodgeMain,
+          SpiritualGarden,
+          StablesGarrison,
+          StablesMain,
+          StrongholdForeign,
+          StrongholdHomeland,
+          Tavern,
+          TeleportationCircle,
+          TrainingGrounds,
+          TrainingGroundsCapital,
+          Warehouse,
+          Watchtower,
+      };
   }
 }

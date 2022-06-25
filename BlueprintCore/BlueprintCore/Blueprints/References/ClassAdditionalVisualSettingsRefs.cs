@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintClassAdditionalVisualSettings blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ClassAdditionalVisualSettingsRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Aeon_1_Visual = "730fc1cac06843618bfffeed2722952f";
@@ -27,5 +33,28 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Locust_2_Visual = "51eb3f28187a44789d1f9634168f70b4";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Trickster_1_Visual = "59ec6f26e8194d4ea1fdd9ca2f409929";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Trickster_2_Visual = "5146db32f73f4b1e9b6fc111cc485727";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>>> All =
+      new()
+      {
+          Aeon_1_Visual,
+          Aeon_2_Visual,
+          Angel_1_Visual,
+          Angel_2_Visual,
+          Azata_1_Visual,
+          Azata_2_Visual,
+          Demon_1_Visual,
+          Demon_2_Visual,
+          Devil_1_Visual,
+          Devil_2_Visual,
+          Dragon_1_Visual,
+          Dragon_2_Visual,
+          Lich_1_Visual,
+          Lich_2_Visual,
+          Locust_1_Visual,
+          Locust_2_Visual,
+          Trickster_1_Visual,
+          Trickster_2_Visual,
+      };
   }
 }

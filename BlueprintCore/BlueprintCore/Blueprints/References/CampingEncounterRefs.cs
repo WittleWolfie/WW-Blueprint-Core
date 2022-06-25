@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.RandomEncounters.Settings;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintCampingEncounter blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class CampingEncounterRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> ArueshalaeAfterLab_CampingEncounter = "b1501473507eb00418ab14db5fd9f23a";
@@ -25,5 +31,26 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> Test_Bebilith_Blueprint_Camping_Encounter = "f2f8355d4bc8aa34195eeb2f5cf66645";
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> WenduRom_Autostart_CampingEncounter = "69d39150ff1ef4c4692f1c28a1c44796";
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> WenduRom_SomeThingsAboutMyFather_CampingEncounter = "a659923cdc1497044a2e385212c114f6";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintCampingEncounter>>> All =
+      new()
+      {
+          ArueshalaeAfterLab_CampingEncounter,
+          ArueshalaeAfterWintersun_CampingEncounter,
+          GiveMeAnIdea_CampingEncounter,
+          HagReturns_CampingEncounter,
+          LannAndBook_CampingEncounter,
+          LannGift_CampingEncounter,
+          LannMamaLetter_CampingEncounter,
+          MythicDemonDreamBE1,
+          Sosiel_and_Trever_Prival_CampingEncounter,
+          SosielFlower_CampingEncounter,
+          SosielNabrosok_CampingEncounter,
+          SosielSosielVerse_CampingEncounter,
+          SummonFromHepzamirah_CampingEncounter,
+          Test_Bebilith_Blueprint_Camping_Encounter,
+          WenduRom_Autostart_CampingEncounter,
+          WenduRom_SomeThingsAboutMyFather_CampingEncounter,
+      };
   }
 }

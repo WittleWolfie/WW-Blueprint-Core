@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Craft;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintIngredient blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class IngredientRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintIngredient>> AlchemistsKit1Item = "d604d7e1d190bd44c90241c028fa7313";
@@ -80,5 +86,81 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintIngredient>> TailStingItem = "437a6a502d447f14f888b6fc633e8f1f";
     public static readonly Blueprint<BlueprintReference<BlueprintIngredient>> TaintedFowltem = "5efe9453aed80994b83c262737f7f1ae";
     public static readonly Blueprint<BlueprintReference<BlueprintIngredient>> Wood = "5e32d30498e74bd4dad91d14a4ceaf16";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintIngredient>>> All =
+      new()
+      {
+          AlchemistsKit1Item,
+          AlchemistsKit2Item,
+          AlchemistsKit3Item,
+          AlchemistsKit4Item,
+          AlchemistsKit5Item,
+          AlchemistsKit6Item,
+          AxisCrystallsItem,
+          BezoarItem,
+          BloodshotEyeItem,
+          BloodVialItem,
+          BlueHoneyItem,
+          BoneMealItem,
+          ButterItem,
+          CausticMoldItem,
+          CheeseItem,
+          CinderbloomItem,
+          ColorfulFeatherItem,
+          CorruptedAnimalMeatItem,
+          CrookedPawItem,
+          CrystallizedDemonicRageItem,
+          CursedPlantItem,
+          DemonicHeartItem,
+          EdibleMossItem,
+          EggsItem,
+          ElementalEssenceItem,
+          EnergizingSpicesItem,
+          FairyMushroomItem,
+          FlametongueItem,
+          FlourItem,
+          ForkedTongueItem,
+          GlassItem,
+          GlimmeringHerbsItem,
+          LeechweedItem,
+          MagicalAcornItem,
+          MagicalDustItem,
+          MandrakeRootItem,
+          MeteorDustItem,
+          MidnightMorelItem,
+          MilkItem,
+          MixOfDemonicPoisonsItem,
+          MixOfSpicesItem,
+          MutatedFishItem,
+          NutsItem,
+          OnionsItem,
+          PhoenixFeatherItem,
+          PhosphorousMushroomItem,
+          PixieDustItem,
+          PurifyingSolutionItem,
+          RainbowQuartzItem,
+          RazorSharpClawItem,
+          RiceItem,
+          ScrollScribersKit1Item,
+          ScrollScribersKit2Item,
+          ScrollScribersKit3Item,
+          ScrollScribersKit4Item,
+          ScrollScribersKit5Item,
+          ScrollScribersKit6Item,
+          ScrollScribersKit7Item,
+          ScrollScribersKit8Item,
+          ScrollScribersKit9Item,
+          ShadowbloomItem,
+          ShadowCloverItem,
+          ShinyChitinItem,
+          SkullberryItem,
+          SlimySkinItem,
+          SpellgorgingFlowerItem,
+          SpiralShelltem,
+          SweetWineItem,
+          TailStingItem,
+          TaintedFowltem,
+          Wood,
+      };
   }
 }

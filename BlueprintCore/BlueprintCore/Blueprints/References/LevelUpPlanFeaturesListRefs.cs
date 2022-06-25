@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintLevelUpPlanFeaturesList blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class LevelUpPlanFeaturesListRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintLevelUpPlanFeaturesList>> Clockwork_Aeon_LevelupPlan = "ad1fd4c61fcc4e9c973b65b1b57c5c9d";
@@ -20,5 +26,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintLevelUpPlanFeaturesList>> Clockwork_MythicHero_LevelupPlan = "b27c0a0a304345fd936f41396b08cfe9";
     public static readonly Blueprint<BlueprintReference<BlueprintLevelUpPlanFeaturesList>> Clockwork_Swarm_LevelupPlan = "b3ab8a79e8ae448ea54af30e68bf78eb";
     public static readonly Blueprint<BlueprintReference<BlueprintLevelUpPlanFeaturesList>> Clockwork_Trickster_LevelupPlan = "8728ded3608647958dfbf12d5f474939";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintLevelUpPlanFeaturesList>>> All =
+      new()
+      {
+          Clockwork_Aeon_LevelupPlan,
+          Clockwork_Angel_LevelupPlan,
+          Clockwork_Azata_LevelupPlan,
+          Clockwork_Demon_LevelupPlan,
+          Clockwork_Devil_LevelupPlan,
+          Clockwork_GoldenDragon_LevelupPlan,
+          Clockwork_Legend_LevelupPlan,
+          Clockwork_Lich_LevelupPlan,
+          Clockwork_MythicHero_LevelupPlan,
+          Clockwork_Swarm_LevelupPlan,
+          Clockwork_Trickster_LevelupPlan,
+      };
   }
 }

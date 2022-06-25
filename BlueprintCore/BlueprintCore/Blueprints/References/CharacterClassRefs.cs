@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintCharacterClass blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class CharacterClassRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> AberrationClass = "e40e01860956b8b4d80059d4437996f5";
@@ -78,5 +84,79 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> WinterWitchClass = "eb24ca44debf6714aabe1af1fd905a07";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> WitchClass = "1b9873f1e7bfe5449bc84d03e9c8e3cc";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> WizardClass = "ba34257984f4c41408ce1dc2004e342e";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintCharacterClass>>> All =
+      new()
+      {
+          AberrationClass,
+          AeonMythicClass,
+          AlchemistClass,
+          AngelMythicClass,
+          AnimalClass,
+          AnimalCompanionClass,
+          ArcaneTricksterClass,
+          ArcanistClass,
+          AssassinClass,
+          AzataMythicClass,
+          BarbarianClass,
+          BardClass,
+          BloodragerClass,
+          CavalierClass,
+          ClericClass,
+          ConstructClass,
+          DemonMythicClass,
+          DevilMythicClass,
+          DragonClass,
+          DragonDiscipleClass,
+          DruidClass,
+          DuelistClass,
+          EldritchKnightClass,
+          EldritchScionClass,
+          FakeLegendClass,
+          FeyClass,
+          FighterClass,
+          GoldenDragonClass,
+          HellknightClass,
+          HellknightSigniferClass,
+          HumanoidClass,
+          HunterClass,
+          InquisitorClass,
+          KineticistClass,
+          LegendClass,
+          LichMythicClass,
+          LoremasterClass,
+          MagicalBeastClass,
+          MagusClass,
+          MonkClass,
+          MonsterMythicClass,
+          MonstrousHumanoidClass,
+          MysticTheurgeClass,
+          MythicCompanionClass,
+          MythicLichSkeletonFighterClass,
+          MythicStartingClass,
+          NymphClass,
+          OracleClass,
+          OutsiderClass,
+          PaladinClass,
+          PlantClass,
+          RangerClass,
+          RogueClass,
+          ShamanClass,
+          SkaldClass,
+          SlayerClass,
+          SorcererClass,
+          StalwartDefenderClass,
+          StudentOfWarClass,
+          SwarmThatWalksClass,
+          SwordlordClass,
+          TricksterMythicClass,
+          UndeadClass,
+          VerminClass,
+          WarpriestClass,
+          WarriorClass,
+          WinterWitchClass,
+          WitchClass,
+          WizardClass,
+      };
   }
 }

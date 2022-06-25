@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemEquipmentGlasses blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemEquipmentGlassesRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> CinderGogglesItem = "7e8fdec022c503a4ab8feddd08a712c9";
@@ -28,5 +34,29 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> MephistophelesGogglesItemCorrect = "f22670905bc245238e86fd59da07616a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> RascalsGogglesItem = "0cea5c218f759bc44a24ac626706a35e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> RatcatchersGogglesItem = "0285111eb68f0da429409ee16c40f868";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>>> All =
+      new()
+      {
+          CinderGogglesItem,
+          ColorlessRemainsGoggles_IntermediateItem,
+          ColorlessRemainsGoggles_MadnessItem,
+          ColorlessRemainsGoggles_SolidItem,
+          CrystallEyeItem,
+          GogglesOfDreadfulJudgeItem,
+          GogglesOfFeriociousPactItem,
+          GogglesOfMalocchioItem,
+          GogglesOfMindControlItem,
+          GogglesOfPiercingGazeItem,
+          GogglesOfPureSightItem,
+          GogglesOfQuickGraspItem,
+          GooglesOfMadScientistItem,
+          HawksEyesItem,
+          LensesOfProlonguedGaze_CorrectItem,
+          MephistophelesGogglesItem,
+          MephistophelesGogglesItemCorrect,
+          RascalsGogglesItem,
+          RatcatchersGogglesItem,
+      };
   }
 }

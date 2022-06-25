@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemEquipmentBelt blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemEquipmentBeltRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> AssailantsBeltItem = "8d48d164b7a729b459db96ab7d5cf55a";
@@ -81,5 +87,82 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> StormKingsBeltItem = "896925074ea6446abc108e0cd47e79de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> TimelyAssistanceItem = "b76383fb806d61b41bfe93f0651e3964";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> UnceasingSlaughterItem = "cd015f36cdccb134e86a0b4daa0283e8";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>>> All =
+      new()
+      {
+          AssailantsBeltItem,
+          BeltofAdditionalPockets,
+          BeltOfAlacrityItem,
+          BeltOfAthach,
+          BeltOfBeastlySturdinessItem,
+          BeltOfBloodlustItem,
+          BeltOfConstitution2,
+          BeltOfConstitution4,
+          BeltOfConstitution6,
+          BeltOfCourageousChargeItem,
+          BeltOfDemonicShadowItem,
+          BeltOfDexterity2,
+          BeltOfDexterity4,
+          BeltOfDexterity6,
+          BeltOfDexterityConstitution2,
+          BeltOfDexterityConstitution4,
+          BeltOfDexterityConstitution6,
+          BeltOfImprovedProtectionItem,
+          BeltOfLesserColdResistanceItem,
+          BeltOfPerfectComponentsGreaterItem,
+          BeltOfPerfectComponentsItem,
+          BeltOfPerfectComponentsLesserItem,
+          BeltOfPerfection2,
+          BeltOfPerfection4,
+          BeltOfPerfection6,
+          BeltOfPerfection8,
+          BeltOfPerfection8Extra,
+          BeltOfShadowsItem,
+          BeltOfStoneskinItem,
+          BeltOfStrength2,
+          BeltOfStrength4,
+          BeltOfStrength6,
+          BeltOfStrengthConstitution2,
+          BeltOfStrengthConstitution4,
+          BeltOfStrengthConstitution6,
+          BeltOfStrengthDexterity2,
+          BeltOfStrengthDexterity4,
+          BeltOfStrengthDexterity6,
+          BeltOfThunderousChargingItem,
+          BeltOfVeneratedChampionItem,
+          ClaspOfDeathItem,
+          ClutchOfCorruptionItem,
+          CordOfStubbornFuryItem,
+          DaredevilsBeltItem,
+          DevilsSashItem,
+          DisplayOfPowerItem,
+          DivineSupportBeltItem,
+          EnergizingBeltItem,
+          EqualityBeltItem,
+          ExplorersBeltItem,
+          GozrehsEmbracementBeltItem,
+          HermitRopeBeltItem,
+          InfernalCordGreaterItem,
+          KnightsEmblemBelt_IntermediateItem,
+          KnightsEmblemEmeraldBeltItem,
+          KnightsEmblemSunsetBeltItem,
+          KorgathShackledFury,
+          LizardTailItem,
+          ManglingFrenzyItem,
+          MaskOfAreshkagalBelt_IntermediateItem,
+          MaskOfAreshkagalBelt_TabulaRasaItem,
+          MaskOfAreshkagalBelt_VoidItem,
+          MirroredBeltItem,
+          OldEarthBelt_IntermediateItem,
+          OldEarthSandBeltItem,
+          OldEarthShriekBeltItem,
+          SashOfRazorsItem,
+          SeedOfInsanityBeltItem,
+          SpecialistBeltItem,
+          StormKingsBeltItem,
+          TimelyAssistanceItem,
+          UnceasingSlaughterItem,
+      };
   }
 }

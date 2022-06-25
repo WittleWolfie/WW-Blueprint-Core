@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.RandomEncounters.Settings;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintRandomEncounter blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class RandomEncounterRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintRandomEncounter>> BP_RE_KareliaCanyon = "fca2b85a9ff5b8340952d97260227edd";
@@ -62,5 +68,63 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintRandomEncounter>> SE_Woljif_Q2_Rite = "57767d6cc166ebd4183d3e65f1ca2c0a";
     public static readonly Blueprint<BlueprintReference<BlueprintRandomEncounter>> SE_WorldwoundEdgeGMBE = "7ebe979bb8f4d2441865a594ca011f29";
     public static readonly Blueprint<BlueprintReference<BlueprintRandomEncounter>> SE_YakerInWarCamp = "b03555b40a2916a409436a2afb313f8e";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintRandomEncounter>>> All =
+      new()
+      {
+          BP_RE_KareliaCanyon,
+          BP_RE_KareliaForest,
+          BP_RE_KareliaRuins,
+          BP_RE_KenabresStreets,
+          BP_RE_KenabresStreets02,
+          BP_RE_KenabresStreets03,
+          BP_RE_KenabresStreets04,
+          BP_RE_KenabresStreets05,
+          BP_RE_SarkorisDisaster,
+          BP_RE_SarkorisDisaster_2,
+          BP_RE_SnowCliffs,
+          BP_RE_SnowHills,
+          BP_RE_WinterForest,
+          BP_RE_Worldwound,
+          BP_RE_Worldwound_Canyon,
+          BP_RE_WoundCracks,
+          BP_RE_WoundCracks_2,
+          BP_RE_WoundedForest,
+          BP_Trader_Desert,
+          BP_Trader_Karelia,
+          BP_Trader_Winter,
+          SE_AngelMythicFarewellGMBE,
+          SE_AngelMythicLeapOfFaithGMBE,
+          SE_ApprenticeAmbush,
+          SE_CrinukhNote,
+          SE_DefendersHeartWarning,
+          SE_DevilSnatchGMBE,
+          SE_DragonHunt_Attack1,
+          SE_DragonHunt_Attack2,
+          SE_DragonHuntBookEvent3GMBE,
+          SE_DrezenWarCouncil,
+          SE_Ember_Q3_Brotherhood,
+          SE_GargoyleAttack,
+          SE_GlobalPuzzle_Cyan_,
+          SE_GlobalPuzzle_Green_,
+          SE_GlobalPuzzle_Purple,
+          SE_GlobalPuzzle_Red,
+          SE_IngerMaggor,
+          SE_Kaylessa_DrowAmbush,
+          SE_Kaylessa_FornAmbus,
+          SE_Lann_Q3_Sull,
+          SE_LocustMythic_MeetAnemora,
+          SE_LocustMythic_Reckoning,
+          SE_MeetNenio,
+          SE_NoMoreTentacles,
+          SE_RenownExplorer,
+          SE_RoguePaladin_1,
+          SE_RoguePaladin_2,
+          SE_RoguePaladin_3,
+          SE_Woljif_Q2_CultistsRunaway,
+          SE_Woljif_Q2_Rite,
+          SE_WorldwoundEdgeGMBE,
+          SE_YakerInWarCamp,
+      };
   }
 }

@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Armies;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintLeaderSkillsList blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class LeaderSkillsListRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintLeaderSkillsList>> AbilityRangerChoice1 = "f5bbda67aad14bcfadce4ac3e439a3e1";
@@ -67,5 +73,68 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintLeaderSkillsList>> RitualWarriorChoice3 = "ed6ee32c8ac642c99f6da41ae9bf63a3";
     public static readonly Blueprint<BlueprintReference<BlueprintLeaderSkillsList>> RitualWarriorChoice4 = "1e47e0ee55984cf0b349b5c141c627c9";
     public static readonly Blueprint<BlueprintReference<BlueprintLeaderSkillsList>> RitualWarriorChoice5 = "2dd9d5af884546d48ee8523f6a675f8c";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintLeaderSkillsList>>> All =
+      new()
+      {
+          AbilityRangerChoice1,
+          AbilityRangerChoice2,
+          AbilityRangerChoice3,
+          AbilityRangerChoice4,
+          AbilityRangerChoice5,
+          AbilityRangerChoice6,
+          AbilityWarriorChoice1,
+          AbilityWarriorChoice2,
+          AbilityWarriorChoice3,
+          FeatMageCommonChoice1,
+          FeatMageCommonChoice2,
+          FeatMageCommonChoice3,
+          FeatMageCommonChoice4,
+          FeatMageCommonChoice5,
+          FeatMageCommonChoice6,
+          FeatMagePersonalChoice1,
+          FeatMagePersonalChoice2,
+          FeatMagePersonalChoice3,
+          FeatMagePersonalChoice4,
+          FeatMagePersonalChoice5,
+          FeatRangerCommonChoice1,
+          FeatRangerCommonChoice2,
+          FeatRangerCommonChoice3,
+          FeatRangerCommonChoice4,
+          FeatRangerPersonalChoice1,
+          FeatRangerPersonalChoice2,
+          FeatRangerPersonalChoice3,
+          FeatRangerPersonalChoice4,
+          FeatRangerPersonalChoice5,
+          FeatWarriorCommonChoice1,
+          FeatWarriorCommonChoice2,
+          FeatWarriorCommonChoice3,
+          FeatWarriorCommonChoice4,
+          FeatWarriorCommonChoice5,
+          FeatWarriorCommonChoice6,
+          FeatWarriorPersonalChoice1,
+          FeatWarriorPersonalChoice2,
+          FeatWarriorPersonalChoice3,
+          FeatWarriorPersonalChoice4,
+          FeatWarriorPersonalChoice5,
+          FeatZealousLearnerChoice,
+          RitualMageChoice1,
+          RitualMageChoice2,
+          RitualMageChoice3,
+          RitualMageChoice4,
+          RitualMageChoice5,
+          RitualMageChoice6,
+          RitualMageChoice7,
+          RitualMageChoice8,
+          RitualRangerChoice1,
+          RitualRangerChoice2,
+          RitualRangerChoice3,
+          RitualRangerChoice4,
+          RitualWarriorChoice1,
+          RitualWarriorChoice2,
+          RitualWarriorChoice3,
+          RitualWarriorChoice4,
+          RitualWarriorChoice5,
+      };
   }
 }

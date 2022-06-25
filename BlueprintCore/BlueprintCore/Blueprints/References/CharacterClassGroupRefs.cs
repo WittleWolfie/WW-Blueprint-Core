@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintCharacterClassGroup blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class CharacterClassGroupRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClassGroup>> Alchemist = "acb8d8d897926004bbf6513a8f4642e5";
@@ -20,5 +26,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClassGroup>> MysticTheurge = "17a5210a977f4099b5eab0a7e457e1ee";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClassGroup>> Nature = "7adfffd906e45104db0070efa2a9434b";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClassGroup>> Performers = "9267ebac8dc2ba64faf936b81418512c";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintCharacterClassGroup>>> All =
+      new()
+      {
+          Alchemist,
+          ArcaneCasters,
+          ArcaneWarriors,
+          CastersOfDivineMagic,
+          Divine,
+          Kineticist,
+          MartialAgilityWarriors,
+          MartialBrawnWarriors,
+          MysticTheurge,
+          Nature,
+          Performers,
+      };
   }
 }

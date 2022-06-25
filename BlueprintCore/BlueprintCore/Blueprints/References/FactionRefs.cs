@@ -1,11 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintFaction blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class FactionRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> AngelTeam = "ff7b854fc400a64419f4f45273eed7ee";
@@ -44,5 +51,46 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Traps = "d75c5993785785d468211d9a1a3c87a6";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> TrueNeutrals = "6e3318c9f3f1b044c8e72823ba2f9000";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> WildAnimals = "b1525b4b33efe0241b4cbf28486cd2cc";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintFaction>>> All =
+      new()
+      {
+          AngelTeam,
+          Attack_everyone,
+          Bandits,
+          Bosses,
+          Civilians,
+          Crusaders,
+          CutsceneNeutrals,
+          Demons,
+          DrezenChorussina,
+          DrezenCultists,
+          DummyFaction,
+          FireRaisingDH,
+          FireRaisingTargetDH,
+          Friends,
+          HellsDecreeAbilityTargetedRageFaction,
+          HelpingPlayer,
+          IvorySanctum_BaphometGroup,
+          IvorySanctum_DeskariGroup,
+          Militia,
+          Mobs,
+          NeutralGuards,
+          Neutrals,
+          Ooze,
+          Ooze_dlc2,
+          PerpetuallyAnnoyedFaction,
+          Player,
+          PrologueTeam1,
+          PrologueTeam2,
+          Revolutioners,
+          Slaves,
+          Summoned,
+          TheIvoryLabyrinth_ApoGroup,
+          TheIvoryLabyrinth_SvenGroup,
+          Traps,
+          TrueNeutrals,
+          WildAnimals,
+      };
   }
 }

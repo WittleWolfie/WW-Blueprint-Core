@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Rest.Cooking;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintCookingRecipe blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class CookingRecipeRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> AcornPieRecipe = "fe4c7fac8007fdc4698ff6c0d56e78ca";
@@ -34,5 +40,35 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> SourGutsBrothRecipe = "0498fd2af3d0f514e9d1cd2275739aca";
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> SpicyPastryRecipe = "197af78f957512844b1dfc9d1cf5d172";
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> Test_Bebilith_Blueprint_Cooking_Recipe = "293bc27a21f5e7a47b064898863aae78";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintCookingRecipe>>> All =
+      new()
+      {
+          AcornPieRecipe,
+          BlazingParfaitRecipe,
+          CheeseCrostataRecipe,
+          ClearingMindTeaRecipe,
+          ConflagrantTacoRecipe,
+          CremeSoupWithaSnoutRecipe,
+          CursePilaffRecipe,
+          DefaultRecipe,
+          DemonSlayerSoupRecipe,
+          DLC2_SpicyPastryRecipe,
+          FishOnaStickRecipe,
+          GlowingCroissantRecipe,
+          GodspeedSaladRecipe,
+          LuckyHandSandwitchRecipe,
+          MidnightSoupRecipe,
+          MonsterCasseroleRecipe,
+          MossPottageRecipe,
+          MulledWineRecipe,
+          OnionSoupRecipe,
+          ScreamingOmeletRecipe,
+          SeasonedWingsAndThighsRecipe,
+          SkullberryPieRecipe,
+          SourGutsBrothRecipe,
+          SpicyPastryRecipe,
+          Test_Bebilith_Blueprint_Cooking_Recipe,
+      };
   }
 }

@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemNote blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemNoteRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> AboutAshyLady = "513ba66c1c7c4eccbddb507b8d8ea99b";
@@ -127,5 +133,128 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> XanthirForeshadow = "a40e092665744b8c801fb7fe4c402de7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> XanthirRevelations = "2669932ca67e47d9a97e6582db0301d5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> ZachariusNecromancy = "de12840a4662481f937ff9542a6beb6b";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemNote>>> All =
+      new()
+      {
+          AboutAshyLady,
+          AboutEmber,
+          AboutIzyagna,
+          AboutPaladinOrders,
+          AboutRunelords,
+          AboutTitans,
+          AbyssPolitics,
+          AbyssTavernLedger,
+          ActsOfIomedae,
+          AeonBookOfLaws,
+          AlushinirraTouristGuide,
+          AreeluArchitect,
+          AreeluLetter1,
+          AreeluLetter2,
+          AzataIsland_EdibleGizmo_item,
+          AzataIsland_SculptorsList_item,
+          AzataIsland_ShinyGizmo_item,
+          AzataIsland_StreetArtistList_item,
+          BaphometEscaped,
+          BaphometImprisoned,
+          BaphometPreacherBook,
+          BerengarNote,
+          BerengerMessage,
+          BonfireNight,
+          BookKostchtchie,
+          BrimAdventures,
+          ChiefKey,
+          CrusadeChronicles,
+          CrusadeCrudeHumor,
+          CrusadeFailures,
+          CrusadeMainEnemies,
+          Cutter,
+          CutterAmmo,
+          Daeran_Q2_Report_1,
+          Daeran_Q2_Report_2,
+          DaeranNote,
+          DamnedBeKenabres,
+          EstrodGuidebook1,
+          EstrodGuidebook2,
+          EstrodGuidebook3,
+          FaxonReportToMinagho,
+          FearlessCrusaderBriggie,
+          FunnyText_HowTo,
+          GalfreyGoodbyeMessage,
+          GearsRuleNote,
+          GentyCrusader,
+          HilorStory1,
+          HilorStory2,
+          HilorStory3,
+          HowToMythicADemon,
+          IncubusChallenge,
+          InfernalContract,
+          InquisitorLetter,
+          IrovettiBookPaladin,
+          IrovettiPoemAntology,
+          IzArcheology,
+          KenabresWardstone,
+          LetterInTavernNote,
+          LEXICON_Part1,
+          LEXICON_Part2,
+          MagicAccum,
+          MendevGolfreyHistory,
+          MidnightFaneDocuments,
+          Mutasafen_Letter,
+          MutasafenNotesCrystall,
+          MutasafenNotesTargona,
+          MutasafenRevelations,
+          NocticulaPoem,
+          NumBomb,
+          NumNote,
+          NurahBook,
+          NurahPerfume,
+          Octavia_Letter,
+          OldSarkorisFighter,
+          PsiBlocker,
+          PsiBlockerElectroincs,
+          PsiBlockerHelmet,
+          Pulura_SecretNote,
+          Pulura_UrwengNote,
+          PuluraFallsAstroPuzzle1,
+          PuluraFallsAstroPuzzle1_Page,
+          PuluraFallsAstroPuzzle2,
+          QueenLetterGood,
+          QueenLetterNotGood,
+          RegBook1_CulinaryAlmanach,
+          RegBook1_CulinaryAlmanachJubielostSign,
+          RegBook10_ProdigalSons,
+          RegBook11_RiverFreedoms,
+          RegBook12_SearchForJoy,
+          RegBook13_ShadowsOfAbsalom,
+          RegBook14_SwordsScribes,
+          RegBook15_ThousandRevolutions,
+          RegBook16_ValleyOfFire,
+          RegBook17_WhyEarthTrembles,
+          RegBook2_DarkLords,
+          RegBook3_Everlight,
+          RegBook4_FightingBleaching,
+          RegBook5_Ilthuliak,
+          RegBook6_IobariaCurse,
+          RegBook7_LegendOfPathfinder,
+          RegBook8_MonsterGuide,
+          RegBook9_OnGodsAndDivine,
+          SadisticMageBook,
+          SarkorisMagesPathfinderSociety,
+          SisterOfMercy,
+          StargazerDiary,
+          SuramgaminBook1,
+          SuramgaminBook2,
+          TerendelevOrigin,
+          TheatrePoem_1,
+          TheatrePoem_2,
+          UnknownCrusades,
+          WhatIsVermlek,
+          WorldwoundSetting,
+          Xanthir_notes,
+          XanthirForeshadow,
+          XanthirRevelations,
+          ZachariusNecromancy,
+      };
   }
 }

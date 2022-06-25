@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintStatProgression blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class StatProgressionRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintStatProgression>> ArmyXPTable = "72cc67d1699657147aa5c9af03098b66";
@@ -34,5 +40,35 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintStatProgression>> WeekSettlementProgression = "e6d9752cd28963b4a8bbb340e1f9589b";
     public static readonly Blueprint<BlueprintReference<BlueprintStatProgression>> XPTable = "87c24ce6bcf1a994296f3c582c1a632b";
     public static readonly Blueprint<BlueprintReference<BlueprintStatProgression>> ZeroProgression = "059c61483910c77408d0473b11d1b922";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintStatProgression>>> All =
+      new()
+      {
+          ArmyXPTable,
+          BABFull,
+          BABLow,
+          BABMedium,
+          BaseCRTable,
+          Chapter2MissionProgression,
+          Chapter2TravellingArmyProgression,
+          Chapter3MissionProgression,
+          Chapter3TravellingArmyProgression,
+          Chapter5TravellingArmyProgression,
+          CRTable,
+          DCtoCRTable,
+          LegendXPTable,
+          SavesHigh,
+          SavesLow,
+          SavesPrestigeHigh,
+          SavesPrestigeLow,
+          WeekArmyRatingProgression,
+          WeekBuildingsProgression,
+          WeekIncomeSourceProgression,
+          WeekLeaderLevelProgression,
+          WeekRanksProgression,
+          WeekSettlementProgression,
+          XPTable,
+          ZeroProgression,
+      };
   }
 }

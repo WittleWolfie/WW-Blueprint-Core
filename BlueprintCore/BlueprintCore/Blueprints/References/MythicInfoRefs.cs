@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintMythicInfo blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class MythicInfoRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintMythicInfo>> AeonUnlocked = "58650dffca246f244853af263ed38126";
@@ -29,5 +35,30 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintMythicInfo>> PlayerIsLocust = "e18dffaf0709e2642b7c9fab6a5711ec";
     public static readonly Blueprint<BlueprintReference<BlueprintMythicInfo>> PlayerIsTrickster = "2ab21c40c25549a4288a160d5f3571cd";
     public static readonly Blueprint<BlueprintReference<BlueprintMythicInfo>> TricksterUnlocked = "a6c23a6ce6ab8864da50563af0ddd952";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintMythicInfo>>> All =
+      new()
+      {
+          AeonUnlocked,
+          AngelUnlocked,
+          AzataUnlocked,
+          DemonUnlocked,
+          DevilUnlocked,
+          DragonUnlocked,
+          LegendUnlocked,
+          LichUnlocked,
+          LocustUnlocked,
+          PlayerIsAeon,
+          PlayerIsAngel,
+          PlayerIsAzata,
+          PlayerIsDemon,
+          PlayerIsDevil,
+          PlayerIsDragon,
+          PlayerIsLegend,
+          PlayerIsLich,
+          PlayerIsLocust,
+          PlayerIsTrickster,
+          TricksterUnlocked,
+      };
   }
 }

@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintSharedVendorTable blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class SharedVendorTableRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Aminas_Chapter5VendorTable = "8b2dae3f8da96f640995594f6bcf7a29";
@@ -131,5 +137,132 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> WarCamp_ScrollVendorClericTable = "cdd7aa16e900b9146bc6963ca53b8e71";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> WarCamp_StreetRatVendorTable = "24282bde41338884d840a06987c1b3bf";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Weapon_DefendersHeartVendorTable = "5f17d3b47752fb94abe8c98534af8920";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintSharedVendorTable>>> All =
+      new()
+      {
+          Aminas_Chapter5VendorTable,
+          Anoriel_MVP_VendorTable,
+          ApprenticeWeapon_DLC1VendorTable,
+          ArcaneScrollsVendorTableI,
+          ArcaneScrollsVendorTableII,
+          ArcaneScrollsVendorTableIII,
+          ArcaneScrollsVendorTableIV,
+          ArcaneScrollsVendorTableIX,
+          ArcaneScrollsVendorTableV,
+          ArcaneScrollsVendorTableVI,
+          ArcaneScrollsVendorTableVII,
+          ArcaneScrollsVendorTableVIII,
+          ArcaneScrollsVendorTableX,
+          ArcaneScrollsVendorTableXI,
+          Azata_Chapter3VendorTable,
+          AzataTwins_Chapter5VendorTable,
+          Barbarian_Chapter3VendorTable,
+          Blacksmith_Chapter3VendorTable,
+          Blacksmith_Chapter5VendorTable,
+          BlacksmithWeapon_DLC1VendorTable,
+          C11_JhodVendorTable,
+          C11_OlegVendorTable,
+          C2_VendorTableLarge,
+          C2_VendorTableSmall,
+          C3_VendorTableLarge,
+          C3_VendorTableSmall,
+          C31_JhodVendorTable,
+          C4_VendorTableLarge,
+          C4_VendorTableSmall,
+          C61_IssiliVendorTable,
+          CustomVillageVendorTable,
+          Demon_Chapter3VendorTable,
+          DireNarlmarchesVillageVendorTable,
+          DLC2_CultistsVillageVendorTable,
+          DLC2_InnkeeperVendorTable,
+          DLC2_NaumVendorTable,
+          DLC2_QuartermasterBaseTable,
+          DLC2_QuartermasterImprovedTable,
+          DLC2_SorcererVendorTable,
+          DLC2_TavernEquipment_Vendor,
+          DLC2_TavernScrolls_Vendor,
+          DLC2_TavernWeapon_Vendor,
+          DLC3_VendorFirstTable,
+          DLC3_VendorSecondTable,
+          Equipment_DefendersHeartVendorTable,
+          Equipment_Vendor_DLC2,
+          Exotic_Chapter3VendorTable,
+          Exotic_Chapter5VendorTable,
+          FirstVendorTable,
+          GesmerhaScroll_DLC1VendorTable,
+          GoblinVillageVendorTable,
+          GolemGold_VendorJewelryVendorTable,
+          HellKnight_Chapter3VendorTable,
+          HerraxaVendorTable,
+          HilorArmor_DLC1VendorTable,
+          HostessSharedVendorTable,
+          InnkeeperVendorTable,
+          InquisitorEquipment_Vendor_DLC2,
+          Jeweler_Chapter3VendorTable,
+          Jeweler_Chapter5VendorTable,
+          Jeweler_DLC1VendorTable,
+          JorunVane_Chapter3VendorTable,
+          JorunVane_Chapter5VendorTable,
+          KrebusSlaveTraderTable,
+          LannMother_Chapter3VendorTable,
+          Lich_Chapter3VendorTable,
+          Lich_Chapter5VendorTable,
+          LinziQ_BookPeddler,
+          MarauderEquipment_Vendor_DLC2,
+          PeacefullTrollExteriorVendorTable,
+          PitaxTownVendorTable,
+          Potions_DefendersHeartVendorTable,
+          PrologueVendorTable,
+          Pulura_Chapter3VendorTable,
+          Quartermaster_Chapter3VendorTable,
+          Quartermaster_Chapter5VendorTable,
+          Ramley_Chapter3VendorTable,
+          RE_Chapter3VendorTableArmor,
+          RE_Chapter3VendorTableExotic,
+          RE_Chapter3VendorTableMagic,
+          RE_Chapter3VendorTableRanged,
+          RE_Chapter5VendorTableArmor,
+          RE_Chapter5VendorTableExotic,
+          RE_Chapter5VendorTableMagic,
+          RE_Chapter5VendorTableRanged,
+          RogueLike_DragonVendorTable,
+          RogueLike_NPCVendorTable,
+          RvanyVendorTable,
+          SadistVendorTable,
+          SarzaksisVendorTable,
+          Scroll_Chapter3VendorTable,
+          Scroll_Chapter5VendorTable,
+          Scrolls_DefendersHeartVendorTable,
+          ShaxahVendorTable,
+          SmithVendorTable,
+          StorytellerVendorTable_Ch4,
+          StreetRat_Ch4,
+          StreetRat_Chapter3VendorTable,
+          StreetRat_Chapter5VendorTable,
+          StreetRat_DefendersHeartVendorTable,
+          Tailor_Chapter3VendorTable,
+          Tailor_Chapter5VendorTable,
+          Tailor_DLC1VendorTable,
+          Tavern_Chapter3VendorTable,
+          Tavern_Chapter5VendorTable,
+          TempleOfTheElkPiligrimTable,
+          Test_Bebilith_Blueprint_Shared_Vendor_Table,
+          TownEquipment_Vendor_DLC2,
+          TrollLairVendorTable,
+          Unused_vendortable,
+          VendorTiefling_Chapter3VendorTable,
+          VendorTiefling_Chapter5VendorTable,
+          VirlongVendorTable,
+          WarCamp_BlacksmithVendorTable,
+          WarCamp_QuartermasterVendorTable,
+          WarCamp_REVendorTableArmor,
+          WarCamp_REVendorTableExotic,
+          WarCamp_REVendorTableMagic,
+          WarCamp_REVendorTableRanged,
+          WarCamp_ScrollVendorClericTable,
+          WarCamp_StreetRatVendorTable,
+          Weapon_DefendersHeartVendorTable,
+      };
   }
 }

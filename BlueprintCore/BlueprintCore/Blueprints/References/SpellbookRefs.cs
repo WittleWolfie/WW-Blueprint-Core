@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintSpellbook blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class SpellbookRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> AccursedWitchSpellbook = "b897fe0947e4b804082b1a687c21e6e2";
@@ -64,5 +70,65 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> WarpriestSpellbook = "7d7d51be2948d2544b3c2e1596fd7603";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> WitchSpellbook = "dd04f9239f655ea438976742728e4909";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> WizardSpellbook = "5a38c9ac8607890409fcb8f6342da6f4";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintSpellbook>>> All =
+      new()
+      {
+          AccursedWitchSpellbook,
+          AeonSpellbook,
+          AlchemistSpellbook,
+          AngelfireApostleSpellbook,
+          AngelSpellbook,
+          ArcanistSpellbook,
+          ArmagsBladeSpellbook,
+          AzataSpellbook,
+          BardSpellbook,
+          BloodragerSpellbook,
+          ClericSpellbook,
+          CrossbloodedSpellbook,
+          CrusaderSpellbook,
+          DemonSpellbook,
+          DragonAzataSpellbook,
+          DruidSpellbook,
+          EldritchFontSpellbook,
+          EldritchScionSpellbook,
+          EldritchScoundrelSpellbook,
+          EmpyrealSpellbook,
+          ExploiterWizardSpellbook,
+          FeyspeakerSpellbook,
+          HunterSpellbook,
+          InquisitorSpellbook,
+          LeyLineGuardianWitchSpellbook,
+          LichSkeletalBardMinorSpellbook,
+          LichSkeletalClericSpellbookFeature,
+          LichSkeletalInquisitorMinorSpellbook,
+          LichSkeletalMagusSpellbookMinor,
+          LichSpellbook,
+          MagusSpellbook,
+          MasterSpySpellbook,
+          MonsterMythicSpellbook,
+          NatureMageSpellbook,
+          OracleSpellbook,
+          PaladinSpellbook,
+          RangerSpellbook,
+          SageSpellbook,
+          ShamanSpellbook,
+          SkaldSpellbook,
+          SorcererSpellbook,
+          SwordSaintSpellbook,
+          ThassilonianAbjurationSpellbook,
+          ThassilonianConjurationSpellbook,
+          ThassilonianEnchantmentSpellbook,
+          ThassilonianEvocationSpellbook,
+          ThassilonianIllusionSpellbook,
+          ThassilonianNecromancySpellbook,
+          ThassilonianTransmutationSpellbook,
+          TricksterSpellbook,
+          TricksterWizardSpellbook,
+          UnletteredArcanistSpellbook,
+          WarpriestSpellbook,
+          WitchSpellbook,
+          WizardSpellbook,
+      };
   }
 }

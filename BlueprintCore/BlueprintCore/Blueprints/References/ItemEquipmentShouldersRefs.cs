@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemEquipmentShoulders blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemEquipmentShouldersRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> Artifact_AeonCloakItem = "b24d6185acea1f949b026c3b58e47947";
@@ -90,5 +96,91 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> WhiteKnightCloakItem = "9e0932ac3db662746b85e92aecb4caaa";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> WhiteWindsCloakItem = "262b8ece36ba43f44bd407e82c079028";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> WrathOfTheUndeadItem = "5e8470733b954db686cd2dbfaaf1f058";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>>> All =
+      new()
+      {
+          Artifact_AeonCloakItem,
+          Artifact_AngelCloakItem,
+          Artifact_AzataCloakItem,
+          Artifact_DemonCloakItem,
+          Artifact_DevilCloakItem,
+          Artifact_DragonCloakItem,
+          Artifact_LegendCloakItem,
+          Artifact_LichCloakItem,
+          Artifact_LocustCloakItem,
+          Artifact_SoulsCloakItem,
+          Artifact_TricksterCloakItem,
+          BlackFurCloakItem,
+          BlackKnightCloakItem,
+          BloodClarityItem,
+          CallToViolenceItem,
+          CapeOfDesinsectorItem,
+          CapeOfDivinationItem,
+          CelestialProtectionItem,
+          CloakFromThickPeltItem,
+          CloakOfArcaneReservesItem,
+          CloakOfAstoundingProwessItem,
+          CloakOfBloodScentItem,
+          CloakOfCarnageItem,
+          CloakOfCleansingItem,
+          CloakOfDarkestRitesItem,
+          CloakOfDisguiseItem,
+          CloakOfEfficientInvisibilityItem,
+          CloakOfHeroism,
+          CloakOfInnerWarmthItem,
+          CloakOfLoneWolfItem,
+          CloakOfResistance1,
+          CloakOfResistance2,
+          CloakOfResistance3,
+          CloakOfResistance4,
+          CloakOfResistance5,
+          CloakOfResistance6,
+          CloakOfResistance7,
+          CloakOfResistance7Extra,
+          CloakOfSacredStudiesItem,
+          CloakOfSeerItem,
+          CloakOfShadows,
+          CloakOfSharpFangs,
+          CloakOfSparklesItem,
+          CloakOfStagLord,
+          CloakOfStrongWilledItem,
+          CloakOfTheAncientHeraldItem,
+          CloakOfTheBearItem,
+          CloakOfTheChosenItem,
+          CloakOfTheLion,
+          CloakOfTheWinterWolfItem,
+          CloakWyvernItem,
+          ContagiousShroudItem,
+          DervishCloakItem,
+          DungeoneersCloakItem,
+          EnchantersCapeItem,
+          ExtraplanarCloakItem,
+          GraveShiveringItem,
+          GrimMantleItem,
+          HerbalistCapeItem,
+          HermitsCloakItem,
+          HeroCloakItem,
+          LibrariansCloakItem,
+          LivingFlameItem,
+          MistyCoverItem,
+          PerilousShadeItem,
+          RoguesCompanionItem,
+          RovagugSpawnCloakItem,
+          RulersMantleItem,
+          ScarletAllureItem,
+          Set1_Cloak,
+          Set4_Cloak,
+          ShamansCloak,
+          ShroudOfAbaddon,
+          ShroudOfDecayItem,
+          ShroudOfEternalMadness,
+          SkinnedLeatherCloakItem,
+          ToxicWrapItem,
+          WarmEmbrace,
+          WhiteKnightCloakItem,
+          WhiteWindsCloakItem,
+          WrathOfTheUndeadItem,
+      };
   }
 }

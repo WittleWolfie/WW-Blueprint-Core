@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemsList blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemsListRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemsList>> AreeluPuzzleItems = "bdb5058ff8c9424a9d992abdfe050247";
@@ -90,5 +96,91 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemsList>> RedPuzzleItems = "0acbd06eed7ebae47917bed869e93a23";
     public static readonly Blueprint<BlueprintReference<BlueprintItemsList>> TrashAzata_QuestItemsList = "0124b836337e4093b2646389a659a545";
     public static readonly Blueprint<BlueprintReference<BlueprintItemsList>> YellowPuzzleItems = "5affd77d973a81f4a98dc307a8d76792";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemsList>>> All =
+      new()
+      {
+          AreeluPuzzleItems,
+          Cyan_01_NextSlot,
+          Cyan_01_SelfSlot,
+          Cyan_02_NextSlot,
+          Cyan_02_SelfSlot,
+          Cyan_03_NextSlot,
+          Cyan_03_SelfSlot,
+          Cyan_04_NextSlot,
+          Cyan_04_SelfSlot,
+          Cyan_05_NextSlot,
+          Cyan_05_SelfSlot,
+          CyanPuzzleItems,
+          FieldOfWondersLoot_RestLootList,
+          FieldOfWondersLoot_RestLootList_reward,
+          FieldOfWondersLoot_RestLootList_trash,
+          Green_01_NextSlot,
+          Green_01_SelfSlot,
+          Green_02_NextSlot,
+          Green_02_SelfSlot,
+          Green_03_NextSlot,
+          Green_03_SelfSlot,
+          Green_04_NextSlot,
+          Green_04_SelfSlot,
+          Green_05_NextSlot,
+          Green_05_SelfSlot,
+          GreenPuzzleItems,
+          MaskPuzzleList,
+          Orange_01_NextSlot,
+          Orange_01_OtherSlotDirect,
+          Orange_01_OtherSlotReverse,
+          Orange_01_SelfSlot,
+          Orange_02_NextSlot,
+          Orange_02_OtherSlotDirect,
+          Orange_02_OtherSlotReverse,
+          Orange_02_SelfSlot,
+          Orange_03_NextSlot,
+          Orange_03_OtherSlotDirect,
+          Orange_03_OtherSlotReverse,
+          Orange_03_SelfSlot,
+          Orange_04_NextSlot,
+          Orange_04_OtherSlotDirect,
+          Orange_04_OtherSlotReverse,
+          Orange_04_SelfSlot,
+          OrangePuzzleItems,
+          Proteans2Room_slotList,
+          Purple_01_NextSlot,
+          Purple_01_OtherSlotDirect,
+          Purple_01_OtherSlotReverse,
+          Purple_01_SelfSlot,
+          Purple_02_NextSlot,
+          Purple_02_OtherSlotDirect,
+          Purple_02_OtherSlotReverse,
+          Purple_02_SelfSlot,
+          Purple_03_NextSlot,
+          Purple_03_OtherSlotDirect,
+          Purple_03_OtherSlotReverse,
+          Purple_03_SelfSlot,
+          Purple_04_NextSlot,
+          Purple_04_OtherSlotDirect,
+          Purple_04_OtherSlotReverse,
+          Purple_04_SelfSlot,
+          Purple_05_NextSlot,
+          Purple_05_OtherSlotDirect,
+          Purple_05_OtherSlotReverse,
+          Purple_05_SelfSlot,
+          PurplePuzzleItems,
+          PuzzleBlueList,
+          PuzzleGreenList,
+          Red_01_NextSlot,
+          Red_01_SelfSlot,
+          Red_02_NextSlot,
+          Red_02_SelfSlot,
+          Red_03_NextSlot,
+          Red_03_SelfSlot,
+          Red_04_NextSlot,
+          Red_04_SelfSlot,
+          Red_05_NextSlot,
+          Red_05_SelfSlot,
+          RedPuzzleItems,
+          TrashAzata_QuestItemsList,
+          YellowPuzzleItems,
+      };
   }
 }

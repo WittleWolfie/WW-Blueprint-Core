@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Crusade.GlobalMagic;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintGlobalMagicSpell blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class GlobalMagicSpellRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintGlobalMagicSpell>> GlobalSpellActOfIntimidation = "f7874750f5c94bdea2b84b8ea376af6f";
@@ -38,5 +44,39 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintGlobalMagicSpell>> GlobalSpellTeleportParty = "8accb3511e0b4eeb822c5867a3dde1e1";
     public static readonly Blueprint<BlueprintReference<BlueprintGlobalMagicSpell>> GlobalSpellTricksterMassHideousLaughter = "f892a4ab290579c4cb5d70050f5f6776";
     public static readonly Blueprint<BlueprintReference<BlueprintGlobalMagicSpell>> New_BlueprintGlobalMagicSpell = "574ba5c65f905ea4db93d1b6540fef39";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintGlobalMagicSpell>>> All =
+      new()
+      {
+          GlobalSpellActOfIntimidation,
+          GlobalSpellAeonTimeManipulation,
+          GlobalSpellAmbush,
+          GlobalSpellAmplifyResistance,
+          GlobalSpellAngelBestowProtection,
+          GlobalSpellAngelBestowWrath,
+          GlobalSpellAngelStormOfJustice,
+          GlobalSpellAngelSummonHeavenlyHost,
+          GlobalSpellAzataSongOfDeceivingThicket,
+          GlobalSpellAzataSummonIsland,
+          GlobalSpellCallToArms,
+          GlobalSpellDaringStrike,
+          GlobalSpellDemonAbyssalSummon,
+          GlobalSpellDevilInfernalMight,
+          GlobalSpellDragonPowerOfGold,
+          GlobalSpellLegendBanish,
+          GlobalSpellLichAnimateDead,
+          GlobalSpellLichEnervation,
+          GlobalSpellLocustSummonSwarm,
+          GlobalSpellMarkOfTerror,
+          GlobalSpellMassTeleportation,
+          GlobalSpellMightyTempest,
+          GlobalSpellNegativeEnergyBlast,
+          GlobalSpellReconnaissance,
+          GlobalSpellRelicKeeperGain,
+          GlobalSpellReplenish,
+          GlobalSpellTeleportParty,
+          GlobalSpellTricksterMassHideousLaughter,
+          New_BlueprintGlobalMagicSpell,
+      };
   }
 }

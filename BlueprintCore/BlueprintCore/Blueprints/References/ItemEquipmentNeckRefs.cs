@@ -1,12 +1,18 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {
   /// <summary>
   /// Constant references to BlueprintItemEquipmentNeck blueprints
   /// </summary>
+  ///
+  /// <remarks>
+  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>
+  /// <p>If you need a different reference type you can cast using <see cref="Blueprint{TRef}.Cast{T}"/></p>.
+  /// </remarks>
   public static class ItemEquipmentNeckRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfAgileFists = "afd04948b8f211c448f1cc4bd9a67e3e";
@@ -111,5 +117,112 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> VoraciousSpiritItem = "000d13f09ca84dbd9a5ec7adc4b0ae99";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> WardMastersAmuletItem = "1bc94bd99a10f7648bd39d8563ca47c9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> XavornsCrossItem = "4537e2beb46b28a47bde3e3e1ac95255";
+
+    public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>>> All =
+      new()
+      {
+          AmuletOfAgileFists,
+          AmuletOfAgileFistsPlus1,
+          AmuletOfAgileFistsPlus2,
+          AmuletOfAgileFistsPlus3,
+          AmuletOfAgileFistsPlus4,
+          AmuletOfApothecaryItem,
+          AmuletOfBlackenedMirrorItem,
+          AmuletOfCirculatingBloodItem,
+          AmuletOfDeepRootsItem,
+          AmuletOfDeepWaterItem,
+          AmuletOfDevourItem,
+          AmuletOfEpicSongsItem,
+          AmuletOfEternalHunter,
+          AmuletOfEvilDoomItem,
+          AmuletOfFourElementsItem,
+          AmuletOfHiddenHorrorsItem,
+          AmuletOfImposingPhysiqueItem,
+          AmuletOfImprovedHealingItem,
+          AmuletofInitiative,
+          AmuletOfInnerSightItem,
+          AmuletOfInnerVirtue,
+          AmuletOfJoustingItem,
+          AmuletOfLifeVeilItem,
+          AmuletOfMightyFists1,
+          AmuletOfMightyFists2,
+          AmuletOfMightyFists3,
+          AmuletOfMightyFists4,
+          AmuletOfMightyFists5,
+          AmuletOfNaturalArmor1,
+          AmuletOfNaturalArmor2,
+          AmuletOfNaturalArmor3,
+          AmuletOfNaturalArmor4,
+          AmuletOfNaturalArmor5,
+          AmuletOfNaturalArmor6,
+          AmuletOfNaturalArmor7,
+          AmuletOfNaturalArmor7Extra,
+          AmuletofPersuasion,
+          AmuletOfQuickDrawItem,
+          AmuletOfSpells,
+          AmuletOfTheDyingWisdom,
+          AmuletOfTimeTrickery,
+          AmuletOfUnforgivingElementsItem,
+          Artifact_NecklaceOfDoubleCorsses,
+          AspectOfTheAspItem,
+          BackrankAssistanceItem,
+          BeholderOfWindAmuletItem,
+          BindingsOfThePrinceItem,
+          BlackPearlPendant,
+          BoneAmuletItem,
+          BoneNecklace,
+          CameliaAmuletItem,
+          CitrineNecklace,
+          ClockworkPendant,
+          CursedBardVoiceAmulet_IntermediateItem,
+          CursedBardVoiceAmulet_SirenItem,
+          CursedBardVoiceAmulet_VoiceItem,
+          DaeranGift,
+          DarekSunhammersFake,
+          DarekSunhammersWork,
+          DeathlyArousalItem,
+          DragonsHeirloomItem,
+          EmeraldNecklace,
+          FalseNahCrystalAmuletItem,
+          GiantslayersClasp,
+          GlassAmuletOfClarityItem,
+          GoldenChain,
+          GoldenChainWithDiamonds,
+          GoldenMedallion,
+          GuardianOfLifeItem,
+          GyronnasAmuletItem,
+          HalfOfPairedPendantItem,
+          HalfOfPairedPendantSecondItem,
+          HeartOfIraItem,
+          HeartOfTheHeraldItem,
+          LocketOfMagicMissileMasteryItem,
+          LocketOfPerfectCantripsItem,
+          MayasCharmItem,
+          MenanceOfDeathAmuletItem,
+          MesmerizingNecklaceItem,
+          NahCollar,
+          NecklaceOfEarsItem,
+          NegatorAmuletItem,
+          OldEarthAmulet_IntermediateItem,
+          OldEarthSandAmuletItem,
+          OldEarthShriekAmuletItem,
+          PitchTunerItem,
+          PlayersPhylacteryAmuletItem,
+          RecklessVengeanceItem,
+          RiverFoxPendantItem,
+          RiversongAmuletItem,
+          SarzaksisPayzaItem,
+          SecretsOfSuramgaminNecklaceItem,
+          SilverChain,
+          SilverMedallion,
+          SilverTongueAmuletItem,
+          StagLordBrokenAmulet,
+          StormAmberNecklaceItem,
+          TurquoisePendant,
+          VellexiasMagnifyingAmuletItem,
+          VoraciousSpiritItem,
+          WardMastersAmuletItem,
+          XavornsCrossItem,
+      };
   }
 }
