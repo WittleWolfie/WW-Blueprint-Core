@@ -23,7 +23,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidButton1_CheckPassedActions", "2a969038211346358597f80d271d9b94"),
-            new Blueprint("Answer_7", "f44d8f29a2f640c4885414cb2be61e05"),
+            new Blueprint("Answer_7", "9a694066188b49b1add02933aab17429"),
             new Blueprint("ZeorisDagger_ReforgeProject", "22e8219563e84f11b6aed62661030770"),
           }
         },
@@ -73,7 +73,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidBomb", "fd101fbc4aacf5d48b76a65e3aa5db6d"),
-            new Blueprint("GreaterCognatogenWisdomCharismaBuff", "60eb20b9d1077ed4f8f8a9df5490a208"),
+            new Blueprint("GreaterCognatogenIntelligenceCharismaBuff", "1c2fdba3b33dacd41afd5b74d84c7332"),
             new Blueprint("WrathOfAncestorEnchantment", "4dbc03bd6223b484d8cd9afc3e0369b0"),
           }
         },
@@ -123,7 +123,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidBomb", "fd101fbc4aacf5d48b76a65e3aa5db6d"),
-            new Blueprint("HexChannelerChannelPositiveHarm", "fb917ad147d846e42ad22c8e14f44b79"),
+            new Blueprint("HexChannelerChannelNegativeEnergy", "fb2df4978dd4fd745a7aaecfd1068512"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -241,7 +241,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[DLC1_Taberdine]_BarkConditions", "c1bbb11f93d44e13b5587d4c9701515d"),
-            new Blueprint("Cue_0005", "7a54f8069d7961d4483fb1f3fe6894e6"),
+            new Blueprint("Cue_0005", "ef16f026e72107d4492aa6861b66739f"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -331,7 +331,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2ALR_BlueprintAreaTransition", "caa1a113bb2c18e4bb187348664d4c99"),
-            new Blueprint("IvorySanctum_SecretEntrance_toSunctum", "d77ef67768ef87e4e98464e2c49cb747"),
+            new Blueprint("IzHeritage_Archer", "cde9ab948e4b4d5ba658bac04a9efcb6"),
             new Blueprint("ZigguratEnter_AreaTransition", "c8a709930aa977d499dc797c22f42bb9"),
           }
         },
@@ -628,7 +628,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[Kerz]_BarkCondition", "59c232c2fa5e7c54baa235fee0e049d6"),
-            new Blueprint("BookPage_Room1Clean", "e43df5891e0598e4d9f6583db03dff51"),
+            new Blueprint("BookPage_Room4Clean", "cb81c6ea661a49f44b68e809127cc7d3"),
             new Blueprint("ZanedraInTemple", "0d22fd186d557a049b46c0fb3d623f04"),
           }
         },
@@ -1356,6 +1356,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(IsDlcActive),
           new()
           {
+            new Blueprint("Cue_2", "937c0f8b055c4a6fa95ff341378d191a"),
             new Blueprint("Cue_3", "fd59cd739561481bae00977016d85c67"),
             new Blueprint("Cue_4", "d0421fc2ad1646debb25b9de5e452280"),
           }

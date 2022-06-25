@@ -189,7 +189,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("Hypnotism", "88367310478c10b47903463c5d0152b0"),
+            new Blueprint("HuntersSurpriseAbility", "0bd6b945523c0264f9ddfd0aad3791e8"),
             new Blueprint("ZoneOfPredetermination", "756f1d07f9ae29448888ecf016fa40a7"),
           }
         },
@@ -207,7 +207,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("HexChannelerChannelEnergy", "75edd403e824aa048ab5d4827b803b08"),
+            new Blueprint("HeroicInvocation", "43740dab07286fe4aa00a6ee104ce7c1"),
             new Blueprint("ZeroState", "c6195ff24255d3f46a26323de9f1187a"),
           }
         },
@@ -247,7 +247,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArmyACAgainstRangeAuraFeature", "e44e483c864349cf8eda2ac753ef0171"),
-            new Blueprint("ArmyGhoulParalysisFeature", "0ff98740c64f4d948e783f6e0dcd4bd7"),
+            new Blueprint("ArmyGainAttackWhenHitFeature", "054665fdee674a5cac99b194b50af349"),
             new Blueprint("SubtypeExtraplanar", "136fa0343d5b4b348bdaa05d83408db3"),
           }
         },
@@ -267,7 +267,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarRedMask_Ability_CombatInstantBuff", "4b8d9931bcfc4a6b8fbe50fd8097ff20"),
-            new Blueprint("Guidance", "c3a8f31778c3980498d8f00c980be5f5"),
+            new Blueprint("Grace", "464a7193519429f48b4d190acb753cf0"),
             new Blueprint("ZoneOfPredetermination", "756f1d07f9ae29448888ecf016fa40a7"),
           }
         },
@@ -277,7 +277,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Abrikandilu_Frozen_Buff", "b2df7031cdad480caddf962c894ca484"),
-            new Blueprint("HagboundWitchVileCurseDeteriorationCast", "e1ededaf191910b4c9ad73d7dd150a21"),
+            new Blueprint("HagboundWitchVileCurseDeterioration", "97a64518e7fd0aa4e86a51245e9de1a7"),
             new Blueprint("ZachariusFearAuraBuff", "4d9144b465bbefe4786cfe86c745ea4e"),
           }
         },
@@ -327,7 +327,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbandonedKeep_AcidTrap", "e7dadeb8b1d78a341bb4357b502da424"),
-            new Blueprint("Haste", "486eaff58293f6441a5c2759c4872f98"),
+            new Blueprint("Harm", "137af566f68fd9b428e2e12da43c1482"),
             new Blueprint("WrackBloodBlastAbility", "0199d49f59833104198e2c0196235a45"),
           }
         },
@@ -357,7 +357,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbandonedKeep_AcidTrap", "e7dadeb8b1d78a341bb4357b502da424"),
-            new Blueprint("FormOfTheDragonIBlackBreathWeaponAbility", "382bb7528bdbc8b42bb22789ff851e1e"),
+            new Blueprint("ForceMissileAbility", "3d55cc710cc497843bb51788057cd93f"),
             new Blueprint("Yozz_Ability_DirtyTrickBomb", "5caabe7c38d24e7f905bb6f723d1eccc"),
           }
         },
@@ -446,7 +446,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("DeathsnatcherPoisonBuff", "0ede2d3e74f803747a09958655b0b14a"),
+            new Blueprint("DeathsnatcherEnergyDrainFeature", "e4c3976c40072a747b1a9ba2d8f166f2"),
             new Blueprint("Yozz_Feature_AdditionalAttacks", "bcf37abbb0b1485b83059600ed440881"),
           }
         },
@@ -564,7 +564,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbsoluteOrderApproach", "d5f853d35d58c104eaa7eab50c25de39"),
-            new Blueprint("LostlarnKeep_TransmutationTrap", "51dd72d056281b34581979a9a0970432"),
+            new Blueprint("LoreReligionUseAbility", "4843cb4c23951f54290c5149a4907f54"),
             new Blueprint("WitchHexVulnerabilityCurseAbility", "8f0eb58c2d6aeab4e8523ec85b4b2bc7"),
           }
         },
@@ -684,7 +684,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidArrow", "9a46dfd390f943647ab4395fc997936d"),
-            new Blueprint("InflictModerateWoundsCast", "65f0b63c45ea82a4f8b8325768a3832d"),
+            new Blueprint("InflictLightWoundsCast", "e5af3674bb241f14b9a9f6b0c7dc3d27"),
             new Blueprint("WrackingRay", "1cde0691195feae45bab5b83ea3f221e"),
           }
         },
@@ -802,7 +802,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArmyDominateBuff", "2ab491a0101344bc8ad3e62ba6a6dac6"),
-            new Blueprint("CR4_Marauder_Thiefling_Melee_Male_Neutral_DLC2", "23a36462fbd64041bdf02d75093ceb62"),
+            new Blueprint("CR4_Marauder_Human_RogueMelee_MaleRichQuater", "db59e733b90f41ddaaabdc67b784a6e8"),
             new Blueprint("WitchHexAnimalServantBuff", "c976bf2495a8d854ca4593318de1664d"),
           }
         },
@@ -912,7 +912,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidArrow", "9a46dfd390f943647ab4395fc997936d"),
-            new Blueprint("HoldPersonMass", "defbbeaef79eda64abc645036228a31b"),
+            new Blueprint("HoldPerson", "c7104f7526c4c524f91474614054547e"),
             new Blueprint("WhiteMageCureLightWoundsCast", "83d6d8f4c4d296941838086f60485fb7"),
           }
         },
@@ -1021,7 +1021,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbyssalCreatureAcidTemplate", "6e6fda1c8a35069468e7398082cd30f5"),
-            new Blueprint("FireDomainCapstone", "6c46620d4cab41b42be8dd8cfb1aa9d2"),
+            new Blueprint("FinneanPechkaUniqueBuff", "0a825e98594921846965471b7c6ce76a"),
             new Blueprint("WelcomeRespiteFeature", "a02a6cd1f02a95442805e417b9ec0a32"),
           }
         },
@@ -1810,7 +1810,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonInThePast_DemonLordDeskar", "f896dd504b3509b4abd42f01e26140da"),
-            new Blueprint("CR23_SkeletalChampion_Melee_DLC1", "c4dddee9f3c64f6faab89ac8b28b0d97"),
+            new Blueprint("CR21_ZombieLordFighter_DLC1", "a356271a621747158164fcb22c5f7935"),
             new Blueprint("WoundWormsLair_BlackDragon", "c540d81c08822c14da75761493427e4c"),
           }
         },
@@ -2058,7 +2058,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Abrogail_Feature_CombatTrigger", "05898d8c986546fe850462aa71c65589"),
-            new Blueprint("HellsDecreeAbilityRageAllyBuff", "86fa611413abbcb48aee999d89a0bd8b"),
+            new Blueprint("HellsDecreeAbilityRageAllyBonusBuff", "3e4ab56c5f87ee04e85fe0eb9bb894cb"),
             new Blueprint("ZeorisDaggerRing_BetrayalEnemyFeature", "1a695b8dfffc46f7a74527e510fd452b"),
           }
         },
@@ -2093,8 +2093,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(RemoveWhenCombatEnded),
           new()
           {
-            new Blueprint("AngelRepelTheProfaneBuff", "50a18ee630a4973479e9950011425748"),
-            new Blueprint("HoldAnimalBuff", "2090955a573cec3438db7f47707610f9"),
+            new Blueprint("AnomalyDistortionBodyDesynchronizationBuff", "71d9285c18274bf6a8123ccd3272e20d"),
+            new Blueprint("HoldMonsterBuff", "2cfcce5b62d3e6d4082ec31b58468cc8"),
             new Blueprint("VinetrapEntangledBuff", "231a622f767e8ed4e9b3e435265a3e99"),
           }
         },
@@ -2400,7 +2400,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AngelHolyHymnBuff", "f865b385586fe0a4996e081a96de4f0f"),
-            new Blueprint("MaskOfNethysFeature", "911c34da3d8677145affe00a32b8b2b0"),
+            new Blueprint("LocustNPCArcaneBonus", "49114237a7b04975af2ddb3611be38f2"),
             new Blueprint("WhiteroseOystersBuff", "45082bf27cf15e94ca0fae92dc3db992"),
           }
         },
@@ -2928,7 +2928,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArcaneTricksterArcanist", "7cab956d45dc51c4ea9e71bba366a250"),
-            new Blueprint("HellknightSigniferThassilonianEvocation", "f8ed1800725b3e74ebb86783dbde933a"),
+            new Blueprint("HellknightSigniferThassilonianIllusion", "444211da5e9592f41a4334825eb7ea2c"),
             new Blueprint("WinterWitchWitchLeyLineGuardian", "56adf819599827f4695395924a060996"),
           }
         },
@@ -3782,7 +3782,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonSecondLevelAbility", "d87bd4bfc3e50af4ea1d9be5b4735ea1"),
-            new Blueprint("RemoveCurse 3", "668f4d1ff4dbfc442bd75f9b6f69e05e"),
+            new Blueprint("RemoveCurse 4", "55b85c03103de184091a96eeaed4de25"),
             new Blueprint("WitchHexVulnerabilityCurseAbility", "8f0eb58c2d6aeab4e8523ec85b4b2bc7"),
           }
         },
@@ -3973,7 +3973,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AerialAdaptationFeature", "c8719b3c5c0d4694cb13abcc3b7e893b"),
-            new Blueprint("LoremasterWizardSecretSorcerer", "a26834acd0f797c4e948660f4eb6ccd9"),
+            new Blueprint("LoremasterWizardSecretShaman", "291b1cabaa3405c4991c892204546bcb"),
             new Blueprint("WinterWitchWitchHexSelection", "b921af3627142bd4d9cf3aefb5e2610a"),
           }
         },
@@ -5496,7 +5496,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AnimalCompanionUnitVelociraptor", "28d1986d57a7081439fbb581aa6f960c"),
-            new Blueprint("GiantFrogSummoned", "1ed9a630f0d9d7f44855d3d1d1b2cdf2"),
+            new Blueprint("GiantSpiderSummoned", "9e120b5e0ad3c794491c049aa24b9fde"),
             new Blueprint("WyvernPeridot", "6a8af899a123abf459e3e1fedf39e8be"),
           }
         },
@@ -6700,7 +6700,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           {
             new Blueprint("Artifact_SpikedGauntletItem", "3230a07e17594084f88e770480277de2"),
             new Blueprint("HideBardingStandard", "4a0838d1c48a9cc459b287e6a04f17f9"),
-            new Blueprint("SolidChainsItem", "f55ccf3a9af55524d9f8d3bc1b2060ff"),
+            new Blueprint("UltimatePredatorsGauntletsItem", "c8ad87f3fc49ccd43a5560acb271e968"),
           }
         },
 
@@ -7195,7 +7195,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AccomplishedSneakAttacker", "9f0187869dc23744292c0e5bb364464e"),
-            new Blueprint("IronWillImproved", "3ea2215150a1c8a4a9bfed9d9023903e"),
+            new Blueprint("ImprovedDirtyTrick", "ed699d64870044b43bb5a7fbe3f29494"),
             new Blueprint("WeaponSpecializationGreater", "7cf5edc65e785a24f9cf93af987d66b3"),
           }
         },
@@ -9186,7 +9186,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Asty", "d8e2475977bd87b439c4bba8f5f55949"),
-            new Blueprint("CR2_Marauder_Human_FighterRanged_Female", "7956220e37fe19f4e9d54df6fc65bb49"),
+            new Blueprint("CR2_Marauder_Human_FighterMelee_Male", "a148c7c95cec68e43ac490852071c711"),
             new Blueprint("Velhm", "f9c01a9515cd1f347800685ddbfbcc41"),
           }
         },
@@ -9196,7 +9196,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Arsinoe", "a609ed9b2205d034bb3bb04d2a255681"),
-            new Blueprint("JewelerCapitalTrader", "bc1093231b1577a4485a730c29595195"),
+            new Blueprint("JorunVane_DrezenCapital", "59649a004ed01994e9887f9ab8b2168d"),
             new Blueprint("Woljif_NPC", "318127d85d5d41b4d9acea4e2ad1c4a4"),
           }
         },
@@ -9351,6 +9351,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(CurrentWeaponCriticalMultiplierGetter),
           new()
           {
+            new Blueprint("CoupDeGraceAgregatorProperty", "bd9224781e76429b92f0e60b13c079cc"),
             new Blueprint("MainWeaponCriticalModifierProperty", "6ac8613eca0083d438b48f9e1391f09b"),
           }
         },
@@ -9359,6 +9360,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(CurrentMeleeWeaponDamageStatGetter),
           new()
           {
+            new Blueprint("CoupDeGraceAgregatorProperty", "bd9224781e76429b92f0e60b13c079cc"),
             new Blueprint("MainWeaponDamageStatBonusProperty", "9955f9c72c350254daff5a029ee32712"),
           }
         },
@@ -10466,7 +10468,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Azata_MadAlchemist", "76cfa7d2cc33eaf41ad242d27ac02f19"),
-            new Blueprint("Dyra_Trader_Neathholm", "bd6d6b07f1682c14c9d0966ef7954648"),
+            new Blueprint("JorunVane_DH", "e42ba34fb70830c46a97cf5172accccf"),
             new Blueprint("WintersunIncubusTrader", "c36a4eb2bcf976e4892eaffb61493a94"),
           }
         },
@@ -10547,7 +10549,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("DLC1_BlindCarver_Wintersun", "c209cd1dfa02401eb66f190f0f5675ad"),
-            new Blueprint("Rathimus_ScrollVendorOld_DH", "5ff890dff2c6e7940adb5d3de8616515"),
+            new Blueprint("Kyado_ScrollVendorYoung_DH", "3597b87c65fc4604b9aa0f134a2e551c"),
             new Blueprint("WarCamp_ScrollVendorYoung", "6b6eb149263959a4c9ea307057a20978"),
           }
         },
@@ -10823,14 +10825,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
-          typeof(WeaponBuffOnConfirmedCrit),
-          new()
-          {
-            new Blueprint("Vorpal", "2f60bfcba52e48a479e4a69868e24ebc"),
-          }
-        },
-
-        {
           typeof(BindAbilitiesToHighest),
           new()
           {
@@ -11048,7 +11042,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("01_DevouredByDarkness", "67d3321ed01a4e58a9ed3e13f94f1d04"),
-            new Blueprint("KTC_LichRankUp_4_Notification", "213cafffc8ad4ac3a5c8af0044d2c315"),
+            new Blueprint("KTC_LichRankUp_4", "d5b07c39ab554215b5c10595571958a2"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -11345,7 +11339,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonAutoKingdomDelay", "7e50ed6c545e4fc486680348003de3cd"),
-            new Blueprint("Timer_Before_AzataRankUp_04", "91f3d4b3ffeb43ec8c5ed98e2b5edc22"),
+            new Blueprint("Timer_Before_AzataRankUp_05", "2f037d9256b149d7b8a90005d3d99523"),
             new Blueprint("ZigguratDeadRomanceTimer", "587df869a564f7046a48bbf27f017619"),
           }
         },
