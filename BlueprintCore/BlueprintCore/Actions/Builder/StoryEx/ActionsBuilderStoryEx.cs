@@ -1418,7 +1418,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
-    /// <item><term>Cue_0028</term><description>89749874f3563034ab430fddec9e9fac</description></item>
+    /// <item><term>Cue_0028</term><description>c0f49563a0d79ea4bb3cb26787557a2c</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1855,7 +1855,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>4BarrierDevice01</term><description>2099b5c949f74ad0a598fb66efbe186e</description></item>
-    /// <item><term>Cue_0029</term><description>120366a2301b4ec993267871245b2e4c</description></item>
+    /// <item><term>Cue_0029</term><description>141eda434d00d5a42a1a78dff7113fe4</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -2024,7 +2024,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ3NearTailor</term><description>ea14530f3c887a94ca311579f9b40f00</description></item>
-    /// <item><term>CrystalSlot_1_Action_Section_1_4</term><description>1663a426d2924c968473032398c19ae8</description></item>
+    /// <item><term>CrystalSlot_2_Action_Section_1_1</term><description>2a685f5e5e2c4d83ac67c20d91dc277e</description></item>
     /// <item><term>WenduagDefeated_dialogue</term><description>6d17f0dee27a7a9449d0ee9a641f8266</description></item>
     /// </list>
     /// </remarks>

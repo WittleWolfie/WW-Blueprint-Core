@@ -148,7 +148,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_TrueForm_Cutscene</term><description>18d9251a3c5682a429e1c3769431f4ee</description></item>
-    /// <item><term>InflictSeriousWoundsMass</term><description>820170444d4d2a14abc480fcbdb49535</description></item>
+    /// <item><term>InflictModerateWoundsMass</term><description>03944622fbe04824684ec29ff2cec6a7</description></item>
     /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
     /// </list>
     /// </remarks>

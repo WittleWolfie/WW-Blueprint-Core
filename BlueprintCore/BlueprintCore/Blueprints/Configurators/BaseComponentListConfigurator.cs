@@ -208,7 +208,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>KTC_LichRankUp_4_Notification</term><description>213cafffc8ad4ac3a5c8af0044d2c315</description></item>
+    /// <item><term>KTC_LichRankUp_4</term><description>d5b07c39ab554215b5c10595571958a2</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

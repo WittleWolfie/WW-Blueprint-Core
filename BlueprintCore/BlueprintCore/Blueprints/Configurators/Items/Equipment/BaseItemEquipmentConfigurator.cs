@@ -595,7 +595,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <listheader>Used by</listheader>
     /// <item><term>Artifact_SpikedGauntletItem</term><description>3230a07e17594084f88e770480277de2</description></item>
     /// <item><term>HideBardingStandard</term><description>4a0838d1c48a9cc459b287e6a04f17f9</description></item>
-    /// <item><term>SolidChainsItem</term><description>f55ccf3a9af55524d9f8d3bc1b2060ff</description></item>
+    /// <item><term>UltimatePredatorsGauntletsItem</term><description>c8ad87f3fc49ccd43a5560acb271e968</description></item>
     /// </list>
     /// </remarks>
     ///

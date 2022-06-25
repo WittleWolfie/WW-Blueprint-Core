@@ -2119,7 +2119,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>FireDomainCapstone</term><description>6c46620d4cab41b42be8dd8cfb1aa9d2</description></item>
+    /// <item><term>FinneanPechkaUniqueBuff</term><description>0a825e98594921846965471b7c6ce76a</description></item>
     /// <item><term>WelcomeRespiteFeature</term><description>a02a6cd1f02a95442805e417b9ec0a32</description></item>
     /// </list>
     /// </remarks>
@@ -4820,7 +4820,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyDominateBuff</term><description>2ab491a0101344bc8ad3e62ba6a6dac6</description></item>
-    /// <item><term>CR4_Marauder_Thiefling_Melee_Male_Neutral_DLC2</term><description>23a36462fbd64041bdf02d75093ceb62</description></item>
+    /// <item><term>CR4_Marauder_Human_RogueMelee_MaleRichQuater</term><description>db59e733b90f41ddaaabdc67b784a6e8</description></item>
     /// <item><term>WitchHexAnimalServantBuff</term><description>c976bf2495a8d854ca4593318de1664d</description></item>
     /// </list>
     /// </remarks>
@@ -4870,7 +4870,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>CR23_SkeletalChampion_Melee_DLC1</term><description>c4dddee9f3c64f6faab89ac8b28b0d97</description></item>
+    /// <item><term>CR21_ZombieLordFighter_DLC1</term><description>a356271a621747158164fcb22c5f7935</description></item>
     /// <item><term>WoundWormsLair_BlackDragon</term><description>c540d81c08822c14da75761493427e4c</description></item>
     /// </list>
     /// </remarks>
@@ -10220,7 +10220,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyACAgainstRangeAuraFeature</term><description>e44e483c864349cf8eda2ac753ef0171</description></item>
-    /// <item><term>ArmyGhoulParalysisFeature</term><description>0ff98740c64f4d948e783f6e0dcd4bd7</description></item>
+    /// <item><term>ArmyGainAttackWhenHitFeature</term><description>054665fdee674a5cac99b194b50af349</description></item>
     /// <item><term>SubtypeExtraplanar</term><description>136fa0343d5b4b348bdaa05d83408db3</description></item>
     /// </list>
     /// </remarks>
@@ -13911,7 +13911,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_CombatTrigger</term><description>05898d8c986546fe850462aa71c65589</description></item>
-    /// <item><term>HellsDecreeAbilityRageAllyBuff</term><description>86fa611413abbcb48aee999d89a0bd8b</description></item>
+    /// <item><term>HellsDecreeAbilityRageAllyBonusBuff</term><description>3e4ab56c5f87ee04e85fe0eb9bb894cb</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEnemyFeature</term><description>1a695b8dfffc46f7a74527e510fd452b</description></item>
     /// </list>
     /// </remarks>
@@ -19823,7 +19823,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelHolyHymnBuff</term><description>f865b385586fe0a4996e081a96de4f0f</description></item>
-    /// <item><term>MaskOfNethysFeature</term><description>911c34da3d8677145affe00a32b8b2b0</description></item>
+    /// <item><term>LocustNPCArcaneBonus</term><description>49114237a7b04975af2ddb3611be38f2</description></item>
     /// <item><term>WhiteroseOystersBuff</term><description>45082bf27cf15e94ca0fae92dc3db992</description></item>
     /// </list>
     /// </remarks>

@@ -684,64 +684,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
-    /// Adds <see cref="WeaponBuffOnConfirmedCrit"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Buff on confirmed critical hits
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Vorpal</term><description>2f60bfcba52e48a479e4a69868e24ebc</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="buff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddWeaponBuffOnConfirmedCrit(
-        Blueprint<BlueprintBuffReference>? buff = null,
-        Rounds? duration = null,
-        PrefabLink? fx = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        bool? onlyNatural20 = null)
-    {
-      var component = new WeaponBuffOnConfirmedCrit();
-      component.m_Buff = buff?.Reference ?? component.m_Buff;
-      if (component.m_Buff is null)
-      {
-        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.Duration = duration ?? component.Duration;
-      component.Fx = fx ?? component.Fx;
-      if (component.Fx is null)
-      {
-        component.Fx = Utils.Constants.Empty.PrefabLink;
-      }
-      component.OnlyNatural20 = onlyNatural20 ?? component.OnlyNatural20;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="WeaponConditionalDamageDice"/>
     /// </summary>
     ///

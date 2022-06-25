@@ -1341,7 +1341,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionUnitVelociraptor</term><description>28d1986d57a7081439fbb581aa6f960c</description></item>
-    /// <item><term>GiantFrogSummoned</term><description>1ed9a630f0d9d7f44855d3d1d1b2cdf2</description></item>
+    /// <item><term>GiantSpiderSummoned</term><description>9e120b5e0ad3c794491c049aa24b9fde</description></item>
     /// <item><term>WyvernPeridot</term><description>6a8af899a123abf459e3e1fedf39e8be</description></item>
     /// </list>
     /// </remarks>
@@ -2241,7 +2241,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC1_BlindCarver_Wintersun</term><description>c209cd1dfa02401eb66f190f0f5675ad</description></item>
-    /// <item><term>Rathimus_ScrollVendorOld_DH</term><description>5ff890dff2c6e7940adb5d3de8616515</description></item>
+    /// <item><term>Kyado_ScrollVendorYoung_DH</term><description>3597b87c65fc4604b9aa0f134a2e551c</description></item>
     /// <item><term>WarCamp_ScrollVendorYoung</term><description>6b6eb149263959a4c9ea307057a20978</description></item>
     /// </list>
     /// </remarks>
@@ -2283,7 +2283,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Arsinoe</term><description>a609ed9b2205d034bb3bb04d2a255681</description></item>
-    /// <item><term>JewelerCapitalTrader</term><description>bc1093231b1577a4485a730c29595195</description></item>
+    /// <item><term>JorunVane_DrezenCapital</term><description>59649a004ed01994e9887f9ab8b2168d</description></item>
     /// <item><term>Woljif_NPC</term><description>318127d85d5d41b4d9acea4e2ad1c4a4</description></item>
     /// </list>
     /// </remarks>
@@ -2329,7 +2329,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Asty</term><description>d8e2475977bd87b439c4bba8f5f55949</description></item>
-    /// <item><term>CR2_Marauder_Human_FighterRanged_Female</term><description>7956220e37fe19f4e9d54df6fc65bb49</description></item>
+    /// <item><term>CR2_Marauder_Human_FighterMelee_Male</term><description>a148c7c95cec68e43ac490852071c711</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>
@@ -2377,7 +2377,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Azata_MadAlchemist</term><description>76cfa7d2cc33eaf41ad242d27ac02f19</description></item>
-    /// <item><term>Dyra_Trader_Neathholm</term><description>bd6d6b07f1682c14c9d0966ef7954648</description></item>
+    /// <item><term>JorunVane_DH</term><description>e42ba34fb70830c46a97cf5172accccf</description></item>
     /// <item><term>WintersunIncubusTrader</term><description>c36a4eb2bcf976e4892eaffb61493a94</description></item>
     /// </list>
     /// </remarks>
