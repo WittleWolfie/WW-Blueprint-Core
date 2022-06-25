@@ -45,6 +45,40 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     protected BaseFeatureConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintFeature.IsClassFeature"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// When set to true the feature is removed during respec.
+    /// </para>
+    /// </remarks>
+    public TBuilder SetIsClassFeature(bool isClassFeature = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsClassFeature = isClassFeature;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintFeature.IsClassFeature"/> by invoking the provided action.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// When set to true the feature is removed during respec.
+    /// </para>
+    /// </remarks>
+    public TBuilder ModifyIsClassFeature(Action<bool> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          action.Invoke(bp.IsClassFeature);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.m_NameModifiersCache"/>
     /// </summary>
     public TBuilder SetNameModifiersCache(params NameModifier[] nameModifiersCache)
@@ -319,30 +353,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           action.Invoke(bp.ReapplyOnLevelUp);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintFeature.IsClassFeature"/>
-    /// </summary>
-    public TBuilder SetIsClassFeature(bool isClassFeature = true)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.IsClassFeature = isClassFeature;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeature.IsClassFeature"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsClassFeature(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsClassFeature);
         });
     }
 
