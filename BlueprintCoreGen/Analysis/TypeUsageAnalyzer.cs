@@ -286,12 +286,18 @@ namespace BlueprintCoreGen.Analysis
 				fileText.AppendLine("using BlueprintCore.Utils;");
 				fileText.AppendLine("using Kingmaker.Blueprints;");
 				fileText.AppendLine(TypeTool.GetImport(bpType));
+				fileText.AppendLine("using System.Collections.Generic;");
 				fileText.AppendLine();
 				fileText.AppendLine(@"namespace BlueprintCore.Blueprints.References");
 				fileText.AppendLine(@"{");
 				fileText.AppendLine($"  /// <summary>");
 				fileText.AppendLine($"  /// Constant references to {typeName} blueprints");
 				fileText.AppendLine($"  /// </summary>");
+				fileText.AppendLine($"  ///");
+				fileText.AppendLine($"  /// <remarks>");
+				fileText.AppendLine($"  /// <p>The <c>All</c> field is a list with a reference to all blueprints.</p>");
+				fileText.AppendLine($"  /// <p>If you need a different reference type you can cast using <see cref=\"Blueprint{{TRef}}.Cast{{T}}\"/></p>.");
+				fileText.AppendLine($"  /// </remarks>");
 				fileText.AppendLine($"  public static class {className}");
 				fileText.AppendLine(@"  {");
 				blueprints.ForEach(
@@ -309,7 +315,16 @@ namespace BlueprintCoreGen.Analysis
 						bpNames.Add(sanitizedName);
 						fileText.AppendLine($"    public static readonly Blueprint<BlueprintReference<{typeName}>> {sanitizedName} = \"{bp.BlueprintGuid}\";");
 					});
-				fileText.AppendLine(@"  }");
+        if (bpNames.Count > 1)
+        {
+          fileText.AppendLine();
+          fileText.AppendLine($"    public static readonly List<Blueprint<BlueprintReference<{typeName}>>> All =");
+          fileText.AppendLine($"      new()");
+          fileText.AppendLine($"      {{");
+          bpNames.ToList().ForEach(bp => fileText.AppendLine($"          {bp},"));
+          fileText.AppendLine($"      }};");
+        }
+        fileText.AppendLine(@"  }");
 				fileText.AppendLine(@"}");
 
 				Directory.CreateDirectory($"{Program.AnalysisDir}/References");
