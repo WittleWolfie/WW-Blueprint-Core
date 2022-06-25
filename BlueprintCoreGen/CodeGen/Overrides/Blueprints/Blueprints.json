@@ -35,5 +35,17 @@
         ]
       }
     ]
+  },
+
+  {
+    "TypeName": "BlueprintFeature",
+    "Fields": [
+      {
+        "FieldName": "IsClassFeature",
+        "Remarks": [
+          "When set to true the feature is removed during respec."
+        ]
+      }
+    ]
   }
 ]
