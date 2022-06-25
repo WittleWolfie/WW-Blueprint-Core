@@ -1,9 +1,13 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Console;
+using Kingmaker.Blueprints.Credits;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
+using Kingmaker.QA.Arbiter;
+using Kingmaker.QA.Clockwork;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -79,6 +83,20 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
 
         // Legacy types
         typeof(AddStatBonusScaled),
+
+        // QA Types
+        typeof(BlueprintArbiterInstruction),
+        typeof(BlueprintArbiterRoot),
+        typeof(BlueprintClockworkScenario),
+        typeof(BlueprintClockworkScenarioPart),
+
+        // Credits
+        typeof(BlueprintCreditsGroup),
+        typeof(BlueprintCreditsRoles),
+        typeof(BlueprintCreditsTeams),
+
+        // Console
+        typeof(GamePadTexts),
       };
     public static bool ShouldIgnore(Type type)
     {
