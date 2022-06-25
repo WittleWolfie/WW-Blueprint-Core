@@ -513,7 +513,7 @@ When creating a custom configurator:
 * Do not modify the blueprint directly; use `OnConfigureInternal()`
 * Use `<inheritdoc/>` where possible
 
-Look at [Ability.cs](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/UnitLogic/Abilities/Ability.cs) as an example.
+Look at [AbilityConfigurator.cs](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/UnitLogic/Abilities/AbilityConfigurator.cs) as an example.
 
 Notice the declaration of `SetCustomRange()`:
 
