@@ -254,6 +254,11 @@ namespace BlueprintCore.Utils
       Reference = blueprintReference;
     }
 
+    public Blueprint<T> Cast<T>() where T : BlueprintReferenceBase
+    {
+      return new Blueprint<T>(BlueprintTool.GetRef<T>(Reference.deserializedGuid));
+    }
+
     public static implicit operator Blueprint<TRef>(SimpleBlueprint blueprint)
     {
       return new Blueprint<TRef>(BlueprintTool.GetRef<TRef>(blueprint.AssetGuid));
