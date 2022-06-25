@@ -1,5 +1,4 @@
-﻿using BlueprintCore.Blueprints.Configurators.Classes;
-using BlueprintCore.Utils;
+﻿using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
