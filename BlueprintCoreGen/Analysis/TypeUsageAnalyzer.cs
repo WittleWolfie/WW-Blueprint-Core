@@ -45,7 +45,7 @@ namespace BlueprintCoreGen.Analysis
 		// When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
 		private static readonly int DebugLimit = -1;
 		// How many blueprints to process before reporting on progress & speed
-		private static readonly int ReportThreshold = 1500;
+		private static readonly int ReportThreshold = 2500;
 
 		private static readonly Dictionary<string, Type> TypesById = new();
 		private static readonly Dictionary<string, Type> TypesByName = new();
@@ -272,7 +272,8 @@ namespace BlueprintCoreGen.Analysis
 				}
 
 				var blueprints = BlueprintsByType[bpType].OrderBy(bp => bp.BlueprintName).ToList();
-				var className = TypeTool.GetName(bpType).Replace("Blueprint", "");
+				var typeName = TypeTool.GetName(bpType);
+				var className = $"{typeName.Replace("Blueprint", "")}Refs";
 
 				if (blueprints.Count > 10000)
         {
@@ -282,11 +283,14 @@ namespace BlueprintCoreGen.Analysis
 
 				var bpNames = new HashSet<string>();
 				var fileText = new StringBuilder();
-				fileText.AppendLine("using BlueprintCore.Utils;").AppendLine();
+				fileText.AppendLine("using BlueprintCore.Utils;");
+				fileText.AppendLine("using Kingmaker.Blueprints;");
+				fileText.AppendLine(TypeTool.GetImport(bpType));
+				fileText.AppendLine();
 				fileText.AppendLine(@"namespace BlueprintCore.Blueprints.References");
 				fileText.AppendLine(@"{");
 				fileText.AppendLine($"  /// <summary>");
-				fileText.AppendLine($"  /// Constant references to {TypeTool.GetName(bpType)} blueprints");
+				fileText.AppendLine($"  /// Constant references to {typeName} blueprints");
 				fileText.AppendLine($"  /// </summary>");
 				fileText.AppendLine($"  public static class {className}");
 				fileText.AppendLine(@"  {");
@@ -303,7 +307,7 @@ namespace BlueprintCoreGen.Analysis
 							sanitizedName = SanitizeBlueprintName(bp.BlueprintName, className, bpNames);
 						}
 						bpNames.Add(sanitizedName);
-						fileText.AppendLine($"    public const string {sanitizedName} = \"{bp.BlueprintGuid}\";");
+						fileText.AppendLine($"    public static readonly Blueprint<BlueprintReference<{typeName}>> {sanitizedName} = \"{bp.BlueprintGuid}\";");
 					});
 				fileText.AppendLine(@"  }");
 				fileText.AppendLine(@"}");
