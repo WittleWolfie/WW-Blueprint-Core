@@ -1,5 +1,19 @@
 ﻿# Changelog
 
+## v2.1.0 Release
+
+* Added new localization system for translation support and simplified text references. See [Text, Logging, and Utils](usage/utils.md) for more details.
+* Added static references to in-game blueprints. See [Referencing Blueprints](usage/blueprints.md#referencing-blueprints) for more details.
+* TODO
+
+### Breaking Changes
+
+* Some ContextAction methods were updated with a stricter API
+    * `ArmorEnchantPool` and `ShieldArmorEnchantPool` uses `BlueprintArmorEnchantReference` instead of `BlueprintItemEnchantmentReference`
+    * `WeaponEnchantPool` and `ShieldWeaponEnchantPool` uses `BlueprintWeaponEnchantmentReference` instead of `BlueprintItemEnchantmentReference`
+    * If you were passing in a BlueprintItemEnchantmentReference directly you'll need to update your calls
+* `Buffs`, `ItemEnchantments`, and `Features` were removed
+
 ## v2.0.4 Release
 
 * Fixed an NPE resulting from not specifying optional List or Array parameters

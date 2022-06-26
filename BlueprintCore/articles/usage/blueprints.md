@@ -227,6 +227,9 @@ If the blueprint is more complex it may be better to create your own configurato
 
 ## Referencing Blueprints
 
+> [!TIP]
+> For many blueprint types there is a "Refs" class with static fields for referencing existing blueprints, e.g. [FeatureRefs.AcidImmunity](xref:BlueprintCore.Blueprints.References.FeatureRefs.AcidImmunity). You can also iterate through all blueprints using the `All` field, e.g. [FeatureRefs.All](xref:BlueprintCore.Blueprints.References.FeatureRefs.All).
+
 Many API calls require references to a blueprint. To simplify blueprint references BlueprintCore defines [Blueprint<TRef>](xref:BlueprintCore.Utils.Blueprint`1). This provides implicit constructors which allow referencing blueprints by:
 
 * GUID / Asset ID string
