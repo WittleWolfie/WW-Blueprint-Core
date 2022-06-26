@@ -4,7 +4,12 @@
 
 * Added new localization system for translation support and simplified text references. See [Text, Logging, and Utils](usage/utils.md) for more details.
 * Added static references to in-game blueprints. See [Referencing Blueprints](usage/blueprints.md#referencing-blueprints) for more details.
-* TODO
+* Configurators now automatically set safe default values for types which cannot be null
+* FeatureConfigurator
+    * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup[])).
+    * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
+* BlueprintUnitProperty logs a warning if `BaseValue` is 0 when using multiplication
+* Removed configurators for QA related blueprints
 
 ### Breaking Changes
 
@@ -14,6 +19,10 @@
     * If you were passing in a BlueprintItemEnchantmentReference directly you'll need to update your calls
 * `Buffs`, `ItemEnchantments`, and `Features` were removed
     * Replaced by Refs classes. See [Referencing Blueprints](usage/blueprints.md#referencing-blueprints).
+* QA Blueprint configurators were removed
+    * I don't expect anyone to use these, but if you have a use case let me know.
+* Configurators no longer exposes methods for cache fields
+    * These are set at runtime by the blueprint, they should not be set manually.
 
 ## v2.0.4 Release
 
