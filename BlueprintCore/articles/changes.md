@@ -13,6 +13,7 @@
     * `WeaponEnchantPool` and `ShieldWeaponEnchantPool` uses `BlueprintWeaponEnchantmentReference` instead of `BlueprintItemEnchantmentReference`
     * If you were passing in a BlueprintItemEnchantmentReference directly you'll need to update your calls
 * `Buffs`, `ItemEnchantments`, and `Features` were removed
+    * Replaced by Refs classes. See [Referencing Blueprints](usage/blueprints.md#referencing-blueprints).
 
 ## v2.0.4 Release
 
