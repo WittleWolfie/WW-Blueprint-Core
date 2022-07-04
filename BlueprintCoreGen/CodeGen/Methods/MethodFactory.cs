@@ -502,14 +502,21 @@ namespace BlueprintCoreGen.CodeGen.Methods
       }
 
       // Declarations
-      var declarations =
-          parameters.Select(field => field.Declaration).Where(declaration => !string.IsNullOrEmpty(declaration));
-      if (!declarations.Any())
+      var fieldsWithDeclarations = parameters.Where(field => !string.IsNullOrEmpty(field.Declaration));
+      var useParams =
+        fieldsWithDeclarations.Count() == 1 && !string.IsNullOrEmpty(fieldsWithDeclarations.First().ParamsDeclaration);
+      if (useParams)
+      {
+        method.AddLine(
+          $"public static {builderType} {methodName}(this {builderType} builder, {fieldsWithDeclarations.First().ParamsDeclaration})");
+      }
+      else if (!fieldsWithDeclarations.Any())
       {
         method.AddLine($"public static {builderType} {methodName}(this {builderType} builder)");
       }
       else
       {
+        var declarations = fieldsWithDeclarations.Select(field => field.Declaration);
         method.AddLine($"public static {builderType} {methodName}(");
         method.AddLine($"    this {builderType} builder,");
         declarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"    {declaration},"));
@@ -517,7 +524,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       }
       method.AddLine($"{{");
 
-      // Constructor & assignment
+      // Constructor
       if (string.IsNullOrEmpty(builderMethod.ConstructorRhs))
       {
         method.AddLine($"  var element = ElementTool.Create<{elementTypeName}>();");
@@ -526,9 +533,25 @@ namespace BlueprintCoreGen.CodeGen.Methods
       {
         method.AddLine($"  var element = {builderMethod.ConstructorRhs};");
       }
-      parameters.SelectMany(field => field.GetOperation("element", "builder.Validate"))
-        .ToList()
-        .ForEach(line => method.AddLine($"  {line}"));
+
+      // Assignment
+      if (useParams)
+      {
+        fieldsWithDeclarations.First().GetParamsOperation("element", "builder.Validate")
+          .Concat(
+            parameters.Where(field => string.IsNullOrEmpty(field.Declaration))
+              .SelectMany(field => field.GetOperation("element", "builder.Validate"))
+              .Where(line => !string.IsNullOrEmpty(line)))
+          .ToList()
+          .ForEach(line => method.AddLine($"  {line}"));
+      }
+      else
+      {
+        parameters.SelectMany(field => field.GetOperation("element", "builder.Validate"))
+          .Where(line => !string.IsNullOrEmpty(line))
+          .ToList()
+          .ForEach(line => method.AddLine($"  {line}"));
+      }
 
       // Extra lines from override
       methodOverride.ExtraFmtLines.ForEach(line => method.AddLine($"  {string.Format(line, "element")}"));
