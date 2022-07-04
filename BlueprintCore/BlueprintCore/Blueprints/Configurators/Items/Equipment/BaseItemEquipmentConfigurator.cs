@@ -521,11 +521,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <item><term>WhiteWindsCloakItem</term><description>262b8ece36ba43f44bd407e82c079028</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddEquipmentRestrictionAlignment(
-        AlignmentMaskType? alignment = null)
+    public TBuilder AddEquipmentRestrictionAlignment(params AlignmentMaskType[] alignment)
     {
       var component = new EquipmentRestrictionAlignment();
-      component.Alignment = alignment ?? component.Alignment;
+      component.Alignment = alignment.Aggregate((AlignmentMaskType) 0, (f1, f2) => f1 | f2);
       return AddComponent(component);
     }
 

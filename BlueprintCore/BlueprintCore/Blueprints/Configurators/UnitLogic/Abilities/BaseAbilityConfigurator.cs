@@ -6189,11 +6189,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <item><term>StunningFistSickenedAbility</term><description>c81906c75821cbe4c897fa11bdaeee01</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddAbilityCasterMainWeaponCheck(
-        WeaponCategory[]? category = null)
+    public TBuilder AddAbilityCasterMainWeaponCheck(params WeaponCategory[] category)
     {
       var component = new AbilityCasterMainWeaponCheck();
-      component.Category = category ?? component.Category;
+      component.Category = category;
       if (component.Category is null)
       {
         component.Category = new WeaponCategory[0];

@@ -1055,11 +1055,10 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddEtudeBracketEnableTutorials(
-        List<Blueprint<BlueprintTutorial.Reference>>? tutorials = null)
+    public TBuilder AddEtudeBracketEnableTutorials(params Blueprint<BlueprintTutorial.Reference>[] tutorials)
     {
       var component = new EtudeBracketEnableTutorials();
-      component.m_Tutorials = tutorials?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Tutorials;
+      component.m_Tutorials = tutorials.Select(bp => bp.Reference).ToArray();
       if (component.m_Tutorials is null)
       {
         component.m_Tutorials = new BlueprintTutorial.Reference[0];

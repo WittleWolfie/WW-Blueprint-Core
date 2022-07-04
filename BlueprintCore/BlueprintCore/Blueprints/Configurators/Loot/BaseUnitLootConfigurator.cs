@@ -156,12 +156,11 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <item><term>TrashLootStandardWeaponsAndArmor</term><description>6414d0eccbb66364bb1ef9f57599fc5c</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddLootRandomItem(
-        LootItemAndWeight[]? items = null)
+    public TBuilder AddLootRandomItem(params LootItemAndWeight[] items)
     {
       var component = new LootRandomItem();
       Validate(items);
-      component.m_Items = items ?? component.m_Items;
+      component.m_Items = items;
       if (component.m_Items is null)
       {
         component.m_Items = new LootItemAndWeight[0];

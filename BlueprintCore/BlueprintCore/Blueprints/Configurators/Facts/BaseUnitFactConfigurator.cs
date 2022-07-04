@@ -3519,11 +3519,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>SwarmFeastExtraBuff</term><description>77558f3e79847bb448aa980a1aee326e</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddPhysicalImmunity(
-        PhysicalDamageForm? physicalDamageForms = null)
+    public TBuilder AddPhysicalImmunity(params PhysicalDamageForm[] physicalDamageForms)
     {
       var component = new AddPhysicalImmunity();
-      component.m_PhysicalDamageForms = physicalDamageForms ?? component.m_PhysicalDamageForms;
+      component.m_PhysicalDamageForms = physicalDamageForms.Aggregate((PhysicalDamageForm) 0, (f1, f2) => f1 | f2);
       return AddComponent(component);
     }
 
@@ -3665,11 +3664,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddSecondaryAttacks(
-        List<Blueprint<BlueprintItemWeaponReference>>? weapon = null)
+    public TBuilder AddSecondaryAttacks(params Blueprint<BlueprintItemWeaponReference>[] weapon)
     {
       var component = new AddSecondaryAttacks();
-      component.m_Weapon = weapon?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Weapon;
+      component.m_Weapon = weapon.Select(bp => bp.Reference).ToArray();
       if (component.m_Weapon is null)
       {
         component.m_Weapon = new BlueprintItemWeaponReference[0];
@@ -5804,11 +5802,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddForbidSpellbookOnArmorEquip(
-        List<Blueprint<BlueprintSpellbookReference>>? spellbooks = null)
+    public TBuilder AddForbidSpellbookOnArmorEquip(params Blueprint<BlueprintSpellbookReference>[] spellbooks)
     {
       var component = new ForbidSpellbookOnArmorEquip();
-      component.m_Spellbooks = spellbooks?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Spellbooks;
+      component.m_Spellbooks = spellbooks.Select(bp => bp.Reference).ToArray();
       if (component.m_Spellbooks is null)
       {
         component.m_Spellbooks = new BlueprintSpellbookReference[0];
@@ -13266,11 +13263,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddBindAbilitiesToHighest(
-        List<Blueprint<BlueprintAbilityReference>>? abilities = null)
+    public TBuilder AddBindAbilitiesToHighest(params Blueprint<BlueprintAbilityReference>[] abilities)
     {
       var component = new BindAbilitiesToHighest();
-      component.m_Abilities = abilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Abilities;
+      component.m_Abilities = abilities.Select(bp => bp.Reference).ToArray();
       if (component.m_Abilities is null)
       {
         component.m_Abilities = new BlueprintAbilityReference[0];
@@ -17642,11 +17638,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>MadDogThroatCutterPet</term><description>65a170770daec324d9a5e14c2b9dbcf7</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddPetManeuverProvokeAttack(
-        CombatManeuver[]? maneuver = null)
+    public TBuilder AddPetManeuverProvokeAttack(params CombatManeuver[] maneuver)
     {
       var component = new PetManeuverProvokeAttack();
-      component.Maneuver = maneuver ?? component.Maneuver;
+      component.Maneuver = maneuver;
       if (component.Maneuver is null)
       {
         component.Maneuver = new CombatManeuver[0];
@@ -17952,11 +17947,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddRecalculateOnFactsChange(
-        List<Blueprint<BlueprintUnitFactReference>>? checkedFacts = null)
+    public TBuilder AddRecalculateOnFactsChange(params Blueprint<BlueprintUnitFactReference>[] checkedFacts)
     {
       var component = new RecalculateOnFactsChange();
-      component.m_CheckedFacts = checkedFacts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_CheckedFacts;
+      component.m_CheckedFacts = checkedFacts.Select(bp => bp.Reference).ToArray();
       if (component.m_CheckedFacts is null)
       {
         component.m_CheckedFacts = new BlueprintUnitFactReference[0];

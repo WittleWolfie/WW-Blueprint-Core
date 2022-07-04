@@ -2144,11 +2144,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public TBuilder AddAbilityToCharacterComponent(
-        List<Blueprint<BlueprintAbilityReference>>? abilities = null)
+    public TBuilder AddAbilityToCharacterComponent(params Blueprint<BlueprintAbilityReference>[] abilities)
     {
       var component = new AddAbilityToCharacterComponent();
-      component.m_Abilities = abilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Abilities;
+      component.m_Abilities = abilities.Select(bp => bp.Reference).ToArray();
       if (component.m_Abilities is null)
       {
         component.m_Abilities = new BlueprintAbilityReference[0];
