@@ -26,11 +26,21 @@ namespace BlueprintCoreGen.CodeGen.Params
     string Declaration { get; }
 
     /// <summary>
+    /// Parameter declaration when defined using params, e.g. params string[] names
+    /// </summary>
+    string ParamsDeclaration { get; }
+
+    /// <summary>
     /// Returns a statement which uses the parameter to operate on the object. Typically this is assigning the 
     /// parameter value to a field in the object. The provided validation function is called on the parameter before
     /// assignment.
     /// </summary>
     List<string> GetOperation(string objectName, string validateFunction);
+
+    /// <summary>
+    /// Returns a statement which use the params version of the parameter to operate on the object.
+    /// </summary>
+    List<string> GetParamsOperation(string objectName, string validateFunction);
   }
 
   /// <summary>
@@ -54,11 +64,6 @@ namespace BlueprintCoreGen.CodeGen.Params
   /// </summary>
   public interface IBlueprintParameter : IParameter
   {
-    /// <summary>
-    /// Parameter declaration when defined using params, e.g. params string[] names
-    /// </summary>
-    string ParamsDeclaration { get; }
-
     /// <summary>
     /// Assignment statement if the field is null
     /// </summary>
@@ -146,10 +151,16 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     public List<string> Comment => GetComment();
     public string Declaration => GetDeclaration();
+    public string ParamsDeclaration => GetParamsDeclaration();
 
     private string FieldName { get; }
     public string ParamName { get; private set; }
     protected string TypeName { get; set; }
+
+    /// <summary>
+    /// Type name used for ParamsDeclaration
+    /// </summary>
+    private string ParamsTypeName { get; }
 
     /// <summary>
     /// Comment format string where {0} is the parameter name
@@ -174,6 +185,12 @@ namespace BlueprintCoreGen.CodeGen.Params
     private string AssignmentFmtRhs { get; set; }
 
     /// <summary>
+    /// Assignment format string for the right hand side of an assignment statement, where {0} is the parameter name
+    /// and the params declaration is in use.
+    /// </summary>
+    private string ParamsAssignmentFmtRhs { get; set; }
+
+    /// <summary>
     /// Assignment string for the right hand side of an assignment statement if the field is null
     /// </summary>
     private string? AssignmentIfNullRhs { get; set; }
@@ -188,16 +205,19 @@ namespace BlueprintCoreGen.CodeGen.Params
         string fieldName,
         string paramName,
         string typeName,
+        string paramTypeName,
         List<Type> imports,
         List<string> commentFmt,
         string defaultValue,
         string validationFmt,
         string assignmentRhsFmt,
-        string assignmentIfNullRhs)
+        string assignmentIfNullRhs,
+        string paramsAssignmentRhsFmt)
     {
       FieldName = fieldName;
       ParamName = paramName;
       TypeName = typeName;
+      ParamsTypeName = paramTypeName;
 
       Imports = imports;
       CommentFmt = commentFmt;
@@ -206,6 +226,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (!string.IsNullOrEmpty(validationFmt)) { ValidationFmt.Add(validationFmt); }
       AssignmentFmtRhs = assignmentRhsFmt;
       AssignmentIfNullRhs = assignmentIfNullRhs;
+      ParamsAssignmentFmtRhs = paramsAssignmentRhsFmt;
       ExtraAssignmentFmtLines = new();
     }
 
@@ -297,19 +318,39 @@ namespace BlueprintCoreGen.CodeGen.Params
           : $"{declaration} = {DefaultValue}";
     }
 
+    private string GetParamsDeclaration()
+    {
+      if (string.IsNullOrEmpty(ParamsAssignmentFmtRhs))
+      {
+        return string.Empty;
+      }
+      return $"params {ParamsTypeName}[] {ParamName}";
+    }
+
     public List<string> GetOperation(string objectName, string validateFunction)
+    {
+      return GetOperation(objectName, validateFunction, AssignmentFmtRhs, IsNullable);
+    }
+
+    public List<string> GetParamsOperation(string objectName, string validateFunction)
+    {
+      return GetOperation(objectName, validateFunction, ParamsAssignmentFmtRhs, /* isNullable= */ false);
+    }
+
+    private List<string> GetOperation(
+      string objectName, string validateFunction, string assignmentFmt, bool isNullable)
     {
       List<string> assignment = new();
       assignment.AddRange(ValidationFmt.Select(line => string.Format(line, validateFunction, ParamName)));
 
-      if (IsNullable)
+      if (isNullable)
       {
         assignment.Add(
-            string.Format($"{objectName}.{FieldName} = {AssignmentFmtRhs} ?? {objectName}.{FieldName};", ParamName));
+            string.Format($"{objectName}.{FieldName} = {assignmentFmt} ?? {objectName}.{FieldName};", ParamName));
       }
       else
       {
-        assignment.Add(string.Format($"{objectName}.{FieldName} = {AssignmentFmtRhs};", ParamName));
+        assignment.Add(string.Format($"{objectName}.{FieldName} = {assignmentFmt};", ParamName));
       }
 
       return assignment.Concat(GetExtraAssignmentLines(objectName)).Concat(GetAssignmentIfNull(objectName)).ToList();
@@ -351,12 +392,6 @@ namespace BlueprintCoreGen.CodeGen.Params
   /// </summary>
   public class BlueprintFieldParameter : FieldParameter, IBlueprintParameter
   {
-    /// <summary>
-    /// Type name used for ParamsDeclaration
-    /// </summary>
-    private string ParamsTypeName { get; }
-    public string ParamsDeclaration => GetParamsDeclaration();
-
     public List<string> AssignmentIfNull { get; private set; }
 
     public string SetComment { get; }
@@ -426,14 +461,15 @@ namespace BlueprintCoreGen.CodeGen.Params
         fieldName,
         paramName,
         typeName,
+        paramsTypeName,
         imports,
         commentFmt,
         defaultValue,
         validationFmt,
         assignmentRhsFmt,
-        /* assignmentIfNullRhs= */ string.Empty)
+        /* assignmentIfNullRhs= */ string.Empty,
+        /* paramsAssignmentFmtRhs= */ assignmentRhsFmt)
     {
-      ParamsTypeName = paramsTypeName;
       SetComment = setComment;
       AddComment = addComment;
       AddOperationFmt = addOperationFmt;
@@ -448,11 +484,6 @@ namespace BlueprintCoreGen.CodeGen.Params
       SetIsNullable(false);
 
       AssignmentIfNull = GetAssignmentIfNull("Blueprint", assignmentIfNullRhs);
-    }
-
-    private string GetParamsDeclaration()
-    {
-      return $"params {ParamsTypeName}[] {ParamName}";
     }
 
     public List<string> GetAddOperation(string objectName, string validateFunction)

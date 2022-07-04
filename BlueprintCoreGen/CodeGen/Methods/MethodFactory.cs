@@ -355,21 +355,27 @@ namespace BlueprintCoreGen.CodeGen.Methods
       }
 
       // Declarations
-      var declarations =
-          parameters.Select(field => field.Declaration).Where(declaration => !string.IsNullOrEmpty(declaration));
-      if (!declarations.Any())
+      var fieldsWithDeclarations = parameters.Where(field => !string.IsNullOrEmpty(field.Declaration));
+      var useParams =
+        fieldsWithDeclarations.Count() == 1 && !string.IsNullOrEmpty(fieldsWithDeclarations.First().ParamsDeclaration);
+      if (useParams)
+      {
+        method.AddLine($"public {returnType} {methodName}({fieldsWithDeclarations.First().ParamsDeclaration})");
+      }
+      else if (!fieldsWithDeclarations.Any())
       {
         method.AddLine($"public {returnType} {methodName}()");
       }
       else
       {
+        var declarations = fieldsWithDeclarations.Select(field => field.Declaration);
         method.AddLine($"public {returnType} {methodName}(");
         declarations.SkipLast(1).ToList().ForEach(declaration => method.AddLine($"    {declaration},"));
         method.AddLine($"    {declarations.Last()})");
       }
       method.AddLine(@"{");
 
-      // Constructor & assignment
+      // Constructor
       if (string.IsNullOrEmpty(componentMethod.ConstructorRhs))
       {
         method.AddLine($"  var component = new {componentTypeName}();");
@@ -378,10 +384,25 @@ namespace BlueprintCoreGen.CodeGen.Methods
       {
         method.AddLine($"  var component = {componentMethod.ConstructorRhs};");
       }
-      parameters.SelectMany(field => field.GetOperation("component", "Validate"))
-        .Where(line => !string.IsNullOrEmpty(line))
-        .ToList()
-        .ForEach(line => method.AddLine($"  {line}"));
+
+      // Assignment
+      if (useParams)
+      {
+        fieldsWithDeclarations.First().GetParamsOperation("component", "Validate")
+          .Concat(
+            parameters.Where(field => string.IsNullOrEmpty(field.Declaration))
+              .SelectMany(field => field.GetOperation("component", "Validate"))
+              .Where(line => !string.IsNullOrEmpty(line)))
+          .ToList()
+          .ForEach(line => method.AddLine($"  {line}"));
+      }
+      else
+      {
+        parameters.SelectMany(field => field.GetOperation("component", "Validate"))
+          .Where(line => !string.IsNullOrEmpty(line))
+          .ToList()
+          .ForEach(line => method.AddLine($"  {line}"));
+      }
 
       // Extra lines from override
       methodOverride.ExtraFmtLines.ForEach(line => method.AddLine($"  {string.Format(line, "component")}"));

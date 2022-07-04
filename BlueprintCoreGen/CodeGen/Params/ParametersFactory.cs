@@ -70,12 +70,14 @@ namespace BlueprintCoreGen.CodeGen.Params
           info.Name,
           GetParamName(info.Name),
           GetTypeName(info.FieldType, blueprintType, enumerableType),
+          GetParamsTypeName(info.FieldType, blueprintType, enumerableType),
           GetImports(info.FieldType).Concat(imports).ToList(),
           GetCommentFmt(info, blueprintType),
           GetDefaultValue(),
           GetValidationFmt(info.FieldType, blueprintType, enumerableType),
           GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
-          GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
+          GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType),
+          GetParamsAssignmentFmt(info.FieldType, blueprintType, enumerableType));
 
       // Apply type specific, then field specific, then method specific overrides (priority order).
       GetTypeOverride(info.FieldType)?.ApplyTo(param);
@@ -371,7 +373,15 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private static string GetAssignmentFmtForBlueprintField(Type type, Type? blueprintType, Type? enumerableType)
     {
-      // BitFlags, Lists, and Arrays use params setters
+      var assignmentFmt = GetParamsAssignmentFmt(type, blueprintType, enumerableType);
+      return string.IsNullOrEmpty(assignmentFmt)
+        ? GetAssignmentFmt(type,blueprintType, enumerableType)
+        : assignmentFmt;
+    }
+
+    private static string GetParamsAssignmentFmt(Type type, Type? blueprintType, Type? enumerableType)
+    {
+      // BitFlags, Lists, and Arrays support params setters
       if (TypeTool.IsBitFlag(type))
       {
         return $"{{0}}.Aggregate(({TypeTool.GetName(type)}) 0, (f1, f2) => f1 | f2)";
@@ -385,7 +395,7 @@ namespace BlueprintCoreGen.CodeGen.Params
         }
         return type.IsArray ? $"{{0}}" : $"{{0}}.ToList()";
       }
-      return GetAssignmentFmt(type, blueprintType, enumerableType);
+      return string.Empty;
     }
 
     private static List<string> GetAddOperationFmt(FieldInfo field, Type? blueprintType, Type? enumerableType)

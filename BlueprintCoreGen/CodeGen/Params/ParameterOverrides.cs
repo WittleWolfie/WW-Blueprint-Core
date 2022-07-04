@@ -261,9 +261,16 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     public string Declaration { get; } = "ComponentMerge mergeBehavior = ComponentMerge.Fail";
 
+    public string ParamsDeclaration => throw new NotImplementedException();
+
     public List<string> GetOperation(string objectName, string validateFunction)
     {
       return new();
+    }
+
+    public List<string> GetParamsOperation(string objectName, string validateFunction)
+    {
+      throw new NotImplementedException();
     }
   }
 
@@ -288,9 +295,16 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     public string Declaration { get; } = "Action<BlueprintComponent, BlueprintComponent>? merge = null";
 
+    public string ParamsDeclaration => throw new NotImplementedException();
+
     public List<string> GetOperation(string objectName, string validateFunction)
     {
       return new();
+    }
+
+    public List<string> GetParamsOperation(string objectName, string validateFunction)
+    {
+      throw new NotImplementedException();
     }
   }
 
@@ -309,6 +323,8 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     [JsonProperty]
     public string ParamName { get; private set; }
+
+    public string ParamsDeclaration => throw new NotImplementedException();
 
     [JsonProperty]
     private readonly string? DefaultValue;
@@ -347,6 +363,11 @@ namespace BlueprintCoreGen.CodeGen.Params
       }
 
       return new();
+    }
+
+    public List<string> GetParamsOperation(string objectName, string validateFunction)
+    {
+      throw new NotImplementedException();
     }
   }
 }
