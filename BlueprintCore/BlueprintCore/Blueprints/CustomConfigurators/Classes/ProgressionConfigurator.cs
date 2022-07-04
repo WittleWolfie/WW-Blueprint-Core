@@ -96,5 +96,54 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     {
       return classes.Select(c => new ClassWithLevel() { m_Class = c.Reference }).ToArray();
     }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.SetArchetypes(ArchetypeWithLevel[])"/>
+    public ProgressionConfigurator SetArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
+    {
+      return SetArchetypes(Convert(archetypes));
+    }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.SetArchetypes(ArchetypeWithLevel[])"/>
+    public ProgressionConfigurator SetArchetypes(
+      params (Blueprint<BlueprintArchetypeReference> archetype, int additionalLevel)[] archetypes)
+    {
+      return SetArchetypes(Convert(archetypes));
+    }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.AddToArchetypes(ArchetypeWithLevel[])"/>
+    public ProgressionConfigurator AddToClasses(params Blueprint<BlueprintArchetypeReference>[] archetypes)
+    {
+      return AddToArchetypes(Convert(archetypes));
+    }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.AddToArchetypes(ArchetypeWithLevel[])"/>
+    public ProgressionConfigurator AddToArchetypes(
+      params (Blueprint<BlueprintArchetypeReference> archetype, int additionalLevel)[] archetypes)
+{
+      return AddToArchetypes(Convert(archetypes));
+    }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.RemoveFromArchetypes(ArchetypeWithLevel[])"/>
+    public ProgressionConfigurator RemoveFromArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
+    {
+      return RemoveFromArchetypes(c => archetypes.Contains(c.m_Archetype));
+    }
+
+    private ArchetypeWithLevel[] Convert(
+      params (Blueprint<BlueprintArchetypeReference> archetype, int additionalLevel)[] classes)
+    {
+      return classes.Select(
+          c => new ArchetypeWithLevel()
+          {
+            m_Archetype = c.archetype.Reference,
+            AdditionalLevel = c.additionalLevel
+          })
+        .ToArray();
+    }
+
+    private ArchetypeWithLevel[] Convert(params Blueprint<BlueprintArchetypeReference>[] classes)
+    {
+      return classes.Select(c => new ArchetypeWithLevel() { m_Archetype = c.Reference }).ToArray();
+    }
   }
 }
