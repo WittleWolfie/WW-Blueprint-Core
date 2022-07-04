@@ -12,7 +12,9 @@
 * Specific Type Changes
     * FeatureConfigurator
         * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup[])).
-    * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
+        * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
+    * ProgressionConfigurator
+        * TODO
     * BuffEnchantAnyWeapon is now available in BaseUnitFactConfigurator and all inherited types
     * AddStatBonusIfHasFact replaced by AddStatbonusIfHasFactFixed
 
@@ -32,6 +34,8 @@
     * If they currently require a list they must be updated. You can call `ToArray()` on the list.
 * AddStatBonusIfHasFact is no longer supported
     * Use AddStatBonusIfHasFactFixed
+* Methods for BlueprintProgression.AlternateProgressionType are removed
+    * It is always Div2, there is no other value
 
 ## v2.0.4 Release
 
