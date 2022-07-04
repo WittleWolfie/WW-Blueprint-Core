@@ -275,7 +275,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddLine($"{{");
 
       // Assignment & extra lines
-      AddOnConfigure(method, operation);
+      AddOnConfigure(method, operation, methodOverride.ExtraFmtLines);
       method.AddLine($"}}");
 
       return method;
@@ -600,12 +600,15 @@ namespace BlueprintCoreGen.CodeGen.Methods
       return $"Add{componentTypeName}";
     }
 
-    private static void AddOnConfigure(MethodImpl method, List<string> onConfigure)
+    private static void AddOnConfigure(MethodImpl method, List<string> onConfigure, List<string> extraFmtLines)
     {
       method.AddLine($"  return OnConfigureInternal(");
       method.AddLine($"    bp =>");
       method.AddLine($"    {{");
       onConfigure.ForEach(line => method.AddLine($"      {line}"));
+      extraFmtLines.Select(line => string.Format(line, "bp"))
+        .ToList()
+        .ForEach(line => method.AddLine($"      {line}"));
       method.AddLine($"    }});");
     }
 
