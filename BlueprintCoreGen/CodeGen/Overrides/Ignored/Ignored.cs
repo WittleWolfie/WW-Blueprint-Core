@@ -97,6 +97,9 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
 
         // Console
         typeof(GamePadTexts),
+
+        // Fixed Components
+        typeof(AddStatBonusIfHasFact),
       };
     public static bool ShouldIgnore(Type type)
     {
