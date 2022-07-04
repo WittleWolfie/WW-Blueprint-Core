@@ -5,11 +5,15 @@
 * Added new localization system for translation support and simplified text references. See [Text, Logging, and Utils](usage/utils.md) for more details.
 * Added static references to in-game blueprints. See [Referencing Blueprints](usage/blueprints.md#referencing-blueprints) for more details.
 * Configurators now automatically set safe default values for types which cannot be null
+* Methods with a single enumerable or flag parameter use `params` syntax
+* Removed configurators for QA related blueprints
 * FeatureConfigurator
     * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup[])).
     * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
 * BlueprintUnitProperty logs a warning if `BaseValue` is 0 when using multiplication
-* Removed configurators for QA related blueprints
+* Specific Method Changes
+    * BuffEnchantAnyWeapon is now available in BaseUnitFactConfigurator and all inherited types
+    * AddStatBonusIfHasFact replaced by AddStatbonusIfHasFactFixed
 
 ### Breaking Changes
 
@@ -23,6 +27,10 @@
     * I don't expect anyone to use these, but if you have a use case let me know.
 * Configurators no longer exposes methods for cache fields
     * These are set at runtime by the blueprint, they should not be set manually.
+* Methods with a single enumerable parameter use `params` syntax
+    * If they currently require a list they must be updated. You can call `ToArray()` on the list.
+* AddStatBonusIfHasFact is no longer supported
+    * Use AddStatBonusIfHasFactFixed
 
 ## v2.0.4 Release
 
