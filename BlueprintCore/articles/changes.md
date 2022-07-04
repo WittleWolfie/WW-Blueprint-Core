@@ -7,11 +7,12 @@
 * Configurators now automatically set safe default values for types which cannot be null
 * Methods with a single enumerable or flag parameter use `params` syntax
 * Removed configurators for QA related blueprints
-* FeatureConfigurator
-    * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup[])).
-    * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
 * BlueprintUnitProperty logs a warning if `BaseValue` is 0 when using multiplication
-* Specific Method Changes
+* Add more constructors for ContextDurationValue
+* Specific Type Changes
+    * FeatureConfigurator
+        * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup[])).
+    * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
     * BuffEnchantAnyWeapon is now available in BaseUnitFactConfigurator and all inherited types
     * AddStatBonusIfHasFact replaced by AddStatbonusIfHasFactFixed
 
