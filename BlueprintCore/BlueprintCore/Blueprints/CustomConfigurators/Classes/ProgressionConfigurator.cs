@@ -80,6 +80,38 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       return RemoveFromClasses(c => classes.Contains(c.m_Class));
     }
 
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.SetAlternateProgressionClasses(ClassWithLevel[])"/>
+    public ProgressionConfigurator SetAlternateProgressionClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
+    {
+      return SetAlternateProgressionClasses(Convert(classes));
+    }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.SetAlternateProgressionClasses(ClassWithLevel[])"/>
+    public ProgressionConfigurator SetAlternateProgressionClasses(
+      params (Blueprint<BlueprintCharacterClassReference> clazz, int additionalLevel)[] classes)
+    {
+      return SetAlternateProgressionClasses(Convert(classes));
+    }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.AddToAlternateProgressionClasses(ClassWithLevel[])"/>
+    public ProgressionConfigurator AddToAlternateProgressionClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
+    {
+      return AddToAlternateProgressionClasses(Convert(classes));
+    }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.AddToAlternateProgressionClasses(ClassWithLevel[])"/>
+    public ProgressionConfigurator AddToAlternateProgressionClasses(
+      params (Blueprint<BlueprintCharacterClassReference> clazz, int additionalLevel)[] classes)
+    {
+      return AddToAlternateProgressionClasses(Convert(classes));
+    }
+
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.RemoveFromAlternateProgressionClasses(ClassWithLevel[])"/>
+    public ProgressionConfigurator RemoveFromAlternateProgressionClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
+    {
+      return RemoveFromAlternateProgressionClasses(c => classes.Contains(c.m_Class));
+    }
+
     private ClassWithLevel[] Convert(
       params (Blueprint<BlueprintCharacterClassReference> clazz, int additionalLevel)[] classes)
     {
