@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Console;
 using Kingmaker.Blueprints.Credits;
@@ -40,6 +41,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
           }
         ),
         (typeof(BlueprintFeatureSelection), new() { "m_Features" }),
+        (typeof(BlueprintProgression), new() { "AlternateProgressionType" }),
       };
     public static bool ShouldIgnoreField(FieldInfo info, Type sourceType)
     {
