@@ -58,6 +58,14 @@
           "Specified class levels are summed when determining the character's level with respect to the progression.",
           "AdditionalLevel is a static bonus added if the character has any levels in the associated class."
         ]
+      },
+      {
+        "FieldName": "m_Archetypes",
+        "Remarks": [
+          "Specified archetype levels are summed when determining the character's level with respect to the progression.",
+          "AdditionalLevel is a static bonus added if the character has any levels in the associated class.",
+          "Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype."
+        ]
       }
     ]
   }
