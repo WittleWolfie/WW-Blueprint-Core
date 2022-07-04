@@ -12,6 +12,7 @@ using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Blueprints.Quests;
@@ -40,7 +41,7 @@ using System.Text.RegularExpressions;
 
 namespace BlueprintCoreGen.Analysis
 {
-  public static class TypeUsageAnalyzer
+	public static class TypeUsageAnalyzer
 	{
 		// When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
 		private static readonly int DebugLimit = -1;
@@ -54,6 +55,19 @@ namespace BlueprintCoreGen.Analysis
 		private static readonly Dictionary<string, Blueprint> BlueprintsByGuid = new();
 		private static readonly Dictionary<Type, HashSet<Blueprint>> BlueprintsByType = new();
 		private static readonly Dictionary<Type, HashSet<Blueprint>> ExamplesByType = new();
+
+		private static readonly bool RunSearch = false;
+		private static readonly List<SearchFilter> SearchFilters = new()
+		{
+			new()
+			{
+				Name = "FeaturesRankIncrease",
+				BlueprintFilter = typeof(BlueprintProgression),
+				FieldNameFilter = "m_FeaturesRankIncrease",
+				StringFieldValue = "",
+				InvertFieldValue = true,
+			}
+		};
 
 		public static void Analyze(Type[] gameTypes)
 		{
@@ -420,6 +434,7 @@ namespace BlueprintCoreGen.Analysis
 
 		private static void ProcessBpZip()
 		{
+			StringBuilder searchResults = new();
 			using var bpDump = ZipFile.OpenRead(Environment.ExpandEnvironmentVariables("%WrathPath%/blueprints.zip"));
 			var processed = 0;
 			foreach (var entry in bpDump.Entries)
@@ -436,6 +451,17 @@ namespace BlueprintCoreGen.Analysis
 				var guid = bp.Value<string>("AssetId");
 				var data = bp.GetValue("Data");
 				var bpType = GetType(data)!;
+
+				if (SearchFilters.Any() && RunSearch)
+        {
+					foreach (var search in SearchFilters)
+          {
+						if (search.Check(bpType, data))
+            {
+							searchResults.AppendLine($"{search.Name} found: {guid}");
+            }
+          }
+        }
 
 				// Fetch / create the Blueprint
 				if (!BlueprintsByGuid.TryGetValue(guid, out Blueprint blueprint))
@@ -507,7 +533,14 @@ namespace BlueprintCoreGen.Analysis
 					Console.WriteLine(string.Format("Progress: {0:P2}", progress));
 				}
 			}
+
+			if (searchResults.Length > 0)
+      {
+				Console.WriteLine("\nSearch Results:");
+				Console.WriteLine(searchResults);
+      }
 		}
+
 		private static Type? GetType(JToken data)
 		{
 			var typeString = data.Value<string>("$type");
@@ -541,6 +574,92 @@ namespace BlueprintCoreGen.Analysis
 			foreach (var token in data)
 			{
 				GetTypes(token, types);
+			}
+		}
+
+		private class SearchFilter
+		{
+			public string Name;
+			public Type BlueprintFilter;
+			public Type ComponentFilter;
+			public Type ElementFilter;
+			public string FieldNameFilter;
+			public string StringFieldValue;
+			public bool InvertFieldValue = false;
+
+			public bool Check(Type bpType, JToken data)
+      {
+				if (BlueprintFilter is not null && bpType != BlueprintFilter)
+        {
+					return false;
+        }
+
+				List<JToken> matchingTypes = new();
+				if (ComponentFilter is not null)
+        {
+					GetMatchingTypes(data, ComponentFilter, matchingTypes);
+        }
+
+				if (ElementFilter is not null)
+				{
+					GetMatchingTypes(data, ElementFilter, matchingTypes);
+				}
+
+				if (ComponentFilter is null && ElementFilter is null)
+        {
+					matchingTypes.Add(data);
+        }
+
+				if (!matchingTypes.Any())
+        {
+					return false;
+        }
+
+				if (string.IsNullOrEmpty(FieldNameFilter))
+        {
+					return true;
+        }
+
+				foreach (var match in matchingTypes)
+        {
+					var fieldValue = match.Value<object?>(FieldNameFilter);
+
+					if (fieldValue is null)
+          {
+						continue;
+          }						
+
+					if (StringFieldValue is null)
+          {
+						return true;
+          }
+
+					if (InvertFieldValue)
+          {
+						if (!fieldValue.ToString().Equals(StringFieldValue)) { return true; }
+          }
+				  else if (fieldValue.ToString().Equals(StringFieldValue))
+          {
+						return true;
+          }
+        }
+				return false;
+      }
+
+			private void GetMatchingTypes(JToken data, Type targetType, List<JToken> matching)
+			{
+				if (data.Type == JTokenType.Object)
+				{
+					// Only object types can have a property
+					var type = TypeUsageAnalyzer.GetType(data);
+					if (type is not null && type == targetType) { matching.Add(data); }
+				}
+
+				// No matter what kind of token, foreach loop will get all children
+				foreach (var token in data)
+				{
+					GetMatchingTypes(token, targetType, matching);
+				}
 			}
 		}
 	}
