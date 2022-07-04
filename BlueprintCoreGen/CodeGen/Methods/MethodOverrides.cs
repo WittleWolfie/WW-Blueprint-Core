@@ -183,7 +183,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public string TypeName { get; private set; } = string.Empty;
 
     /// <summary>
-    /// If true the method is replaced entirely with one that accepts the object to construct.
+    /// If true the method is replaced entirely with one that accepts the constructed object.
     /// </summary>
     /// 
     /// <remarks>
