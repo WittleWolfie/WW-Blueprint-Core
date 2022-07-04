@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
@@ -474,6 +475,21 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       var component = new SpellDescriptorComponent();
       component.Descriptor = descriptor;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddStatBonusIfHasFactFixed"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddStatBonusIfHasFactFixed(AddStatBonusIfHasFactFixed component)
+    {
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -3108,62 +3124,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     {
       var component = new AddStatBonusAbilityValue();
       component.Descriptor = descriptor ?? component.Descriptor;
-      component.Stat = stat ?? component.Stat;
-      component.Value = value ?? component.Value;
-      if (component.Value is null)
-      {
-        component.Value = ContextValues.Constant(0);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddStatBonusIfHasFact"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add stat bonus if owner has Fact
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AugmentSummoningBuff</term><description>169d03bbccdbdc542ae1a57d83673d80</description></item>
-    /// <item><term>OreadHeritageClassic</term><description>69b13ee3489bd4c4cb4bf99a0f643ff4</description></item>
-    /// <item><term>TieflingHeritageRakshasa</term><description>ea6a099d0e963e145a7268e4343d5924</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="checkedFacts">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddStatBonusIfHasFact(
-        List<Blueprint<BlueprintUnitFactReference>>? checkedFacts = null,
-        ModifierDescriptor? descriptor = null,
-        bool? invertCondition = null,
-        bool? requireAllFacts = null,
-        StatType? stat = null,
-        ContextValue? value = null)
-    {
-      var component = new AddStatBonusIfHasFact();
-      component.m_CheckedFacts = checkedFacts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_CheckedFacts;
-      if (component.m_CheckedFacts is null)
-      {
-        component.m_CheckedFacts = new BlueprintUnitFactReference[0];
-      }
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.InvertCondition = invertCondition ?? component.InvertCondition;
-      component.RequireAllFacts = requireAllFacts ?? component.RequireAllFacts;
       component.Stat = stat ?? component.Stat;
       component.Value = value ?? component.Value;
       if (component.Value is null)
