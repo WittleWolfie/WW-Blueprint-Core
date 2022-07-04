@@ -23,6 +23,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_Classes"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// </remarks>
     public TBuilder SetClasses(params BlueprintProgression.ClassWithLevel[] classes)
     {
       return OnConfigureInternal(
@@ -36,6 +44,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintProgression.m_Classes"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// </remarks>
     public TBuilder AddToClasses(params BlueprintProgression.ClassWithLevel[] classes)
     {
       return OnConfigureInternal(
@@ -49,6 +65,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintProgression.m_Classes"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// </remarks>
     public TBuilder RemoveFromClasses(params BlueprintProgression.ClassWithLevel[] classes)
     {
       return OnConfigureInternal(
@@ -62,6 +86,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintProgression.m_Classes"/> that match the provided predicate.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// </remarks>
     public TBuilder RemoveFromClasses(Func<BlueprintProgression.ClassWithLevel, bool> predicate)
     {
       return OnConfigureInternal(
@@ -75,6 +107,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintProgression.m_Classes"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// </remarks>
     public TBuilder ClearClasses()
     {
       return OnConfigureInternal(
@@ -87,6 +127,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintProgression.m_Classes"/> by invoking the provided action on each element.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// </remarks>
     public TBuilder ModifyClasses(Action<BlueprintProgression.ClassWithLevel> action)
     {
       return OnConfigureInternal(
@@ -100,6 +148,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_Archetypes"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified archetype levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype.
+    /// </para>
+    /// </remarks>
     public TBuilder SetArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
     {
       return OnConfigureInternal(
@@ -113,6 +172,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintProgression.m_Archetypes"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified archetype levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype.
+    /// </para>
+    /// </remarks>
     public TBuilder AddToArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
     {
       return OnConfigureInternal(
@@ -126,6 +196,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintProgression.m_Archetypes"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified archetype levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype.
+    /// </para>
+    /// </remarks>
     public TBuilder RemoveFromArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
     {
       return OnConfigureInternal(
@@ -139,6 +220,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintProgression.m_Archetypes"/> that match the provided predicate.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified archetype levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype.
+    /// </para>
+    /// </remarks>
     public TBuilder RemoveFromArchetypes(Func<BlueprintProgression.ArchetypeWithLevel, bool> predicate)
     {
       return OnConfigureInternal(
@@ -152,6 +244,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintProgression.m_Archetypes"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified archetype levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype.
+    /// </para>
+    /// </remarks>
     public TBuilder ClearArchetypes()
     {
       return OnConfigureInternal(
@@ -164,6 +267,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintProgression.m_Archetypes"/> by invoking the provided action on each element.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified archetype levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype.
+    /// </para>
+    /// </remarks>
     public TBuilder ModifyArchetypes(Action<BlueprintProgression.ArchetypeWithLevel> action)
     {
       return OnConfigureInternal(
@@ -175,32 +289,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintProgression.ForAllOtherClasses"/>
-    /// </summary>
-    public TBuilder SetForAllOtherClasses(bool forAllOtherClasses = true)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.ForAllOtherClasses = forAllOtherClasses;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.ForAllOtherClasses"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForAllOtherClasses(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ForAllOtherClasses);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_AlternateProgressionClasses"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Half the specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// This is ignored if ForAllOtherClasses is true.
+    /// </para>
+    /// </remarks>
+    /// <remarks>
+    /// <para>
+    /// Sets ForAllOtherClasses to false.
+    /// </para>
+    /// </remarks>
     public TBuilder SetAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
     {
       return OnConfigureInternal(
@@ -208,12 +314,29 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         {
           Validate(alternateProgressionClasses);
           bp.m_AlternateProgressionClasses = alternateProgressionClasses;
+          bp.ForAllOtherClasses = false;
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintProgression.m_AlternateProgressionClasses"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Half the specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// This is ignored if ForAllOtherClasses is true.
+    /// </para>
+    /// </remarks>
+    /// <remarks>
+    /// <para>
+    /// Sets ForAllOtherClasses to false.
+    /// </para>
+    /// </remarks>
     public TBuilder AddToAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
     {
       return OnConfigureInternal(
@@ -221,12 +344,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         {
           bp.m_AlternateProgressionClasses = bp.m_AlternateProgressionClasses ?? new BlueprintProgression.ClassWithLevel[0];
           bp.m_AlternateProgressionClasses = CommonTool.Append(bp.m_AlternateProgressionClasses, alternateProgressionClasses);
+          bp.ForAllOtherClasses = false;
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintProgression.m_AlternateProgressionClasses"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Half the specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// This is ignored if ForAllOtherClasses is true.
+    /// </para>
+    /// </remarks>
     public TBuilder RemoveFromAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
     {
       return OnConfigureInternal(
@@ -240,6 +375,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> that match the provided predicate.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Half the specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// This is ignored if ForAllOtherClasses is true.
+    /// </para>
+    /// </remarks>
     public TBuilder RemoveFromAlternateProgressionClasses(Func<BlueprintProgression.ClassWithLevel, bool> predicate)
     {
       return OnConfigureInternal(
@@ -253,6 +399,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintProgression.m_AlternateProgressionClasses"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Half the specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// This is ignored if ForAllOtherClasses is true.
+    /// </para>
+    /// </remarks>
     public TBuilder ClearAlternateProgressionClasses()
     {
       return OnConfigureInternal(
@@ -265,6 +422,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintProgression.m_AlternateProgressionClasses"/> by invoking the provided action on each element.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Half the specified class levels are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+    /// </para>
+    /// <para>
+    /// This is ignored if ForAllOtherClasses is true.
+    /// </para>
+    /// </remarks>
     public TBuilder ModifyAlternateProgressionClasses(Action<BlueprintProgression.ClassWithLevel> action)
     {
       return OnConfigureInternal(
@@ -276,26 +444,42 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintProgression.AlternateProgressionType"/>
+    /// Sets the value of <see cref="BlueprintProgression.ForAllOtherClasses"/>
     /// </summary>
-    public TBuilder SetAlternateProgressionType(AlternateProgressionType alternateProgressionType)
+    /// <remarks>
+    /// <para>
+    /// Half of all class levels not specified in m_Classes or m_Archetypes are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// If this is true m_AlternateProgressionClasses is ignored.
+    /// </para>
+    /// </remarks>
+    public TBuilder SetForAllOtherClasses(bool forAllOtherClasses = true)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.AlternateProgressionType = alternateProgressionType;
+          bp.ForAllOtherClasses = forAllOtherClasses;
         });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProgression.AlternateProgressionType"/> by invoking the provided action.
+    /// Modifies <see cref="BlueprintProgression.ForAllOtherClasses"/> by invoking the provided action.
     /// </summary>
-    public TBuilder ModifyAlternateProgressionType(Action<AlternateProgressionType> action)
+    /// <remarks>
+    /// <para>
+    /// Half of all class levels not specified in m_Classes or m_Archetypes are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// <para>
+    /// If this is true m_AlternateProgressionClasses is ignored.
+    /// </para>
+    /// </remarks>
+    public TBuilder ModifyForAllOtherClasses(Action<bool> action)
     {
       return OnConfigureInternal(
         bp =>
         {
-          action.Invoke(bp.AlternateProgressionType);
+          action.Invoke(bp.ForAllOtherClasses);
         });
     }
 
