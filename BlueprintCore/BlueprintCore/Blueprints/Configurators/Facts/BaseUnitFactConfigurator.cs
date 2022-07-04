@@ -36,6 +36,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.Settings;
+using Kingmaker.UI.GenericSlot;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.LocalMap.Utils;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
@@ -4806,6 +4807,46 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.m_IgnoreFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BuffEnchantAnyWeapon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AasimarRedMask_MagicWeaponGreaterBuff</term><description>5dd4a65bcd384a429ef7c40bdc0b4bef</description></item>
+    /// <item><term>MagicWeaponGreaterBuff_CL16</term><description>ae818dc4d5994cf6a0bb9794b7c34f91</description></item>
+    /// <item><term>VampiricBladeBuff</term><description>f6007b38909c3b248a8a77b316f5bc2d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="enchantmentBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddBuffEnchantAnyWeapon(
+        Blueprint<BlueprintItemEnchantmentReference>? enchantmentBlueprint = null,
+        EquipSlotBase.SlotType? slot = null)
+    {
+      var component = new BuffEnchantAnyWeapon();
+      component.m_EnchantmentBlueprint = enchantmentBlueprint?.Reference ?? component.m_EnchantmentBlueprint;
+      if (component.m_EnchantmentBlueprint is null)
+      {
+        component.m_EnchantmentBlueprint = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(null);
+      }
+      component.Slot = slot ?? component.Slot;
       return AddComponent(component);
     }
 
