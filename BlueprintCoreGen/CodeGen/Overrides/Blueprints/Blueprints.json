@@ -47,5 +47,18 @@
         ]
       }
     ]
+  },
+
+  {
+    "TypeName": "BlueprintProgression",
+    "Fields": [
+      {
+        "FieldName": "m_Classes",
+        "Remarks": [
+          "Specified class levels are summed when determining the character's level with respect to the progression.",
+          "AdditionalLevel is a static bonus added if the character has any levels in the associated class."
+        ]
+      }
+    ]
   }
 ]
