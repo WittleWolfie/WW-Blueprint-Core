@@ -1320,12 +1320,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <item><term>ZiforianBeggar_Actions</term><description>a741a5da0622e434e9e8da521a34e4e6</description></item>
     /// </list>
     /// </remarks>
-    public static ActionsBuilder RandomAction(
-        this ActionsBuilder builder,
-        ActionAndWeight[]? actions = null)
+    public static ActionsBuilder RandomAction(this ActionsBuilder builder, params ActionAndWeight[] actions)
     {
       var element = ElementTool.Create<RandomAction>();
-      element.Actions = actions ?? element.Actions;
+      element.Actions = actions;
       if (element.Actions is null)
       {
         element.Actions = new ActionAndWeight[0];

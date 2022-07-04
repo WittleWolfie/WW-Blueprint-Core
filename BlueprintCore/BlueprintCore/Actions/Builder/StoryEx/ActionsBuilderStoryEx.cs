@@ -410,12 +410,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder MarkAnswersSelected(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintAnswerReference>>? answers = null)
+    public static ActionsBuilder MarkAnswersSelected(this ActionsBuilder builder, params Blueprint<BlueprintAnswerReference>[] answers)
     {
       var element = ElementTool.Create<MarkAnswersSelected>();
-      element.m_Answers = answers?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Answers;
+      element.m_Answers = answers.Select(bp => bp.Reference).ToArray();
       if (element.m_Answers is null)
       {
         element.m_Answers = new BlueprintAnswerReference[0];
@@ -449,12 +447,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder MarkCuesSeen(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintCueBaseReference>>? cues = null)
+    public static ActionsBuilder MarkCuesSeen(this ActionsBuilder builder, params Blueprint<BlueprintCueBaseReference>[] cues)
     {
       var element = ElementTool.Create<MarkCuesSeen>();
-      element.m_Cues = cues?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Cues;
+      element.m_Cues = cues.Select(bp => bp.Reference).ToArray();
       if (element.m_Cues is null)
       {
         element.m_Cues = new BlueprintCueBaseReference[0];
@@ -1913,12 +1909,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder UnmarkAnswersSelected(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintAnswerReference>>? answers = null)
+    public static ActionsBuilder UnmarkAnswersSelected(this ActionsBuilder builder, params Blueprint<BlueprintAnswerReference>[] answers)
     {
       var element = ElementTool.Create<UnmarkAnswersSelected>();
-      element.m_Answers = answers?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Answers;
+      element.m_Answers = answers.Select(bp => bp.Reference).ToArray();
       if (element.m_Answers is null)
       {
         element.m_Answers = new BlueprintAnswerReference[0];

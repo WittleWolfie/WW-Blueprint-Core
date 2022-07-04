@@ -2054,13 +2054,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.
     /// </para>
     /// </param>
-    public static ActionsBuilder Randomize(
-        this ActionsBuilder builder,
-        params (ActionsBuilder actions, int weight)[] weightedActions)
+    public static ActionsBuilder Randomize(this ActionsBuilder builder, params ContextActionRandomize.ActionWrapper[] weightedActions)
     {
       var element = ElementTool.Create<ContextActionRandomize>();
       builder.Validate(weightedActions);
-      element.m_Actions = weightedActions.Select(action => new ContextActionRandomize.ActionWrapper { Action = action.actions.Build(), Weight = action.weight }).ToArray();
+      element.m_Actions = weightedActions;
       return builder.Add(element);
     }
 
@@ -2404,12 +2402,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder RestoreSpells(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintSpellbookReference>> spellbooks)
+    public static ActionsBuilder RestoreSpells(this ActionsBuilder builder, params Blueprint<BlueprintSpellbookReference>[] spellbooks)
     {
       var element = ElementTool.Create<ContextActionRestoreSpells>();
-      element.m_Spellbooks = spellbooks?.Select(bp => bp.Reference)?.ToArray();
+      element.m_Spellbooks = spellbooks.Select(bp => bp.Reference).ToArray();
       return builder.Add(element);
     }
 
@@ -2584,12 +2580,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// The action associated with the highest value is selected to run.
     /// </para>
     /// </param>
-    public static ActionsBuilder SelectByValue(
-        this ActionsBuilder builder,
-        params (ContextValue value, ActionsBuilder action)[] actionVariants)
+    public static ActionsBuilder SelectByValue(this ActionsBuilder builder, params ContextActionSelectByValue.ValueAndAction[] actionVariants)
     {
       var element = ElementTool.Create<ContextActionSelectByValue>();
-      element.m_Variants = actionVariants.Select(variant => new ContextActionSelectByValue.ValueAndAction { Value = variant.value, Action = variant.action.Build() }).ToArray();
+      element.m_Variants = actionVariants;
       element.m_Type = ContextActionSelectByValue.SelectionType.Greatest;
       return builder.Add(element);
     }
