@@ -9,12 +9,16 @@
 * Removed configurators for QA related blueprints
 * BlueprintUnitProperty logs a warning if `BaseValue` is 0 when using multiplication
 * Add more constructors for ContextDurationValue
+* Removed Modify field methods for primitive and enum types
+    * If you have a use case let me know but this API was not intended to exist
 * Specific Type Changes
     * FeatureConfigurator
         * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup[])).
         * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
     * ProgressionConfigurator
-        * TODO
+        * Added many convenience method overrides for ease of working with ClassWithLevel, LevelEntry, and ArchetypeWithLevel
+        * Removed support for AlternateProgressionType which can only be Div2
+        * Automatically sets `ForAllOtherClasses` to `false` when setting or adding to `m_AlternateProgressionClasses`
     * BuffEnchantAnyWeapon is now available in BaseUnitFactConfigurator and all inherited types
     * AddStatBonusIfHasFact replaced by AddStatbonusIfHasFactFixed
 
