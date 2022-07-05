@@ -324,14 +324,14 @@ namespace BlueprintCoreGen.CodeGen.Class
 
     private class BlueprintOverride
     {
-      public string TypeName;
+      public string TypeName = string.Empty;
 
       public List<FieldMethod> Fields = new();
     }
 
     private class ComponentsAllowedOnOverride
     {
-      public string TypeName;
+      public string TypeName = string.Empty;
 
       public List<string> AllowedOn = new();
     }

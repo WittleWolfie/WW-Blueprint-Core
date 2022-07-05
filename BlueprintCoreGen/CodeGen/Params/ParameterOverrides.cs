@@ -321,7 +321,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     public string ParamsDeclaration => throw new NotImplementedException();
 
     [JsonProperty]
-    private readonly string? DefaultValue;
+    private readonly string? DefaultValue = string.Empty;
 
     [JsonProperty]
     private readonly string TypeName = string.Empty;

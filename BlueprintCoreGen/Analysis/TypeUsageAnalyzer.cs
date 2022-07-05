@@ -586,12 +586,12 @@ namespace BlueprintCoreGen.Analysis
 
 		private class SearchFilter
 		{
-			public string Name;
-			public Type BlueprintFilter;
-			public Type ComponentFilter;
-			public Type ElementFilter;
-			public string FieldNameFilter;
-			public string StringFieldValue;
+			public string Name = string.Empty;
+			public Type? BlueprintFilter = null;
+			public Type? ComponentFilter = null;
+			public Type? ElementFilter = null;
+			public string FieldNameFilter = string.Empty;
+			public string StringFieldValue = string.Empty;
 			public bool InvertFieldValue = false;
 
 			public bool Check(Type bpType, JToken data)
