@@ -79,7 +79,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       return AddToClasses(Convert(classes));
     }
 
-    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.RemoveFromClasses(ClassWithLevel[])"/>
+    /// <summary>
+    /// Removes the specified classes from <see cref="BlueprintProgression.m_Classes"/>.
+    /// </summary>
     public ProgressionConfigurator RemoveFromClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
     {
       return RemoveFromClasses(c => classes.Contains(c.m_Class));
@@ -115,7 +117,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       return AddToAlternateProgressionClasses(Convert(classes));
     }
 
-    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.RemoveFromAlternateProgressionClasses(ClassWithLevel[])"/>
+    /// <summary>
+    /// Removes the specified classes from <see cref="BlueprintProgression.m_AlternateProgressionClasses"/>.
+    /// </summary>
     public ProgressionConfigurator RemoveFromAlternateProgressionClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
     {
       return RemoveFromAlternateProgressionClasses(c => classes.Contains(c.m_Class));
@@ -151,7 +155,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       return AddToArchetypes(Convert(archetypes));
     }
 
-    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.RemoveFromArchetypes(ArchetypeWithLevel[])"/>
+    /// <summary>
+    /// Removes the specified archetypes from <see cref="BlueprintProgression.m_Archetypes"/>.
+    /// </summary>
     public ProgressionConfigurator RemoveFromArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
     {
       return RemoveFromArchetypes(c => archetypes.Contains(c.m_Archetype));
