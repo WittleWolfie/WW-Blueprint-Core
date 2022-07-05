@@ -82,6 +82,87 @@ Your project file should look almost identical to the tutorial project file, wit
 
 Without these `ILRepack` will fail.
 
+### Optional: Reduce Assembly Size with ILStrip
+
+BPCore is a large library with wrappers for thousands of game types. It has a big footprint: 7MB at the time of
+writing.
+
+The impact of this isn't significant but if you want to keep your assembly small use [ILStrip](https://brokenevent.com/projects/ilstrip). ILStrip removes unreferenced classes from an assembly, significantly reducing the size of mods using BPCore. It reduced the tutorial assembly from to ~400KB from ~8MB.
+
+1. Download [ILStrip.CLI.zip](https://github.com/BrokenEvent/ILStrip/releases/latest)
+2. Extract the files into a folder in your project's solution directory. I recommend creating a `tools` directory next to the `lib` directory.
+~[ILStrip Directory Setup](~/images/ilstrip_dir.png)
+3. Add an ILStrip target to your project
+     * Open your .csproj file and add a new target:
+     ```xml
+     <!-- Minimizes the assembly size -->
+     <Target Name="ILStrip" AfterTargets="ILRepack">
+       <ItemGroup>
+         <LocalAssembly Include="$(AssemblyName).dll" />
+         <ILStrip Include="&quot;$(SolutionDir)\tools\BrokenEvent.ILStrip.CLI.exe&quot;" />
+     
+         <!-- BlueprintCore Entry Points -->
+         <Entry Include="BlueprintCore.Utils.LocalizationTool/LocalizationManager_Patch" />
+     
+         <!-- Replace with Your Mod Entry Points -->
+         <Entry Include="BlueprintCoreTutorial.Main" />
+         <Entry Include="BlueprintCoreTutorial.Main/BlueprintsCaches_Patch" />
+       </ItemGroup>
+
+       <Exec
+         WorkingDirectory="$(OutputPath)"
+         Command="@(ILStrip) @(LocalAssembly) @(LocalAssembly) -e @(Entry, ' -e ')"/>
+     </Target>
+     ```
+     * Each `Entry` item is an entry point for your code. This includes any class called through reflection and any Harmony patches.
+     * BPCore Patch Notes will call out any new entry points needed
+
+#### Troubleshooting
+
+As a sanity check consider opening your assembly in the decompiler of your choice and see if any of your code is obviously missing.
+
+**ILStrip Removes Used Code**
+
+Chances are you are missing an entry point. Make sure every Harmony patch and every class referenced through reflection, such as the class with UMM's `Load` method, are listed as an `Entry` in the ILStrip target.
+
+**ILStrip Fails to Resolve Entry Point**
+
+Make sure you're using the correct name. Keep in mind nested and generic classes have different reference syntax:
+
+* Default: `BlueprintCore.Utils.LocalizationTool`
+* Nested: `BlueprintCore.Utils.LocalizationTool/LocalizationManager_Patch`
+* Generic: ``BlueprintCore.Utils.Blueprint`1``
+    * The number is the number of type arguments
+
+If you're not sure what's wrong, remove all `Entry` items and build. In the Build Output ILStrip prints a line for every type indicating whether it is used or unused:
+
+![ILStrip Build Output](~/images/ilstrip_out.png)
+
+### Optional: Automatic Mod Deployment
+
+Using a [Copy task](https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022) you can automatically deploy your mod each time you build.
+
+Add a DeployMod target to your .csproj file, using your mod's name in place of `BlueprintCoreTutorial`:
+
+```xml
+<!-- Automatic Deployment Setup -->
+<Target Name="DeployMod" AfterTargets="ILStrip">
+  <ItemGroup>
+    <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
+    <ModConfig Include="$(OutputPath)\Info.json" />
+    <Strings Include="$(OutputPath)\LocalizedStrings.json" />
+  </ItemGroup>
+
+  <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
+  <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
+  <Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+</Target>
+```
+
+Make sure to use a different `Assembly` item name than in the ILStrip target. Although they are declared in the context of the target, they are global for the project file.
+
+If you are not using ILStrip replace `AfterTargets="ILStrip"` with `AfterTargets="ILRepack"`.
+
 ## Using BlueprintCore
 
 For a step-by-step walkthrough see [Tutorials](tutorials/overview.md).

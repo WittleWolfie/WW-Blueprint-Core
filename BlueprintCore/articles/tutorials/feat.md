@@ -148,28 +148,9 @@ Now build the mod, install it, and start the game. When you level or create a ch
 > [!TIP]
 > If the feat doesn't appear check the logs for any errors.
 
-#### Automatic Install
+#### Automatic Mod Deployment
 
-Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically update the mod after it builds. This is accomplished by adding a [Copy task](https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022) to the project file.
-
-Open up your project file (<Name>.csproj) and add the following block, using your mod's name in place of `BlueprintCoreTutorial`:
-
-```xml
-<!-- Automatic Deployment Setup -->
-<Target Name="DeployMod" AfterTargets="ILRepack">
-  <ItemGroup>
-    <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
-    <ModConfig Include="$(OutputPath)\Info.json" />
-    <Strings Include="$(OutputPath)\LocalizedStrings.json" />
-  </ItemGroup>
-
-  <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
-  <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
-  <Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
-</Target>
-```
-
-Now whenever you want to test changes just build and start the game.
+Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically deploy the mod after it builds. See [Getting Started#Optional: Automatic Mod Deployment](~/intro.md#optional-automatic-mod-deployment) for instructions.
 
 ### Fixing the UI
 
