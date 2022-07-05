@@ -46,7 +46,7 @@ namespace BlueprintCoreGen.Analysis
 		// When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
 		private static readonly int DebugLimit = -1;
 		// How many blueprints to process before reporting on progress & speed
-		private static readonly int ReportThreshold = 2500;
+		private static readonly int ReportThreshold = 5000;
 
 		private static readonly Dictionary<string, Type> TypesById = new();
 		private static readonly Dictionary<string, Type> TypesByName = new();
@@ -61,11 +61,18 @@ namespace BlueprintCoreGen.Analysis
 		{
 			new()
 			{
-				Name = "FeaturesRankIncrease",
+				Name = "ExclusiveProgression",
 				BlueprintFilter = typeof(BlueprintProgression),
-				FieldNameFilter = "m_FeaturesRankIncrease",
+				FieldNameFilter = "m_ExclusiveProgression",
 				StringFieldValue = "",
 				InvertFieldValue = true,
+			},
+			new()
+			{
+				Name = "PreviousLevels",
+				BlueprintFilter = typeof(BlueprintProgression),
+				FieldNameFilter = "GiveFeaturesForPreviousLevels",
+				StringFieldValue = "True",
 			}
 		};
 
