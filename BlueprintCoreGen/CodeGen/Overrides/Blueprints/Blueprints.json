@@ -57,7 +57,8 @@
         "Remarks": [
           "Specified class levels are summed when determining the character's level with respect to the progression.",
           "AdditionalLevel is a static bonus added if the character has any levels in the associated class."
-        ]
+        ],
+        "IgnoreRemoveFrom": "true"
       },
       {
         "FieldName": "m_Archetypes",
@@ -65,7 +66,8 @@
           "Specified archetype levels are summed when determining the character's level with respect to the progression.",
           "AdditionalLevel is a static bonus added if the character has any levels in the associated class.",
           "Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype."
-        ]
+        ],
+        "IgnoreRemoveFrom": "true"
       },
       {
         "FieldName": "m_AlternateProgressionClasses",
@@ -74,6 +76,7 @@
           "AdditionalLevel is a static bonus added if the character has any levels in the associated class.",
           "This is ignored if ForAllOtherClasses is true."
         ],
+        "IgnoreRemoveFrom": "true",
         "Set": {
           "Remarks": [
             "Sets ForAllOtherClasses to false."
@@ -102,7 +105,8 @@
         "FieldName": "UIGroups",
         "Remarks": [
           "Consider using <see cref=\"UIGroupBuilder\"/> and <see cref=\"SetUIGroups(UIGroupBuilder)\"/>."
-        ]
+        ],
+        "IgnoreRemoveFrom": "true"
       },
       {
         "FieldName": "m_UIDeterminatorsGroup",
@@ -120,7 +124,8 @@
         "FieldName": "LevelEntries",
         "Remarks": [
           "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetLevelEntries(LevelEntryBuilder)\"/>."
-        ]
+        ],
+        "IgnoreRemoveFrom": "true"
       }
     ]
   }
