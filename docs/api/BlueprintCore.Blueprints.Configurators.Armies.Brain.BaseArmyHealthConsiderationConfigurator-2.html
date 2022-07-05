@@ -91,9 +91,6 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator-2.html#BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_SetBaseScoreModifier_System_Single_">BaseConsiderationConfigurator&lt;T, TBuilder&gt;.SetBaseScoreModifier(Single)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator-2.html#BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_ModifyBaseScoreModifier_System_Action_System_Single__">BaseConsiderationConfigurator&lt;T, TBuilder&gt;.ModifyBaseScoreModifier(Action&lt;Single&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDlcCondition(Blueprint&lt;BlueprintDlcRewardReference&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
     </div>
     <div>
@@ -259,6 +256,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -290,7 +290,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -322,7 +322,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L20">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsiderationConfigurator.cs/#L19">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseArmyHealthConsiderationConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -353,202 +353,10 @@ blueprint are logged as warnings.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyDeadBorder_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.ModifyDeadBorder(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L73">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyDeadBorder_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.ModifyDeadBorder*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyDeadBorder_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.ModifyDeadBorder(System.Action{System.Single})">ModifyDeadBorder(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.TacticalCombat.Brain.Considerations.ArmyHealthConsideration.DeadBorder</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyDeadBorder(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyDeadScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.ModifyDeadScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L127">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyDeadScore_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.ModifyDeadScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyDeadScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.ModifyDeadScore(System.Action{System.Single})">ModifyDeadScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.TacticalCombat.Brain.Considerations.ArmyHealthConsideration.DeadScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyDeadScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyFullBorder_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.ModifyFullBorder(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L43">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyFullBorder_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.ModifyFullBorder*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyFullBorder_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.ModifyFullBorder(System.Action{System.Single})">ModifyFullBorder(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.TacticalCombat.Brain.Considerations.ArmyHealthConsideration.FullBorder</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyFullBorder(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyFullScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.ModifyFullScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L103">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyFullScore_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.ModifyFullScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_ModifyFullScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.ModifyFullScore(System.Action{System.Single})">ModifyFullScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Armies.TacticalCombat.Brain.Considerations.ArmyHealthConsideration.FullScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyFullScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetDeadBorder_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.SetDeadBorder(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L61">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsiderationConfigurator.cs/#L48">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetDeadBorder_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.SetDeadBorder*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetDeadBorder_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.SetDeadBorder(System.Single)">SetDeadBorder(Single)</h4>
@@ -599,7 +407,7 @@ InfoBox: If unit current HP is below this percent of max HP -&amp;gt; return Dea
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetDeadScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.SetDeadScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L115">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsiderationConfigurator.cs/#L78">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetDeadScore_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.SetDeadScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetDeadScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.SetDeadScore(System.Single)">SetDeadScore(Single)</h4>
@@ -647,7 +455,7 @@ InfoBox: If unit current HP is below this percent of max HP -&amp;gt; return Dea
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetFullBorder_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.SetFullBorder(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L31">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsiderationConfigurator.cs/#L30">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetFullBorder_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.SetFullBorder*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetFullBorder_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.SetFullBorder(System.Single)">SetFullBorder(Single)</h4>
@@ -698,7 +506,7 @@ InfoBox: If unit current HP is above this percent of max HP -&amp;gt; return Ful
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetFullScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602.SetFullScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L91">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsiderationConfigurator.cs/#L66">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetFullScore_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.SetFullScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2_SetFullScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator`2.SetFullScore(System.Single)">SetFullScore(Single)</h4>
@@ -755,7 +563,7 @@ InfoBox: According to current HP percentage returns score between FullScore and 
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Armies_Brain_BaseArmyHealthConsiderationConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Armies.Brain.BaseArmyHealthConsiderationConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsideration.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Armies/Brain/BaseArmyHealthConsiderationConfigurator.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

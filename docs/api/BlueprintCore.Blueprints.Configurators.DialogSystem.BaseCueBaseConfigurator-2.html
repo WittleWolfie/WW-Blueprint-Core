@@ -255,6 +255,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -286,7 +289,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -318,7 +321,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBase.cs/#L21">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBaseConfigurator.cs/#L21">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseCueBaseConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -352,7 +355,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyConditions_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602.ModifyConditions(System.Action%7BKingmaker.ElementsSystem.ConditionsChecker%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBase.cs/#L90">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBaseConfigurator.cs/#L62">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyConditions_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.ModifyConditions*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyConditions_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.ModifyConditions(System.Action{Kingmaker.ElementsSystem.ConditionsChecker})">ModifyConditions(Action&lt;ConditionsChecker&gt;)</h4>
@@ -397,106 +400,27 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyShowOnce_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602.ModifyShowOnce(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBase.cs/#L38">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBaseConfigurator.cs/#L72">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyShowOnce_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.ModifyShowOnce*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyShowOnce_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.ModifyShowOnce(System.Action{System.Boolean})">ModifyShowOnce(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintCueBase.ShowOnce</span> by invoking the provided action.</p>
-</div>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.OnConfigureCompleted*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyShowOnce(Action&lt;bool&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void OnConfigureCompleted()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyShowOnceCurrentDialog_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602.ModifyShowOnceCurrentDialog(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBase.cs/#L62">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyShowOnceCurrentDialog_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.ModifyShowOnceCurrentDialog*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_ModifyShowOnceCurrentDialog_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.ModifyShowOnceCurrentDialog(System.Action{System.Boolean})">ModifyShowOnceCurrentDialog(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintCueBase.ShowOnceCurrentDialog</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyShowOnceCurrentDialog(Action&lt;bool&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602.SetConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBase.cs/#L74">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBaseConfigurator.cs/#L50">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetConditions_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.SetConditions*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.SetConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder)">SetConditions(ConditionsBuilder)</h4>
@@ -544,7 +468,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetShowOnce_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602.SetShowOnce(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBase.cs/#L26">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBaseConfigurator.cs/#L26">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetShowOnce_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.SetShowOnce*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetShowOnce_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.SetShowOnce(System.Boolean)">SetShowOnce(Boolean)</h4>
@@ -592,7 +516,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetShowOnceCurrentDialog_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602.SetShowOnceCurrentDialog(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBase.cs/#L50">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBaseConfigurator.cs/#L38">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetShowOnceCurrentDialog_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.SetShowOnceCurrentDialog*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2_SetShowOnceCurrentDialog_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator`2.SetShowOnceCurrentDialog(System.Boolean)">SetShowOnceCurrentDialog(Boolean)</h4>
@@ -646,7 +570,7 @@ blueprint are logged as warnings.
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseCueBaseConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseCueBaseConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBase.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseCueBaseConfigurator.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

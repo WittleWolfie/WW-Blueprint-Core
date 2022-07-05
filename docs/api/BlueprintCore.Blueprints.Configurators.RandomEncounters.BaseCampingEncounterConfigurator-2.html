@@ -252,6 +252,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -283,7 +286,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -315,7 +318,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L22">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L22">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseCampingEncounterConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -346,58 +349,10 @@ blueprint are logged as warnings.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyChance_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.ModifyChance(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L39">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyChance_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyChance*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyChance_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyChance(System.Action{System.Int32})">ModifyChance(Action&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.RandomEncounters.Settings.BlueprintCampingEncounter.Chance</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyChance(Action&lt;int&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyConditions_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.ModifyConditions(System.Action%7BKingmaker.ElementsSystem.ConditionsChecker%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L67">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L51">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyConditions_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyConditions*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyConditions_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyConditions(System.Action{Kingmaker.ElementsSystem.ConditionsChecker})">ModifyConditions(Action&lt;ConditionsChecker&gt;)</h4>
@@ -445,7 +400,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyEncounterActions_System_Action_Kingmaker_ElementsSystem_ActionList__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.ModifyEncounterActions(System.Action%7BKingmaker.ElementsSystem.ActionList%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L96">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L76">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyEncounterActions_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyEncounterActions*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyEncounterActions_System_Action_Kingmaker_ElementsSystem_ActionList__" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyEncounterActions(System.Action{Kingmaker.ElementsSystem.ActionList})">ModifyEncounterActions(Action&lt;ActionList&gt;)</h4>
@@ -490,202 +445,27 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyInterruptsRest_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.ModifyInterruptsRest(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L127">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L152">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyInterruptsRest_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyInterruptsRest*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyInterruptsRest_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyInterruptsRest(System.Action{System.Boolean})">ModifyInterruptsRest(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.RandomEncounters.Settings.BlueprintCampingEncounter.InterruptsRest</span> by invoking the provided action.</p>
-</div>
+  <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.OnConfigureCompleted*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyInterruptsRest(Action&lt;bool&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void OnConfigureCompleted()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyMainCharacterTired_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.ModifyMainCharacterTired(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L187">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyMainCharacterTired_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyMainCharacterTired*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyMainCharacterTired_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyMainCharacterTired(System.Action{System.Boolean})">ModifyMainCharacterTired(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.RandomEncounters.Settings.BlueprintCampingEncounter.MainCharacterTired</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyMainCharacterTired(Action&lt;bool&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyNotOnGlobalMap_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.ModifyNotOnGlobalMap(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L211">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyNotOnGlobalMap_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyNotOnGlobalMap*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyNotOnGlobalMap_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyNotOnGlobalMap(System.Action{System.Boolean})">ModifyNotOnGlobalMap(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.RandomEncounters.Settings.BlueprintCampingEncounter.NotOnGlobalMap</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyNotOnGlobalMap(Action&lt;bool&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyPartyTired_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.ModifyPartyTired(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L157">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyPartyTired_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyPartyTired*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_ModifyPartyTired_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.ModifyPartyTired(System.Action{System.Boolean})">ModifyPartyTired(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.RandomEncounters.Settings.BlueprintCampingEncounter.PartyTired</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyPartyTired(Action&lt;bool&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetChance_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.SetChance(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L27">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L27">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetChance_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetChance*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetChance_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetChance(System.Int32)">SetChance(Int32)</h4>
@@ -733,7 +513,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.SetConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L51">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L39">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetConditions_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetConditions*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder)">SetConditions(ConditionsBuilder)</h4>
@@ -781,7 +561,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetEncounterActions_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.SetEncounterActions(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L80">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L64">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetEncounterActions_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetEncounterActions*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetEncounterActions_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetEncounterActions(BlueprintCore.Actions.Builder.ActionsBuilder)">SetEncounterActions(ActionsBuilder)</h4>
@@ -829,7 +609,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetInterruptsRest_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.SetInterruptsRest(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L115">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L95">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetInterruptsRest_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetInterruptsRest*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetInterruptsRest_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetInterruptsRest(System.Boolean)">SetInterruptsRest(Boolean)</h4>
@@ -880,7 +660,7 @@ InfoBox: Rest will be interrupted during sleep phase. None rest effects will be 
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetMainCharacterTired_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.SetMainCharacterTired(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L175">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L131">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetMainCharacterTired_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetMainCharacterTired*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetMainCharacterTired_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetMainCharacterTired(System.Boolean)">SetMainCharacterTired(Boolean)</h4>
@@ -931,7 +711,7 @@ InfoBox: MainCharacter wont get natural healing and wont recover spell slots
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetNotOnGlobalMap_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.SetNotOnGlobalMap(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L199">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L143">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetNotOnGlobalMap_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetNotOnGlobalMap*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetNotOnGlobalMap_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetNotOnGlobalMap(System.Boolean)">SetNotOnGlobalMap(Boolean)</h4>
@@ -979,7 +759,7 @@ InfoBox: MainCharacter wont get natural healing and wont recover spell slots
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetPartyTired_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602.SetPartyTired(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L145">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L113">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetPartyTired_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetPartyTired*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2_SetPartyTired_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator`2.SetPartyTired(System.Boolean)">SetPartyTired(Boolean)</h4>
@@ -1036,7 +816,7 @@ InfoBox: Party wont get natural healing and wont recover spell slots
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_RandomEncounters_BaseCampingEncounterConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.RandomEncounters.BaseCampingEncounterConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounter.cs/#L17" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/RandomEncounters/BaseCampingEncounterConfigurator.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

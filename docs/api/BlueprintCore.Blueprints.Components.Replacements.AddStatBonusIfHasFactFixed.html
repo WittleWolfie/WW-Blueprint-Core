@@ -1,0 +1,741 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AddStatBonusIfHasFactFixed
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AddStatBonusIfHasFactFixed
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed" class="text-break">Class AddStatBonusIfHasFactFixed
+  </h1>
+  <div class="markdown level0 summary"><p>Working replacement for Owlcat's AddStatBonusIfHasFact.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Kingmaker.Blueprints.BlueprintComponent</span></div>
+    <div class="level2"><span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate</span>&lt;<span class="xref">Kingmaker.EntitySystem.Entities.UnitEntityData</span>, <span class="xref">Kingmaker.EntitySystem.EmptyComponentData</span>&gt;</div>
+    <div class="level3"><span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate</span>&lt;<span class="xref">Kingmaker.EntitySystem.EmptyComponentData</span>&gt;</div>
+    <div class="level4"><span class="xref">Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate</span>&lt;<span class="xref">Kingmaker.EntitySystem.EmptyComponentData</span>&gt;</div>
+    <div class="level5"><span class="xref">Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate</span></div>
+    <div class="level6"><span class="xref">AddStatBonusIfHasFactFixed</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Owlcat.Runtime.Core.Logging.ICanBeLogContext</span></div>
+    <div><span class="xref">Kingmaker.Blueprints.IHavePrototype</span></div>
+    <div><span class="xref">Kingmaker.EntitySystem.IRuntimeEntityFactComponentProvider</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IUnitGainFactHandler</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IUnitLostFactHandler</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IUnitSubscriber</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.ISubscriber</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate&lt;Kingmaker.EntitySystem.EmptyComponentData&gt;.OnRemoved()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate&lt;Kingmaker.EntitySystem.EmptyComponentData&gt;.CreateRuntimeFactComponent()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate&lt;Kingmaker.EntitySystem.EmptyComponentData&gt;.Buff</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate&lt;Kingmaker.EntitySystem.EmptyComponentData&gt;.Fact</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate&lt;Kingmaker.EntitySystem.EmptyComponentData&gt;.Param</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.ClearData()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.GetSubscribingUnit()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.CreateRuntimeFactComponent()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnFactAttached()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnInitialize()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnActivate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnDeactivate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnTurnOn()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnTurnOff()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnPreSave()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnPostLoad()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnApplyPostLoadFixes()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnViewDidAttach()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnViewWillDetach()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnDispose()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnRecalculate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Runtime</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Owner</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Fact</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Context</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Data</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.MaybeData</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.IsReapplying</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.&lt;OwnerBlueprint&gt;k__BackingField</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.m_Flags</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.name</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.m_PrototypeLink</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.ApplyValidation(Owlcat.QA.Validation.ValidationContext, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.OnDeserialized(System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.False</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.OwnerBlueprint</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.Disabled</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.PrototypeLink</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.html">BlueprintCore.Blueprints.Components.Replacements</a></h6>
+  <h6><strong>Assembly</strong>: BlueprintCore.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[AllowMultipleComponents]
+[TypeId(&quot;3DCFCE44-A7DD-48FE-9331-3681A43DBFA4&quot;)]
+public class AddStatBonusIfHasFactFixed : UnitBuffComponentDelegate, ICanBeLogContext, IHavePrototype, IRuntimeEntityFactComponentProvider, IUnitGainFactHandler, IUnitLostFactHandler, IUnitSubscriber, ISubscriber</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Based on AddStatBonusIfHasFactTTT from
+<a href="https://github.com/Vek17/TabletopTweaks-Core/blob/master/TabletopTweaks-Core/">TabletopTweaks-Core</a></p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed__ctor_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference___Kingmaker_Enums_ModifierDescriptor_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.%23ctor(Kingmaker.EntitySystem.Stats.StatType%2CKingmaker.UnitLogic.Mechanics.ContextValue%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D%7D%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D%7D%2CKingmaker.Enums.ModifierDescriptor%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L169">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed__ctor_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.#ctor*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed__ctor_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference___Kingmaker_Enums_ModifierDescriptor_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.#ctor(Kingmaker.EntitySystem.Stats.StatType,Kingmaker.UnitLogic.Mechanics.ContextValue,System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitFactReference}},System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitFactReference}},Kingmaker.Enums.ModifierDescriptor,System.Boolean,System.Boolean)">AddStatBonusIfHasFactFixed(StatType, ContextValue, List&lt;Blueprint&lt;BlueprintUnitFactReference&gt;&gt;, List&lt;Blueprint&lt;BlueprintUnitFactReference&gt;&gt;, ModifierDescriptor, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AddStatBonusIfHasFactFixed(StatType stat, ContextValue bonus, List&lt;Blueprint&lt;BlueprintUnitFactReference&gt;&gt; requiredFacts, List&lt;Blueprint&lt;BlueprintUnitFactReference&gt;&gt; excludeFacts = null, ModifierDescriptor descriptor = ModifierDescriptor.None, bool requireAllFacts = true, bool invertCondition = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td><span class="parametername">stat</span></td>
+        <td><p>Stat to which the bonus applies</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">bonus</span></td>
+        <td><p>Bonus value to apply</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;&gt;</td>
+        <td><span class="parametername">requiredFacts</span></td>
+        <td><p>List of facts the unit must have.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;&gt;</td>
+        <td><span class="parametername">excludeFacts</span></td>
+        <td><p>List of facts which block the bonus. This is checked first and applies regardless of
+<code data-dev-comment-type="paramref" class="paramref">requireAllFacts</code></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.ModifierDescriptor</span></td>
+        <td><span class="parametername">descriptor</span></td>
+        <td><p>Descriptor used for effect stacking behavior.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">requireAllFacts</span></td>
+        <td><p>Defaults to true.</p>
+<table><tbody><tr><td>true</td><td>Bonus applies only if the unit has all facts in <code data-dev-comment-type="paramref" class="paramref">requiredFacts</code></td></tr><tr><td>false</td><td>Bonus applies if the unit has any fact in <code data-dev-comment-type="paramref" class="paramref">requiredFacts</code></td></tr></tbody></table>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">invertCondition</span></td>
+        <td><p>Defaults to false.</p>
+<table><thead><tr><th>invertCondition</th><th>requireAllFacts</th></tr></thead><tbody><tr><td><code>false</code></td><td><code>false</code></td><td>Bonus applies only if the unit has any fact in <code data-dev-comment-type="paramref" class="paramref">requiredFacts</code></td></tr><tr><td><code>false</code></td><td><code>true</code></td><td>Bonus applies if the unit has all facts in <code data-dev-comment-type="paramref" class="paramref">requiredFacts</code></td></tr><tr><td><code>true</code></td><td><code>false</code></td><td>Bonus applies only if the unit has no fact in <code data-dev-comment-type="paramref" class="paramref">requiredFacts</code></td></tr><tr><td><code>true</code></td><td><code>true</code></td><td>Bonus applies only if the unit does not have all facts in <code data-dev-comment-type="paramref" class="paramref">requiredFacts</code></td></tr></tbody></table>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_Bonus.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.Bonus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L190">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_Bonus" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.Bonus">Bonus</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContextValue Bonus</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_Descriptor.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.Descriptor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L197">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_Descriptor" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.Descriptor">Descriptor</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModifierDescriptor Descriptor</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.ModifierDescriptor</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_InvertCondition.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.InvertCondition%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L199">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_InvertCondition" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.InvertCondition">InvertCondition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool InvertCondition</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_m_ExcludeFacts.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.m_ExcludeFacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L196">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_m_ExcludeFacts" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.m_ExcludeFacts">m_ExcludeFacts</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlueprintUnitFactReference[] m_ExcludeFacts</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_m_RequiredFacts.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.m_RequiredFacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L193">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_m_RequiredFacts" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.m_RequiredFacts">m_RequiredFacts</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[ValidateNotEmpty]
+public BlueprintUnitFactReference[] m_RequiredFacts</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_RequireAllFacts.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.RequireAllFacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L198">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_RequireAllFacts" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.RequireAllFacts">RequireAllFacts</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireAllFacts</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_Stat.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.Stat%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L189">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_Stat" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.Stat">Stat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StatType Stat</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_ExcludeFacts.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.ExcludeFacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L40">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_ExcludeFacts_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.ExcludeFacts*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_ExcludeFacts" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.ExcludeFacts">ExcludeFacts</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceArrayProxy&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt; ExcludeFacts { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.ReferenceArrayProxy</span>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_RequiredFacts.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.RequiredFacts%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L32">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_RequiredFacts_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.RequiredFacts*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_RequiredFacts" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.RequiredFacts">RequiredFacts</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceArrayProxy&lt;BlueprintUnitFact, BlueprintUnitFactReference&gt; RequiredFacts { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.ReferenceArrayProxy</span>&lt;<span class="xref">Kingmaker.Blueprints.Facts.BlueprintUnitFact</span>, <span class="xref">Kingmaker.Blueprints.BlueprintUnitFactReference</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_HandleUnitGainFact_Kingmaker_EntitySystem_EntityFact_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.HandleUnitGainFact(Kingmaker.EntitySystem.EntityFact)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L103">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_HandleUnitGainFact_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.HandleUnitGainFact*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_HandleUnitGainFact_Kingmaker_EntitySystem_EntityFact_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.HandleUnitGainFact(Kingmaker.EntitySystem.EntityFact)">HandleUnitGainFact(EntityFact)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HandleUnitGainFact(EntityFact fact)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.EntityFact</span></td>
+        <td><span class="parametername">fact</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_HandleUnitLostFact_Kingmaker_EntitySystem_EntityFact_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.HandleUnitLostFact(Kingmaker.EntitySystem.EntityFact)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L111">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_HandleUnitLostFact_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.HandleUnitLostFact*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_HandleUnitLostFact_Kingmaker_EntitySystem_EntityFact_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.HandleUnitLostFact(Kingmaker.EntitySystem.EntityFact)">HandleUnitLostFact(EntityFact)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void HandleUnitLostFact(EntityFact fact)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.EntityFact</span></td>
+        <td><span class="parametername">fact</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_OnTurnOff.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.OnTurnOff%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L53">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_OnTurnOff_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.OnTurnOff*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_OnTurnOff" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.OnTurnOff">OnTurnOff()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnTurnOff()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnTurnOff()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_OnTurnOn.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.OnTurnOn%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L48">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_OnTurnOn_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.OnTurnOn*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed_OnTurnOn" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed.OnTurnOn">OnTurnOn()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnTurnOn()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnTurnOn()</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Owlcat.Runtime.Core.Logging.ICanBeLogContext</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.Blueprints.IHavePrototype</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.EntitySystem.IRuntimeEntityFactComponentProvider</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IUnitGainFactHandler</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IUnitLostFactHandler</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IUnitSubscriber</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.ISubscriber</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddStatBonusIfHasFactFixed.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddStatBonusIfHasFactFixed.cs/#L27" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

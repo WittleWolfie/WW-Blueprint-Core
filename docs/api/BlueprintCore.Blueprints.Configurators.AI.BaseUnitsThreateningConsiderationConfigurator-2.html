@@ -91,9 +91,6 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator-2.html#BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_SetBaseScoreModifier_System_Single_">BaseConsiderationConfigurator&lt;T, TBuilder&gt;.SetBaseScoreModifier(Single)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator-2.html#BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_ModifyBaseScoreModifier_System_Action_System_Single__">BaseConsiderationConfigurator&lt;T, TBuilder&gt;.ModifyBaseScoreModifier(Action&lt;Single&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDlcCondition(Blueprint&lt;BlueprintDlcRewardReference&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
     </div>
     <div>
@@ -259,6 +256,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -290,7 +290,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -322,7 +322,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L19">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsiderationConfigurator.cs/#L18">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseUnitsThreateningConsiderationConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -353,298 +353,10 @@ blueprint are logged as warnings.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyBelowMinScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.ModifyBelowMinScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L84">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyBelowMinScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyBelowMinScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyBelowMinScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyBelowMinScore(System.Action{System.Single})">ModifyBelowMinScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.UnitsThreateningConsideration.BelowMinScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyBelowMinScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyExtraTargetScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.ModifyExtraTargetScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L156">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyExtraTargetScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyExtraTargetScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyExtraTargetScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyExtraTargetScore(System.Action{System.Single})">ModifyExtraTargetScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.UnitsThreateningConsideration.ExtraTargetScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyExtraTargetScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMaxCount_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.ModifyMaxCount(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L60">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMaxCount_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyMaxCount*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMaxCount_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyMaxCount(System.Action{System.Int32})">ModifyMaxCount(Action&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.UnitsThreateningConsideration.MaxCount</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyMaxCount(Action&lt;int&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMaxScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.ModifyMaxScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L132">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMaxScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyMaxScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMaxScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyMaxScore(System.Action{System.Single})">ModifyMaxScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.UnitsThreateningConsideration.MaxScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyMaxScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMinCount_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.ModifyMinCount(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L36">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMinCount_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyMinCount*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMinCount_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyMinCount(System.Action{System.Int32})">ModifyMinCount(Action&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.UnitsThreateningConsideration.MinCount</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyMinCount(Action&lt;int&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMinScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.ModifyMinScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L108">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMinScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyMinScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_ModifyMinScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.ModifyMinScore(System.Action{System.Single})">ModifyMinScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.UnitsThreateningConsideration.MinScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyMinScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetBelowMinScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.SetBelowMinScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L72">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsiderationConfigurator.cs/#L47">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetBelowMinScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetBelowMinScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetBelowMinScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetBelowMinScore(System.Single)">SetBelowMinScore(Single)</h4>
@@ -692,7 +404,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetExtraTargetScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.SetExtraTargetScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L144">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsiderationConfigurator.cs/#L83">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetExtraTargetScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetExtraTargetScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetExtraTargetScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetExtraTargetScore(System.Single)">SetExtraTargetScore(Single)</h4>
@@ -740,7 +452,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMaxCount_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.SetMaxCount(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L48">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsiderationConfigurator.cs/#L35">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMaxCount_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetMaxCount*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMaxCount_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetMaxCount(System.Int32)">SetMaxCount(Int32)</h4>
@@ -788,7 +500,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMaxScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.SetMaxScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L120">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsiderationConfigurator.cs/#L71">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMaxScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetMaxScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMaxScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetMaxScore(System.Single)">SetMaxScore(Single)</h4>
@@ -836,7 +548,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMinCount_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.SetMinCount(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L24">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsiderationConfigurator.cs/#L23">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMinCount_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetMinCount*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMinCount_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetMinCount(System.Int32)">SetMinCount(Int32)</h4>
@@ -884,7 +596,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMinScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602.SetMinScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L96">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsiderationConfigurator.cs/#L59">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMinScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetMinScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2_SetMinScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator`2.SetMinScore(System.Single)">SetMinScore(Single)</h4>
@@ -938,7 +650,7 @@ blueprint are logged as warnings.
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseUnitsThreateningConsiderationConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseUnitsThreateningConsiderationConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsideration.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseUnitsThreateningConsiderationConfigurator.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

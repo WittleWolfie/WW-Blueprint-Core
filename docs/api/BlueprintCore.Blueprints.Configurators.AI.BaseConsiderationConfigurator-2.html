@@ -287,6 +287,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -318,7 +321,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -350,7 +353,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseConsideration.cs/#L19">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseConsiderationConfigurator.cs/#L18">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseConsiderationConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -381,58 +384,10 @@ blueprint are logged as warnings.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_ModifyBaseScoreModifier_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator%602.ModifyBaseScoreModifier(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseConsideration.cs/#L36">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_ModifyBaseScoreModifier_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator`2.ModifyBaseScoreModifier*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_ModifyBaseScoreModifier_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator`2.ModifyBaseScoreModifier(System.Action{System.Single})">ModifyBaseScoreModifier(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.Consideration.BaseScoreModifier</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyBaseScoreModifier(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_SetBaseScoreModifier_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator%602.SetBaseScoreModifier(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseConsideration.cs/#L24">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseConsiderationConfigurator.cs/#L23">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_SetBaseScoreModifier_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator`2.SetBaseScoreModifier*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_SetBaseScoreModifier_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator`2.SetBaseScoreModifier(System.Single)">SetBaseScoreModifier(Single)</h4>
@@ -486,7 +441,7 @@ blueprint are logged as warnings.
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseConsideration.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseConsiderationConfigurator.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

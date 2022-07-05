@@ -90,13 +90,13 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.EntitySystem.BaseUnitUpgraderConfigurator-2.html#BlueprintCore_Blueprints_Configurators_EntitySystem_BaseUnitUpgraderConfigurator_2_SetApplyFromPlaceholder_System_Boolean_">BaseUnitUpgraderConfigurator&lt;BlueprintUnitUpgrader, UnitUpgraderConfigurator&gt;.SetApplyFromPlaceholder(Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.EntitySystem.BaseUnitUpgraderConfigurator-2.html#BlueprintCore_Blueprints_Configurators_EntitySystem_BaseUnitUpgraderConfigurator_2_ModifyApplyFromPlaceholder_System_Action_System_Boolean__">BaseUnitUpgraderConfigurator&lt;BlueprintUnitUpgrader, UnitUpgraderConfigurator&gt;.ModifyApplyFromPlaceholder(Action&lt;Boolean&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.EntitySystem.BaseUnitUpgraderConfigurator-2.html#BlueprintCore_Blueprints_Configurators_EntitySystem_BaseUnitUpgraderConfigurator_2_SetActions_BlueprintCore_Actions_Builder_ActionsBuilder_">BaseUnitUpgraderConfigurator&lt;BlueprintUnitUpgrader, UnitUpgraderConfigurator&gt;.SetActions(ActionsBuilder)</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.EntitySystem.BaseUnitUpgraderConfigurator-2.html#BlueprintCore_Blueprints_Configurators_EntitySystem_BaseUnitUpgraderConfigurator_2_ModifyActions_System_Action_Kingmaker_ElementsSystem_ActionList__">BaseUnitUpgraderConfigurator&lt;BlueprintUnitUpgrader, UnitUpgraderConfigurator&gt;.ModifyActions(Action&lt;ActionList&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.EntitySystem.BaseUnitUpgraderConfigurator-2.html#BlueprintCore_Blueprints_Configurators_EntitySystem_BaseUnitUpgraderConfigurator_2_OnConfigureCompleted">BaseUnitUpgraderConfigurator&lt;BlueprintUnitUpgrader, UnitUpgraderConfigurator&gt;.OnConfigureCompleted()</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;BlueprintUnitUpgrader, UnitUpgraderConfigurator&gt;.AddDlcCondition(Blueprint&lt;BlueprintDlcRewardReference&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
@@ -276,7 +276,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_EntitySystem_UnitUpgraderConfigurator_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -308,7 +308,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_EntitySystem_UnitUpgraderConfigurator_For_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_EntitySystem_Persistence_Versioning_BlueprintUnitUpgrader___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.EntitySystem.UnitUpgraderConfigurator.For(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7BKingmaker.EntitySystem.Persistence.Versioning.BlueprintUnitUpgrader%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/EntitySystem/UnitUpgrader.cs/#L29">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/EntitySystem/UnitUpgraderConfigurator.cs/#L29">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_EntitySystem_UnitUpgraderConfigurator_For_" data-uid="BlueprintCore.Blueprints.Configurators.EntitySystem.UnitUpgraderConfigurator.For*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_EntitySystem_UnitUpgraderConfigurator_For_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_EntitySystem_Persistence_Versioning_BlueprintUnitUpgrader___" data-uid="BlueprintCore.Blueprints.Configurators.EntitySystem.UnitUpgraderConfigurator.For(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{Kingmaker.EntitySystem.Persistence.Versioning.BlueprintUnitUpgrader}})">For(Blueprint&lt;BlueprintReference&lt;BlueprintUnitUpgrader&gt;&gt;)</h4>
@@ -364,7 +364,7 @@ If you&apos;re using <a href="https://github.com/OwlcatOpenSource/WrathModificat
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_EntitySystem_UnitUpgraderConfigurator_New_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.EntitySystem.UnitUpgraderConfigurator.New(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/EntitySystem/UnitUpgrader.cs/#L44">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/EntitySystem/UnitUpgraderConfigurator.cs/#L44">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_EntitySystem_UnitUpgraderConfigurator_New_" data-uid="BlueprintCore.Blueprints.Configurators.EntitySystem.UnitUpgraderConfigurator.New*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_EntitySystem_UnitUpgraderConfigurator_New_System_String_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.EntitySystem.UnitUpgraderConfigurator.New(System.String,System.String)">New(String, String)</h4>
@@ -431,7 +431,7 @@ An implicit cast converts the string to <a class="xref" href="BlueprintCore.Util
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_EntitySystem_UnitUpgraderConfigurator.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.EntitySystem.UnitUpgraderConfigurator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/EntitySystem/UnitUpgrader.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/EntitySystem/UnitUpgraderConfigurator.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

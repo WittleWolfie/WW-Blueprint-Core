@@ -252,6 +252,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -283,7 +286,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -315,7 +318,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L19">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L19">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseCorruptionRootConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -346,154 +349,10 @@ blueprint are logged as warnings.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDefaultCorruptionGrowth_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.ModifyDefaultCorruptionGrowth(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L68">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDefaultCorruptionGrowth_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyDefaultCorruptionGrowth*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDefaultCorruptionGrowth_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyDefaultCorruptionGrowth(System.Action{System.Int32})">ModifyDefaultCorruptionGrowth(Action&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Corruption.BlueprintCorruptionRoot.m_DefaultCorruptionGrowth</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyDefaultCorruptionGrowth(Action&lt;int&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDSCriticalFailCoefficient_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.ModifyDSCriticalFailCoefficient(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L128">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDSCriticalFailCoefficient_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyDSCriticalFailCoefficient*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDSCriticalFailCoefficient_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyDSCriticalFailCoefficient(System.Action{System.Single})">ModifyDSCriticalFailCoefficient(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Corruption.BlueprintCorruptionRoot.m_DSCriticalFailCoefficient</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyDSCriticalFailCoefficient(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDSSuccessCoefficient_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.ModifyDSSuccessCoefficient(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L98">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDSSuccessCoefficient_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyDSSuccessCoefficient*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyDSSuccessCoefficient_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyDSSuccessCoefficient(System.Action{System.Single})">ModifyDSSuccessCoefficient(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Corruption.BlueprintCorruptionRoot.m_DSSuccessCoefficient</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyDSSuccessCoefficient(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyGlobalMapBuff_System_Action_Kingmaker_Blueprints_BlueprintBuffReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.ModifyGlobalMapBuff(System.Action%7BKingmaker.Blueprints.BlueprintBuffReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L165">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L129">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyGlobalMapBuff_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyGlobalMapBuff*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyGlobalMapBuff_System_Action_Kingmaker_Blueprints_BlueprintBuffReference__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyGlobalMapBuff(System.Action{Kingmaker.Blueprints.BlueprintBuffReference})">ModifyGlobalMapBuff(Action&lt;BlueprintBuffReference&gt;)</h4>
@@ -538,58 +397,10 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyGlobalMapBuffDurationMinutes_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.ModifyGlobalMapBuffDurationMinutes(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L190">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyGlobalMapBuffDurationMinutes_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyGlobalMapBuffDurationMinutes*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyGlobalMapBuffDurationMinutes_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyGlobalMapBuffDurationMinutes(System.Action{System.Int32})">ModifyGlobalMapBuffDurationMinutes(Action&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Corruption.BlueprintCorruptionRoot.m_GlobalMapBuffDurationMinutes</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyGlobalMapBuffDurationMinutes(Action&lt;int&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyProgression_System_Action_Kingmaker_Corruption_CorruptionProgression__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.ModifyProgression(System.Action%7BKingmaker.Corruption.CorruptionProgression%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L37">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L37">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyProgression_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyProgression*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifyProgression_System_Action_Kingmaker_Corruption_CorruptionProgression__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifyProgression(System.Action{Kingmaker.Corruption.CorruptionProgression})">ModifyProgression(Action&lt;CorruptionProgression&gt;)</h4>
@@ -634,106 +445,27 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifySpeedModifierDC_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.ModifySpeedModifierDC(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L220">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L181">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifySpeedModifierDC_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifySpeedModifierDC*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifySpeedModifierDC_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifySpeedModifierDC(System.Action{System.Int32})">ModifySpeedModifierDC(Action&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Corruption.BlueprintCorruptionRoot.m_SpeedModifierDC</span> by invoking the provided action.</p>
-</div>
+  <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.OnConfigureCompleted*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifySpeedModifierDC(Action&lt;int&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void OnConfigureCompleted()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifySpeedModifierDCIncrement_System_Action_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.ModifySpeedModifierDCIncrement(System.Action%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L244">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifySpeedModifierDCIncrement_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifySpeedModifierDCIncrement*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_ModifySpeedModifierDCIncrement_System_Action_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.ModifySpeedModifierDCIncrement(System.Action{System.Int32})">ModifySpeedModifierDCIncrement(Action&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Corruption.BlueprintCorruptionRoot.m_SpeedModifierDCIncrement</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifySpeedModifierDCIncrement(Action&lt;int&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDefaultCorruptionGrowth_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.SetDefaultCorruptionGrowth(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L56">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L56">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDefaultCorruptionGrowth_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetDefaultCorruptionGrowth*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDefaultCorruptionGrowth_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetDefaultCorruptionGrowth(System.Int32)">SetDefaultCorruptionGrowth(Int32)</h4>
@@ -784,7 +516,7 @@ InfoBox: Amount of corruption player gets after Rest
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDSCriticalFailCoefficient_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.SetDSCriticalFailCoefficient(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L116">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L92">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDSCriticalFailCoefficient_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetDSCriticalFailCoefficient*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDSCriticalFailCoefficient_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetDSCriticalFailCoefficient(System.Single)">SetDSCriticalFailCoefficient(Single)</h4>
@@ -835,7 +567,7 @@ InfoBox: Enlarge corruption added on rest with critical fail divine service chec
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDSSuccessCoefficient_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.SetDSSuccessCoefficient(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L86">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L74">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDSSuccessCoefficient_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetDSSuccessCoefficient*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetDSSuccessCoefficient_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetDSSuccessCoefficient(System.Single)">SetDSSuccessCoefficient(Single)</h4>
@@ -886,7 +618,7 @@ InfoBox: Reduce corruption added on rest with success divine service check
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetGlobalMapBuff_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.SetGlobalMapBuff(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L153">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L117">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetGlobalMapBuff_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetGlobalMapBuff*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetGlobalMapBuff_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetGlobalMapBuff(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference})">SetGlobalMapBuff(Blueprint&lt;BlueprintBuffReference&gt;)</h4>
@@ -939,7 +671,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetGlobalMapBuffDurationMinutes_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.SetGlobalMapBuffDurationMinutes(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L178">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L142">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetGlobalMapBuffDurationMinutes_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetGlobalMapBuffDurationMinutes*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetGlobalMapBuffDurationMinutes_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetGlobalMapBuffDurationMinutes(System.Int32)">SetGlobalMapBuffDurationMinutes(Int32)</h4>
@@ -987,7 +719,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetProgression_Kingmaker_Corruption_CorruptionProgression_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.SetProgression(Kingmaker.Corruption.CorruptionProgression)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L24">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L24">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetProgression_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetProgression*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetProgression_Kingmaker_Corruption_CorruptionProgression_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetProgression(Kingmaker.Corruption.CorruptionProgression)">SetProgression(CorruptionProgression)</h4>
@@ -1035,7 +767,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetSpeedModifierDC_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.SetSpeedModifierDC(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L208">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L160">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetSpeedModifierDC_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetSpeedModifierDC*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetSpeedModifierDC_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetSpeedModifierDC(System.Int32)">SetSpeedModifierDC(Int32)</h4>
@@ -1086,7 +818,7 @@ InfoBox: Divine Servant should roll (Zone.NormalMinCR + SpeedModifierDC + Increm
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetSpeedModifierDCIncrement_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602.SetSpeedModifierDCIncrement(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L232">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L172">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetSpeedModifierDCIncrement_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetSpeedModifierDCIncrement*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2_SetSpeedModifierDCIncrement_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator`2.SetSpeedModifierDCIncrement(System.Int32)">SetSpeedModifierDCIncrement(Int32)</h4>
@@ -1140,7 +872,7 @@ InfoBox: Divine Servant should roll (Zone.NormalMinCR + SpeedModifierDC + Increm
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Corruption_BaseCorruptionRootConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Corruption.BaseCorruptionRootConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRoot.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Corruption/BaseCorruptionRootConfigurator.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

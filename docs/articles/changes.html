@@ -69,11 +69,93 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v210-release">v2.1.0 Release</h2>
+<ul>
+<li>Added new localization system for translation support and simplified text references. See <a href="usage/utils.html">Text, Logging, and Utils</a> for more details.</li>
+<li>Added static references to in-game blueprints. See <a href="usage/blueprints.html#referencing-blueprints">Referencing Blueprints</a> for more details.</li>
+<li>Configurators now automatically set safe default values for types which cannot be null</li>
+<li>Methods with a single enumerable or flag parameter use <code>params</code> syntax</li>
+<li>Removed configurators for QA related blueprints</li>
+<li>Add more constructors for ContextDurationValue</li>
+<li>Removed Modify field methods for primitive and enum types
+<ul>
+<li>If you have a use case let me know but this API was not intended to exist</li>
+</ul>
+</li>
+<li>Specific Type Changes
+<ul>
+<li>FeatureConfigurator
+<ul>
+<li>Automatically adds features to the appropriate <code>BlueprintFeatureSelection</code>. See <a href="xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup%5B%5D)">FeatureConfigurator.New()</a>.</li>
+<li>Automatically sets <code>IsClassFeature</code> to true for features with <code>FeatureGroup.Feat</code></li>
+</ul>
+</li>
+<li>ProgressionConfigurator
+<ul>
+<li>Added many convenience method overrides for ease of working with ClassWithLevel, LevelEntry, and ArchetypeWithLevel</li>
+<li>Removed support for AlternateProgressionType which can only be Div2</li>
+<li>Automatically sets <code>ForAllOtherClasses</code> to <code>false</code> when setting or adding to <code>m_AlternateProgressionClasses</code></li>
+<li>Removed support for Remove functions that don't make sense</li>
+</ul>
+</li>
+<li>BuffEnchantAnyWeapon is now available in BaseUnitFactConfigurator and all inherited types</li>
+<li>AddStatBonusIfHasFact replaced by AddStatbonusIfHasFactFixed</li>
+<li>ContextDurationValue has more convenience constructor methods available</li>
+<li>BlueprintUnitProperty logs a warning if <code>BaseValue</code> is 0 when using multiplication</li>
+</ul>
+</li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>ProgressionConfigurator changed namespace
+<ul>
+<li>It is now hand tuned so it lives in CustomConfigurators</li>
+<li>Some <code>RemoveFrom</code> field methods were removed since they are not useful</li>
+</ul>
+</li>
+<li>Some ContextAction methods were updated with a stricter API
+<ul>
+<li><code>ArmorEnchantPool</code> and <code>ShieldArmorEnchantPool</code> uses <code>BlueprintArmorEnchantReference</code> instead of <code>BlueprintItemEnchantmentReference</code></li>
+<li><code>WeaponEnchantPool</code> and <code>ShieldWeaponEnchantPool</code> uses <code>BlueprintWeaponEnchantmentReference</code> instead of <code>BlueprintItemEnchantmentReference</code></li>
+<li>If you were passing in a BlueprintItemEnchantmentReference directly you'll need to update your calls</li>
+</ul>
+</li>
+<li><code>Buffs</code>, <code>ItemEnchantments</code>, and <code>Features</code> were removed
+<ul>
+<li>Replaced by Refs classes. See <a href="usage/blueprints.html#referencing-blueprints">Referencing Blueprints</a>.</li>
+</ul>
+</li>
+<li>QA Blueprint configurators were removed
+<ul>
+<li>I don't expect anyone to use these, but if you have a use case let me know.</li>
+</ul>
+</li>
+<li>Configurators no longer exposes methods for cache fields
+<ul>
+<li>These are set at runtime by the blueprint, they should not be set manually.</li>
+</ul>
+</li>
+<li>Methods with a single enumerable parameter use <code>params</code> syntax
+<ul>
+<li>If they currently require a list they must be updated. You can call <code>ToArray()</code> on the list.</li>
+</ul>
+</li>
+<li>AddStatBonusIfHasFact is no longer supported
+<ul>
+<li>Use AddStatBonusIfHasFactFixed</li>
+</ul>
+</li>
+<li>Methods for BlueprintProgression.AlternateProgressionType are removed
+<ul>
+<li>It is always Div2, there is no other value</li>
+</ul>
+</li>
+</ul>
 <h2 id="v204-release">v2.0.4 Release</h2>
 <ul>
 <li>Fixed an NPE resulting from not specifying optional List or Array parameters</li>
 </ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
+<h3 id="breaking-changes-1">Breaking Changes</h3>
 <ul>
 <li>Fixed a bug incorrectly identifying unique and non-unique components
 <ul>
@@ -82,7 +164,7 @@
 </li>
 </ul>
 <h2 id="v203-release">v2.0.3 Release</h2>
-<h3 id="breaking-changes-1">Breaking Changes</h3>
+<h3 id="breaking-changes-2">Breaking Changes</h3>
 <ul>
 <li>The type <code>Blueprint&lt;T,  TRef&gt;</code> has been shortened to <code>Blueprint&lt;TRef&gt;</code>
 <ul>
@@ -105,7 +187,7 @@
 <li>Fixed bug with Encyclopedia tagging causing exceptions</li>
 <li>Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail</li>
 </ul>
-<h3 id="breaking-changes-2">Breaking Changes</h3>
+<h3 id="breaking-changes-3">Breaking Changes</h3>
 <ul>
 <li>Namespaces are changes to organize type specific util classes
 <ul>
@@ -161,7 +243,7 @@ their level editor</li>
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-3">Breaking Changes</h3>
+<h3 id="breaking-changes-4">Breaking Changes</h3>
 <ul>
 <li>Configurator namespaces may have changed to align w/ game code structure</li>
 <li>Method and parameter names changed for ActionsBuilder, ConditionsBuilder, and Configurators</li>

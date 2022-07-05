@@ -91,9 +91,6 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.Items.BaseSharedVendorTableConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Items_BaseSharedVendorTableConfigurator_2_SetAutoIdentifyAllItems_System_Boolean_">BaseSharedVendorTableConfigurator&lt;BlueprintSharedVendorTable, SharedVendorTableConfigurator&gt;.SetAutoIdentifyAllItems(Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.Items.BaseSharedVendorTableConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Items_BaseSharedVendorTableConfigurator_2_ModifyAutoIdentifyAllItems_System_Action_System_Boolean__">BaseSharedVendorTableConfigurator&lt;BlueprintSharedVendorTable, SharedVendorTableConfigurator&gt;.ModifyAutoIdentifyAllItems(Action&lt;Boolean&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.Loot.BaseUnitLootConfigurator-2.html#BlueprintCore_Blueprints_Configurators_Loot_BaseUnitLootConfigurator_2_SetDummy_Kingmaker_Blueprints_Loot_BlueprintUnitLoot_Dummy_">BaseUnitLootConfigurator&lt;BlueprintSharedVendorTable, SharedVendorTableConfigurator&gt;.SetDummy(BlueprintUnitLoot.Dummy)</a>
     </div>
     <div>
@@ -280,6 +277,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;BlueprintSharedVendorTable, SharedVendorTableConfigurator&gt;.OnConfigureInternal(Action&lt;BlueprintSharedVendorTable&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;BlueprintSharedVendorTable, SharedVendorTableConfigurator&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;BlueprintSharedVendorTable, SharedVendorTableConfigurator&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -292,7 +292,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_Items_SharedVendorTableConfigurator_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -324,7 +324,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_SharedVendorTableConfigurator_For_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_Items_BlueprintSharedVendorTable___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.SharedVendorTableConfigurator.For(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7BKingmaker.Blueprints.Items.BlueprintSharedVendorTable%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/SharedVendorTable.cs/#L29">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/SharedVendorTableConfigurator.cs/#L29">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_SharedVendorTableConfigurator_For_" data-uid="BlueprintCore.Blueprints.Configurators.Items.SharedVendorTableConfigurator.For*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_SharedVendorTableConfigurator_For_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_Items_BlueprintSharedVendorTable___" data-uid="BlueprintCore.Blueprints.Configurators.Items.SharedVendorTableConfigurator.For(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{Kingmaker.Blueprints.Items.BlueprintSharedVendorTable}})">For(Blueprint&lt;BlueprintReference&lt;BlueprintSharedVendorTable&gt;&gt;)</h4>
@@ -380,7 +380,7 @@ If you&apos;re using <a href="https://github.com/OwlcatOpenSource/WrathModificat
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_SharedVendorTableConfigurator_New_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.SharedVendorTableConfigurator.New(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/SharedVendorTable.cs/#L44">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/SharedVendorTableConfigurator.cs/#L44">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Items_SharedVendorTableConfigurator_New_" data-uid="BlueprintCore.Blueprints.Configurators.Items.SharedVendorTableConfigurator.New*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Items_SharedVendorTableConfigurator_New_System_String_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.Items.SharedVendorTableConfigurator.New(System.String,System.String)">New(String, String)</h4>
@@ -447,7 +447,7 @@ An implicit cast converts the string to <a class="xref" href="BlueprintCore.Util
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Items_SharedVendorTableConfigurator.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Items.SharedVendorTableConfigurator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/SharedVendorTable.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Items/SharedVendorTableConfigurator.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

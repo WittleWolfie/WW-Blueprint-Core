@@ -88,7 +88,9 @@
     <pre><code class="lang-csharp hljs">public class LocalizationTool</code></pre>
   </div>
   <h5 id="BlueprintCore_Utils_LocalizationTool_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Based on code from <a href="https://github.com/Vek17/WrathMods-TabletopTweaks">https://github.com/Vek17/WrathMods-TabletopTweaks</a>TabletopTweaks</p>
+  <div class="markdown level0 remarks"><p>By default it assumes your mod's local strings are contained in the file LocalizedStrings.json in the same
+directory as the assembly. If you keep it in a different location you can call
+<a class="xref" href="BlueprintCore.Utils.LocalizationTool.html#BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String_">LoadLocalizationPack(String)</a>.</p>
 </div>
   <h3 id="methods">Methods
   </h3>
@@ -97,7 +99,7 @@
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.CreateString(System.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L28">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L81">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_LocalizationTool_CreateString_" data-uid="BlueprintCore.Utils.LocalizationTool.CreateString*"></a>
   <h4 id="BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_" data-uid="BlueprintCore.Utils.LocalizationTool.CreateString(System.String,System.String,System.Boolean)">CreateString(String, String, Boolean)</h4>
@@ -151,20 +153,25 @@
     </tbody>
   </table>
   <h5 id="BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Calls <a class="xref" href="BlueprintCore.Utils.EncyclopediaTool.html#BlueprintCore_Utils_EncyclopediaTool_TagEncyclopediaEntries_System_String_">TagEncyclopediaEntries(String)</a> on <code>value</code> by default. Override
-<code data-dev-comment-type="paramref" class="paramref">tagEncyclopediaEntries</code> if this is not desired.</p>
+  <div class="markdown level1 remarks"><p>
+Use of this method is discouraged. Prefer definining a localization pack. See TODO: LINK TO DOCS for more
+details.
+</p>
+<p>
+Calls <a class="xref" href="BlueprintCore.Utils.EncyclopediaTool.html#BlueprintCore_Utils_EncyclopediaTool_TagEncyclopediaEntries_System_String_">TagEncyclopediaEntries(String)</a> on <code>value</code> by default. Override
+<code data-dev-comment-type="paramref" class="paramref">tagEncyclopediaEntries</code> if this is not desired.
+</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_GetString_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.GetString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L68">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L119">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_LocalizationTool_GetString_" data-uid="BlueprintCore.Utils.LocalizationTool.GetString*"></a>
   <h4 id="BlueprintCore_Utils_LocalizationTool_GetString_System_String_" data-uid="BlueprintCore.Utils.LocalizationTool.GetString(System.String)">GetString(String)</h4>
-  <div class="markdown level1 summary"><p>Returns the localized string created using <a class="xref" href="BlueprintCore.Utils.LocalizationTool.html#BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_">CreateString(String, String, Boolean)</a> with the specified
-<code>key</code>.</p>
+  <div class="markdown level1 summary"><p>Returns the localized string matching the current key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -203,6 +210,43 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.LoadLocalizationPack(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L50">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_" data-uid="BlueprintCore.Utils.LocalizationTool.LoadLocalizationPack*"></a>
+  <h4 id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String_" data-uid="BlueprintCore.Utils.LocalizationTool.LoadLocalizationPack(System.String)">LoadLocalizationPack(String)</h4>
+  <div class="markdown level1 summary"><p>Loads localized strings from a JSON file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void LoadLocalizationPack(string localizedStringsFile)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">localizedStringsFile</span></td>
+        <td><p>JSON file with an array of <a class="xref" href="BlueprintCore.Utils.Localization.MultiLocaleString.html">MultiLocaleString</a> values</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only a single file will be loaded at once; you shouldn't need to call this multiple times.</p>
+</div>
 </article>
           </div>
           
@@ -214,7 +258,7 @@
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L22" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

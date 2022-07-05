@@ -252,6 +252,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -283,7 +286,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -315,7 +318,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfo.cs/#L20">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfoConfigurator.cs/#L20">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseMythicInfoConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -349,7 +352,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_etudeReference_System_Action_Kingmaker_Blueprints_BlueprintEtudeReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.Modify_etudeReference(System.Action%7BKingmaker.Blueprints.BlueprintEtudeReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfo.cs/#L74">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfoConfigurator.cs/#L62">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_etudeReference_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Modify_etudeReference*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_etudeReference_System_Action_Kingmaker_Blueprints_BlueprintEtudeReference__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Modify_etudeReference(System.Action{Kingmaker.Blueprints.BlueprintEtudeReference})">Modify_etudeReference(Action&lt;BlueprintEtudeReference&gt;)</h4>
@@ -394,58 +397,10 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_mythic_System_Action_Kingmaker_DialogSystem_Blueprints_Mythic__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.Modify_mythic(System.Action%7BKingmaker.DialogSystem.Blueprints.Mythic%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfo.cs/#L37">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_mythic_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Modify_mythic*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_mythic_System_Action_Kingmaker_DialogSystem_Blueprints_Mythic__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Modify_mythic(System.Action{Kingmaker.DialogSystem.Blueprints.Mythic})">Modify_mythic(Action&lt;Mythic&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo._mythic</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder Modify_mythic(Action&lt;Mythic&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.DialogSystem.Blueprints.Mythic</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_mythicName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.Modify_mythicName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfo.cs/#L103">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfoConfigurator.cs/#L91">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_mythicName_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Modify_mythicName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Modify_mythicName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Modify_mythicName(System.Action{Kingmaker.Localization.LocalizedString})">Modify_mythicName(Action&lt;LocalizedString&gt;)</h4>
@@ -490,10 +445,27 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfoConfigurator.cs/#L101">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.OnConfigureCompleted*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnConfigureCompleted()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_etudeReference_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintEtudeReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.Set_etudeReference(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintEtudeReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfo.cs/#L62">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfoConfigurator.cs/#L50">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_etudeReference_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Set_etudeReference*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_etudeReference_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintEtudeReference__" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Set_etudeReference(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintEtudeReference})">Set_etudeReference(Blueprint&lt;BlueprintEtudeReference&gt;)</h4>
@@ -546,7 +518,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_mythic_Kingmaker_DialogSystem_Blueprints_Mythic_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.Set_mythic(Kingmaker.DialogSystem.Blueprints.Mythic)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfo.cs/#L25">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfoConfigurator.cs/#L25">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_mythic_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Set_mythic*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_mythic_Kingmaker_DialogSystem_Blueprints_Mythic_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Set_mythic(Kingmaker.DialogSystem.Blueprints.Mythic)">Set_mythic(Mythic)</h4>
@@ -591,19 +563,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_mythicName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.Set_mythicName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_mythicName_BlueprintCore_Utils_LocalString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602.Set_mythicName(BlueprintCore.Utils.LocalString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfo.cs/#L87">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfoConfigurator.cs/#L79">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_mythicName_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Set_mythicName*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_mythicName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Set_mythicName(Kingmaker.Localization.LocalizedString)">Set_mythicName(LocalizedString)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2_Set_mythicName_BlueprintCore_Utils_LocalString_" data-uid="BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator`2.Set_mythicName(BlueprintCore.Utils.LocalString)">Set_mythicName(LocalString)</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo._mythicName</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder Set_mythicName(LocalizedString _mythicName)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder Set_mythicName(LocalString _mythicName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -616,9 +588,10 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><a class="xref" href="BlueprintCore.Utils.LocalString.html">LocalString</a></td>
         <td><span class="parametername">_mythicName</span></td>
-        <td></td>
+        <td><p>You can pass in the string using a LocalizedString or the Key to a LocalizedString.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -648,7 +621,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DialogSystem_BaseMythicInfoConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DialogSystem.BaseMythicInfoConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfo.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DialogSystem/BaseMythicInfoConfigurator.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

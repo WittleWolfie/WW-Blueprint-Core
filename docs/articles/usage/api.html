@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Understanding the API </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Understanding the API ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="understanding-the-api">Understanding the API</h1>
+
+<p>The configurator and builder APIs, with the exception of the builder base classes and configurators in the <code>BlueprintCore.Blueprints.CustomConfigurators</code> namespace, are generated code.</p>
+<p>Here are some examples to help understand the resulting API:</p>
+<p><img src="../../images/prerequisite_character_class_method.png" alt="Prerequisite Character Class Method"></p>
+<ul>
+<li>This method adds a <code>PrerequisiteClassLevel</code> component to the blueprint</li>
+<li>Adding this component requires <code>characterClass</code> and <code>level</code>
+<ul>
+<li>By default APIs have no required parameters. This is because it is difficult if not impossible to judge whether a type needs a value for a field specified using static analysis.</li>
+<li>Since these are required, it indicates this method has been overriden by a manual config indicating that you should always specify these values for a <code>PrerequisiteClassLevel</code> component.</li>
+</ul>
+</li>
+<li>Every other parameter is null, excluding <code>mergeBehavior</code>
+<ul>
+<li>By default all parameters have a default value of null (primitives are handled using nullable types)</li>
+<li>If you do not provide these parameters the default value of the corresponding field in <code>PrerequisiteClassLevel</code> is used
+<ul>
+<li>Essentially, the API will not set the value of fields that are not specified, barring some exceptions covered in the next example</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BlueprintCore specific parameters are present: <code>mergeBehavior</code> and <code>merge</code>
+<ul>
+<li>This indicates the component is unique: there should only be a single copy in any given blueprint</li>
+<li>These parameters grant control over interactions if there are multiple copies present</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../images/add_rest_trigger_method.png" alt="Rest Trigger Method"></p>
+<ul>
+<li>This method adds an <code>AddRestTrigger</code> component to the blueprint
+<ul>
+<li>The XML doc has a bug here, since the component and method name are the same it resolves incorrectly.</li>
+</ul>
+</li>
+<li>Adding this component doesn't require anything
+<ul>
+<li>After using this example, it now requires an <code>ActionsBuilder</code>; I updated the config because this component obviously doesn't make sense without one</li>
+</ul>
+</li>
+<li>Something special happens in the library if no argument is passed in
+<ul>
+<li><code>ActionsBuilder</code> is used to set an <code>ActionList</code> field value, but the game will throw an exception if an <code>ActionList</code> field is null</li>
+<li>To ensure that the <code>ActionList</code> is not null, BlueprintCore checks the field value and if it detects a null field it sets it to <a class="xref" href="../../api/BlueprintCore.Utils.Constants.Empty.html#BlueprintCore_Utils_Constants_Empty_Actions">Constants.Empty.Actions</a></li>
+</ul>
+</li>
+</ul>
+<p>The null handling case is an important one: there are several types in the game library that generally cause problems when null. As a result BlueprintCore APIs will automatically set fields with these types to &quot;empty&quot; defaults. As of writing these types include:</p>
+<ul>
+<li>ActionList</li>
+<li>ConditionsChecker</li>
+<li>ContextDiceValue</li>
+<li>ContextValue</li>
+<li>LocalizedString</li>
+<li>PrefabLink</li>
+</ul>
+<p>If you find other types that should never be null please file a <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/issues">GitHub Issue</a>.</p>
+<p>Similarly you can file an issue if you think a given method should be implemented differently, usually requiring certain inputs. More details on providing this feedback are in <a href="contributing.md">How to Contribute</a>.</p>
+<h2 id="limitations">Limitations</h2>
+<p>BlueprintCoreGen analyzes the game library and combines that data with community provided configuration overrides to generate methods and classes which wrap common game types. The goal is to provide an API with minimal boilerplate which enforces proper usage of game types as much as possible, but there are some limitations to this approach:</p>
+<ul>
+<li>Hand tuning code can be more complicated than simply writing a function
+<ul>
+<li>Specific configuration paths are required for any code output and it's not always easy to logically define this</li>
+</ul>
+</li>
+<li>When the game API changes, so does the BlueprintCore API
+<ul>
+<li>This leads to breaking changes at times, though generally this means the code you wrote would break anyways</li>
+<li>So far only Patch 1.2 has truly introduced breaking changes</li>
+</ul>
+</li>
+<li>When the community adds configuration overrides, the BlueprintCore API changes
+<ul>
+<li>This leads to breaking changes for anyone using those functions</li>
+</ul>
+</li>
+</ul>
+<p>Generally API breaking changes are limited to basic things like renaming methods or method parameters. These should be trivial to update between versions, but it is something to keep in mind when using BlueprintCore.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/usage/api.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

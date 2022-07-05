@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Known Issues </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Known Issues ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="known-issues">Known Issues</h1>
+
+<h3 id="build-fails-ilrepack-failed-to-load-assembly">Build Fails: ILRepack: Failed to load assembly</h3>
+<p>Make sure the assembly listed is in the location described. Usually this means that an assembly referenced by your assembly is not in the working directory for ILRepack. Thhe configuration suggested for BlueprintCore uses <code>OutputPath</code> as the working directory:</p>
+<pre><code class="lang-xml">&lt;ILRepack OutputType=&quot;Dll&quot; MainAssembly=&quot;@(OutputAssembly)&quot; OutputAssembly=&quot;@(OutputAssembly)&quot; InputAssemblies=&quot;@(InputAssemblies)&quot; WorkingDirectory=&quot;$(OutputPath)&quot; /&gt;
+</code></pre>
+<p>To make sure dependent assemblies are copied to <code>OutputPath</code> in Visual Studio open the assembly dependency properties and set <code>Copy Local</code> to <code>Yes</code>. Alternatively, remove <code>&lt;Private&gt;False&lt;/Private&gt;</code> from the reference in your project file.</p>
+<p>If you do not want to copy assemblies to output you'll need to change the ILRepack configuration to use a working directory with all required assemblies.</p>
+<h3 id="fails-to-resolve-assembly-assembly-csharp">Fails to resolve assembly: Assembly-CSharp</h3>
+<p>This specific failure is usually caused by the assembly publicizer. When the publicize task runs it creates <code>Assembly-CSharp_public.dll</code>, but ILRepack is looking for <code>Assembly-CSharp.dll</code>. You can fix this by updating your assembly reference and renaming the file after publicizing:</p>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+  &lt;Reference Include=&quot;Assembly-CSharp&quot;&gt;
+    &lt;HintPath&gt;$(SolutionDir)lib\Assembly-CSharp.dll&lt;/HintPath&gt;
+  &lt;/Reference&gt;
+&lt;/ItemGroup&gt;
+
+&lt;!-- Publicize Target --&gt;
+&lt;Target Name=&quot;Publicize&quot; AfterTargets=&quot;Clean&quot;&gt;
+  &lt;ItemGroup&gt;
+    &lt;Assemblies Include=&quot;$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll&quot; /&gt;
+    &lt;PublicAssembly Include=&quot;$(SolutionDir)\lib\Assembly-CSharp_public.dll&quot; /&gt;
+    &lt;RenamedAssembly Include=&quot;$(SolutionDir)\lib\Assembly-CSharp.dll&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;PublicizeTask InputAssemblies=&quot;@(Assemblies)&quot; OutputDir=&quot;$(SolutionDir)lib/&quot; /&gt;
+  &lt;Move SourceFiles=&quot;@(PublicAssembly)&quot; DestinationFiles=&quot;@(RenamedAssembly)&quot; /&gt;
+&lt;/Target&gt;
+</code></pre>
+<p>After updating your project file, rebuild your solution and it should work.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/usage/issues.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

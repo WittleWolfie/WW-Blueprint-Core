@@ -91,18 +91,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Types_ContextDuration_Fixed_System_Int32_Kingmaker_UnitLogic_Mechanics_DurationRate_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Types.ContextDuration.Fixed(System.Int32%2CKingmaker.UnitLogic.Mechanics.DurationRate)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Types_ContextDuration_Fixed_System_Int32_Kingmaker_UnitLogic_Mechanics_DurationRate_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Types.ContextDuration.Fixed(System.Int32%2CKingmaker.UnitLogic.Mechanics.DurationRate%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Types/ContextDuration.cs/#L12">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Types/ContextDuration.cs/#L16">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_Types_ContextDuration_Fixed_" data-uid="BlueprintCore.Utils.Types.ContextDuration.Fixed*"></a>
-  <h4 id="BlueprintCore_Utils_Types_ContextDuration_Fixed_System_Int32_Kingmaker_UnitLogic_Mechanics_DurationRate_" data-uid="BlueprintCore.Utils.Types.ContextDuration.Fixed(System.Int32,Kingmaker.UnitLogic.Mechanics.DurationRate)">Fixed(Int32, DurationRate)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="BlueprintCore_Utils_Types_ContextDuration_Fixed_System_Int32_Kingmaker_UnitLogic_Mechanics_DurationRate_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Utils.Types.ContextDuration.Fixed(System.Int32,Kingmaker.UnitLogic.Mechanics.DurationRate,System.Nullable{System.Boolean})">Fixed(Int32, DurationRate, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Constant duration: (value) (rate). e.g. 3 rounds</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ContextDurationValue Fixed(int value, DurationRate rate = DurationRate.Rounds)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ContextDurationValue Fixed(int value, DurationRate rate = DurationRate.Rounds, bool? isExtendable = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -123,6 +124,209 @@
         <td><span class="xref">Kingmaker.UnitLogic.Mechanics.DurationRate</span></td>
         <td><span class="parametername">rate</span></td>
         <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">isExtendable</span></td>
+        <td><p>Determines if the duration is affected by Extend Metamagic.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextDurationValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Types_ContextDuration_FixedDice_Kingmaker_RuleSystem_DiceType_System_Int32_System_Int32_Kingmaker_UnitLogic_Mechanics_DurationRate_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Types.ContextDuration.FixedDice(Kingmaker.RuleSystem.DiceType%2CSystem.Int32%2CSystem.Int32%2CKingmaker.UnitLogic.Mechanics.DurationRate%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Types/ContextDuration.cs/#L26">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_Types_ContextDuration_FixedDice_" data-uid="BlueprintCore.Utils.Types.ContextDuration.FixedDice*"></a>
+  <h4 id="BlueprintCore_Utils_Types_ContextDuration_FixedDice_Kingmaker_RuleSystem_DiceType_System_Int32_System_Int32_Kingmaker_UnitLogic_Mechanics_DurationRate_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Utils.Types.ContextDuration.FixedDice(Kingmaker.RuleSystem.DiceType,System.Int32,System.Int32,Kingmaker.UnitLogic.Mechanics.DurationRate,System.Nullable{System.Boolean})">FixedDice(DiceType, Int32, Int32, DurationRate, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Fixed dice roll duration: (diceCount)(diceType) + (bonus) (rate). e.g. 2d6 + 3 rounds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextDurationValue FixedDice(DiceType diceType, int diceCount = 1, int bonus = 0, DurationRate rate = DurationRate.Rounds, bool? isExtendable = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.DiceType</span></td>
+        <td><span class="parametername">diceType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">diceCount</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">bonus</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.DurationRate</span></td>
+        <td><span class="parametername">rate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">isExtendable</span></td>
+        <td><p>Determines if the duration is affected by Extend Metamagic.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextDurationValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Types_ContextDuration_Variable_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_DurationRate_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Types.ContextDuration.Variable(Kingmaker.UnitLogic.Mechanics.ContextValue%2CKingmaker.UnitLogic.Mechanics.DurationRate%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Types/ContextDuration.cs/#L40">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_Types_ContextDuration_Variable_" data-uid="BlueprintCore.Utils.Types.ContextDuration.Variable*"></a>
+  <h4 id="BlueprintCore_Utils_Types_ContextDuration_Variable_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_DurationRate_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Utils.Types.ContextDuration.Variable(Kingmaker.UnitLogic.Mechanics.ContextValue,Kingmaker.UnitLogic.Mechanics.DurationRate,System.Nullable{System.Boolean})">Variable(ContextValue, DurationRate, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Context dependent duration: (value) (rate). e.g. ContextValues.Rank() rounds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextDurationValue Variable(ContextValue value, DurationRate rate = DurationRate.Rounds, bool? isExtendable = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.DurationRate</span></td>
+        <td><span class="parametername">rate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">isExtendable</span></td>
+        <td><p>Determines if the duration is affected by Extend Metamagic.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextDurationValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Types_ContextDuration_VariableDice_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_DurationRate_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Types.ContextDuration.VariableDice(Kingmaker.RuleSystem.DiceType%2CKingmaker.UnitLogic.Mechanics.ContextValue%2CKingmaker.UnitLogic.Mechanics.ContextValue%2CKingmaker.UnitLogic.Mechanics.DurationRate%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Types/ContextDuration.cs/#L50">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_Types_ContextDuration_VariableDice_" data-uid="BlueprintCore.Utils.Types.ContextDuration.VariableDice*"></a>
+  <h4 id="BlueprintCore_Utils_Types_ContextDuration_VariableDice_Kingmaker_RuleSystem_DiceType_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_DurationRate_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Utils.Types.ContextDuration.VariableDice(Kingmaker.RuleSystem.DiceType,Kingmaker.UnitLogic.Mechanics.ContextValue,Kingmaker.UnitLogic.Mechanics.ContextValue,Kingmaker.UnitLogic.Mechanics.DurationRate,System.Nullable{System.Boolean})">VariableDice(DiceType, ContextValue, ContextValue, DurationRate, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Context dependent dice roll: (diceCount)(diceType) + (bonus). e.g. ContextValues.Rank()d6 + 2</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContextDurationValue VariableDice(DiceType diceType, ContextValue diceCount, ContextValue bonus = null, DurationRate rate = DurationRate.Rounds, bool? isExtendable = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.DiceType</span></td>
+        <td><span class="parametername">diceType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">diceCount</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">bonus</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.DurationRate</span></td>
+        <td><span class="parametername">rate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">isExtendable</span></td>
+        <td><p>Determines if the duration is affected by Extend Metamagic.</p>
+</td>
       </tr>
     </tbody>
   </table>

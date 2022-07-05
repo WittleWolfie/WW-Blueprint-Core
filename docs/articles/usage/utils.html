@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Text, Logging, and Utils </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Text, Logging, and Utils ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="text-logging-and-utils">Text, Logging, and Utils</h1>
+
+<p>While the bulk of the functionality of BPCore is implemented in <a href="blueprints.html">Blueprint Configurators</a> and <a href="builders.html">Builders</a>, there are many utility classes that provide additional functionality.</p>
+<h2 id="text">Text</h2>
+<p>To display text in game you need to create a <code>LocalizedString</code> with a key used to look up the text for the appropriate locale / language.</p>
+<p>Using BPCore you can define text in JSON file containing a <a class="xref" href="../../api/BlueprintCore.Utils.Localization.MultiLocaleString.html">MultiLocaleString</a> array, such as this example from the <a href="../../tutorials/feat.md">Feat Tutorial</a>:</p>
+<pre><code class="lang-json">[
+  {
+    &quot;Key&quot;: &quot;MagicalAptitude.Name&quot;,
+    &quot;ProcessTemplates&quot;: false,
+    &quot;enGB&quot;: &quot;Magical Aptitude&quot;,
+    &quot;deDE&quot;: &quot;Magische Begabung&quot;
+  },
+
+  {
+    &quot;Key&quot;: &quot;MagicalAptitude.Description&quot;,
+    &quot;enGB&quot;: &quot;You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.&quot;
+  }
+]
+</code></pre>
+<p>By default BPCore uses the file <code>LocalizedStrings.json</code> in the same folder as your mod assembly; the same location as the <code>Info.json</code> file for a UMM mod. You can override this by calling <a class="xref" href="../../api/BlueprintCore.Utils.LocalizationTool.html#BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String_">LocalizationTool.LoadLocalizationPack()</a> and providing your own file.</p>
+<h3 id="localized-values">Localized Values</h3>
+<p>In your JSON file you can provide a value for each locale supported in-game: <code>enGB</code>, <code>ruRU</code>, <code>deDE</code>, <code>frFR</code>, <code>zhCN</code>, and <code>esES</code>. You must specify <code>enGB</code> as it is used for any locale without a value.</p>
+<p>Referencing <code>MagicalAptitude.Name</code> when the locale is <code>enGB</code> results in &quot;Magical Aptitude&quot; and &quot;Magische Begabung&quot; when the locale is set to <code>deDE</code>.</p>
+<h3 id="template-processing">Template Processing</h3>
+<p>By default <code>ProcessTemplates</code> is true. When set to true:</p>
+<ul>
+<li><a class="xref" href="../../api/BlueprintCore.Utils.EncyclopediaTool.html#BlueprintCore_Utils_EncyclopediaTool_TagEncyclopediaEntries_System_String_">EncyclopediaTool.TagEncyclopediaEntries()</a> is called (English only)
+<ul>
+<li>Generates links to the in-game encyclopedia for relevant entries such as <code>Strength</code> or <code>DC</code></li>
+</ul>
+</li>
+<li>The game's <code>TextTemplateEngine</code> is used to process the string
+<ul>
+<li>Converts placeholder strings into output, e.g. <code>{name}</code> is replaced by the character's name</li>
+</ul>
+</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Set <code>ProcessTemplates</code> to false for most feature names to ensure there are no UI bugs. Features like encyclopedia links don't work propertly for feature names.</p>
+</div>
+<p>Below is a list of template placeholders as of writing this doc, but the source of truth is the game's code in <code>TextTemplateEngine</code>.</p>
+<ul>
+<li><code>{mf}</code>, MaleFemaleTemplate()</li>
+<li><code>{race}</code>, RaceTemplate()</li>
+<li><code>{name}</code>, NameTemplate()</li>
+<li><code>{kingdomname}</code>, KingdomNameTemplate()</li>
+<li><code>{date}</code>, DateTemplate()</li>
+<li><code>{time}</code>, TimeTempate()</li>
+<li><code>{custom_companion_cost}</code>, CustomCompanionCostTemplate()</li>
+<li><code>{respec_cost}</code>, RespecCostTemplate()</li>
+<li><code>{leader_cost}</code>, LeaderCostTemplate()</li>
+<li><code>{flag}</code>, FlagTemplate()</li>
+<li><code>{n}</code>, NarratorStartTemplate()</li>
+<li><code>{/n}</code>, NarratorEndTemplate()</li>
+<li><code>{g}</code>, TooltipStartTemplate(TooltipType.Glosary)</li>
+<li><code>{/g}</code>, TooltipEndTemplate(TooltipType.Glosary)</li>
+<li><code>{d}</code>, TooltipStartTemplate(TooltipType.Decisions)</li>
+<li><code>{/d}</code>, TooltipEndTemplate(TooltipType.Decisions)</li>
+<li><code>{m}</code>, TooltipStartTemplate(TooltipType.Mechanics)</li>
+<li><code>{/m}</code>, TooltipEndTemplate(TooltipType.Mechanics)</li>
+<li><code>{mf_Regent}</code>, LeaderMaleFemaleTemplate(LeaderType.Counselor)</li>
+<li><code>{mf_Counsilor}</code>, LeaderMaleFemaleTemplate(LeaderType.Strategist)</li>
+<li><code>{mf_GrandDiplomat}</code>, LeaderMaleFemaleTemplate(LeaderType.Diplomat)</li>
+<li><code>{mf_Magister}</code>, LeaderMaleFemaleTemplate(LeaderType.General)</li>
+<li><code>{mf_General}</code>, LeaderMaleFemaleTemplate(LeaderType.General)</li>
+<li><code>{target}</code>, LogTemplateTarget()</li>
+<li><code>{formula}</code>, LogTemplateFormula()</li>
+<li><code>{source}</code>, LogTemplateSource()</li>
+<li><code>{text}</code>, LogTemplateText()</li>
+<li><code>{text_with_tags}</code>, LogTemplateTextWithTags()</li>
+<li><code>{description}</code>, LogTemplateDescription()</li>
+<li><code>{count}</code>, LogTemplateCount()</li>
+<li><code>{count_form}</code>, LogTemplateCountForm()</li>
+<li><code>{roll}</code>, LogTemplateRoll()</li>
+<li><code>{d20}</code>, LogTemplateD20()</li>
+<li><code>{d100}</code>, LogTemplateD100()</li>
+<li><code>{mod}</code>, LogTemplateModifier()</li>
+<li><code>{dc}</code>, LogTemplateDC()</li>
+<li><code>{chance_dc}</code>, LogTemplateChanceDC()</li>
+<li><code>{roll_chance}</code>, LogTemplateRollChance()</li>
+<li><code>{slotname}</code>, UITemplateEquipedItem()</li>
+<li><code>{wielder}</code>, UITemplateItemWielder()</li>
+<li><code>{rations}</code>, UITemplateRations()</li>
+<li><code>{recipe}</code>, UITemplateSimpleText()</li>
+<li><code>{attack_number}</code>, LogTemplateAttackNumber()</li>
+<li><code>{attacks_count}</code>, LogTemplateAttacksCount()</li>
+<li><code>{round}</code>, LogTemplateRound()</li>
+<li><code>{claimed_villages_count}</code>, SettlementsCountTemplate(SettlementState.LevelType.Village)</li>
+<li><code>{claimed_towns_count}</code>, SettlementsCountTemplate(SettlementState.LevelType.Town)</li>
+<li><code>{claimed_cities_count}</code>, SettlementsCountTemplate(SettlementState.LevelType.City)</li>
+<li><code>{portraits_path}</code>, UITemplatePartraitsPath()</li>
+<li><code>{area_name}</code>, UITemplateAreaName()</li>
+<li><code>{bind}</code>, KeyBindingTemplate()</li>
+<li><code>{console_bind}</code>, ConsoleBindingTemplate()</li>
+<li><code>{empty}</code>, EmptyTemplate()</li>
+<li><code>{br}</code>, LineBreakTemplate()</li>
+<li><code>{pc_console}</code>, PcConsoleTemplate()</li>
+<li><code>{t}</code>, TutorialDataTemplate()</li>
+<li><code>{ui}</code>, UITemplate()</li>
+</ul>
+<h3 id="referencing-text">Referencing Text</h3>
+<p>In BPCore APIs that set text values accept a <a class="xref" href="../../api/BlueprintCore.Utils.LocalString.html">LocalString</a> parameter. To specify a text value from this file use the key:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
+    .SetDisplayName(&quot;MagicalAptitude.Name&quot;)
+    .SetDescription(&quot;MagicalAptitude.Description&quot;)
+    .Configure();
+</code></pre>
+<p>You can also reference text already in the game by the key.</p>
+<p>If you have a <code>LocalizedString</code> you can use it directly:</p>
+<pre><code class="lang-C#">LocalizedString magicalAptitudeName = LocalizationTool.CreateString(FeatNameKey, FeatName, tagEncyclopediaEntries: false);
+LocalizedString magicalAptitudeDescription = LocalizationTool.CreateString(FeatDescriptionKey, FeatDescription);
+
+FeatureConfigurator.New(FeatName, FeatGuid)
+    .SetDisplayName(magicalAptitudeName)
+    .SetDescription(magicalAptitudeDescription&quot;)
+    .Configure();
+</code></pre>
+<p>Using <a class="xref" href="../../api/BlueprintCore.Utils.LocalizationTool.html#BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_">LocalizationTool.CreateString()</a> is not recommended; it only works for a single locale and fails if the user changes locale mid-game.</p>
+<p>Passing in a <code>LocalizedString</code> directly is useful if you are using <a href="https://github.com/Vek17/TabletopTweaks-Core">TabletopTweaks-Core</a> localization or referencing text copied from an existing blueprint.</p>
+<h2 id="logging">Logging</h2>
+<p><a class="xref" href="../../api/BlueprintCore.Utils.LogWrapper.html">LogWrapper</a> wraps the game's <code>LogChannel</code> class to provide control over verbose log output.</p>
+<p>It is used internally for logging within BlueprintCore and is available for use within your modification, but not required.</p>
+<pre><code class="lang-C#">private static readonly LogWrapper ModLogger = LogWrapper.Get(&quot;MyMod&quot;);
+private static readonly LogWrapper FeatLogger = LogWrapper.Get(&quot;Feats&quot;);
+
+ModLogger.Info(&quot;Mod initialized.&quot;);
+FeatLogger.Info.(&quot;Feat initialized.&quot;);
+</code></pre>
+<p>The output to the log from the above example is:</p>
+<pre><code>BlueprintCore.MyMod: Mod initialized.
+BlueprintCore.Feats: Mod initialized.
+</code></pre>
+<p>Log output is available locally in <code>%APPDATA%\..\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLogFull.txt</code> or in <a href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">Remote Console</a>.</p>
+<p>Log output uses the <code>Mods</code> channel currently.</p>
+<h2 id="tools">Tools</h2>
+<p>Tool classes provide simple utility functions, usually related to a specific type. See each class for more details, but some notable uses:</p>
+<ul>
+<li><a class="xref" href="../../api/BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a>
+<ul>
+<li>Use this to create, fetch, and provide a name to guid mapping for blueprints</li>
+</ul>
+</li>
+<li><a class="xref" href="../../api/BlueprintCore.Utils.ElementTool.html">ElementTool</a>
+<ul>
+<li>Use this to create or initialize types inheriting from <code>Element</code></li>
+</ul>
+</li>
+<li><a class="xref" href="../../api/BlueprintCore.Utils.PrereqTool.html">PrereqTool</a>
+<ul>
+<li>Use this to create types inheriting from <code>Prerequisite</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="type-constructors">Type Constructors</h2>
+<p>Utility classes are provided to simplify creating game objects.</p>
+<ul>
+<li><a class="xref" href="../../api/BlueprintCore.Utils.Types.ContextDuration.html">ContextDuration</a></li>
+</ul>
+<pre><code class="lang-C#">var contextDuration = ContextDuration.Fixed(2);
+</code></pre>
+<ul>
+<li><a class="xref" href="../../api/BlueprintCore.Utils.Types.ContextValues.html">ContextValues</a></li>
+</ul>
+<pre><code class="lang-C#">var contextValue = ContextValues.Rank();
+</code></pre>
+<ul>
+<li><a class="xref" href="../../api/BlueprintCore.Utils.Types.ContextRankConfigs.html">ContextRankConfigs</a></li>
+</ul>
+<pre><code class="lang-C#">var contextRankConfig = ContextRankConfigs.BaseAttack().WithDivStepProgression(2);
+</code></pre>
+<ul>
+<li><a class="xref" href="../../api/BlueprintCore.Utils.Types.UnitConditionException.html">UnitConditionException</a></li>
+</ul>
+<pre><code class="lang-C#">var unitConditionException = UnitConditionException.TargetHasFeatures(FeatureGuid1, FeatureGuid2);
+</code></pre>
+<h2 id="validator">Validator</h2>
+<p><a class="xref" href="../../api/BlueprintCore.Utils.Validator.html">Validator</a> is used by the library to validate method inputs, actions, conditions, blueprint components, and blueprints.</p>
+<p>You can also use it separately for any game objects created outside of the library:</p>
+<pre><code class="lang-C#">private static readonly LogWrapper ModLogger = LogWrapper.Get(&quot;MyMod&quot;);
+
+var validator = new Validator(&quot;MyValidator&quot;, &quot;BlueprintBuff&quot;);
+validator.Check(myBuff);
+validator.Check(myBuffActions);
+if (validator.HasErrors())
+{
+  ModLogger.Warning(validator.GetErrorString());
+}
+</code></pre>
+<p>Once you create a <code>Validator</code>, you can call <code>Check()</code> for any objects related to it and they will all be bundled into the same error validation string.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/usage/utils.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

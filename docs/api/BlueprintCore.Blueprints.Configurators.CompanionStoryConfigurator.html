@@ -93,13 +93,13 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_ModifyCompanion_System_Action_Kingmaker_Blueprints_BlueprintUnitReference__">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.ModifyCompanion(Action&lt;BlueprintUnitReference&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_SetTitle_Kingmaker_Localization_LocalizedString_">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.SetTitle(LocalizedString)</a>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_SetTitle_BlueprintCore_Utils_LocalString_">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.SetTitle(LocalString)</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_ModifyTitle_System_Action_Kingmaker_Localization_LocalizedString__">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.ModifyTitle(Action&lt;LocalizedString&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_SetDescription_Kingmaker_Localization_LocalizedString_">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.SetDescription(LocalizedString)</a>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_SetDescription_BlueprintCore_Utils_LocalString_">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.SetDescription(LocalString)</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_ModifyDescription_System_Action_Kingmaker_Localization_LocalizedString__">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.ModifyDescription(Action&lt;LocalizedString&gt;)</a>
@@ -114,7 +114,7 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_SetGender_Kingmaker_Blueprints_Gender_">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.SetGender(Gender)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_ModifyGender_System_Action_Kingmaker_Blueprints_Gender__">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.ModifyGender(Action&lt;Gender&gt;)</a>
+      <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseCompanionStoryConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseCompanionStoryConfigurator_2_OnConfigureCompleted">BaseCompanionStoryConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.OnConfigureCompleted()</a>
     </div>
     <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;BlueprintCompanionStory, CompanionStoryConfigurator&gt;.AddDlcCondition(Blueprint&lt;BlueprintDlcRewardReference&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
@@ -294,7 +294,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_CompanionStoryConfigurator_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -326,7 +326,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_CompanionStoryConfigurator_For_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_BlueprintCompanionStory___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.CompanionStoryConfigurator.For(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7BKingmaker.Blueprints.BlueprintCompanionStory%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/CompanionStory.cs/#L28">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/CompanionStoryConfigurator.cs/#L28">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_CompanionStoryConfigurator_For_" data-uid="BlueprintCore.Blueprints.Configurators.CompanionStoryConfigurator.For*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_CompanionStoryConfigurator_For_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_BlueprintCompanionStory___" data-uid="BlueprintCore.Blueprints.Configurators.CompanionStoryConfigurator.For(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{Kingmaker.Blueprints.BlueprintCompanionStory}})">For(Blueprint&lt;BlueprintReference&lt;BlueprintCompanionStory&gt;&gt;)</h4>
@@ -382,7 +382,7 @@ If you&apos;re using <a href="https://github.com/OwlcatOpenSource/WrathModificat
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_CompanionStoryConfigurator_New_System_String_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.CompanionStoryConfigurator.New(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/CompanionStory.cs/#L43">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/CompanionStoryConfigurator.cs/#L43">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_CompanionStoryConfigurator_New_" data-uid="BlueprintCore.Blueprints.Configurators.CompanionStoryConfigurator.New*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_CompanionStoryConfigurator_New_System_String_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.CompanionStoryConfigurator.New(System.String,System.String)">New(String, String)</h4>
@@ -449,7 +449,7 @@ An implicit cast converts the string to <a class="xref" href="BlueprintCore.Util
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_CompanionStoryConfigurator.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.CompanionStoryConfigurator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/CompanionStory.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/CompanionStoryConfigurator.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -91,9 +91,6 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator-2.html#BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_SetBaseScoreModifier_System_Single_">BaseConsiderationConfigurator&lt;T, TBuilder&gt;.SetBaseScoreModifier(Single)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator-2.html#BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_ModifyBaseScoreModifier_System_Action_System_Single__">BaseConsiderationConfigurator&lt;T, TBuilder&gt;.ModifyBaseScoreModifier(Action&lt;Single&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDlcCondition(Blueprint&lt;BlueprintDlcRewardReference&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
     </div>
     <div>
@@ -259,6 +256,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -290,7 +290,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -322,7 +322,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsideration.cs/#L19">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsiderationConfigurator.cs/#L18">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseLastTargetConsiderationConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -353,154 +353,10 @@ blueprint are logged as warnings.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifyNoLastTargetScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator%602.ModifyNoLastTargetScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsideration.cs/#L84">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifyNoLastTargetScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.ModifyNoLastTargetScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifyNoLastTargetScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.ModifyNoLastTargetScore(System.Action{System.Single})">ModifyNoLastTargetScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.LastTargetConsideration.NoLastTargetScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyNoLastTargetScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifyOtherLastTargetScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator%602.ModifyOtherLastTargetScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsideration.cs/#L60">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifyOtherLastTargetScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.ModifyOtherLastTargetScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifyOtherLastTargetScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.ModifyOtherLastTargetScore(System.Action{System.Single})">ModifyOtherLastTargetScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.LastTargetConsideration.OtherLastTargetScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyOtherLastTargetScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifySameLastTargetScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator%602.ModifySameLastTargetScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsideration.cs/#L36">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifySameLastTargetScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.ModifySameLastTargetScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_ModifySameLastTargetScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.ModifySameLastTargetScore(System.Action{System.Single})">ModifySameLastTargetScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.LastTargetConsideration.SameLastTargetScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifySameLastTargetScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetNoLastTargetScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator%602.SetNoLastTargetScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsideration.cs/#L72">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsiderationConfigurator.cs/#L47">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetNoLastTargetScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.SetNoLastTargetScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetNoLastTargetScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.SetNoLastTargetScore(System.Single)">SetNoLastTargetScore(Single)</h4>
@@ -548,7 +404,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetOtherLastTargetScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator%602.SetOtherLastTargetScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsideration.cs/#L48">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsiderationConfigurator.cs/#L35">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetOtherLastTargetScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.SetOtherLastTargetScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetOtherLastTargetScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.SetOtherLastTargetScore(System.Single)">SetOtherLastTargetScore(Single)</h4>
@@ -596,7 +452,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetSameLastTargetScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator%602.SetSameLastTargetScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsideration.cs/#L24">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsiderationConfigurator.cs/#L23">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetSameLastTargetScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.SetSameLastTargetScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2_SetSameLastTargetScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator`2.SetSameLastTargetScore(System.Single)">SetSameLastTargetScore(Single)</h4>
@@ -650,7 +506,7 @@ blueprint are logged as warnings.
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseLastTargetConsiderationConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseLastTargetConsiderationConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsideration.cs/#L14" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseLastTargetConsiderationConfigurator.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

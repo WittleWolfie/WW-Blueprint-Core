@@ -252,6 +252,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -283,7 +286,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -315,7 +318,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L21">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L21">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseGlobalMapEdgeConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -346,58 +349,10 @@ blueprint are logged as warnings.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyLength_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.ModifyLength(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L191">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyLength_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyLength*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyLength_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyLength(System.Action{System.Single})">ModifyLength(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge.Length</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyLength(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyLockCondition_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.ModifyLockCondition(System.Action%7BKingmaker.ElementsSystem.ConditionsChecker%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L166">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L138">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyLockCondition_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyLockCondition*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyLockCondition_System_Action_Kingmaker_ElementsSystem_ConditionsChecker__" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyLockCondition(System.Action{Kingmaker.ElementsSystem.ConditionsChecker})">ModifyLockCondition(Action&lt;ConditionsChecker&gt;)</h4>
@@ -445,7 +400,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPoint1_System_Action_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.ModifyPoint1(System.Action%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L99">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L75">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPoint1_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyPoint1*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPoint1_System_Action_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyPoint1(System.Action{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference})">ModifyPoint1(Action&lt;BlueprintGlobalMapPoint.Reference&gt;)</h4>
@@ -493,7 +448,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPoint2_System_Action_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.ModifyPoint2(System.Action%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L137">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L113">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPoint2_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyPoint2*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPoint2_System_Action_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyPoint2(System.Action{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference})">ModifyPoint2(Action&lt;BlueprintGlobalMapPoint.Reference&gt;)</h4>
@@ -538,106 +493,27 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPriority_System_Action_Kingmaker_Globalmap_Blueprints_GlobalMapEdgePriority__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.ModifyPriority(System.Action%7BKingmaker.Globalmap.Blueprints.GlobalMapEdgePriority%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L62">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L160">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPriority_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyPriority*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyPriority_System_Action_Kingmaker_Globalmap_Blueprints_GlobalMapEdgePriority__" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyPriority(System.Action{Kingmaker.Globalmap.Blueprints.GlobalMapEdgePriority})">ModifyPriority(Action&lt;GlobalMapEdgePriority&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge.Priority</span> by invoking the provided action.</p>
-</div>
+  <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.OnConfigureCompleted*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyPriority(Action&lt;GlobalMapEdgePriority&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void OnConfigureCompleted()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Globalmap.Blueprints.GlobalMapEdgePriority</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyType_System_Action_Kingmaker_Globalmap_Blueprints_GlobalMapEdgeType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.ModifyType(System.Action%7BKingmaker.Globalmap.Blueprints.GlobalMapEdgeType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L38">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyType_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyType*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_ModifyType_System_Action_Kingmaker_Globalmap_Blueprints_GlobalMapEdgeType__" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.ModifyType(System.Action{Kingmaker.Globalmap.Blueprints.GlobalMapEdgeType})">ModifyType(Action&lt;GlobalMapEdgeType&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge.Type</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyType(Action&lt;GlobalMapEdgeType&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Globalmap.Blueprints.GlobalMapEdgeType</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetLength_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.SetLength(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L179">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L151">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetLength_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetLength*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetLength_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetLength(System.Single)">SetLength(Single)</h4>
@@ -685,7 +561,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetLockCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.SetLockCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L150">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L126">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetLockCondition_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetLockCondition*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetLockCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetLockCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder)">SetLockCondition(ConditionsBuilder)</h4>
@@ -733,7 +609,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPoint1_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.SetPoint1(BlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L87">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L63">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPoint1_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetPoint1*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPoint1_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetPoint1(BlueprintCore.Utils.Blueprint{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference})">SetPoint1(Blueprint&lt;BlueprintGlobalMapPoint.Reference&gt;)</h4>
@@ -786,7 +662,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPoint2_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.SetPoint2(BlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L125">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L101">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPoint2_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetPoint2*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPoint2_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetPoint2(BlueprintCore.Utils.Blueprint{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference})">SetPoint2(Blueprint&lt;BlueprintGlobalMapPoint.Reference&gt;)</h4>
@@ -839,7 +715,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPriority_Kingmaker_Globalmap_Blueprints_GlobalMapEdgePriority_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.SetPriority(Kingmaker.Globalmap.Blueprints.GlobalMapEdgePriority)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L50">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L38">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPriority_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetPriority*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetPriority_Kingmaker_Globalmap_Blueprints_GlobalMapEdgePriority_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetPriority(Kingmaker.Globalmap.Blueprints.GlobalMapEdgePriority)">SetPriority(GlobalMapEdgePriority)</h4>
@@ -887,7 +763,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetType_Kingmaker_Globalmap_Blueprints_GlobalMapEdgeType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602.SetType(Kingmaker.Globalmap.Blueprints.GlobalMapEdgeType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L26">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L26">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetType_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetType*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2_SetType_Kingmaker_Globalmap_Blueprints_GlobalMapEdgeType_" data-uid="BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator`2.SetType(Kingmaker.Globalmap.Blueprints.GlobalMapEdgeType)">SetType(GlobalMapEdgeType)</h4>
@@ -941,7 +817,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Globalmap_BaseGlobalMapEdgeConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Globalmap.BaseGlobalMapEdgeConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdge.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Globalmap/BaseGlobalMapEdgeConfigurator.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

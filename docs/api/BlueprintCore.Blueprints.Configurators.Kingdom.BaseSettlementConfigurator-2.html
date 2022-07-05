@@ -252,6 +252,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -283,7 +286,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -315,7 +318,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L22">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L22">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseSettlementConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -346,58 +349,10 @@ blueprint are logged as warnings.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyCustomSettlementEntrance_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifyCustomSettlementEntrance(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L219">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyCustomSettlementEntrance_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyCustomSettlementEntrance*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyCustomSettlementEntrance_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyCustomSettlementEntrance(System.Action{System.Boolean})">ModifyCustomSettlementEntrance(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Kingdom.BlueprintSettlement.m_CustomSettlementEntrance</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyCustomSettlementEntrance(Action&lt;bool&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyCustomSiegeDurationDays_System_Action_System_Nullable_System_Int32___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifyCustomSiegeDurationDays(System.Action%7BSystem.Nullable%7BSystem.Int32%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L349">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L289">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyCustomSiegeDurationDays_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyCustomSiegeDurationDays*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyCustomSiegeDurationDays_System_Action_System_Nullable_System_Int32___" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyCustomSiegeDurationDays(System.Action{System.Nullable{System.Int32}})">ModifyCustomSiegeDurationDays(Action&lt;Nullable&lt;Int32&gt;&gt;)</h4>
@@ -445,7 +400,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyDefaultSettlementName_System_Action_Kingmaker_Localization_LocalizedString__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifyDefaultSettlementName(System.Action%7BKingmaker.Localization.LocalizedString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L115">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L79">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyDefaultSettlementName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyDefaultSettlementName*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyDefaultSettlementName_System_Action_Kingmaker_Localization_LocalizedString__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyDefaultSettlementName(System.Action{Kingmaker.Localization.LocalizedString})">ModifyDefaultSettlementName(Action&lt;LocalizedString&gt;)</h4>
@@ -490,154 +445,10 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyHasWaterSlot_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifyHasWaterSlot(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L87">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyHasWaterSlot_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyHasWaterSlot*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyHasWaterSlot_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyHasWaterSlot(System.Action{System.Boolean})">ModifyHasWaterSlot(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Kingdom.BlueprintSettlement.m_HasWaterSlot</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyHasWaterSlot(Action&lt;bool&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyMaxSettlementLevel_System_Action_Kingmaker_Kingdom_Settlements_SettlementState_LevelType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifyMaxSettlementLevel(System.Action%7BKingmaker.Kingdom.Settlements.SettlementState.LevelType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L63">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyMaxSettlementLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyMaxSettlementLevel*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyMaxSettlementLevel_System_Action_Kingmaker_Kingdom_Settlements_SettlementState_LevelType__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyMaxSettlementLevel(System.Action{Kingmaker.Kingdom.Settlements.SettlementState.LevelType})">ModifyMaxSettlementLevel(Action&lt;SettlementState.LevelType&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Kingdom.BlueprintSettlement.m_MaxSettlementLevel</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyMaxSettlementLevel(Action&lt;SettlementState.LevelType&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Kingdom.Settlements.SettlementState.LevelType</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyNeedOwnMarker_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifyNeedOwnMarker(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L379">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyNeedOwnMarker_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyNeedOwnMarker*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyNeedOwnMarker_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyNeedOwnMarker(System.Action{System.Boolean})">ModifyNeedOwnMarker(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Kingdom.BlueprintSettlement.m_NeedOwnMarker</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyNeedOwnMarker(Action&lt;bool&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementBuildArea_System_Action_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifySettlementBuildArea(System.Action%7BKingmaker.Blueprints.BlueprintAreaEnterPointReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L156">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L120">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementBuildArea_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementBuildArea*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementBuildArea_System_Action_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementBuildArea(System.Action{Kingmaker.Blueprints.BlueprintAreaEnterPointReference})">ModifySettlementBuildArea(Action&lt;BlueprintAreaEnterPointReference&gt;)</h4>
@@ -685,7 +496,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementBuildAreaWithWater_System_Action_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifySettlementBuildAreaWithWater(System.Action%7BKingmaker.Blueprints.BlueprintAreaEnterPointReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L194">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L158">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementBuildAreaWithWater_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementBuildAreaWithWater*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementBuildAreaWithWater_System_Action_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementBuildAreaWithWater(System.Action{Kingmaker.Blueprints.BlueprintAreaEnterPointReference})">ModifySettlementBuildAreaWithWater(Action&lt;BlueprintAreaEnterPointReference&gt;)</h4>
@@ -733,7 +544,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementEntrance_System_Action_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifySettlementEntrance(System.Action%7BKingmaker.Blueprints.BlueprintAreaEnterPointReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L280">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L220">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementEntrance_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementEntrance*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementEntrance_System_Action_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementEntrance(System.Action{Kingmaker.Blueprints.BlueprintAreaEnterPointReference})">ModifySettlementEntrance(Action&lt;BlueprintAreaEnterPointReference&gt;)</h4>
@@ -781,7 +592,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementEntrances_System_Action_Kingmaker_Globalmap_Blueprints_BlueprintMultiEntrance_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifySettlementEntrances(System.Action%7BKingmaker.Globalmap.Blueprints.BlueprintMultiEntrance.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L318">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L258">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementEntrances_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementEntrances*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementEntrances_System_Action_Kingmaker_Globalmap_Blueprints_BlueprintMultiEntrance_Reference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementEntrances(System.Action{Kingmaker.Globalmap.Blueprints.BlueprintMultiEntrance.Reference})">ModifySettlementEntrances(Action&lt;BlueprintMultiEntrance.Reference&gt;)</h4>
@@ -826,106 +637,27 @@ blueprint are logged as warnings.
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementIsPrebuilt_System_Action_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifySettlementIsPrebuilt(System.Action%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L243">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L316">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementIsPrebuilt_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementIsPrebuilt*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifySettlementIsPrebuilt_System_Action_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifySettlementIsPrebuilt(System.Action{System.Boolean})">ModifySettlementIsPrebuilt(Action&lt;Boolean&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Kingdom.BlueprintSettlement.m_SettlementIsPrebuilt</span> by invoking the provided action.</p>
-</div>
+  <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.OnConfigureCompleted*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifySettlementIsPrebuilt(Action&lt;bool&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void OnConfigureCompleted()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyStartLevel_System_Action_Kingmaker_Kingdom_Settlements_SettlementState_LevelType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.ModifyStartLevel(System.Action%7BKingmaker.Kingdom.Settlements.SettlementState.LevelType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L39">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyStartLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyStartLevel*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_ModifyStartLevel_System_Action_Kingmaker_Kingdom_Settlements_SettlementState_LevelType__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.ModifyStartLevel(System.Action{Kingmaker.Kingdom.Settlements.SettlementState.LevelType})">ModifyStartLevel(Action&lt;SettlementState.LevelType&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.Kingdom.BlueprintSettlement.m_StartLevel</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyStartLevel(Action&lt;SettlementState.LevelType&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">Kingmaker.Kingdom.Settlements.SettlementState.LevelType</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetCustomSettlementEntrance_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetCustomSettlementEntrance(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L207">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L171">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetCustomSettlementEntrance_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetCustomSettlementEntrance*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetCustomSettlementEntrance_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetCustomSettlementEntrance(System.Boolean)">SetCustomSettlementEntrance(Boolean)</h4>
@@ -973,7 +705,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetCustomSiegeDurationDays_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetCustomSiegeDurationDays(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L337">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L277">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetCustomSiegeDurationDays_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetCustomSiegeDurationDays*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetCustomSiegeDurationDays_System_Int32_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetCustomSiegeDurationDays(System.Int32)">SetCustomSiegeDurationDays(Int32)</h4>
@@ -1021,19 +753,19 @@ InfoBox: If set, settings from KingdomRoot about siege duration will be ignored
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetDefaultSettlementName_Kingmaker_Localization_LocalizedString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetDefaultSettlementName(Kingmaker.Localization.LocalizedString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetDefaultSettlementName_BlueprintCore_Utils_LocalString_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetDefaultSettlementName(BlueprintCore.Utils.LocalString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L99">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L67">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetDefaultSettlementName_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetDefaultSettlementName*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetDefaultSettlementName_Kingmaker_Localization_LocalizedString_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetDefaultSettlementName(Kingmaker.Localization.LocalizedString)">SetDefaultSettlementName(LocalizedString)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetDefaultSettlementName_BlueprintCore_Utils_LocalString_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetDefaultSettlementName(BlueprintCore.Utils.LocalString)">SetDefaultSettlementName(LocalString)</h4>
   <div class="markdown level1 summary"><p>Sets the value of <span class="xref">Kingmaker.Kingdom.BlueprintSettlement.m_DefaultSettlementName</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder SetDefaultSettlementName(LocalizedString defaultSettlementName)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder SetDefaultSettlementName(LocalString defaultSettlementName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1046,9 +778,10 @@ InfoBox: If set, settings from KingdomRoot about siege duration will be ignored
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Kingmaker.Localization.LocalizedString</span></td>
+        <td><a class="xref" href="BlueprintCore.Utils.LocalString.html">LocalString</a></td>
         <td><span class="parametername">defaultSettlementName</span></td>
-        <td></td>
+        <td><p>You can pass in the string using a LocalizedString or the Key to a LocalizedString.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1072,7 +805,7 @@ InfoBox: If set, settings from KingdomRoot about siege duration will be ignored
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetHasWaterSlot_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetHasWaterSlot(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L75">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L51">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetHasWaterSlot_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetHasWaterSlot*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetHasWaterSlot_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetHasWaterSlot(System.Boolean)">SetHasWaterSlot(Boolean)</h4>
@@ -1120,7 +853,7 @@ InfoBox: If set, settings from KingdomRoot about siege duration will be ignored
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetMaxSettlementLevel_Kingmaker_Kingdom_Settlements_SettlementState_LevelType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetMaxSettlementLevel(Kingmaker.Kingdom.Settlements.SettlementState.LevelType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L51">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L39">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetMaxSettlementLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetMaxSettlementLevel*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetMaxSettlementLevel_Kingmaker_Kingdom_Settlements_SettlementState_LevelType_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetMaxSettlementLevel(Kingmaker.Kingdom.Settlements.SettlementState.LevelType)">SetMaxSettlementLevel(SettlementState.LevelType)</h4>
@@ -1168,7 +901,7 @@ InfoBox: If set, settings from KingdomRoot about siege duration will be ignored
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetNeedOwnMarker_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetNeedOwnMarker(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L367">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L307">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetNeedOwnMarker_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetNeedOwnMarker*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetNeedOwnMarker_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetNeedOwnMarker(System.Boolean)">SetNeedOwnMarker(Boolean)</h4>
@@ -1219,7 +952,7 @@ InfoBox: If false, settlement marker won&amp;apos;t be spawn, location marker wi
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementBuildArea_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetSettlementBuildArea(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintAreaEnterPointReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L144">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L108">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementBuildArea_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementBuildArea*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementBuildArea_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementBuildArea(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintAreaEnterPointReference})">SetSettlementBuildArea(Blueprint&lt;BlueprintAreaEnterPointReference&gt;)</h4>
@@ -1275,7 +1008,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementBuildAreaWithWater_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetSettlementBuildAreaWithWater(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintAreaEnterPointReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L182">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L146">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementBuildAreaWithWater_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementBuildAreaWithWater*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementBuildAreaWithWater_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementBuildAreaWithWater(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintAreaEnterPointReference})">SetSettlementBuildAreaWithWater(Blueprint&lt;BlueprintAreaEnterPointReference&gt;)</h4>
@@ -1328,7 +1061,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementEntrance_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetSettlementEntrance(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintAreaEnterPointReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L268">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L208">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementEntrance_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementEntrance*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementEntrance_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementEntrance(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintAreaEnterPointReference})">SetSettlementEntrance(Blueprint&lt;BlueprintAreaEnterPointReference&gt;)</h4>
@@ -1381,7 +1114,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementEntrances_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintMultiEntrance_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetSettlementEntrances(BlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintMultiEntrance.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L306">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L246">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementEntrances_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementEntrances*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementEntrances_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintMultiEntrance_Reference__" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementEntrances(BlueprintCore.Utils.Blueprint{Kingmaker.Globalmap.Blueprints.BlueprintMultiEntrance.Reference})">SetSettlementEntrances(Blueprint&lt;BlueprintMultiEntrance.Reference&gt;)</h4>
@@ -1434,7 +1167,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementIsPrebuilt_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetSettlementIsPrebuilt(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L231">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L183">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementIsPrebuilt_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementIsPrebuilt*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetSettlementIsPrebuilt_System_Boolean_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetSettlementIsPrebuilt(System.Boolean)">SetSettlementIsPrebuilt(Boolean)</h4>
@@ -1482,7 +1215,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetStartLevel_Kingmaker_Kingdom_Settlements_SettlementState_LevelType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602.SetStartLevel(Kingmaker.Kingdom.Settlements.SettlementState.LevelType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L27">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L27">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetStartLevel_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetStartLevel*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2_SetStartLevel_Kingmaker_Kingdom_Settlements_SettlementState_LevelType_" data-uid="BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator`2.SetStartLevel(Kingmaker.Kingdom.Settlements.SettlementState.LevelType)">SetStartLevel(SettlementState.LevelType)</h4>
@@ -1536,7 +1269,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_Kingdom_BaseSettlementConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.Kingdom.BaseSettlementConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlement.cs/#L17" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/Kingdom/BaseSettlementConfigurator.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -91,9 +91,6 @@
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator-2.html#BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_SetBaseScoreModifier_System_Single_">BaseConsiderationConfigurator&lt;T, TBuilder&gt;.SetBaseScoreModifier(Single)</a>
     </div>
     <div>
-      <a class="xref" href="BlueprintCore.Blueprints.Configurators.AI.BaseConsiderationConfigurator-2.html#BlueprintCore_Blueprints_Configurators_AI_BaseConsiderationConfigurator_2_ModifyBaseScoreModifier_System_Action_System_Single__">BaseConsiderationConfigurator&lt;T, TBuilder&gt;.ModifyBaseScoreModifier(Action&lt;Single&gt;)</a>
-    </div>
-    <div>
       <a class="xref" href="BlueprintCore.Blueprints.Configurators.BaseBlueprintConfigurator-2.html#BlueprintCore_Blueprints_Configurators_BaseBlueprintConfigurator_2_AddDlcCondition_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_">BaseBlueprintConfigurator&lt;T, TBuilder&gt;.AddDlcCondition(Blueprint&lt;BlueprintDlcRewardReference&gt;, Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge)</a>
     </div>
     <div>
@@ -259,6 +256,9 @@
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureInternal(Action&lt;T&gt;[])</a>
     </div>
     <div>
+      <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted">RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</a>
+    </div>
+    <div>
       <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_">RootConfigurator&lt;T, TBuilder&gt;.Validate(Object)</a>
     </div>
   </div>
@@ -290,7 +290,7 @@
   <h5 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
 Each supported blueprint type has a corresponding <code>Configurator</code> class to create and modify blueprints of
-that type, e.g. <a class="xref" href="BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a> supports <code>BlueprintFeature</code>. Configurators exist for all
+that type, e.g. <see cref="!:FeatureConfigurator"></see> supports <code>BlueprintFeature</code>. Configurators exist for all
 blueprint types inheriting from <span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>, excluding any that are not used in the
 base game.
 </p>
@@ -322,7 +322,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.%23ctor(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7B%600%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L21">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L21">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2__ctor_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.#ctor*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2__ctor_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference__0___" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.#ctor(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{`0}})">BaseFactConsiderationConfigurator(Blueprint&lt;BlueprintReference&lt;T&gt;&gt;)</h4>
@@ -356,7 +356,7 @@ blueprint are logged as warnings.
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_AddToFact_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.AddToFact(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L64">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L64">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_AddToFact_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.AddToFact*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_AddToFact_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference____" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.AddToFact(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitFactReference}[])">AddToFact(Blueprint&lt;BlueprintUnitFactReference&gt;[])</h4>
@@ -409,7 +409,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ClearFact.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.ClearFact%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L116">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L116">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ClearFact_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.ClearFact*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ClearFact" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.ClearFact">ClearFact()</h4>
@@ -440,7 +440,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyFact_System_Action_Kingmaker_Blueprints_BlueprintUnitFactReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.ModifyFact(System.Action%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L128">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L128">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyFact_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.ModifyFact*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyFact_System_Action_Kingmaker_Blueprints_BlueprintUnitFactReference__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.ModifyFact(System.Action{Kingmaker.Blueprints.BlueprintUnitFactReference})">ModifyFact(Action&lt;BlueprintUnitFactReference&gt;)</h4>
@@ -485,106 +485,27 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyHasFactScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.ModifyHasFactScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L153">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L162">View Source</a>
   </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyHasFactScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.ModifyHasFactScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyHasFactScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.ModifyHasFactScore(System.Action{System.Single})">ModifyHasFactScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.FactConsideration.HasFactScore</span> by invoking the provided action.</p>
-</div>
+  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.OnConfigureCompleted*"></a>
+  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyHasFactScore(Action&lt;float&gt; action)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override void OnConfigureCompleted()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyNoFactScore_System_Action_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.ModifyNoFactScore(System.Action%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L177">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyNoFactScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.ModifyNoFactScore*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_ModifyNoFactScore_System_Action_System_Single__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.ModifyNoFactScore(System.Action{System.Single})">ModifyNoFactScore(Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"><p>Modifies <span class="xref">Kingmaker.AI.Blueprints.Considerations.FactConsideration.NoFactScore</span> by invoking the provided action.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder ModifyNoFactScore(Action&lt;float&gt; action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">action</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator&lt;T, TBuilder&gt;.OnConfigureCompleted()</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_RemoveFromFact_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.RemoveFromFact(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L90">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L90">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_RemoveFromFact_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.RemoveFromFact*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_RemoveFromFact_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference____" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.RemoveFromFact(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitFactReference}[])">RemoveFromFact(Blueprint&lt;BlueprintUnitFactReference&gt;[])</h4>
@@ -637,7 +558,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_RemoveFromFact_System_Func_Kingmaker_Blueprints_BlueprintUnitFactReference_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.RemoveFromFact(System.Func%7BKingmaker.Blueprints.BlueprintUnitFactReference%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L103">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L103">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_RemoveFromFact_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.RemoveFromFact*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_RemoveFromFact_System_Func_Kingmaker_Blueprints_BlueprintUnitFactReference_System_Boolean__" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.RemoveFromFact(System.Func{Kingmaker.Blueprints.BlueprintUnitFactReference,System.Boolean})">RemoveFromFact(Func&lt;BlueprintUnitFactReference, Boolean&gt;)</h4>
@@ -685,7 +606,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetFact_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.SetFact(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitFactReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L39">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L39">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetFact_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.SetFact*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetFact_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference____" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.SetFact(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitFactReference}[])">SetFact(Blueprint&lt;BlueprintUnitFactReference&gt;[])</h4>
@@ -738,7 +659,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetHasFactScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.SetHasFactScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L141">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L141">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetHasFactScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.SetHasFactScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetHasFactScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.SetHasFactScore(System.Single)">SetHasFactScore(Single)</h4>
@@ -786,7 +707,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetNoFactScore_System_Single_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602.SetNoFactScore(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L165">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L153">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetNoFactScore_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.SetNoFactScore*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2_SetNoFactScore_System_Single_" data-uid="BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator`2.SetNoFactScore(System.Single)">SetNoFactScore(Single)</h4>
@@ -840,7 +761,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_AI_BaseFactConsiderationConfigurator_2.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.AI.BaseFactConsiderationConfigurator%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsideration.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/AI/BaseFactConsiderationConfigurator.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

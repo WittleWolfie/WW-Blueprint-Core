@@ -419,56 +419,57 @@ public static ActionsBuilder ApplyBuff(
   ],
   &quot;Imports&quot;: [
     &quot;BlueprintTool&quot;,
-    &quot;BlueprintItemEnchantment&quot;,
+    &quot;BlueprintArmorEnchantment&quot;,
+    &quot;BlueprintArmorEnchantmentReference&quot;,
     &quot;BlueprintItemEnchantmentReference&quot;,
-    &quot;ItemEnchantments&quot;
+    &quot;ArmorEnchantmentRefs&quot;
   ],
   &quot;RequiredFields&quot;: [ &quot;EnchantPool&quot;, &quot;DurationValue&quot; ],
   &quot;IgnoredFields&quot;: [ &quot;m_DefaultEnchantments&quot; ],
   &quot;ExtraParams&quot;: [
     {
       &quot;ParamName&quot;: &quot;enchantmentPlus1&quot;,
-      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintArmorEnchantmentReference&gt;?&quot;,
       &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus1&quot;,
       &quot;DefaultValue&quot;: &quot;null&quot;,
       &quot;OperationFmt&quot;: [
-        &quot;{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;&quot;
+        &quot;{0}.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast&lt;BlueprintItemEnchantmentReference&gt;()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus1.Cast&lt;BlueprintItemEnchantmentReference&gt;().Reference;&quot;
       ]
     },
     {
       &quot;ParamName&quot;: &quot;enchantmentPlus2&quot;,
-      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintArmorEnchantmentReference&gt;?&quot;,
       &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus2&quot;,
       &quot;DefaultValue&quot;: &quot;null&quot;,
       &quot;OperationFmt&quot;: [
-        &quot;{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;&quot;
+        &quot;{0}.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast&lt;BlueprintItemEnchantmentReference&gt;()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus2.Cast&lt;BlueprintItemEnchantmentReference&gt;().Reference;&quot;
       ]
     },
     {
       &quot;ParamName&quot;: &quot;enchantmentPlus3&quot;,
-      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintArmorEnchantmentReference&gt;?&quot;,
       &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus3&quot;,
       &quot;DefaultValue&quot;: &quot;null&quot;,
       &quot;OperationFmt&quot;: [
-        &quot;{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;&quot;
+        &quot;{0}.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast&lt;BlueprintItemEnchantmentReference&gt;()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus3.Cast&lt;BlueprintItemEnchantmentReference&gt;().Reference;&quot;
       ]
     },
     {
       &quot;ParamName&quot;: &quot;enchantmentPlus4&quot;,
-      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintArmorEnchantmentReference&gt;?&quot;,
       &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus4&quot;,
       &quot;DefaultValue&quot;: &quot;null&quot;,
       &quot;OperationFmt&quot;: [
-        &quot;{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;&quot;
+        &quot;{0}.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast&lt;BlueprintItemEnchantmentReference&gt;()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus4.Cast&lt;BlueprintItemEnchantmentReference&gt;().Reference;&quot;
       ]
     },
     {
       &quot;ParamName&quot;: &quot;enchantmentPlus5&quot;,
-      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintItemEnchantmentReference&gt;?&quot;,
+      &quot;TypeName&quot;: &quot;Blueprint&lt;BlueprintArmorEnchantmentReference&gt;?&quot;,
       &quot;CommentFmt&quot;: &quot;Defaults to TemporaryArmorEnhancementBonus5&quot;,
       &quot;DefaultValue&quot;: &quot;null&quot;,
       &quot;OperationFmt&quot;: [
-        &quot;{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;&quot;
+        &quot;{0}.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast&lt;BlueprintItemEnchantmentReference&gt;()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus5.Cast&lt;BlueprintItemEnchantmentReference&gt;().Reference;&quot;
       ]
     }
   ]
@@ -589,7 +590,7 @@ public static ActionsBuilder ApplyBuff(
 <li>Do not modify the blueprint directly; use <code>OnConfigureInternal()</code></li>
 <li>Use <code>&lt;inheritdoc/&gt;</code> where possible</li>
 </ul>
-<p>Look at <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/UnitLogic/Abilities/Ability.cs">Ability.cs</a> as an example.</p>
+<p>Look at <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/UnitLogic/Abilities/AbilityConfigurator.cs">AbilityConfigurator.cs</a> as an example.</p>
 <p>Notice the declaration of <code>SetCustomRange()</code>:</p>
 <pre><code class="lang-C#">public new AbilityConfigurator SetCustomRange(Feet rangeInFeet)
 </code></pre>
