@@ -139,7 +139,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
       }
 
       var removeOperation = parameter.GetRemoveOperation(OnConfigureObjName);
-      if (removeOperation.Any())
+      if (removeOperation.Any() && !fieldMethod.IgnoreRemoveFrom)
       {
         methods.Add(
           CreateFieldMethod(

@@ -245,6 +245,9 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public MethodOverride RemoveFrom { get; private set; } = new();
 
     [JsonProperty]
+    public bool IgnoreRemoveFrom { get; private set; } = false;
+
+    [JsonProperty]
     public MethodOverride RemoveFromPredicate { get; private set; } = new();
 
     [JsonProperty]
