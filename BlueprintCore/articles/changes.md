@@ -19,6 +19,7 @@
         * Added many convenience method overrides for ease of working with ClassWithLevel, LevelEntry, and ArchetypeWithLevel
         * Removed support for AlternateProgressionType which can only be Div2
         * Automatically sets `ForAllOtherClasses` to `false` when setting or adding to `m_AlternateProgressionClasses`
+        * Removed support for Remove functions that don't make sense
     * BuffEnchantAnyWeapon is now available in BaseUnitFactConfigurator and all inherited types
     * AddStatBonusIfHasFact replaced by AddStatbonusIfHasFactFixed
 
@@ -26,6 +27,7 @@
 
 * ProgressionConfigurator changed namespace
     * It is now hand tuned so it lives in CustomConfigurators
+    * Some `RemoveFrom` field methods were removed since they are not useful
 * Some ContextAction methods were updated with a stricter API
     * `ArmorEnchantPool` and `ShieldArmorEnchantPool` uses `BlueprintArmorEnchantReference` instead of `BlueprintItemEnchantmentReference`
     * `WeaponEnchantPool` and `ShieldWeaponEnchantPool` uses `BlueprintWeaponEnchantmentReference` instead of `BlueprintItemEnchantmentReference`
