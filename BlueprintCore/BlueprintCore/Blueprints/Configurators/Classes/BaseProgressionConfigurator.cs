@@ -63,27 +63,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.m_Classes"/>
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// Specified class levels are summed when determining the character's level with respect to the progression.
-    /// </para>
-    /// <para>
-    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
-    /// </para>
-    /// </remarks>
-    public TBuilder RemoveFromClasses(params BlueprintProgression.ClassWithLevel[] classes)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_Classes is null) { return; }
-          bp.m_Classes = bp.m_Classes.Where(val => !classes.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
     /// Removes elements from <see cref="BlueprintProgression.m_Classes"/> that match the provided predicate.
     /// </summary>
     /// <remarks>
@@ -190,30 +169,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         {
           bp.m_Archetypes = bp.m_Archetypes ?? new BlueprintProgression.ArchetypeWithLevel[0];
           bp.m_Archetypes = CommonTool.Append(bp.m_Archetypes, archetypes);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.m_Archetypes"/>
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// Specified archetype levels are summed when determining the character's level with respect to the progression.
-    /// </para>
-    /// <para>
-    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
-    /// </para>
-    /// <para>
-    /// Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype.
-    /// </para>
-    /// </remarks>
-    public TBuilder RemoveFromArchetypes(params BlueprintProgression.ArchetypeWithLevel[] archetypes)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_Archetypes is null) { return; }
-          bp.m_Archetypes = bp.m_Archetypes.Where(val => !archetypes.Contains(val)).ToArray();
         });
     }
 
@@ -345,30 +300,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
           bp.m_AlternateProgressionClasses = bp.m_AlternateProgressionClasses ?? new BlueprintProgression.ClassWithLevel[0];
           bp.m_AlternateProgressionClasses = CommonTool.Append(bp.m_AlternateProgressionClasses, alternateProgressionClasses);
           bp.ForAllOtherClasses = false;
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.m_AlternateProgressionClasses"/>
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// Half the specified class levels are summed when determining the character's level with respect to the progression.
-    /// </para>
-    /// <para>
-    /// AdditionalLevel is a static bonus added if the character has any levels in the associated class.
-    /// </para>
-    /// <para>
-    /// This is ignored if ForAllOtherClasses is true.
-    /// </para>
-    /// </remarks>
-    public TBuilder RemoveFromAlternateProgressionClasses(params BlueprintProgression.ClassWithLevel[] alternateProgressionClasses)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_AlternateProgressionClasses is null) { return; }
-          bp.m_AlternateProgressionClasses = bp.m_AlternateProgressionClasses.Where(val => !alternateProgressionClasses.Contains(val)).ToArray();
         });
     }
 
@@ -508,30 +439,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         {
           bp.UIGroups = bp.UIGroups ?? new UIGroup[0];
           bp.UIGroups = CommonTool.Append(bp.UIGroups, uIGroups);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.UIGroups"/>
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
-    /// </para>
-    /// </remarks>
-    ///
-    /// <param name="uIGroups">
-    /// <para>
-    /// Tooltip: Icons will be connected with line inside one group
-    /// </para>
-    /// </param>
-    public TBuilder RemoveFromUIGroups(params UIGroup[] uIGroups)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.UIGroups is null) { return; }
-          bp.UIGroups = bp.UIGroups.Where(val => !uIGroups.Contains(val)).ToArray();
         });
     }
 
@@ -899,6 +806,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.LevelEntries"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
     public TBuilder SetLevelEntries(params LevelEntry[] levelEntries)
     {
       return OnConfigureInternal(
@@ -912,6 +824,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintProgression.LevelEntries"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
     public TBuilder AddToLevelEntries(params LevelEntry[] levelEntries)
     {
       return OnConfigureInternal(
@@ -923,21 +840,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.LevelEntries"/>
-    /// </summary>
-    public TBuilder RemoveFromLevelEntries(params LevelEntry[] levelEntries)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.LevelEntries is null) { return; }
-          bp.LevelEntries = bp.LevelEntries.Where(val => !levelEntries.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
     /// Removes elements from <see cref="BlueprintProgression.LevelEntries"/> that match the provided predicate.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
     public TBuilder RemoveFromLevelEntries(Func<LevelEntry, bool> predicate)
     {
       return OnConfigureInternal(
@@ -951,6 +860,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes all elements from <see cref="BlueprintProgression.LevelEntries"/>
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
     public TBuilder ClearLevelEntries()
     {
       return OnConfigureInternal(
@@ -963,6 +877,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Modifies <see cref="BlueprintProgression.LevelEntries"/> by invoking the provided action on each element.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
     public TBuilder ModifyLevelEntries(Action<LevelEntry> action)
     {
       return OnConfigureInternal(
