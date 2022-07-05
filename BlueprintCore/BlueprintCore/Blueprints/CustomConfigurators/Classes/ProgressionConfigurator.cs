@@ -184,6 +184,77 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
 
     // End UIGroups
 
+    // Start LevelEntries
+
+    /// <summary>
+    /// Uses <see cref="LevelEntryBuilder"/> to set <see cref="BlueprintProgression.LevelEntries"/>.
+    /// </summary>
+    public ProgressionConfigurator SetLevelEntries(LevelEntryBuilder levelEntries)
+    {
+      return SetLevelEntries(levelEntries.GetEntries());
+    }
+
+    /// <summary>
+    /// Sets the LevelEntry in <see cref="BlueprintProgression.LevelEntries"/> with the specified level to include the
+    /// provided features.
+    /// </summary>
+    /// 
+    /// <remarks>Removes any existing LevelEntry with the specified level.</remarks>
+    public ProgressionConfigurator SetLevelEntry(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      var levelEntry =
+        new LevelEntry()
+        {
+          Level = level,
+          m_Features = features.Select(f => f.Reference).ToList()
+        };
+      return OnConfigureInternal(
+        bp => bp.LevelEntries = bp.LevelEntries.Where(e => e.Level != level).Append(levelEntry).ToArray());
+    }
+
+    /// <param name="level">Features are added to a new LevelEntry with this level</param>
+    /// <param name="features">Group of features to add</param>
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.AddToLevelEntries(LevelEntry[])"/>
+    public ProgressionConfigurator AddToLevelEntries(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      return AddToLevelEntries(
+        new LevelEntry()
+        {
+          Level = level,
+          m_Features = features.Select(f => f.Reference).ToList()
+        });
+    }
+
+    /// <summary>
+    /// Removes the provided features from any LevelEntry in <see cref="BlueprintProgression.LevelEntries"/> with the
+    /// specified level.
+    /// </summary>
+    public ProgressionConfigurator RemoveFromLevelEntries(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var entry in bp.LevelEntries)
+          {
+            if (entry.Level == level)
+            {
+              entry.m_Features.RemoveAll(e => features.Contains(e));
+            }
+          }
+        });
+    }
+
+    /// <summary>
+    /// Removes any level entries with the specified level from <see cref="BlueprintProgression.LevelEntries"/>.
+    /// </summary>
+    public ProgressionConfigurator RemoveLevelEntry(int level)
+    {
+      return OnConfigureInternal(
+        bp => bp.LevelEntries = bp.LevelEntries.ToList().Where(e => e.Level != level).ToArray());
+    }
+
+    // End LevelEntries
+
     // Start Converters
 
     private ClassWithLevel[] Convert(
@@ -221,6 +292,41 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     }
 
     // End Converters
+  }
+
+  /// <summary>
+  /// Builder utility for <see cref="LevelEntry"/> arrays.
+  /// </summary>
+  public class LevelEntryBuilder
+  {
+    private static readonly List<LevelEntry> LevelEntries = new();
+
+    public static LevelEntryBuilder New()
+    {
+      return new();
+    }
+
+    /// <summary>
+    /// Adds a new <see cref="LevelEntry"/> for the given level.
+    /// </summary>
+    public LevelEntryBuilder AddEntry(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      LevelEntries.Add(
+        new()
+        {
+          Level = level,
+          m_Features = features.Select(f => f.Reference).ToList()
+        });
+      return this;
+    }
+
+    /// <summary>
+    /// Returns a <see cref="UIGroup"/> array.
+    /// </summary>
+    public LevelEntry[] GetEntries()
+    {
+      return LevelEntries.ToArray();
+    }
   }
 
   /// <summary>
