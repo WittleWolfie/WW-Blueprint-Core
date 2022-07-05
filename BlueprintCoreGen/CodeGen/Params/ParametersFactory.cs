@@ -472,15 +472,21 @@ namespace BlueprintCoreGen.CodeGen.Params
         return new(); 
       }
 
+      List<string> modifyOperationFmt = new();
       if (!field.FieldType.IsValueType)
       {
-        return new() { $"if ({{0}}.{field.Name} is null) {{{{ return; }}}}" };
+        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
       }
-      else if (enumerableType is not null)
+
+      if (enumerableType is not null)
       {
-        return new() { $"{{0}}.{field.Name}.ForEach({{1}});" };
+        modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach({{1}});");
       }
-      return new() { $"{{1}}.Invoke({{0}}.{field.Name});" };
+      else
+      {
+        modifyOperationFmt.Add($"{{1}}.Invoke({{0}}.{field.Name});");
+      }
+      return modifyOperationFmt;
     }
 
     private static string GetSetComment(FieldInfo field)
