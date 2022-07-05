@@ -24,6 +24,8 @@
 
 ### Breaking Changes
 
+* ProgressionConfigurator changed namespace
+    * It is now hand tuned so it lives in CustomConfigurators
 * Some ContextAction methods were updated with a stricter API
     * `ArmorEnchantPool` and `ShieldArmorEnchantPool` uses `BlueprintArmorEnchantReference` instead of `BlueprintItemEnchantmentReference`
     * `WeaponEnchantPool` and `ShieldWeaponEnchantPool` uses `BlueprintWeaponEnchantmentReference` instead of `BlueprintItemEnchantmentReference`
