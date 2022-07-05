@@ -10,7 +10,7 @@ You can do them in any order but the recommended order is:
 2. [Adding a Feat](feat.md)
 3. WIP
 
-All tutorial code is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCore%20Tutorial). Each tutorial has a challenge not covered in the tutorial. One possible solution to each challenge is available in the `Solutions` folder.
+All tutorial code is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreTutorial). Each tutorial has a challenge not covered in the tutorial. One possible solution to each challenge is available in the `Solutions` folder.
 
 ### Pre-work
 
@@ -26,4 +26,4 @@ Once that's done, complete the BlueprintCore [Project Setup](~/articles/intro.md
 
 Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials.
 
-Be sure to check [known issues](~/articles/issues.md) if you run into any problems.
+Be sure to check [known issues](~/articles/usage/issues.md) if you run into any problems.

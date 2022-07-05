@@ -6,7 +6,7 @@ Modifying existing or creating new blueprints is accomplished in BPCore using Bl
 
 ## Blueprint Configurators
 
-For every blueprint type inheriting from `BlueprintScriptableObject` there is a corresponding configurator. e.g. [BuffConfigurator](xref:BlueprintCore.Blueprints.Configurators.Buffs.BuffConfigurator) is the configurator for `BlueprintBuff`.
+For every blueprint type inheriting from `BlueprintScriptableObject` there is a corresponding configurator. e.g. [BuffConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs.BuffConfigurator) is the configurator for `BlueprintBuff`.
 
 Blueprint types not used in the base game do not have configurators and should not be used.
 

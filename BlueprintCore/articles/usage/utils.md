@@ -6,7 +6,7 @@ While the bulk of the functionality of BPCore is implemented in [Blueprint Confi
 
 To display text in game you need to create a `LocalizedString` with a key used to look up the text for the appropriate locale / language.
 
-Using BPCore you can define text in JSON file containing a [MultiLocaleString](xref:BlueprintCore.Utils.Localization.MultiLocaleString) array, such as this example from the [Feat Tutorial](~/tutorials/feat.md):
+Using BPCore you can define text in JSON file containing a [MultiLocaleString](xref:BlueprintCore.Utils.Localization.MultiLocaleString) array, such as this example from the [Feat Tutorial](~/articles/tutorials/feat.md):
 
 ```json
 [

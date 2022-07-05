@@ -12,7 +12,7 @@
     * If you have a use case let me know but this API was not intended to exist
 * Specific Type Changes
     * FeatureConfigurator
-        * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup[])).
+        * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,Kingmaker.Blueprints.Classes.FeatureGroup[])).
         * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
     * ProgressionConfigurator
         * Added many convenience method overrides for ease of working with ClassWithLevel, LevelEntry, and ArchetypeWithLevel

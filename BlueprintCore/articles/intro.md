@@ -16,7 +16,7 @@
 5. Add the required assembly references:
     * Publicized copy of `%WrathPath%\Wrath_Data\Managed\Assembly-CSharp.dll`
     * `%WrathPath%\Wrath_Data\Managed\Assembly-CSharp-firstpass.dll`
-    * `%WrathPath%\Wrath_Data\Managed\0Harmony.dll`
+    * `%WrathPath%\Wrath_Data\Managed\Newtonsoft.Json.dll`
     * `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Core.dll`
     * `$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll`
     * `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll`
@@ -25,6 +25,8 @@
     * `$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityModManager\0Harmony.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityModManager\UnityModManager.dll`
+    * **Important:**
+        * Make sure your assembly references do not declare `<Private>false</Private>` or DLL Merging will fail
 6. Configure DLL Merging:
     * Install [ILRepack.MSBuild.Task](https://www.nuget.org/packages/ILRepack.MSBuild.Task/) using NuGet
     * Add the following to your .csproj file, using your mod's assembly name in place of `MyAssemblyName`:
@@ -72,7 +74,7 @@
     * Be sure to distribute this file with your mod assembly
 8. You're ready to go!
 
-If you already have a project or are having trouble, take a look at [BlueprintCore Tutorial.csproj](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore%20Tutorial/BlueprintCore%20Tutorial/BlueprintCore%20Tutorial.csproj).
+If you already have a project or are having trouble, take a look at [BlueprintCore Tutorial.csproj](https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreTutorial/BlueprintCoreTutorial/BlueprintCoreTutorial.csproj).
 
 Your project file should look almost identical to the tutorial project file, with the exception that you may have additional package and assembly references. In particular make sure:
 
@@ -91,8 +93,10 @@ The impact of this isn't significant but if you want to keep your assembly small
 
 1. Download [ILStrip.CLI.zip](https://github.com/BrokenEvent/ILStrip/releases/latest)
 2. Extract the files into a folder in your project's solution directory. I recommend creating a `tools` directory next to the `lib` directory.
-~[ILStrip Directory Setup](~/images/ilstrip_dir.png)
-3. Add an ILStrip target to your project
+
+![ILStrip Directory Setup](~/images/ilstrip_dir.png)
+
+3. Add ILStrip to your project
      * Open your .csproj file and add a new target:
      ```xml
      <!-- Minimizes the assembly size -->
@@ -119,7 +123,7 @@ The impact of this isn't significant but if you want to keep your assembly small
 
 #### Troubleshooting
 
-As a sanity check consider opening your assembly in the decompiler of your choice and see if any of your code is obviously missing.
+You can open your assembly in the decompiler of your choice to sanity check. Make sure you see all the expected namespaces and classes.
 
 **ILStrip Removes Used Code**
 

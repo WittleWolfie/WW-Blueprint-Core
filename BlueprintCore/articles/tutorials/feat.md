@@ -6,7 +6,7 @@ Create a new folder in your project called `Feats`. Here is where you can add cl
 
 Inside the feats folder create a new class called `MagicalAptitude`.
 
-Mechanics in Wrath are usually represented by Blueprints. The wiki page on [Blueprints](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints) goes into more detail, but for now just know that a feat is a `BlueprintFeature`. To create a feat we'll we'll use [FeatureConfigurator](xref:BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator).
+Mechanics in Wrath are usually represented by Blueprints. The wiki page on [Blueprints](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints) goes into more detail, but for now just know that a feat is a `BlueprintFeature`. To create a feat we'll we'll use [FeatureConfigurator](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator).
 
 ### Creating the Feat
 
@@ -150,7 +150,7 @@ Now build the mod, install it, and start the game. When you level or create a ch
 
 #### Automatic Mod Deployment
 
-Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically deploy the mod after it builds. See [Getting Started#Optional: Automatic Mod Deployment](~/intro.md#optional-automatic-mod-deployment) for instructions.
+Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically deploy the mod after it builds. See [Getting Started#Optional: Automatic Mod Deployment](~/articles/intro.md#optional-automatic-mod-deployment) for instructions.
 
 ### Fixing the UI
 
