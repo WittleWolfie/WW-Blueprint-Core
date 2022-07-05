@@ -115,6 +115,12 @@
         "Remarks": [
           "Specified feature ranks are summed when determining the character's level with respect to the progression."
         ]
+      },
+      {
+        "FieldName": "LevelEntries",
+        "Remarks": [
+          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetLevelEntries(LevelEntryBuilder)\"/>."
+        ]
       }
     ]
   }
