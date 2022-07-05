@@ -23,6 +23,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides
         typeof(BlueprintAbilityResource),
         typeof(BlueprintBuff),
         typeof(BlueprintFeature),
+        typeof(BlueprintProgression),
         typeof(BlueprintScriptableObject),
       };
 
