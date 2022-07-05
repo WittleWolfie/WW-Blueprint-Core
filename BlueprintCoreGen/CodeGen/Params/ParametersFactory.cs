@@ -465,22 +465,23 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private static List<string> GetModifyOperationFmt(FieldInfo field, Type? enumerableType)
     {
-      if (TypeTool.IsBitFlag(field.FieldType)) { return new(); }
+      if (TypeTool.IsBitFlag(field.FieldType)
+        || field.FieldType.IsPrimitive
+        || field.FieldType.IsEnum)
+      {
+        return new(); 
+      }
 
       List<string> modifyOperationFmt = new();
-      if (!field.FieldType.IsPrimitive && !field.FieldType.IsEnum && !field.FieldType.IsValueType)
+      if (!field.FieldType.IsValueType)
       {
-        modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
+        return new() { $"if ({{0}}.{field.Name} is null) {{{{ return; }}}}" };
       }
-      if (enumerableType is not null)
+      else if (enumerableType is not null)
       {
-        modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach({{1}});");
+        return new() { $"{{0}}.{field.Name}.ForEach({{1}});" };
       }
-      else if (!TypeTool.IsBitFlag(field.FieldType))
-      {
-        modifyOperationFmt.Add($"{{1}}.Invoke({{0}}.{field.Name});");
-      }
-      return modifyOperationFmt;
+      return new() { $"{{1}}.Invoke({{0}}.{field.Name});" };
     }
 
     private static string GetSetComment(FieldInfo field)
