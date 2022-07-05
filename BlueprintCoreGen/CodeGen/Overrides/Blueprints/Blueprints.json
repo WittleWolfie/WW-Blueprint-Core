@@ -109,6 +109,12 @@
         "Remarks": [
           "Consider using <see cref=\"UIGroupBuilder\"/> and <see cref=\"SetUIGroups(UIGroupBuilder)\"/>."
         ]
+      },
+      {
+        "FieldName": "m_FeaturesRankIncrease",
+        "Remarks": [
+          "Specified feature ranks are summed when determining the character's level with respect to the progression."
+        ]
       }
     ]
   }
