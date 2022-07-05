@@ -9,6 +9,7 @@ using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
 using Kingmaker.QA.Arbiter;
 using Kingmaker.QA.Clockwork;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -42,6 +43,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         ),
         (typeof(BlueprintFeatureSelection), new() { "m_Features" }),
         (typeof(BlueprintProgression), new() { "AlternateProgressionType" }),
+        (typeof(BlueprintAbility), new() { "AnimationStyle" }),
       };
     public static bool ShouldIgnoreField(FieldInfo info, Type sourceType)
     {
