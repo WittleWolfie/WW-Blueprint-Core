@@ -1,5 +1,51 @@
 ﻿# Changelog
 
+## v2.1.0 Release
+
+* Added new localization system for translation support and simplified text references. See [Text, Logging, and Utils](usage/utils.md) for more details.
+* Added static references to in-game blueprints. See [Referencing Blueprints](usage/blueprints.md#referencing-blueprints) for more details.
+* Configurators now automatically set safe default values for types which cannot be null
+* Methods with a single enumerable or flag parameter use `params` syntax
+* Removed configurators for QA related blueprints
+* Add more constructors for ContextDurationValue
+* Removed Modify field methods for primitive and enum types
+    * If you have a use case let me know but this API was not intended to exist
+* Specific Type Changes
+    * FeatureConfigurator
+        * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,FeatureGroup[])).
+        * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
+    * ProgressionConfigurator
+        * Added many convenience method overrides for ease of working with ClassWithLevel, LevelEntry, and ArchetypeWithLevel
+        * Removed support for AlternateProgressionType which can only be Div2
+        * Automatically sets `ForAllOtherClasses` to `false` when setting or adding to `m_AlternateProgressionClasses`
+        * Removed support for Remove functions that don't make sense
+    * BuffEnchantAnyWeapon is now available in BaseUnitFactConfigurator and all inherited types
+    * AddStatBonusIfHasFact replaced by AddStatbonusIfHasFactFixed
+    * ContextDurationValue has more convenience constructor methods available
+    * BlueprintUnitProperty logs a warning if `BaseValue` is 0 when using multiplication
+
+### Breaking Changes
+
+* ProgressionConfigurator changed namespace
+    * It is now hand tuned so it lives in CustomConfigurators
+    * Some `RemoveFrom` field methods were removed since they are not useful
+* Some ContextAction methods were updated with a stricter API
+    * `ArmorEnchantPool` and `ShieldArmorEnchantPool` uses `BlueprintArmorEnchantReference` instead of `BlueprintItemEnchantmentReference`
+    * `WeaponEnchantPool` and `ShieldWeaponEnchantPool` uses `BlueprintWeaponEnchantmentReference` instead of `BlueprintItemEnchantmentReference`
+    * If you were passing in a BlueprintItemEnchantmentReference directly you'll need to update your calls
+* `Buffs`, `ItemEnchantments`, and `Features` were removed
+    * Replaced by Refs classes. See [Referencing Blueprints](usage/blueprints.md#referencing-blueprints).
+* QA Blueprint configurators were removed
+    * I don't expect anyone to use these, but if you have a use case let me know.
+* Configurators no longer exposes methods for cache fields
+    * These are set at runtime by the blueprint, they should not be set manually.
+* Methods with a single enumerable parameter use `params` syntax
+    * If they currently require a list they must be updated. You can call `ToArray()` on the list.
+* AddStatBonusIfHasFact is no longer supported
+    * Use AddStatBonusIfHasFactFixed
+* Methods for BlueprintProgression.AlternateProgressionType are removed
+    * It is always Div2, there is no other value
+
 ## v2.0.4 Release
 
 * Fixed an NPE resulting from not specifying optional List or Array parameters

@@ -99,7 +99,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("Halaseliax_FrightfulPresenceBuff", "9c5b9f4d573541b08aff7acfbfcb8f52"),
+            new Blueprint("Halaseliax_FireAuraBuff", "23af505e743147e6bb790f9c5c34368d"),
             new Blueprint("ZeorisDaggerRing_GoverningBuff", "e248e5ef1ae04d559d5fe82ef719ee47"),
           }
         },
@@ -119,7 +119,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("HunterOneWithTheWIld", "3f487d5b93a02984cbbb202fa7c73025"),
+            new Blueprint("Hosilla_Ability_Bane", "e360f969871818e46b4eceb29817dd71"),
             new Blueprint("ZoneOfPredetermination", "756f1d07f9ae29448888ecf016fa40a7"),
           }
         },
@@ -227,7 +227,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonAreaEffectsGazeProperty", "f363c368c37546c3a4793b348963dc28"),
-            new Blueprint("PerfectFormWisdomToCharismaProperty", "694c0fcdf7074e728a36b4d109503260"),
+            new Blueprint("PerfectFormStrengthToWisdomProperty", "b9ba16f32e4f49789b549df9bd42f150"),
             new Blueprint("WitchHexSpellLevelProperty", "75efe8b64a3a4cd09dda28cef156cfb5"),
           }
         },
@@ -744,7 +744,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AberrationProgression", "692a51e61be994e4499e36b88637b45f"),
-            new Blueprint("KineticKnightElementalFocusFire", "d4a2a75d01d1e77489ff692636a538bf"),
+            new Blueprint("KineticKnightElementalFocusWater", "5e839c743c6da6649a43cdeb70b6018f"),
             new Blueprint("WreckerProgression", "c3ecafa8e5c5c2942af7cac0157cf8be"),
           }
         },
@@ -832,7 +832,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbilityFocus", "b689c0b78297dda40a6ae2ff3b8adb5c"),
-            new Blueprint("LoremasterWizardSecretWizard", "d0e31ebe24d95694a804e84d4d02bf25"),
+            new Blueprint("LoremasterWizardSecretWitch", "6d7d4acede258984b8633d9b00d53877"),
             new Blueprint("WeaponSpecializationMythicFeat", "d84ac5b1931bc504a98bfefaa419e34f"),
           }
         },
@@ -1949,7 +1949,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AgressiveEnd", "6d321264a441daf498f1493c9f13dba1"),
-            new Blueprint("Cue_0030", "b6b930463a95cc04a9f2c2d4fbbfa9da"),
+            new Blueprint("Cue_0030", "31b2bd5eeb750a346901b54893f5a40a"),
             new Blueprint("Xorges_shared12_2", "518e96fc4479fec44b98fa1f35c42da1"),
           }
         },

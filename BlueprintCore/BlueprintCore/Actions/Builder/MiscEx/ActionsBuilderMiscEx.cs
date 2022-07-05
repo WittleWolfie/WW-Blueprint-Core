@@ -307,6 +307,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>Cue_0001</term><description>603b9cb39702cd1488f4156995d7bf1e</description></item>
     /// <item><term>Cue_0010</term><description>4e1fb44f339e88340b9daee8aca0c463</description></item>
     /// <item><term>DLC1_SaveImport</term><description>31417683088d40b8beb3691c393fb3d3</description></item>
     /// </list>
@@ -511,7 +512,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0029</term><description>2a5f92deaccded945b22cb6efb7c1e21</description></item>
+    /// <item><term>Cue_0029</term><description>02c75198420d9ff45b04b4158ab65f4d</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
@@ -560,7 +561,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0011</term><description>ac4468a7eded7fd43946f1a730791ff0</description></item>
-    /// <item><term>Cue_0062</term><description>70f2c9f4876257a4f8c47b5409752aef</description></item>
+    /// <item><term>Cue_0080</term><description>755d8bb8870a3354da8f496d039d4b54</description></item>
     /// <item><term>RevertYellow</term><description>0aa2618093d44ed7bce51a1fbadddff8</description></item>
     /// </list>
     /// </remarks>

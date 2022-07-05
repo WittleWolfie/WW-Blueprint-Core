@@ -115,6 +115,9 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </list>
     /// </remarks>
     ///
+    /// <param name="whatToBark">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     /// <param name="barkDurationByText">
     /// <para>
     /// Tooltip: Bark duration depends on text length
@@ -122,13 +125,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </param>
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
-        LocalizedString whatToBark,
+        LocalString whatToBark,
         bool? barkDurationByText = null,
         bool? showWhileUnconscious = null,
         SharedStringAsset? whatToBarkShared = null)
     {
       var element = ElementTool.Create<ContextActionShowBark>();
-      element.WhatToBark = whatToBark;
+      element.WhatToBark = whatToBark?.LocalizedString;
       element.BarkDurationByText = barkDurationByText ?? element.BarkDurationByText;
       element.ShowWhileUnconscious = showWhileUnconscious ?? element.ShowWhileUnconscious;
       builder.Validate(whatToBarkShared);
@@ -145,7 +148,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_TrueForm_Cutscene</term><description>18d9251a3c5682a429e1c3769431f4ee</description></item>
-    /// <item><term>InflictSeriousWoundsMass</term><description>820170444d4d2a14abc480fcbdb49535</description></item>
+    /// <item><term>InflictModerateWoundsMass</term><description>03944622fbe04824684ec29ff2cec6a7</description></item>
     /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
     /// </list>
     /// </remarks>
@@ -469,12 +472,15 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// Tooltip: Bark duration depends on text length
     /// </para>
     /// </param>
+    /// <param name="whatToBark">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ShowBark(
         this ActionsBuilder builder,
         bool? barkDurationByText = null,
         MapObjectEvaluator? targetMapObject = null,
         UnitEvaluator? targetUnit = null,
-        LocalizedString? whatToBark = null,
+        LocalString? whatToBark = null,
         SharedStringAsset? whatToBarkShared = null)
     {
       var element = ElementTool.Create<ShowBark>();
@@ -483,7 +489,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
       element.TargetMapObject = targetMapObject ?? element.TargetMapObject;
       builder.Validate(targetUnit);
       element.TargetUnit = targetUnit ?? element.TargetUnit;
-      element.WhatToBark = whatToBark ?? element.WhatToBark;
+      element.WhatToBark = whatToBark?.LocalizedString ?? element.WhatToBark;
       if (element.WhatToBark is null)
       {
         element.WhatToBark = Utils.Constants.Empty.String;

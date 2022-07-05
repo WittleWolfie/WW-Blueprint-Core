@@ -355,7 +355,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Kerz]_BarkCondition</term><description>59c232c2fa5e7c54baa235fee0e049d6</description></item>
-    /// <item><term>BookPage_Room1Clean</term><description>e43df5891e0598e4d9f6583db03dff51</description></item>
+    /// <item><term>BookPage_Room4Clean</term><description>cb81c6ea661a49f44b68e809127cc7d3</description></item>
     /// <item><term>ZanedraInTemple</term><description>0d22fd186d557a049b46c0fb3d623f04</description></item>
     /// </list>
     /// </remarks>
@@ -536,7 +536,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[DLC1_Taberdine]_BarkConditions</term><description>c1bbb11f93d44e13b5587d4c9701515d</description></item>
-    /// <item><term>Cue_0005</term><description>7a54f8069d7961d4483fb1f3fe6894e6</description></item>
+    /// <item><term>Cue_0005</term><description>ef16f026e72107d4492aa6861b66739f</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

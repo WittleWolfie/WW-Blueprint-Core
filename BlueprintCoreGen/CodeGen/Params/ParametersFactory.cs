@@ -70,12 +70,14 @@ namespace BlueprintCoreGen.CodeGen.Params
           info.Name,
           GetParamName(info.Name),
           GetTypeName(info.FieldType, blueprintType, enumerableType),
+          GetParamsTypeName(info.FieldType, blueprintType, enumerableType),
           GetImports(info.FieldType).Concat(imports).ToList(),
           GetCommentFmt(info, blueprintType),
           GetDefaultValue(),
           GetValidationFmt(info.FieldType, blueprintType, enumerableType),
           GetAssignmentFmt(info.FieldType, blueprintType, enumerableType),
-          GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
+          GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType),
+          GetParamsAssignmentFmt(info.FieldType, blueprintType, enumerableType));
 
       // Apply type specific, then field specific, then method specific overrides (priority order).
       GetTypeOverride(info.FieldType)?.ApplyTo(param);
@@ -117,7 +119,8 @@ namespace BlueprintCoreGen.CodeGen.Params
           GetClearComment(info),
           GetClearOperationFmt(info, enumerableType),
           GetModifyComment(info, enumerableType),
-          GetModifyOperationFmt(info, enumerableType));
+          GetModifyOperationFmt(info, enumerableType),
+          GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
 
       GetTypeOverride(info.FieldType)?.ApplyTo(param);
       return param;
@@ -370,7 +373,15 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private static string GetAssignmentFmtForBlueprintField(Type type, Type? blueprintType, Type? enumerableType)
     {
-      // BitFlags, Lists, and Arrays use params setters
+      var assignmentFmt = GetParamsAssignmentFmt(type, blueprintType, enumerableType);
+      return string.IsNullOrEmpty(assignmentFmt)
+        ? GetAssignmentFmt(type,blueprintType, enumerableType)
+        : assignmentFmt;
+    }
+
+    private static string GetParamsAssignmentFmt(Type type, Type? blueprintType, Type? enumerableType)
+    {
+      // BitFlags, Lists, and Arrays support params setters
       if (TypeTool.IsBitFlag(type))
       {
         return $"{{0}}.Aggregate(({TypeTool.GetName(type)}) 0, (f1, f2) => f1 | f2)";
@@ -384,7 +395,7 @@ namespace BlueprintCoreGen.CodeGen.Params
         }
         return type.IsArray ? $"{{0}}" : $"{{0}}.ToList()";
       }
-      return GetAssignmentFmt(type, blueprintType, enumerableType);
+      return string.Empty;
     }
 
     private static List<string> GetAddOperationFmt(FieldInfo field, Type? blueprintType, Type? enumerableType)
@@ -454,18 +465,24 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     private static List<string> GetModifyOperationFmt(FieldInfo field, Type? enumerableType)
     {
-      if (TypeTool.IsBitFlag(field.FieldType)) { return new(); }
+      if (TypeTool.IsBitFlag(field.FieldType)
+        || field.FieldType.IsPrimitive
+        || field.FieldType.IsEnum)
+      {
+        return new(); 
+      }
 
       List<string> modifyOperationFmt = new();
-      if (!field.FieldType.IsPrimitive && !field.FieldType.IsEnum && !field.FieldType.IsValueType)
+      if (!field.FieldType.IsValueType)
       {
         modifyOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
       }
+
       if (enumerableType is not null)
       {
         modifyOperationFmt.Add($"{{0}}.{field.Name}.ForEach({{1}});");
       }
-      else if (!TypeTool.IsBitFlag(field.FieldType))
+      else
       {
         modifyOperationFmt.Add($"{{1}}.Invoke({{0}}.{field.Name});");
       }

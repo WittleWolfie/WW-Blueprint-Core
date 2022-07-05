@@ -85,6 +85,11 @@
   },
 
   {
+    "TypeName": "BuffEnchantAnyWeapon",
+    "AllowedOn": [ "BlueprintUnitFact" ]
+  },
+
+  {
     "TypeName": "ChangeVendorPrices",
     "AllowedOn": [ "BlueprintUnit" ]
   },

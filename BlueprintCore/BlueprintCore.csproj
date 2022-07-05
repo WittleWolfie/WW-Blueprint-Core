@@ -68,6 +68,9 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>..\lib\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(WrathPath)\Wrath_Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>

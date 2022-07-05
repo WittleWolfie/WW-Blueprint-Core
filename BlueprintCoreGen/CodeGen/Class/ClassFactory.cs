@@ -2,6 +2,7 @@
 using BlueprintCoreGen.CodeGen.Methods;
 using BlueprintCoreGen.CodeGen.Overrides.Ignored;
 using Kingmaker.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +77,11 @@ namespace BlueprintCoreGen.CodeGen.Class
       configuratorClass.AddImport(configurator.ParentNamespace);
       configuratorClass.AddImport(typeof(BlueprintReference<>));
       configuratorClass.AddImport(typeof(RootConfigurator<,>));
+
+      if (configurator.BlueprintType == typeof(BlueprintAbilityAreaEffect))
+      {
+        configuratorClass.AddLine("");
+      }
 
       // Namespace
       configuratorClass.AddLine($"namespace {configurator.Namespace}");
@@ -159,6 +165,15 @@ namespace BlueprintCoreGen.CodeGen.Class
                 });
           }
         });
+
+      // Default field values
+      var setDefaults =
+        MethodFactory.CreateConfiguratorOnConfigureCompleted(configurator.BlueprintType, configurator.FieldMethods);
+      if (setDefaults.GetLines().Any())
+      {
+        configuratorClass.AddLine("");
+        setDefaults.GetLines().ForEach(line => configuratorClass.AddLine($"    {line}"));
+      }
 
       configuratorClass.AddLine($"  }}");
       configuratorClass.AddLine($"}}");

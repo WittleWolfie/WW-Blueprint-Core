@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UI.Log;
@@ -18,6 +19,7 @@ namespace BlueprintCore.Abilities.Restrictions.New
   /// Requires the target to have specific buffs applied by the caster.
   /// </summary>
   [AllowedOn(typeof(BlueprintAbility), false)]
+  [TypeId("0C3EC19D-A6CD-4221-99BF-57429C009D46")]
   public class TargetHasBuffsFromCaster : BlueprintComponent, IAbilityTargetRestriction
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("TargetHasBuff");

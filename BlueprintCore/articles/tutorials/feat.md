@@ -46,42 +46,20 @@ When `New()` is called it creates a new `BlueprintFeature` with the specified na
 
 At this point the feat exists but has no effect and can't be selected. To fix this we need to add it to a `BlueprintFeatureSelection`. BlueprintFeatureSelection defines a list of features you can select during character creation or advancement, e.g. feats, deities, and backgrounds.
 
-There are several feat lists in game including `BasicFeatSelection` as well as feats tied to specific character options such as `WizardFeatSelection` which contains feats a wizard can choose as a bonus feat. For now just use BasicFeatSelection which includes all generally available feats.
+There are many feat lists in game including `BasicFeatSelection` as well as feats tied to specific character options such as `WizardFeatSelection` which contains feats a wizard can choose as a bonus feat.
+
+If you know exactly which lists you want to add your feat to you can use [FeatureSelectionConfigurator](xref:BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator):
+
+```C#
+FeatureSelectionConfigurator.For(FeatureSelectionRefs.BasicFeatSelection).AddToAllFeatures(MyFeat).Configure();
+```
 
 > [!TIP]
-> The first step to adding new content is understanding how existing content is implemented. There are several tools at your disposal discussed on the [wiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources). I recommend [BubblePrints](https://github.com/factubsio/BubblePrints) for exploring game content and [DataViewer](https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/9) for validating your changes in-game.
+> BPCore includes static references to many game blueprints in [BlueprintCore.Blueprints.References](BlueprintCore.Blueprints.References).
 
-To add the feat you need the Guid for BasicFeatSelection: `247a4068-296e-8be4-2890-143f451b4b45`. You can find this using the tools in the tip above.
+When `For()` is called the `BlueprintFeatureSelection` for BasicFeatSelection is fetched and its FeatureSelectionConfigurator is returned.
 
-Create a [FeatureSelectionConfigurator](xref:BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator) to modify *BasicFeatSelection*:
-
-```C#
-private static readonly string BasicFeatSelectionGuid = "247a4068-296e-8be4-2890-143f451b4b45";
-
-public static void Configure()
-{
-  FeatureConfigurator.New(FeatName, FeatGuid).Configure();
-
-  FeatureSelectionConfigurator.For(BasicFeatSelectionGuid);
-}
-```
-
-When `For()` is called the `BlueprintFeatureSelection` for BasicFeatSelection is fetched from the game library and the FeatureSelectionConfigurator is returned.
-
-To add the feat look at the contents of *BasicFeatSelection*:
-
-![Basic feat selection contents](~/images/magical_aptitude/basic_feat_selection.png)
-
-Feats are stored in a field called `m_AllFeatures`. Since the field is an array the configurator should have a method called `AddToAllFeatures`:
-
-```C#
-FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToAllFeatures(FeatName).Configure();
-```
-
-> [!NOTE]
-> You will need to read the game code to figure things out. Pick your choice of [decompiler](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources#decompilers) and open up `%WrathPath%/Wrath_Data/Managed/Assembly-CSharp.dll`.
-
-When you call a function on a configurator such as `AddToAllFeatures()` two things happen:
+When you call a configurator function such as `AddToAllFeatures()` two things happen:
 
 1. The requested change is staged, but not committed until `Configure()` is called
 2. The configurator is returned
@@ -90,16 +68,28 @@ This allows you to create a single statement to configure a blueprint, calling `
 
 ```C#
 // SetX and SetY are just placeholders
-FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
+FeatureSelectionConfigurator.For(FeatureSelectionRefs.BasicFeatSelection)
   .AddToAllFeatures(FeatName)
   .SetX(x)
   .SetY(y)
   .Configure();
 ```
 
-Notice how `FeatName` is passed to `AddToAllFeatures` rather than `FeatGuid`. When the feat was created using `FeatureConfigurator.New()` the name was registered to the Guid for lookup.
+> [!TIP]
+> The first step to adding new content is understanding how existing content is implemented. There are several tools at your disposal discussed on the [wiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources). I recommend [BubblePrints](https://github.com/factubsio/BubblePrints) for exploring game content and [DataViewer](https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/9) for validating your changes in-game.
 
-When a blueprint is needed BlueprintCore APIs accept a [Blueprint\<TRef\>](xref:BlueprintCore.Utils.Blueprint`1) parameter. This enables passing blueprints in as a name, Guid, blueprint, or blueprint reference. See [Referencing Blueprints](~/articles/intro.md#referencing-blueprints) for more information.
+Using the tools above you'll see hundreds of BlueprintFeatureSelection lists.
+
+Luckily you don't need to know every list your feat should be on. Instead you can specify the corresponding `FeatureGroups`:
+
+```C#
+FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat).Configure();
+```
+
+The configurator adds the feature to any BlueprintFeatureSelection with a matching `Group` or `Group2` field.
+
+> [!NOTE]
+> You will need to read the game code to figure things out. Pick your choice of [decompiler](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Modding-Resources#decompilers) and open up `%WrathPath%/Wrath_Data/Managed/Assembly-CSharp.dll`.
 
 You need one more change before you can start testing: call `MagicalAptitude.Configure()` from the `BlueprintsCache` init patch.
 
@@ -158,53 +148,45 @@ Now build the mod, install it, and start the game. When you level or create a ch
 > [!TIP]
 > If the feat doesn't appear check the logs for any errors.
 
-#### Automatic Install
+#### Automatic Mod Deployment
 
-Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically update the mod after it builds. This is accomplished by adding a [Copy task](https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022) to the project file.
-
-Open up your project file (<Name>.csproj) and add the following block, using your mod's name in place of `BlueprintCoreTutorial`:
-
-```xml
-<!-- Automatic Deployment Setup -->
-<Target Name="DeployMod" AfterTargets="ILRepack">
-  <ItemGroup>
-    <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
-    <ModConfig Include="$(OutputPath)\Info.json" />
-  </ItemGroup>
-
-  <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
-  <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
-</Target>
-```
-
-Now whenever you want to test changes just build and start the game.
+Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically deploy the mod after it builds. See [Getting Started#Optional: Automatic Mod Deployment](~/intro.md#optional-automatic-mod-deployment) for instructions.
 
 ### Fixing the UI
 
-If you click on it nothing works and you probably wante a name other than <c>null</c>. To do that populate the `m_DisplayName` and `m_Description` fields of the blueprint:
+If you click on it nothing works and you probably wante a name other than <c>null</c>. Open up your `LocalizedStrings.json` file and add new entries for the name and description:
+
+```json
+[
+  {
+    "Key": "MagicalAptitude.Name",
+    // Don't process this since it is just a name. Without this it might create strange artifacts by trying to create
+    // links to encycolpedia pages.
+    "ProcessTemplates": false,
+    "enGB": "Magical Aptitude",
+    "deDE": "Magische Begabung"
+  },
+
+  {
+    "Key": "MagicalAptitude.Description",
+    "enGB": "You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+  }
+]
+```
+
+Now populate the `m_DisplayName` and `m_Description` fields of the blueprint:
 
 ```C#
-private static readonly string DisplayName = "Magical Aptitude";
-private static readonly string DisplayNameKey = "MagicalAptitudeName";
-private static readonly string Description =
-  "You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of"
-  + " these skills, the bonus increases to +4 for that skill.";
-private static readonly string DescriptionKey = "MagicalAptitudeDescription";
-
 public static void Configure()
 {
-  FeatureConfigurator.New(FeatName, FeatGuid)
-      .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
-      .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
+  FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat)
+      .SetDisplayName("MagicalAptitude.Name")
+      .SetDescription("MagicalAptitude.Description")
       .Configure();
-
-  FeatureSelectionConfigurator.For(BasicFeatSelectionGuid).AddToFeatures(FeatName).Configure();
 }
 ```
 
-Game strings are represented using the class `LocalizedString`. A LocalizedString has a key used to lookup the value by language. [LocalizationTool](xref:BlueprintCore.Utils.LocalizationTool) creates the string, but only for the current language. Support for better localization is on the roadmap.
-
-Test again and the feat should have a name and description!
+Test again and the feat should have a name and description! If you change the language to German you should see the name of the feat update, though the description will stay the same.
 
 You may have noticed the feat icon was the stylized letters "MAF". If you don't provide an icon the game generates one using the name, in this case **M**agical**A**ptitude**F**eat. Since abilities often require multiple blueprints it is recommended to append the mechanical type, i.e. Feat, to blueprint names.
 
@@ -224,8 +206,8 @@ Everything looks good but there is no mechanical effect. There are several ways 
 
 ```C#
 FeatureConfigurator.New(FeatName, FeatGuid)
-    .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
-    .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
+    .SetDisplayName("MagicalAptitude.Name")
+    .SetDescription("MagicalAptitude.Description")
     .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.Feat)
     .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.Feat)
     .Configure();
@@ -257,30 +239,20 @@ Now start the game, level a character, and select the Magical Aptitude feat. Aft
 
 ### Adding Finishing Touches
 
-Congratulations, you've added a feat! It's not done though, there are three problems:
+Congratulations, you've added a feat! It's not done though, there are two problems:
 
-1. The bonus is always +2, but it should increase to +4 for once that skill has 10 ranks
-2. No `FeatureGroup` is specified
-3. No `FeatureTag` is specified
-
-Numbers 2 and 3 are simple so fix those first.
+1. No `FeatureTag` is specified
+2. The bonus is always +2, but it should increase to +4 for once that skill has 10 ranks
 
 The impact of `FeatureTag` is easy to see in game: if you hover over a feat in the selection UI, the tags are listed below the description box. You can use the search box to filter feats by tag.
 
-`FeatureGroup` is less clear; it has values like `CombatFeat` and `WizardFeat` used for UI treatments such as additional description text on teamwork feats and changing the order of displayed feats in the selection UI.
-
-> [!TIP]
-> BlueprintFeatureSelection has a field for a FeatureGroup. [TabletopTweaks](https://github.com/Vek17/WrathMods-TabletopTweaks/) uses this field to automatically add feats to the appropriate lists. See the FeatTool utility.
-> Consider using that utility or creating a config file to map your feats to feat lists. This simplifies adding feats and enables compatibility with other mods that feats or feat lists. Eventually BlueprintCore will include this functionality.
-
-For Magical Aptitude use `FeatureGroup.Feat` and `FeatureTag.Skills`.
+For Magical Aptitude use `FeatureTag.Skills`.
 
 ```C#
-FeatureConfigurator.New(FeatName, FeatGuid)
-    .SetDisplayName(LocalizationTool.CreateString(DisplayNameKey, DisplayName))
-    .SetDescription(LocalizationTool.CreateString(DescriptionKey, Description))
+FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat)
+    .SetDisplayName("MagicalAptitude.Name")
+    .SetDescription("MagicalAptitude.Description")
     .AddFeatureTagsComponent(FeatureTag.Skills)
-    .AddToGroups(FeatureGroup.Feat)
     .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2)
     .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2)
     .Configure();

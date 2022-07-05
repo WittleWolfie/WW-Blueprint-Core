@@ -249,12 +249,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder ArmyRemoveFacts(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintUnitFactReference>>? factsToRemove = null)
+    public static ActionsBuilder ArmyRemoveFacts(this ActionsBuilder builder, params Blueprint<BlueprintUnitFactReference>[] factsToRemove)
     {
       var element = ElementTool.Create<ContextActionArmyRemoveFacts>();
-      element.m_FactsToRemove = factsToRemove?.Select(bp => bp.Reference)?.ToArray() ?? element.m_FactsToRemove;
+      element.m_FactsToRemove = factsToRemove.Select(bp => bp.Reference).ToArray();
       if (element.m_FactsToRemove is null)
       {
         element.m_FactsToRemove = new BlueprintUnitFactReference[0];
@@ -1270,9 +1268,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>GlobalSpellLocustSummonSwarm</term><description>ce50c4fe24bdab14b823d76d4c42352b</description></item>
     /// </list>
     /// </remarks>
-    public static ActionsBuilder SummonRandomGroup(
-        this ActionsBuilder builder,
-        SummonRandomGroup.RandomGroup[] randomGroups)
+    public static ActionsBuilder SummonRandomGroup(this ActionsBuilder builder, params SummonRandomGroup.RandomGroup[] randomGroups)
     {
       var element = ElementTool.Create<SummonRandomGroup>();
       builder.Validate(randomGroups);
@@ -2014,13 +2010,11 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <item><term>GiftFromStranger_Event</term><description>6c8020c5f9f44c4f9c99d6b10d6d3238</description></item>
     /// </list>
     /// </remarks>
-    public static ActionsBuilder KingdomActionGiveLoot(
-        this ActionsBuilder builder,
-        LootEntry[]? loot = null)
+    public static ActionsBuilder KingdomActionGiveLoot(this ActionsBuilder builder, params LootEntry[] loot)
     {
       var element = ElementTool.Create<KingdomActionGiveLoot>();
       builder.Validate(loot);
-      element.Loot = loot ?? element.Loot;
+      element.Loot = loot;
       if (element.Loot is null)
       {
         element.Loot = new LootEntry[0];
@@ -2608,12 +2602,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder KingdomAddMoraleFlags(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintKingdomMoraleFlag.Reference>>? newFlags = null)
+    public static ActionsBuilder KingdomAddMoraleFlags(this ActionsBuilder builder, params Blueprint<BlueprintKingdomMoraleFlag.Reference>[] newFlags)
     {
       var element = ElementTool.Create<KingdomAddMoraleFlags>();
-      element.m_NewFlags = newFlags?.Select(bp => bp.Reference)?.ToArray() ?? element.m_NewFlags;
+      element.m_NewFlags = newFlags.Select(bp => bp.Reference).ToArray();
       if (element.m_NewFlags is null)
       {
         element.m_NewFlags = new BlueprintKingdomMoraleFlag.Reference[0];
@@ -2733,12 +2725,10 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder KingdomRemoveMoraleFlags(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintKingdomMoraleFlag.Reference>>? flagsToRemove = null)
+    public static ActionsBuilder KingdomRemoveMoraleFlags(this ActionsBuilder builder, params Blueprint<BlueprintKingdomMoraleFlag.Reference>[] flagsToRemove)
     {
       var element = ElementTool.Create<KingdomRemoveMoraleFlags>();
-      element.m_FlagsToRemove = flagsToRemove?.Select(bp => bp.Reference)?.ToArray() ?? element.m_FlagsToRemove;
+      element.m_FlagsToRemove = flagsToRemove.Select(bp => bp.Reference).ToArray();
       if (element.m_FlagsToRemove is null)
       {
         element.m_FlagsToRemove = new BlueprintKingdomMoraleFlag.Reference[0];

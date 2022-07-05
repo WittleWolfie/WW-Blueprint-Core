@@ -170,6 +170,11 @@ namespace BlueprintCoreGen.CodeGen.Params
     public List<string> Imports { get; } = new();
 
     /// <summary>
+    /// Parameter comment lines explaining usage of the type.
+    /// </summary>
+    public List<string> Comment { get; } = new();
+
+    /// <summary>
     /// Overrides the right hand side of the assignment format statement.
     /// </summary>
     [JsonProperty]
@@ -186,6 +191,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (!string.IsNullOrEmpty(TypeNameOverride)) { param.SetTypeName(TypeNameOverride); }
       if (SkipValidation) { param.SkipValidation(); }
       param.Imports.AddRange(Imports.Select(type => TypeTool.TypeByName(type)!));
+      if (Comment.Any()) { param.AddCommentFmt(Comment); }
       if (!string.IsNullOrEmpty(AssignmentFmtRhs)) { param.SetAssignmentFmtRhs(AssignmentFmtRhs); }
       if (!string.IsNullOrEmpty(AssignmentIfNullRhs)) { param.SetAssignmentIfNullRhs(AssignmentIfNullRhs); }
     }
@@ -255,9 +261,16 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     public string Declaration { get; } = "ComponentMerge mergeBehavior = ComponentMerge.Fail";
 
+    public string ParamsDeclaration => throw new NotImplementedException();
+
     public List<string> GetOperation(string objectName, string validateFunction)
     {
       return new();
+    }
+
+    public List<string> GetParamsOperation(string objectName, string validateFunction)
+    {
+      throw new NotImplementedException();
     }
   }
 
@@ -282,9 +295,16 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     public string Declaration { get; } = "Action<BlueprintComponent, BlueprintComponent>? merge = null";
 
+    public string ParamsDeclaration => throw new NotImplementedException();
+
     public List<string> GetOperation(string objectName, string validateFunction)
     {
       return new();
+    }
+
+    public List<string> GetParamsOperation(string objectName, string validateFunction)
+    {
+      throw new NotImplementedException();
     }
   }
 
@@ -303,6 +323,8 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     [JsonProperty]
     public string ParamName { get; private set; }
+
+    public string ParamsDeclaration => throw new NotImplementedException();
 
     [JsonProperty]
     private readonly string? DefaultValue;
@@ -341,6 +363,11 @@ namespace BlueprintCoreGen.CodeGen.Params
       }
 
       return new();
+    }
+
+    public List<string> GetParamsOperation(string objectName, string validateFunction)
+    {
+      throw new NotImplementedException();
     }
   }
 }

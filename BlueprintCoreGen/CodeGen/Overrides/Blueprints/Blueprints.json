@@ -15,12 +15,31 @@
           "Use <see cref=\"SetCustomRange(Feet)\"/> for AbilityRange.Custom."
         ]
       },
-
       {
         "FieldName": "m_Parent",
         "Remarks": [
           "Set this to the base ability for all ability variants. See <see cref=\"AbilityVariants\"/>."
         ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "BlueprintArchetype",
+    "Fields": [
+      {
+        "FieldName": "AddFeatures",
+        "Remarks": [
+          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetAddFeatures(LevelEntryBuilder)\"/>."
+        ],
+        "IgnoreRemoveFrom": "true"
+      },
+      {
+        "FieldName": "RemoveFeatures",
+        "Remarks": [
+          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetRemoveFeatures(LevelEntryBuilder)\"/>."
+        ],
+        "IgnoreRemoveFrom": "true"
       }
     ]
   },
@@ -33,6 +52,99 @@
         "Remarks": [
           "Use <see cref=\"SetRanks(int)\"/> for StackingType.Rank."
         ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "BlueprintFeature",
+    "Fields": [
+      {
+        "FieldName": "IsClassFeature",
+        "Remarks": [
+          "When set to true the feature is removed during respec."
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "BlueprintProgression",
+    "Fields": [
+      {
+        "FieldName": "m_Classes",
+        "Remarks": [
+          "Specified class levels are summed when determining the character's level with respect to the progression.",
+          "AdditionalLevel is a static bonus added if the character has any levels in the associated class."
+        ],
+        "IgnoreRemoveFrom": "true"
+      },
+      {
+        "FieldName": "m_Archetypes",
+        "Remarks": [
+          "Specified archetype levels are summed when determining the character's level with respect to the progression.",
+          "AdditionalLevel is a static bonus added if the character has any levels in the associated class.",
+          "Note that you do not need to include the archetype's class in m_Classes. It will only check for the associated archetype."
+        ],
+        "IgnoreRemoveFrom": "true"
+      },
+      {
+        "FieldName": "m_AlternateProgressionClasses",
+        "Remarks": [
+          "Half the specified class levels are summed when determining the character's level with respect to the progression.",
+          "AdditionalLevel is a static bonus added if the character has any levels in the associated class.",
+          "This is ignored if ForAllOtherClasses is true."
+        ],
+        "IgnoreRemoveFrom": "true",
+        "Set": {
+          "Remarks": [
+            "Sets ForAllOtherClasses to false."
+          ],
+          "ExtraFmtLines": [
+            "{0}.ForAllOtherClasses = false;"
+          ]
+        },
+        "AddTo": {
+          "Remarks": [
+            "Sets ForAllOtherClasses to false."
+          ],
+          "ExtraFmtLines": [
+            "{0}.ForAllOtherClasses = false;"
+          ]
+        }
+      },
+      {
+        "FieldName": "ForAllOtherClasses",
+        "Remarks": [
+          "Half of all class levels not specified in m_Classes or m_Archetypes are summed when determining the character's level with respect to the progression.",
+          "If this is true m_AlternateProgressionClasses is ignored."
+        ]
+      },
+      {
+        "FieldName": "UIGroups",
+        "Remarks": [
+          "Consider using <see cref=\"UIGroupBuilder\"/> and <see cref=\"SetUIGroups(UIGroupBuilder)\"/>."
+        ],
+        "IgnoreRemoveFrom": "true"
+      },
+      {
+        "FieldName": "m_UIDeterminatorsGroup",
+        "Remarks": [
+          "Consider using <see cref=\"UIGroupBuilder\"/> and <see cref=\"SetUIGroups(UIGroupBuilder)\"/>."
+        ]
+      },
+      {
+        "FieldName": "m_FeaturesRankIncrease",
+        "Remarks": [
+          "Specified feature ranks are summed when determining the character's level with respect to the progression."
+        ]
+      },
+      {
+        "FieldName": "LevelEntries",
+        "Remarks": [
+          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetLevelEntries(LevelEntryBuilder)\"/>."
+        ],
+        "IgnoreRemoveFrom": "true"
       }
     ]
   }

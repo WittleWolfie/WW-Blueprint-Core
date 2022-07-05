@@ -9,7 +9,6 @@ using Kingmaker.Designers.Quests.Common;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
-using Kingmaker.Localization;
 using Kingmaker.UI;
 using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
@@ -76,14 +75,18 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>ThresholdCamp_Scripts03</term><description>21cfdbf1fe184c7e9325ec071d06fbd2</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="newName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ChangeUnitName(
         this ActionsBuilder builder,
-        LocalizedString newName,
+        LocalString newName,
         UnitEvaluator unit,
         bool? addToTheName = null)
     {
       var element = ElementTool.Create<ChangeUnitName>();
-      element.NewName = newName;
+      element.NewName = newName?.LocalizedString;
       builder.Validate(unit);
       element.Unit = unit;
       element.AddToTheName = addToTheName ?? element.AddToTheName;
@@ -407,12 +410,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder MarkAnswersSelected(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintAnswerReference>>? answers = null)
+    public static ActionsBuilder MarkAnswersSelected(this ActionsBuilder builder, params Blueprint<BlueprintAnswerReference>[] answers)
     {
       var element = ElementTool.Create<MarkAnswersSelected>();
-      element.m_Answers = answers?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Answers;
+      element.m_Answers = answers.Select(bp => bp.Reference).ToArray();
       if (element.m_Answers is null)
       {
         element.m_Answers = new BlueprintAnswerReference[0];
@@ -446,12 +447,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder MarkCuesSeen(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintCueBaseReference>>? cues = null)
+    public static ActionsBuilder MarkCuesSeen(this ActionsBuilder builder, params Blueprint<BlueprintCueBaseReference>[] cues)
     {
       var element = ElementTool.Create<MarkCuesSeen>();
-      element.m_Cues = cues?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Cues;
+      element.m_Cues = cues.Select(bp => bp.Reference).ToArray();
       if (element.m_Cues is null)
       {
         element.m_Cues = new BlueprintCueBaseReference[0];
@@ -1136,12 +1135,16 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>Supplies_Actions_RemoveDathDoor</term><description>784b72fb34265604080c985eef646c2a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="text">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ShowDialogBox(
         this ActionsBuilder builder,
         ActionsBuilder? onAccept = null,
         ActionsBuilder? onCancel = null,
         ParametrizedContextSetter? parameters = null,
-        LocalizedString? text = null)
+        LocalString? text = null)
     {
       var element = ElementTool.Create<ShowDialogBox>();
       element.OnAccept = onAccept?.Build() ?? element.OnAccept;
@@ -1156,7 +1159,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       }
       builder.Validate(parameters);
       element.Parameters = parameters ?? element.Parameters;
-      element.Text = text ?? element.Text;
+      element.Text = text?.LocalizedString ?? element.Text;
       if (element.Text is null)
       {
         element.Text = Utils.Constants.Empty.String;
@@ -1177,10 +1180,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>XCOM_Battle</term><description>f830cff9020aa434c8b8a49980af4035</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="text">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ShowMessageBox(
         this ActionsBuilder builder,
         ActionsBuilder? onClose = null,
-        LocalizedString? text = null,
+        LocalString? text = null,
         int? waitTime = null)
     {
       var element = ElementTool.Create<ShowMessageBox>();
@@ -1189,7 +1196,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       {
         element.OnClose = Utils.Constants.Empty.Actions;
       }
-      element.Text = text ?? element.Text;
+      element.Text = text?.LocalizedString ?? element.Text;
       if (element.Text is null)
       {
         element.Text = Utils.Constants.Empty.String;
@@ -1211,13 +1218,17 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>Threshold</term><description>207fad718f41237449b0acf414cc991a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="stringValue">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder ShowUIWarning(
         this ActionsBuilder builder,
-        LocalizedString? stringValue = null,
+        LocalString? stringValue = null,
         WarningNotificationType? type = null)
     {
       var element = ElementTool.Create<ShowUIWarning>();
-      element.String = stringValue ?? element.String;
+      element.String = stringValue?.LocalizedString ?? element.String;
       if (element.String is null)
       {
         element.String = Utils.Constants.Empty.String;
@@ -1328,13 +1339,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <para>
     /// Tooltip: Interlocutor name. Uses only if &amp;apos;Dialogue Owner&amp;apos; is Null
     /// </para>
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
     public static ActionsBuilder StartDialog(
         this ActionsBuilder builder,
         BlueprintEvaluator? dialogEvaluator = null,
         Blueprint<BlueprintDialogReference>? dialogue = null,
         UnitEvaluator? dialogueOwner = null,
-        LocalizedString? speakerName = null)
+        LocalString? speakerName = null)
     {
       var element = ElementTool.Create<StartDialog>();
       builder.Validate(dialogEvaluator);
@@ -1346,7 +1358,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
       }
       builder.Validate(dialogueOwner);
       element.DialogueOwner = dialogueOwner ?? element.DialogueOwner;
-      element.SpeakerName = speakerName ?? element.SpeakerName;
+      element.SpeakerName = speakerName?.LocalizedString ?? element.SpeakerName;
       if (element.SpeakerName is null)
       {
         element.SpeakerName = Utils.Constants.Empty.String;
@@ -1402,7 +1414,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
-    /// <item><term>Cue_0028</term><description>89749874f3563034ab430fddec9e9fac</description></item>
+    /// <item><term>Cue_0028</term><description>c0f49563a0d79ea4bb3cb26787557a2c</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1839,7 +1851,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>4BarrierDevice01</term><description>2099b5c949f74ad0a598fb66efbe186e</description></item>
-    /// <item><term>Cue_0029</term><description>120366a2301b4ec993267871245b2e4c</description></item>
+    /// <item><term>Cue_0029</term><description>141eda434d00d5a42a1a78dff7113fe4</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1897,12 +1909,10 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder UnmarkAnswersSelected(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintAnswerReference>>? answers = null)
+    public static ActionsBuilder UnmarkAnswersSelected(this ActionsBuilder builder, params Blueprint<BlueprintAnswerReference>[] answers)
     {
       var element = ElementTool.Create<UnmarkAnswersSelected>();
-      element.m_Answers = answers?.Select(bp => bp.Reference)?.ToArray() ?? element.m_Answers;
+      element.m_Answers = answers.Select(bp => bp.Reference).ToArray();
       if (element.m_Answers is null)
       {
         element.m_Answers = new BlueprintAnswerReference[0];
@@ -2008,7 +2018,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ3NearTailor</term><description>ea14530f3c887a94ca311579f9b40f00</description></item>
-    /// <item><term>CrystalSlot_1_Action_Section_1_4</term><description>1663a426d2924c968473032398c19ae8</description></item>
+    /// <item><term>CrystalSlot_2_Action_Section_1_1</term><description>2a685f5e5e2c4d83ac67c20d91dc277e</description></item>
     /// <item><term>WenduagDefeated_dialogue</term><description>6d17f0dee27a7a9449d0ee9a641f8266</description></item>
     /// </list>
     /// </remarks>

@@ -1,5 +1,4 @@
-﻿using BlueprintCore.Blueprints.Configurators.Classes;
-using BlueprintCore.Utils;
+﻿using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using System;
 using System.Collections.Generic;
@@ -109,6 +108,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
       Logger.Verbose($"Configuring {Blueprint.name}.");
       ConfigureComponents();
       OnConfigurePrivate();
+
+      OnConfigureCompleted();
       Blueprint.OnEnable();
 
       Validator.Check(Blueprint);
@@ -217,6 +218,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     }
 
     //----- Start: Configure & Validate
+
+    // Child classes can take action after the blueprint is configured, e.g. set sane defaults for blueprint fields.
+    protected virtual void OnConfigureCompleted() {}
 
     protected void Validate(object? obj)
     {

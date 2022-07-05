@@ -1,6 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
-using BlueprintCore.Blueprints;
+using BlueprintCore.Blueprints.References;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
@@ -336,22 +336,22 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         EnchantPoolType enchantPool,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionArmorEnchantPool>();
       builder.Validate(durationValue);
       element.DurationValue = durationValue;
       element.EnchantPool = enchantPool;
-      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;
-      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;
-      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;
-      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;
-      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;
+      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus1.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus2.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus3.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus4.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus5.Cast<BlueprintItemEnchantmentReference>().Reference;
       element.Group = group ?? element.Group;
       return builder.Add(element);
     }
@@ -391,22 +391,22 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         EnchantPoolType enchantPool,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintArmorEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionShieldArmorEnchantPool>();
       builder.Validate(durationValue);
       element.DurationValue = durationValue;
       element.EnchantPool = enchantPool;
-      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus1.Reference;
-      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus2.Reference;
-      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus3.Reference;
-      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus4.Reference;
-      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryArmorEnhancementBonus5.Reference;
+      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus1.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus2.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus3.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus4.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? ArmorEnchantmentRefs.TemporaryArmorEnhancementBonus5.Cast<BlueprintItemEnchantmentReference>().Reference;
       element.Group = group ?? element.Group;
       return builder.Add(element);
     }
@@ -497,23 +497,23 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var element = ElementTool.Create<Demoralize>();
       element.Bonus = bonus ?? element.Bonus;
-      element.m_Buff = buff?.Reference ?? Buffs.Shaken.Reference;
+      element.m_Buff = (BlueprintBuffReference)(buff?.Reference ?? BuffRefs.Shaken.Reference);
       if (element.m_Buff is null)
       {
         element.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       element.DazzlingDisplay = dazzlingDisplay ?? element.DazzlingDisplay;
-      element.m_ShatterConfidenceBuff = extraEffect?.Reference ?? Buffs.ShatterConfidence.Reference;
+      element.m_ShatterConfidenceBuff = (BlueprintBuffReference)(extraEffect?.Reference ?? BuffRefs.ShatterConfidenceBuff.Reference);
       if (element.m_ShatterConfidenceBuff is null)
       {
         element.m_ShatterConfidenceBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
-      element.m_ShatterConfidenceFeature = extraEffectFeature?.Reference ?? Features.ShatterConfidence.Reference;
+      element.m_ShatterConfidenceFeature = (BlueprintFeatureReference)(extraEffectFeature?.Reference ?? FeatureRefs.ShatterConfidence.Reference);
       if (element.m_ShatterConfidenceFeature is null)
       {
         element.m_ShatterConfidenceFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      element.m_GreaterBuff = greaterBuff?.Reference ?? Buffs.Frightened.Reference;
+      element.m_GreaterBuff = (BlueprintBuffReference)(greaterBuff?.Reference ?? BuffRefs.Frightened.Reference);
       if (element.m_GreaterBuff is null)
       {
         element.m_GreaterBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
@@ -523,7 +523,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       {
         element.TricksterRank3Actions = Utils.Constants.Empty.Actions;
       }
-      element.m_SwordlordProwessFeature = Features.DisplayWeaponProwess.Reference;
+      element.m_SwordlordProwessFeature = (BlueprintFeatureReference)FeatureRefs.DisplayWeaponProwess.Reference;
       return builder.Add(element);
     }
 
@@ -546,40 +546,40 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="enchantmentPlus1">
-    /// Defaults to TemporaryEnhancementBonus1
+    /// Defaults to TemporaryEnhancement1
     /// </param>
     /// <param name="enchantmentPlus2">
-    /// Defaults to TemporaryEnhancementBonus2
+    /// Defaults to TemporaryEnhancement2
     /// </param>
     /// <param name="enchantmentPlus3">
-    /// Defaults to TemporaryEnhancementBonus3
+    /// Defaults to TemporaryEnhancement3
     /// </param>
     /// <param name="enchantmentPlus4">
-    /// Defaults to TemporaryEnhancementBonus4
+    /// Defaults to TemporaryEnhancement4
     /// </param>
     /// <param name="enchantmentPlus5">
-    /// Defaults to TemporaryEnhancementBonus5
+    /// Defaults to TemporaryEnhancement5
     /// </param>
     public static ActionsBuilder WeaponEnchantPool(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         EnchantPoolType enchantPool,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionWeaponEnchantPool>();
       builder.Validate(durationValue);
       element.DurationValue = durationValue;
       element.EnchantPool = enchantPool;
-      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus1.Reference;
-      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus2.Reference;
-      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus3.Reference;
-      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus4.Reference;
-      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;
+      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement1.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement2.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement3.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement4.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement5.Cast<BlueprintItemEnchantmentReference>().Reference;
       element.Group = group ?? element.Group;
       return builder.Add(element);
     }
@@ -601,40 +601,40 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// </remarks>
     ///
     /// <param name="enchantmentPlus1">
-    /// Defaults to TemporaryEnhancementBonus1
+    /// Defaults to TemporaryEnhancement1
     /// </param>
     /// <param name="enchantmentPlus2">
-    /// Defaults to TemporaryEnhancementBonus2
+    /// Defaults to TemporaryEnhancement2
     /// </param>
     /// <param name="enchantmentPlus3">
-    /// Defaults to TemporaryEnhancementBonus3
+    /// Defaults to TemporaryEnhancement3
     /// </param>
     /// <param name="enchantmentPlus4">
-    /// Defaults to TemporaryEnhancementBonus4
+    /// Defaults to TemporaryEnhancement4
     /// </param>
     /// <param name="enchantmentPlus5">
-    /// Defaults to TemporaryEnhancementBonus5
+    /// Defaults to TemporaryEnhancement5
     /// </param>
     public static ActionsBuilder ShieldWeaponEnchantPool(
         this ActionsBuilder builder,
         ContextDurationValue durationValue,
         EnchantPoolType enchantPool,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus1 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus2 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus3 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus4 = null,
-        Blueprint<BlueprintItemEnchantmentReference>? enchantmentPlus5 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus1 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus2 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus3 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus4 = null,
+        Blueprint<BlueprintWeaponEnchantmentReference>? enchantmentPlus5 = null,
         ActivatableAbilityGroup? group = null)
     {
       var element = ElementTool.Create<ContextActionShieldWeaponEnchantPool>();
       builder.Validate(durationValue);
       element.DurationValue = durationValue;
       element.EnchantPool = enchantPool;
-      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus1.Reference;
-      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus2.Reference;
-      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus3.Reference;
-      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus4.Reference;
-      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Reference ?? ItemEnchantments.TemporaryEnhancementBonus5.Reference;
+      element.m_DefaultEnchantments[0] = enchantmentPlus1?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement1.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[1] = enchantmentPlus2?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement2.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[2] = enchantmentPlus3?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement3.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[3] = enchantmentPlus4?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement4.Cast<BlueprintItemEnchantmentReference>().Reference;
+      element.m_DefaultEnchantments[4] = enchantmentPlus5?.Cast<BlueprintItemEnchantmentReference>()?.Reference ?? WeaponEnchantmentRefs.TemporaryEnhancement5.Cast<BlueprintItemEnchantmentReference>().Reference;
       element.Group = group ?? element.Group;
       return builder.Add(element);
     }
@@ -1006,7 +1006,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
+    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1076,7 +1076,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
+    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1147,7 +1147,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
+    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1207,7 +1207,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
+    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1268,7 +1268,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
+    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1333,7 +1333,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAreaEffectsGazeAllyBuff</term><description>5f628dc321f74a6bbadec25f665a402d</description></item>
-    /// <item><term>HealersWaySelf</term><description>c6ae677c7c1eee74bbf3d44ce25961b8</description></item>
+    /// <item><term>HealersWayOthers</term><description>428006e0c196ffc48b54a4404b728c51</description></item>
     /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
     /// </list>
     /// </remarks>
@@ -2054,13 +2054,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.
     /// </para>
     /// </param>
-    public static ActionsBuilder Randomize(
-        this ActionsBuilder builder,
-        params (ActionsBuilder actions, int weight)[] weightedActions)
+    public static ActionsBuilder Randomize(this ActionsBuilder builder, params ContextActionRandomize.ActionWrapper[] weightedActions)
     {
       var element = ElementTool.Create<ContextActionRandomize>();
       builder.Validate(weightedActions);
-      element.m_Actions = weightedActions.Select(action => new ContextActionRandomize.ActionWrapper { Action = action.actions.Build(), Weight = action.weight }).ToArray();
+      element.m_Actions = weightedActions;
       return builder.Add(element);
     }
 
@@ -2190,7 +2188,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HellAngelSwordMarkAbility</term><description>ae29dd08cc0d883469516025df9641a4</description></item>
+    /// <item><term>HellAngelSwordDepersonalizeAbility</term><description>5f99f802d4ff52a4e9538e6bb7f66270</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -2404,12 +2402,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    public static ActionsBuilder RestoreSpells(
-        this ActionsBuilder builder,
-        List<Blueprint<BlueprintSpellbookReference>> spellbooks)
+    public static ActionsBuilder RestoreSpells(this ActionsBuilder builder, params Blueprint<BlueprintSpellbookReference>[] spellbooks)
     {
       var element = ElementTool.Create<ContextActionRestoreSpells>();
-      element.m_Spellbooks = spellbooks?.Select(bp => bp.Reference)?.ToArray();
+      element.m_Spellbooks = spellbooks.Select(bp => bp.Reference).ToArray();
       return builder.Add(element);
     }
 
@@ -2515,7 +2511,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>Gallu_AreaEffect_AuraOfHavoc</term><description>a2f0adf9e5004894cb070f4f37d2fa1e</description></item>
+    /// <item><term>Gallu_Ability_RainOfBlood</term><description>2a39f99077de8004cbda6d89dd3b219f</description></item>
     /// <item><term>ZachariusFearAuraArea</term><description>d363527fe31581149b2d53686075c14d</description></item>
     /// </list>
     /// </remarks>
@@ -2584,12 +2580,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// The action associated with the highest value is selected to run.
     /// </para>
     /// </param>
-    public static ActionsBuilder SelectByValue(
-        this ActionsBuilder builder,
-        params (ContextValue value, ActionsBuilder action)[] actionVariants)
+    public static ActionsBuilder SelectByValue(this ActionsBuilder builder, params ContextActionSelectByValue.ValueAndAction[] actionVariants)
     {
       var element = ElementTool.Create<ContextActionSelectByValue>();
-      element.m_Variants = actionVariants.Select(variant => new ContextActionSelectByValue.ValueAndAction { Value = variant.value, Action = variant.action.Build() }).ToArray();
+      element.m_Variants = actionVariants;
       element.m_Type = ContextActionSelectByValue.SelectionType.Greatest;
       return builder.Add(element);
     }
@@ -3540,7 +3534,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyMeleeCounterAttackFeature</term><description>9f86b8f30438920458feda7313591ec2</description></item>
-    /// <item><term>BladeWhirlwindAbility</term><description>80f10dc9181a0f64f97a9f7ac9f47d65</description></item>
+    /// <item><term>BearerOfSorrowBuffFithAttackTriggerBuff</term><description>9bd149b1bcfd479f8c69129701e55f70</description></item>
     /// <item><term>SwordlordDisarmingStrike</term><description>c7ea46f5e1822994ba069c11819844ae</description></item>
     /// </list>
     /// </remarks>

@@ -319,7 +319,7 @@ namespace BlueprintCoreGen.CodeGen.Class
     {
       var relativeNamespace = nameSpace.Replace(NamespaceRoot, "");
       return
-        $"Configurators/{relativeNamespace.Replace('.', '/')}/{className.Replace("Configurator", "")}.cs";
+        $"Configurators/{relativeNamespace.Replace('.', '/')}/{className}.cs";
     }
 
     private class BlueprintOverride

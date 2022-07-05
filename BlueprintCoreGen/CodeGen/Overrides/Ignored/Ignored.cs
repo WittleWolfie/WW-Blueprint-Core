@@ -1,9 +1,14 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Console;
+using Kingmaker.Blueprints.Credits;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
+using Kingmaker.QA.Arbiter;
+using Kingmaker.QA.Clockwork;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -36,6 +41,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
           }
         ),
         (typeof(BlueprintFeatureSelection), new() { "m_Features" }),
+        (typeof(BlueprintProgression), new() { "AlternateProgressionType" }),
       };
     public static bool ShouldIgnoreField(FieldInfo info, Type sourceType)
     {
@@ -57,6 +63,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         });
 
       return ignoreField
+        || info.Name.Contains("_Cached")        // Name used by Owlcat for cache fields
         || info.Name.Contains("__BackingField") // Compiler generated field
                                                 // Skip constant, static, and read-only
         || info.IsLiteral
@@ -78,6 +85,23 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
 
         // Legacy types
         typeof(AddStatBonusScaled),
+
+        // QA Types
+        typeof(BlueprintArbiterInstruction),
+        typeof(BlueprintArbiterRoot),
+        typeof(BlueprintClockworkScenario),
+        typeof(BlueprintClockworkScenarioPart),
+
+        // Credits
+        typeof(BlueprintCreditsGroup),
+        typeof(BlueprintCreditsRoles),
+        typeof(BlueprintCreditsTeams),
+
+        // Console
+        typeof(GamePadTexts),
+
+        // Fixed Components
+        typeof(AddStatBonusIfHasFact),
       };
     public static bool ShouldIgnore(Type type)
     {

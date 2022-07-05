@@ -14,7 +14,6 @@ using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -202,7 +201,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0105</term><description>ed79e368ff3f039499dff475d9804edf</description></item>
+    /// <item><term>Cue_0106</term><description>35fb46c4ad9fc7a41800e0c2191610ef</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -265,7 +264,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0105</term><description>ed79e368ff3f039499dff475d9804edf</description></item>
+    /// <item><term>Cue_0106</term><description>35fb46c4ad9fc7a41800e0c2191610ef</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -335,7 +334,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0105</term><description>ed79e368ff3f039499dff475d9804edf</description></item>
+    /// <item><term>Cue_0106</term><description>35fb46c4ad9fc7a41800e0c2191610ef</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -818,7 +817,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcrobaticCheckS1_CheckFailedActions</term><description>024cfea8fa605e5438485ae1bdb6c4f8</description></item>
-    /// <item><term>CommandAction9</term><description>4c5251acdfc94037860cd607142f3ba8</description></item>
+    /// <item><term>CommandAction9</term><description>e6476f7a343f40f786ea52b5ac8d738c</description></item>
     /// <item><term>YeribethHall_ResetCipher</term><description>6613c051209b7ef49a3653bc1d87fa36</description></item>
     /// </list>
     /// </remarks>
@@ -1029,11 +1028,15 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <item><term>WatchPoint_SZHouse_Camera</term><description>782f3b6f96c840f99b785c32bdfb5e98</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="customBattlelogMessage">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
     public static ActionsBuilder GainExp(
         this ActionsBuilder builder,
         IntEvaluator? count = null,
         int? cR = null,
-        LocalizedString? customBattlelogMessage = null,
+        LocalString? customBattlelogMessage = null,
         bool? dummy = null,
         EncounterType? encounter = null,
         float? modifier = null,
@@ -1043,7 +1046,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       builder.Validate(count);
       element.Count = count ?? element.Count;
       element.CR = cR ?? element.CR;
-      element.CustomBattlelogMessage = customBattlelogMessage ?? element.CustomBattlelogMessage;
+      element.CustomBattlelogMessage = customBattlelogMessage?.LocalizedString ?? element.CustomBattlelogMessage;
       if (element.CustomBattlelogMessage is null)
       {
         element.CustomBattlelogMessage = Utils.Constants.Empty.String;
@@ -1317,12 +1320,10 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <item><term>ZiforianBeggar_Actions</term><description>a741a5da0622e434e9e8da521a34e4e6</description></item>
     /// </list>
     /// </remarks>
-    public static ActionsBuilder RandomAction(
-        this ActionsBuilder builder,
-        ActionAndWeight[]? actions = null)
+    public static ActionsBuilder RandomAction(this ActionsBuilder builder, params ActionAndWeight[] actions)
     {
       var element = ElementTool.Create<RandomAction>();
-      element.Actions = actions ?? element.Actions;
+      element.Actions = actions;
       if (element.Actions is null)
       {
         element.Actions = new ActionAndWeight[0];

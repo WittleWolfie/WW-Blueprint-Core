@@ -247,6 +247,13 @@
     "RequiredFields": [ "Descriptor" ]
   },
 
+  // ***** New Components ***** //
+
+  {
+    "TypeName": "AddStatBonusIfHasFactFixed",
+    "Replace": "true"
+  },
+
   {
     "TypeName": "TargetHasBuffsFromCaster",
     "RequiredFields": [ "Buffs" ]

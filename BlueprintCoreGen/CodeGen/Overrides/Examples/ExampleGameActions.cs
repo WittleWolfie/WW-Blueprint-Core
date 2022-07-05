@@ -60,7 +60,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("FaerieDragon_CheckAlignment", "1f0e965084fa2154e9e244c6b061b426"),
+            new Blueprint("FailBattleblissGladiatorsQuest", "5dbb2a97763cd204f8bc50927feb9774"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -70,7 +70,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Aeon_TrueForm_Cutscene", "18d9251a3c5682a429e1c3769431f4ee"),
-            new Blueprint("InflictSeriousWoundsMass", "820170444d4d2a14abc480fcbdb49535"),
+            new Blueprint("InflictModerateWoundsMass", "03944622fbe04824684ec29ff2cec6a7"),
             new Blueprint("ZeroState", "c6195ff24255d3f46a26323de9f1187a"),
           }
         },
@@ -90,7 +90,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("GeniekindMaridBuff", "4f37fc07fe2cf7f4f8076e79a0a3bfe9"),
+            new Blueprint("GeniekindEfreetiBuff", "d47f45f29c4cfc0469f3734d02545e0b"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -110,7 +110,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("Gallu_AreaEffect_AuraOfHavoc", "a2f0adf9e5004894cb070f4f37d2fa1e"),
+            new Blueprint("Gallu_Ability_RainOfBlood", "2a39f99077de8004cbda6d89dd3b219f"),
             new Blueprint("ZachariusFearAuraArea", "d363527fe31581149b2d53686075c14d"),
           }
         },
@@ -190,7 +190,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("HellAngelSwordMarkAbility", "ae29dd08cc0d883469516025df9641a4"),
+            new Blueprint("HellAngelSwordDepersonalizeAbility", "5f99f802d4ff52a4e9538e6bb7f66270"),
             new Blueprint("ZeorisDaggerRing_GoverningFeature", "0faee0a55f634902895b4e1faf828502"),
           }
         },
@@ -218,7 +218,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArmyMeleeCounterAttackFeature", "9f86b8f30438920458feda7313591ec2"),
-            new Blueprint("BladeWhirlwindAbility", "80f10dc9181a0f64f97a9f7ac9f47d65"),
+            new Blueprint("BearerOfSorrowBuffFithAttackTriggerBuff", "9bd149b1bcfd479f8c69129701e55f70"),
             new Blueprint("SwordlordDisarmingStrike", "c7ea46f5e1822994ba069c11819844ae"),
           }
         },
@@ -238,7 +238,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonAreaEffectsGazeAllyBuff", "5f628dc321f74a6bbadec25f665a402d"),
-            new Blueprint("HealersWaySelf", "c6ae677c7c1eee74bbf3d44ce25961b8"),
+            new Blueprint("HealersWayOthers", "428006e0c196ffc48b54a4404b728c51"),
             new Blueprint("ZeroState", "c6195ff24255d3f46a26323de9f1187a"),
           }
         },
@@ -417,7 +417,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("4BarrierDevice01", "2099b5c949f74ad0a598fb66efbe186e"),
-            new Blueprint("Cue_0029", "120366a2301b4ec993267871245b2e4c"),
+            new Blueprint("Cue_0029", "141eda434d00d5a42a1a78dff7113fe4"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -558,7 +558,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("01_IzDrezen", "09c503b7a398d49469b9463ee9d22fd4"),
-            new Blueprint("Cue_0028", "89749874f3563034ab430fddec9e9fac"),
+            new Blueprint("Cue_0028", "c0f49563a0d79ea4bb3cb26787557a2c"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -631,7 +631,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcrobaticCheckS1_CheckFailedActions", "024cfea8fa605e5438485ae1bdb6c4f8"),
-            new Blueprint("CommandAction9", "4c5251acdfc94037860cd607142f3ba8"),
+            new Blueprint("CommandAction9", "e6476f7a343f40f786ea52b5ac8d738c"),
             new Blueprint("YeribethHall_ResetCipher", "6613c051209b7ef49a3653bc1d87fa36"),
           }
         },
@@ -751,7 +751,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonQ3NearTailor", "ea14530f3c887a94ca311579f9b40f00"),
-            new Blueprint("CrystalSlot_1_Action_Section_1_4", "1663a426d2924c968473032398c19ae8"),
+            new Blueprint("CrystalSlot_2_Action_Section_1_1", "2a685f5e5e2c4d83ac67c20d91dc277e"),
             new Blueprint("WenduagDefeated_dialogue", "6d17f0dee27a7a9449d0ee9a641f8266"),
           }
         },
@@ -1236,7 +1236,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidButton1_CheckPassedActions", "2a969038211346358597f80d271d9b94"),
-            new Blueprint("Cue_0105", "ed79e368ff3f039499dff475d9804edf"),
+            new Blueprint("Cue_0106", "35fb46c4ad9fc7a41800e0c2191610ef"),
             new Blueprint("Ziggurat_PharasmaAttack_Preset", "a13c8eec8c81b054ea12caf6b7584a93"),
           }
         },
@@ -1414,7 +1414,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidButton1_CheckPassedActions", "2a969038211346358597f80d271d9b94"),
-            new Blueprint("Cue_0029", "2a5f92deaccded945b22cb6efb7c1e21"),
+            new Blueprint("Cue_0029", "02c75198420d9ff45b04b4158ab65f4d"),
             new Blueprint("ZeorisDaggerRingProject_Enchanting", "0dc3a4e036064970857b3c3e296a7d94"),
           }
         },
@@ -2202,7 +2202,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Answer_0011", "ac4468a7eded7fd43946f1a730791ff0"),
-            new Blueprint("Cue_0062", "70f2c9f4876257a4f8c47b5409752aef"),
+            new Blueprint("Cue_0080", "755d8bb8870a3354da8f496d039d4b54"),
             new Blueprint("RevertYellow", "0aa2618093d44ed7bce51a1fbadddff8"),
           }
         },
@@ -3256,6 +3256,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(ImportSave),
           new()
           {
+            new Blueprint("Cue_0001", "603b9cb39702cd1488f4156995d7bf1e"),
             new Blueprint("Cue_0010", "4e1fb44f339e88340b9daee8aca0c463"),
             new Blueprint("DLC1_SaveImport", "31417683088d40b8beb3691c393fb3d3"),
           }
