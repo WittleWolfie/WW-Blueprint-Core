@@ -472,7 +472,6 @@ namespace BlueprintCoreGen.CodeGen.Params
         return new(); 
       }
 
-      List<string> modifyOperationFmt = new();
       if (!field.FieldType.IsValueType)
       {
         return new() { $"if ({{0}}.{field.Name} is null) {{{{ return; }}}}" };
