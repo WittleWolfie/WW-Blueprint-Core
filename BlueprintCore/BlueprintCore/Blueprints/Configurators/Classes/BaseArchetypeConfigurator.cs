@@ -34,6 +34,184 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     protected BaseArchetypeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintArchetype.AddFeatures"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder SetAddFeatures(params LevelEntry[] addFeatures)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(addFeatures);
+          bp.AddFeatures = addFeatures;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintArchetype.AddFeatures"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder AddToAddFeatures(params LevelEntry[] addFeatures)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AddFeatures = bp.AddFeatures ?? new LevelEntry[0];
+          bp.AddFeatures = CommonTool.Append(bp.AddFeatures, addFeatures);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintArchetype.AddFeatures"/> that match the provided predicate.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder RemoveFromAddFeatures(Func<LevelEntry, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.AddFeatures is null) { return; }
+          bp.AddFeatures = bp.AddFeatures.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintArchetype.AddFeatures"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder ClearAddFeatures()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AddFeatures = new LevelEntry[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintArchetype.AddFeatures"/> by invoking the provided action on each element.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder ModifyAddFeatures(Action<LevelEntry> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.AddFeatures is null) { return; }
+          bp.AddFeatures.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintArchetype.RemoveFeatures"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder SetRemoveFeatures(params LevelEntry[] removeFeatures)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(removeFeatures);
+          bp.RemoveFeatures = removeFeatures;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintArchetype.RemoveFeatures"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder AddToRemoveFeatures(params LevelEntry[] removeFeatures)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RemoveFeatures = bp.RemoveFeatures ?? new LevelEntry[0];
+          bp.RemoveFeatures = CommonTool.Append(bp.RemoveFeatures, removeFeatures);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintArchetype.RemoveFeatures"/> that match the provided predicate.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder RemoveFromRemoveFeatures(Func<LevelEntry, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.RemoveFeatures is null) { return; }
+          bp.RemoveFeatures = bp.RemoveFeatures.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintArchetype.RemoveFeatures"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder ClearRemoveFeatures()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.RemoveFeatures = new LevelEntry[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintArchetype.RemoveFeatures"/> by invoking the provided action on each element.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder ModifyRemoveFeatures(Action<LevelEntry> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.RemoveFeatures is null) { return; }
+          bp.RemoveFeatures.ForEach(action);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.LocalizedName"/>
     /// </summary>
     ///
@@ -205,160 +383,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.BuildChanging = buildChanging;
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintArchetype.AddFeatures"/>
-    /// </summary>
-    public TBuilder SetAddFeatures(params LevelEntry[] addFeatures)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(addFeatures);
-          bp.AddFeatures = addFeatures;
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintArchetype.AddFeatures"/>
-    /// </summary>
-    public TBuilder AddToAddFeatures(params LevelEntry[] addFeatures)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.AddFeatures = bp.AddFeatures ?? new LevelEntry[0];
-          bp.AddFeatures = CommonTool.Append(bp.AddFeatures, addFeatures);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintArchetype.AddFeatures"/>
-    /// </summary>
-    public TBuilder RemoveFromAddFeatures(params LevelEntry[] addFeatures)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.AddFeatures is null) { return; }
-          bp.AddFeatures = bp.AddFeatures.Where(val => !addFeatures.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintArchetype.AddFeatures"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromAddFeatures(Func<LevelEntry, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.AddFeatures is null) { return; }
-          bp.AddFeatures = bp.AddFeatures.Where(predicate).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintArchetype.AddFeatures"/>
-    /// </summary>
-    public TBuilder ClearAddFeatures()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.AddFeatures = new LevelEntry[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.AddFeatures"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyAddFeatures(Action<LevelEntry> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.AddFeatures is null) { return; }
-          bp.AddFeatures.ForEach(action);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintArchetype.RemoveFeatures"/>
-    /// </summary>
-    public TBuilder SetRemoveFeatures(params LevelEntry[] removeFeatures)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(removeFeatures);
-          bp.RemoveFeatures = removeFeatures;
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintArchetype.RemoveFeatures"/>
-    /// </summary>
-    public TBuilder AddToRemoveFeatures(params LevelEntry[] removeFeatures)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.RemoveFeatures = bp.RemoveFeatures ?? new LevelEntry[0];
-          bp.RemoveFeatures = CommonTool.Append(bp.RemoveFeatures, removeFeatures);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintArchetype.RemoveFeatures"/>
-    /// </summary>
-    public TBuilder RemoveFromRemoveFeatures(params LevelEntry[] removeFeatures)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.RemoveFeatures is null) { return; }
-          bp.RemoveFeatures = bp.RemoveFeatures.Where(val => !removeFeatures.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintArchetype.RemoveFeatures"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromRemoveFeatures(Func<LevelEntry, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.RemoveFeatures is null) { return; }
-          bp.RemoveFeatures = bp.RemoveFeatures.Where(predicate).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintArchetype.RemoveFeatures"/>
-    /// </summary>
-    public TBuilder ClearRemoveFeatures()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.RemoveFeatures = new LevelEntry[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.RemoveFeatures"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyRemoveFeatures(Action<LevelEntry> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.RemoveFeatures is null) { return; }
-          bp.RemoveFeatures.ForEach(action);
         });
     }
 
@@ -2235,6 +2259,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       base.OnConfigureCompleted();
     
+      if (Blueprint.AddFeatures is null)
+      {
+        Blueprint.AddFeatures = new LevelEntry[0];
+      }
+      if (Blueprint.RemoveFeatures is null)
+      {
+        Blueprint.RemoveFeatures = new LevelEntry[0];
+      }
       if (Blueprint.LocalizedName is null)
       {
         Blueprint.LocalizedName = Utils.Constants.Empty.String;
@@ -2250,14 +2282,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       if (Blueprint.m_ReplaceSpellbook is null)
       {
         Blueprint.m_ReplaceSpellbook = BlueprintTool.GetRef<BlueprintSpellbookReference>(null);
-      }
-      if (Blueprint.AddFeatures is null)
-      {
-        Blueprint.AddFeatures = new LevelEntry[0];
-      }
-      if (Blueprint.RemoveFeatures is null)
-      {
-        Blueprint.RemoveFeatures = new LevelEntry[0];
       }
       if (Blueprint.m_StartingItems is null)
       {
