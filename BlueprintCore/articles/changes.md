@@ -7,7 +7,6 @@
 * Configurators now automatically set safe default values for types which cannot be null
 * Methods with a single enumerable or flag parameter use `params` syntax
 * Removed configurators for QA related blueprints
-* BlueprintUnitProperty logs a warning if `BaseValue` is 0 when using multiplication
 * Add more constructors for ContextDurationValue
 * Removed Modify field methods for primitive and enum types
     * If you have a use case let me know but this API was not intended to exist
@@ -22,6 +21,8 @@
         * Removed support for Remove functions that don't make sense
     * BuffEnchantAnyWeapon is now available in BaseUnitFactConfigurator and all inherited types
     * AddStatBonusIfHasFact replaced by AddStatbonusIfHasFactFixed
+    * ContextDurationValue has more convenience constructor methods available
+    * BlueprintUnitProperty logs a warning if `BaseValue` is 0 when using multiplication
 
 ### Breaking Changes
 
